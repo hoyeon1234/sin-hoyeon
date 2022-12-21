@@ -2,14 +2,14 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Sin-hoyeon",
+    "title": "About me",
     "section": "",
-    "text": "전북대학교 IT응용시스템공학과 신호연 딥러닝/머신러닝 개발자가 되고싶어요!!"
+    "text": "전북대학교 IT응용시스템 공학과 신호연"
   },
   {
     "objectID": "hello github.html",
     "href": "hello github.html",
-    "title": "github",
+    "title": "Hoyen's Blog",
     "section": "",
     "text": "My python\n\nprint(\"hello github\")\n\nhello github"
   },

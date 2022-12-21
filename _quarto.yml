@@ -1,19 +1,20 @@
 project:
   type: website
 
+#웹사이트 맨 위쪽에 있는 제목이랑 아이콘링크 설정
 website:
-  title: "github"
+  title: "Hoyen's Blog"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts
+      
 format:
   html:
-    theme: cosmo
+    theme: litera
     css: styles.css
-
-
-
+    toc: true
+    code-fold: false
+    code-line-numbers: true
+    code-copy: true

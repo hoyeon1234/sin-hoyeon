@@ -1,14 +1,12 @@
 ---
-title: "Sin-hoyeon"
+title: "About me"
 image: profile.jpg
 about:
   template: jolla
   links:
     - icon: github
       text: Github
-      href: https://github.com/hoyeon1234
+      href: https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts
 
 ---
-전북대학교 IT응용시스템공학과 신호연<br>
-딥러닝/머신러닝 개발자가 되고싶어요!!<br>
-
+전북대학교 IT응용시스템 공학과 신호연
