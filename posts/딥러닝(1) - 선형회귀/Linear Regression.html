@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -145,6 +208,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#mse에-대한-더-상세한-전개" id="toc-mse에-대한-더-상세한-전개" class="nav-link" data-scroll-target="#mse에-대한-더-상세한-전개">MSE에 대한 더 상세한 전개</a></li>
   <li><a href="#gradient-descent에-대한-더-상세한-전개loss-mse일-경우" id="toc-gradient-descent에-대한-더-상세한-전개loss-mse일-경우" class="nav-link" data-scroll-target="#gradient-descent에-대한-더-상세한-전개loss-mse일-경우">Gradient Descent에 대한 더 상세한 전개(<span class="math inline">\(Loss\)</span> = MSE일 경우)</a></li>
   </ul></li>
+  <li><a href="#구현" id="toc-구현" class="nav-link" data-scroll-target="#구현">구현</a></li>
   </ul>
 </nav>
     </div>
@@ -184,16 +248,76 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="mse에-대한-더-상세한-전개" class="level2">
 <h2 class="anchored" data-anchor-id="mse에-대한-더-상세한-전개">MSE에 대한 더 상세한 전개</h2>
-<p>MSE를 더 상세히 전개하면 다음과 같습니다.<br> <span class="math inline">\(MSE = \Sigma_{i=1}^{i=n}(y_i - \hat{y_i})^{2}\)</span><br> <span class="math inline">\(= \frac{1}{n}({\bf{y} - \bf{\hat{y}}})^{T}({\bf{y} - \bf{\hat{y}}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(\bf{y}-X\hat{\bf{W}})^{T}(\bf{y}-X\hat{\bf{W}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(y^T - \hat{\bf{W}}^{T}\bf{X}^{T})(\bf{y} - \bf{X}\bf{\hat{W}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(\bf{y^Ty-y^TX\hat{W}} - \hat{W}X^Ty + W^TX^TX\hat{W})\)</span><br></p>
+<p>MSE를 더 상세히 전개하면 다음과 같습니다.<br> <span class="math inline">\(MSE = \Sigma_{i=1}^{i=n}(y_i - \hat{y_i})^{2}\)</span><br> <span class="math inline">\(= \frac{1}{n}({\bf{y} - \bf{\hat{y}}})^{T}({\bf{y} - \bf{\hat{y}}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(\bf{y}-X\hat{\bf{W}})^{T}(\bf{y}-X\hat{\bf{W}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(\bf{y^T - \hat{\bf{W}}^{T}\bf{X}^{T})(\bf{y} - \bf{X}\bf{\hat{W}}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(\bf{y^Ty-y^TX\hat{W}} - \hat{W}X^Ty + W^TX^TX\hat{W})\)</span><br></p>
 <p>여기서 <span class="math inline">\(\bf{y^TX\hat{W}} \in \bf{R}^{1 \times 1}\)</span> 이므로 <span class="math inline">\(\bf{y^TX\hat{W}} = (\bf{y^TX\hat{W}})^T = (\bf{\hat{W}X^Ty})\)</span>가 성립합니다. 그러므로 MSE를 정리하면 다음과 같습니다.<br> (MSE)<br> <span class="math inline">\(MSE = \frac{1}{n}(\bf{y^Ty -2\hat{W}X^Ty + W^TX^TX\hat{W}})\)</span><br></p>
 </section>
 <section id="gradient-descent에-대한-더-상세한-전개loss-mse일-경우" class="level2">
 <h2 class="anchored" data-anchor-id="gradient-descent에-대한-더-상세한-전개loss-mse일-경우">Gradient Descent에 대한 더 상세한 전개(<span class="math inline">\(Loss\)</span> = MSE일 경우)</h2>
-<p>(Gradient of MSE)<br> <span class="math inline">\(\nabla{L} = MSE\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}\frac{\partial}{\partial \hat{W}}(\bf{y^Ty - 2W^TX^T + W^TX^TX\hat{W}})}\)</span><br> <span class="math inline">\(= {\bf{\frac{1}{n}}(\bf{\frac{\partial}{\partial \hat{W}}}\bf{{\bf{y^Ty}}}} - \frac{\partial}{\partial \hat{W}}2W^{T}X^{T}y + \frac{\partial}{\partial\hat{W}}W^{T}X^{T}X\hat{W})\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}(\frac{\partial}{\partial \hat{W}}{\bf{y^Ty}}} - \frac{\partial}{\partial \hat{W}}2y^TXW + \frac{\partial}{\partial\hat{W}}W^TX^TX\hat{W})\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}[0 - 2X^Ty + (X^TX + X^TX)\hat{W}]}\)</span><br> <span class="math inline">\(= \bf{\frac{2}{n}X^T(X\hat{W} - y)}\)</span></p>
+<p>(Gradient of MSE)<br> <span class="math inline">\(\nabla{L} = MSE\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}\frac{\partial}{\partial \hat{W}}(\bf{y^Ty - 2W^TX^T + W^TX^TX\hat{W}})}\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}}(\bf{\frac{\partial}{\partial \hat{W}}}{y^{T}y} - \frac{\partial}{\partial \hat{W}}2W^{T}X^{T}y + \frac{\partial}{\partial\hat{W}}W^{T}X^{T}X\hat{W})\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}(\frac{\partial}{\partial \hat{W}}{y^{T}y} - \frac{\partial}{\partial \hat{W}}2y^TXW + \frac{\partial}{\partial\hat{W}}W^TX^TX\hat{W})}\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}[0 - 2X^Ty + (X^TX + X^TX)\hat{W}]}\)</span><br> <span class="math inline">\(= \bf{\frac{2}{n}X^T(X\hat{W} - y)}\)</span></p>
 <p>(parameter update)<br> <span class="math inline">\(\bf{\hat{W}_{t} = \hat{W}_{t-1} - \alpha \times \frac{2}{n}X^T(X\hat{W} - y)}\)</span></p>
-
-
 </section>
+</section>
+<section id="구현" class="level1">
+<h1>구현</h1>
+<div class="cell" data-execution_count="203">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>모집단의 두 확률변수사이의 관계가 다음과 같다고 하자<br> <span class="math inline">\(y = 2.5 + 3x + \epsilon\)</span><br></p>
+<p>크기가 n인 표본을 뽑으면 다음과 같다.</p>
+<div class="cell" data-execution_count="204">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>n<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>W <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="dv">1</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb2-4"><a href="#cb2-4"></a>_x <span class="op">=</span> torch.randint(<span class="dv">0</span>,<span class="dv">300</span>,(n,<span class="dv">1</span>))</span>
+<span id="cb2-5"><a href="#cb2-5"></a>_ones <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
+<span id="cb2-6"><a href="#cb2-6"></a>_epsilon <span class="op">=</span> torch.randn((n,<span class="dv">1</span>)) <span class="op">*</span> <span class="dv">10</span> <span class="co">#변동을 조금 더 주기 위해서 오차를 곱해줌</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>X <span class="op">=</span> torch.concat((_ones,_x),axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb2-8"><a href="#cb2-8"></a>y <span class="op">=</span> X <span class="op">@</span> W <span class="op">+</span> _epsilon</span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"ro"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>표본에 가장 잘 맞는 직선을 찾아보자.<br></p>
+<div class="cell" data-execution_count="205">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#1. 먼저 임의의 W_hat을 가정한다.</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>W_hat <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="op">-</span><span class="dv">5</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#그때의 직선은 다음과 같다.</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"ro"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="206">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#2~4 Loss를 구한 뒤 가중치를 업데이트를 계속 반복 한다. 2,3번 따로 진행해도 되지만 상세히 전개한 parameter update수식 사용.</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>plt.subplots(<span class="dv">1</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">50</span>,<span class="dv">20</span>))</span>
+<span id="cb4-4"><a href="#cb4-4"></a>i<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="co">#1 yhat</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    yhat <span class="op">=</span> X <span class="op">@</span> W_hat</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="co">#2~3 loss,derivative(gradient),update</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    W_hat <span class="op">=</span> W_hat <span class="op">-</span> <span class="fl">1e-6</span> <span class="op">*</span> <span class="dv">2</span><span class="op">/</span>n <span class="op">*</span> X.T<span class="op">@</span>(X<span class="op">@</span>W_hat <span class="op">-</span> y) <span class="co">#그레디언트 폭주를 막기위해 학습률을 작게 잡음.</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="co">#print(W_hat)</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="co">#시각화코드</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>    </span>
+<span id="cb4-13"><a href="#cb4-13"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">10</span> <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb4-14"><a href="#cb4-14"></a>        plt.subplot(<span class="dv">2</span>,<span class="dv">5</span>,i)</span>
+<span id="cb4-15"><a href="#cb4-15"></a>        plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"ro"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb4-16"><a href="#cb4-16"></a>        plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17"></a>        i<span class="op">+=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
