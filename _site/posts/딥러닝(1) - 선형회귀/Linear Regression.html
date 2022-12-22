@@ -150,29 +150,11 @@ ul.task-list li input[type="checkbox"] {
 <p>선형회귀에 대해서 정리한 글입니다.</p>
 <section id="선형회귀란" class="level1">
 <h1>선형회귀란?</h1>
-<p>확률변수사이의 관계가 <strong>선형</strong>이라고 가정했을 때,주어진 표본에 가장 잘 맞는 가중치를 찾는 것입니다.<br> 주어진 표본에 가장 잘 맞는 직선을 찾으면 우리는 두 변수사이에 선형관계가 이렇다라고 추정할 수 있습니다.<br><br></p>
-<p>확률변수사이의 관계가 다음과 같다고 가정해봅시다.<br> 확률변수는 사이의 <strong>관계는 선형</strong>이나 무시할만한 <strong>아주 작은 오차</strong>를 포함합니다.<br> <span class="math inline">\(Y = w_0 + w_1X_1 ... + w_nX_m + \epsilon\)</span><br><br></p>
-<p>위와 같은 관계를 가지는 확률변수로부터 표본추출(sampling)하여 n개의 표본을 얻으면 다음과 같습니다.<br> <span class="math inline">\(y_1 = w_0 + w_1x_{11} + ... + w_nx_{1m} + \epsilon_1\)</span><br> <span class="math inline">\(y_2 = w_0 + w_1x_{21} + ... + w_nx_{2m} + \epsilon_2\)</span><br> …<br> <span class="math inline">\(y_n = w_0 + w_1x_{n1} + w_nx_{nm} + \epsilon_n\)</span><br><br></p>
-샘플을 벡터-행렬로 표현해서 좀 더 간단히 나타낼 수 있습니다.<br> $
-<span class="math display">\[\begin{bmatrix} y_1 \\ y_2 \\ ... \\y_n\end{bmatrix}\]</span>
-= $ <span class="math inline">\(\begin{bmatrix} 1 &amp; x_{11} &amp; x_{12} &amp; ... &amp;x_{1m}\\ 1 &amp; x_{21} &amp; x_{22} &amp; ... &amp;x_{2m}\\ 1 &amp; x_{31} &amp; x_{32} &amp; ... &amp;x_{3m}\\ \end{bmatrix}\)</span> $
-<span class="math display">\[\begin{bmatrix}
-w_0\\
-w_1\\
-w_2\\
-...\\
-w_m
-\end{bmatrix}\]</span>
-$ $+
-<span class="math display">\[\begin{bmatrix}
-\epsilon_0\\
-\epsilon_1\\
-\epsilon_2\\
-...\\
-\epsilon_n
-\end{bmatrix}\]</span>
-<p>$<br> <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(\bold{y} = \bold{X}\bold{W} + \bold{\epsilon}\)</span><br><br></p>
-<p>선형회귀의 목적은 위와 같이 주어진 샘플이 주어질 때, 가장 잘 맞는 <span class="math inline">\(\hat{\bold{W}}\)</span>을 추정하는 것입니다.<br> 표본으로부터 이를 구하여 두 변수사이의 관계가 이렇겠구나라고 알고 싶습니다.<br></p>
+<p>확률변수사이의 관계가 <strong>선형</strong>이라고 가정했을 때,주어진 표본에 가장 잘 맞는 가중치를 찾는 것입니다.주어진 표본에 가장 잘 맞는 직선을 찾으면 우리는 두 변수사이에 관계가 대략적으로 이렇구나라고 생각할 수 있습니다.<br><br></p>
+<p>확률변수사이의 관계가 다음과 같다고 가정해봅시다. 확률변수는 사이의 <strong>관계는 기본적으로 선형</strong>이라고 가정하지만 무시할만한 <strong>아주 작은 오차</strong>를 포함합니다.<br> <span class="math inline">\(Y = w_0 + w_1X_1 \dots + w_nX_m + \epsilon\)</span><br><br></p>
+<p>위와 같은 관계를 가지는 확률변수로부터 표본추출(sampling)하여 n개의 표본을 얻으면 다음과 같습니다.<br> <span class="math inline">\(y_1 = w_0 + w_1x_{11} + \dots + w_nx_{1m} + \epsilon_1\)</span><br> <span class="math inline">\(y_2 = w_0 + w_1x_{21} + \dots + w_nx_{2m} + \epsilon_2\)</span><br> <span class="math inline">\(\quad \quad \quad \quad \quad \quad \quad \vdots\)</span><br> <span class="math inline">\(y_n = w_0 + w_1x_{n1} + w_nx_{nm} + \epsilon_n\)</span><br><br></p>
+<p>샘플을 벡터-행렬로 표현해서 좀 더 간단히 나타낼 수 있습니다.<br> <span class="math inline">\(\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\y_n\end{bmatrix} = \begin{bmatrix} 1 &amp; x_{11} &amp; x_{12} &amp; \dots &amp;x_{1m}\\ 1 &amp; x_{21} &amp; x_{22} &amp; \dots &amp;x_{2m}\\ 1 &amp; x_{31} &amp; x_{32} &amp; \dots &amp;x_{3m}\\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\ 1 &amp; x_{n1} &amp; x_{n2} &amp; \dots &amp; x_{nm}\\ \end{bmatrix} \begin{bmatrix} w_0\\ w_1\\ w_2\\ \vdots\\ w_m \end{bmatrix} + \begin{bmatrix} \epsilon_0\\ \epsilon_1\\ \epsilon_2\\ \vdots\\ \epsilon_n \end{bmatrix}\)</span><br> <span class="math inline">\(\Longleftrightarrow \bf{y} = \bf{X}\bf{W} + \bf{\epsilon}\)</span><br><br></p>
+<p>선형회귀의 목적은 위와 같이 표본이 주어질 때, 가능한 정확히 <span class="math inline">\(\hat{\bf{W}}\)</span>을 구하는 것입니다. 표본으로부터 이를 구하면 <span class="math inline">\(\hat{\bf{W}}\)</span> 두 변수사이의 관계가 이렇겠구나라고 알 수 있게 됩니다.<br></p>
 
 
 </section>
