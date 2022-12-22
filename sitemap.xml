@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/about.html</loc>
-    <lastmod>2022-12-21T15:23:29.909Z</lastmod>
+    <lastmod>2022-12-22T01:58:26.044Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/hello github.html</loc>
-    <lastmod>2022-12-21T15:23:30.729Z</lastmod>
+    <lastmod>2022-12-22T01:58:27.157Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/index.html</loc>
-    <lastmod>2022-12-21T15:23:31.854Z</lastmod>
+    <lastmod>2022-12-22T01:58:28.448Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/deep learning final test/dl final.html</loc>
-    <lastmod>2022-12-21T15:23:33.084Z</lastmod>
+    <lastmod>2022-12-22T01:58:30.146Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/post-with-code/index.html</loc>
-    <lastmod>2022-12-21T15:23:33.898Z</lastmod>
+    <lastmod>2022-12-22T01:58:31.147Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/welcome/index.html</loc>
-    <lastmod>2022-12-21T15:23:34.794Z</lastmod>
+    <lastmod>2022-12-22T01:58:32.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/딥러닝(1) - 선형회귀/Linear Regression.html</loc>
+    <lastmod>2022-12-22T01:58:33.283Z</lastmod>
   </url>
 </urlset>
