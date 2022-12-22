@@ -53,13 +53,27 @@
     "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#선형회귀의-loss-function",
     "title": "딥러닝(1) - 선형회귀",
     "section": "선형회귀의 Loss function",
-    "text": "선형회귀의 Loss function\n2번에서 구한 추정값 \\(\\hat{\\bf{W}}\\)이 얼마나 틀린지,부정확한지 알려주는 함수를 Loss function 또는 Cost function이라고 합니다. 선형회귀에서의 Loss function은 MSE를 사용하며 같습니다.\n(Loss function) \\(MSE = \\Sigma_{i=1}^{i=n}(y_i - \\hat{y_i})^{2} = ({\\bf{y} - \\bf{\\hat{y}}})^{T}({\\bf{y} - \\bf{\\hat{y}}}) = (\\bf{y}-X\\hat{\\bf{W}})^{T}(\\bf{y}-X\\hat{\\bf{W}})\\)\n위 함수는 추정값 \\(\\hat{\\bf{W}}\\)이 얼마나 틀렸는지를 나타내는 \\(\\hat{\\bf{W}}\\)에 대한 함수입니다. 우리는 위 수식의 값을 가장 작게만들도록 \\(\\bf{\\hat{W}}\\)를 찾아내어 우리가 모르고있는 확률변수사이의 관계를 알아내야합니다."
+    "text": "선형회귀의 Loss function\n2번에서 구한 추정값 \\(\\hat{\\bf{W}}\\)이 얼마나 틀린지,부정확한지 알려주는 함수를 Loss function 또는 Cost function이라고 합니다. 선형회귀에서의 Loss function은 MSE를 사용하며 같습니다.\n(Loss function) \\(MSE = \\Sigma_{i=1}^{i=n}(y_i - \\hat{y_i})^{2} = \\frac{1}{n}({\\bf{y} - \\bf{\\hat{y}}})^{T}({\\bf{y} - \\bf{\\hat{y}}}) = \\frac{1}{n}(\\bf{y}-X\\hat{\\bf{W}})^{T}(\\bf{y}-X\\hat{\\bf{W}})\\)\n위 함수는 추정값 \\(\\hat{\\bf{W}}\\)이 얼마나 틀렸는지를 나타내는 \\(\\hat{\\bf{W}}\\)에 대한 함수입니다. 우리는 위 수식의 값을 가장 작게만들도록 \\(\\bf{\\hat{W}}\\)를 찾아내어 우리가 모르고있는 확률변수사이의 관계를 알아내야합니다."
   },
   {
     "objectID": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#parameter-update",
     "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#parameter-update",
     "title": "딥러닝(1) - 선형회귀",
     "section": "Parameter update",
-    "text": "Parameter update\nn개의 독립변수를 가지는 다변수 스칼라 함수에 대한 Gradient는 수학적으로 다음과 같습니다.\n\\(\\nabla f(x_1,x_2,...,x_n) = (\\frac{\\partial f}{\\partial x_1},\\frac{\\partial f}{\\partial x_2},\\dots,\\frac{\\partial f}{\\partial x_n})\\) 출력값이 스칼라인 함수의 그레디언트는 벡터입니다.그러므로,그레디언트를 벡터를 입력했을 때,벡터를 출력으로 하는 벡터함수라고 생각해도 무방합니다.중요한 사실은 임의의 지점\\(X\\)에서 그레디언트의 방향은 스칼라함수가 가장 급격하게 증가하는 방향이라는 사실입니다. 비슷하게 임의의 지점\\(x\\)에서 -그레디언트의 방향은 스칼라함수가 가장 급격하게 감소하는 방향입니다.(증명생략)\n이러한 사실을 활용하여 우리는 임의의 \\(\\hat{\\bf{W}}\\)에서 Loss function이 가장 급격하게 감소하는 방향을 찾을 수 있습니다. 또한 궁극적인 목적인 틀린정도를 최소화하는 즉,Loss function값이 가장 작은 \\(\\hat{\\bf{W}}\\)를 찾을 수 있습니다."
+    "text": "Parameter update\nn개의 독립변수를 가지는 다변수 스칼라 함수에 대한 Gradient는 수학적으로 다음과 같습니다.\n\\(\\nabla_{X}{f(x_1,x_2,...,x_n)} = (\\frac{\\partial f}{\\partial x_1},\\frac{\\partial f}{\\partial x_2},\\dots,\\frac{\\partial f}{\\partial x_n})\\) 출력값이 스칼라인 함수의 그레디언트는 벡터입니다.그러므로,그레디언트를 벡터를 입력했을 때,벡터를 출력으로 하는 벡터함수라고 생각해도 무방합니다.중요한 사실은 임의의 지점\\(X\\)에서 그레디언트의 방향은 스칼라함수가 가장 급격하게 증가하는 방향이라는 사실입니다. 비슷하게 임의의 지점\\(x\\)에서 -그레디언트의 방향은 스칼라함수가 가장 급격하게 감소하는 방향입니다.(증명생략)\n이러한 사실을 활용하여 우리는 임의의 \\(\\hat{\\bf{W}}\\)에서 Loss function이 가장 급격하게 감소하는 방향을 찾을 수 있습니다. 또한 궁극적인 목적인 틀린정도를 최소화하는 즉,Loss function값이 가장 작은 \\(\\hat{\\bf{W}}\\)를 찾을 수 있습니다. \\(\\bf\\hat{W}\\)를 수정하는 구체적인 수식은 다음과 같습니다.\n(Gradient descent parameter update) \\(\\hat{\\bf{W}}_{t} = \\hat{\\bf{W}}_{t-1} - \\alpha\\times\\nabla_{W}{L}\\)\n\\(\\hat{\\bf{W}}_{t-1}\\)은 수정되기전의 가중치(벡터)이며 \\(\\hat{\\bf{W}_{t}}\\)는 파라미터를 한번 업데이트 한 후의 가중치(벡터)입니다. \\(t-1\\)의 \\(\\hat{\\bf{W_{t-1}}}\\)에 \\(-\\alpha\\times\\nabla_{W}{L}\\)를 더해줌으로서 \\(\\hat{\\bf{W}}_{t-1}\\)은 loss function이 가장 급격히(많이)감소하는 방향으로 이동하며 \\(\\hat{\\bf{W}}_{t}\\)가 됩니다. \\(\\alpha\\)는 학습률(learning rate)입니다. \\(\\hat{\\bf{W}}_{t-1}\\)과 곱해져서 얼마나 많이 또는 적게 움직일지를 결정합니다. 한번에 얼마나 이동할지에 비유한 “보폭”으로 생각할 수 있습니다.\n요약하자면, 경사하강법을 통하여 위와 같이 가중치\\(\\hat{\\bf{W}}\\)를 재귀적으로 업데이트 하면 loss function \\(L\\)이 가장 최소가 되는 지점의 \\(\\hat{\\bf{W}}\\)를 찾을 수 있습니다."
+  },
+  {
+    "objectID": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#mse에-대한-더-상세한-전개",
+    "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#mse에-대한-더-상세한-전개",
+    "title": "딥러닝(1) - 선형회귀",
+    "section": "MSE에 대한 더 상세한 전개",
+    "text": "MSE에 대한 더 상세한 전개\nMSE를 더 상세히 전개하면 다음과 같습니다. \\(MSE = \\Sigma_{i=1}^{i=n}(y_i - \\hat{y_i})^{2}\\) \\(= \\frac{1}{n}({\\bf{y} - \\bf{\\hat{y}}})^{T}({\\bf{y} - \\bf{\\hat{y}}})\\) \\(= \\frac{1}{n}(\\bf{y}-X\\hat{\\bf{W}})^{T}(\\bf{y}-X\\hat{\\bf{W}})\\) \\(= \\frac{1}{n}(y^T - \\hat{\\bf{W}}^{T}\\bf{X}^{T})(\\bf{y} - \\bf{X}\\bf{\\hat{W}})\\) \\(= \\frac{1}{n}(\\bf{y^Ty-y^TX\\hat{W}} - \\hat{W}X^Ty + W^TX^TX\\hat{W})\\)\n여기서 \\(\\bf{y^TX\\hat{W}} \\in \\bf{R}^{1 \\times 1}\\) 이므로 \\(\\bf{y^TX\\hat{W}} = (\\bf{y^TX\\hat{W}})^T = (\\bf{\\hat{W}X^Ty})\\)가 성립합니다. 그러므로 MSE를 정리하면 다음과 같습니다. (MSE) \\(MSE = \\frac{1}{n}(\\bf{y^Ty -2\\hat{W}X^Ty + W^TX^TX\\hat{W}})\\)"
+  },
+  {
+    "objectID": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#gradient-descent에-대한-더-상세한-전개loss-mse일-경우",
+    "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#gradient-descent에-대한-더-상세한-전개loss-mse일-경우",
+    "title": "딥러닝(1) - 선형회귀",
+    "section": "Gradient Descent에 대한 더 상세한 전개(\\(Loss\\) = MSE일 경우)",
+    "text": "Gradient Descent에 대한 더 상세한 전개(\\(Loss\\) = MSE일 경우)\n(Gradient of MSE) \\(\\nabla{L} = MSE\\) \\(= \\bf{\\frac{1}{n}\\frac{\\partial}{\\partial \\hat{W}}(\\bf{y^Ty - 2W^TX^T + W^TX^TX\\hat{W}})}\\) \\(= {\\bf{\\frac{1}{n}}(\\bf{\\frac{\\partial}{\\partial \\hat{W}}}\\bf{{\\bf{y^Ty}}}} - \\frac{\\partial}{\\partial \\hat{W}}2W^{T}X^{T}y + \\frac{\\partial}{\\partial\\hat{W}}W^{T}X^{T}X\\hat{W})\\) \\(= \\bf{\\frac{1}{n}(\\frac{\\partial}{\\partial \\hat{W}}{\\bf{y^Ty}}} - \\frac{\\partial}{\\partial \\hat{W}}2y^TXW + \\frac{\\partial}{\\partial\\hat{W}}W^TX^TX\\hat{W})\\) \\(= \\bf{\\frac{1}{n}[0 - 2X^Ty + (X^TX + X^TX)\\hat{W}]}\\) \\(= \\bf{\\frac{2}{n}X^T(X\\hat{W} - y)}\\)\n(parameter update) \\(\\bf{\\hat{W}_{t} = \\hat{W}_{t-1} - \\alpha \\times \\frac{2}{n}X^T(X\\hat{W} - y)}\\)"
   }
 ]
