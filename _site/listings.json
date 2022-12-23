@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/딥러닝(1) - 선형회귀/hello world.html",
       "/posts/딥러닝(1) - 선형회귀/Linear Regression.html",
       "/posts/deep learning final test/dl final.html",
       "/posts/post-with-code/index.html",
