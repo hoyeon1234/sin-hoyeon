@@ -1,0 +1,10 @@
+버전관리 & github에 올리기
+git add . (추가된 모든 변경 사항을 stage area에 올리기,stage area는 commit을 통하여 새로운 버전으로 등록할
+변경사항 예를들어 파일 추가,삭제들이 있는 공간)
+일부 변경사항만 올리는 방법은 나중에 알아봅시다 ^^
+
+git commit -m "버전에 대한 세부설명" (커밋은 하나의 버전을 만든다고 생각)
+git push orgin master  (push를 통해 원격저장소인 github에 새로운 버전을 올림)
+
+
+git pull orgin master (github에 있는 새로운 버전 가져오기)
