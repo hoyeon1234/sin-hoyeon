@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신호연">
+<meta name="dcterms.date" content="2022-12-24">
 
 <title>Hoyen’s Blog - Quarto Document</title>
 <style>
@@ -21,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -60,6 +124,22 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -100,7 +180,30 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#yaml-foramt-내용설명" id="toc-yaml-foramt-내용설명" class="nav-link active" data-scroll-target="#yaml-foramt-내용설명"><span class="toc-section-number">0.1</span>  yaml foramt 내용설명</a>
+  <ul class="collapse">
+  <li><a href="#모든-형식에-들어가는-메타데이터" id="toc-모든-형식에-들어가는-메타데이터" class="nav-link" data-scroll-target="#모든-형식에-들어가는-메타데이터"><span class="toc-section-number">0.1.1</span>  모든 형식에 들어가는 메타데이터</a></li>
+  <li><a href="#모든-형식에-추가할-수-있는-옵션" id="toc-모든-형식에-추가할-수-있는-옵션" class="nav-link" data-scroll-target="#모든-형식에-추가할-수-있는-옵션"><span class="toc-section-number">0.1.2</span>  모든 형식에 추가할 수 있는 옵션</a></li>
+  <li><a href="#랜더링할-포맷은-여러가지로-설정-가능" id="toc-랜더링할-포맷은-여러가지로-설정-가능" class="nav-link" data-scroll-target="#랜더링할-포맷은-여러가지로-설정-가능"><span class="toc-section-number">0.1.3</span>  랜더링할 포맷은 여러가지로 설정 가능</a></li>
+  <li><a href="#코드설명" id="toc-코드설명" class="nav-link" data-scroll-target="#코드설명"><span class="toc-section-number">0.1.4</span>  코드설명</a></li>
+  </ul></li>
+  <li><a href="#colors" id="toc-colors" class="nav-link" data-scroll-target="#colors"><span class="toc-section-number">0.2</span>  Colors</a></li>
+  <li><a href="#shapes" id="toc-shapes" class="nav-link" data-scroll-target="#shapes"><span class="toc-section-number">0.3</span>  Shapes</a></li>
+  <li><a href="#textures" id="toc-textures" class="nav-link" data-scroll-target="#textures"><span class="toc-section-number">0.4</span>  Textures</a></li>
+  <li><a href="#수식도-적을-수-있음" id="toc-수식도-적을-수-있음" class="nav-link" data-scroll-target="#수식도-적을-수-있음"><span class="toc-section-number">0.5</span>  수식도 적을 수 있음</a></li>
+  <li><a href="#citations도-가능" id="toc-citations도-가능" class="nav-link" data-scroll-target="#citations도-가능"><span class="toc-section-number">1</span>  Citations도 가능</a>
+  <ul class="collapse">
+  <li><a href="#cross-references" id="toc-cross-references" class="nav-link" data-scroll-target="#cross-references"><span class="toc-section-number">1.1</span>  Cross References</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="toc-section-number">1.2</span>  Overview</a></li>
+  <li><a href="#sec-plot" id="toc-sec-plot" class="nav-link" data-scroll-target="#sec-plot"><span class="toc-section-number">1.3</span>  Plot</a></li>
+  <li><a href="#sec-equation" id="toc-sec-equation" class="nav-link" data-scroll-target="#sec-equation"><span class="toc-section-number">1.4</span>  Equation</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -121,6 +224,12 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 24, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -128,9 +237,113 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>title,author : 모든 문서에 다 들어가는 메타데이타<br> toc,number-sections,highlight-style : 모든 문서에서 부가적으로 사용되는 형식옵션<br> 다양한 포맷으로 변형될 수 있도록 함<br> pdf에 마진을 변경함 docx 옵션은 기본값들만 사용</p>
+<section id="yaml-foramt-내용설명" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="yaml-foramt-내용설명"><span class="header-section-number">0.1</span> yaml foramt 내용설명</h2>
+<p>모든 형식을 작성할때 yaml format을 가장 상단에 작성한다.<br> 들어갈 수 있는 기본적인 것들은 아래와 같다.</p>
+<section id="모든-형식에-들어가는-메타데이터" class="level3" data-number="0.1.1">
+<h3 data-number="0.1.1" class="anchored" data-anchor-id="모든-형식에-들어가는-메타데이터"><span class="header-section-number">0.1.1</span> 모든 형식에 들어가는 메타데이터</h3>
+<p>title,author : 모든 문서에 다 들어가는 메타데이타<br></p>
+</section>
+<section id="모든-형식에-추가할-수-있는-옵션" class="level3" data-number="0.1.2">
+<h3 data-number="0.1.2" class="anchored" data-anchor-id="모든-형식에-추가할-수-있는-옵션"><span class="header-section-number">0.1.2</span> 모든 형식에 추가할 수 있는 옵션</h3>
+<p>toc(table of contents) : 목차<br> number-sections : 섹션마다 번호 부여<br> highlight-style : ??<br></p>
+</section>
+<section id="랜더링할-포맷은-여러가지로-설정-가능" class="level3" data-number="0.1.3">
+<h3 data-number="0.1.3" class="anchored" data-anchor-id="랜더링할-포맷은-여러가지로-설정-가능"><span class="header-section-number">0.1.3</span> 랜더링할 포맷은 여러가지로 설정 가능</h3>
+<p>다양한 포맷으로 한번에 랜더링할 수 있도록 형식지정 가능<br> 밑에 코드 참조<br> pdf에 마진을 변경함 docx 옵션은 기본값들만 사용<br><br></p>
+</section>
+<section id="코드설명" class="level3" data-number="0.1.4">
+<h3 data-number="0.1.4" class="anchored" data-anchor-id="코드설명"><span class="header-section-number">0.1.4</span> 코드설명</h3>
+<p>quarto render Authoring.ipynb<br> format에 정해놓은 형식 모두 랜더링<br></p>
+<p>아래는 랜더링한 것들을 보여주는 코드<br> quarto preview Authoring.ipynb –to html<br> quarto preview Authoring.ipynb –to pdf<br> quarto preview Authoring.ipynb –to docx</p>
+</section>
+</section>
+<section id="colors" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="colors"><span class="header-section-number">0.2</span> Colors</h2>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+</section>
+<section id="shapes" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="shapes"><span class="header-section-number">0.3</span> Shapes</h2>
+<ul>
+<li>Square</li>
+<li>Circle</li>
+<li>Triangle</li>
+</ul>
+</section>
+<section id="textures" class="level2" data-number="0.4">
+<h2 data-number="0.4" class="anchored" data-anchor-id="textures"><span class="header-section-number">0.4</span> Textures</h2>
+<ul>
+<li>Smooth</li>
+<li>Bumpy</li>
+<li>Fuzzy</li>
+</ul>
+</section>
+<section id="수식도-적을-수-있음" class="level2" data-number="0.5">
+<h2 data-number="0.5" class="anchored" data-anchor-id="수식도-적을-수-있음"><span class="header-section-number">0.5</span> 수식도 적을 수 있음</h2>
+<p><span class="math inline">E = mc^{2}</span> <span class="math display">E = mc^{2}</span></p>
+</section>
+<section id="citations도-가능" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Citations도 가능</h1>
+<ul>
+<li>생략</li>
+</ul>
+<section id="cross-references" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="cross-references"><span class="header-section-number">1.1</span> Cross References</h2>
+</section>
+<section id="overview" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.2</span> Overview</h2>
+<p>See <a href="#fig-simple">Figure&nbsp;1</a> in <a href="#sec-plot">Section&nbsp;1.3</a> for a demonstration of a simple plot<br> See <a href="#eq-stddev">Equation&nbsp;1</a> to better understand std</p>
+</section>
+<section id="sec-plot" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-plot"><span class="header-section-number">1.3</span> Plot</h2>
+<ul>
+<li><code>@sec-plot</code>을 누르면 <code>{#sec-plot}</code>이 있는 위치로 화면이동(참조)</li>
+<li><code>@fig-simple</code>을 누르면 <code>#| label: fig-simple</code>이 있는 화면이동(참조)</li>
+<li>단순히 #만 사용하면 피규어나 수식과 같은 것들 끝에 인덱스를 생성해줌.std참고</li>
+</ul>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2"></a>plt.plot([<span class="dv">1</span>,<span class="dv">23</span>,<span class="dv">2</span>,<span class="dv">4</span>])</span>
+<span id="cb1-3"><a href="#cb1-3"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-simple" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Authoring_files/figure-html/fig-simple-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Simple plot</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-equation" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-equation"><span class="header-section-number">1.4</span> Equation</h2>
+<p><span id="eq-stddev"><span class="math display">
+std = \sqrt{\frac{1}{N-1} \sum_{i=1}^N(x_i - \overline{x})^2}
+\tag{1}</span></span></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>test <code>note</code></p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
