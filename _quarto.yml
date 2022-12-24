@@ -3,7 +3,7 @@ project:
 
 #웹사이트 맨 위쪽에 있는 제목이랑 아이콘링크 설정
 website:
-  title: "Hoyen's Blog"
+  title: "Hoyeon's Blog"
   comments : false
   navbar:
     right:
@@ -14,7 +14,7 @@ website:
 #웹사이트 스타일 설정      
 format:
   html:
-    theme: litera
+    theme: Simplex
     css: styles.css
     toc: true
     code-fold: false

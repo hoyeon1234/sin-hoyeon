@@ -9,4 +9,5 @@ about:
       href: https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts
 
 ---
-전북대학교 IT응용시스템 공학과 신호연
+전북대학교 IT응용시스템 공학과 신호연<br>
+sinhoyeon0514@gmail.com

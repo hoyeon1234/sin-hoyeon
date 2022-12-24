@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2022-12-24">
 
-<title>Hoyen’s Blog - pytorch로 Rnn구현하기</title>
+<title>Hoyeon’s Blog - pytorch로 Rnn구현하기</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">Hoyen’s Blog</span>
+    <span class="navbar-title">Hoyeon’s Blog</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -302,7 +302,7 @@ tensor([[0., 0., 1., 0.],
 </section>
 <section id="파라미터-잠깐-설명" class="level3">
 <h3 class="anchored" data-anchor-id="파라미터-잠깐-설명">파라미터 잠깐 설명</h3>
-<p>batch size는 배치의 총 갯수(배치안에 있는 원소의 갯수 아님!), sequnce length는 시퀀스데이터의 길이이자 timestemp(시점)의 총 갯수(길이), H_{in}은 each timestep(각 시점)마다 입력되는 벡터의 길이라고 볼 수 있음. 위처럼 원핫인코딩을 한 경우 <span class="math inline">\(H_{in}\)</span>은 시퀀스데이터에 있는 문자의 갯수로 결정되므로 4이고 L은 create_seqdataset함수에서 인수로 넣어준 3(sequnce_length)이고 마지막으로 N(batch_size)은 torch.utils.data.DataLoader안에 인수로 넣어주는 batch_size로 인해서 일정한 갯수로 배치를 나누었을때 나오는 배치들의 총 숫자임.rnn 문서에서 설명하는 batch_size는 torch.utils.dada.DataLoader에서 설정한 batch_size의 갯수만큼 데이터를 모아서 여러개의 배치로 만들었을때 나오는 배치의 총 갯수라고 보면됨.(헷갈리는 부분….)<br></p>
+<p>batch size는 배치의 총 갯수(배치안에 있는 원소의 갯수 아님!), sequnce length는 시퀀스데이터의 길이이자 timestemp(시점)의 총 갯수(길이), <span class="math inline">\(H_{in}\)</span>은 each timestep(각 시점)마다 입력되는 벡터의 길이라고 볼 수 있음. 위처럼 원핫인코딩을 한 경우 <span class="math inline">\(H_{in}\)</span>은 시퀀스데이터에 있는 문자의 갯수로 결정되므로 4이고 L은 create_seqdataset함수에서 인수로 넣어준 3(sequnce_length)이고 마지막으로 N(batch_size)은 torch.utils.data.DataLoader안에 인수로 넣어주는 batch_size로 인해서 일정한 갯수로 배치를 나누었을때 나오는 배치들의 총 숫자임.rnn 문서에서 설명하는 batch_size는 torch.utils.dada.DataLoader에서 설정한 batch_size의 갯수만큼 데이터를 모아서 여러개의 배치로 만들었을때 나오는 배치의 총 갯수라고 보면됨.(헷갈리는 부분….)<br></p>
 </section>
 </section>
 </section>
