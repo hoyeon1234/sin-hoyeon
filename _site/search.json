@@ -35,64 +35,64 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/Linear Regression.html",
-    "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html",
+    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html",
+    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html",
     "title": "딥러닝(1) - 선형회귀",
     "section": "",
     "text": "선형회귀에 대해서 정리한 글입니다."
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#선형회귀의-loss-function",
-    "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#선형회귀의-loss-function",
+    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#선형회귀의-loss-function",
+    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#선형회귀의-loss-function",
     "title": "딥러닝(1) - 선형회귀",
     "section": "선형회귀의 Loss function",
     "text": "선형회귀의 Loss function\n2번에서 구한 추정값 \\(\\hat{\\bf{W}}\\)이 얼마나 틀린지,부정확한지 알려주는 함수를 Loss function 또는 Cost function이라고 합니다. 선형회귀에서의 Loss function은 일반적으로 MSE를 사용하며 다음과 같습니다.\n(Loss function) \\(MSE = \\Sigma_{i=1}^{i=n}(y_i - \\hat{y_i})^{2} = \\frac{1}{n}({\\bf{y} - \\bf{\\hat{y}}})^{T}({\\bf{y} - \\bf{\\hat{y}}}) = \\frac{1}{n}(\\bf{y}-X\\hat{\\bf{W}})^{T}(\\bf{y}-X\\hat{\\bf{W}})\\)\n위 함수는 추정값 \\(\\hat{\\bf{W}}\\)이 얼마나 틀렸는지를 나타내는 \\(\\hat{\\bf{W}}\\)에 대한 함수입니다. 우리는 위 수식의 값을 가장 작게만들도록 \\(\\bf{\\hat{W}}\\)를 찾아내어 우리가 모르고있는 확률변수사이의 관계를 알아내야합니다."
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#parameter-update",
-    "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#parameter-update",
+    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#parameter-update",
+    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#parameter-update",
     "title": "딥러닝(1) - 선형회귀",
     "section": "Parameter update",
     "text": "Parameter update\nn개의 독립변수를 가지는 다변수 스칼라 함수에 대한 Gradient는 수학적으로 다음과 같습니다.\n\\(\\nabla_{X}{f(x_1,x_2,...,x_n)} = (\\frac{\\partial f}{\\partial x_1},\\frac{\\partial f}{\\partial x_2},\\dots,\\frac{\\partial f}{\\partial x_n})\\) 출력값이 스칼라인 함수의 그레디언트는 벡터입니다.그러므로,그레디언트를 벡터를 입력했을 때,벡터를 출력으로 하는 벡터함수라고 생각해도 무방합니다.중요한 사실은 임의의 지점\\(X\\)에서 그레디언트의 방향은 스칼라함수가 가장 급격하게 증가하는 방향이라는 사실입니다. 비슷하게 임의의 지점\\(x\\)에서 -그레디언트의 방향은 스칼라함수가 가장 급격하게 감소하는 방향입니다.(증명생략)\n이러한 사실을 활용하여 우리는 임의의 \\(\\hat{\\bf{W}}\\)에서 Loss function이 가장 급격하게 감소하는 방향을 찾을 수 있습니다. 또한 궁극적인 목적인 틀린정도를 최소화하는 즉,Loss function값이 가장 작은 \\(\\hat{\\bf{W}}\\)를 찾을 수 있습니다. \\(\\bf\\hat{W}\\)를 수정하는 구체적인 수식은 다음과 같습니다.\n(Gradient descent parameter update) \\(\\hat{\\bf{W}}_{t} = \\hat{\\bf{W}}_{t-1} - \\alpha\\times\\nabla_{W}{L}\\)\n\\(\\hat{\\bf{W}}_{t-1}\\)은 수정되기전의 가중치(벡터)이며 \\(\\hat{\\bf{W}_{t}}\\)는 파라미터를 한번 업데이트 한 후의 가중치(벡터)입니다. \\(t-1\\)의 \\(\\hat{\\bf{W_{t-1}}}\\)에 \\(-\\alpha\\times\\nabla_{W}{L}\\)를 더해줌으로서 \\(\\hat{\\bf{W}}_{t-1}\\)은 loss function이 가장 급격히(많이)감소하는 방향으로 이동하며 \\(\\hat{\\bf{W}}_{t}\\)가 됩니다. \\(\\alpha\\)는 학습률(learning rate)입니다. \\(\\hat{\\bf{W}}_{t-1}\\)과 곱해져서 얼마나 많이 또는 적게 움직일지를 결정합니다. 한번에 얼마나 이동할지에 비유한 “보폭”으로 생각할 수 있습니다.\n요약하자면, 경사하강법을 통하여 위와 같이 가중치\\(\\hat{\\bf{W}}\\)를 재귀적으로 업데이트 하면 loss function \\(L\\)이 가장 최소가 되는 지점의 \\(\\hat{\\bf{W}}\\)를 찾을 수 있습니다."
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#mse에-대한-더-상세한-전개",
-    "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#mse에-대한-더-상세한-전개",
+    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#mse에-대한-더-상세한-전개",
+    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#mse에-대한-더-상세한-전개",
     "title": "딥러닝(1) - 선형회귀",
     "section": "MSE에 대한 더 상세한 전개",
     "text": "MSE에 대한 더 상세한 전개\nMSE를 더 상세히 전개하면 다음과 같습니다. \\(MSE = \\Sigma_{i=1}^{i=n}(y_i - \\hat{y_i})^{2}\\) \\(= \\frac{1}{n}({\\bf{y} - \\bf{\\hat{y}}})^{T}({\\bf{y} - \\bf{\\hat{y}}})\\) \\(= \\frac{1}{n}(\\bf{y}-X\\hat{\\bf{W}})^{T}(\\bf{y}-X\\hat{\\bf{W}})\\) \\(= \\frac{1}{n}(\\bf{y^T - \\hat{\\bf{W}}^{T}\\bf{X}^{T})(\\bf{y} - \\bf{X}\\bf{\\hat{W}}})\\) \\(= \\frac{1}{n}(\\bf{y^Ty-y^TX\\hat{W}} - \\hat{W}X^Ty + W^TX^TX\\hat{W})\\)\n여기서 \\(\\bf{y^TX\\hat{W}} \\in \\bf{R}^{1 \\times 1}\\) 이므로 \\(\\bf{y^TX\\hat{W}} = (\\bf{y^TX\\hat{W}})^T = (\\bf{\\hat{W}X^Ty})\\)가 성립합니다. 그러므로 MSE를 정리하면 다음과 같습니다. (MSE) \\(MSE = \\frac{1}{n}(\\bf{y^Ty -2\\hat{W}X^Ty + W^TX^TX\\hat{W}})\\)"
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#gradient-descent에-대한-더-상세한-전개loss-mse일-경우",
-    "href": "posts/딥러닝(1) - 선형회귀/Linear Regression.html#gradient-descent에-대한-더-상세한-전개loss-mse일-경우",
+    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#gradient-descent에-대한-더-상세한-전개loss-mse일-경우",
+    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#gradient-descent에-대한-더-상세한-전개loss-mse일-경우",
     "title": "딥러닝(1) - 선형회귀",
     "section": "Gradient Descent에 대한 더 상세한 전개(\\(Loss\\) = MSE일 경우)",
     "text": "Gradient Descent에 대한 더 상세한 전개(\\(Loss\\) = MSE일 경우)\n(Gradient of MSE) \\(\\nabla{L} = MSE\\) \\(= \\bf{\\frac{1}{n}\\frac{\\partial}{\\partial \\hat{W}}(\\bf{y^Ty - 2W^TX^T + W^TX^TX\\hat{W}})}\\) \\(= \\bf{\\frac{1}{n}}(\\bf{\\frac{\\partial}{\\partial \\hat{W}}}{y^{T}y} - \\frac{\\partial}{\\partial \\hat{W}}2W^{T}X^{T}y + \\frac{\\partial}{\\partial\\hat{W}}W^{T}X^{T}X\\hat{W})\\) \\(= \\bf{\\frac{1}{n}(\\frac{\\partial}{\\partial \\hat{W}}{y^{T}y} - \\frac{\\partial}{\\partial \\hat{W}}2y^TXW + \\frac{\\partial}{\\partial\\hat{W}}W^TX^TX\\hat{W})}\\) \\(= \\bf{\\frac{1}{n}[0 - 2X^Ty + (X^TX + X^TX)\\hat{W}]}\\) \\(= \\bf{\\frac{2}{n}X^T(X\\hat{W} - y)}\\)\n(parameter update) \\(\\bf{\\hat{W}_{t} = \\hat{W}_{t-1} - \\alpha \\times \\frac{2}{n}X^T(X\\hat{W} - y)}\\)"
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/pytorch 구현/Pytorch Rnn 구현.html",
-    "href": "posts/딥러닝(1) - 선형회귀/pytorch 구현/Pytorch Rnn 구현.html",
+    "objectID": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html",
+    "href": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html",
     "title": "pytorch로 Rnn구현하기",
     "section": "",
     "text": "hi?hi!가 반복되는 텍스트 데이터에서 다음 문자가 뭐가 나올지 예측하는 RNN모형 만들기"
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/pytorch 구현/Pytorch Rnn 구현.html#vectorization",
-    "href": "posts/딥러닝(1) - 선형회귀/pytorch 구현/Pytorch Rnn 구현.html#vectorization",
+    "objectID": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#vectorization",
+    "href": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#vectorization",
     "title": "pytorch로 Rnn구현하기",
     "section": "vectorization",
     "text": "vectorization\n\n여러가지 방법이 있으나(tf-idf,dense vector,one-hot encoding 등등…) 여기서는 원핫인코딩 사용\n\n\ndef mapping(txt,map_dict):\n    return [map_dict[chr]for chr in txt]\ntxt_mapped = mapping(txt,map_dict)\nprint(txt_mapped[:10])\n\ndef onehot_encoding(txt_mapped):\n    seq_encoded = torch.nn.functional.one_hot(torch.tensor(txt_mapped))\n    return seq_encoded.float()\nsequence_data_encoded = onehot_encoding(txt_mapped)\nprint(sequence_data_encoded[:10])\n\n[2, 3, 0, 2, 3, 1, 2, 3, 0, 2]\ntensor([[0., 0., 1., 0.],\n        [0., 0., 0., 1.],\n        [1., 0., 0., 0.],\n        [0., 0., 1., 0.],\n        [0., 0., 0., 1.],\n        [0., 1., 0., 0.],\n        [0., 0., 1., 0.],\n        [0., 0., 0., 1.],\n        [1., 0., 0., 0.],\n        [0., 0., 1., 0.]])\n\n\n데이터 살짝 변형 하나의 긴 sequence data를 RNN의 입력으로 해도 되지만 처리속도,성능을 고려했을 때 자그마한 sequencedata로 분리하여 입력해주는게 더 좋은 방법임. 분리하는 방법도 여러가지가 있을 수 있겠는데 여기서는 다음과 같이 분리함 raw sequence data : hi?hi!hi?hi!hi?hi! ……….. sequence1 : (x,y) = (hi?,h) sequence2 : (x,y) = (i?h,i) sequence3 : (x,y) = (?hi,!) …\n\ndef create_seqdataset(seq_data,seq_length):\n    #x = seq_data[:-1]\n    #y = seq_data[1:]\n    seqs_x = []\n    seqs_y = []\n    for idx in range(0,len(seq_data)-seq_length):\n        seqs_x.append(seq_data[idx:idx+seq_length])\n        seqs_y.append(seq_data[idx+seq_length])\n    return torch.stack(seqs_x),torch.stack(seqs_y)\n    #return seq_x,seq_y\n\nx_data,y_data = create_seqdataset(sequence_data_encoded,3)\nprint(x_data.shape,y_data.shape)\n\ntorch.Size([57, 3, 4]) torch.Size([57, 4])\n\n\n\n왜 저런 shape을 맞춰 주는가?\n여기서 나오는 x_data.shape = \\((57,3,4)\\)가 살짝 난해함.  파이토치 공식문서에 따르면 batch_first = True로 설정할 경우,rnn계열의 모델에 넣어줘야 하는 텐서의 shape은 \\((N,L,H_{in})\\) = (batch size,sequnce length,input_size)이고 dataloader라는 일종의 데이터 중간관리자?를 한 번 거쳐서 모델에 입력됨. dataloader에서 나오는 output.shape = \\((N,L,H_{in})\\)이 되기 위해서는 input.shape = \\((D,L,H_{in}\\)(D는 분리된 시퀀스의 갯수)이어야 함(즉 입력텐서의 차원이 3개여야 출력텐서의 차원도3개이고 차원이 나오는 순서도 저런식이 되어야 함). 따라서 저렇게 설정함.\n\n\n파라미터 잠깐 설명\nbatch size는 배치의 총 갯수(배치안에 있는 원소의 갯수 아님!), sequnce length는 시퀀스데이터의 길이이자 timestemp(시점)의 총 갯수(길이), \\(H_{in}\\)은 each timestep(각 시점)마다 입력되는 벡터의 길이라고 볼 수 있음. 위처럼 원핫인코딩을 한 경우 \\(H_{in}\\)은 시퀀스데이터에 있는 문자의 갯수로 결정되므로 4이고 L은 create_seqdataset함수에서 인수로 넣어준 3(sequnce_length)이고 마지막으로 N(batch_size)은 torch.utils.data.DataLoader안에 인수로 넣어주는 batch_size로 인해서 일정한 갯수로 배치를 나누었을때 나오는 배치들의 총 숫자임.rnn 문서에서 설명하는 batch_size는 torch.utils.dada.DataLoader에서 설정한 batch_size의 갯수만큼 데이터를 모아서 여러개의 배치로 만들었을때 나오는 배치의 총 갯수라고 보면됨.(헷갈리는 부분….)"
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/pytorch 구현/Pytorch Rnn 구현.html#학습-준비하기",
-    "href": "posts/딥러닝(1) - 선형회귀/pytorch 구현/Pytorch Rnn 구현.html#학습-준비하기",
+    "objectID": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#학습-준비하기",
+    "href": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#학습-준비하기",
     "title": "pytorch로 Rnn구현하기",
     "section": "학습 준비하기",
     "text": "학습 준비하기\n\ndefine architecture,loss,optimizer\ndata check\n\n\n#architecture,loss,optimizer \ntorch.manual_seed(2022)\nrnn = torch.nn.RNN(4,20,batch_first = True)\nlinr = torch.nn.Linear(20,4)\nloss_fn = torch.nn.CrossEntropyLoss()\noptimizer = torch.optim.Adam(list(rnn.parameters())+list(linr.parameters()),lr=1e-3)\n\n\nds = torch.utils.data.TensorDataset(x_data,y_data)\ndl = torch.utils.data.DataLoader(ds,batch_size=8,drop_last=True)\n\nfor idx,(x,y) in enumerate(dl):\n    if idx ==5:\n        break\n    print(x.shape,y.shape)\n\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\n\n\n위에서 언급했듯이 데이터로더를 거쳐서 나오는 텐서는 RNN에 바로 입력될 것임. input.shape = \\((N,L,H_{in}) = (8,3,4)\\)"
   },
   {
-    "objectID": "posts/딥러닝(1) - 선형회귀/pytorch 구현/Pytorch Rnn 구현.html#모형학습",
-    "href": "posts/딥러닝(1) - 선형회귀/pytorch 구현/Pytorch Rnn 구현.html#모형학습",
+    "objectID": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#모형학습",
+    "href": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#모형학습",
     "title": "pytorch로 Rnn구현하기",
     "section": "모형학습",
     "text": "모형학습\n\nfor epoch in range(0,101):\n    for tr_x,tr_y in dl:\n        #1 output\n        hidden,hT = rnn(tr_x)\n        #print(hidden.shape)\n        output = linr(hT[-1])\n        #2 loss\n        loss = loss_fn(output,tr_y)\n        #3 derivative\n        loss.backward()\n        #4 update & clean\n        optimizer.step()\n        optimizer.zero_grad()\n    if epoch % 10 == 0:\n        print(f'epoch : {epoch},loss : {round(loss.tolist(),5)}')\n\nepoch : 0,loss : 1.31779\nepoch : 10,loss : 0.69453\nepoch : 20,loss : 0.19338\nepoch : 30,loss : 0.05891\nepoch : 40,loss : 0.02861\nepoch : 50,loss : 0.01791\nepoch : 60,loss : 0.0126\nepoch : 70,loss : 0.00947\nepoch : 80,loss : 0.00744\nepoch : 90,loss : 0.00602\nepoch : 100,loss : 0.00499\n\n\npytorch의 rnn을 거쳐서 나오는 output은 두 가지임. - hidden : 가장 깊이 위치한 히든레이어의 각각의 시점에서의 출력값을 모아놓은 텐서 - hT : 모든 히든레이어에의 마지막 시점(시점T)에서의 출력값을 모아놓은 텐서 - 외우기! 위치 : 가장깊은 <=> 모든 , 시점 : 각각의 <=> 마지막\n위와같은 설정에서는 가장 깊이 위치한 히든레이어의 마지막시점에서의 출력값만이 우리는 다음에올 문자열을 예측할 때 필요하므로 hT[-1]을 하여 그 값을 가져옴."
@@ -285,68 +285,5 @@
     "title": "Quarto Basics",
     "section": "",
     "text": "Polar Axis\nFor a demonstration of a line plot on a polar axis,see Figure 1  direct change\n\n#YAML로 쓰인 셀옵션은 #| 라는 접두어를 통해서 활용됨. 여기서는 피규어를 가리키는 기능을 함.\n#label : 이 코드셀에 fig-polar라는 이름을 붙임. 위의 마크다운의 @과 연동되어 이 피규어를 가리키게 함. 랜더링 시에는 @fig-pollar는 figure1으로 표시됨\n#fig-cap : figure의 하단에 제목을 달아줌\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0,2,0.01)\ntheta = 2 * np.pi * r\nfig,ax = plt.subplots(\n    subplot_kw = {'projection' : 'polar'}\n)\nax.plot(theta,r)\nax.set_rticks([0.5,1,1.5,2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis"
-  },
-  {
-    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html",
-    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html",
-    "title": "딥러닝(1) - 선형회귀",
-    "section": "",
-    "text": "선형회귀에 대해서 정리한 글입니다."
-  },
-  {
-    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#선형회귀의-loss-function",
-    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#선형회귀의-loss-function",
-    "title": "딥러닝(1) - 선형회귀",
-    "section": "선형회귀의 Loss function",
-    "text": "선형회귀의 Loss function\n2번에서 구한 추정값 \\(\\hat{\\bf{W}}\\)이 얼마나 틀린지,부정확한지 알려주는 함수를 Loss function 또는 Cost function이라고 합니다. 선형회귀에서의 Loss function은 일반적으로 MSE를 사용하며 다음과 같습니다.\n(Loss function) \\(MSE = \\Sigma_{i=1}^{i=n}(y_i - \\hat{y_i})^{2} = \\frac{1}{n}({\\bf{y} - \\bf{\\hat{y}}})^{T}({\\bf{y} - \\bf{\\hat{y}}}) = \\frac{1}{n}(\\bf{y}-X\\hat{\\bf{W}})^{T}(\\bf{y}-X\\hat{\\bf{W}})\\)\n위 함수는 추정값 \\(\\hat{\\bf{W}}\\)이 얼마나 틀렸는지를 나타내는 \\(\\hat{\\bf{W}}\\)에 대한 함수입니다. 우리는 위 수식의 값을 가장 작게만들도록 \\(\\bf{\\hat{W}}\\)를 찾아내어 우리가 모르고있는 확률변수사이의 관계를 알아내야합니다."
-  },
-  {
-    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#parameter-update",
-    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#parameter-update",
-    "title": "딥러닝(1) - 선형회귀",
-    "section": "Parameter update",
-    "text": "Parameter update\nn개의 독립변수를 가지는 다변수 스칼라 함수에 대한 Gradient는 수학적으로 다음과 같습니다.\n\\(\\nabla_{X}{f(x_1,x_2,...,x_n)} = (\\frac{\\partial f}{\\partial x_1},\\frac{\\partial f}{\\partial x_2},\\dots,\\frac{\\partial f}{\\partial x_n})\\) 출력값이 스칼라인 함수의 그레디언트는 벡터입니다.그러므로,그레디언트를 벡터를 입력했을 때,벡터를 출력으로 하는 벡터함수라고 생각해도 무방합니다.중요한 사실은 임의의 지점\\(X\\)에서 그레디언트의 방향은 스칼라함수가 가장 급격하게 증가하는 방향이라는 사실입니다. 비슷하게 임의의 지점\\(x\\)에서 -그레디언트의 방향은 스칼라함수가 가장 급격하게 감소하는 방향입니다.(증명생략)\n이러한 사실을 활용하여 우리는 임의의 \\(\\hat{\\bf{W}}\\)에서 Loss function이 가장 급격하게 감소하는 방향을 찾을 수 있습니다. 또한 궁극적인 목적인 틀린정도를 최소화하는 즉,Loss function값이 가장 작은 \\(\\hat{\\bf{W}}\\)를 찾을 수 있습니다. \\(\\bf\\hat{W}\\)를 수정하는 구체적인 수식은 다음과 같습니다.\n(Gradient descent parameter update) \\(\\hat{\\bf{W}}_{t} = \\hat{\\bf{W}}_{t-1} - \\alpha\\times\\nabla_{W}{L}\\)\n\\(\\hat{\\bf{W}}_{t-1}\\)은 수정되기전의 가중치(벡터)이며 \\(\\hat{\\bf{W}_{t}}\\)는 파라미터를 한번 업데이트 한 후의 가중치(벡터)입니다. \\(t-1\\)의 \\(\\hat{\\bf{W_{t-1}}}\\)에 \\(-\\alpha\\times\\nabla_{W}{L}\\)를 더해줌으로서 \\(\\hat{\\bf{W}}_{t-1}\\)은 loss function이 가장 급격히(많이)감소하는 방향으로 이동하며 \\(\\hat{\\bf{W}}_{t}\\)가 됩니다. \\(\\alpha\\)는 학습률(learning rate)입니다. \\(\\hat{\\bf{W}}_{t-1}\\)과 곱해져서 얼마나 많이 또는 적게 움직일지를 결정합니다. 한번에 얼마나 이동할지에 비유한 “보폭”으로 생각할 수 있습니다.\n요약하자면, 경사하강법을 통하여 위와 같이 가중치\\(\\hat{\\bf{W}}\\)를 재귀적으로 업데이트 하면 loss function \\(L\\)이 가장 최소가 되는 지점의 \\(\\hat{\\bf{W}}\\)를 찾을 수 있습니다."
-  },
-  {
-    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#mse에-대한-더-상세한-전개",
-    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#mse에-대한-더-상세한-전개",
-    "title": "딥러닝(1) - 선형회귀",
-    "section": "MSE에 대한 더 상세한 전개",
-    "text": "MSE에 대한 더 상세한 전개\nMSE를 더 상세히 전개하면 다음과 같습니다. \\(MSE = \\Sigma_{i=1}^{i=n}(y_i - \\hat{y_i})^{2}\\) \\(= \\frac{1}{n}({\\bf{y} - \\bf{\\hat{y}}})^{T}({\\bf{y} - \\bf{\\hat{y}}})\\) \\(= \\frac{1}{n}(\\bf{y}-X\\hat{\\bf{W}})^{T}(\\bf{y}-X\\hat{\\bf{W}})\\) \\(= \\frac{1}{n}(\\bf{y^T - \\hat{\\bf{W}}^{T}\\bf{X}^{T})(\\bf{y} - \\bf{X}\\bf{\\hat{W}}})\\) \\(= \\frac{1}{n}(\\bf{y^Ty-y^TX\\hat{W}} - \\hat{W}X^Ty + W^TX^TX\\hat{W})\\)\n여기서 \\(\\bf{y^TX\\hat{W}} \\in \\bf{R}^{1 \\times 1}\\) 이므로 \\(\\bf{y^TX\\hat{W}} = (\\bf{y^TX\\hat{W}})^T = (\\bf{\\hat{W}X^Ty})\\)가 성립합니다. 그러므로 MSE를 정리하면 다음과 같습니다. (MSE) \\(MSE = \\frac{1}{n}(\\bf{y^Ty -2\\hat{W}X^Ty + W^TX^TX\\hat{W}})\\)"
-  },
-  {
-    "objectID": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#gradient-descent에-대한-더-상세한-전개loss-mse일-경우",
-    "href": "posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html#gradient-descent에-대한-더-상세한-전개loss-mse일-경우",
-    "title": "딥러닝(1) - 선형회귀",
-    "section": "Gradient Descent에 대한 더 상세한 전개(\\(Loss\\) = MSE일 경우)",
-    "text": "Gradient Descent에 대한 더 상세한 전개(\\(Loss\\) = MSE일 경우)\n(Gradient of MSE) \\(\\nabla{L} = MSE\\) \\(= \\bf{\\frac{1}{n}\\frac{\\partial}{\\partial \\hat{W}}(\\bf{y^Ty - 2W^TX^T + W^TX^TX\\hat{W}})}\\) \\(= \\bf{\\frac{1}{n}}(\\bf{\\frac{\\partial}{\\partial \\hat{W}}}{y^{T}y} - \\frac{\\partial}{\\partial \\hat{W}}2W^{T}X^{T}y + \\frac{\\partial}{\\partial\\hat{W}}W^{T}X^{T}X\\hat{W})\\) \\(= \\bf{\\frac{1}{n}(\\frac{\\partial}{\\partial \\hat{W}}{y^{T}y} - \\frac{\\partial}{\\partial \\hat{W}}2y^TXW + \\frac{\\partial}{\\partial\\hat{W}}W^TX^TX\\hat{W})}\\) \\(= \\bf{\\frac{1}{n}[0 - 2X^Ty + (X^TX + X^TX)\\hat{W}]}\\) \\(= \\bf{\\frac{2}{n}X^T(X\\hat{W} - y)}\\)\n(parameter update) \\(\\bf{\\hat{W}_{t} = \\hat{W}_{t-1} - \\alpha \\times \\frac{2}{n}X^T(X\\hat{W} - y)}\\)"
-  },
-  {
-    "objectID": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html",
-    "href": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html",
-    "title": "pytorch로 Rnn구현하기",
-    "section": "",
-    "text": "hi?hi!가 반복되는 텍스트 데이터에서 다음 문자가 뭐가 나올지 예측하는 RNN모형 만들기"
-  },
-  {
-    "objectID": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#vectorization",
-    "href": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#vectorization",
-    "title": "pytorch로 Rnn구현하기",
-    "section": "vectorization",
-    "text": "vectorization\n\n여러가지 방법이 있으나(tf-idf,dense vector,one-hot encoding 등등…) 여기서는 원핫인코딩 사용\n\n\ndef mapping(txt,map_dict):\n    return [map_dict[chr]for chr in txt]\ntxt_mapped = mapping(txt,map_dict)\nprint(txt_mapped[:10])\n\ndef onehot_encoding(txt_mapped):\n    seq_encoded = torch.nn.functional.one_hot(torch.tensor(txt_mapped))\n    return seq_encoded.float()\nsequence_data_encoded = onehot_encoding(txt_mapped)\nprint(sequence_data_encoded[:10])\n\n[2, 3, 0, 2, 3, 1, 2, 3, 0, 2]\ntensor([[0., 0., 1., 0.],\n        [0., 0., 0., 1.],\n        [1., 0., 0., 0.],\n        [0., 0., 1., 0.],\n        [0., 0., 0., 1.],\n        [0., 1., 0., 0.],\n        [0., 0., 1., 0.],\n        [0., 0., 0., 1.],\n        [1., 0., 0., 0.],\n        [0., 0., 1., 0.]])\n\n\n데이터 살짝 변형 하나의 긴 sequence data를 RNN의 입력으로 해도 되지만 처리속도,성능을 고려했을 때 자그마한 sequencedata로 분리하여 입력해주는게 더 좋은 방법임. 분리하는 방법도 여러가지가 있을 수 있겠는데 여기서는 다음과 같이 분리함 raw sequence data : hi?hi!hi?hi!hi?hi! ……….. sequence1 : (x,y) = (hi?,h) sequence2 : (x,y) = (i?h,i) sequence3 : (x,y) = (?hi,!) …\n\ndef create_seqdataset(seq_data,seq_length):\n    #x = seq_data[:-1]\n    #y = seq_data[1:]\n    seqs_x = []\n    seqs_y = []\n    for idx in range(0,len(seq_data)-seq_length):\n        seqs_x.append(seq_data[idx:idx+seq_length])\n        seqs_y.append(seq_data[idx+seq_length])\n    return torch.stack(seqs_x),torch.stack(seqs_y)\n    #return seq_x,seq_y\n\nx_data,y_data = create_seqdataset(sequence_data_encoded,3)\nprint(x_data.shape,y_data.shape)\n\ntorch.Size([57, 3, 4]) torch.Size([57, 4])\n\n\n\n왜 저런 shape을 맞춰 주는가?\n여기서 나오는 x_data.shape = \\((57,3,4)\\)가 살짝 난해함.  파이토치 공식문서에 따르면 batch_first = True로 설정할 경우,rnn계열의 모델에 넣어줘야 하는 텐서의 shape은 \\((N,L,H_{in})\\) = (batch size,sequnce length,input_size)이고 dataloader라는 일종의 데이터 중간관리자?를 한 번 거쳐서 모델에 입력됨. dataloader에서 나오는 output.shape = \\((N,L,H_{in})\\)이 되기 위해서는 input.shape = \\((D,L,H_{in}\\)(D는 분리된 시퀀스의 갯수)이어야 함(즉 입력텐서의 차원이 3개여야 출력텐서의 차원도3개이고 차원이 나오는 순서도 저런식이 되어야 함). 따라서 저렇게 설정함.\n\n\n파라미터 잠깐 설명\nbatch size는 배치의 총 갯수(배치안에 있는 원소의 갯수 아님!), sequnce length는 시퀀스데이터의 길이이자 timestemp(시점)의 총 갯수(길이), \\(H_{in}\\)은 each timestep(각 시점)마다 입력되는 벡터의 길이라고 볼 수 있음. 위처럼 원핫인코딩을 한 경우 \\(H_{in}\\)은 시퀀스데이터에 있는 문자의 갯수로 결정되므로 4이고 L은 create_seqdataset함수에서 인수로 넣어준 3(sequnce_length)이고 마지막으로 N(batch_size)은 torch.utils.data.DataLoader안에 인수로 넣어주는 batch_size로 인해서 일정한 갯수로 배치를 나누었을때 나오는 배치들의 총 숫자임.rnn 문서에서 설명하는 batch_size는 torch.utils.dada.DataLoader에서 설정한 batch_size의 갯수만큼 데이터를 모아서 여러개의 배치로 만들었을때 나오는 배치의 총 갯수라고 보면됨.(헷갈리는 부분….)"
-  },
-  {
-    "objectID": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#학습-준비하기",
-    "href": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#학습-준비하기",
-    "title": "pytorch로 Rnn구현하기",
-    "section": "학습 준비하기",
-    "text": "학습 준비하기\n\ndefine architecture,loss,optimizer\ndata check\n\n\n#architecture,loss,optimizer \ntorch.manual_seed(2022)\nrnn = torch.nn.RNN(4,20,batch_first = True)\nlinr = torch.nn.Linear(20,4)\nloss_fn = torch.nn.CrossEntropyLoss()\noptimizer = torch.optim.Adam(list(rnn.parameters())+list(linr.parameters()),lr=1e-3)\n\n\nds = torch.utils.data.TensorDataset(x_data,y_data)\ndl = torch.utils.data.DataLoader(ds,batch_size=8,drop_last=True)\n\nfor idx,(x,y) in enumerate(dl):\n    if idx ==5:\n        break\n    print(x.shape,y.shape)\n\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\ntorch.Size([8, 3, 4]) torch.Size([8, 4])\n\n\n위에서 언급했듯이 데이터로더를 거쳐서 나오는 텐서는 RNN에 바로 입력될 것임. input.shape = \\((N,L,H_{in}) = (8,3,4)\\)"
-  },
-  {
-    "objectID": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#모형학습",
-    "href": "posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html#모형학습",
-    "title": "pytorch로 Rnn구현하기",
-    "section": "모형학습",
-    "text": "모형학습\n\nfor epoch in range(0,101):\n    for tr_x,tr_y in dl:\n        #1 output\n        hidden,hT = rnn(tr_x)\n        #print(hidden.shape)\n        output = linr(hT[-1])\n        #2 loss\n        loss = loss_fn(output,tr_y)\n        #3 derivative\n        loss.backward()\n        #4 update & clean\n        optimizer.step()\n        optimizer.zero_grad()\n    if epoch % 10 == 0:\n        print(f'epoch : {epoch},loss : {round(loss.tolist(),5)}')\n\nepoch : 0,loss : 1.31779\nepoch : 10,loss : 0.69453\nepoch : 20,loss : 0.19338\nepoch : 30,loss : 0.05891\nepoch : 40,loss : 0.02861\nepoch : 50,loss : 0.01791\nepoch : 60,loss : 0.0126\nepoch : 70,loss : 0.00947\nepoch : 80,loss : 0.00744\nepoch : 90,loss : 0.00602\nepoch : 100,loss : 0.00499\n\n\npytorch의 rnn을 거쳐서 나오는 output은 두 가지임. - hidden : 가장 깊이 위치한 히든레이어의 각각의 시점에서의 출력값을 모아놓은 텐서 - hT : 모든 히든레이어에의 마지막 시점(시점T)에서의 출력값을 모아놓은 텐서 - 외우기! 위치 : 가장깊은 <=> 모든 , 시점 : 각각의 <=> 마지막\n위와같은 설정에서는 가장 깊이 위치한 히든레이어의 마지막시점에서의 출력값만이 우리는 다음에올 문자열을 예측할 때 필요하므로 hT[-1]을 하여 그 값을 가져옴."
   }
 ]
