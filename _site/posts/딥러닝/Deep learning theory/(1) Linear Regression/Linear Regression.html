@@ -200,7 +200,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link active" data-scroll-target="#linear-regression">Linear Regression</a></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link active" data-scroll-target="#linear-regression">Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#population-regression-model" id="toc-population-regression-model" class="nav-link" data-scroll-target="#population-regression-model">population regression model</a></li>
+  <li><a href="#sample-regression-modelvector-form" id="toc-sample-regression-modelvector-form" class="nav-link" data-scroll-target="#sample-regression-modelvector-form">sample regression model(vector form)</a></li>
+  </ul></li>
   <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient Descent</a>
   <ul class="collapse">
   <li><a href="#선형회귀의-loss-function" id="toc-선형회귀의-loss-function" class="nav-link" data-scroll-target="#선형회귀의-loss-function">선형회귀의 Loss function</a></li>
@@ -221,27 +225,130 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>선형회귀에 대해서 정리한 글입니다.</p>
 <section id="linear-regression" class="level1">
 <h1>Linear Regression</h1>
-<p>선형회귀란 확률변수사이의 관계가 <strong>선형</strong>이라고 가정했을 때,주어진 표본에 가장 잘 맞는 가중치를 찾는 것입니다.주어진 표본에 가장 잘 맞는 직선을 찾으면 우리는 두 변수사이에 관계가 대략적으로 이렇구나라고 생각할 수 있습니다.<br><br></p>
-<p>확률변수사이의 관계가 다음과 같다고 가정해봅시다. 확률변수는 사이의 <strong>관계는 기본적으로 선형</strong>이라고 가정하지만 무시할만한 <strong>아주 작은 오차</strong>를 포함합니다.<br> <span class="math inline">\(Y = w_0 + w_1X_1 \dots + w_mX_m + \epsilon\)</span><br><br></p>
-<p>위와 같은 관계를 가지는 확률변수로부터 표본추출(sampling)하여 n개의 표본을 얻으면 다음과 같습니다.<br> <span class="math inline">\(y_1 = w_0 + w_1x_{11} + \dots + w_mx_{1m} + \epsilon_1\)</span><br> <span class="math inline">\(y_2 = w_0 + w_1x_{21} + \dots + w_mx_{2m} + \epsilon_2\)</span><br> <span class="math inline">\(\quad \quad \quad \quad \quad \quad \quad \vdots\)</span><br> <span class="math inline">\(y_n = w_0 + w_1x_{n1} + \dots +w_mx_{nm} + \epsilon_n\)</span><br><br></p>
-<p>샘플을 벡터-행렬로 표현해서 좀 더 간단히 나타낼 수 있습니다.<br> <span class="math inline">\(\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\y_n\end{bmatrix} = \begin{bmatrix} 1 &amp; x_{11} &amp; x_{12} &amp; \dots &amp;x_{1m}\\ 1 &amp; x_{21} &amp; x_{22} &amp; \dots &amp;x_{2m}\\ 1 &amp; x_{31} &amp; x_{32} &amp; \dots &amp;x_{3m}\\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\ 1 &amp; x_{n1} &amp; x_{n2} &amp; \dots &amp; x_{nm}\\ \end{bmatrix} \begin{bmatrix} w_0\\ w_1\\ w_2\\ \vdots\\ w_m \end{bmatrix} + \begin{bmatrix} \epsilon_0\\ \epsilon_1\\ \epsilon_2\\ \vdots\\ \epsilon_n \end{bmatrix}\)</span><br> <span class="math inline">\(\Longleftrightarrow \bf{y} = \bf{X}\bf{W} + \bf{\epsilon}\)</span><br><br></p>
-<p>선형회귀의 목적은 위와 같이 표본이 주어질 때, 우리가 모르는 <span class="math inline">\(\bf{W}\)</span>를 추정하는 것입니다. 표본으로부터 <span class="math inline">\(\bf{W}\)</span>를 추정할 수 있다면 두 변수사이의 관계가 이렇겠구나라고 알 수 있게 됩니다.<br></p>
+<p>선형회귀는 확률변수사이의 관계가 <strong>선형</strong>이라고 가정한 모델링입니다. 주어진 표본에 적합한 계수를 찾으면 두 변수사이의 관계를 대략적으로 알 수 있습니다. 2차원에서는 직선을 3차원에서는 평면을 4차원 이상에서는 초평면을 찾는 과정이라고도 할 수 있습니다.<br><br></p>
+<section id="population-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="population-regression-model">population regression model</h2>
+<p><span id="eq-poprgmodel"><span class="math display">\[
+Y = w_0 + w_1X_1  \dots + w_mX_m + \epsilon
+\tag{1}\]</span></span> 위와 모집단의 확률변수사이의 관계를 선형이라고 가정한 모형을 모형을 population regression model이라고 합니다. population regression model은 <strong>아주 작은 오차(error)</strong>를 포함합니다.<br></p>
+</section>
+<section id="sample-regression-modelvector-form" class="level2">
+<h2 class="anchored" data-anchor-id="sample-regression-modelvector-form">sample regression model(vector form)</h2>
+<p>위와 같은 regression model로부터 sampling n개의 표본을 얻으면 다음과 같습니다.<br> <span class="math display">\[
+y_1 = w_0 + w_1x_{11} + \dots + w_mx_{1m} + \epsilon_1
+\]</span> <span class="math display">\[
+y_2 = w_0 + w_1x_{21} + \dots + w_mx_{2m} + \epsilon_2
+\]</span> <span class="math display">\[
+\vdots
+\]</span> <span class="math display">\[
+y_n = w_0 + w_1x_{n1} + \dots +w_mx_{nm} + \epsilon_n
+\]</span> <br></p>
+<p>샘플을 벡터-행렬로 표현해서 좀 더 간단히 나타낼 수 있습니다.<br> <span class="math display">\[
+\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\y_n\end{bmatrix} =
+\begin{bmatrix}
+1 &amp; x_{11} &amp; x_{12} &amp; \dots &amp;x_{1m}\\
+1 &amp; x_{21} &amp; x_{22} &amp; \dots &amp;x_{2m}\\
+1 &amp; x_{31} &amp; x_{32} &amp; \dots &amp;x_{3m}\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+1 &amp; x_{n1} &amp; x_{n2} &amp; \dots &amp; x_{nm}\\
+\end{bmatrix}
+\begin{bmatrix}
+w_0\\
+w_1\\
+w_2\\
+\vdots\\
+w_m
+\end{bmatrix}
++
+\begin{bmatrix}
+\epsilon_0\\
+\epsilon_1\\
+\epsilon_2\\
+\vdots\\
+\epsilon_n
+\end{bmatrix}
+\]</span><br> <span id="eq-samplergmodel"><span class="math display">\[
+\Longleftrightarrow
+\bf{y} = \bf{X}\bf{W} + \bf{\epsilon}
+\tag{2}\]</span></span> <br> 위와 같이 샘플링한 표본을 나타내는 모형을 sample regression model이라고 합니다.</p>
+<div class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>n<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#n=200인 표본 추출</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>torch.manual_seed(<span class="dv">2202</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a>W <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="dv">1</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb1-12"><a href="#cb1-12"></a>_x <span class="op">=</span> torch.randint(<span class="op">-</span><span class="dv">100</span>,<span class="dv">150</span>,(n,<span class="dv">1</span>))</span>
+<span id="cb1-13"><a href="#cb1-13"></a>_ones <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
+<span id="cb1-14"><a href="#cb1-14"></a>_epsilon <span class="op">=</span> torch.randn((n,<span class="dv">1</span>)) <span class="op">*</span> <span class="dv">10</span> <span class="co">#변동을 조금 더 주기 위해서 오차를 곱해줌</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>X <span class="op">=</span> torch.concat((_ones,_x),axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb1-16"><a href="#cb1-16"></a>y <span class="op">=</span> X <span class="op">@</span> W <span class="op">+</span> _epsilon</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb1-19"><a href="#cb1-19"></a>plt.title(<span class="st">"n=200"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+<pre><code>Text(0.5, 1.0, 'n=200')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><span class="math inline">\(w_1=1,w_0=0\)</span>인 population regression model로부터 200개의 표본을 추출하여 시각화하면 다음과 같습니다. 선형회귀는 위와 같이 표본만 주어질때(given), 우리가 모르는 <span class="math inline">\(w_1,w_0\)</span>를 추정하는 것입니다. 표본으로부터 <span class="math inline">\(\bf{W}\)</span>를 추정할 수 있다면 두 변수사이의 관계가 이렇겠구나라고 알 수 있게 됩니다.<br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>실제문제에서 population regression model의 가중치 <span class="math inline">\(\bf{w} = (w_0,w_,1,...,w_m)\)</span>는 정확히 알 수 없습니다. 우리는 표본을 통해서 가중치를 추정할 뿐입니다. 위에서는 샘플데이터를 만들기 위해 어쩔 수 없이 알게되었지만 실제문제에서는 알 수 없습니다.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="gradient-descent" class="level1">
 <h1>Gradient Descent</h1>
 <p>경사하강법은 <span class="math inline">\(\bf{w}\)</span>를 구하는 방법입니다. 경사하강법의 대략적인 흐름을 요약하면 다음과 같습니다.<br></p>
-<p>(경사하강법의 대략적인 흐름)<br> 1. <span class="math inline">\(\bf{W}\)</span>에 대한 추정값 <span class="math inline">\(\hat{\bf{W}}\)</span>을 임의적으로 가정(초기화)한다.<br> 2. <span class="math inline">\(\hat{\bf{W}}\)</span>로 <span class="math inline">\(\hat{\bf{y}}\)</span>(<span class="math inline">\(\bf{y}\)</span>에 대한 추정값)을 구하여 <span class="math inline">\(\bf{y}\)</span>와 <strong>얼마나 비슷하지 않은지,틀린지 확인</strong>한다.<br> 3. <strong>기울기(편미분계수,gradient)를 사용</strong>하여 <span class="math inline">\(\hat{\bf{W}}\)</span>을 수정한다.<br> 4. 2번,3번을 정해진 횟수만큼 반복한 후 종료한다.<br><br></p>
+<p><img src="(1)gradient descent.png" class="img-fluid" alt="nn"><br> 그림출처 : https://www.kdnuggets.com/2020/05/5-concepts-gradient-descent-cost-function.html</p>
+<p>(경사하강법의 대략적인 흐름)<br> 1. <span class="math inline">\(\bf{W}\)</span>의 추정값 <span class="math inline">\(\hat{\bf{W}}\)</span>을 임의적으로 가정(초기화)한다.<br> 2. 가정한 <span class="math inline">\(\hat{\bf{W}}\)</span>로 <span class="math inline">\(\hat{\bf{y}}\)</span>(<span class="math inline">\(\bf{y}\)</span>에 대한 추정값)을 구하여 실제값<span class="math inline">\(\bf{y}\)</span>와 <strong>얼마나 비슷하지 않은지,틀린지 확인</strong>한다. =&gt; Loss function의 역할입니다.<br> 3. <strong>기울기(편미분계수,gradient)를 사용</strong>하여 <span class="math inline">\(\hat{\bf{W}}\)</span>을 수정한다.많이 틀리면 많이수정하고 적게틀리면 적게 수정한다.<br> 4. 2번,3번을 계속해서 반복한 후 어느정도 적게 틀리면 종료한다..<br><br></p>
 <section id="선형회귀의-loss-function" class="level2">
 <h2 class="anchored" data-anchor-id="선형회귀의-loss-function">선형회귀의 Loss function</h2>
-<p>2번에서 구한 추정값 <span class="math inline">\(\hat{\bf{W}}\)</span>이 <strong>얼마나 틀린지,부정확한지</strong> 알려주는 함수를 Loss function 또는 Cost function이라고 합니다. 선형회귀에서의 Loss function은 일반적으로 MSE를 사용하며 다음과 같습니다.<br></p>
+<p>2번에서 구한 추정값 <span class="math inline">\(\hat{\bf{W}}\)</span>이 <strong>얼마나 틀린지,부정확한지</strong> 알려주는 함수를 Loss function 또는 Cost function이라고 합니다. 선형회귀에서의 Loss function은 일반적으로 MSE를 사용하며 주어진 샘플에서 오차<span class="math inline">\((\hat{y}_i-y)\)</span>들을 전부 제곱하여 더한 값입니다.<br></p>
 <p>(Loss function)<br> <span class="math inline">\(MSE = \Sigma_{i=1}^{i=n}(y_i - \hat{y_i})^{2} = \frac{1}{n}({\bf{y} - \bf{\hat{y}}})^{T}({\bf{y} - \bf{\hat{y}}}) = \frac{1}{n}(\bf{y}-X\hat{\bf{W}})^{T}(\bf{y}-X\hat{\bf{W}})\)</span><br></p>
-<p>위 함수는 추정값 <span class="math inline">\(\hat{\bf{W}}\)</span>이 <strong>얼마나 틀렸는지</strong>를 나타내는 <span class="math inline">\(\hat{\bf{W}}\)</span>에 대한 함수입니다. 우리는 위 수식의 값을 가장 작게만들도록 <span class="math inline">\(\bf{\hat{W}}\)</span>를 찾아내어 우리가 모르고있는 확률변수사이의 관계를 알아내야합니다.</p>
+<p>MSE와 같은 Loss function은 우리의 추정이 <strong>얼마나 틀렸는지</strong>를 나타내는 <span class="math inline">\(\hat{\bf{W}}\)</span>에 대한 함수입니다. 그러므로, loss function을 가장 최소화 하는 <span class="math inline">\(\bf{\hat{W}}\)</span>을 찾아내면 확률변수사이의 선형관계인 <span class="math inline">\(\bf{W}\)</span>를 알아낼 수 있습니다.</p>
+<div class="cell" data-execution_count="124">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>W_hat <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="op">-</span><span class="fl">0.5</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>plt.vlines(<span class="dv">100</span>,<span class="op">-</span><span class="dv">50</span>,<span class="dv">85</span>,<span class="st">"gray"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>font2 <span class="op">=</span> {<span class="st">'family'</span>: <span class="st">'Times New Roman'</span>,</span>
+<span id="cb3-7"><a href="#cb3-7"></a>      <span class="st">'color'</span>:  <span class="st">'gray'</span>,</span>
+<span id="cb3-8"><a href="#cb3-8"></a>      <span class="st">'weight'</span>: <span class="st">'bold'</span>,</span>
+<span id="cb3-9"><a href="#cb3-9"></a>      <span class="st">'size'</span>: <span class="dv">12</span>,</span>
+<span id="cb3-10"><a href="#cb3-10"></a>      <span class="st">'alpha'</span>: <span class="dv">1</span>}</span>
+<span id="cb3-11"><a href="#cb3-11"></a>plt.text(<span class="dv">110</span>, <span class="fl">0.20</span>, <span class="st">'error'</span>, fontdict<span class="op">=</span>font2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="124">
+<pre><code>Text(110, 0.2, 'error')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 </section>
 <section id="parameter-update" class="level2">
 <h2 class="anchored" data-anchor-id="parameter-update">Parameter update</h2>
 <p>n개의 독립변수를 가지는 다변수 스칼라 함수에 대한 Gradient는 수학적으로 다음과 같습니다.<br></p>
-<p><span class="math inline">\(\nabla_{X}{f(x_1,x_2,...,x_n)} = (\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2},\dots,\frac{\partial f}{\partial x_n})\)</span><br> 출력값이 스칼라인 함수의 그레디언트는 벡터입니다.그러므로,그레디언트를 벡터를 입력했을 때,벡터를 출력으로 하는 벡터함수라고 생각해도 무방합니다.중요한 사실은 <strong>임의의 지점<span class="math inline">\(X\)</span>에서 그레디언트의 방향은 스칼라함수가 가장 급격하게 증가하는 방향</strong>이라는 사실입니다. <strong>비슷하게 임의의 지점<span class="math inline">\(x\)</span>에서 -그레디언트의 방향은 스칼라함수가 가장 급격하게 감소하는 방향</strong>입니다.(증명생략)<br></p>
-<p>이러한 사실을 활용하여 우리는 임의의 <span class="math inline">\(\hat{\bf{W}}\)</span>에서 Loss function이 가장 급격하게 감소하는 방향을 찾을 수 있습니다. 또한 궁극적인 목적인 틀린정도를 최소화하는 즉,Loss function값이 가장 작은 <span class="math inline">\(\hat{\bf{W}}\)</span>를 찾을 수 있습니다. <span class="math inline">\(\bf\hat{W}\)</span>를 수정하는 구체적인 수식은 다음과 같습니다.<br></p>
+<p><span class="math inline">\(\nabla_{X}{f(x_1,x_2,...,x_n)} = (\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2},\dots,\frac{\partial f}{\partial x_n})\)</span><br> 다변수 스칼라 함수에 그레디언트를 취하면 벡터입니다.그러므로,그레디언트를 벡터(다변수)를 입력했을 때,벡터를 출력으로 하는 벡터함수라고 생각해도 무방합니다.중요한 사실은 <strong>임의의 공간상의 임의의 point <span class="math inline">\(X\)</span>에서 스칼라함수에 대한 gradient of f = <span class="math inline">\(-\nabla_{X}{f}\)</span> 방향은 스칼라함수가 가장 급격하게 감소하는 방향</strong>이라는 사실입니다.(증명생략)<br></p>
+<p>위의 사실에 의하면,우리는 임의의 <span class="math inline">\(\hat{\bf{W}}\)</span>에서 Loss function이 가장 급격하게 감소하는 방향을 찾을 수 있습니다. 그러므로 감소하는 방향을 찾고 이동하고 감소하는 방향을 찾고 이동하고 반복하다보면… 궁극적인 목적인 틀린정도를 최소화하는 즉,Loss function값이 가장 작은 <span class="math inline">\(\hat{\bf{W}}\)</span>를 찾을 수 있습니다. <span class="math inline">\(\bf\hat{W}\)</span>를 수정하는 구체적인 수식은 다음과 같습니다.<br></p>
 <p>(Gradient descent parameter update)<br> <span class="math inline">\(\hat{\bf{W}}_{t} = \hat{\bf{W}}_{t-1} - \alpha\times\nabla_{W}{L}\)</span><br></p>
 <p><span class="math inline">\(\hat{\bf{W}}_{t-1}\)</span>은 수정되기전의 가중치(벡터)이며 <span class="math inline">\(\hat{\bf{W}_{t}}\)</span>는 파라미터를 한번 업데이트 한 후의 가중치(벡터)입니다. <span class="math inline">\(t-1\)</span>의 <span class="math inline">\(\hat{\bf{W_{t-1}}}\)</span>에 <span class="math inline">\(-\alpha\times\nabla_{W}{L}\)</span>를 더해줌으로서 <span class="math inline">\(\hat{\bf{W}}_{t-1}\)</span>은 loss function이 가장 급격히(많이)감소하는 방향으로 이동하며 <span class="math inline">\(\hat{\bf{W}}_{t}\)</span>가 됩니다. <span class="math inline">\(\alpha\)</span>는 학습률(learning rate)입니다. <span class="math inline">\(\hat{\bf{W}}_{t-1}\)</span>과 곱해져서 얼마나 많이 또는 적게 움직일지를 결정합니다. 한번에 얼마나 이동할지에 비유한 “보폭”으로 생각할 수 있습니다.<br></p>
 <p>요약하자면, 경사하강법을 통하여 위와 같이 가중치<span class="math inline">\(\hat{\bf{W}}\)</span>를 재귀적으로 업데이트 하면 loss function <span class="math inline">\(L\)</span>이 가장 최소가 되는 지점의 <span class="math inline">\(\hat{\bf{W}}\)</span>를 찾을 수 있습니다.<br><br></p>
@@ -259,78 +366,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="구현" class="level1">
 <h1>구현</h1>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-5"><a href="#cb1-5"></a>plt.style.use(<span class="st">'ggplot'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> torch</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb5-5"><a href="#cb5-5"></a>plt.style.use(<span class="st">'ggplot'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>모집단의 두 확률변수사이의 관계가 다음과 같다고 가정해봅시다.<br> <span class="math inline">\(y = 2.5 + 3x + \epsilon\)</span><br></p>
 <p>모집단에서 크기가 n인 표본을 뽑으면 다음과 같습니다.</p>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>n<span class="op">=</span><span class="dv">200</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>W <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="dv">1</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
-<span id="cb2-4"><a href="#cb2-4"></a>_x <span class="op">=</span> torch.randint(<span class="dv">0</span>,<span class="dv">300</span>,(n,<span class="dv">1</span>))</span>
-<span id="cb2-5"><a href="#cb2-5"></a>_ones <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
-<span id="cb2-6"><a href="#cb2-6"></a>_epsilon <span class="op">=</span> torch.randn((n,<span class="dv">1</span>)) <span class="op">*</span> <span class="dv">10</span> <span class="co">#변동을 조금 더 주기 위해서 오차를 곱해줌</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>X <span class="op">=</span> torch.concat((_ones,_x),axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
-<span id="cb2-8"><a href="#cb2-8"></a>y <span class="op">=</span> X <span class="op">@</span> W <span class="op">+</span> _epsilon</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>경사하강법으로 표본에 가장 잘 맞는 직선을 찾아봅시다.<br></p>
-<div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#1. 먼저 임의의 W_hat을 가정한다.</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>W_hat <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="op">-</span><span class="dv">5</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#그때의 직선은 다음과 같다.</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb3-6"><a href="#cb3-6"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>이전에 설명했던 파라미터를 업데이트 하기위해서는 파이토치 기준으로 4가지 과정이 필요합니다.<br> 1)<span class="math inline">\(\bf{\hat{y}}\)</span><br> 2)loss<br> 3)derivative<br> 4)update &amp; clean<br> 여기서는 위의 절차를 다 수행하지 않고 파라미터 업데이트를 위해 정리해놓은 수식만을 활용하여 구현해보겠습니다.</p>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#상세히 전개한 parameter update수식 사용.</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>plt.subplots(<span class="dv">1</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">50</span>,<span class="dv">20</span>))</span>
-<span id="cb4-3"><a href="#cb4-3"></a>i<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">120</span>):</span>
-<span id="cb4-6"><a href="#cb4-6"></a>    <span class="co">#1~3 yhat,loss,derivative(gradient) skip</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co">#4 update</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>    W_hat <span class="op">=</span> W_hat <span class="op">-</span> <span class="fl">1e-6</span> <span class="op">*</span> <span class="dv">2</span><span class="op">/</span>n <span class="op">*</span> X.T<span class="op">@</span>(X<span class="op">@</span>W_hat <span class="op">-</span> y) <span class="co">#그레디언트 폭주를 막기위한 작은 학습률.</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a></span>
-<span id="cb4-10"><a href="#cb4-10"></a>    <span class="co">#시각화코드</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">15</span> <span class="op">==</span> <span class="va">True</span>:</span>
-<span id="cb4-12"><a href="#cb4-12"></a>        plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,i)</span>
-<span id="cb4-13"><a href="#cb4-13"></a>        plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb4-14"><a href="#cb4-14"></a>        plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span>
-<span id="cb4-15"><a href="#cb4-15"></a>        i<span class="op">+=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>n<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#n=200인 표본 추출</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>torch.manual_seed(<span class="dv">2202</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>W <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="dv">1</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb6-6"><a href="#cb6-6"></a>_x <span class="op">=</span> torch.randint(<span class="op">-</span><span class="dv">100</span>,<span class="dv">150</span>,(n,<span class="dv">1</span>))</span>
+<span id="cb6-7"><a href="#cb6-7"></a>_ones <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
+<span id="cb6-8"><a href="#cb6-8"></a>_epsilon <span class="op">=</span> torch.randn((n,<span class="dv">1</span>)) <span class="op">*</span> <span class="dv">10</span> <span class="co">#변동을 조금 더 주기 위해서 오차를 곱해줌</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>X <span class="op">=</span> torch.concat((_ones,_x),axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb6-10"><a href="#cb6-10"></a>y <span class="op">=</span> X <span class="op">@</span> W <span class="op">+</span> _epsilon</span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="Linear Regression_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<p>경사하강법으로 표본에 가장 잘 맞는 직선을 찾아봅시다.<br></p>
+<div class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#1. 먼저 임의의 W_hat을 가정한다.</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>W_hat <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="op">-</span><span class="dv">5</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#그때의 직선은 다음과 같다.</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>이전에 설명했던 파라미터를 업데이트 하기위해서는 파이토치 기준으로 4가지 과정이 필요합니다.<br> 1)<span class="math inline">\(\bf{\hat{y}}\)</span><br> 2)loss<br> 3)derivative<br> 4)update &amp; clean<br> 여기서는 위의 절차를 다 수행하지 않고 파라미터 업데이트를 위해 정리해놓은 수식만을 활용하여 구현해보겠습니다.</p>
+<div class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#상세히 전개한 parameter update수식 사용.</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>plt.subplots(<span class="dv">1</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">50</span>,<span class="dv">20</span>))</span>
+<span id="cb8-3"><a href="#cb8-3"></a>i<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>):</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    <span class="co">#1~3 yhat,loss,derivative(gradient) skip</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>    <span class="co">#4 update</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>    W_hat <span class="op">=</span> W_hat <span class="op">-</span> <span class="fl">1e-5</span> <span class="op">*</span> <span class="dv">2</span><span class="op">/</span>n <span class="op">*</span> X.T<span class="op">@</span>(X<span class="op">@</span>W_hat <span class="op">-</span> y) <span class="co">#그레디언트 폭주를 막기위한 작은 학습률.</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a>    <span class="co">#시각화코드</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">9</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb8-12"><a href="#cb8-12"></a>        plt.subplot(<span class="dv">2</span>,<span class="dv">3</span>,i)</span>
+<span id="cb8-13"><a href="#cb8-13"></a>        plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-14"><a href="#cb8-14"></a>        plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15"></a>        i<span class="op">+=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 <p>최종적으로 표본에 잘맞는(적합된) 다음과 같은 직선을 얻었습니다.</p>
-<div class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#plt.title("w_1 : {} // w_0: {}".format(round(W_hat[1].tolist()[0],3),round(W_hat[0].tolist()[0],3)))</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>plt.title(<span class="st">"Linear Regression"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(<span class="ss">f'slope : </span><span class="sc">{</span><span class="bu">round</span>(W_hat[<span class="dv">1</span>].tolist()[<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">, intercept : </span><span class="sc">{</span><span class="bu">round</span>(W_hat[<span class="dv">0</span>].tolist()[<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb5-5"><a href="#cb5-5"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6"></a>plt.gca().axes.xaxis.set_visible(<span class="va">False</span>)</span>
-<span id="cb5-7"><a href="#cb5-7"></a>plt.gca().axes.yaxis.set_visible(<span class="va">False</span>)</span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#plt.axis("off")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#plt.title("w_1 : {} // w_0: {}".format(round(W_hat[1].tolist()[0],3),round(W_hat[0].tolist()[0],3)))</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>plt.title(<span class="st">"Linear Regression"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(<span class="ss">f'slope : </span><span class="sc">{</span><span class="bu">round</span>(W_hat[<span class="dv">1</span>].tolist()[<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">, intercept : </span><span class="sc">{</span><span class="bu">round</span>(W_hat[<span class="dv">0</span>].tolist()[<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"--"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6"></a>plt.gca().axes.xaxis.set_visible(<span class="va">False</span>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a>plt.gca().axes.yaxis.set_visible(<span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>slope : 0.995, intercept : 0.03</code></pre>
+<pre><code>slope : 0.972, intercept : 0.017</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+<p><img src="Linear Regression_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 
