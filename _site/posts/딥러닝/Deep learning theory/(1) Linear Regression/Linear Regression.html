@@ -475,7 +475,7 @@ Note
 </div>
 <section id="결과해석" class="level2">
 <h2 class="anchored" data-anchor-id="결과해석">결과해석</h2>
-<p>200개의 샘플로부터 <span class="math inline">\(\bf{w}\)</span>를 추정하여 <span class="math inline">\(\hat{\bf{w}}= (0.125,0.969)\)</span>를 얻었습니다. population regression model의 <span class="math inline">\({\bf{w}} = (w_0,w_1) = (1,0)\)</span>을 올바르게 추정했음을 알 수 있습니다. 아주 약간의 차이가 존재하는데 이 차이는 모집단에서 샘플을 더 얻거나 더 세밀하게 업데이트하면 최소화할 수 있습니다.</p>
+<p>200개의 샘플로부터 <span class="math inline">\(\bf{w}\)</span>를 추정하여 <span class="math inline">\(\hat{\bf{w}}= (0.125,0.969)\)</span>를 얻었습니다. population regression model의 <span class="math inline">\({\bf{w}} = (w_0,w_1) = (0,1)\)</span>을 올바르게 추정했음을 알 수 있습니다. 아주 약간의 차이가 존재하는데 이 차이는 모집단에서 샘플을 더 얻거나 더 세밀하게 업데이트하면 최소화할 수 있습니다.</p>
 <div class="cell" data-execution_count="139">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#plt.title("w_1 : {} // w_0: {}".format(round(W_hat[1].tolist()[0],3),round(W_hat[0].tolist()[0],3)))</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>plt.title(<span class="st">"Linear Regression"</span>)</span>
