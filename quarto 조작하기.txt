@@ -1,0 +1,14 @@
+웹페이지 만들기
+0.먼저 cd명령어를 사용하여 github\dl로이동
+1.quarto create-project --type website:blog 실행
+2.나갔다가 다시 0반복
+3.quarto publish gh-pages 실행
+4.홈페이지 -> 세팅 -> pages -> branch를 gh-pages로 바꾸기
+
+웹페이지 조작하기
+1.파일을 추가,조작,변경하고
+2.quarto preview를 사용하여 반영될 웹페이지 미리보기
+3.quarto publish gh-pages로 웹페이지에 반영
+
+quarto publish gh-pages를 설정하면 오래기달리는 과정이 있었음..
+이게 왜 안될까?
