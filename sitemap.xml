@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/about.html</loc>
-    <lastmod>2022-12-25T01:16:40.922Z</lastmod>
+    <lastmod>2022-12-25T13:37:29.462Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/index.html</loc>
-    <lastmod>2022-12-25T01:16:41.495Z</lastmod>
+    <lastmod>2022-12-25T13:37:30.185Z</lastmod>
   </url>
   <url>
-    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/deep learning final test/dl final.html</loc>
-    <lastmod>2022-12-25T01:16:42.163Z</lastmod>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html</loc>
+    <lastmod>2022-12-25T13:37:31.105Z</lastmod>
   </url>
   <url>
-    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/post-with-code/index.html</loc>
-    <lastmod>2022-12-25T01:16:42.618Z</lastmod>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/deep learning/pytorch 구현/Pytorch Rnn 구현.html</loc>
+    <lastmod>2022-12-25T13:37:31.831Z</lastmod>
   </url>
   <url>
-    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/welcome/index.html</loc>
-    <lastmod>2022-12-25T01:16:43.171Z</lastmod>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html</loc>
+    <lastmod>2022-12-25T13:37:32.567Z</lastmod>
   </url>
   <url>
-    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/딥러닝/Deep learning theory/(1) Linear Regression/Linear Regression.html</loc>
-    <lastmod>2022-12-25T01:16:44.066Z</lastmod>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts example/deep learning final test/dl final.html</loc>
+    <lastmod>2022-12-25T13:37:33.524Z</lastmod>
   </url>
   <url>
-    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/딥러닝/pytorch 구현/Pytorch Rnn 구현.html</loc>
-    <lastmod>2022-12-25T01:16:44.611Z</lastmod>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts example/post-with-code/index.html</loc>
+    <lastmod>2022-12-25T13:37:34.109Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts example/welcome/index.html</loc>
+    <lastmod>2022-12-25T13:37:34.775Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/python code/IAB Deep learning/DL 12-01.html</loc>
-    <lastmod>2022-12-25T01:16:45.385Z</lastmod>
+    <lastmod>2022-12-25T13:37:35.835Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/python code/pytorch 구현/pytorch lstm hi느낌표hi물음표 모델링.html</loc>
-    <lastmod>2022-12-25T01:16:45.882Z</lastmod>
+    <lastmod>2022-12-25T13:37:36.632Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/python code/quarto/Authoring.html</loc>
-    <lastmod>2022-12-25T01:16:46.349Z</lastmod>
+    <lastmod>2022-12-25T13:37:37.308Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/python code/quarto/Computations.html</loc>
-    <lastmod>2022-12-25T01:16:56.838Z</lastmod>
+    <lastmod>2022-12-25T13:37:53.677Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/python code/quarto/Tutorial Hello, Quarto.html</loc>
-    <lastmod>2022-12-25T01:16:57.257Z</lastmod>
+    <lastmod>2022-12-25T13:37:54.283Z</lastmod>
   </url>
 </urlset>
