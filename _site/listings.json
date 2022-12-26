@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html",
       "/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html",
       "/posts/deep learning/pytorch 구현/Pytorch Rnn 구현.html",
       "/posts/deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html"

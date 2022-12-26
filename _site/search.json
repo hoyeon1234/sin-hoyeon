@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Hoyeon's Blog",
     "section": "",
-    "text": "파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\nsin ho yeon\n\n\n\n\n\n\nNo matching items"
+    "text": "딥러닝(2) - 로지스틱회귀\n\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\nsin ho yeon\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html",
@@ -348,5 +348,19 @@
     "title": "Quarto Basics",
     "section": "",
     "text": "Polar Axis\nFor a demonstration of a line plot on a polar axis,see Figure 1  direct change\n\n#YAML로 쓰인 셀옵션은 #| 라는 접두어를 통해서 활용됨. 여기서는 피규어를 가리키는 기능을 함.\n#label : 이 코드셀에 fig-polar라는 이름을 붙임. 위의 마크다운의 @과 연동되어 이 피규어를 가리키게 함. 랜더링 시에는 @fig-pollar는 figure1으로 표시됨\n#fig-cap : figure의 하단에 제목을 달아줌\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0,2,0.01)\ntheta = 2 * np.pi * r\nfig,ax = plt.subplots(\n    subplot_kw = {'projection' : 'polar'}\n)\nax.plot(theta,r)\nax.set_rticks([0.5,1,1.5,2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html",
+    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html",
+    "title": "딥러닝(2) - 로지스틱회귀",
+    "section": "",
+    "text": "로지스틱회귀에 대해서 정리한 글입니다."
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#기댓값에-대한-고찰",
+    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#기댓값에-대한-고찰",
+    "title": "딥러닝(2) - 로지스틱회귀",
+    "section": "기댓값에 대한 고찰",
+    "text": "기댓값에 대한 고찰\n기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값과 베르누이분포의 모수가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 모수는 기댓값이므로 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 아는것이므로 많이 발생한 사건 또는 분류된 클래스로 종속변수 Y의 값을 결정하는 것은 타당해보입니다. - e.g. - \\(E\\,[y_i]\\, = \\hat{p_i}<0.5\\) => 무한히 실행했을때 0인 경우가 더 많을 것임 => 관측치를 0으로 예측 - \\(E\\,[y_i]\\, = \\hat{p_i}>=0.5\\) => 무한히 실행했을때 1인 경우가 더 많을 것임 => 관측치를 1로 예측"
   }
 ]
