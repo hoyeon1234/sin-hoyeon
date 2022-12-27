@@ -1,1 +1,3 @@
-Sitemap: https://hoyeon1234.github.io/sin-hoyeon/sitemap.xml
+User-agent: *
+Allow: /
+Sitemap: https://hoyeon1234.github.io/sin-hoyeon//sitemap.xml
