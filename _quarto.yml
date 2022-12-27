@@ -5,6 +5,7 @@ project:
 website:
   title: "Hoyeon's Blog"
   comments : false
+  google-analytics: "G-JE4129QJZV"
   navbar:
     right:
       - about.qmd
