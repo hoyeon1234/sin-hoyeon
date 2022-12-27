@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Hoyeon's Blog",
     "section": "",
-    "text": "딥러닝(2) - 로지스틱회귀\n\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\nsin ho yeon\n\n\n\n\n\n\nNo matching items"
+    "text": "최대가능도 추정법(MLE)\n\n\n\n\n\n\n\nprobability&statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\nprobability&statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n딥러닝(2) - 로지스틱회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\n신호연\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html",
@@ -81,7 +81,7 @@
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#기댓값에-대한-고찰",
     "title": "딥러닝(2) - 로지스틱회귀",
     "section": "기댓값에 대한 고찰",
-    "text": "기댓값에 대한 고찰\n기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값과 베르누이분포의 모수가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 모수는 기댓값이므로 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 아는것이므로 많이 발생한 사건 또는 분류된 클래스로 종속변수 Y의 값을 결정하는 것은 타당해보입니다. - e.g. - \\(E\\,[y_i]\\, = \\hat{p_i}<0.5\\) => 무한히 실행했을때 0인 경우가 더 많을 것임 => 관측치를 0으로 예측 - \\(E\\,[y_i]\\, = \\hat{p_i}>=0.5\\) => 무한히 실행했을때 1인 경우가 더 많을 것임 => 관측치를 1로 예측"
+    "text": "기댓값에 대한 고찰\n기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값과 베르누이분포의 모수가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 모수는 기댓값이므로 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 아는것이므로 많이 발생한 사건 또는 분류된 클래스로 종속변수 Y의 값을 결정하는 것은 타당해보입니다. - e.g.\n\\[E\\,[y_i]\\, = \\hat{p_i}<0.5$ => 무한히 실행했을때 0인 경우가 더 많을 것임 => 관측치를 0으로 예측<br>\n\\]E,[y_i], = $ =>무한히 실행했을때 1인 경우가 더 많을 것임 => 관측치를 1로 예측"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#concept",
@@ -95,7 +95,7 @@
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#본격적인-유도",
     "title": "딥러닝(2) - 로지스틱회귀",
     "section": "본격적인 유도",
-    "text": "본격적인 유도\n\n\\(\\bf{X},\\bf{W}\\)의 선형조합이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다.\n\n\n\\(f(i) = x_{1,i}w_0 + x_{2,i}w_1 + x_2w_2 + ... + x_{m,i}w_m = XW \\\\\\) \\(where,X_i = \\,[x_{1,i},x_{2,i},\\dots,x_{m,i}]\\, ,W = \\,[w_0,w_1,\\dots,w_m]^\\text{T}\\)\n\n\n좌변은 예측하고자 하는 값인 모수여야 합니다. 좌변을 바꿔봅니다.\n\n\n\\(p_i = WX_i\\)\n\n\n좌변의 베르누이 분포의 모수 \\(p_i\\)는 확률변수 \\(Y_i = 1\\)인 사건이 일어날 확률입니다. 그러므로 \\([0,1]\\)이라는 범위를 가지는 반면 우변의 값\\(WX_i\\)은 \\(\\,[-\\infty,\\infty]\\,\\)에 범위를 가집니다. 여기서 Odss Ratio를 써서 모수 \\(p_i\\)를 포함하며 더 넓은 range를 갖도록 좌변을 수정합니다.\n\n\n\\(\\text{Odds Ratio} = \\frac{p_i}{1-p_i} = WX_i\\)\n\n\n좌변을 Odds Ratio로 수정했지만 여전히 좌변의 범위는\\(\\,[0,\\infty]\\,\\)으로 우변에 비해 좁습니다. 따라서 Odds Ratio에 로짓변환을 취하여 좌변의 범위를 \\(\\,[-\\infty,\\infty]\\)로 넓혀줍니다.\n\n\n\\(\\text{logit}(p) = \\text{ln}\\frac{p_i}{1-p_i} = WX_i\\)\n\n위 식을 해석하기 위해 \\(X\\)의 첫번째 요소인 \\(x_1\\)에 대응하는 회귀계수 \\(w_1\\)이 학습결과 3으로 정해졌다고 가정해봅시다.만약 \\(x_1\\)의 값이 1증가한다면 로그오즈비가 3증가합니다.\n\n이제 양변의 범위는 맞춰졌으므로 추정하고자 하는 변수 \\(p_i\\)가 좌변에 오도록 정리해봅시다.\n\n\n\\(p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\)\n\n(전개) \\(\\frac{p_i}{1-p_i} = e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,(1-p_i)\\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,e^{WX_i}-p_ie^{WX_i}\\) \\(\\Longleftrightarrow p_i + p_ie^{WX_i} = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i\\,(1 + e^{WX_i})\\, = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\frac{\\,e^{WX_i}}{\\,(1 + e^{WX_i})\\, }\\) \\(\\Longleftrightarrow p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\)\n최종도출된 식은 다음과 같습니다. - \\(p_i = Pr\\,(Y_i = 1|X_i)\\, = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\)"
+    "text": "본격적인 유도\n\n모수를 로지스틱함수로 바꾸기\n\n\\(\\bf{X},\\bf{W}\\)의 선형조합이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다. \\[\\begin{align}\nf(i) = x_{1,i}w_0 + x_{2,i}w_1 + x_2w_2 + ... + x_{m,i}w_m = X_iW \\nonumber \\\\\nwhere,X_i = \\,[x_{1,i},x_{2,i},\\dots,x_{m,i}]\\, ,W = \\,[w_0,w_1,\\dots,w_m]^\\text{T} \\nonumber \\\\\n\\end{align}\\]\n좌변은 예측하고자 하는 값인 모수여야 합니다. 좌변을 바꿔봅니다. \\[p_i = WX_i\\]\n좌변의 베르누이 분포의 모수 \\(p_i\\)는 확률변수 \\(Y_i = 1\\)인 사건이 일어날 확률입니다. 그러므로 \\([0,1]\\)이라는 범위를 가지는 반면 우변의 값\\(WX_i\\)은 \\(\\,[-\\infty,\\infty]\\,\\)에 범위를 가집니다. 여기서 Odss Ratio를 써서 모수 \\(p_i\\)를 포함하며 더 넓은 range를 갖도록 좌변을 수정합니다. \\[\\text{Odds Ratio} = \\frac{p_i}{1-p_i} = WX_i\\]\n좌변을 Odds Ratio로 수정했지만 여전히 좌변의 범위는\\(\\,[0,\\infty]\\,\\)으로 우변에 비해 좁습니다. 따라서 Odds Ratio에 로짓변환을 취하여 좌변의 범위를 \\(\\,[-\\infty,\\infty]\\)로 넓혀줍니다. \\[\\text{logit}(p) = \\text{ln}\\frac{p_i}{1-p_i} = WX_i\\]\n\n위 식을 해석하기 위해 \\(X\\)의 첫번째 요소인 \\(x_1\\)에 대응하는 회귀계수 \\(w_1\\)이 학습결과 3으로 정해졌다고 가정해봅시다.만약 \\(x_1\\)의 값이 1증가한다면 로그오즈비가 3증가합니다.\n\n이제 양변의 범위는 맞춰졌으므로 추정하고자 하는 변수 \\(p_i\\)가 좌변에 오도록 정리해봅시다. \\[p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\] (전개) \\(\\frac{p_i}{1-p_i} = e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,(1-p_i)\\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,e^{WX_i}-p_ie^{WX_i}\\) \\(\\Longleftrightarrow p_i + p_ie^{WX_i} = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i\\,(1 + e^{WX_i})\\, = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\frac{\\,e^{WX_i}}{\\,(1 + e^{WX_i})\\, }\\) \\(\\Longleftrightarrow p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\)\n\n최종적으로, 모수에대한 표현식은 다음과 같습니다. \\[p_i = Pr\\,(Y_i = 1|X_i)\\, = \\frac{1}{\\,1 + e^{-WX_i}\\,}\\] 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재합니다.\n모수 \\(p_i\\)가 새롭게 표현되었으므로 베르누이분포의 확률질량함수도 다르게 표현할 수 있습니다. \\[Pr\\,(Y_{i} = y|x_{1,i},x_{2,i},\\dots,x_{m,i},W) =\n\\begin{cases}\np_i   & \\text{if }y=1, \\\\\n1-p_i & \\text{if }y=0\n\\end{cases} = p_i^y(1-p_i)^{1-y} = \\,(\\frac{1}{\\,1 + e^{-WX_i}\\,})^y\\,\\,(1-\\frac{1}{\\,1 + e^{-WX_i}\\,})^{1-y}\\,\\]"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#likelyhood가능도",
@@ -397,5 +397,131 @@
     "title": "Quarto Basics",
     "section": "",
     "text": "Polar Axis\nFor a demonstration of a line plot on a polar axis,see Figure 1  direct change\n\n#YAML로 쓰인 셀옵션은 #| 라는 접두어를 통해서 활용됨. 여기서는 피규어를 가리키는 기능을 함.\n#label : 이 코드셀에 fig-polar라는 이름을 붙임. 위의 마크다운의 @과 연동되어 이 피규어를 가리키게 함. 랜더링 시에는 @fig-pollar는 figure1으로 표시됨\n#fig-cap : figure의 하단에 제목을 달아줌\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0,2,0.01)\ntheta = 2 * np.pi * r\nfig,ax = plt.subplots(\n    subplot_kw = {'projection' : 'polar'}\n)\nax.plot(theta,r)\nax.set_rticks([0.5,1,1.5,2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis"
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/MLE.html",
+    "href": "posts/deep learning/probabilty,statistics/MLE.html",
+    "title": "최대가능도 추정법(MLE)",
+    "section": "",
+    "text": "최대가능도 추정법(MLE)에 대한 정리"
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/MLE.html#likelyhood가능도",
+    "href": "posts/deep learning/probabilty,statistics/MLE.html#likelyhood가능도",
+    "title": "최대가능도 추정법(MLE)",
+    "section": "Likelyhood(가능도)",
+    "text": "Likelyhood(가능도)\n가능도(Likely hood) 임의의 모수(parameter)\\(\\theta\\)를 가지는 확률분포가 주어진 샘플을 취할 가능성,확률을 나타내며 그 값은 확률함수의 값과 같습니다. \\(\\text{Given}\\) \\((x_1,x_2,\\dots,x_n)\\) \\(L(\\theta|X = (x_1,x_2,\\dots,x_n)) = Pr(X=(x_1,x_2,\\dots,x_n)|\\theta)\\)\n\n\n\n\n\n\nNote\n\n\n\n가능도 함수의 함숫값은 확률함수의 함숫값과 같지만 가능도함수가 확률함수는 아닙니다. 또한 확률분포는 확률변수에 대한 함수로서 확률변수가 특정값을 취하거나 또는 특정구간안에 값이 존재할 가능성을 알려주지만 가능도함수는 가정한 확률분포의 모수에 대한 함수로서 임의의 모수를 가지는 확률분포가 특정값을 가질 가능성을 알려줍니다."
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/MLE.html#mle최대가능도-추정법",
+    "href": "posts/deep learning/probabilty,statistics/MLE.html#mle최대가능도-추정법",
+    "title": "최대가능도 추정법(MLE)",
+    "section": "MLE(최대가능도 추정법)",
+    "text": "MLE(최대가능도 추정법)\n최대가능도추정법(MLE)는 확률분포의 모수를 추정하는 점추정방법 중 하나로 가능도함수의 함숫값(가능도)을 가장크게하는 모숫값 즉,주어진 샘플을 취할 가능성,확률이 가장 큰 모숫값을 모수에 대한 추정량으로 하는 방법입니다. - \\(\\hat{\\theta} = \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X=x)\\)\n가능도함수의 함숫값(가능도)는 모수가 주어진 상황에서 확률분포의 값과 같으므로 식을 다음과 같이 쓸수도 있습니다. - \\(\\hat{\\theta} = \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X=x) = \\underset{\\theta}{\\text{argmax}}\\,Pr(X=x|\\theta)\\)"
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/MLE.html#nll",
+    "href": "posts/deep learning/probabilty,statistics/MLE.html#nll",
+    "title": "최대가능도 추정법(MLE)",
+    "section": "NLL",
+    "text": "NLL\nLL은 log likelyhood의 약자로 likelyhood에 log를 취해준 값입니다. 로그함수를 취해도 함수가 최대값을 갖는 모수 \\(\\theta\\)위차가 변하지 않고 계산을 곱셈을 더하기로 바꿔서 계산하기에 더 편리하기 때문에 LL을 사용합니다.\nNLL은 LL에 -를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있으며 따라서 경사하강법을 활용할 수 있습니다.\n최종적으로 \\(\\hat{\\theta}\\)는 다음과 같습니다. - \\(\\hat{\\theta} = \\underset{\\theta}{argmin}\\,\\text{NLL} = \\underset{\\theta}{argmin}\\,-\\text{ln}\\,L(\\theta|X=x)\\)"
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/notation.html",
+    "href": "posts/deep learning/probabilty,statistics/notation.html",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "",
+    "text": "확률분포에서 ;와|에 관한 notation 정리"
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/notation.html#언제-를-사용하지",
+    "href": "posts/deep learning/probabilty,statistics/notation.html#언제-를-사용하지",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "언제 ;를 사용하지?",
+    "text": "언제 ;를 사용하지?\n;의 뒤에는 다변수 함수에서 특정 변수를 시켜놓았다라는 의미로 쓰인다. 다음과 같은 이변수함수를 생각해보자 \\[f(x,y)\\] 독립변수 x와 y를 갖는 함수이며 두 변수 모두에 대해서 미분가능하다. 여기서 변수 y가 어떤 어떤 값으로 고정된것이 알려지거나 또는 고정된상황을 가정한 후 x에 대해서만 관심이 있다고 해보자(미분,극한등을 아마도?취하고 싶다..아마도…) 이때는 이변수함수로 표기하는것이 아닌 일변수함수로 표기해야한다. 그때는 다음과 같이 표기하면 된다. \\[\nf(x;y)\n\\]\n이렇게 표기하면 y값은 이제 어떤 값으로 이미 설정(setting)되거나 고정(fixed)되어있음을 의미한다."
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/notation.html#확률함수에서-의-사용",
+    "href": "posts/deep learning/probabilty,statistics/notation.html#확률함수에서-의-사용",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "확률함수에서 ;의 사용",
+    "text": "확률함수에서 ;의 사용\n베르누이분포의 확률질량함수는 다음과 같다 \\[\nf_X(x) = p^x(1-p)^{1-x}\n\\]\n이식을 해석해보면 다음과 같다. - 좌변 : 확률변수 X에 관한 확률함수이며 실험 또는 시행으로부터 확률변수X가 취할 수 있는 값인 변수x를 입력으로 갖는다. - 우변 : 구체적인 확률질량함수(또는 확률밀도함수)이다.\n베르누이분포 확률질량함수에서 이미 setting,fixed된 모수(parameter)를 명시적으로 표현하고자 할때에는 다음과 같은 표기를 사용한다. \\[f_X(x;p) = p^x(1-p)^{1-x}\\]"
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/notation.html#의-사용-1",
+    "href": "posts/deep learning/probabilty,statistics/notation.html#의-사용-1",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "|의 사용",
+    "text": "|의 사용\n|는 given that이라는 의미이며 |의 오른쪽에는 조건 또는 주어지는 상황이 나온다. 확률,통계 분야에서만 쓰이며 조건부 확률이나,베이지안에서 많이 쓰이는 기호라고 한다. 여기서 조건은 확률변수의 어떤 값이므로 마찬가지로 미리주어지는 값이다. 변수가 아니라 모수(parameter)로 생각할 수 있으며 결국에는 설정된,고정된 값이다.\n조건부 확률분포(조건부확률밀도함수,조건부 확률함수)는 다음과 같다. \\[\np_{X|Y}(x|y) = \\frac{p_{XY}(x,y)}{p_Y(y)}\\\\\np_{X|Y}(y|x) = \\frac{p_{XY}(x,y)}{p_X(x)}\n\\]  가장 윗식을 해석해보면 다음과 같다. - 좌변 : 확률변수 Y가 주어진(given)상황에서 확률변수X의 확률(또는 확률밀도)를 나타내는 함수이며 시행으로부터 확률변수 X가 취할 수 있는 값 x를 입력으로 받는다. 조건부 확률분포에서 Y의 값은 y로 주어져 있다고 가정하므로 입력하는 변수가 아니다. 따라서 확률변수 Y는 변수가 아니라 모수(parameter)이다. - 우변 : 조건부확률분포 공식."
+  },
+  {
+    "objectID": "posts/deep learning/probabilty,statistics/notation.html#결론-과",
+    "href": "posts/deep learning/probabilty,statistics/notation.html#결론-과",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "결론 ; 과 |",
+    "text": "결론 ; 과 |\n\\[p_{\\theta}(x) = p(x;\\theta) = p(x|\\theta)\\]  ;는 수학의 모든 분야에서 쓰이지만 |는 확률통계분야에서만 쓰인다. ;다음에는 이미 설정되거나 고정된 값이 나오며 |다음에는 이미 주어진 조건이 나온다. 확률,통계 분야에서는 |다음에 나오는 조건은 조건부확률분포에서의 주어진 조건이자 설정된,고정된 값인 경우가 많다. 따라서 비공식적으로 혼용해서 쓰며 경험상 ;다음에는 그래도 설정된 값을 의미하는 모수(parameter)가 |는 조건부 확률이나 확률분포를 쓰는 경우가 많은 것 같다.\n참고링크 링크1(;의 사용법) 링크2(조건부확률분포) 링크3(표기법의 혼용)"
+  },
+  {
+    "objectID": "posts/probabilty,statistics/MLE.html",
+    "href": "posts/probabilty,statistics/MLE.html",
+    "title": "최대가능도 추정법(MLE)",
+    "section": "",
+    "text": "최대가능도 추정법(MLE)에 대한 정리"
+  },
+  {
+    "objectID": "posts/probabilty,statistics/MLE.html#likelyhood가능도",
+    "href": "posts/probabilty,statistics/MLE.html#likelyhood가능도",
+    "title": "최대가능도 추정법(MLE)",
+    "section": "Likelyhood(가능도)",
+    "text": "Likelyhood(가능도)\n가능도(Likely hood) 샘플이 주어질 때, 임의의 모수(parameter)\\(\\theta\\)를 가지는 확률분포가 주어진 샘플을 취할 가능성,확률을 나타내며 그 값은 확률함수의 값과 같습니다.\n\\[\\begin{align}\n\\text{Given}\\, (x_1,x_2,...,x_n),\\,L(\\theta|X = (x_1,x_2,\\dots,x_n)) = Pr(X=(x_1,x_2,\\dots,x_n)|\\theta)\n\\end{align}\\]\n\n\n\n\n\n\nNote\n\n\n\n가능도 함수의 함숫값은 확률함수의 함숫값과 같지만 가능도함수가 확률함수는 아닙니다. 또한 확률분포는 확률변수에 대한 함수로서 확률변수가 특정값을 취하거나 또는 특정구간안에 값이 존재할 가능성을 알려주지만 가능도함수는 가정한 확률분포의 모수에 대한 함수로서 임의의 모수를 가지는 확률분포가 특정값을 가질 가능성을 알려줍니다."
+  },
+  {
+    "objectID": "posts/probabilty,statistics/MLE.html#mle최대가능도-추정법",
+    "href": "posts/probabilty,statistics/MLE.html#mle최대가능도-추정법",
+    "title": "최대가능도 추정법(MLE)",
+    "section": "MLE(최대가능도 추정법)",
+    "text": "MLE(최대가능도 추정법)\n최대가능도추정법(MLE)는 확률분포의 모수를 추정하는 점추정방법 중 하나로 가능도함수의 함숫값(가능도)을 가장크게하는 모숫값 즉,주어진 샘플을 취할 가능성,확률이 가장 큰 모숫값을 모수에 대한 추정량으로 하는 방법입니다. \\[\\hat{\\theta} = \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X=x)\\]\n가능도함수의 함숫값(가능도)는 모수가 주어진 상황에서 확률분포의 값과 같으므로 식을 다음과 같이 쓸수도 있습니다. \\[\\hat{\\theta} = \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X=x) = \\underset{\\theta}{\\text{argmax}}\\,Pr(X=x|\\theta)\\]"
+  },
+  {
+    "objectID": "posts/probabilty,statistics/MLE.html#nll",
+    "href": "posts/probabilty,statistics/MLE.html#nll",
+    "title": "최대가능도 추정법(MLE)",
+    "section": "NLL",
+    "text": "NLL\nLL은 log likelyhood의 약자로 likelyhood에 log를 취해준 값입니다. 로그함수를 취해도 함수가 최대값을 갖는 모수 \\(\\theta\\)위차가 변하지 않고 계산을 곱셈을 더하기로 바꿔서 계산하기에 더 편리하기 때문에 LL을 사용합니다.\nNLL은 LL에 -를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있으며 따라서 경사하강법을 활용할 수 있습니다.\n최종적으로 \\(\\hat{\\theta}\\)는 다음과 같습니다. \\[\\hat{\\theta} = \\underset{\\theta}{argmin}\\,\\text{NLL} = \\underset{\\theta}{argmin}\\,-\\text{ln}\\,L(\\theta|X=x)\\]"
+  },
+  {
+    "objectID": "posts/probabilty,statistics/notation.html",
+    "href": "posts/probabilty,statistics/notation.html",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "",
+    "text": "확률분포에서 ;와|에 관한 notation 정리"
+  },
+  {
+    "objectID": "posts/probabilty,statistics/notation.html#언제-를-사용하지",
+    "href": "posts/probabilty,statistics/notation.html#언제-를-사용하지",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "언제 ;를 사용하지?",
+    "text": "언제 ;를 사용하지?\n;의 뒤에는 다변수 함수에서 특정 변수를 시켜놓았다라는 의미로 쓰인다. 다음과 같은 이변수함수를 생각해보자 \\[f(x,y)\\] 독립변수 x와 y를 갖는 함수이며 두 변수 모두에 대해서 미분가능하다. 여기서 변수 y가 어떤 어떤 값으로 고정된것이 알려지거나 또는 고정된상황을 가정한 후 x에 대해서만 관심이 있다고 해보자(미분,극한등을 아마도?취하고 싶다..아마도…) 이때는 이변수함수로 표기하는것이 아닌 일변수함수로 표기해야한다. 그때는 다음과 같이 표기하면 된다. \\[\nf(x;y)\n\\]\n이렇게 표기하면 y값은 이제 어떤 값으로 이미 설정(setting)되거나 고정(fixed)되어있음을 의미한다."
+  },
+  {
+    "objectID": "posts/probabilty,statistics/notation.html#확률함수에서-의-사용",
+    "href": "posts/probabilty,statistics/notation.html#확률함수에서-의-사용",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "확률함수에서 ;의 사용",
+    "text": "확률함수에서 ;의 사용\n베르누이분포의 확률질량함수는 다음과 같다 \\[\nf_X(x) = p^x(1-p)^{1-x}\n\\]\n이식을 해석해보면 다음과 같다. - 좌변 : 확률변수 X에 관한 확률함수이며 실험 또는 시행으로부터 확률변수X가 취할 수 있는 값인 변수x를 입력으로 갖는다. - 우변 : 구체적인 확률질량함수(또는 확률밀도함수)이다.\n베르누이분포 확률질량함수에서 이미 setting,fixed된 모수(parameter)를 명시적으로 표현하고자 할때에는 다음과 같은 표기를 사용한다. \\[f_X(x;p) = p^x(1-p)^{1-x}\\]"
+  },
+  {
+    "objectID": "posts/probabilty,statistics/notation.html#의-사용-1",
+    "href": "posts/probabilty,statistics/notation.html#의-사용-1",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "|의 사용",
+    "text": "|의 사용\n|는 given that이라는 의미이며 |의 오른쪽에는 조건 또는 주어지는 상황이 나온다. 확률,통계 분야에서만 쓰이며 조건부 확률이나,베이지안에서 많이 쓰이는 기호라고 한다. 여기서 조건은 확률변수의 어떤 값이므로 마찬가지로 미리주어지는 값이다. 변수가 아니라 모수(parameter)로 생각할 수 있으며 결국에는 설정된,고정된 값이다.\n조건부 확률분포(조건부확률밀도함수,조건부 확률함수)는 다음과 같다. \\[\np_{X|Y}(x|y) = \\frac{p_{XY}(x,y)}{p_Y(y)}\\\\\np_{X|Y}(y|x) = \\frac{p_{XY}(x,y)}{p_X(x)}\n\\]  가장 윗식을 해석해보면 다음과 같다. - 좌변 : 확률변수 Y가 주어진(given)상황에서 확률변수X의 확률(또는 확률밀도)를 나타내는 함수이며 시행으로부터 확률변수 X가 취할 수 있는 값 x를 입력으로 받는다. 조건부 확률분포에서 Y의 값은 y로 주어져 있다고 가정하므로 입력하는 변수가 아니다. 따라서 확률변수 Y는 변수가 아니라 모수(parameter)이다. - 우변 : 조건부확률분포 공식."
+  },
+  {
+    "objectID": "posts/probabilty,statistics/notation.html#결론-과",
+    "href": "posts/probabilty,statistics/notation.html#결론-과",
+    "title": "확률분포에서 ;와|의 사용",
+    "section": "결론 ; 과 |",
+    "text": "결론 ; 과 |\n\\[p_{\\theta}(x) = p(x;\\theta) = p(x|\\theta)\\]  ;는 수학의 모든 분야에서 쓰이지만 |는 확률통계분야에서만 쓰인다. ;다음에는 이미 설정되거나 고정된 값이 나오며 |다음에는 이미 주어진 조건이 나온다. 확률,통계 분야에서는 |다음에 나오는 조건은 조건부확률분포에서의 주어진 조건이자 설정된,고정된 값인 경우가 많다. 따라서 비공식적으로 혼용해서 쓰며 경험상 ;다음에는 그래도 설정된 값을 의미하는 모수(parameter)가 |는 조건부 확률이나 확률분포를 쓰는 경우가 많은 것 같다.\n참고링크 링크1(;의 사용법) 링크2(조건부확률분포) 링크3(표기법의 혼용)"
   }
 ]
