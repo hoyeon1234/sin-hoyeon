@@ -157,6 +157,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#본격적인-유도" id="toc-본격적인-유도" class="nav-link" data-scroll-target="#본격적인-유도">본격적인 유도</a>
   <ul class="collapse">
   <li><a href="#모수를-로지스틱함수로-바꾸기" id="toc-모수를-로지스틱함수로-바꾸기" class="nav-link" data-scroll-target="#모수를-로지스틱함수로-바꾸기">모수를 로지스틱함수로 바꾸기</a></li>
+  <li><a href="#linear-combination이-포함된-베르누이-분포의-pmf" id="toc-linear-combination이-포함된-베르누이-분포의-pmf" class="nav-link" data-scroll-target="#linear-combination이-포함된-베르누이-분포의-pmf">linear combination이 포함된 베르누이 분포의 pmf</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#mle" id="toc-mle" class="nav-link" data-scroll-target="#mle">MLE</a></li>
@@ -179,18 +180,21 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p>로지스틱회귀의 기본 가정은 다음과 같습니다.</p>
 <p><code>-</code> 각각의 데이터요소(샘플)는 여러개의 독립변수와 0또는1만 가질수 있는 종속변수로 이루어져 있습니다. <br> <code>-</code> 임의의 m개의 독립변수와 이진 종속변수를 가지는 i번째 샘플을 나타나면 다음과 같습니다.<br></p>
 <p><span class="math display">\[(x_{1,i},x_{2,i},\dots,x_{m,i}),Y_{i}\]</span></p>
-<p><code>-</code> 종속변수 <span class="math inline">\(Y_{i}\)</span>는 베르누이 분포를 따르는 확률변수입니다.<br></p>
-<p><span class="math display">\[Y_i|x_{1,i},x_{2,i},\dots,x_{m,i} \sim \text{Bernouli}(p_{i})\]</span></p>
-<p>독립변수의 값이 주어졌을때 확률변수<span class="math inline">\(Y_{i}\)</span>가 따르는 조건부확률분포가 베르누이 분포임을 의미합니다. 확률변수가 어떤 분포를 따르고 있음에 집중한 notation입니다. p_{i}는 확률변수가 y가 1인 클래스(범주)에 속할 확률입니다. <span class="math display">\[Pr\,(Y_{i} = y|x_{1,i},x_{2,i},\dots,x_{m,i}\,) =
+<p><code>-</code> <span class="math inline">\(x_{1,i},x_{2,i},\dots,x_{m,i}\)</span>가 주어진 상황에서 종속변수 <span class="math inline">\(Y_{i}\)</span>는 베르누이 분포를 따르는 확률변수입니다.<br></p>
+<span class="math display">\[\begin{aligned}
+&amp; Y_i|x_{1,i},x_{2,i},\dots,x_{m,i} \sim \text{Bernouli}(p_{i}) \nonumber \\
+&amp; \text{where},p_{i} = P(Y|X=1)
+\end{aligned}\]</span>
+<p><code>-</code> 확률변수<span class="math inline">\(Y_{i}\)</span>가 따르는 확률함수를 구체적으로 표현한 식입니다.<br> <span class="math display">\[Pr\,(Y_{i} = y|x_{1,i},x_{2,i},\dots,x_{m,i}\,) =
 \begin{cases}
 p_i   &amp; \text{if }y=1, \\
 1-p_i &amp; \text{if }y=0
-\end{cases} = p_i^y(1-p_i)^{1-y}\]</span> <br> 확률변수<span class="math inline">\(Y_{i}\)</span>가 따르는 확률함수에 대한 구체적인 식을 보여줍니다. 가장 우측에 있는 식은 중간에 있는 식의 간단한 버전입니다.<br></p>
-<p>기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로 기대되는(expected) 값(value)입니다. 베르누이분포를 따르는 확률변수 <span class="math inline">\(Y_{i}\)</span>의 기댓값을 구하면 다음과 같습니다.<br></p>
-<p><span class="math display">\[E\,[Y_i|x_{1,i},x_{2,i},\dots,x_{m,i}]\, = \sum_{i=0}^{i=1} = 1 \times p_{i} + 0 \times (1-p_{i}) = p_{i}\]</span></p>
+\end{cases} = p_i^y(1-p_i)^{1-y}\]</span> <br></p>
+<p><code>-</code> 기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로 기대되는(expected) 값(value)입니다. 베르누이분포를 따르는 확률변수 <span class="math inline">\(Y_{i}\)</span>의 기댓값을 구하면 다음과 같습니다.<br></p>
+<p><span class="math display">\[E\,[Y_i|x_{1,i},x_{2,i},\dots,x_{m,i}]\, = \sum_{i=0}^{i=1}p_iy_i = 1 \times p_{i} + 0 \times (1-p_{i}) = p_{i}\]</span></p>
 <section id="기댓값에-대한-고찰" class="level2">
 <h2 class="anchored" data-anchor-id="기댓값에-대한-고찰">기댓값에 대한 고찰</h2>
-<p>기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값과 베르누이분포의 모수가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 모수는 기댓값이므로 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 아는것이므로 많이 발생한 사건 또는 분류된 클래스로 종속변수 Y의 값을 결정하는 것은 타당해보입니다.<br> <code>-</code> e.g.<br></p>
+<p>기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값(<span class="math inline">\(E\,[Y_i|x_{1,i},x_{2,i}\.,\dots,x_{m,i}]\)</span>)과 모수<span class="math inline">\((p_i)\)</span>가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 알 수 있고 이를 바탕으로 종속변수 Y의 값을 결정하는 것은 타당합니다.<br> <code>-</code> e.g.<br></p>
 <ul>
 <li><span class="math inline">\(E\,[y_i]\, = \hat{p_i}&lt;0.5\)</span> =&gt; 무한히 실행했을때 0인 경우가 더 많을 것임 =&gt; 관측치를 0으로 예측 <br></li>
 <li><span class="math inline">\(E\,[y_i]\, = \hat{p_i}\geq0.5\)</span>=&gt;무한히 실행했을때 1인 경우가 더 많을 것임 =&gt; 관측치를 1로 예측</li>
@@ -201,15 +205,16 @@ p_i   &amp; \text{if }y=1, \\
 <h1>로지스틱회귀 수식 유도</h1>
 <section id="concept" class="level2">
 <h2 class="anchored" data-anchor-id="concept">concept</h2>
-<p>선형회귀에서 추정하고자하는 변수<span class="math inline">\(y\)</span>는 <span class="math inline">\(x_0,x_1,...,x_m\)</span>과 <span class="math inline">\(w_0,w_1,...,w_m\)</span>과의 linear combination표현되었으며 각각의 <span class="math inline">\(w\)</span>는 독립변수 각각의 독립변수<span class="math inline">\(x\)</span>가 종속변수<span class="math inline">\(y\)</span>에 영향을 미치는 정도로 해석할 수 있었습니다. 로지스틱회귀에서도 선형회귀에서의 아이디어를 핵심아이디어를 가지고와서 추정하고자 하는 모수<span class="math inline">\(p_i\)</span>를 <span class="math inline">\(x_0,x_1,...,x_m\)</span>과 <span class="math inline">\(w_0,w_1,...,w_m\)</span>의 linear combination로 표현하고자 합니다.<br></p>
+<p>선형회귀에서 추정하고자하는 변수<span class="math inline">\(y\)</span>는 <span class="math inline">\(x_0,x_1,...,x_m\)</span>과 <span class="math inline">\(w_0,w_1,...,w_m\)</span>과의 linear combination이였습니다.위에서 언급했듯이 특정샘플에 대한 모수를 적절하게 추정할 수 있다면 관측치가 어떤 클래스에 속할지 합리적으로 알 수 있으므로,로지스틱회귀에서도 선형회귀에서의 아이디어를 핵심아이디어를 가지고와서 추정하고자 하는 모수<span class="math inline">\(p_i\)</span>를 <span class="math inline">\(x_0,x_1,...,x_m\)</span>과 <span class="math inline">\(w_0,w_1,...,w_m\)</span>의 linear combination로 표현하고자 합니다.<br></p>
 <p><code>선형회귀의 아이디어(linear combination)</code> + <code>모수에 대한 표현</code>이라는 조건을 만족하기 위해서 최종적인 식은 다음과 조건을 만족해야 것입니다.<br> <code>-</code> <span class="math inline">\((x_0,x_1,...,x_m)\,,(w_0,w_1,..,w_m)\)</span>의 linear combination 식에 있어야 함.<br> <code>-</code> linearcombination = 모수(추정하고자하는값)여야 함.</p>
+<p>why linear combination?</p>
 </section>
 <section id="본격적인-유도" class="level2">
 <h2 class="anchored" data-anchor-id="본격적인-유도">본격적인 유도</h2>
 <section id="모수를-로지스틱함수로-바꾸기" class="level3">
 <h3 class="anchored" data-anchor-id="모수를-로지스틱함수로-바꾸기">모수를 로지스틱함수로 바꾸기</h3>
 <ol type="1">
-<li><span class="math inline">\(\bf{X},\bf{W}\)</span>의 선형조합이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다.<br> <span class="math display">\[\begin{align}
+<li><span class="math inline">\((x_0,x_1,...,x_m)\,,(w_0,w_1,..,w_m)\)</span>의 linear combination이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다.<br> <span class="math display">\[\begin{align}
 f(i) = x_{1,i}w_0 + x_{2,i}w_1 + x_2w_2 + ... + x_{m,i}w_m = X_iW \nonumber \\
 where,X_i = \,[x_{1,i},x_{2,i},\dots,x_{m,i}]\, ,W = \,[w_0,w_1,\dots,w_m]^\text{T} \nonumber \\
 \end{align}\]</span></li>
@@ -221,8 +226,11 @@ where,X_i = \,[x_{1,i},x_{2,i},\dots,x_{m,i}]\, ,W = \,[w_0,w_1,\dots,w_m]^\text
 <ol start="5" type="1">
 <li>이제 양변의 범위는 맞춰졌으므로 추정하고자 하는 변수 <span class="math inline">\(p_i\)</span>가 좌변에 오도록 정리해봅시다. <span class="math display">\[p_i = \frac{1}{\,(1 + e^{-WX_i})\, }\]</span> (전개)<br> <span class="math inline">\(\frac{p_i}{1-p_i} = e^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i = \,(1-p_i)\,e^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i = \,e^{WX_i}-p_ie^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i + p_ie^{WX_i} = \,e^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i\,(1 + e^{WX_i})\, = \,e^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i = \frac{\,e^{WX_i}}{\,(1 + e^{WX_i})\, }\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i = \frac{1}{\,(1 + e^{-WX_i})\, }\)</span><br></li>
 </ol>
-<p>최종적으로, 모수에대한 표현식은 다음과 같습니다. <span class="math display">\[p_i = Pr\,(Y_i = 1|X_i)\, = \frac{1}{\,1 + e^{-WX_i}\,}\]</span> 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재합니다.</p>
-<p>모수 <span class="math inline">\(p_i\)</span>가 새롭게 표현되었으므로 베르누이분포의 확률질량함수도 다르게 표현할 수 있습니다. <span class="math display">\[Pr\,(Y_{i} = y|x_{1,i},x_{2,i},\dots,x_{m,i},W) =
+<p>최종적으로, 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재하도록 새롭게 표현한 모수는 다음과 같습니다. <span class="math display">\[p_i(X_i;W) = Pr\,(Y_i = 1|X_i)\, = \frac{1}{\,1 + e^{-WX_i}\,}\]</span> <span class="math inline">\(p_i\)</span>는 고정된 <span class="math inline">\(W\)</span>를 가지며 <span class="math inline">\(X_i\)</span>라는 변수에 따라서 변하는 함수입니다.</p>
+</section>
+<section id="linear-combination이-포함된-베르누이-분포의-pmf" class="level3">
+<h3 class="anchored" data-anchor-id="linear-combination이-포함된-베르누이-분포의-pmf">linear combination이 포함된 베르누이 분포의 pmf</h3>
+<p>모수 <span class="math inline">\(p_i\)</span>가 새롭게 표현되었으므로 베르누이분포의 확률질량함수도 더 전개할 수 있습니다. <span class="math display">\[Pr\,(Y_{i} = y|x_{1,i},x_{2,i},\dots,x_{m,i},W) =
 \begin{cases}
 p_i   &amp; \text{if }y=1, \\
 1-p_i &amp; \text{if }y=0
