@@ -161,6 +161,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   </ul></li>
   </ul></li>
   <li><a href="#mle" id="toc-mle" class="nav-link" data-scroll-target="#mle">MLE</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#베르누이-분포-전개" id="toc-베르누이-분포-전개" class="nav-link" data-scroll-target="#베르누이-분포-전개">1.베르누이 분포 전개</a></li>
+  <li><a href="#nll전개" id="toc-nll전개" class="nav-link" data-scroll-target="#nll전개">2.NLL전개</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -240,7 +245,40 @@ p_i &amp; \text{if}\,y_i=1 \\
 &amp;= p_i^{y_i}(1-p_i)^{1-y_i} \\
 &amp;= \frac{e^{y_iWX_i}}{1+e^{WX_i}}
 \end{align}\]</span> <br></p>
-참고 : (3번식 전개)<br>
+</section>
+</section>
+</section>
+<section id="mle" class="level1">
+<h1>MLE</h1>
+<p>베르누이 분포의 모수 <span class="math inline">\(W\)</span>만 적절하게 추정할 수 있다면 임의의 데이터에 대해서 독립변수 <span class="math inline">\(X_i = (x_{0,i},x_{1,i},\dots,x_{m,i})\)</span>가 들어왔을때 <span class="math inline">\(p_i = Pr(Y=1|X_i;w)\)</span>를 구하고 샘플이 속하는 적절한 클래스(0 또는 1)을 예측할 수 있습니다. 베르누이 분포의 모수는 어떻게 추정할 수 있을까요?<br></p>
+<p>주어진 상황은 다음과 같습니다.<br></p>
+<ol type="1">
+<li>주어진 데이터
+<span class="math display">\[\begin{aligned}
+&amp;\text{Given}\, ,D={(X_i,y_i)}_{i=1}^{i=n} \\
+&amp; \text{where}\, ,X_i = ({x_{0,i},x_{1,i},\dots,x_{m,i})}
+\end{aligned}\]</span>
+<br></li>
+<li>로지스틱 회귀의 가정
+<span class="math display">\[\begin{aligned}
+&amp;\text{Suppose that data(or sample) } y_1,y_2,\dots,y_n \text{ are realization of a random variables } \\
+&amp;Y_1,Y_2,Y_3,\dots,Y_n \\
+&amp;\text{where,}\, Y_1 \sim Bern(Y|X_1;W),Y_2 \sim Bern(Y|X_2;W),\dots,Y_N \sim Bern(Y|X_n;W)\\
+\end{aligned}\]</span>
+<br></li>
+</ol>
+<p>여기서는 MLE를 통해 모수를 추정합니다.(참고:<a href="https://hoyeon1234.github.io/sin-hoyeon/posts/probabilty,statistics/MLE.html">MLE</a>)<br> 가능도는 다음과 같습니다.<br> <span class="math display">\[L(W;y_1,y_2,\dots,y_n) = p_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n;W) = \underset{i=1}{\overset{i=n}{\Large{\Pi}}}\frac{e^{y_iWX_i}}{1+e^{WX_i}}\]</span> <br></p>
+우리가 구하고자 하는 추정값은 다음과 같습니다.<br>
+<span class="math display">\[\begin{aligned}
+\hat{W}_{MLE} &amp;= \underset{W}{\text{argmax}}\,\underset{i=1}{\overset{i=n}{\Large{\Pi}}}\frac{e^{y_iWX_i}}{1+e^{WX_i}} \\
+&amp;= \underset{W}{\text{argmin}}-\overset{n}{\underset{i=1}{\LARGE{\Sigma}}}y_iWX_i + \overset{n}{\underset{i=1}{\LARGE{\Sigma}}}ln(1+e^{WX_i})
+\end{aligned}\]</span>
+<p>목적함수가 최솟값을 가지려면 <span class="math inline">\(\large{\frac{\partial J}{\partial w_0}=\frac{\partial J}{\partial w_1}=\frac{\partial J}{\partial w_2}=\dots\ = \frac{\partial J}{\partial w_m}} = 0\)</span> <br> 즉,<span class="math inline">\(\nabla_wJ(W) = [\large{\frac{\partial J}{\partial w_0},\frac{\partial J}{\partial w_1},\frac{\partial J}{\partial w_2}=\dots\,\frac{\partial J}{\partial w_m}}]^\text{T} = \overrightarrow{\bf{0}}\)</span> 이어야 합니다.</p>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<section id="베르누이-분포-전개" class="level2">
+<h2 class="anchored" data-anchor-id="베르누이-분포-전개">1.베르누이 분포 전개</h2>
 <span class="math display">\[\begin{aligned}
 p_i^y(1-p_i)^{1-y} &amp;= \ (\frac{1}{\,1 + e^{-WX_i}\,})^y\,\,(1-\frac{1}{\,1 + e^{-WX_i}\,})^{1-y} \\
 &amp;= (\frac{1}{1+e^{-WX_i}})^{y_i}(\frac{e^{-WX_i}}{1+e^{-WXi}})^{1-y_i} \\
@@ -252,23 +290,23 @@ p_i^y(1-p_i)^{1-y} &amp;= \ (\frac{1}{\,1 + e^{-WX_i}\,})^y\,\,(1-\frac{1}{\,1 +
 &amp;= \frac{e^{y_iWX_i}}{1+e^{WX_i}}
 \end{aligned}\]</span>
 </section>
-</section>
-</section>
-<section id="mle" class="level1">
-<h1>MLE</h1>
-<p>베르누이 분포의 모수 <span class="math inline">\(W\)</span>만 적절하게 추정할 수 있다면 임의의 데이터에 대해서 독립변수 <span class="math inline">\(X_i = (x_{0,i},x_{1,i},\dots,x_{m,i})\)</span>가 들어왔을때 <span class="math inline">\(p_i = Pr(Y=1|X_i;w)\)</span>를 구하고 샘플이 속하는 적절한 클래스(0 또는 1)을 예측할 수 있습니다. 베르누이 분포의 모수는 어떻게 추정할 수 있을까요?<br></p>
-주어진 상황은 다음과 같습니다.<br>
+<section id="nll전개" class="level2">
+<h2 class="anchored" data-anchor-id="nll전개">2.NLL전개</h2>
 <span class="math display">\[\begin{aligned}
-&amp;\text{Given}\, ,D={(X_i,y_i)}_{i=1}^{i=n} \\
-&amp; \text{where}\, ,X_i = ({x_{0,i},x_{1,i},\dots,x_{m,i})}
+LL &amp;= \text{ln}(\underset{i=1}{\overset{n}{\LARGE{\Pi}}}\,\frac{e^{y_iWX_i}}{1+e^{WX_i}}) \\
+&amp;=\overset{n}{\underset{i=1}{\LARGE{\Sigma}}}(\frac{e^{y_iWX_i}}{1+e^{WX_i}}) \\
+&amp;= \overset{n}{\underset{i=1}{\LARGE{\Sigma}}}\,[\text{ln}e^{y_iWX_i} - \text{ln}(1+e^{WX_i})]\, \\
+&amp;= \overset{n}{\underset{i=1}{\LARGE{\Sigma}}}\,[y_iWX_i - \text{ln}(1+e^{WX_i})], \\
+&amp;= \overset{n}{\underset{i=1}{\LARGE{\Sigma}}}y_iWX_i - \overset{n}{\underset{i=1}{\LARGE{\Sigma}}}ln(1+e^{WX_i}) \\
+
+NLL &amp;= -\overset{n}{\underset{i=1}{\LARGE{\Sigma}}}y_iWX_i + \overset{n}{\underset{i=1}{\LARGE{\Sigma}}}ln(1+e^{WX_i}) \\
+
+
+
 \end{aligned}\]</span>
-<p>이 상황은 로지스틱회귀의 가정에 의해서 각각의 샘플에서의 확률변수 <span class="math inline">\(Y_1 \sim Bern(y;W),Y_2 \sim Bern(y;W), \dots ,Y_N \sim Bern(y;W)\)</span>를 따를때, 어떤 모수 <span class="math inline">\(W\)</span>를 가지며 확률변수<span class="math inline">\((Y_1,Y_2,\dots,Y_N)\)</span>가 동시에 어떤 값을 취하는 사건에 대한 확률을 나타낸 결합확률분포로부터 표본(realization,sample)<span class="math inline">\(({y_1,y_2,\dots,y_n})\)</span>이 추출(sampling)된 상황입니다. 결합확률분포의 구체적인 함수는 다음과 같습니다.<br></p>
-<p><span class="math display">\[p_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n;W) = \underset{i=1}{\overset{i=n}{\Large{\Pi}}}\frac{e^{y_iWX_i}}{1+e^{WX_i}}\]</span></p>
-<p>여기서 알 수 있는 점은 베르누이분포의 모수 <span class="math inline">\(W\)</span>는 결합확률분포함수의 모수<span class="math inline">\(W\)</span>와 같다는 점입니다.결합확률분포함수에서 우리는 주어진 데이터 <span class="math inline">\(y_1,y_2,\dots,y_n\)</span>를 활용할 수 있습니다.서로다른 모수 <span class="math inline">\(W\)</span>를 갖는 여러 결합확률 분포 중, 어떤 (결합)확률분포가 가장 주어진 표본<span class="math inline">\((y_1,y_2,\dots,y_n)\)</span>에 적합한지 가능도함수함수를 통해서 최댓값을 추정값<span class="math inline">\(\hat{W}\)</span>으로하는 방법이 MLE 입니다.<br></p>
-<p>가능도 함수는 다음과 같습니다.<br> <span class="math display">\[L(W;y_1,y_2,\dots,y_n) = p_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n;W) = \underset{i=1}{\overset{i=n}{\Large{\Pi}}}\frac{e^{y_iWX_i}}{1+e^{WX_i}}\]</span> <br></p>
-<p>우리가 구하고자 하는 추정값은 다음과 같습니다.<br> <span class="math display">\[\hat{W}_{MLE} = \underset{W}{\text{argmax}}\,\underset{i=1}{\overset{i=n}{\Large{\Pi}}}\frac{e^{y_iWX_i}}{1+e^{WX_i}}\]</span></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
