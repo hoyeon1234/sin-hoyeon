@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Hoyeon's Blog",
     "section": "",
-    "text": "최대가능도 추정법(MLE)\n\n\n\n\n\n\n\nprobability&statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\nprobability&statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n딥러닝(2) - 로지스틱회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\n신호연\n\n\n\n\n\n\nNo matching items"
+    "text": "최대가능도 추정법(MLE)\n\n\n\n\n\n\n\nprobability&statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 29, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\nprobability&statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n딥러닝(2) - 로지스틱회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\n신호연\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html",
@@ -81,21 +81,42 @@
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#기댓값에-대한-고찰",
     "title": "딥러닝(2) - 로지스틱회귀",
     "section": "기댓값에 대한 고찰",
-    "text": "기댓값에 대한 고찰\n기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값과 베르누이분포의 모수가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 모수는 기댓값이므로 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 아는것이므로 많이 발생한 사건 또는 분류된 클래스로 종속변수 Y의 값을 결정하는 것은 타당해보입니다. - e.g.\n\n\\(E\\,[y_i]\\, = \\hat{p_i}<0.5\\) => 무한히 실행했을때 0인 경우가 더 많을 것임 => 관측치를 0으로 예측 \n\\(E\\,[y_i]\\, = \\hat{p_i}\\geq0.5\\)=>무한히 실행했을때 1인 경우가 더 많을 것임 => 관측치를 1로 예측"
+    "text": "기댓값에 대한 고찰\n기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값(\\(E\\,[y|x_{1,i},x_{2,i}\\.,\\dots,x_{m,i}]\\))과 모수\\((p_i)\\)가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 알 수 있고 이를 바탕으로 종속변수 Y의 값을 결정하는 것은 타당합니다. - e.g.\n\n\\(E\\,[y]\\, = \\hat{p_i}<0.5\\) => 무한히 실행했을때 0인 경우가 더 많을 것임 => 관측치를 0으로 예측 \n\\(E\\,[y]\\, = \\hat{p_i}\\geq0.5\\)=>무한히 실행했을때 1인 경우가 더 많을 것임 => 관측치를 1로 예측"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#concept",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#concept",
     "title": "딥러닝(2) - 로지스틱회귀",
     "section": "concept",
-    "text": "concept\n선형회귀에서 추정하고자하는 변수\\(y\\)는 \\(x_0,x_1,...,x_m\\)과 \\(w_0,w_1,...,w_m\\)과의 linear combination표현되었으며 각각의 \\(w\\)는 독립변수 각각의 독립변수\\(x\\)가 종속변수\\(y\\)에 영향을 미치는 정도로 해석할 수 있었습니다. 로지스틱회귀에서도 선형회귀에서의 아이디어를 핵심아이디어를 가지고와서 추정하고자 하는 모수\\(p_i\\)를 \\(x_0,x_1,...,x_m\\)과 \\(w_0,w_1,...,w_m\\)의 linear combination로 표현하고자 합니다.\n선형회귀의 아이디어(linear combination) + 모수에 대한 표현이라는 조건을 만족하기 위해서 최종적인 식은 다음과 조건을 만족해야 것입니다. - \\((x_0,x_1,...,x_m)\\,,(w_0,w_1,..,w_m)\\)의 linear combination 식에 있어야 함. - linearcombination = 모수(추정하고자하는값)여야 함."
+    "text": "concept\n선형회귀에서 추정하고자하는 변수\\(y\\)는 \\(x_0,x_1,...,x_m\\)과 \\(w_0,w_1,...,w_m\\)과의 linear combination이였습니다.위에서 언급했듯이 특정샘플에 대한 모수를 적절하게 추정할 수 있다면 관측치가 어떤 클래스에 속할지 합리적으로 알 수 있으므로,로지스틱회귀에서도 선형회귀에서의 아이디어를 핵심아이디어를 가지고와서 추정하고자 하는 모수\\(p_i\\)를 \\(x_0,x_1,...,x_m\\)과 \\(w_0,w_1,...,w_m\\)의 linear combination로 표현하고자 합니다.\n선형회귀의 아이디어(linear combination) + 모수에 대한 표현이라는 조건을 만족하기 위해서 최종적인 식은 다음과 조건을 만족해야 것입니다. - \\((x_0,x_1,...,x_m)\\,,(w_0,w_1,..,w_m)\\)의 linear combination 식에 있어야 함. - linearcombination = 모수(추정하고자하는값)여야 함.\nwhy linear combination?"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#본격적인-유도",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#본격적인-유도",
     "title": "딥러닝(2) - 로지스틱회귀",
     "section": "본격적인 유도",
-    "text": "본격적인 유도\n\n모수를 로지스틱함수로 바꾸기\n\n\\(\\bf{X},\\bf{W}\\)의 선형조합이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다. \\[\\begin{align}\nf(i) = x_{1,i}w_0 + x_{2,i}w_1 + x_2w_2 + ... + x_{m,i}w_m = X_iW \\nonumber \\\\\nwhere,X_i = \\,[x_{1,i},x_{2,i},\\dots,x_{m,i}]\\, ,W = \\,[w_0,w_1,\\dots,w_m]^\\text{T} \\nonumber \\\\\n\\end{align}\\]\n좌변은 예측하고자 하는 값인 모수여야 합니다. 좌변을 바꿔봅니다. \\[p_i = WX_i\\]\n좌변의 베르누이 분포의 모수 \\(p_i\\)는 확률변수 \\(Y_i = 1\\)인 사건이 일어날 확률입니다. 그러므로 \\([0,1]\\)이라는 범위를 가지는 반면 우변의 값\\(WX_i\\)은 \\(\\,[-\\infty,\\infty]\\,\\)에 범위를 가집니다. 여기서 Odss Ratio를 써서 모수 \\(p_i\\)를 포함하며 더 넓은 range를 갖도록 좌변을 수정합니다. \\[\\text{Odds Ratio} = \\frac{p_i}{1-p_i} = WX_i\\]\n좌변을 Odds Ratio로 수정했지만 여전히 좌변의 범위는\\(\\,[0,\\infty]\\,\\)으로 우변에 비해 좁습니다. 따라서 Odds Ratio에 로짓변환을 취하여 좌변의 범위를 \\(\\,[-\\infty,\\infty]\\)로 넓혀줍니다. \\[\\text{logit}(p) = \\text{ln}\\frac{p_i}{1-p_i} = WX_i\\]\n\n위 식을 해석하기 위해 \\(X\\)의 첫번째 요소인 \\(x_1\\)에 대응하는 회귀계수 \\(w_1\\)이 학습결과 3으로 정해졌다고 가정해봅시다.만약 \\(x_1\\)의 값이 1증가한다면 로그오즈비가 3증가합니다.\n\n이제 양변의 범위는 맞춰졌으므로 추정하고자 하는 변수 \\(p_i\\)가 좌변에 오도록 정리해봅시다. \\[p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\] (전개) \\(\\frac{p_i}{1-p_i} = e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,(1-p_i)\\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,e^{WX_i}-p_ie^{WX_i}\\) \\(\\Longleftrightarrow p_i + p_ie^{WX_i} = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i\\,(1 + e^{WX_i})\\, = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\frac{\\,e^{WX_i}}{\\,(1 + e^{WX_i})\\, }\\) \\(\\Longleftrightarrow p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\)\n\n최종적으로, 모수에대한 표현식은 다음과 같습니다. \\[p_i = Pr\\,(Y_i = 1|X_i)\\, = \\frac{1}{\\,1 + e^{-WX_i}\\,}\\] 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재합니다.\n모수 \\(p_i\\)가 새롭게 표현되었으므로 베르누이분포의 확률질량함수도 다르게 표현할 수 있습니다. \\[Pr\\,(Y_{i} = y|x_{1,i},x_{2,i},\\dots,x_{m,i},W) =\n\\begin{cases}\np_i   & \\text{if }y=1, \\\\\n1-p_i & \\text{if }y=0\n\\end{cases} = p_i^y(1-p_i)^{1-y} = \\,(\\frac{1}{\\,1 + e^{-WX_i}\\,})^y\\,\\,(1-\\frac{1}{\\,1 + e^{-WX_i}\\,})^{1-y}\\,\\]"
+    "text": "본격적인 유도\n\n모수를 로지스틱함수로 바꾸기\n\n\\((x_0,x_1,...,x_m)\\,,(w_0,w_1,..,w_m)\\)의 linear combination이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다. \\[\\begin{align}\nf(i) = x_{1,i}w_0 + x_{2,i}w_1 + x_2w_2 + ... + x_{m,i}w_m = X_iW \\nonumber \\\\\nwhere,X_i = \\,[x_{1,i},x_{2,i},\\dots,x_{m,i}]\\, ,W = \\,[w_0,w_1,\\dots,w_m]^\\text{T} \\nonumber \\\\\n\\end{align}\\]\n좌변은 예측하고자 하는 값인 모수여야 합니다. 좌변을 바꿔봅니다. \\[p_i = WX_i\\]\n좌변의 베르누이 분포의 모수 \\(p_i\\)는 확률변수 \\(y = 1\\)인 사건이 일어날 확률입니다. 그러므로 \\([0,1]\\)이라는 범위를 가지는 반면 우변의 값\\(WX_i\\)은 \\(\\,[-\\infty,\\infty]\\,\\)에 범위를 가집니다. 여기서 Odss Ratio를 써서 모수 \\(p_i\\)를 포함하며 더 넓은 range를 갖도록 좌변을 수정합니다. \\[\\text{Odds Ratio} = \\frac{p_i}{1-p_i} = WX_i\\]\n좌변을 Odds Ratio로 수정했지만 여전히 좌변의 범위는\\(\\,[0,\\infty]\\,\\)으로 우변에 비해 좁습니다. 따라서 Odds Ratio에 로짓변환을 취하여 좌변의 범위를 \\(\\,[-\\infty,\\infty]\\)로 넓혀줍니다. \\[\\text{logit}(p) = \\text{ln}\\frac{p_i}{1-p_i} = WX_i\\]\n\n위 식을 해석하기 위해 \\(X\\)의 첫번째 요소인 \\(x_1\\)에 대응하는 회귀계수 \\(w_1\\)이 학습결과 3으로 정해졌다고 가정해봅시다.만약 \\(x_1\\)의 값이 1증가한다면 로그오즈비가 3증가합니다.\n\n이제 양변의 범위는 맞춰졌으므로 추정하고자 하는 변수 \\(p_i\\)가 좌변에 오도록 정리해봅시다. \\[p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\] (전개) \\(\\frac{p_i}{1-p_i} = e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,(1-p_i)\\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,e^{WX_i}-p_ie^{WX_i}\\) \\(\\Longleftrightarrow p_i + p_ie^{WX_i} = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i\\,(1 + e^{WX_i})\\, = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\frac{\\,e^{WX_i}}{\\,(1 + e^{WX_i})\\, }\\) \\(\\Longleftrightarrow p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\)\n\n최종적으로, 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재하도록 새롭게 표현한 모수는 다음과 같습니다. \\[p_i(y) = Pr\\,(y = 1|X_i;W)\\, = \\frac{1}{\\,1 + e^{-WX_i}\\,}\\]\n\n\n베르누이 분포의 pmf 정리\n베르누이분포의 모수 \\(p_i\\)가 새롭게 표현되었으므로 확률질량함수도 새롭게 표현할 수 있습니다. 마지막 수식은 베르누이 분포의 확률질량함수가 모수\\(W\\)에 관한 식으로 바뀌었음을 표현합니다.\n\\[\\begin{align}\nBern(y;p) = Pr\\,(Y_{i} = y|x_{1,i},x_{2,i},\\dots,x_{m,i};p_i) &=\n\\begin{cases}\np_i & \\text{if}\\,y=1 \\\\\n1-p_i & \\text{if}\\,y=0\n\\end{cases} \\\\\n&= p_i^{y}(1-p_i)^{1-y} \\\\\n&= \\frac{e^{yWX_i}}{1+e^{WX_i}}\n\\end{align}\\]"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#베르누이-분포-전개",
+    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#베르누이-분포-전개",
+    "title": "딥러닝(2) - 로지스틱회귀",
+    "section": "1.베르누이 분포 전개",
+    "text": "1.베르누이 분포 전개\n\\[\\begin{aligned}\np_i^y(1-p_i)^{1-y} &= \\ (\\frac{1}{\\,1 + e^{-WX_i}\\,})^y\\,\\,(1-\\frac{1}{\\,1 + e^{-WX_i}\\,})^{1-y} \\\\\n&= (\\frac{1}{1+e^{-WX_i}})^{y}(\\frac{e^{-WX_i}}{1+e^{-WXi}})^{1-y} \\\\\n&= (\\frac{1}{1+e^{-WX_i}})^{y}(\\frac{1}{1+e^{WXi}})^{1-y} \\\\\n&= (\\frac{1+e^{WX_i}}{1+e^{-WX_i}})^{y}(\\frac{1}{1+e^{WX_i}}) \\\\\n&= (\\frac{e^{WX_i}+e^{2WX_i}}{1+e^{WX_i}})^{y}(\\frac{1}{1+e^{WX_i}}) \\\\\n&= (\\frac{e^{WX_i}(1+e^{WX_i})}{1+e^{WX_i}})^{y}(\\frac{1}{1+e^{WX_i}}) \\\\\n&= e^{yWX_i}\\frac{1}{1+e^{WX_i}} \\\\\n&= \\frac{e^{yWX_i}}{1+e^{WX_i}}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개with-parameter-w",
+    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개with-parameter-w",
+    "title": "딥러닝(2) - 로지스틱회귀",
+    "section": "2.NLL전개(with parameter \\(W\\))",
+    "text": "2.NLL전개(with parameter \\(W\\))\n\\[\\begin{aligned}\nLL &= \\text{ln}(\\underset{i=1}{\\overset{n}{\\large{\\prod}}}\\,\\frac{e^{y_iWX_i}}{1+e^{WX_i}}) \\\\\n&=\\overset{n}{\\underset{i=1}{\\large{\\sum}}}(\\text{ln}\\frac{e^{y_iWX_i}}{1+e^{WX_i}}) \\\\\n&= \\overset{n}{\\underset{i=1}{\\large{\\sum}}}\\,[\\text{ln}e^{y_iWX_i} - \\text{ln}(1+e^{WX_i})]\\, \\\\\n&= \\overset{n}{\\underset{i=1}{\\large{\\sum}}}\\,[y_iWX_i - \\text{ln}(1+e^{WX_i})], \\\\\n&= \\overset{n}{\\underset{i=1}{\\large{\\sum}}}y_iWX_i - \\overset{n}{\\underset{i=1}{\\large{\\sum}}}ln(1+e^{WX_i}) \\\\\n\n\nNLL &= -\\overset{n}{\\underset{i=1}{\\large{\\sum}}}y_iWX_i + \\overset{n}{\\underset{i=1}{\\large{\\sum}}}ln(1+e^{WX_i}) \\\\\n\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개cross-entropy-유도하기",
+    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개cross-entropy-유도하기",
+    "title": "딥러닝(2) - 로지스틱회귀",
+    "section": "3.NLL전개(Cross Entropy 유도하기)",
+    "text": "3.NLL전개(Cross Entropy 유도하기)\n임의의 i번째 항에서의 확률변수 \\(Y_i\\)가 따르는 베르누이 분포는 다음과 같습니다. \n\\[\\begin{aligned}\nBern(y|X_i;p_i) = (p_i)^y(1-p_i)^{y-1}\n\\end{aligned}\\]\n모수가 \\(p_i\\)인 각각의 베르누이 분포를 따르는 확률변수 \\(Y_1,Y_2\\dots Y_n\\)으로부 n개의 realization(sample) \\(y_1,y_2\\dots y_n\\)에 대한 NLL는 다음과 같습니다. \n\\[\\begin{aligned}\nNLL &= -\\text{ln}\\prod_{i=1}^{n}p_i^{y_i}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}\\text{ln}p_i^{y_i}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}\\text{ln}p_i^{y_i} + \\text{ln}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}y_i\\text{ln}p_i + (1-y_i)\\text{ln}(1-p_i)\n\\end{aligned}\\]\n참고링크 1. 로지스틱 회귀 전개 2. 위키피디아 - 로지스틱 회귀 3. ratsgo’s blog"
   },
   {
     "objectID": "posts/deep learning/pytorch 구현/Pytorch Rnn 구현.html",
@@ -137,21 +158,21 @@
     "href": "posts/probabilty,statistics/MLE.html#likelyhood가능도",
     "title": "최대가능도 추정법(MLE)",
     "section": "Likelyhood(가능도)",
-    "text": "Likelyhood(가능도)\n가능도(Likely hood) 샘플이 주어질 때, 임의의 모수(parameter)\\(\\theta\\)를 가지는 확률분포가 주어진 샘플을 취할 가능성,확률을 나타내며 그 값은 확률함수의 값과 같습니다.\n\\[\\begin{align}\n\\text{Given}\\, (x_1,x_2,...,x_n),\\,L(\\theta|X = (x_1,x_2,\\dots,x_n)) = Pr(X=(x_1,x_2,\\dots,x_n)|\\theta)\n\\end{align}\\]\n\n\n\n\n\n\nNote\n\n\n\n가능도 함수의 함숫값은 확률함수의 함숫값과 같지만 가능도함수가 확률함수는 아닙니다. 또한 확률분포는 확률변수에 대한 함수로서 확률변수가 특정값을 취하거나 또는 특정구간안에 값이 존재할 가능성을 알려주지만 가능도함수는 가정한 확률분포의 모수에 대한 함수로서 임의의 모수를 가지는 확률분포가 특정값을 가질 가능성을 알려줍니다."
+    "text": "Likelyhood(가능도)\n모수의 가능도(Likelyhood)는 어떤 모숫값(parameter)\\(\\theta\\)을 가정했을때,데이터(샘플,실현)가 가능성(확률,확률밀도)을 나타냅니다. 일반적으로 \\(\\theta\\)에 따라서 변하는 함수이기에 가능도함수라고도 합니다.수학적으로 표현하면 다음과 같습니다.\n\\[\\begin{aligned}\n&\\text{Suppose}\\,(x_1,x_2,...,x_n)\\ \\text{are a realization of a random sample }(X_1,X_2,\\dots,X_n) \\\\\n&\\text{where,}\\, X_1 \\sim f_1(x;\\theta),X_2 \\sim f_2(x;\\theta),\\dots,X_n \\sim f_n(x;\\theta) \\\\\\\\\n\n&\\large{\\text{likelyhood function}}\\,L(\\theta) \\\\\n\\end{aligned}\\]\n\\[\\begin{aligned}\nL(\\theta|X_1 = x_1,X_2 = x_2,\\dots,X_n = x_n) &= p_{X_1,X_2,\\dots,X_n}(x_1,x_2,\\dots,x_n|\\theta) \\\\\n&= \\overset{i=n}{\\underset{i=1}{\\large{\\Pi}}}f_i(x_i)\n\\end{aligned}\\]\n\n\n\n\n\n\nNote\n\n\n\n주어진 샘플에 대한 확률(또는 확률밀도)은 \\(Y_1 = y_1,Y_2 = y_2 \\dots Y_n = y_n\\)인 사건이 동시에 일어날 결합확률(확률밀도)입니다. 그러므로 가능도 = 동시에 뽑일 가능성(확률,확률밀도) = 결합확률이라고 할 수 있습니다."
   },
   {
     "objectID": "posts/probabilty,statistics/MLE.html#mle최대가능도-추정법",
     "href": "posts/probabilty,statistics/MLE.html#mle최대가능도-추정법",
     "title": "최대가능도 추정법(MLE)",
     "section": "MLE(최대가능도 추정법)",
-    "text": "MLE(최대가능도 추정법)\n최대가능도추정법(MLE)는 확률분포의 모수를 추정하는 점추정방법 중 하나로 가능도함수의 함숫값(가능도)을 가장크게하는 모숫값 즉,주어진 샘플을 취할 가능성,확률이 가장 큰 모숫값을 모수에 대한 추정량으로 하는 방법입니다. \\[\\hat{\\theta} = \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X=x)\\]\n가능도함수의 함숫값(가능도)는 모수가 주어진 상황에서 확률분포의 값과 같으므로 식을 다음과 같이 쓸수도 있습니다. \\[\\hat{\\theta} = \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X=x) = \\underset{\\theta}{\\text{argmax}}\\,Pr(X=x|\\theta)\\]"
+    "text": "MLE(최대가능도 추정법)\n최대가능도추정법(MLE)는 확률분포의 모수를 추정하는 점추정방법 중 하나로 가능도를 가장크게하는 모숫값을 모수에 대한 추정값 하는 방법입니다.다음과 같습니다.\n\\[\\begin{aligned}\n\\hat{\\theta}_{MLE} &= \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X_1 = x_1,X_2 = x_2 \\dots X_n = x_n) \\\\\n&=  \\underset{\\theta}{\\text{argmax}},p_{X_1,X_2,\\dots,X_n}(x_1,x_2,\\dots,x_n|\\theta) \\\\\n&= \\underset{\\theta}{\\text{argmax}}\\,\\overset{i=n}{\\underset{i=1}{\\large{\\Pi}}}f_i(x_i)\n\\end{aligned}\\]\n\nLL\nLL은 log likelyhood의 약자로 likelyhood에 log를 취해준 값입니다. 로그함수를 취해도 함수가 MLE의 계산결과(가능도가 최대인 모수에 대한 추정값)의 위치가 변하지 않고 계산을 곱셈을 더하기로 바꿔서 계산하기에 더 편리하기 때문에 LL을 사용합니다. \\[LL = \\text{ln }L(\\theta|X_1 = x_1,X_2 = x_2 \\dots X_n = x_n)\\]\n\n\nNLL\nNLL은 LL에 -(negative)를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있습니다.(주로 최적화에서 이런 방식을 많이 사용합니다.) \\[NLL = -\\text{ln }L(\\theta|X_1 = x_1,X_2 = x_2 \\dots X_n = x_n)\\]"
   },
   {
-    "objectID": "posts/probabilty,statistics/MLE.html#nll",
-    "href": "posts/probabilty,statistics/MLE.html#nll",
+    "objectID": "posts/probabilty,statistics/MLE.html#정리---mle",
+    "href": "posts/probabilty,statistics/MLE.html#정리---mle",
     "title": "최대가능도 추정법(MLE)",
-    "section": "NLL",
-    "text": "NLL\nLL은 log likelyhood의 약자로 likelyhood에 log를 취해준 값입니다. 로그함수를 취해도 함수가 최대값을 갖는 모수 \\(\\theta\\)위차가 변하지 않고 계산을 곱셈을 더하기로 바꿔서 계산하기에 더 편리하기 때문에 LL을 사용합니다.\nNLL은 LL에 -를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있으며 따라서 경사하강법을 활용할 수 있습니다.\n최종적으로 \\(\\hat{\\theta}\\)는 다음과 같습니다. \\[\\hat{\\theta} = \\underset{\\theta}{argmin}\\,\\text{NLL} = \\underset{\\theta}{argmin}\\,-\\text{ln}\\,L(\\theta|X=x)\\]"
+    "section": "정리 - MLE",
+    "text": "정리 - MLE\nMLE를 통해서 모수에 대한 추정량을 구하면 다음과 같습니다.\n\\[\\begin{aligned}\n\\hat{\\theta}_{MLE} &= \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X_1 = x_1,X_2 = x_2 \\dots X_n = x_n)\\\\\n&= \\underset{\\theta}{\\text{argmax}},p_{X_1,X_2,\\dots,X_n}(x_1,x_2,\\dots,x_n|\\theta) \\\\\n&= \\underset{\\theta}{argmin}\\,-\\text{ln}\\,L(\\theta|X_1=x_1,X_2=x_2\\dots X_n=x_n)\n\\end{aligned}\\]\n링크1(random sample vs random variable) 링크2(추정,추정량,추정값) 링크3(mle) 링크4(mle)"
   },
   {
     "objectID": "posts/probabilty,statistics/notation.html",

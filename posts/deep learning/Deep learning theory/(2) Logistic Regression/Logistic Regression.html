@@ -157,9 +157,17 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#본격적인-유도" id="toc-본격적인-유도" class="nav-link" data-scroll-target="#본격적인-유도">본격적인 유도</a>
   <ul class="collapse">
   <li><a href="#모수를-로지스틱함수로-바꾸기" id="toc-모수를-로지스틱함수로-바꾸기" class="nav-link" data-scroll-target="#모수를-로지스틱함수로-바꾸기">모수를 로지스틱함수로 바꾸기</a></li>
+  <li><a href="#베르누이-분포의-pmf-정리" id="toc-베르누이-분포의-pmf-정리" class="nav-link" data-scroll-target="#베르누이-분포의-pmf-정리">베르누이 분포의 pmf 정리</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#mle" id="toc-mle" class="nav-link" data-scroll-target="#mle">MLE</a></li>
+  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient descent</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#베르누이-분포-전개" id="toc-베르누이-분포-전개" class="nav-link" data-scroll-target="#베르누이-분포-전개">1.베르누이 분포 전개</a></li>
+  <li><a href="#nll전개with-parameter-w" id="toc-nll전개with-parameter-w" class="nav-link" data-scroll-target="#nll전개with-parameter-w">2.NLL전개(with parameter <span class="math inline">\(W\)</span>)</a></li>
+  <li><a href="#nll전개cross-entropy-유도하기" id="toc-nll전개cross-entropy-유도하기" class="nav-link" data-scroll-target="#nll전개cross-entropy-유도하기">3.NLL전개(Cross Entropy 유도하기)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -177,23 +185,26 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <section id="가정" class="level1">
 <h1>가정</h1>
 <p>로지스틱회귀의 기본 가정은 다음과 같습니다.</p>
-<p><code>-</code> 각각의 데이터요소(샘플)는 여러개의 독립변수와 0또는1만 가질수 있는 종속변수로 이루어져 있습니다. <br> <code>-</code> 임의의 m개의 독립변수와 이진 종속변수를 가지는 i번째 샘플을 나타나면 다음과 같습니다.<br></p>
-<p><span class="math display">\[(x_{1,i},x_{2,i},\dots,x_{m,i}),Y_{i}\]</span></p>
-<p><code>-</code> 종속변수 <span class="math inline">\(Y_{i}\)</span>는 베르누이 분포를 따르는 확률변수입니다.<br></p>
-<p><span class="math display">\[Y_i|x_{1,i},x_{2,i},\dots,x_{m,i} \sim \text{Bernouli}(p_{i})\]</span></p>
-<p>독립변수의 값이 주어졌을때 확률변수<span class="math inline">\(Y_{i}\)</span>가 따르는 조건부확률분포가 베르누이 분포임을 의미합니다. 확률변수가 어떤 분포를 따르고 있음에 집중한 notation입니다. p_{i}는 확률변수가 y가 1인 클래스(범주)에 속할 확률입니다. <span class="math display">\[Pr\,(Y_{i} = y|x_{1,i},x_{2,i},\dots,x_{m,i}\,) =
+<p><code>-</code> 각각의 데이터요소(샘플)는 여러개의 독립변수와 0또는1만 가질수 있는 종속변수로 이루어져 있습니다. <br> <code>-</code> 임의의 m개의 독립변수와 이진 종속변수를 가지는 i번째 샘플을 나타나면 다음과 같습니다.<span class="math inline">\(x_{m,i}\)</span>는 임의의 i번째 관측치의 m번째 변수를 의미합니다<br></p>
+<p><span class="math display">\[(x_{1,i},x_{2,i},\dots,x_{m,i}),Y_{i} \]</span></p>
+<p><code>-</code> <span class="math inline">\(x_{1,i},x_{2,i},\dots,x_{m,i}\)</span>가 주어질 때, 종속변수 <span class="math inline">\(Y_{i}\)</span>는 베르누이 분포를 따르는 확률변수입니다.<br></p>
+<span class="math display">\[\begin{aligned}
+&amp; y|x_{1,i},x_{2,i},\dots,x_{m,i} \sim \text{Bernouli}(p_{i}) \nonumber \\
+&amp; \text{where},p_{i} = P(Y|X=1)
+\end{aligned}\]</span>
+<p><code>-</code> 확률변수<span class="math inline">\(Y_{i}\)</span>가 따르는 확률함수를 구체적으로 표현한 식입니다.<br> <span class="math display">\[Pr\,(Y_{i} = y|x_{1,i},x_{2,i},\dots,x_{m,i}\,) =
 \begin{cases}
 p_i   &amp; \text{if }y=1, \\
 1-p_i &amp; \text{if }y=0
-\end{cases} = p_i^y(1-p_i)^{1-y}\]</span> <br> 확률변수<span class="math inline">\(Y_{i}\)</span>가 따르는 확률함수에 대한 구체적인 식을 보여줍니다. 가장 우측에 있는 식은 중간에 있는 식의 간단한 버전입니다.<br></p>
-<p>기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로 기대되는(expected) 값(value)입니다. 베르누이분포를 따르는 확률변수 <span class="math inline">\(Y_{i}\)</span>의 기댓값을 구하면 다음과 같습니다.<br></p>
-<p><span class="math display">\[E\,[Y_i|x_{1,i},x_{2,i},\dots,x_{m,i}]\, = \sum_{i=0}^{i=1} = 1 \times p_{i} + 0 \times (1-p_{i}) = p_{i}\]</span></p>
+\end{cases} = p_i^y(1-p_i)^{1-y}\]</span> <br></p>
+<p><code>-</code> 기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로 기대되는(expected) 값(value)입니다. 베르누이분포를 따르는 확률변수 <span class="math inline">\(Y_{i}\)</span>의 기댓값을 구하면 다음과 같습니다.<br></p>
+<p><span class="math display">\[E\,[Y|x_{1,i},x_{2,i},\dots,x_{m,i}]\, = \sum_{i=0}^{i=1}p_iy = 1 \times p_{i} + 0 \times (1-p_{i}) = p_{i}\]</span></p>
 <section id="기댓값에-대한-고찰" class="level2">
 <h2 class="anchored" data-anchor-id="기댓값에-대한-고찰">기댓값에 대한 고찰</h2>
-<p>기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값과 베르누이분포의 모수가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 모수는 기댓값이므로 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 아는것이므로 많이 발생한 사건 또는 분류된 클래스로 종속변수 Y의 값을 결정하는 것은 타당해보입니다.<br> <code>-</code> e.g.<br></p>
+<p>기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값(<span class="math inline">\(E\,[y|x_{1,i},x_{2,i}\.,\dots,x_{m,i}]\)</span>)과 모수<span class="math inline">\((p_i)\)</span>가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 알 수 있고 이를 바탕으로 종속변수 Y의 값을 결정하는 것은 타당합니다.<br> <code>-</code> e.g.<br></p>
 <ul>
-<li><span class="math inline">\(E\,[y_i]\, = \hat{p_i}&lt;0.5\)</span> =&gt; 무한히 실행했을때 0인 경우가 더 많을 것임 =&gt; 관측치를 0으로 예측 <br></li>
-<li><span class="math inline">\(E\,[y_i]\, = \hat{p_i}\geq0.5\)</span>=&gt;무한히 실행했을때 1인 경우가 더 많을 것임 =&gt; 관측치를 1로 예측</li>
+<li><span class="math inline">\(E\,[y]\, = \hat{p_i}&lt;0.5\)</span> =&gt; 무한히 실행했을때 0인 경우가 더 많을 것임 =&gt; 관측치를 0으로 예측 <br></li>
+<li><span class="math inline">\(E\,[y]\, = \hat{p_i}\geq0.5\)</span>=&gt;무한히 실행했을때 1인 경우가 더 많을 것임 =&gt; 관측치를 1로 예측</li>
 </ul>
 </section>
 </section>
@@ -201,40 +212,142 @@ p_i   &amp; \text{if }y=1, \\
 <h1>로지스틱회귀 수식 유도</h1>
 <section id="concept" class="level2">
 <h2 class="anchored" data-anchor-id="concept">concept</h2>
-<p>선형회귀에서 추정하고자하는 변수<span class="math inline">\(y\)</span>는 <span class="math inline">\(x_0,x_1,...,x_m\)</span>과 <span class="math inline">\(w_0,w_1,...,w_m\)</span>과의 linear combination표현되었으며 각각의 <span class="math inline">\(w\)</span>는 독립변수 각각의 독립변수<span class="math inline">\(x\)</span>가 종속변수<span class="math inline">\(y\)</span>에 영향을 미치는 정도로 해석할 수 있었습니다. 로지스틱회귀에서도 선형회귀에서의 아이디어를 핵심아이디어를 가지고와서 추정하고자 하는 모수<span class="math inline">\(p_i\)</span>를 <span class="math inline">\(x_0,x_1,...,x_m\)</span>과 <span class="math inline">\(w_0,w_1,...,w_m\)</span>의 linear combination로 표현하고자 합니다.<br></p>
+<p>선형회귀에서 추정하고자하는 변수<span class="math inline">\(y\)</span>는 <span class="math inline">\(x_0,x_1,...,x_m\)</span>과 <span class="math inline">\(w_0,w_1,...,w_m\)</span>과의 linear combination이였습니다.위에서 언급했듯이 특정샘플에 대한 모수를 적절하게 추정할 수 있다면 관측치가 어떤 클래스에 속할지 합리적으로 알 수 있으므로,로지스틱회귀에서도 선형회귀에서의 아이디어를 핵심아이디어를 가지고와서 추정하고자 하는 모수<span class="math inline">\(p_i\)</span>를 <span class="math inline">\(x_0,x_1,...,x_m\)</span>과 <span class="math inline">\(w_0,w_1,...,w_m\)</span>의 linear combination로 표현하고자 합니다.<br></p>
 <p><code>선형회귀의 아이디어(linear combination)</code> + <code>모수에 대한 표현</code>이라는 조건을 만족하기 위해서 최종적인 식은 다음과 조건을 만족해야 것입니다.<br> <code>-</code> <span class="math inline">\((x_0,x_1,...,x_m)\,,(w_0,w_1,..,w_m)\)</span>의 linear combination 식에 있어야 함.<br> <code>-</code> linearcombination = 모수(추정하고자하는값)여야 함.</p>
+<p>why linear combination?</p>
 </section>
 <section id="본격적인-유도" class="level2">
 <h2 class="anchored" data-anchor-id="본격적인-유도">본격적인 유도</h2>
 <section id="모수를-로지스틱함수로-바꾸기" class="level3">
 <h3 class="anchored" data-anchor-id="모수를-로지스틱함수로-바꾸기">모수를 로지스틱함수로 바꾸기</h3>
 <ol type="1">
-<li><span class="math inline">\(\bf{X},\bf{W}\)</span>의 선형조합이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다.<br> <span class="math display">\[\begin{align}
+<li><span class="math inline">\((x_0,x_1,...,x_m)\,,(w_0,w_1,..,w_m)\)</span>의 linear combination이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다.<br> <span class="math display">\[\begin{align}
 f(i) = x_{1,i}w_0 + x_{2,i}w_1 + x_2w_2 + ... + x_{m,i}w_m = X_iW \nonumber \\
 where,X_i = \,[x_{1,i},x_{2,i},\dots,x_{m,i}]\, ,W = \,[w_0,w_1,\dots,w_m]^\text{T} \nonumber \\
 \end{align}\]</span></li>
 <li>좌변은 예측하고자 하는 값인 모수여야 합니다. 좌변을 바꿔봅니다. <span class="math display">\[p_i = WX_i\]</span></li>
-<li>좌변의 베르누이 분포의 모수 <span class="math inline">\(p_i\)</span>는 확률변수 <span class="math inline">\(Y_i = 1\)</span>인 사건이 일어날 확률입니다. 그러므로 <span class="math inline">\([0,1]\)</span>이라는 범위를 가지는 반면 우변의 값<span class="math inline">\(WX_i\)</span>은 <span class="math inline">\(\,[-\infty,\infty]\,\)</span>에 범위를 가집니다. 여기서 Odss Ratio를 써서 모수 <span class="math inline">\(p_i\)</span>를 포함하며 더 넓은 range를 갖도록 좌변을 수정합니다. <span class="math display">\[\text{Odds Ratio} = \frac{p_i}{1-p_i} = WX_i\]</span></li>
+<li>좌변의 베르누이 분포의 모수 <span class="math inline">\(p_i\)</span>는 확률변수 <span class="math inline">\(y = 1\)</span>인 사건이 일어날 확률입니다. 그러므로 <span class="math inline">\([0,1]\)</span>이라는 범위를 가지는 반면 우변의 값<span class="math inline">\(WX_i\)</span>은 <span class="math inline">\(\,[-\infty,\infty]\,\)</span>에 범위를 가집니다. 여기서 Odss Ratio를 써서 모수 <span class="math inline">\(p_i\)</span>를 포함하며 더 넓은 range를 갖도록 좌변을 수정합니다. <span class="math display">\[\text{Odds Ratio} = \frac{p_i}{1-p_i} = WX_i\]</span></li>
 <li>좌변을 Odds Ratio로 수정했지만 여전히 좌변의 범위는<span class="math inline">\(\,[0,\infty]\,\)</span>으로 우변에 비해 좁습니다. 따라서 Odds Ratio에 로짓변환을 취하여 좌변의 범위를 <span class="math inline">\(\,[-\infty,\infty]\)</span>로 넓혀줍니다. <span class="math display">\[\text{logit}(p) = \text{ln}\frac{p_i}{1-p_i} = WX_i\]</span></li>
 </ol>
 <p>위 식을 해석하기 위해 <span class="math inline">\(X\)</span>의 첫번째 요소인 <span class="math inline">\(x_1\)</span>에 대응하는 회귀계수 <span class="math inline">\(w_1\)</span>이 학습결과 3으로 정해졌다고 가정해봅시다.만약 <span class="math inline">\(x_1\)</span>의 값이 1증가한다면 로그오즈비가 3증가합니다.<br></p>
 <ol start="5" type="1">
 <li>이제 양변의 범위는 맞춰졌으므로 추정하고자 하는 변수 <span class="math inline">\(p_i\)</span>가 좌변에 오도록 정리해봅시다. <span class="math display">\[p_i = \frac{1}{\,(1 + e^{-WX_i})\, }\]</span> (전개)<br> <span class="math inline">\(\frac{p_i}{1-p_i} = e^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i = \,(1-p_i)\,e^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i = \,e^{WX_i}-p_ie^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i + p_ie^{WX_i} = \,e^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i\,(1 + e^{WX_i})\, = \,e^{WX_i}\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i = \frac{\,e^{WX_i}}{\,(1 + e^{WX_i})\, }\)</span><br> <span class="math inline">\(\Longleftrightarrow p_i = \frac{1}{\,(1 + e^{-WX_i})\, }\)</span><br></li>
 </ol>
-<p>최종적으로, 모수에대한 표현식은 다음과 같습니다. <span class="math display">\[p_i = Pr\,(Y_i = 1|X_i)\, = \frac{1}{\,1 + e^{-WX_i}\,}\]</span> 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재합니다.</p>
-<p>모수 <span class="math inline">\(p_i\)</span>가 새롭게 표현되었으므로 베르누이분포의 확률질량함수도 다르게 표현할 수 있습니다. <span class="math display">\[Pr\,(Y_{i} = y|x_{1,i},x_{2,i},\dots,x_{m,i},W) =
+<p>최종적으로, 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재하도록 새롭게 표현한 모수는 다음과 같습니다. <span class="math display">\[p_i(y) = Pr\,(y = 1|X_i;W)\, = \frac{1}{\,1 + e^{-WX_i}\,}\]</span></p>
+</section>
+<section id="베르누이-분포의-pmf-정리" class="level3">
+<h3 class="anchored" data-anchor-id="베르누이-분포의-pmf-정리">베르누이 분포의 pmf 정리</h3>
+<p>베르누이분포의 모수 <span class="math inline">\(p_i\)</span>가 새롭게 표현되었으므로 확률질량함수도 새롭게 표현할 수 있습니다. 마지막 수식은 베르누이 분포의 확률질량함수가 모수<span class="math inline">\(W\)</span>에 관한 식으로 바뀌었음을 표현합니다.</p>
+<p><span class="math display">\[\begin{align}
+Bern(y;p) = Pr\,(Y_{i} = y|x_{1,i},x_{2,i},\dots,x_{m,i};p_i) &amp;=
 \begin{cases}
-p_i   &amp; \text{if }y=1, \\
-1-p_i &amp; \text{if }y=0
-\end{cases} = p_i^y(1-p_i)^{1-y} = \,(\frac{1}{\,1 + e^{-WX_i}\,})^y\,\,(1-\frac{1}{\,1 + e^{-WX_i}\,})^{1-y}\,\]</span> <br></p>
+p_i &amp; \text{if}\,y=1 \\
+1-p_i &amp; \text{if}\,y=0
+\end{cases} \\
+&amp;= p_i^{y}(1-p_i)^{1-y} \\
+&amp;= \frac{e^{yWX_i}}{1+e^{WX_i}}
+\end{align}\]</span> <br></p>
 </section>
 </section>
 </section>
 <section id="mle" class="level1">
 <h1>MLE</h1>
-<p>f</p>
+<p>베르누이 분포의 모수 <span class="math inline">\(W\)</span>만 적절하게 추정할 수 있다면 임의의 데이터에 대해서 독립변수 <span class="math inline">\(X_i = (x_{0,i},x_{1,i},\dots,x_{m,i})\)</span>가 들어왔을때 <span class="math inline">\(p_i = Pr(Y=1|X_i;w)\)</span>를 구하고 샘플이 속하는 적절한 클래스(0 또는 1)을 예측할 수 있습니다. 베르누이 분포의 모수는 어떻게 추정할 수 있을까요?<br></p>
+<p>주어진 상황은 다음과 같습니다.<br></p>
+<ol type="1">
+<li>주어진 데이터
+<span class="math display">\[\begin{aligned}
+&amp;\text{Given}\, ,D={(X_i,y)}_{i=1}^{i=n} \\
+&amp; \text{where}\, ,X_i = ({x_{0,i},x_{1,i},\dots,x_{m,i})}
+\end{aligned}\]</span>
+<br></li>
+<li>로지스틱 회귀의 가정
+<span class="math display">\[\begin{aligned}
+&amp;\text{Suppose that data(or sample) } y_1,y_2,\dots,y_n \text{ are realization of a random variables } \\
+&amp;Y_1,Y_2,Y_3,\dots,Y_n \\
+&amp;\text{where,}\, Y_1 \sim Bern(Y|X_1;W),Y_2 \sim Bern(Y|X_2;W),\dots,Y_N \sim Bern(Y|X_n;W)\\
+\end{aligned}\]</span>
+<br></li>
+</ol>
+<p>MLE를 통해 모수를 추정합니다.(참고:<a href="https://hoyeon1234.github.io/sin-hoyeon/posts/probabilty,statistics/MLE.html">MLE</a>)<br> 가능도는 다음과 같습니다.<br> <span class="math display">\[L(W;y_1,y_2,\dots,y_n) = p_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n;W) = \underset{i=1}{\overset{i=n}{\large{\prod}}}\frac{e^{y_iWX_i}}{1+e^{WX_i}}\]</span> <br></p>
+우리가 구하고자 하는 추정값은 다음과 같습니다.<br>
+<span class="math display">\[\begin{aligned}
+\hat{W}_{MLE} &amp;= \underset{W}{\text{argmax}}\,\underset{i=1}{\overset{i=n}{\large{\prod}}}\frac{e^{y_iWX_i}}{1+e^{WX_i}} \\
+&amp;= \underset{W}{\text{argmin}}-\overset{n}{\underset{i=1}{\large{\sum}}}y_iWX_i + \overset{n}{\underset{i=1}{\large{\sum}}}ln(1+e^{WX_i})
+\end{aligned}\]</span>
+<p>목적함수가 최솟값을 가지려면 <span class="math inline">\(\large{\frac{\partial J}{\partial w_0}=\frac{\partial J}{\partial w_1}=\frac{\partial J}{\partial w_2}=\dots\ = \frac{\partial J}{\partial w_m}} = 0\)</span> <br> 즉,<span class="math inline">\(\nabla_wJ(W) = [\large{\frac{\partial J}{\partial w_0},\frac{\partial J}{\partial w_1},\frac{\partial J}{\partial w_2}=\dots\,\frac{\partial J}{\partial w_m}}]^\text{T} = \overrightarrow{\bf{0}}\)</span> 이어야 합니다. 목적함수를 임의의 <span class="math inline">\(w_k\)</span>편미분하여 0이 되는 방정식은 다음과 같습니다<br></p>
+<span class="math display">\[\begin{aligned}
+\frac{\partial J}{\partial w_k} = -\overset{n}{\underset{i=1}{\large{\sum}}}y_ix_{k,i} + \sum_{i=1}^{n}\frac{x_{k,i}e^{WX_i}}{1+e^{WX_i}} = 0
+\end{aligned}\]</span>
+<p><br></p>
+<p>위와 같이 m개의 변수에 대해서 미분하면 m개의 방정식이 존재합니다. 그러나 정리하여 풀어낼 수 없는형태이므로 닫힌형태(closed-form)로 해가 존재하지 않습니다.</p>
+</section>
+<section id="gradient-descent" class="level1">
+<h1>Gradient descent</h1>
+<p>위에서 해석적으로 logstic regression의 해를 구할 수 없기때문에 다른 방법들을 써야합니다. 여기서는 경사하강법으로 해를 구합니다. 경사하강법을 사용하기 위해서 NLL을 베르누이분포의 2번식을 활용하여 전개하면 다음과 같습니다. 이번에는 베르누이 분포의 모수를 <span class="math inline">\(p_i\)</span>로 놓고 진행했습니다.<br> <span class="math display">\[NLL = -\sum_{i=1}^{n}y_i\text{ln}\,p_i(1-y_i)\text{ln}\,(1-p_i)\]</span> <br></p>
+<p>우리의 목적은 다음과 같습니다.이번에는 모수가 <span class="math inline">\(p_i\)</span>인 베르누이 분포였으므로 추정량도<span class="math inline">\(\hat{p_i}\)</span>입니다.<br></p>
+<p><span class="math display">\[\hat{p_i} = \underset{p_i}{\text{argmin}}-\sum_{i=1}^{n}y_i\text{ln}\,p_i(1-y_i)\text{ln}\,(1-p_i)\]</span></p>
+<p>위식에 대해서 직접 계산은 해보지 않았지만, 해석적으로 해를 구할 수 없음을 알았습니다. 그러므로 경사하강법을 이용해서 해를 구합니다. 최솟값을 찾고자 하는 Loss function은 다음과 같이 쓸 수 있습니다.Binary Cross Entropy와 같은 수식입니다.<br> <span class="math display">\[L(\hat{y_i}) = -\sum_{i=1}^{n}y_i\text{ln}\,\hat{y_i}+(1-y_i)\text{ln}\,(1-\hat{y_i})\]</span></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>약간의 notation 변경이 있습니다.로지스틱회귀의 likelyhood를 최대화(또는 최소화)하여 나온 estimated value(추정치)는 <span class="math inline">\(\hat{p_i}\)</span> = <span class="math inline">\(\hat{y_i}\)</span>입니다. 경사하강법은 NLL에서 모수 <span class="math inline">\(p_i\)</span>에 대한 추정치<span class="math inline">\(\hat{p_i}\)</span>를 계속해서 대입해보고 틀린지 파악하고 반복적으로 추정치를 업데이트 합니다. 그러므로, <span class="math inline">\(p_i\)</span> 대신 <span class="math inline">\(\hat{p_i}\)</span>를 쓰는 것으로 보입니다.(아시는 분 댓글 부탁드립니다.!!)</p>
+</div>
+</div>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<section id="베르누이-분포-전개" class="level2">
+<h2 class="anchored" data-anchor-id="베르누이-분포-전개">1.베르누이 분포 전개</h2>
+<span class="math display">\[\begin{aligned}
+p_i^y(1-p_i)^{1-y} &amp;= \ (\frac{1}{\,1 + e^{-WX_i}\,})^y\,\,(1-\frac{1}{\,1 + e^{-WX_i}\,})^{1-y} \\
+&amp;= (\frac{1}{1+e^{-WX_i}})^{y}(\frac{e^{-WX_i}}{1+e^{-WXi}})^{1-y} \\
+&amp;= (\frac{1}{1+e^{-WX_i}})^{y}(\frac{1}{1+e^{WXi}})^{1-y} \\
+&amp;= (\frac{1+e^{WX_i}}{1+e^{-WX_i}})^{y}(\frac{1}{1+e^{WX_i}}) \\
+&amp;= (\frac{e^{WX_i}+e^{2WX_i}}{1+e^{WX_i}})^{y}(\frac{1}{1+e^{WX_i}}) \\
+&amp;= (\frac{e^{WX_i}(1+e^{WX_i})}{1+e^{WX_i}})^{y}(\frac{1}{1+e^{WX_i}}) \\
+&amp;= e^{yWX_i}\frac{1}{1+e^{WX_i}} \\
+&amp;= \frac{e^{yWX_i}}{1+e^{WX_i}}
+\end{aligned}\]</span>
+</section>
+<section id="nll전개with-parameter-w" class="level2">
+<h2 class="anchored" data-anchor-id="nll전개with-parameter-w">2.NLL전개(with parameter <span class="math inline">\(W\)</span>)</h2>
+<span class="math display">\[\begin{aligned}
+LL &amp;= \text{ln}(\underset{i=1}{\overset{n}{\large{\prod}}}\,\frac{e^{y_iWX_i}}{1+e^{WX_i}}) \\
+&amp;=\overset{n}{\underset{i=1}{\large{\sum}}}(\text{ln}\frac{e^{y_iWX_i}}{1+e^{WX_i}}) \\
+&amp;= \overset{n}{\underset{i=1}{\large{\sum}}}\,[\text{ln}e^{y_iWX_i} - \text{ln}(1+e^{WX_i})]\, \\
+&amp;= \overset{n}{\underset{i=1}{\large{\sum}}}\,[y_iWX_i - \text{ln}(1+e^{WX_i})], \\
+&amp;= \overset{n}{\underset{i=1}{\large{\sum}}}y_iWX_i - \overset{n}{\underset{i=1}{\large{\sum}}}ln(1+e^{WX_i}) \\
 
 
+NLL &amp;= -\overset{n}{\underset{i=1}{\large{\sum}}}y_iWX_i + \overset{n}{\underset{i=1}{\large{\sum}}}ln(1+e^{WX_i}) \\
+
+\end{aligned}\]</span>
+</section>
+<section id="nll전개cross-entropy-유도하기" class="level2">
+<h2 class="anchored" data-anchor-id="nll전개cross-entropy-유도하기">3.NLL전개(Cross Entropy 유도하기)</h2>
+임의의 i번째 항에서의 확률변수 <span class="math inline">\(Y_i\)</span>가 따르는 베르누이 분포는 다음과 같습니다. <br>
+<span class="math display">\[\begin{aligned}
+Bern(y|X_i;p_i) = (p_i)^y(1-p_i)^{y-1}
+\end{aligned}\]</span>
+모수가 <span class="math inline">\(p_i\)</span>인 각각의 베르누이 분포를 따르는 확률변수 <span class="math inline">\(Y_1,Y_2\dots Y_n\)</span>으로부 n개의 realization(sample) <span class="math inline">\(y_1,y_2\dots y_n\)</span>에 대한 NLL는 다음과 같습니다. <br>
+<span class="math display">\[\begin{aligned}
+NLL &amp;= -\text{ln}\prod_{i=1}^{n}p_i^{y_i}(1-p_i)^{1-y_i} \\
+&amp;= -\sum_{i=1}^{n}\text{ln}p_i^{y_i}(1-p_i)^{1-y_i} \\
+&amp;= -\sum_{i=1}^{n}\text{ln}p_i^{y_i} + \text{ln}(1-p_i)^{1-y_i} \\
+&amp;= -\sum_{i=1}^{n}y_i\text{ln}p_i + (1-y_i)\text{ln}(1-p_i)
+\end{aligned}\]</span>
+<p>참고링크<br> 1. <a href="https://www.analyticsvidhya.com/blog/2022/02/decoding-logistic-regression-using-mle/#h2_1">로지스틱 회귀 전개</a><br> 2. <a href="https://en.wikipedia.org/wiki/Logistic_regression">위키피디아 - 로지스틱 회귀</a><br> 3. <a href="https://ratsgo.github.io/machine%20learning/2017/07/02/logistic/">ratsgo’s blog</a></p>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
