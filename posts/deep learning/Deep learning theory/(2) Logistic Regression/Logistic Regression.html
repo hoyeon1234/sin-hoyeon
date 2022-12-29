@@ -595,9 +595,9 @@ tensor(0.3111, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)</code></pre>
 <h1>정리</h1>
 <ul>
 <li>로지스틱회귀는 종속변수 Y가 1과0을 가지는 이진분류 문제일때 사용하는 모형입니다.</li>
-<li>각각의 샘플에서 Y는 베르누이 분포를 따른다고 가정합니다.</li>
-<li>최대가능도 추정법에서 모수에 대한 닫힌형태의 해는 존재하지 않습니다.따라서 다른방법으로 구해야 합니다.</li>
-<li>경사하강법은 해를 구하는 한가지 방법입니다.이때 Lossfunction은 NLL이며 이진분류에서의 CrossEntropy와 같습니다.</li>
+<li>모형은 데이터가 들어오면 베르누이분포의 모수(클래스 1에 속할 확률)에 대한 추정값을 출력합니다.</li>
+<li>MLE로 모수 W를 찾고자할때,가능도 함수의 최댓값에 대한 닫힌형태의 해가 존재하지 않습니다.</li>
+<li>따라서 경사하강법을 통하여 해를 구합니다.이때 Lossfunction은 NLL이며 이진분류에서의 CrossEntropy와 같습니다.</li>
 </ul>
 <p>참고링크<br> 1. <a href="https://www.analyticsvidhya.com/blog/2022/02/decoding-logistic-regression-using-mle/#h2_1">로지스틱 회귀 전개</a><br> 2. <a href="https://en.wikipedia.org/wiki/Logistic_regression">위키피디아 - 로지스틱 회귀</a><br> 3. <a href="https://ratsgo.github.io/machine%20learning/2017/07/02/logistic/">ratsgo’s blog</a></p>
 
