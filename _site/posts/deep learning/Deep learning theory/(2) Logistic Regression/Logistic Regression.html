@@ -225,17 +225,18 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   </ul></li>
   <li><a href="#mle" id="toc-mle" class="nav-link" data-scroll-target="#mle">MLE</a></li>
   <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient descent</a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
-  <ul class="collapse">
-  <li><a href="#베르누이-분포-전개" id="toc-베르누이-분포-전개" class="nav-link" data-scroll-target="#베르누이-분포-전개">1.베르누이 분포 전개</a></li>
-  <li><a href="#nll전개with-parameter-w" id="toc-nll전개with-parameter-w" class="nav-link" data-scroll-target="#nll전개with-parameter-w">2.NLL전개(with parameter <span class="math inline">\(W\)</span>)</a></li>
-  <li><a href="#nll전개cross-entropy-유도하기" id="toc-nll전개cross-entropy-유도하기" class="nav-link" data-scroll-target="#nll전개cross-entropy-유도하기">3.NLL전개(Cross Entropy 유도하기)</a></li>
-  </ul></li>
   <li><a href="#구현" id="toc-구현" class="nav-link" data-scroll-target="#구현">구현</a>
   <ul class="collapse">
   <li><a href="#setting" id="toc-setting" class="nav-link" data-scroll-target="#setting">setting</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">data</a></li>
   <li><a href="#gradient-descent-1" id="toc-gradient-descent-1" class="nav-link" data-scroll-target="#gradient-descent-1">Gradient Descent</a></li>
+  </ul></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리">정리</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#베르누이-분포-전개" id="toc-베르누이-분포-전개" class="nav-link" data-scroll-target="#베르누이-분포-전개">1.베르누이 분포 전개</a></li>
+  <li><a href="#nll전개with-parameter-w" id="toc-nll전개with-parameter-w" class="nav-link" data-scroll-target="#nll전개with-parameter-w">2.NLL전개(with parameter <span class="math inline">\(W\)</span>)</a></li>
+  <li><a href="#nll전개cross-entropy-유도하기" id="toc-nll전개cross-entropy-유도하기" class="nav-link" data-scroll-target="#nll전개cross-entropy-유도하기">3.NLL전개(Cross Entropy 유도하기)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -268,9 +269,9 @@ p_i   &amp; \text{if }y=1, \\
 \end{cases} = p_i^y(1-p_i)^{1-y}\]</span> <br></p>
 <p><code>-</code> 기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로 기대되는(expected) 값(value)입니다. 베르누이분포를 따르는 확률변수 <span class="math inline">\(Y_{i}\)</span>의 기댓값을 구하면 다음과 같습니다.<br></p>
 <p><span class="math display">\[E\,[Y|x_{1,i},x_{2,i},\dots,x_{m,i}]\, = \sum_{i=0}^{i=1}p_iy = 1 \times p_{i} + 0 \times (1-p_{i}) = p_{i}\]</span></p>
-<div class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>&lt;matplotlib.legend.Legend at 0x1c4a9b5c220&gt;</code></pre>
+<div class="cell" data-execution_count="75">
+<div class="cell-output cell-output-display" data-execution_count="75">
+<pre><code>&lt;matplotlib.legend.Legend at 0x1f25fe4e730&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="Logistic Regression_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
@@ -375,9 +376,164 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>약간의 notation 변경이 있습니다.로지스틱회귀의 likelyhood를 최대화(또는 최소화)하여 나온 estimated value(추정치)는 <span class="math inline">\(\hat{p_i}\)</span> = <span class="math inline">\(\hat{y_i}\)</span>입니다. 경사하강법은 NLL에서 모수 <span class="math inline">\(p_i\)</span>에 대한 추정치<span class="math inline">\(\hat{p_i}\)</span>를 계속해서 대입해보고 틀린지 파악하고 반복적으로 추정치를 업데이트 합니다. 그러므로, <span class="math inline">\(p_i\)</span> 대신 <span class="math inline">\(\hat{p_i}\)</span>를 쓰는 것으로 보입니다.(아시는 분 댓글 부탁드립니다.!!)</p>
+<p>약간의 notation 변경이 있습니다.로지스틱회귀의 likelyhood를 최대화(또는 최소화)하여 나온 estimated value(추정치)는 <span class="math inline">\(\hat{p_i}\)</span> = <span class="math inline">\(\hat{y_i}\)</span>입니다. 경사하강법은 NLL에서 모수 <span class="math inline">\(p_i\)</span>에 대한 추정치<span class="math inline">\(\hat{p_i}\)</span>를 계속해서 대입해보고 틀린지 파악하고 반복적으로 추정치를 업데이트 합니다. 그러므로, <span class="math inline">\(p_i\)</span> 대신 <span class="math inline">\(\hat{p_i}\)</span>를 쓰는 것으로 보입니다.</p>
 </div>
 </div>
+</section>
+<section id="구현" class="level1">
+<h1>구현</h1>
+<p>로지스틱회귀의 적합을 pytorch를 사용하여 구현. Gradient Descent 활용</p>
+<section id="setting" class="level2">
+<h2 class="anchored" data-anchor-id="setting">setting</h2>
+<div class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> torch</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#sig = lambda z:torch.exp(z)/(1+torch.exp(z))</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>sig <span class="op">=</span> torch.nn.Sigmoid()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">data</h2>
+<div class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>torch.manual_seed(<span class="dv">2022</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>n<span class="op">=</span><span class="dv">400</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#1 모수 W가정</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>W <span class="op">=</span> torch.tensor(</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    [[<span class="op">-</span><span class="fl">0.8467</span>],</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    [<span class="fl">0.041</span>]]).<span class="bu">float</span>()</span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#2 각각의 관측치(데이터요소)에서의 모수 p_i시각화(시그모이드 함수 시각화)</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>_x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">150</span>,<span class="dv">150</span>,n).reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb3-11"><a href="#cb3-11"></a>_one <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
+<span id="cb3-12"><a href="#cb3-12"></a>X <span class="op">=</span> torch.concat((_one,_x),axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-13"><a href="#cb3-13"></a>p_i <span class="op">=</span> sig(X<span class="op">@</span>W)</span>
+<span id="cb3-14"><a href="#cb3-14"></a>y <span class="op">=</span> torch.bernoulli(p_i)</span>
+<span id="cb3-15"><a href="#cb3-15"></a>plt.xlim([<span class="op">-</span><span class="dv">150</span>,<span class="dv">150</span>])</span>
+<span id="cb3-16"><a href="#cb3-16"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb3-17"><a href="#cb3-17"></a>plt.plot(X[:,<span class="dv">1</span>],p_i,<span class="st">"r--"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb3-19"><a href="#cb3-19"></a>plt.ylabel(<span class="st">"y,$p_i$"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20"></a>plt.title(<span class="st">"realizations $y_1,\dots,y_</span><span class="sc">{300}</span><span class="st">$ from $Bern(p_1),\dots,Bern(p_</span><span class="sc">{300}</span><span class="st">)$"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21"></a>plt.legend([<span class="st">"y"</span>,<span class="st">"p"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<pre><code>&lt;matplotlib.legend.Legend at 0x1f2684bfe20&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Logistic Regression_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="gradient-descent-1" class="level2">
+<h2 class="anchored" data-anchor-id="gradient-descent-1">Gradient Descent</h2>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> torch</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>torch.manual_seed(<span class="dv">2022</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>n<span class="op">=</span><span class="dv">400</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#2 임의의 W에 대한 estimated value(추정치) What 초기화</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>What <span class="op">=</span> torch.tensor(</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    [[<span class="fl">0.</span>],</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    [<span class="op">-</span><span class="fl">0.03</span>]],requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a>_x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">150</span>,<span class="dv">150</span>,n).reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb5-15"><a href="#cb5-15"></a>_one <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
+<span id="cb5-16"><a href="#cb5-16"></a>X <span class="op">=</span> torch.concat((_one,_x),axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-17"><a href="#cb5-17"></a>yhat <span class="op">=</span> sig(X<span class="op">@</span>What)</span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a>plt.plot(X[:,<span class="dv">1</span>].data,y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb5-20"><a href="#cb5-20"></a>plt.plot(X[:,<span class="dv">1</span>].data,p_i,<span class="st">"r"</span>)</span>
+<span id="cb5-21"><a href="#cb5-21"></a>plt.plot(X[:,<span class="dv">1</span>].data,yhat.data,<span class="st">"g"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23"></a>plt.ylabel(<span class="st">"y"</span>)</span>
+<span id="cb5-24"><a href="#cb5-24"></a>plt.title(<span class="st">"realizations $y_1,\dots,y_</span><span class="sc">{60}</span><span class="st">$ from $Bern(p_1),\dots,Bern(p_</span><span class="sc">{60}</span><span class="st">)$"</span>)</span>
+<span id="cb5-25"><a href="#cb5-25"></a>plt.legend([<span class="st">"y"</span>,<span class="st">"$p_i$"</span>,<span class="st">"$\hat</span><span class="sc">{y}</span><span class="st">(\hat</span><span class="sc">{p_i}</span><span class="st">)$"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="78">
+<pre><code>&lt;matplotlib.legend.Legend at 0x1f268e11e50&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Logistic Regression_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>loss_fn <span class="op">=</span> torch.nn.BCELoss()</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">"""</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">def BCE_Loss(yhat,y):</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="79">
+<pre><code>'\ndef BCE_Loss(yhat,y):\n    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))\n'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#custom sigmoid + torch.BCELoss 쓰면 오류 발생. 0과 1사이의 범위 아님</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#torch.nn.Sigmoid + custom BCE Loss 써도 오류발생 =&gt; nan</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">8</span>))</span>
+<span id="cb9-4"><a href="#cb9-4"></a>plt.subplots_adjust(hspace<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>i<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">200</span>):</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    <span class="co">#1 yhat </span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>    yhat <span class="op">=</span> sig(X<span class="op">@</span>What)</span>
+<span id="cb9-10"><a href="#cb9-10"></a>    <span class="co">#2 loss</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>    loss <span class="op">=</span> loss_fn(yhat,y)</span>
+<span id="cb9-12"><a href="#cb9-12"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">20</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb9-13"><a href="#cb9-13"></a>        plt.subplot(<span class="dv">2</span>,<span class="dv">5</span>,i)</span>
+<span id="cb9-14"><a href="#cb9-14"></a>        <span class="co">#plt.plot(X[:,1].data,y,"bo",alpha=0.3)</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a>        plt.plot(X[:,<span class="dv">1</span>].data,p_i,<span class="st">"r"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16"></a>        plt.plot(X[:,<span class="dv">1</span>].data,yhat.data,<span class="st">"g"</span>)</span>
+<span id="cb9-17"><a href="#cb9-17"></a>        plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb9-18"><a href="#cb9-18"></a>        plt.ylabel(<span class="st">"y"</span>)</span>
+<span id="cb9-19"><a href="#cb9-19"></a>        <span class="co">#plt.title("realizations $y_1,\dots,y_{60}$ from $Bern(p_1),\dots,Bern(p_{60})$")</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a>        plt.legend([<span class="st">"p"</span>,<span class="st">"yhat"</span>])</span>
+<span id="cb9-21"><a href="#cb9-21"></a>        title <span class="op">=</span> <span class="st">"loss : </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="bu">round</span>(loss.tolist(),<span class="dv">5</span>))</span>
+<span id="cb9-22"><a href="#cb9-22"></a>        plt.title(title)</span>
+<span id="cb9-23"><a href="#cb9-23"></a>        i<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a>    <span class="co">#3 derivative</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a>    loss.backward()</span>
+<span id="cb9-26"><a href="#cb9-26"></a>    <span class="co">#4 update &amp; clean</span></span>
+<span id="cb9-27"><a href="#cb9-27"></a>    What.data <span class="op">=</span> What.data <span class="op">-</span> <span class="fl">0.00005</span> <span class="op">*</span> What.grad</span>
+<span id="cb9-28"><a href="#cb9-28"></a>    What.grad <span class="op">=</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Logistic Regression_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">round</span>(loss.tolist(),<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
+<pre><code>0.3109</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>plt.plot(X[:,<span class="dv">1</span>].data,y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>plt.plot(X[:,<span class="dv">1</span>].data,p_i,<span class="st">"r"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>plt.plot(X[:,<span class="dv">1</span>].data,yhat.data,<span class="st">"g"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5"></a>plt.ylabel(<span class="st">"y"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6"></a>plt.title(<span class="st">"Logistic Regression"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>plt.legend([<span class="st">"y"</span>,<span class="st">"$p_i$"</span>,<span class="st">"$\hat</span><span class="sc">{y}</span><span class="st">(\hat</span><span class="sc">{p_i}</span><span class="st">)$"</span>])</span>
+<span id="cb12-8"><a href="#cb12-8"></a>plt.gca().axes.xaxis.set_visible(<span class="va">False</span>)</span>
+<span id="cb12-9"><a href="#cb12-9"></a>plt.gca().axes.yaxis.set_visible(<span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Logistic Regression_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="정리" class="level1">
+<h1>정리</h1>
+<ul>
+<li>로지스틱회귀는 종속변수 Y가 1과0을 가지는 이진분류 문제일때 사용하는 모형입니다.</li>
+<li>각각의 관측치에서 y의 값은 <span class="math inline">\(X_i\)</span>가 조건이며 모수가 <span class="math inline">\(p_i = \frac{1}{1+e^{-WX_i}}\)</span>인 베르누이분포를 따르는 확률변수 <span class="math inline">\(Y_i\)</span>의 realization이라고 가정합니다.</li>
+<li>가정에 의해서 베르누이 분포의 모수<span class="math inline">\(p_i\)</span> 더 전개하여 또다른 모수 <span class="math inline">\(W\)</span>만 적절하게 추정하면 임의의 데이터가 어떤 클래스에 속하는지 분류할 수 있습니다. 로지스틱회귀는 모수 <span class="math inline">\(W\)</span>를 적절하게 추정치 <span class="math inline">\(\hat{p_i}\)</span>을 출력하는 것을 목적으로 합니다.</li>
+<li>MLE로 모수 W를 추정할 수 있습니다. 이때 가능도(또는 로그가능도) 함수의 최댓값에 대한 닫힌형태의 해가 존재하지 않습니다.따라서 경사하강법을 통하여 해를 구합니다.</li>
+<li>경사하강법의 Loss function은 NLL이며 이진분류의 CrossEntropy와 같습니다.</li>
+</ul>
 </section>
 <section id="appendix" class="level1">
 <h1>Appendix</h1>
@@ -421,173 +577,6 @@ NLL &amp;= -\text{ln}\prod_{i=1}^{n}p_i^{y_i}(1-p_i)^{1-y_i} \\
 &amp;= -\sum_{i=1}^{n}\text{ln}p_i^{y_i} + \text{ln}(1-p_i)^{1-y_i} \\
 &amp;= -\sum_{i=1}^{n}y_i\text{ln}p_i + (1-y_i)\text{ln}(1-p_i)
 \end{aligned}\]</span>
-</section>
-</section>
-<section id="구현" class="level1">
-<h1>구현</h1>
-<p>로지스틱회귀의 적합을 pytorch를 사용하여 구현. Gradient Descent 활용</p>
-<section id="setting" class="level2">
-<h2 class="anchored" data-anchor-id="setting">setting</h2>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> torch</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#sig = lambda z:torch.exp(z)/(1+torch.exp(z))</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>sig <span class="op">=</span> torch.nn.Sigmoid()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">data</h2>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>torch.manual_seed(<span class="dv">2022</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>n<span class="op">=</span><span class="dv">400</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#1 모수 W가정</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>W <span class="op">=</span> torch.tensor(</span>
-<span id="cb3-6"><a href="#cb3-6"></a>    [[<span class="op">-</span><span class="fl">0.8467</span>],</span>
-<span id="cb3-7"><a href="#cb3-7"></a>    [<span class="fl">0.041</span>]]).<span class="bu">float</span>()</span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#2 각각의 관측치(데이터요소)에서의 모수 p_i시각화(시그모이드 함수 시각화)</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>_x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">150</span>,<span class="dv">150</span>,n).reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb3-11"><a href="#cb3-11"></a>_one <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
-<span id="cb3-12"><a href="#cb3-12"></a>X <span class="op">=</span> torch.concat((_one,_x),axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-13"><a href="#cb3-13"></a>p_i <span class="op">=</span> sig(X<span class="op">@</span>W)</span>
-<span id="cb3-14"><a href="#cb3-14"></a>y <span class="op">=</span> torch.bernoulli(p_i)</span>
-<span id="cb3-15"><a href="#cb3-15"></a>plt.xlim([<span class="op">-</span><span class="dv">150</span>,<span class="dv">150</span>])</span>
-<span id="cb3-16"><a href="#cb3-16"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb3-17"><a href="#cb3-17"></a>plt.plot(X[:,<span class="dv">1</span>],p_i,<span class="st">"r--"</span>)</span>
-<span id="cb3-18"><a href="#cb3-18"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb3-19"><a href="#cb3-19"></a>plt.ylabel(<span class="st">"y,$p_i$"</span>)</span>
-<span id="cb3-20"><a href="#cb3-20"></a>plt.title(<span class="st">"realizations $y_1,\dots,y_</span><span class="sc">{300}</span><span class="st">$ from $Bern(p_1),\dots,Bern(p_</span><span class="sc">{300}</span><span class="st">)$"</span>)</span>
-<span id="cb3-21"><a href="#cb3-21"></a>plt.legend([<span class="st">"y"</span>,<span class="st">"p"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>&lt;matplotlib.legend.Legend at 0x1c4c9c5ea30&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="Logistic Regression_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="gradient-descent-1" class="level2">
-<h2 class="anchored" data-anchor-id="gradient-descent-1">Gradient Descent</h2>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> torch</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-3"><a href="#cb5-3"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
-<span id="cb5-4"><a href="#cb5-4"></a></span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a>torch.manual_seed(<span class="dv">2022</span>)</span>
-<span id="cb5-7"><a href="#cb5-7"></a>n<span class="op">=</span><span class="dv">400</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#2 임의의 W에 대한 estimated value(추정치) What 초기화</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>What <span class="op">=</span> torch.tensor(</span>
-<span id="cb5-11"><a href="#cb5-11"></a>    [[<span class="fl">0.</span>],</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    [<span class="op">-</span><span class="fl">0.03</span>]],requires_grad<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-13"><a href="#cb5-13"></a></span>
-<span id="cb5-14"><a href="#cb5-14"></a>_x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">150</span>,<span class="dv">150</span>,n).reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb5-15"><a href="#cb5-15"></a>_one <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
-<span id="cb5-16"><a href="#cb5-16"></a>X <span class="op">=</span> torch.concat((_one,_x),axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb5-17"><a href="#cb5-17"></a>yhat <span class="op">=</span> sig(X<span class="op">@</span>What)</span>
-<span id="cb5-18"><a href="#cb5-18"></a></span>
-<span id="cb5-19"><a href="#cb5-19"></a>plt.plot(X[:,<span class="dv">1</span>].data,y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb5-20"><a href="#cb5-20"></a>plt.plot(X[:,<span class="dv">1</span>].data,p_i,<span class="st">"r"</span>)</span>
-<span id="cb5-21"><a href="#cb5-21"></a>plt.plot(X[:,<span class="dv">1</span>].data,yhat.data,<span class="st">"g"</span>)</span>
-<span id="cb5-22"><a href="#cb5-22"></a>plt.xlim</span>
-<span id="cb5-23"><a href="#cb5-23"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb5-24"><a href="#cb5-24"></a>plt.ylabel(<span class="st">"y"</span>)</span>
-<span id="cb5-25"><a href="#cb5-25"></a>plt.title(<span class="st">"realizations $y_1,\dots,y_</span><span class="sc">{60}</span><span class="st">$ from $Bern(p_1),\dots,Bern(p_</span><span class="sc">{60}</span><span class="st">)$"</span>)</span>
-<span id="cb5-26"><a href="#cb5-26"></a>plt.legend([<span class="st">"y"</span>,<span class="st">"$p_i$"</span>,<span class="st">"$\hat</span><span class="sc">{y}</span><span class="st">(\hat</span><span class="sc">{p_i}</span><span class="st">)$"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>&lt;matplotlib.legend.Legend at 0x1c4c9c6e5e0&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="Logistic Regression_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>loss_fn <span class="op">=</span> torch.nn.BCELoss()</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="co">"""</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">def BCE_Loss(yhat,y):</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>'\ndef BCE_Loss(yhat,y):\n    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))\n'</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#torch에서 제공하는 sigmoid가 아니고 내가 만든 sigmoid 쓰면 오류 발생 .... =&gt; 0과 1사이의 범위에만 있어야 하는데 ... 넘는다고 오류발생 ㅜ_ㅜ</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#BCE Loss도 torch에서 제공하는거 아니면 오류발생 ㅜ_ㅜ =&gt; nan값 뜸 ... ㅜ.ㅜ</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">8</span>))</span>
-<span id="cb9-4"><a href="#cb9-4"></a>i<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">200</span>):</span>
-<span id="cb9-7"><a href="#cb9-7"></a>    <span class="co">#1 yhat </span></span>
-<span id="cb9-8"><a href="#cb9-8"></a>    yhat <span class="op">=</span> sig(X<span class="op">@</span>What)</span>
-<span id="cb9-9"><a href="#cb9-9"></a>    <span class="co">#2 loss</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a>    loss <span class="op">=</span> loss_fn(yhat,y)</span>
-<span id="cb9-11"><a href="#cb9-11"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">20</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb9-12"><a href="#cb9-12"></a>        <span class="cf">try</span>:</span>
-<span id="cb9-13"><a href="#cb9-13"></a>            <span class="bu">print</span>(loss)</span>
-<span id="cb9-14"><a href="#cb9-14"></a>            plt.subplot(<span class="dv">2</span>,<span class="dv">5</span>,i)</span>
-<span id="cb9-15"><a href="#cb9-15"></a>            <span class="co">#plt.plot(X[:,1].data,y,"bo",alpha=0.3)</span></span>
-<span id="cb9-16"><a href="#cb9-16"></a>            plt.plot(X[:,<span class="dv">1</span>].data,p_i,<span class="st">"r"</span>)</span>
-<span id="cb9-17"><a href="#cb9-17"></a>            plt.plot(X[:,<span class="dv">1</span>].data,yhat.data,<span class="st">"g"</span>)</span>
-<span id="cb9-18"><a href="#cb9-18"></a>            plt.xlim</span>
-<span id="cb9-19"><a href="#cb9-19"></a>            plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb9-20"><a href="#cb9-20"></a>            plt.ylabel(<span class="st">"y"</span>)</span>
-<span id="cb9-21"><a href="#cb9-21"></a>            <span class="co">#plt.title("realizations $y_1,\dots,y_{60}$ from $Bern(p_1),\dots,Bern(p_{60})$")</span></span>
-<span id="cb9-22"><a href="#cb9-22"></a>            plt.legend([<span class="st">"p"</span>,<span class="st">"yhat"</span>])</span>
-<span id="cb9-23"><a href="#cb9-23"></a>            i<span class="op">+=</span><span class="dv">1</span></span>
-<span id="cb9-24"><a href="#cb9-24"></a>        <span class="cf">except</span>:</span>
-<span id="cb9-25"><a href="#cb9-25"></a>            <span class="cf">pass</span></span>
-<span id="cb9-26"><a href="#cb9-26"></a>    <span class="co">#3 derivative</span></span>
-<span id="cb9-27"><a href="#cb9-27"></a>    loss.backward()</span>
-<span id="cb9-28"><a href="#cb9-28"></a>    <span class="co">#4 update &amp; clean</span></span>
-<span id="cb9-29"><a href="#cb9-29"></a>    What.data <span class="op">=</span> What.data <span class="op">-</span> <span class="fl">0.00005</span> <span class="op">*</span> What.grad</span>
-<span id="cb9-30"><a href="#cb9-30"></a>    What.grad <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb9-31"><a href="#cb9-31"></a><span class="co">"""</span></span>
-<span id="cb9-32"><a href="#cb9-32"></a><span class="co">loss = loss_fn(yhat,y)</span></span>
-<span id="cb9-33"><a href="#cb9-33"></a><span class="co">print(loss)</span></span>
-<span id="cb9-34"><a href="#cb9-34"></a><span class="co">loss.backward()</span></span>
-<span id="cb9-35"><a href="#cb9-35"></a><span class="co">print(What.data)</span></span>
-<span id="cb9-36"><a href="#cb9-36"></a><span class="co">What.data = What.data - 0.1 * What.grad.data</span></span>
-<span id="cb9-37"><a href="#cb9-37"></a><span class="co">What.grad = None</span></span>
-<span id="cb9-38"><a href="#cb9-38"></a><span class="co">print(What.data)</span></span>
-<span id="cb9-39"><a href="#cb9-39"></a><span class="co">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>tensor(2.3022, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.4447, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.3455, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.3250, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.3176, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.3143, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.3127, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.3118, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.3114, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)
-tensor(0.3111, grad_fn=&lt;BinaryCrossEntropyBackward0&gt;)</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>'\nloss = loss_fn(yhat,y)\nprint(loss)\nloss.backward()\nprint(What.data)\nWhat.data = What.data - 0.1 * What.grad.data\nWhat.grad = None\nprint(What.data)\n'</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="Logistic Regression_files/figure-html/cell-7-output-3.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>plt.plot(X[:,<span class="dv">1</span>].data,y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb12-2"><a href="#cb12-2"></a>plt.plot(X[:,<span class="dv">1</span>].data,p_i,<span class="st">"r"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3"></a>plt.plot(X[:,<span class="dv">1</span>].data,yhat.data,<span class="st">"g"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4"></a>plt.xlim</span>
-<span id="cb12-5"><a href="#cb12-5"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6"></a>plt.ylabel(<span class="st">"y"</span>)</span>
-<span id="cb12-7"><a href="#cb12-7"></a>plt.title(<span class="st">"Logistic Regression"</span>)</span>
-<span id="cb12-8"><a href="#cb12-8"></a>plt.legend([<span class="st">"y"</span>,<span class="st">"$p_i$"</span>,<span class="st">"$\hat</span><span class="sc">{y}</span><span class="st">(\hat</span><span class="sc">{p_i}</span><span class="st">)$"</span>])</span>
-<span id="cb12-9"><a href="#cb12-9"></a>plt.gca().axes.xaxis.set_visible(<span class="va">False</span>)</span>
-<span id="cb12-10"><a href="#cb12-10"></a>plt.gca().axes.yaxis.set_visible(<span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="Logistic Regression_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 <p>참고링크<br> 1. <a href="https://www.analyticsvidhya.com/blog/2022/02/decoding-logistic-regression-using-mle/#h2_1">로지스틱 회귀 전개</a><br> 2. <a href="https://en.wikipedia.org/wiki/Logistic_regression">위키피디아 - 로지스틱 회귀</a><br> 3. <a href="https://ratsgo.github.io/machine%20learning/2017/07/02/logistic/">ratsgo’s blog</a></p>
 
 

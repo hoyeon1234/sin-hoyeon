@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신호연">
-<meta name="dcterms.date" content="2022-12-29">
+<meta name="dcterms.date" content="2022-12-27">
 
-<title>Hoyeon’s Blog - 최대가능도 추정법(MLE)</title>
+<title>Hoyeon’s Blog - 확률분포에서 ;와|의 사용</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">최대가능도 추정법(MLE)</h1>
+      <h1 class="title">확률분포에서 <code>;</code>와<code>|</code>의 사용</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Probability&amp;Statistics</div>
               </div>
@@ -130,7 +130,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 29, 2022</p>
+        <p class="date">December 27, 2022</p>
       </div>
     </div>
     
@@ -146,13 +146,13 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#likelyhood가능도" id="toc-likelyhood가능도" class="nav-link active" data-scroll-target="#likelyhood가능도">Likelyhood(가능도)</a></li>
-  <li><a href="#mle최대가능도-추정법" id="toc-mle최대가능도-추정법" class="nav-link" data-scroll-target="#mle최대가능도-추정법">MLE(최대가능도 추정법)</a>
+  <li><a href="#의-사용" id="toc-의-사용" class="nav-link active" data-scroll-target="#의-사용"><code>;</code>의 사용</a>
   <ul class="collapse">
-  <li><a href="#ll" id="toc-ll" class="nav-link" data-scroll-target="#ll">LL</a></li>
-  <li><a href="#nll" id="toc-nll" class="nav-link" data-scroll-target="#nll">NLL</a></li>
+  <li><a href="#언제-를-사용하지" id="toc-언제-를-사용하지" class="nav-link" data-scroll-target="#언제-를-사용하지">언제 <code>;</code>를 사용하지?</a></li>
+  <li><a href="#확률함수에서-의-사용" id="toc-확률함수에서-의-사용" class="nav-link" data-scroll-target="#확률함수에서-의-사용">확률함수에서 <code>;</code>의 사용</a></li>
+  <li><a href="#의-사용-1" id="toc-의-사용-1" class="nav-link" data-scroll-target="#의-사용-1"><code>|</code>의 사용<br></a></li>
+  <li><a href="#결론-과" id="toc-결론-과" class="nav-link" data-scroll-target="#결론-과">결론 <code>;</code> 과 <code>|</code></a></li>
   </ul></li>
-  <li><a href="#정리---mle" id="toc-정리---mle" class="nav-link" data-scroll-target="#정리---mle">정리 - MLE</a></li>
   </ul>
 </nav>
     </div>
@@ -162,62 +162,39 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p>최대가능도 추정법(MLE)에 대한 정리</p>
-<section id="likelyhood가능도" class="level2">
-<h2 class="anchored" data-anchor-id="likelyhood가능도">Likelyhood(가능도)</h2>
-<p>모수의 가능도(Likelyhood)는 어떤 모숫값(parameter)<span class="math inline">\(\theta\)</span>을 가정했을때,데이터(샘플,실현)가 가능성(확률,확률밀도)을 나타냅니다. 일반적으로 <span class="math inline">\(\theta\)</span>에 따라서 변하는 함수이기에 가능도함수라고도 합니다.수학적으로 표현하면 다음과 같습니다.<br></p>
-<span class="math display">\[\begin{aligned}
-&amp;\text{Suppose}\,(x_1,x_2,...,x_n)\ \text{are a realization of a random sample }(X_1,X_2,\dots,X_n) \\
-&amp;\text{where,}\, X_1 \sim f_1(x;\theta),X_2 \sim f_2(x;\theta),\dots,X_n \sim f_n(x;\theta) \\\\
-
-&amp;\large{\text{likelyhood function}}\,L(\theta) \\
-\end{aligned}\]</span>
-<span class="math display">\[\begin{aligned}
-L(\theta|X_1 = x_1,X_2 = x_2,\dots,X_n = x_n) &amp;= p_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
-&amp;= \overset{i=n}{\underset{i=1}{\large{\Pi}}}f_i(x_i)
-\end{aligned}\]</span>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>주어진 샘플에 대한 확률(또는 확률밀도)은 <span class="math inline">\(Y_1 = y_1,Y_2 = y_2 \dots Y_n = y_n\)</span>인 사건이 동시에 일어날 결합확률(확률밀도)입니다. 그러므로 가능도 = 동시에 뽑일 가능성(확률,확률밀도) = 결합확률이라고 할 수 있습니다.</p>
-</div>
-</div>
+<p>확률분포에서 ;와|에 관한 notation 정리</p>
+<section id="의-사용" class="level1">
+<h1><code>;</code>의 사용</h1>
+<section id="언제-를-사용하지" class="level2">
+<h2 class="anchored" data-anchor-id="언제-를-사용하지">언제 <code>;</code>를 사용하지?</h2>
+<p><code>;</code>의 뒤에는 다변수 함수에서 특정 변수를 시켜놓았다라는 의미로 쓰인다. 다음과 같은 이변수함수를 생각해보자<br> <span class="math display">\[f(x,y)\]</span> 독립변수 x와 y를 갖는 함수이며 두 변수 모두에 대해서 미분가능하다. 여기서 변수 y가 어떤 어떤 값으로 고정된것이 알려지거나 또는 고정된상황을 가정한 후 x에 대해서만 관심이 있다고 해보자(미분,극한등을 아마도?취하고 싶다..아마도…) 이때는 이변수함수로 표기하는것이 아닌 일변수함수로 표기해야한다. 그때는 다음과 같이 표기하면 된다.<br> <span class="math display">\[
+f(x;y)
+\]</span><br></p>
+<p>이렇게 표기하면 y값은 이제 어떤 값으로 이미 설정(setting)되거나 고정(fixed)되어있음을 의미한다.<br></p>
 </section>
-<section id="mle최대가능도-추정법" class="level2">
-<h2 class="anchored" data-anchor-id="mle최대가능도-추정법">MLE(최대가능도 추정법)</h2>
-<p>최대가능도추정법(MLE)는 확률분포의 모수를 추정하는 점추정방법 중 하나로 가능도를 가장크게하는 모숫값을 모수에 대한 추정값 하는 방법입니다.다음과 같습니다.<br></p>
-<span class="math display">\[\begin{aligned}
-\hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,L(\theta|X_1 = x_1,X_2 = x_2 \dots X_n = x_n) \\
-&amp;=  \underset{\theta}{\text{argmax}},p_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
-&amp;= \underset{\theta}{\text{argmax}}\,\overset{i=n}{\underset{i=1}{\large{\Pi}}}f_i(x_i)
-\end{aligned}\]</span>
-<section id="ll" class="level3">
-<h3 class="anchored" data-anchor-id="ll">LL</h3>
-<p>LL은 log likelyhood의 약자로 likelyhood에 log를 취해준 값입니다. 로그함수를 취해도 함수가 MLE의 계산결과(가능도가 최대인 모수에 대한 추정값)의 위치가 변하지 않고 계산을 곱셈을 더하기로 바꿔서 계산하기에 더 편리하기 때문에 LL을 사용합니다.<br> <span class="math display">\[LL = \text{ln }L(\theta|X_1 = x_1,X_2 = x_2 \dots X_n = x_n)\]</span></p>
+<section id="확률함수에서-의-사용" class="level2">
+<h2 class="anchored" data-anchor-id="확률함수에서-의-사용">확률함수에서 <code>;</code>의 사용</h2>
+<p>베르누이분포의 확률질량함수는 다음과 같다<br> <span class="math display">\[
+f_X(x) = p^x(1-p)^{1-x}
+\]</span><br></p>
+<p>이식을 해석해보면 다음과 같다.<br> - 좌변 : 확률변수 X에 관한 확률함수이며 실험 또는 시행으로부터 확률변수X가 취할 수 있는 값인 변수x를 입력으로 갖는다. - 우변 : 구체적인 확률질량함수(또는 확률밀도함수)이다.</p>
+<p>베르누이분포 확률질량함수에서 이미 setting,fixed된 모수(parameter)를 명시적으로 표현하고자 할때에는 다음과 같은 표기를 사용한다.<br> <span class="math display">\[f_X(x;p) = p^x(1-p)^{1-x}\]</span></p>
 </section>
-<section id="nll" class="level3">
-<h3 class="anchored" data-anchor-id="nll">NLL</h3>
-<p>NLL은 LL에 -(negative)를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있습니다.(주로 최적화에서 이런 방식을 많이 사용합니다.) <span class="math display">\[NLL = -\text{ln }L(\theta|X_1 = x_1,X_2 = x_2 \dots X_n = x_n)\]</span></p>
+<section id="의-사용-1" class="level2">
+<h2 class="anchored" data-anchor-id="의-사용-1"><code>|</code>의 사용<br></h2>
+<p><code>|</code>는 given that이라는 의미이며 |의 오른쪽에는 조건 또는 주어지는 상황이 나온다. 확률,통계 분야에서만 쓰이며 조건부 확률이나,베이지안에서 많이 쓰이는 기호라고 한다. 여기서 조건은 확률변수의 어떤 값이므로 마찬가지로 미리주어지는 값이다. 변수가 아니라 모수(parameter)로 생각할 수 있으며 결국에는 설정된,고정된 값이다.</p>
+<p>조건부 확률분포(조건부확률밀도함수,조건부 확률함수)는 다음과 같다.<br> <span class="math display">\[
+p_{X|Y}(x|y) = \frac{p_{XY}(x,y)}{p_Y(y)}\\
+p_{X|Y}(y|x) = \frac{p_{XY}(x,y)}{p_X(x)}
+\]</span> <br> 가장 윗식을 해석해보면 다음과 같다.<br> - 좌변 : 확률변수 Y가 주어진(given)상황에서 확률변수X의 확률(또는 확률밀도)를 나타내는 함수이며 시행으로부터 확률변수 X가 취할 수 있는 값 x를 입력으로 받는다. 조건부 확률분포에서 Y의 값은 y로 주어져 있다고 가정하므로 입력하는 변수가 아니다. 따라서 확률변수 Y는 변수가 아니라 모수(parameter)이다.<br> - 우변 : 조건부확률분포 공식.<br></p>
 </section>
-</section>
-<section id="정리---mle" class="level2">
-<h2 class="anchored" data-anchor-id="정리---mle">정리 - MLE</h2>
-<p>MLE를 통해서 모수에 대한 추정량을 구하면 다음과 같습니다.</p>
-<span class="math display">\[\begin{aligned}
-\hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,L(\theta|X_1 = x_1,X_2 = x_2 \dots X_n = x_n)\\
-&amp;= \underset{\theta}{\text{argmax}},p_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
-&amp;= \underset{\theta}{argmin}\,-\text{ln}\,L(\theta|X_1=x_1,X_2=x_2\dots X_n=x_n)
-\end{aligned}\]</span>
-<p><a href="https://stats.stackexchange.com/questions/239500/what-is-the-difference-between-random-variable-and-random-sample">링크1(random sample vs random variable)</a><br> <a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=soohwan2-&amp;logNo=100200023641">링크2(추정,추정량,추정값)</a><br> <a href="https://angeloyeo.github.io/2020/07/17/MLE.html">링크3(mle)</a> <a href="https://datascienceschool.net/02%20mathematics/09.02%20%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84%20%EC%B6%94%EC%A0%95%EB%B2%95.html">링크4(mle)</a></p>
+<section id="결론-과" class="level2">
+<h2 class="anchored" data-anchor-id="결론-과">결론 <code>;</code> 과 <code>|</code></h2>
+<p><span class="math display">\[p_{\theta}(x) = p(x;\theta) = p(x|\theta)\]</span> <br> <code>;</code>는 수학의 모든 분야에서 쓰이지만 <code>|</code>는 확률통계분야에서만 쓰인다. ;다음에는 이미 설정되거나 고정된 값이 나오며 |다음에는 이미 주어진 조건이 나온다. 확률,통계 분야에서는 |다음에 나오는 조건은 조건부확률분포에서의 주어진 조건이자 설정된,고정된 값인 경우가 많다. 따라서 비공식적으로 혼용해서 쓰며 경험상 ;다음에는 그래도 설정된 값을 의미하는 모수(parameter)가 |는 조건부 확률이나 확률분포를 쓰는 경우가 많은 것 같다.<br></p>
+<p>참고링크<br> <a href="https://math.stackexchange.com/questions/3421665/do-the-vertical-bar-and-semicolon-denote-the-same-thing-in-the-context-of-condit">링크1(;의 사용법)</a><br> <a href="https://datascienceschool.net/02%20mathematics/07.04%20%EB%8B%A4%EB%B3%80%EC%88%98%20%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98.html#id13">링크2(조건부확률분포)</a><br> <a href="https://bubilife.tistory.com/32">링크3(표기법의 혼용)</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
