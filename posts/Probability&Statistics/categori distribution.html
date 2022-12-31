@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신호연">
-<meta name="dcterms.date" content="2022-12-29">
+<meta name="dcterms.date" content="2022-12-30">
 
-<title>Hoyeon’s Blog - 최대가능도 추정법(MLE)</title>
+<title>Hoyeon’s Blog - 카테고리 분포</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">최대가능도 추정법(MLE)</h1>
+      <h1 class="title">카테고리 분포</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Probability&amp;Statistics</div>
               </div>
@@ -130,7 +130,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 29, 2022</p>
+        <p class="date">December 30, 2022</p>
       </div>
     </div>
     
@@ -146,13 +146,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#likelyhood가능도" id="toc-likelyhood가능도" class="nav-link active" data-scroll-target="#likelyhood가능도">Likelyhood(가능도)</a></li>
-  <li><a href="#mle최대가능도-추정법" id="toc-mle최대가능도-추정법" class="nav-link" data-scroll-target="#mle최대가능도-추정법">MLE(최대가능도 추정법)</a>
-  <ul class="collapse">
-  <li><a href="#ll" id="toc-ll" class="nav-link" data-scroll-target="#ll">LL</a></li>
-  <li><a href="#nll" id="toc-nll" class="nav-link" data-scroll-target="#nll">NLL</a></li>
-  </ul></li>
-  <li><a href="#정리---mle" id="toc-정리---mle" class="nav-link" data-scroll-target="#정리---mle">정리 - MLE</a></li>
+  <li><a href="#카테고리-분포" id="toc-카테고리-분포" class="nav-link active" data-scroll-target="#카테고리-분포">카테고리 분포</a></li>
   </ul>
 </nav>
     </div>
@@ -162,60 +156,45 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p>최대가능도 추정법(MLE)에 대한 정리</p>
-<section id="likelyhood가능도" class="level2">
-<h2 class="anchored" data-anchor-id="likelyhood가능도">Likelyhood(가능도)</h2>
-<p>모수의 가능도(Likelyhood)는 어떤 모숫값(parameter)<span class="math inline">\(\theta\)</span>을 가정했을때,데이터(샘플,실현)가 가능성(확률,확률밀도)을 나타냅니다. 일반적으로 <span class="math inline">\(\theta\)</span>에 따라서 변하는 함수이기에 가능도함수라고도 합니다.수학적으로 표현하면 다음과 같습니다.<br></p>
+<p>카테고리 분포에 대한 정리</p>
+<section id="카테고리-분포" class="level1">
+<h1>카테고리 분포</h1>
+카테고리분포는 시행의 한번의 시행(또는 실험)으로부터 나올 수 있는 사건이 K개인 확률분포를 모델링할때 쓰이며 다음과 같습니다.<br>
 <span class="math display">\[\begin{aligned}
-&amp;\text{Suppose}\,(x_1,x_2,...,x_n)\ \text{are a realization of a random sample }(X_1,X_2,\dots,X_n) \\
-&amp;\text{where,}\, X_1 \sim f_1(x;\theta),X_2 \sim f_2(x;\theta),\dots,X_n \sim f_n(x;\theta) \\\\
-
-&amp;\large{\text{likelyhood function}}\,L(\theta) \\
+&amp;Cat({\bf{x};\bf{\mu}}) =
+\begin{cases}
+\mu_1\, (\text{if } x = (1,0,0,0,\dots,1)) \\
+\mu_2\, (\text{if } x = (0,1,0,0,\dots,1)) \\
+\mu_3\, (\text{if } x = (0,0,1,0,\dots,1)) \\
+\vdots \\
+\mu_k\, (\text{if } x = (0,0,0,0,\dots,1)) \\
+\end{cases}
+\\
+&amp;\text{where, }x = (x_1,x_2,\dots,x_K),\mu = (\mu_1,\mu_2,\dots,\mu_k)
 \end{aligned}\]</span>
+<p>카테고리분포의 변수<span class="math inline">\(\bf{X}\)</span>는 K개의 원소를 가지는 원핫인코딩(one-hot encoded)된 벡터이며 각원소는 indicate number(어떤 클래스에 속하는지 나타내는)인 1또는0입니다. 모수(벡터)<span class="math inline">\(\mu\)</span>도 K개의 원소를 가지며 각각의 원소는 카테고리 확률분포로부터 대응하는 결과값(원핫벡터)에 대한 확률입니다. 즉,각각의 원핫벡터가 표본추출될 가능성(확률)을 알려줍니다.<br></p>
+<p>위와 같은 사실로부터 다음과 같은 4가지의 제약조건이 존재합니다.<br></p>
+<ol type="1">
+<li><span class="math inline">\(\mu_i\)</span>는 원핫벡터가 나올 확률입니다.</li>
+</ol>
+<p><span class="math display">\[0\leq\mu_i\leq1\]</span></p>
+<ol start="2" type="1">
+<li>확률의 합은 1입니다.</li>
+</ol>
+<p><span class="math display">\[\sum_{i=1}^{K}\mu_i = 1\]</span></p>
+<ol start="3" type="1">
+<li>원핫벡터의 각 원소는 indicate number인 1또는 0입니다.</li>
+</ol>
 <span class="math display">\[\begin{aligned}
-L(\theta|X_1 = x_1,X_2 = x_2,\dots,X_n = x_n) &amp;= p_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
-&amp;= \overset{i=n}{\underset{i=1}{\large{\Pi}}}f_i(x_i)
+x_i =
+\begin{cases}
+0\\
+1
+\end{cases}
 \end{aligned}\]</span>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>주어진 샘플에 대한 확률(또는 확률밀도)은 <span class="math inline">\(Y_1 = y_1,Y_2 = y_2 \dots Y_n = y_n\)</span>인 사건이 동시에 일어날 결합확률(확률밀도)입니다. 그러므로 가능도 = 동시에 뽑일 가능성(확률,확률밀도) = 결합확률이라고 할 수 있습니다.</p>
-</div>
-</div>
-</section>
-<section id="mle최대가능도-추정법" class="level2">
-<h2 class="anchored" data-anchor-id="mle최대가능도-추정법">MLE(최대가능도 추정법)</h2>
-<p>최대가능도추정법(MLE)는 확률분포의 모수를 추정하는 점추정방법 중 하나로 가능도를 가장크게하는 모숫값을 모수에 대한 추정값 하는 방법입니다.다음과 같습니다.<br></p>
-<span class="math display">\[\begin{aligned}
-\hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,L(\theta|X_1 = x_1,X_2 = x_2 \dots X_n = x_n) \\
-&amp;=  \underset{\theta}{\text{argmax}},p_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
-&amp;= \underset{\theta}{\text{argmax}}\,\overset{i=n}{\underset{i=1}{\large{\Pi}}}f_i(x_i)
-\end{aligned}\]</span>
-<section id="ll" class="level3">
-<h3 class="anchored" data-anchor-id="ll">LL</h3>
-<p>LL은 log likelyhood의 약자로 likelyhood에 log를 취해준 값입니다. 로그함수를 취해도 함수가 MLE의 계산결과(가능도가 최대인 모수에 대한 추정값)의 위치가 변하지 않고 계산을 곱셈을 더하기로 바꿔서 계산하기에 더 편리하기 때문에 LL을 사용합니다.<br> <span class="math display">\[LL = \text{ln }L(\theta|X_1 = x_1,X_2 = x_2 \dots X_n = x_n)\]</span></p>
-</section>
-<section id="nll" class="level3">
-<h3 class="anchored" data-anchor-id="nll">NLL</h3>
-<p>NLL은 LL에 -(negative)를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있습니다.(주로 최적화에서 이런 방식을 많이 사용합니다.) <span class="math display">\[NLL = -\text{ln }L(\theta|X_1 = x_1,X_2 = x_2 \dots X_n = x_n)\]</span></p>
-</section>
-</section>
-<section id="정리---mle" class="level2">
-<h2 class="anchored" data-anchor-id="정리---mle">정리 - MLE</h2>
-<p>MLE를 통해서 모수에 대한 추정량을 구하면 다음과 같습니다.</p>
-<span class="math display">\[\begin{aligned}
-\hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,L(\theta|X_1 = x_1,X_2 = x_2 \dots X_n = x_n)\\
-&amp;= \underset{\theta}{\text{argmax}},p_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
-&amp;= \underset{\theta}{argmin}\,-\text{ln}\,L(\theta|X_1=x_1,X_2=x_2\dots X_n=x_n)
-\end{aligned}\]</span>
-<p><a href="https://stats.stackexchange.com/questions/239500/what-is-the-difference-between-random-variable-and-random-sample">링크1(random sample vs random variable)</a><br> <a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=soohwan2-&amp;logNo=100200023641">링크2(추정,추정량,추정값)</a><br> <a href="https://angeloyeo.github.io/2020/07/17/MLE.html">링크3(mle)</a> <a href="https://datascienceschool.net/02%20mathematics/09.02%20%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84%20%EC%B6%94%EC%A0%95%EB%B2%95.html">링크4(mle)</a></p>
+<ol start="4" type="1">
+<li>원핫벡터의 모든 원소의 합은 1입니다. <span class="math display">\[\sum_{i=1}^{K}x_i = 1\]</span></li>
+</ol>
 
 
 </section>

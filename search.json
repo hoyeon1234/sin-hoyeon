@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Hoyeon's Blog",
     "section": "",
-    "text": "최대가능도 추정법(MLE)\n\n\n\n\n\n\n\nprobability&statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 29, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\nprobability&statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(2) - 로지스틱회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\n신호연\n\n\n\n\n\n\nNo matching items"
+    "text": "카테고리 분포\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 30, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n최대가능도 추정법(MLE)\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 29, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(2) - 로지스틱회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\n신호연\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html",
@@ -98,6 +98,27 @@
     "text": "본격적인 유도\n\n모수를 로지스틱함수로 바꾸기\n\n\\((x_0,x_1,...,x_m)\\,,(w_0,w_1,..,w_m)\\)의 linear combination이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다. \\[\\begin{align}\nf(i) = x_{1,i}w_0 + x_{2,i}w_1 + x_2w_2 + ... + x_{m,i}w_m = X_iW \\nonumber \\\\\nwhere,X_i = \\,[x_{1,i},x_{2,i},\\dots,x_{m,i}]\\, ,W = \\,[w_0,w_1,\\dots,w_m]^\\text{T} \\nonumber \\\\\n\\end{align}\\]\n좌변은 예측하고자 하는 값인 모수여야 합니다. 좌변을 바꿔봅니다. \\[p_i = WX_i\\]\n좌변의 베르누이 분포의 모수 \\(p_i\\)는 확률변수 \\(y = 1\\)인 사건이 일어날 확률입니다. 그러므로 \\([0,1]\\)이라는 범위를 가지는 반면 우변의 값\\(WX_i\\)은 \\(\\,[-\\infty,\\infty]\\,\\)에 범위를 가집니다. 여기서 Odss Ratio를 써서 모수 \\(p_i\\)를 포함하며 더 넓은 range를 갖도록 좌변을 수정합니다. \\[\\text{Odds Ratio} = \\frac{p_i}{1-p_i} = WX_i\\]\n좌변을 Odds Ratio로 수정했지만 여전히 좌변의 범위는\\(\\,[0,\\infty]\\,\\)으로 우변에 비해 좁습니다. 따라서 Odds Ratio에 로짓변환을 취하여 좌변의 범위를 \\(\\,[-\\infty,\\infty]\\)로 넓혀줍니다. \\[\\text{logit}(p) = \\text{ln}\\frac{p_i}{1-p_i} = WX_i\\]\n\n위 식을 해석하기 위해 \\(X\\)의 첫번째 요소인 \\(x_1\\)에 대응하는 회귀계수 \\(w_1\\)이 학습결과 3으로 정해졌다고 가정해봅시다.만약 \\(x_1\\)의 값이 1증가한다면 로그오즈비가 3증가합니다.\n\n이제 양변의 범위는 맞춰졌으므로 추정하고자 하는 변수 \\(p_i\\)가 좌변에 오도록 정리해봅시다. \\[p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\] (전개) \\(\\frac{p_i}{1-p_i} = e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,(1-p_i)\\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,e^{WX_i}-p_ie^{WX_i}\\) \\(\\Longleftrightarrow p_i + p_ie^{WX_i} = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i\\,(1 + e^{WX_i})\\, = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\frac{\\,e^{WX_i}}{\\,(1 + e^{WX_i})\\, }\\) \\(\\Longleftrightarrow p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\)\n\n최종적으로, 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재하도록 새롭게 표현한 모수는 다음과 같습니다. \\[p_i(y) = Pr\\,(y = 1|X_i;W)\\, = \\frac{1}{\\,1 + e^{-WX_i}\\,}\\]\n\n\n베르누이 분포의 pmf 정리\n베르누이분포의 모수 \\(p_i\\)가 새롭게 표현되었으므로 확률질량함수도 새롭게 표현할 수 있습니다. 마지막 수식은 베르누이 분포의 확률질량함수가 모수\\(W\\)에 관한 식으로 바뀌었음을 표현합니다.\n\\[\\begin{align}\nBern(y;p_i) = Pr\\,(Y_{i} = y|x_{1,i},x_{2,i},\\dots,x_{m,i};p_i) &=\n\\begin{cases}\np_i & \\text{if}\\,y=1 \\\\\n1-p_i & \\text{if}\\,y=0\n\\end{cases} \\\\\n&= p_i^{y}(1-p_i)^{1-y} \\\\\n&= \\frac{e^{yWX_i}}{1+e^{WX_i}}\n\\end{align}\\]"
   },
   {
+    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#setting",
+    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#setting",
+    "title": "딥러닝(2) - 로지스틱회귀",
+    "section": "setting",
+    "text": "setting\n\nimport torch\nimport matplotlib.pyplot as plt\nplt.style.use('ggplot')\n#sig = lambda z:torch.exp(z)/(1+torch.exp(z))\nsig = torch.nn.Sigmoid()"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#data",
+    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#data",
+    "title": "딥러닝(2) - 로지스틱회귀",
+    "section": "data",
+    "text": "data\n\ntorch.manual_seed(2022)\nn=400\n\n#1 모수 W가정\nW = torch.tensor(\n    [[-0.8467],\n    [0.041]]).float()\n\n#2 각각의 관측치(데이터요소)에서의 모수 p_i시각화(시그모이드 함수 시각화)\n_x = torch.linspace(-150,150,n).reshape(-1,1)\n_one = torch.ones((n,1))\nX = torch.concat((_one,_x),axis=1)\np_i = sig(X@W)\ny = torch.bernoulli(p_i)\nplt.xlim([-150,150])\nplt.plot(X[:,1],y,\"bo\",alpha=0.5)\nplt.plot(X[:,1],p_i,\"r--\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y,$p_i$\")\nplt.title(\"realizations $y_1,\\dots,y_{300}$ from $Bern(p_1),\\dots,Bern(p_{300})$\")\nplt.legend([\"y\",\"p\"])\n\n<matplotlib.legend.Legend at 0x1f2684bfe20>"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#gradient-descent-1",
+    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#gradient-descent-1",
+    "title": "딥러닝(2) - 로지스틱회귀",
+    "section": "Gradient Descent",
+    "text": "Gradient Descent\n\nimport torch\nimport matplotlib.pyplot as plt\nplt.style.use('ggplot')\n\n\ntorch.manual_seed(2022)\nn=400\n\n#2 임의의 W에 대한 estimated value(추정치) What 초기화\nWhat = torch.tensor(\n    [[0.],\n    [-0.03]],requires_grad=True)\n\n_x = torch.linspace(-150,150,n).reshape(-1,1)\n_one = torch.ones((n,1))\nX = torch.concat((_one,_x),axis=1)\nyhat = sig(X@What)\n\nplt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\nplt.plot(X[:,1].data,p_i,\"r\")\nplt.plot(X[:,1].data,yhat.data,\"g\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.title(\"realizations $y_1,\\dots,y_{60}$ from $Bern(p_1),\\dots,Bern(p_{60})$\")\nplt.legend([\"y\",\"$p_i$\",\"$\\hat{y}(\\hat{p_i})$\"])\n\n<matplotlib.legend.Legend at 0x1f268e11e50>\n\n\n\n\n\n\nloss_fn = torch.nn.BCELoss()\n\"\"\"\ndef BCE_Loss(yhat,y):\n    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))\n\"\"\"\n\n'\\ndef BCE_Loss(yhat,y):\\n    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))\\n'\n\n\n\n#custom sigmoid + torch.BCELoss 쓰면 오류 발생. 0과 1사이의 범위 아님\n#torch.nn.Sigmoid + custom BCE Loss 써도 오류발생 => nan\nplt.subplots(2,5,figsize=(20,8))\nplt.subplots_adjust(hspace=0.3)\ni=1\n\nfor epoch in range(200):\n    #1 yhat \n    yhat = sig(X@What)\n    #2 loss\n    loss = loss_fn(yhat,y)\n    if epoch % 20 == 0:\n        plt.subplot(2,5,i)\n        #plt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\n        plt.plot(X[:,1].data,p_i,\"r\")\n        plt.plot(X[:,1].data,yhat.data,\"g\")\n        plt.xlabel(\"x\")\n        plt.ylabel(\"y\")\n        #plt.title(\"realizations $y_1,\\dots,y_{60}$ from $Bern(p_1),\\dots,Bern(p_{60})$\")\n        plt.legend([\"p\",\"yhat\"])\n        title = \"loss : {}\".format(round(loss.tolist(),5))\n        plt.title(title)\n        i+=1\n    #3 derivative\n    loss.backward()\n    #4 update & clean\n    What.data = What.data - 0.00005 * What.grad\n    What.grad = None\n\n\n\n\n\nround(loss.tolist(),4)\n\n0.3109\n\n\n\nplt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\nplt.plot(X[:,1].data,p_i,\"r\")\nplt.plot(X[:,1].data,yhat.data,\"g\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.title(\"Logistic Regression\")\nplt.legend([\"y\",\"$p_i$\",\"$\\hat{y}(\\hat{p_i})$\"])\nplt.gca().axes.xaxis.set_visible(False)\nplt.gca().axes.yaxis.set_visible(False)"
+  },
+  {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#베르누이-분포-전개",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#베르누이-분포-전개",
     "title": "딥러닝(2) - 로지스틱회귀",
@@ -116,28 +137,7 @@
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개cross-entropy-유도하기",
     "title": "딥러닝(2) - 로지스틱회귀",
     "section": "3.NLL전개(Cross Entropy 유도하기)",
-    "text": "3.NLL전개(Cross Entropy 유도하기)\n임의의 i번째 항에서의 확률변수 \\(Y_i\\)가 따르는 베르누이 분포는 다음과 같습니다. \n\\[\\begin{aligned}\nBern(y|X_i;p_i) = (p_i)^y(1-p_i)^{y-1}\n\\end{aligned}\\]\n모수가 \\(p_i\\)인 각각의 베르누이 분포를 따르는 확률변수 \\(Y_1,Y_2\\dots Y_n\\)으로부 n개의 realization(sample) \\(y_1,y_2\\dots y_n\\)에 대한 NLL는 다음과 같습니다. \n\\[\\begin{aligned}\nNLL &= -\\text{ln}\\prod_{i=1}^{n}p_i^{y_i}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}\\text{ln}p_i^{y_i}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}\\text{ln}p_i^{y_i} + \\text{ln}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}y_i\\text{ln}p_i + (1-y_i)\\text{ln}(1-p_i)\n\\end{aligned}\\]"
-  },
-  {
-    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#setting",
-    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#setting",
-    "title": "딥러닝(2) - 로지스틱회귀",
-    "section": "setting",
-    "text": "setting\n\nimport torch\nimport matplotlib.pyplot as plt\nplt.style.use('ggplot')\n#sig = lambda z:torch.exp(z)/(1+torch.exp(z))\nsig = torch.nn.Sigmoid()"
-  },
-  {
-    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#data",
-    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#data",
-    "title": "딥러닝(2) - 로지스틱회귀",
-    "section": "data",
-    "text": "data\n\ntorch.manual_seed(2022)\nn=400\n\n#1 모수 W가정\nW = torch.tensor(\n    [[-0.8467],\n    [0.041]]).float()\n\n#2 각각의 관측치(데이터요소)에서의 모수 p_i시각화(시그모이드 함수 시각화)\n_x = torch.linspace(-150,150,n).reshape(-1,1)\n_one = torch.ones((n,1))\nX = torch.concat((_one,_x),axis=1)\np_i = sig(X@W)\ny = torch.bernoulli(p_i)\nplt.xlim([-150,150])\nplt.plot(X[:,1],y,\"bo\",alpha=0.5)\nplt.plot(X[:,1],p_i,\"r--\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y,$p_i$\")\nplt.title(\"realizations $y_1,\\dots,y_{300}$ from $Bern(p_1),\\dots,Bern(p_{300})$\")\nplt.legend([\"y\",\"p\"])\n\n<matplotlib.legend.Legend at 0x1ef146987c0>"
-  },
-  {
-    "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#gradient-descent-1",
-    "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#gradient-descent-1",
-    "title": "딥러닝(2) - 로지스틱회귀",
-    "section": "Gradient Descent",
-    "text": "Gradient Descent\n\nimport torch\nimport matplotlib.pyplot as plt\nplt.style.use('ggplot')\n\n\ntorch.manual_seed(2022)\nn=400\n\n#2 임의의 W에 대한 estimated value(추정치) What 초기화\nWhat = torch.tensor(\n    [[0.],\n    [-0.03]],requires_grad=True)\n\n_x = torch.linspace(-150,150,n).reshape(-1,1)\n_one = torch.ones((n,1))\nX = torch.concat((_one,_x),axis=1)\nyhat = sig(X@What)\n\nplt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\nplt.plot(X[:,1].data,p_i,\"r\")\nplt.plot(X[:,1].data,yhat.data,\"g\")\nplt.xlim\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.title(\"realizations $y_1,\\dots,y_{60}$ from $Bern(p_1),\\dots,Bern(p_{60})$\")\nplt.legend([\"y\",\"$p_i$\",\"$\\hat{y}(\\hat{p_i})$\"])\n\n<matplotlib.legend.Legend at 0x1ef146cf190>\n\n\n\n\n\n\nloss_fn = torch.nn.BCELoss()\n\"\"\"\ndef BCE_Loss(yhat,y):\n    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))\n\"\"\"\n\n'\\ndef BCE_Loss(yhat,y):\\n    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))\\n'\n\n\n\n#torch에서 제공하는 sigmoid가 아니고 내가 만든 sigmoid 쓰면 오류 발생 .... => 0과 1사이의 범위에만 있어야 하는데 ... 넘는다고 오류발생 ㅜ_ㅜ\n#BCE Loss도 torch에서 제공하는거 아니면 오류발생 ㅜ_ㅜ => nan값 뜸 ... ㅜ.ㅜ\nplt.subplots(2,5,figsize=(20,8))\ni=1\n\nfor epoch in range(200):\n    #1 yhat \n    yhat = sig(X@What)\n    #2 loss\n    loss = loss_fn(yhat,y)\n    if epoch % 20 == 0:\n        try:\n            print(loss)\n            plt.subplot(2,5,i)\n            #plt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\n            plt.plot(X[:,1].data,p_i,\"r\")\n            plt.plot(X[:,1].data,yhat.data,\"g\")\n            plt.xlim\n            plt.xlabel(\"x\")\n            plt.ylabel(\"y\")\n            #plt.title(\"realizations $y_1,\\dots,y_{60}$ from $Bern(p_1),\\dots,Bern(p_{60})$\")\n            plt.legend([\"p\",\"yhat\"])\n            i+=1\n        except:\n            pass\n    #3 derivative\n    loss.backward()\n    #4 update & clean\n    What.data = What.data - 0.00005 * What.grad\n    What.grad = None\n\"\"\"\nloss = loss_fn(yhat,y)\nprint(loss)\nloss.backward()\nprint(What.data)\nWhat.data = What.data - 0.1 * What.grad.data\nWhat.grad = None\nprint(What.data)\n\"\"\"\n\ntensor(2.3022, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.4447, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.3455, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.3250, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.3176, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.3143, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.3127, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.3118, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.3114, grad_fn=<BinaryCrossEntropyBackward0>)\ntensor(0.3111, grad_fn=<BinaryCrossEntropyBackward0>)\n\n\n'\\nloss = loss_fn(yhat,y)\\nprint(loss)\\nloss.backward()\\nprint(What.data)\\nWhat.data = What.data - 0.1 * What.grad.data\\nWhat.grad = None\\nprint(What.data)\\n'\n\n\n\n\n\n\nplt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\nplt.plot(X[:,1].data,p_i,\"r\")\nplt.plot(X[:,1].data,yhat.data,\"g\")\nplt.xlim\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.title(\"Logistic Regression\")\nplt.legend([\"y\",\"$p_i$\",\"$\\hat{y}(\\hat{p_i})$\"])\nplt.gca().axes.xaxis.set_visible(False)\nplt.gca().axes.yaxis.set_visible(False)"
+    "text": "3.NLL전개(Cross Entropy 유도하기)\n임의의 i번째 항에서의 확률변수 \\(Y_i\\)가 따르는 베르누이 분포는 다음과 같습니다. \n\\[\\begin{aligned}\nBern(y|X_i;p_i) = (p_i)^y(1-p_i)^{y-1}\n\\end{aligned}\\]\n모수가 \\(p_i\\)인 각각의 베르누이 분포를 따르는 확률변수 \\(Y_1,Y_2\\dots Y_n\\)으로부 n개의 realization(sample) \\(y_1,y_2\\dots y_n\\)에 대한 NLL는 다음과 같습니다. \n\\[\\begin{aligned}\nNLL &= -\\text{ln}\\prod_{i=1}^{n}p_i^{y_i}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}\\text{ln}p_i^{y_i}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}\\text{ln}p_i^{y_i} + \\text{ln}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}y_i\\text{ln}p_i + (1-y_i)\\text{ln}(1-p_i)\n\\end{aligned}\\]\n참고링크 1. 로지스틱 회귀 전개 2. 위키피디아 - 로지스틱 회귀 3. ratsgo’s blog"
   },
   {
     "objectID": "posts/deep learning/pytorch 구현/Pytorch Rnn 구현.html",
@@ -168,64 +168,71 @@
     "text": "모형학습\n\nfor epoch in range(0,101):\n    for tr_x,tr_y in dl:\n        #1 output\n        hidden,hT = rnn(tr_x)\n        #print(hidden.shape)\n        output = linr(hT[-1])\n        #2 loss\n        loss = loss_fn(output,tr_y)\n        #3 derivative\n        loss.backward()\n        #4 update & clean\n        optimizer.step()\n        optimizer.zero_grad()\n    if epoch % 10 == 0:\n        print(f'epoch : {epoch},loss : {round(loss.tolist(),5)}')\n\nepoch : 0,loss : 1.31779\nepoch : 10,loss : 0.69453\nepoch : 20,loss : 0.19338\nepoch : 30,loss : 0.05891\nepoch : 40,loss : 0.02861\nepoch : 50,loss : 0.01791\nepoch : 60,loss : 0.0126\nepoch : 70,loss : 0.00947\nepoch : 80,loss : 0.00744\nepoch : 90,loss : 0.00602\nepoch : 100,loss : 0.00499\n\n\npytorch의 rnn을 거쳐서 나오는 output은 두 가지임. - hidden : 가장 깊이 위치한 히든레이어의 각각의 시점에서의 출력값을 모아놓은 텐서 - hT : 모든 히든레이어에의 마지막 시점(시점T)에서의 출력값을 모아놓은 텐서 - 외우기! 위치 : 가장깊은 <=> 모든 , 시점 : 각각의 <=> 마지막\n위와같은 설정에서는 가장 깊이 위치한 히든레이어의 마지막시점에서의 출력값만이 우리는 다음에올 문자열을 예측할 때 필요하므로 hT[-1]을 하여 그 값을 가져옴."
   },
   {
-    "objectID": "posts/probabilty,statistics/MLE.html",
-    "href": "posts/probabilty,statistics/MLE.html",
+    "objectID": "posts/Probability&Statistics/categori distribution.html",
+    "href": "posts/Probability&Statistics/categori distribution.html",
+    "title": "카테고리 분포",
+    "section": "",
+    "text": "카테고리 분포에 대한 정리\n\n카테고리 분포\n카테고리분포는 시행의 한번의 시행(또는 실험)으로부터 나올 수 있는 사건이 K개인 확률분포를 모델링할때 쓰이며 다음과 같습니다.\n\\[\\begin{aligned}\n&Cat({\\bf{x};\\bf{\\mu}}) =\n\\begin{cases}\n\\mu_1\\, (\\text{if } x = (1,0,0,0,\\dots,1)) \\\\\n\\mu_2\\, (\\text{if } x = (0,1,0,0,\\dots,1)) \\\\\n\\mu_3\\, (\\text{if } x = (0,0,1,0,\\dots,1)) \\\\\n\\vdots \\\\\n\\mu_k\\, (\\text{if } x = (0,0,0,0,\\dots,1)) \\\\\n\\end{cases}\n\\\\\n&\\text{where, }x = (x_1,x_2,\\dots,x_K),\\mu = (\\mu_1,\\mu_2,\\dots,\\mu_k)\n\\end{aligned}\\]\n카테고리분포의 변수\\(\\bf{X}\\)는 K개의 원소를 가지는 원핫인코딩(one-hot encoded)된 벡터이며 각원소는 indicate number(어떤 클래스에 속하는지 나타내는)인 1또는0입니다. 모수(벡터)\\(\\mu\\)도 K개의 원소를 가지며 각각의 원소는 카테고리 확률분포로부터 대응하는 결과값(원핫벡터)에 대한 확률입니다. 즉,각각의 원핫벡터가 표본추출될 가능성(확률)을 알려줍니다.\n위와 같은 사실로부터 다음과 같은 4가지의 제약조건이 존재합니다.\n\n\\(\\mu_i\\)는 원핫벡터가 나올 확률입니다.\n\n\\[0\\leq\\mu_i\\leq1\\]\n\n확률의 합은 1입니다.\n\n\\[\\sum_{i=1}^{K}\\mu_i = 1\\]\n\n원핫벡터의 각 원소는 indicate number인 1또는 0입니다.\n\n\\[\\begin{aligned}\nx_i =\n\\begin{cases}\n0\\\\\n1\n\\end{cases}\n\\end{aligned}\\]\n\n원핫벡터의 모든 원소의 합은 1입니다. \\[\\sum_{i=1}^{K}x_i = 1\\]"
+  },
+  {
+    "objectID": "posts/Probability&Statistics/MLE.html",
+    "href": "posts/Probability&Statistics/MLE.html",
     "title": "최대가능도 추정법(MLE)",
     "section": "",
     "text": "최대가능도 추정법(MLE)에 대한 정리"
   },
   {
-    "objectID": "posts/probabilty,statistics/MLE.html#likelyhood가능도",
-    "href": "posts/probabilty,statistics/MLE.html#likelyhood가능도",
+    "objectID": "posts/Probability&Statistics/MLE.html#likelyhood가능도",
+    "href": "posts/Probability&Statistics/MLE.html#likelyhood가능도",
     "title": "최대가능도 추정법(MLE)",
     "section": "Likelyhood(가능도)",
-    "text": "Likelyhood(가능도)\n모수의 가능도(Likelyhood)는 어떤 모숫값(parameter)\\(\\theta\\)을 가정했을때,데이터(샘플,실현)가 가능성(확률,확률밀도)을 나타냅니다. 일반적으로 \\(\\theta\\)에 따라서 변하는 함수이기에 가능도함수라고도 합니다.수학적으로 표현하면 다음과 같습니다.\n\\[\\begin{aligned}\n&\\text{Suppose}\\,(x_1,x_2,...,x_n)\\ \\text{are a realization of a random sample }(X_1,X_2,\\dots,X_n) \\\\\n&\\text{where,}\\, X_1 \\sim f_1(x;\\theta),X_2 \\sim f_2(x;\\theta),\\dots,X_n \\sim f_n(x;\\theta) \\\\\\\\\n\n&\\large{\\text{likelyhood function}}\\,L(\\theta) \\\\\n\\end{aligned}\\]\n\\[\\begin{aligned}\nL(\\theta|X_1 = x_1,X_2 = x_2,\\dots,X_n = x_n) &= p_{X_1,X_2,\\dots,X_n}(x_1,x_2,\\dots,x_n|\\theta) \\\\\n&= \\overset{i=n}{\\underset{i=1}{\\large{\\Pi}}}f_i(x_i)\n\\end{aligned}\\]\n\n\n\n\n\n\nNote\n\n\n\n주어진 샘플에 대한 확률(또는 확률밀도)은 \\(Y_1 = y_1,Y_2 = y_2 \\dots Y_n = y_n\\)인 사건이 동시에 일어날 결합확률(확률밀도)입니다. 그러므로 가능도 = 동시에 뽑일 가능성(확률,확률밀도) = 결합확률이라고 할 수 있습니다."
+    "text": "Likelyhood(가능도)\n모수의 가능도(Likelyhood)는 어떤 모숫값(parameter)\\(\\theta\\)을 가정했을때,데이터(샘플,실현)가 나올 가능성(확률,확률밀도)을 나타냅니다. 일반적으로 \\(\\theta\\)에 따라서 변하는 함수이기에 가능도함수라고도 합니다.수학적으로 표현하면 다음과 같습니다.\n\\[\\begin{aligned}\n&\\text{Suppose}\\,(x_1,x_2,...,x_n)\\ \\text{are a realization of a random sample }(X_1,X_2,\\dots,X_n) \\\\\n&\\text{where,}\\, X_1 \\sim f_1(x;\\theta),X_2 \\sim f_2(x;\\theta),\\dots,X_n \\sim f_n(x;\\theta) \\\\\\\\\n\n&\\large{\\text{likelyhood function}}\\,L(\\theta) \\\\\n\\end{aligned}\\]\n\\[\\begin{aligned}\nL(\\theta|X_1 = x_1,X_2 = x_2,\\dots,X_n = x_n) &= p_{X_1,X_2,\\dots,X_n}(x_1,x_2,\\dots,x_n|\\theta) \\\\\n&= \\overset{i=n}{\\underset{i=1}{\\large{\\Pi}}}f_i(x_i)\n\\end{aligned}\\]\n\n\n\n\n\n\nNote\n\n\n\n주어진 샘플에 대한 확률(또는 확률밀도)은 \\(Y_1 = y_1,Y_2 = y_2 \\dots Y_n = y_n\\)인 사건이 동시에 일어날 결합확률(확률밀도)입니다. 그러므로 가능도 = 동시에 뽑일 가능성(확률,확률밀도) = 결합확률이라고 할 수 있습니다."
   },
   {
-    "objectID": "posts/probabilty,statistics/MLE.html#mle최대가능도-추정법",
-    "href": "posts/probabilty,statistics/MLE.html#mle최대가능도-추정법",
+    "objectID": "posts/Probability&Statistics/MLE.html#mle최대가능도-추정법",
+    "href": "posts/Probability&Statistics/MLE.html#mle최대가능도-추정법",
     "title": "최대가능도 추정법(MLE)",
     "section": "MLE(최대가능도 추정법)",
     "text": "MLE(최대가능도 추정법)\n최대가능도추정법(MLE)는 확률분포의 모수를 추정하는 점추정방법 중 하나로 가능도를 가장크게하는 모숫값을 모수에 대한 추정값 하는 방법입니다.다음과 같습니다.\n\\[\\begin{aligned}\n\\hat{\\theta}_{MLE} &= \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X_1 = x_1,X_2 = x_2 \\dots X_n = x_n) \\\\\n&=  \\underset{\\theta}{\\text{argmax}},p_{X_1,X_2,\\dots,X_n}(x_1,x_2,\\dots,x_n|\\theta) \\\\\n&= \\underset{\\theta}{\\text{argmax}}\\,\\overset{i=n}{\\underset{i=1}{\\large{\\Pi}}}f_i(x_i)\n\\end{aligned}\\]\n\nLL\nLL은 log likelyhood의 약자로 likelyhood에 log를 취해준 값입니다. 로그함수를 취해도 함수가 MLE의 계산결과(가능도가 최대인 모수에 대한 추정값)의 위치가 변하지 않고 계산을 곱셈을 더하기로 바꿔서 계산하기에 더 편리하기 때문에 LL을 사용합니다. \\[LL = \\text{ln }L(\\theta|X_1 = x_1,X_2 = x_2 \\dots X_n = x_n)\\]\n\n\nNLL\nNLL은 LL에 -(negative)를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있습니다.(주로 최적화에서 이런 방식을 많이 사용합니다.) \\[NLL = -\\text{ln }L(\\theta|X_1 = x_1,X_2 = x_2 \\dots X_n = x_n)\\]"
   },
   {
-    "objectID": "posts/probabilty,statistics/MLE.html#정리---mle",
-    "href": "posts/probabilty,statistics/MLE.html#정리---mle",
+    "objectID": "posts/Probability&Statistics/MLE.html#정리---mle",
+    "href": "posts/Probability&Statistics/MLE.html#정리---mle",
     "title": "최대가능도 추정법(MLE)",
     "section": "정리 - MLE",
     "text": "정리 - MLE\nMLE를 통해서 모수에 대한 추정량을 구하면 다음과 같습니다.\n\\[\\begin{aligned}\n\\hat{\\theta}_{MLE} &= \\underset{\\theta}{\\text{argmax}}\\,L(\\theta|X_1 = x_1,X_2 = x_2 \\dots X_n = x_n)\\\\\n&= \\underset{\\theta}{\\text{argmax}},p_{X_1,X_2,\\dots,X_n}(x_1,x_2,\\dots,x_n|\\theta) \\\\\n&= \\underset{\\theta}{argmin}\\,-\\text{ln}\\,L(\\theta|X_1=x_1,X_2=x_2\\dots X_n=x_n)\n\\end{aligned}\\]\n링크1(random sample vs random variable) 링크2(추정,추정량,추정값) 링크3(mle) 링크4(mle)"
   },
   {
-    "objectID": "posts/probabilty,statistics/notation.html",
-    "href": "posts/probabilty,statistics/notation.html",
+    "objectID": "posts/Probability&Statistics/notation.html",
+    "href": "posts/Probability&Statistics/notation.html",
     "title": "확률분포에서 ;와|의 사용",
     "section": "",
     "text": "확률분포에서 ;와|에 관한 notation 정리"
   },
   {
-    "objectID": "posts/probabilty,statistics/notation.html#언제-를-사용하지",
-    "href": "posts/probabilty,statistics/notation.html#언제-를-사용하지",
+    "objectID": "posts/Probability&Statistics/notation.html#언제-를-사용하지",
+    "href": "posts/Probability&Statistics/notation.html#언제-를-사용하지",
     "title": "확률분포에서 ;와|의 사용",
     "section": "언제 ;를 사용하지?",
     "text": "언제 ;를 사용하지?\n;의 뒤에는 다변수 함수에서 특정 변수를 시켜놓았다라는 의미로 쓰인다. 다음과 같은 이변수함수를 생각해보자 \\[f(x,y)\\] 독립변수 x와 y를 갖는 함수이며 두 변수 모두에 대해서 미분가능하다. 여기서 변수 y가 어떤 어떤 값으로 고정된것이 알려지거나 또는 고정된상황을 가정한 후 x에 대해서만 관심이 있다고 해보자(미분,극한등을 아마도?취하고 싶다..아마도…) 이때는 이변수함수로 표기하는것이 아닌 일변수함수로 표기해야한다. 그때는 다음과 같이 표기하면 된다. \\[\nf(x;y)\n\\]\n이렇게 표기하면 y값은 이제 어떤 값으로 이미 설정(setting)되거나 고정(fixed)되어있음을 의미한다."
   },
   {
-    "objectID": "posts/probabilty,statistics/notation.html#확률함수에서-의-사용",
-    "href": "posts/probabilty,statistics/notation.html#확률함수에서-의-사용",
+    "objectID": "posts/Probability&Statistics/notation.html#확률함수에서-의-사용",
+    "href": "posts/Probability&Statistics/notation.html#확률함수에서-의-사용",
     "title": "확률분포에서 ;와|의 사용",
     "section": "확률함수에서 ;의 사용",
     "text": "확률함수에서 ;의 사용\n베르누이분포의 확률질량함수는 다음과 같다 \\[\nf_X(x) = p^x(1-p)^{1-x}\n\\]\n이식을 해석해보면 다음과 같다. - 좌변 : 확률변수 X에 관한 확률함수이며 실험 또는 시행으로부터 확률변수X가 취할 수 있는 값인 변수x를 입력으로 갖는다. - 우변 : 구체적인 확률질량함수(또는 확률밀도함수)이다.\n베르누이분포 확률질량함수에서 이미 setting,fixed된 모수(parameter)를 명시적으로 표현하고자 할때에는 다음과 같은 표기를 사용한다. \\[f_X(x;p) = p^x(1-p)^{1-x}\\]"
   },
   {
-    "objectID": "posts/probabilty,statistics/notation.html#의-사용-1",
-    "href": "posts/probabilty,statistics/notation.html#의-사용-1",
+    "objectID": "posts/Probability&Statistics/notation.html#의-사용-1",
+    "href": "posts/Probability&Statistics/notation.html#의-사용-1",
     "title": "확률분포에서 ;와|의 사용",
     "section": "|의 사용",
     "text": "|의 사용\n|는 given that이라는 의미이며 |의 오른쪽에는 조건 또는 주어지는 상황이 나온다. 확률,통계 분야에서만 쓰이며 조건부 확률이나,베이지안에서 많이 쓰이는 기호라고 한다. 여기서 조건은 확률변수의 어떤 값이므로 마찬가지로 미리주어지는 값이다. 변수가 아니라 모수(parameter)로 생각할 수 있으며 결국에는 설정된,고정된 값이다.\n조건부 확률분포(조건부확률밀도함수,조건부 확률함수)는 다음과 같다. \\[\np_{X|Y}(x|y) = \\frac{p_{XY}(x,y)}{p_Y(y)}\\\\\np_{X|Y}(y|x) = \\frac{p_{XY}(x,y)}{p_X(x)}\n\\]  가장 윗식을 해석해보면 다음과 같다. - 좌변 : 확률변수 Y가 주어진(given)상황에서 확률변수X의 확률(또는 확률밀도)를 나타내는 함수이며 시행으로부터 확률변수 X가 취할 수 있는 값 x를 입력으로 받는다. 조건부 확률분포에서 Y의 값은 y로 주어져 있다고 가정하므로 입력하는 변수가 아니다. 따라서 확률변수 Y는 변수가 아니라 모수(parameter)이다. - 우변 : 조건부확률분포 공식."
   },
   {
-    "objectID": "posts/probabilty,statistics/notation.html#결론-과",
-    "href": "posts/probabilty,statistics/notation.html#결론-과",
+    "objectID": "posts/Probability&Statistics/notation.html#결론-과",
+    "href": "posts/Probability&Statistics/notation.html#결론-과",
     "title": "확률분포에서 ;와|의 사용",
     "section": "결론 ; 과 |",
     "text": "결론 ; 과 |\n\\[p_{\\theta}(x) = p(x;\\theta) = p(x|\\theta)\\]  ;는 수학의 모든 분야에서 쓰이지만 |는 확률통계분야에서만 쓰인다. ;다음에는 이미 설정되거나 고정된 값이 나오며 |다음에는 이미 주어진 조건이 나온다. 확률,통계 분야에서는 |다음에 나오는 조건은 조건부확률분포에서의 주어진 조건이자 설정된,고정된 값인 경우가 많다. 따라서 비공식적으로 혼용해서 쓰며 경험상 ;다음에는 그래도 설정된 값을 의미하는 모수(parameter)가 |는 조건부 확률이나 확률분포를 쓰는 경우가 많은 것 같다.\n참고링크 링크1(;의 사용법) 링크2(조건부확률분포) 링크3(표기법의 혼용)"
