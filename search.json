@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Hoyeon's Blog",
     "section": "",
-    "text": "카테고리 분포\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 30, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n최대가능도 추정법(MLE)\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 29, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(2) - 로지스틱회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\n신호연\n\n\n\n\n\n\nNo matching items"
+    "text": "카테고리 분포\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 30, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n최대가능도 추정법(MLE)\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 29, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\nProbability&Statistics\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\nLogistic Regression\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 26, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nDec 25, 2022\n\n\n신호연\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\n신호연\n\n\n\n\n\n\n  \n\n\n\n\n딥러닝(1) - 선형회귀\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nDec 22, 2022\n\n\n신호연\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html",
@@ -72,72 +72,121 @@
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "",
     "text": "로지스틱회귀에 대해서 정리한 글입니다."
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#기댓값에-대한-고찰",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#기댓값에-대한-고찰",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "기댓값에 대한 고찰",
     "text": "기댓값에 대한 고찰\n기댓값은 실험 또는 시행을 무한히 반복했을때 확률변수가 취하는 값의 평균으로(또는 샘플링된 값의 평균) 기대되는 값입니다. 확률변수가 베르누이 분포를 따르는 경우 확률변수에 대한 기댓값(\\(E\\,[y|x_{1,i},x_{2,i}\\.,\\dots,x_{m,i}]\\))과 모수\\((p_i)\\)가 같은 값을 가집니다. 그러므로,만약에 주어진 샘플데이터로부터 베르누이분포의 모수를 적절히 추정할 수 있다면 주어진 조건하에서 실험 또는 시행을 무한히 반복할 경우 확률변수가 1인사건과 0인사건중 어떤 사건이 더 많이 발생할지 알 수 있고 이를 바탕으로 종속변수 Y의 값을 결정하는 것은 타당합니다. - e.g.\n\n\\(E\\,[y]\\, = \\hat{p_i}<0.5\\) => 무한히 실행했을때 0인 경우가 더 많을 것임 => 관측치를 0으로 예측 \n\\(E\\,[y]\\, = \\hat{p_i}\\geq0.5\\)=>무한히 실행했을때 1인 경우가 더 많을 것임 => 관측치를 1로 예측"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#concept",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#concept",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "concept",
     "text": "concept\n선형회귀에서 추정하고자하는 변수\\(y\\)는 \\(x_0,x_1,...,x_m\\)과 \\(w_0,w_1,...,w_m\\)과의 linear combination이였습니다.위에서 언급했듯이 특정샘플에 대한 모수를 적절하게 추정할 수 있다면 관측치가 어떤 클래스에 속할지 합리적으로 알 수 있으므로,로지스틱회귀에서도 선형회귀에서의 아이디어를 핵심아이디어를 가지고와서 추정하고자 하는 모수\\(p_i\\)를 \\(x_0,x_1,...,x_m\\)과 \\(w_0,w_1,...,w_m\\)의 linear combination로 표현하고자 합니다.\n선형회귀의 아이디어(linear combination) + 모수에 대한 표현이라는 조건을 만족하기 위해서 최종적인 식은 다음과 조건을 만족해야 것입니다. - \\((x_0,x_1,...,x_m)\\,,(w_0,w_1,..,w_m)\\)의 linear combination 식에 있어야 함. - linearcombination = 모수(추정하고자하는값)여야 함.\nwhy linear combination?"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#본격적인-유도",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#본격적인-유도",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "본격적인 유도",
     "text": "본격적인 유도\n\n모수를 로지스틱함수로 바꾸기\n\n\\((x_0,x_1,...,x_m)\\,,(w_0,w_1,..,w_m)\\)의 linear combination이 식에 존재해야 합니다. 그러므로 선형방정식을 하나 만듭니다. \\[\\begin{align}\nf(i) = x_{1,i}w_0 + x_{2,i}w_1 + x_2w_2 + ... + x_{m,i}w_m = X_iW \\nonumber \\\\\nwhere,X_i = \\,[x_{1,i},x_{2,i},\\dots,x_{m,i}]\\, ,W = \\,[w_0,w_1,\\dots,w_m]^\\text{T} \\nonumber \\\\\n\\end{align}\\]\n좌변은 예측하고자 하는 값인 모수여야 합니다. 좌변을 바꿔봅니다. \\[p_i = WX_i\\]\n좌변의 베르누이 분포의 모수 \\(p_i\\)는 확률변수 \\(y = 1\\)인 사건이 일어날 확률입니다. 그러므로 \\([0,1]\\)이라는 범위를 가지는 반면 우변의 값\\(WX_i\\)은 \\(\\,[-\\infty,\\infty]\\,\\)에 범위를 가집니다. 여기서 Odss Ratio를 써서 모수 \\(p_i\\)를 포함하며 더 넓은 range를 갖도록 좌변을 수정합니다. \\[\\text{Odds Ratio} = \\frac{p_i}{1-p_i} = WX_i\\]\n좌변을 Odds Ratio로 수정했지만 여전히 좌변의 범위는\\(\\,[0,\\infty]\\,\\)으로 우변에 비해 좁습니다. 따라서 Odds Ratio에 로짓변환을 취하여 좌변의 범위를 \\(\\,[-\\infty,\\infty]\\)로 넓혀줍니다. \\[\\text{logit}(p) = \\text{ln}\\frac{p_i}{1-p_i} = WX_i\\]\n\n위 식을 해석하기 위해 \\(X\\)의 첫번째 요소인 \\(x_1\\)에 대응하는 회귀계수 \\(w_1\\)이 학습결과 3으로 정해졌다고 가정해봅시다.만약 \\(x_1\\)의 값이 1증가한다면 로그오즈비가 3증가합니다.\n\n이제 양변의 범위는 맞춰졌으므로 추정하고자 하는 변수 \\(p_i\\)가 좌변에 오도록 정리해봅시다. \\[p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\] (전개) \\(\\frac{p_i}{1-p_i} = e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,(1-p_i)\\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\,e^{WX_i}-p_ie^{WX_i}\\) \\(\\Longleftrightarrow p_i + p_ie^{WX_i} = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i\\,(1 + e^{WX_i})\\, = \\,e^{WX_i}\\) \\(\\Longleftrightarrow p_i = \\frac{\\,e^{WX_i}}{\\,(1 + e^{WX_i})\\, }\\) \\(\\Longleftrightarrow p_i = \\frac{1}{\\,(1 + e^{-WX_i})\\, }\\)\n\n최종적으로, 앞서 목적이었던 X와 W의 선형조합이 수식내부에 존재하도록 새롭게 표현한 모수는 다음과 같습니다. \\[p_i(y) = Pr\\,(y = 1|X_i;W)\\, = \\frac{1}{\\,1 + e^{-WX_i}\\,}\\]\n\n\n베르누이 분포의 pmf 정리\n베르누이분포의 모수 \\(p_i\\)가 새롭게 표현되었으므로 확률질량함수도 새롭게 표현할 수 있습니다. 마지막 수식은 베르누이 분포의 확률질량함수가 모수\\(W\\)에 관한 식으로 바뀌었음을 표현합니다.\n\\[\\begin{align}\nBern(y;p_i) = Pr\\,(Y_{i} = y|x_{1,i},x_{2,i},\\dots,x_{m,i};p_i) &=\n\\begin{cases}\np_i & \\text{if}\\,y=1 \\\\\n1-p_i & \\text{if}\\,y=0\n\\end{cases} \\\\\n&= p_i^{y}(1-p_i)^{1-y} \\\\\n&= \\frac{e^{yWX_i}}{1+e^{WX_i}}\n\\end{align}\\]"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#setting",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#setting",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "setting",
     "text": "setting\n\nimport torch\nimport matplotlib.pyplot as plt\nplt.style.use('ggplot')\n#sig = lambda z:torch.exp(z)/(1+torch.exp(z))\nsig = torch.nn.Sigmoid()"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#data",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#data",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "data",
     "text": "data\n\ntorch.manual_seed(2022)\nn=400\n\n#1 모수 W가정\nW = torch.tensor(\n    [[-0.8467],\n    [0.041]]).float()\n\n#2 각각의 관측치(데이터요소)에서의 모수 p_i시각화(시그모이드 함수 시각화)\n_x = torch.linspace(-150,150,n).reshape(-1,1)\n_one = torch.ones((n,1))\nX = torch.concat((_one,_x),axis=1)\np_i = sig(X@W)\ny = torch.bernoulli(p_i)\nplt.xlim([-150,150])\nplt.plot(X[:,1],y,\"bo\",alpha=0.5)\nplt.plot(X[:,1],p_i,\"r--\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y,$p_i$\")\nplt.title(\"realizations $y_1,\\dots,y_{300}$ from $Bern(p_1),\\dots,Bern(p_{300})$\")\nplt.legend([\"y\",\"p\"])\n\n<matplotlib.legend.Legend at 0x1f2684bfe20>"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#gradient-descent-1",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#gradient-descent-1",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "Gradient Descent",
     "text": "Gradient Descent\n\nimport torch\nimport matplotlib.pyplot as plt\nplt.style.use('ggplot')\n\n\ntorch.manual_seed(2022)\nn=400\n\n#2 임의의 W에 대한 estimated value(추정치) What 초기화\nWhat = torch.tensor(\n    [[0.],\n    [-0.03]],requires_grad=True)\n\n_x = torch.linspace(-150,150,n).reshape(-1,1)\n_one = torch.ones((n,1))\nX = torch.concat((_one,_x),axis=1)\nyhat = sig(X@What)\n\nplt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\nplt.plot(X[:,1].data,p_i,\"r\")\nplt.plot(X[:,1].data,yhat.data,\"g\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.title(\"realizations $y_1,\\dots,y_{60}$ from $Bern(p_1),\\dots,Bern(p_{60})$\")\nplt.legend([\"y\",\"$p_i$\",\"$\\hat{y}(\\hat{p_i})$\"])\n\n<matplotlib.legend.Legend at 0x1f268e11e50>\n\n\n\n\n\n\nloss_fn = torch.nn.BCELoss()\n\"\"\"\ndef BCE_Loss(yhat,y):\n    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))\n\"\"\"\n\n'\\ndef BCE_Loss(yhat,y):\\n    return torch.mean(y * torch.log(yhat) + (1-y) * torch.log(1-yhat))\\n'\n\n\n\n#custom sigmoid + torch.BCELoss 쓰면 오류 발생. 0과 1사이의 범위 아님\n#torch.nn.Sigmoid + custom BCE Loss 써도 오류발생 => nan\nplt.subplots(2,5,figsize=(20,8))\nplt.subplots_adjust(hspace=0.3)\ni=1\n\nfor epoch in range(200):\n    #1 yhat \n    yhat = sig(X@What)\n    #2 loss\n    loss = loss_fn(yhat,y)\n    if epoch % 20 == 0:\n        plt.subplot(2,5,i)\n        #plt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\n        plt.plot(X[:,1].data,p_i,\"r\")\n        plt.plot(X[:,1].data,yhat.data,\"g\")\n        plt.xlabel(\"x\")\n        plt.ylabel(\"y\")\n        #plt.title(\"realizations $y_1,\\dots,y_{60}$ from $Bern(p_1),\\dots,Bern(p_{60})$\")\n        plt.legend([\"p\",\"yhat\"])\n        title = \"loss : {}\".format(round(loss.tolist(),5))\n        plt.title(title)\n        i+=1\n    #3 derivative\n    loss.backward()\n    #4 update & clean\n    What.data = What.data - 0.00005 * What.grad\n    What.grad = None\n\n\n\n\n\nround(loss.tolist(),4)\n\n0.3109\n\n\n\nplt.plot(X[:,1].data,y,\"bo\",alpha=0.3)\nplt.plot(X[:,1].data,p_i,\"r\")\nplt.plot(X[:,1].data,yhat.data,\"g\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.title(\"Logistic Regression\")\nplt.legend([\"y\",\"$p_i$\",\"$\\hat{y}(\\hat{p_i})$\"])\nplt.gca().axes.xaxis.set_visible(False)\nplt.gca().axes.yaxis.set_visible(False)"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#베르누이-분포-전개",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#베르누이-분포-전개",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "1.베르누이 분포 전개",
     "text": "1.베르누이 분포 전개\n\\[\\begin{aligned}\np_i^y(1-p_i)^{1-y} &= \\ (\\frac{1}{\\,1 + e^{-WX_i}\\,})^y\\,\\,(1-\\frac{1}{\\,1 + e^{-WX_i}\\,})^{1-y} \\\\\n&= (\\frac{1}{1+e^{-WX_i}})^{y}(\\frac{e^{-WX_i}}{1+e^{-WXi}})^{1-y} \\\\\n&= (\\frac{1}{1+e^{-WX_i}})^{y}(\\frac{1}{1+e^{WXi}})^{1-y} \\\\\n&= (\\frac{1+e^{WX_i}}{1+e^{-WX_i}})^{y}(\\frac{1}{1+e^{WX_i}}) \\\\\n&= (\\frac{e^{WX_i}+e^{2WX_i}}{1+e^{WX_i}})^{y}(\\frac{1}{1+e^{WX_i}}) \\\\\n&= (\\frac{e^{WX_i}(1+e^{WX_i})}{1+e^{WX_i}})^{y}(\\frac{1}{1+e^{WX_i}}) \\\\\n&= e^{yWX_i}\\frac{1}{1+e^{WX_i}} \\\\\n&= \\frac{e^{yWX_i}}{1+e^{WX_i}}\n\\end{aligned}\\]"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개with-parameter-w",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개with-parameter-w",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "2.NLL전개(with parameter \\(W\\))",
     "text": "2.NLL전개(with parameter \\(W\\))\n\\[\\begin{aligned}\nLL &= \\text{ln}(\\underset{i=1}{\\overset{n}{\\large{\\prod}}}\\,\\frac{e^{y_iWX_i}}{1+e^{WX_i}}) \\\\\n&=\\overset{n}{\\underset{i=1}{\\large{\\sum}}}(\\text{ln}\\frac{e^{y_iWX_i}}{1+e^{WX_i}}) \\\\\n&= \\overset{n}{\\underset{i=1}{\\large{\\sum}}}\\,[\\text{ln}e^{y_iWX_i} - \\text{ln}(1+e^{WX_i})]\\, \\\\\n&= \\overset{n}{\\underset{i=1}{\\large{\\sum}}}\\,[y_iWX_i - \\text{ln}(1+e^{WX_i})], \\\\\n&= \\overset{n}{\\underset{i=1}{\\large{\\sum}}}y_iWX_i - \\overset{n}{\\underset{i=1}{\\large{\\sum}}}ln(1+e^{WX_i}) \\\\\n\n\nNLL &= -\\overset{n}{\\underset{i=1}{\\large{\\sum}}}y_iWX_i + \\overset{n}{\\underset{i=1}{\\large{\\sum}}}ln(1+e^{WX_i}) \\\\\n\n\\end{aligned}\\]"
   },
   {
     "objectID": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개cross-entropy-유도하기",
     "href": "posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html#nll전개cross-entropy-유도하기",
-    "title": "딥러닝(2) - 로지스틱회귀",
+    "title": "Logistic Regression",
     "section": "3.NLL전개(Cross Entropy 유도하기)",
     "text": "3.NLL전개(Cross Entropy 유도하기)\n임의의 i번째 항에서의 확률변수 \\(Y_i\\)가 따르는 베르누이 분포는 다음과 같습니다. \n\\[\\begin{aligned}\nBern(y|X_i;p_i) = (p_i)^y(1-p_i)^{y-1}\n\\end{aligned}\\]\n모수가 \\(p_i\\)인 각각의 베르누이 분포를 따르는 확률변수 \\(Y_1,Y_2\\dots Y_n\\)으로부 n개의 realization(sample) \\(y_1,y_2\\dots y_n\\)에 대한 NLL는 다음과 같습니다. \n\\[\\begin{aligned}\nNLL &= -\\text{ln}\\prod_{i=1}^{n}p_i^{y_i}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}\\text{ln}p_i^{y_i}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}\\text{ln}p_i^{y_i} + \\text{ln}(1-p_i)^{1-y_i} \\\\\n&= -\\sum_{i=1}^{n}y_i\\text{ln}p_i + (1-y_i)\\text{ln}(1-p_i)\n\\end{aligned}\\]\n참고링크 1. 로지스틱 회귀 전개 2. 위키피디아 - 로지스틱 회귀 3. ratsgo’s blog"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html",
+    "href": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html",
+    "title": "Multinomial Logistic Regression & Softmax Regression",
+    "section": "",
+    "text": "로지스틱회귀에서는 종속변수 y가 0또는1의 2가지 범주만 가지는 이진분류문제를 해결할 수 있었습니다. 다항로지스틱 회귀와 소프트맥스 회귀는 종속변수 y가 더 다양한 범주를 가지는 일반적인 분류문제를 해결합니다. 두개의 일반적인 분류모형간의 차이는 마지막 클래스에 대해서 가중치(회귀계수)를 더 사용하는지의 여부입니다."
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#가정",
+    "href": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#가정",
+    "title": "Multinomial Logistic Regression & Softmax Regression",
+    "section": "가정",
+    "text": "가정\n\n각각의 관측치에서 샘플\\(y_i\\)는 확률변수 \\(Y_i\\)의 realization(실현,실현된값)이다. 확률변수 \\(Y_i\\)는 관측치에 포함된 \\(x\\)를 조건으로 하는 카테고리분포를 따른다.\n\\[\\begin{aligned}\n&\n\\begin{aligned}\nY_i|x_{1,i},x_{2,i},\\dots,x_{M,i} \\sim \\text{Cat}(y|x_{1,i},x_{2,i},\\dots,x_{M,i};\\mu_i)\n& =\n\\begin{cases}\n\\mu_{1,i} \\text{ if } y = (1,0,\\dots,0,0) \\\\\n\\mu_{2,i} \\text{ if } y = (0,1,\\dots,0,0) \\\\\n\\quad\\quad \\vdots \\\\\n\\mu_{K,i} \\text{ if } y = (0,0,\\dots,0,1) \\\\\n\\end{cases} \\\\\n&= \\mu_{1,i}^{y_1}\\mu_{2,i}^{y_2},\\dots,\\mu_{K,i}^{y_K} \\\\\n&= \\prod_{K=1}^{K}\\mu_{K,i}y_{K,i} \\\\\n\\end{aligned} \\\\\n&\n\\begin{aligned}\n&\\text{where, }\\\\\n&\\mu_i = {\\mu_{1,i},\\mu_{2,i},\\dots,\\mu_{K,i}} \\\\\n&\\mu_{1,i} = Pr(Y_i|x_{1,i},\\dots,x_{M,i} = (1,0,\\dots,0)) \\\\\n&\\mu_{2,i} = Pr(Y_i|x_{1,i},\\dots,x_{M,i} = (0,1,\\dots,0)) \\\\\n&\\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad \\vdots \\\\\n&\\mu_{K,i} = Pr(Y_i|x_{1,i},\\dots,x_{M,i} = (0,0,\\dots,0,1)) \\\\\n\\end{aligned}\\\\\n\\end{aligned}\\]\n각 datapoint에서 \\(Y_i\\)가 따르는 카테고리분포의 모수\\(\\mu_i\\)는 데이터포인트마다 다른 설명변수(X_i)와 시행마다 변하지 않는 고정된 회귀계수(W)의 일차결합을 포함하는 수식으로 표현됩니다. 주어진 X값을 W와 일차함수로 결합하여 추정하고자 하는 값을 표현하는 선형회귀의 핵심아이디어는 응용되어 대부분의 회귀문제에서 사용한다.\n\\[\\begin{aligned}\n&\\mu_{k,i}  = \\mu_{k,i}(X_i;W_{k,i}) = \\mu_{k,i}(X_iW_{k,i}) =  Pr(Y_i = (0,\\dots,1_{k-th},0,\\dots,0)|X_i)\\\\\n&\\text{where},\\\\\n&w_{m,k} : \\text{$k$번째 모수를 표현하기위해 $m$번째 값과 곱해지는 가중치} \\\\\n&x_{m,i} : \\text{i-th 관측치의 $m$번째 독립변수의 값} \\\\\n&X_i = [x_{0,i},x_{1,i},\\dots,x_{M,i}]^{\\text{T}}\\text{ : i-th관측치의 feature vector(단,$x_{0,i}$ = 1)} \\\\\n&W_k = [w_{0,k},w_{1,k},\\dots,w_{M,k}]^{\\text{T}}\\text{ : 카테고리 분포의 임의의 k-th 모수$\\mu_k$를 구하기 위한 가중치를 모아놓은 벡터} \\\\\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#xw의-선형조합을-포함한-모수의-표현-유도하기",
+    "href": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#xw의-선형조합을-포함한-모수의-표현-유도하기",
+    "title": "Multinomial Logistic Regression & Softmax Regression",
+    "section": "X,W의 선형조합을 포함한 모수의 표현 유도하기",
+    "text": "X,W의 선형조합을 포함한 모수의 표현 유도하기\n위에서 언급했듯이 대부분의 회귀에서 모델링의 핵심아이디어는 추정하고자 하는 대상을 설명변수와 가중치의 일차결합(선형조합)이 포함되도록 표현하는 것이다. 다항로지스틱회귀도 이 아이디어를 그대로 사용한다. 이진로지스틱회귀와의 차이점은 표현해야하는 모수가 이번에는 더 많다는 것이다.\n 1. 독립변수와 가중치의 linear combination이 K개의 모수를 표현하는 선형방정식을 만든다.\n\\[\\begin{aligned}\n&\\mu_{1,i} = Pr(Y_i=(1,0,0,\\dots,0)|X_i;W_1)\\quad \\\\\n&\\quad\\,\\,\\, = w_{0,1}x_{0,i}+w_{1,1}x_{1,i} + w_{2,1}x_{2,i} + \\dots \\ + w_{M,1}x_{M,i} = W_1^TX_i-\\text{ln}Z \\\\\n&\\mu_{2,i} = Pr(Y_i=(0,1,0,\\dots,0)|X_i;W_2) = \\\\\n&\\quad\\,\\,\\, = w_{0,2}x_{0,i}+w_{1,2}x_{1,i} + w_{2,2}x_{2,i} + \\dots \\ + w_{M,2}x_{M,i} = W_2^TX_i-\\text{ln}Z \\\\\n&\\mu_{3,i} = Pr(Y_i = (0,0,1,\\dots,0)|X_i;W_2)) = \\\\\n&\\quad\\,\\,\\, = w_{0,3}x_{0,i}+w_{1,3}x_{1,i} + w_{2,3}x_{2,i} + \\dots \\ + w_{M,3}x_{M,i} = W_3^TX_i-\\text{ln}Z \\\\\n&\\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\vdots \\\\\n&\\mu_{k,i} = Pr(Y_i = (0,0,\\dots,1_{k-th},\\dots,0,0)|X_i;W_k)) \\\\\n&\\quad\\,\\,\\,= w_{0,k}x_{0,i}+w_{1,k}x_{1,i} + w_{2,k}x_{2,i} + \\dots +w_{m,k}x_{m,i} \\dots + w_{M,k}x_{M,i} = W_k^TX_i {\\text{ (임의의 k번째 항)}}\\\\  \n&\\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\vdots \\\\\n&\\mu_{K-1,i} = Pr(Y_i = (0,0,0,\\dots,1,0)|X_i;W_{K-1})) \\\\\n&\\quad\\,\\,\\,= w_{0,K}x_{0,i}+w_{1,K-1}x_{1,i} + w_{2,K-1}x_{2,i} + \\dots \\ + w_{M,K-1}x_{M,i} = W_{K-1}^TX_i \\\\ \\\\\n&where,\\\\\n&w_{m,k} : \\text{$k$번째 모수를 표현하기위해 $m$번째 값과 곱해지는 가중치} \\\\\n&x_{m,i} : \\text{i-th 관측치의 $m$번째 독립변수의 값} \\\\\n&X_i = [x_{0,i},x_{1,i},\\dots,x_{M,i}]^{\\text{T}}\\text{ : i-th관측치의 feature vector(단,$x_{0,i}$ = 1)} \\\\\n&W_k : [w_{0,k},w_{1,k},\\dots,w_{M,k}]^{\\text{T}}\\text{ : 카테고리 분포의 임의의 k-th 모수$\\mu_k$를 구하기 위한 가중치를 모아놓은 벡터} \\\\\n\\end{aligned}\\]\n마지막 모수\\(Pr(Y_i=1|x_1,\\dots,x_K)\\)에 대한 가중치는 사용하지 않을 것이다. 확률의 합은 1이기 때문에 1-(나머지확률)하면 마지막 \\(K\\)번째 모수가 구해지기 때문이다.\n(2~4). OddsRatio비슷한 무언가 + Logit transform() 좌변을 Odds Ratio(비슷한 무언가,엄밀히 Odds Ratio는 아님) + Logit transform을 취하여 좌변이 우변과 같은 범위\\(\\,[-\\infty,\\infty]\\)값을 가질 수 있도록 넓혀줍니다. \\[\\text{ln}\\frac{\\mu_{k,i}}{Pr(Y_i = (0,\\dots,0,1)|X_i)} = \\text{ln}\\frac{Pr(Y_i = (0,\\dots,1_{k-th},0,\\dots,0)|X_i;W_k)}{Pr(Y_i = (0,\\dots,0,1)|X_i)} = W_k^TX_i\\] $\\(분모가 마지막 K번째 클래스에 대한 확률임을 유의!\\)\n 3. 임의의 모수 \\(\\mu_{k,i}\\)에 대한 표현\n\\[\\begin{aligned}\n\\mu_{k,i} = Pr(Y_i = (0,\\dots,0,1_{k-th},0,\\dots,0|X_i;W_k) = Pr(Y_i = K|X_i)e^{X_iW_k}\n\\end{aligned}\\]\n 4.마지막 모수 \\(\\mu_K = Pr(Y_i = (0,\\dots,0,1)|X_i)\\)를 계산. 확률의 합 = 1이라는 제약조건 활용.\n\\[\\begin{aligned}\n&Pr(Y_i = K|X_i) = 1- \\sum_{k=1}^{K-1}Pr(Y_i = K|X_i)e^{X_iW_k} = 1-Pr(Y_i = K|X_i)\\sum_{k=1}^{K-1}e^{X_iW_k} \\\\\n&\\Longleftrightarrow Pr(Y_i = K|X_i) = \\frac{1}{1+\\sum_{k=1}^{K-1}e^{X_iW_k}}\n\\end{aligned}\\]\n5. 임의의 모수 \\(k\\)에 대하여 다시 정리\n\\[\\begin{aligned}\n&\\mu_{k,i}=Pr(Y_i = k|X_i) = Pr(Y_i = K|X_i)e^{X_iW_k} = \\frac{e^{X_iW_k}}{1+\\sum_{j=1}^{K-1}e^{X_iW_j}}\\\\\n&\\text{인덱스 겹치므로 시그마의 $k \\rightarrow j$}\n\\end{aligned}\\]\n최종적으로 카테고리분포의 모수는 다음과 같이 표현할 수 있다.\n\\[\\begin{aligned}\n&\\mu_{k,i}=Pr(Y_i = k|X_i) = \\frac{e^{X_iW_k}}{1+\\sum_{j=1}^{K-1}e^{X_iW_j}} \\text{(단, $k != K$)}\\\\\n&\\mu_{K,i}=Pr(Y_i = K|X_i) = \\frac{1}{1+\\sum_{j=1}^{K-1}e^{X_iW_k}}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#estimation",
+    "href": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#estimation",
+    "title": "Multinomial Logistic Regression & Softmax Regression",
+    "section": "estimation",
+    "text": "estimation\n다항로지스틱회귀의 파리미터 추정은 여려가지 방법이 가능하다고 한다.(추후에 더 공부)"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#가정-1",
+    "href": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#가정-1",
+    "title": "Multinomial Logistic Regression & Softmax Regression",
+    "section": "가정",
+    "text": "가정\n소프트맥스회귀의 가정은 로지스틱회귀의 가정과 같다.각 datapoint에서의 종속변수의 값은 카테고리분포를 따르는 확률변수에서 샘플링되었으며 카테고리분포의 모수는 각 datapoint마다 변하는 설명변수와 회귀계수(가중치)의 일차결합으로 표현됩니다."
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#xw의-선형조합을-포함한-모수의-표현-유도하기-1",
+    "href": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#xw의-선형조합을-포함한-모수의-표현-유도하기-1",
+    "title": "Multinomial Logistic Regression & Softmax Regression",
+    "section": "X,W의 선형조합을 포함한 모수의 표현 유도하기",
+    "text": "X,W의 선형조합을 포함한 모수의 표현 유도하기\n소프트맥스 회귀마찬가지로 추정하고자 하는 모수를 설명변수와 가중치의 일차결합이 포함된 항으로 표현합니다.\n먼저 설명변수와 가중치의 일차결합형태로 모수를 나타냅니다. 임의의 i번째 관측치가 각각의 범주에 \\((1,2,...,K)\\) 속할 확률을 의미하는 모수는 다음과 같습니다.\n\\[\\begin{aligned}\n&\\mu_{1,i} = Pr(Y_i=(1,0,0,\\dots,0)|X_i;W_1)\\quad \\\\\n&\\quad\\,\\,\\, = w_{0,1}x_{0,i}+w_{1,1}x_{1,i} + w_{2,1}x_{2,i} + \\dots \\ + w_{M,1}x_{M,i} = W_1^TX_i-\\text{ln}Z \\\\\n&\\mu_{2,i} = Pr(Y_i=(0,1,0,\\dots,0)|X_i;W_2) = \\\\\n&\\quad\\,\\,\\, = w_{0,2}x_{0,i}+w_{1,2}x_{1,i} + w_{2,2}x_{2,i} + \\dots \\ + w_{M,2}x_{M,i} = W_2^TX_i-\\text{ln}Z \\\\\n&\\mu_{3,i} = Pr(Y_i = (0,0,1,\\dots,0)|X_i;W_2)) = \\\\\n&\\quad\\,\\,\\, = w_{0,3}x_{0,i}+w_{1,3}x_{1,i} + w_{2,3}x_{2,i} + \\dots \\ + w_{M,3}x_{M,i} = W_3^TX_i-\\text{ln}Z \\\\\n&\\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\vdots \\\\\n&\\mu_{k,i} = Pr(Y_i = (0,0,\\dots,1_{k-th},\\dots,0,0)|X_i;W_k)) \\\\\n&\\quad\\,\\,\\,= w_{0,k}x_{0,i}+w_{1,k}x_{1,i} + w_{2,k}x_{2,i} + \\dots +w_{m,k}x_{m,i} \\dots + w_{M,k}x_{M,i} = W_k^TX_i \\\\  \n&\\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\vdots \\\\\n&\\mu_{K-1,i} = Pr(Y_i = (0,0,0,\\dots,1,0)|X_i;W_{K-1})) \\\\\n&\\quad\\,\\,\\,= w_{0,K}x_{0,i}+w_{1,K-1}x_{1,i} + w_{2,K-1}x_{2,i} + \\dots \\ + w_{M,K-1}x_{M,i} = W_{K-1}^TX_i \\\\ \\\\\n&where,\\\\\n&w_{m,k} : \\text{$k$번째 모수를 표현하기위해 $m$번째 값과 곱해지는 가중치} \\\\\n&x_{m,i} : \\text{i-th 관측치의 $m$번째 독립변수의 값} \\\\\n&X_i = [x_{0,i},x_{1,i},\\dots,x_{M,i}]^{\\text{T}}\\text{ : i-th관측치의 feature vector(단,$x_{0,i}$ = 1)} \\\\\n&W_k : [w_{0,k},w_{1,k},\\dots,w_{M,k}]^{\\text{T}}\\text{ : 카테고리 분포의 임의의 k-th 모수$\\mu_k$를 구하기 위한 가중치를 모아놓은 벡터} \\\\\n\\end{aligned}\\]\n이렇게 나타내고 보니 좌변과 0~1사이의 수만 갖지만 우변은 어떤 수던지 나올 수 있습니다. 범위를 맞춰 주기 위해서 좌변에 로그를 씌워 로그확률로 만들어줍니다. 추가적으로 우변에 \\(-lnZ\\)라는 normalizating factor를 더해줍니다. 이는 카테고리분포의 모수의 합이 1이되도록 하는 확률질량함수의 특징을 유지하기 위해서입니다.\n\\[\\begin{aligned}\n&\\text{ln}\\mu_{1,i} = w_{0,1}x_{0,i}+w_{1,1}x_{1,i} + w_{2,1}x_{2,i} + \\dots \\ + w_{M,1}x_{M,i} = W_1^TX_i-\\text{ln}Z \\\\\n\\\\\n&\\text{ln}\\mu_{2,i} = w_{0,2}x_{0,i}+w_{1,2}x_{1,i} + w_{2,2}x_{2,i} + \\dots \\ + w_{M,2}x_{M,i} = W_2^TX_i-\\text{ln}Z \\\\\n\\\\\n&\\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\vdots \\\\\n&\\text{ln}\\mu_{k,i} = w_{0,k}x_{0,i}+w_{1,k}x_{1,i} + w_{2,k}x_{2,i} + \\dots +w_{m,k}x_{M,i} \\dots + w_{M,k}x_{M,i} = W_k^TX_i-\\text{ln}Z \\\\\n\\\\\n&\\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\quad \\quad \\quad \\quad \\quad \\quad  \\quad \\vdots \\\\\n&\\text{ln}\\mu_{K-1,i} = w_{0,K}x_{0,i}+w_{1,K-1}x_{1,i} + w_{2,K-1}x_{2,i} + \\dots \\ + w_{M,K-1}x_{M,i} = W_{K-1}^TX_i-\\text{ln}Z \\\\\n\\\\\n\\end{aligned}\\]\n따라서,임의의 \\(k\\)번째 모수는 다음과 같습니다. \\[\\mu_{k,i} = Pr(Y_i = (0,0,\\dots,1_{k-th}|X_i;W_k) = \\frac{1}{Z}e^{W_k^TX_i}\\]\n카테고리분포의 제약조건 즉,모수는 각각의 범주에 속할 확률을 나타내므로 총합이 1임을 활용합니다. 이를 활용하여 Z를 표현하면 다음과 같습니다.\n\\[\\begin{aligned}\n&\\sum_{k=1}^{K}{\\mu_{k,i}} =\\sum_{k=1}^{K}{Pr(Y_i=k)}= \\frac{1}{Z}\\sum_{k=1}^{K}e^{W_k^TX_i} = 1\\\\\n&\\Longleftrightarrow Z = \\sum_{k=1}^{K}e^{W_k^TX_i}\n\\end{aligned}\\]\n최종적으로, 결과를 정리하면 다음과 같습니다. - 추정하고자하는 카테고리분포의 모수는 \\(\\mu_k\\)는 \\(W_k\\)와 \\(X_i\\)의 일차결합으로 표현되었습니다. 이는 소프트맥스 함수이므로 소프트맥스 회귀라는 이름이 붙었습니다. \\[\\mu_{c,i}(X_i;W) = Pr(Y_i = (0,0,\\dots,1_{c-th},0,\\dots,0)|X_i;W_k) = \\frac{e^{W_c^TX_i}}{\\sum_{k=1}^{K}e^{W_k^TX_i}} = softmax(c,W_1^TX_i,W_2^TX_i,\\dots,W_K^TX_i)\\] - 카테고리분포의 위에서 구한 모수로 다시 정리하면 확률질량 함수는 새로운 모수 \\(W_1,W_2,\\dots,W_K\\)를 가집니다.(인덱스 \\(k->j,c->k\\)) \\[Y_i \\sim Cat(y|X_i;W_1,W_2,\\dots,W_K) = \\prod_{k=1}^{K}\\frac{e^{W_k^TX_i}}{\\sum_{j=1}^{K}e^{W_j^TX_i}}\\]"
+  },
+  {
+    "objectID": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#mle",
+    "href": "posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html#mle",
+    "title": "Multinomial Logistic Regression & Softmax Regression",
+    "section": "MLE",
+    "text": "MLE\n여기까지의 과정으로부터 카테고리분포의 모수는 설명변수와 가중치(회귀계수)의 일차결합으로 표현되며 또한 확률질량함수가 새로운 모수 \\(W = (W_1,W_2,\\dots,W_K)\\)로 표현되었습니다.만약 카테고리분포의 모수만 추정할 수 있다면 우리는 데이터포인트가 어떤 범주에 속할 확률이 가장 높은지 알 수 있으며 범주를 분류할 수 있습니다. 여기서는 카테고리분포의 모수\\(W\\)를 MLE로 추정합니다.\n확률분포에서 임의의 모수\\(W = (W_1,W_2,\\dots,W_K)\\)를 가정할 때, 확률변수 \\(Y_1,Y_2,\\dots,Y_N\\)으로부터 realization인 \\(y_1,y_2,\\dots,y_N\\)이 나올 가능도는 다음과 같습니다.\n\\[\\begin{aligned}\n&\n\\begin{aligned}\nL({W};X_i|y_1,y_2,\\dots,y_n) &= Pr_{Y_1,Y_2,\\dots,Y_N}(y1,y2,\\dots,y_n|X_i;W)\\\\\n&= \\prod_{i=1}^{N}Pr_{Y_i}(Y_i=y_i|X_i;W) \\\\\n&= \\prod_{i=1}^{N}\\prod_{k=1}^{K}\\frac{e^{W_k^TX_i}}{\\sum_{j=1}^{K}e^{W_j^TX_i}}\\\\\n\\end{aligned}\n\\\\\n&\\text{where } \\{W\\} = \\{W1,W2,\\dots,W_N\\}\n\\end{aligned}\\]\n위와 같은 가능도를 최소화 하는 \\(W\\)를 찾는 것이 목적입니다.다음과 같습니다\n\\[\\begin{aligned}\n\\overset{*}{\\{W\\}} = \\underset{\\{W\\}}{\\text{argmax}} \\prod_{i=1}^{N}\\prod_{k=1}^{K}\\frac{e^{W_k^TX_i}}{\\sum_{j=1}^{K}e^{W_j^TX_i}}\n\\end{aligned}\\]"
   },
   {
     "objectID": "posts/deep learning/pytorch 구현/Pytorch Rnn 구현.html",
