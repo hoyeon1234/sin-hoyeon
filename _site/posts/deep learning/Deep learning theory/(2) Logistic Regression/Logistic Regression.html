@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2022-12-26">
 
-<title>Hoyeon’s Blog - 딥러닝(2) - 로지스틱회귀</title>
+<title>Hoyeon’s Blog - Logistic Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -138,7 +138,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -173,7 +173,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">딥러닝(2) - 로지스틱회귀</h1>
+      <h1 class="title">Logistic Regression</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Deep learning</div>
               </div>
@@ -204,43 +204,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link active" data-scroll-target="#logistic-regression">Logistic Regression</a></li>
-  <li><a href="#가정" id="toc-가정" class="nav-link" data-scroll-target="#가정">가정</a>
-  <ul class="collapse">
-  <li><a href="#기댓값에-대한-고찰" id="toc-기댓값에-대한-고찰" class="nav-link" data-scroll-target="#기댓값에-대한-고찰">기댓값에 대한 고찰</a></li>
-  </ul></li>
-  <li><a href="#로지스틱회귀-수식-유도" id="toc-로지스틱회귀-수식-유도" class="nav-link" data-scroll-target="#로지스틱회귀-수식-유도">로지스틱회귀 수식 유도</a>
-  <ul class="collapse">
-  <li><a href="#concept" id="toc-concept" class="nav-link" data-scroll-target="#concept">concept</a></li>
-  <li><a href="#본격적인-유도" id="toc-본격적인-유도" class="nav-link" data-scroll-target="#본격적인-유도">본격적인 유도</a>
-  <ul class="collapse">
-  <li><a href="#모수를-로지스틱함수로-바꾸기" id="toc-모수를-로지스틱함수로-바꾸기" class="nav-link" data-scroll-target="#모수를-로지스틱함수로-바꾸기">모수를 로지스틱함수로 바꾸기</a></li>
-  <li><a href="#베르누이-분포의-pmf-정리" id="toc-베르누이-분포의-pmf-정리" class="nav-link" data-scroll-target="#베르누이-분포의-pmf-정리">베르누이 분포의 pmf 정리</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#mle" id="toc-mle" class="nav-link" data-scroll-target="#mle">MLE</a></li>
-  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient descent</a></li>
-  <li><a href="#구현" id="toc-구현" class="nav-link" data-scroll-target="#구현">구현</a>
-  <ul class="collapse">
-  <li><a href="#setting" id="toc-setting" class="nav-link" data-scroll-target="#setting">setting</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">data</a></li>
-  <li><a href="#gradient-descent-1" id="toc-gradient-descent-1" class="nav-link" data-scroll-target="#gradient-descent-1">Gradient Descent</a></li>
-  </ul></li>
-  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리">정리</a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
-  <ul class="collapse">
-  <li><a href="#베르누이-분포-전개" id="toc-베르누이-분포-전개" class="nav-link" data-scroll-target="#베르누이-분포-전개">1.베르누이 분포 전개</a></li>
-  <li><a href="#nll전개with-parameter-w" id="toc-nll전개with-parameter-w" class="nav-link" data-scroll-target="#nll전개with-parameter-w">2.NLL전개(with parameter <span class="math inline">\(W\)</span>)</a></li>
-  <li><a href="#nll전개cross-entropy-유도하기" id="toc-nll전개cross-entropy-유도하기" class="nav-link" data-scroll-target="#nll전개cross-entropy-유도하기">3.NLL전개(Cross Entropy 유도하기)</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 

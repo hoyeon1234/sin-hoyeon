@@ -139,7 +139,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -174,47 +174,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#똑같은-코드들" id="toc-똑같은-코드들" class="nav-link active" data-scroll-target="#똑같은-코드들">똑같은 코드들</a>
-  <ul class="collapse">
-  <li><a href="#data-hihello" id="toc-data-hihello" class="nav-link" data-scroll-target="#data-hihello">data: hi?hello!!</a></li>
-  <li><a href="#초깃값-h_0c_0는-생략이-가능하다." id="toc-초깃값-h_0c_0는-생략이-가능하다." class="nav-link" data-scroll-target="#초깃값-h_0c_0는-생략이-가능하다.">초깃값 h_0,c_0는 생략이 가능하다.</a></li>
-  <li><a href="#세트2-x.shape-lh_in-or-lnh_in" id="toc-세트2-x.shape-lh_in-or-lnh_in" class="nav-link" data-scroll-target="#세트2-x.shape-lh_in-or-lnh_in">세트2: x.shape = (<span class="math inline">\(L\)</span>,<span class="math inline">\(H_{in}\)</span>) or (<span class="math inline">\(L\)</span>,<span class="math inline">\(N\)</span>,<span class="math inline">\(H_{in}\)</span>)</a></li>
-  <li><a href="#세트3-hidden.shape-d-times-num_layersh_out-or-d-timesnum_layersnh_out" id="toc-세트3-hidden.shape-d-times-num_layersh_out-or-d-timesnum_layersnh_out" class="nav-link" data-scroll-target="#세트3-hidden.shape-d-times-num_layersh_out-or-d-timesnum_layersnh_out">세트3 : hidden.shape = (<span class="math inline">\(D \times\)</span> <code>num_layers</code>,<span class="math inline">\(H_{out}\)</span>) or (<span class="math inline">\(D \times\)</span><code>num_layers</code>,<span class="math inline">\(N\)</span>,<span class="math inline">\(H_{out}\)</span>)</a></li>
-  </ul></li>
-  <li><a href="#똑같은-코드들-torch.nn.lstm_cell" id="toc-똑같은-코드들-torch.nn.lstm_cell" class="nav-link" data-scroll-target="#똑같은-코드들-torch.nn.lstm_cell">똑같은 코드들 torch.nn.lstm_cell</a>
-  <ul class="collapse">
-  <li><a href="#세트2-xt.shape-nh_in-or-h_in" id="toc-세트2-xt.shape-nh_in-or-h_in" class="nav-link" data-scroll-target="#세트2-xt.shape-nh_in-or-h_in">세트2 : xt.shape = <span class="math inline">\((N,H_{in}) or (H_{in})\)</span></a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#세트3-hidden.shape-nh_out-or-h_out" id="toc-세트3-hidden.shape-nh_out-or-h_out" class="nav-link" data-scroll-target="#세트3-hidden.shape-nh_out-or-h_out">세트3 : hidden.shape = <span class="math inline">\((N,H_{out})\)</span> or <span class="math inline">\((H_{out})\)</span></a></li>
-  </ul></li>
-  <li><a href="#요약" id="toc-요약" class="nav-link" data-scroll-target="#요약">요약</a>
-  <ul class="collapse">
-  <li><a href="#똑같은-코드들-정리" id="toc-똑같은-코드들-정리" class="nav-link" data-scroll-target="#똑같은-코드들-정리">똑같은 코드들 정리</a></li>
-  <li><a href="#실제구현시" id="toc-실제구현시" class="nav-link" data-scroll-target="#실제구현시">실제구현시</a></li>
-  </ul></li>
-  <li><a href="#하나의-긴-시계열데이터를-배치로-나눠서-학습해보기-구현" id="toc-하나의-긴-시계열데이터를-배치로-나눠서-학습해보기-구현" class="nav-link" data-scroll-target="#하나의-긴-시계열데이터를-배치로-나눠서-학습해보기-구현">하나의 긴 시계열데이터를 배치로 나눠서 학습해보기 구현</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">data</a>
-  <ul class="collapse">
-  <li><a href="#하나의-긴-시계열데이터를-배치로-나누지-않고-학습" id="toc-하나의-긴-시계열데이터를-배치로-나누지-않고-학습" class="nav-link" data-scroll-target="#하나의-긴-시계열데이터를-배치로-나누지-않고-학습">하나의 긴 시계열데이터를 배치로 나누지 않고 학습</a></li>
-  <li><a href="#하나의-긴-시계열-데이터를-배치로-나눠서-학습" id="toc-하나의-긴-시계열-데이터를-배치로-나눠서-학습" class="nav-link" data-scroll-target="#하나의-긴-시계열-데이터를-배치로-나눠서-학습">하나의 긴 시계열 데이터를 배치로 나눠서 학습</a></li>
-  <li><a href="#재미있는-실험" id="toc-재미있는-실험" class="nav-link" data-scroll-target="#재미있는-실험">재미있는 실험</a></li>
-  <li><a href="#왜-배치로-나눠서-시계열-데이터를-학습해야-하는가" id="toc-왜-배치로-나눠서-시계열-데이터를-학습해야-하는가" class="nav-link" data-scroll-target="#왜-배치로-나눠서-시계열-데이터를-학습해야-하는가">왜 배치로 나눠서 시계열 데이터를 학습해야 하는가?</a></li>
-  <li><a href="#똑같은-코드들-fastaipytorch" id="toc-똑같은-코드들-fastaipytorch" class="nav-link" data-scroll-target="#똑같은-코드들-fastaipytorch">똑같은 코드들 fastai,pytorch</a></li>
-  <li><a href="#fastai-사용" id="toc-fastai-사용" class="nav-link" data-scroll-target="#fastai-사용">fastai 사용</a></li>
-  <li><a href="#torch사용" id="toc-torch사용" class="nav-link" data-scroll-target="#torch사용">torch사용</a></li>
-  <li><a href="#human-numbers-100" id="toc-human-numbers-100" class="nav-link" data-scroll-target="#human-numbers-100">human numbers 100</a>
-  <ul class="collapse">
-  <li><a href="#생략-..-귀찮음" id="toc-생략-..-귀찮음" class="nav-link" data-scroll-target="#생략-..-귀찮음">생략 .. 귀찮음</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 

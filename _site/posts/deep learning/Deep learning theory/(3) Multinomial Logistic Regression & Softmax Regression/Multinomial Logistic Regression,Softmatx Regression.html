@@ -152,7 +152,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <section id="problem-setting" class="level1">
 <h1><span style="color:#00CC66"><strong>Problem Setting</strong></span></h1>
 <span class="math display">\[\begin{aligned}
-&amp;\text{Given, }D = {(x_{1,i},x_{2,i},\dots,x_{M,i},y_i})_{i=1}^{i=n} \\
+&amp;\text{Given, }D = {(x_{1,i},x_{2,i},\dots,x_{M,i},y_i})_{i=1}^{i=N} \\
 &amp;\text{where, $y_i$는 각각의 datapoint의 클래스를 원핫인코딩한 벡터} \\ \\
 &amp;\text{Goal : x가 입력될 때, 어떤 범주(y값)에 속하는지 예측하는 모형 만들기}
 \end{aligned}\]</span>
@@ -250,7 +250,7 @@ Y_i|x_{1,i},x_{2,i},\dots,x_{M,i} \sim \text{Cat}(y|x_{1,i},x_{2,i},\dots,x_{M,i
 </section>
 <section id="softmax-regression" class="level1">
 <h1><span style="color:#00CC66"><strong>Softmax Regression</strong></span></h1>
-<p>소 다항 로지스틱회귀에서는 마지막 클래스에 대한 모수를 추정할때에는 회귀계수를 따로 사용하지 않았습니다. 소프트맥스 회귀에서는 마지막 클래스에 대해서도 회귀계수를 사용합니다.</p>
+<p>다항 로지스틱회귀에서는 마지막 클래스에 대한 모수를 추정할때에는 회귀계수를 따로 사용하지 않았습니다. 소프트맥스 회귀에서는 마지막 클래스에 대해서도 회귀계수를 사용합니다.</p>
 <section id="가정-1" class="level2">
 <h2 class="anchored" data-anchor-id="가정-1"><strong>가정</strong></h2>
 <p>소프트맥스회귀의 가정은 로지스틱회귀의 가정과 같다.각 datapoint에서의 종속변수의 값은 카테고리분포를 따르는 확률변수에서 샘플링되었으며 카테고리분포의 모수는 각 datapoint마다 변하는 설명변수와 회귀계수(가중치)의 일차결합으로 표현됩니다.</p>
@@ -297,7 +297,26 @@ Y_i|x_{1,i},x_{2,i},\dots,x_{M,i} \sim \text{Cat}(y|x_{1,i},x_{2,i},\dots,x_{M,i
 &amp;\sum_{k=1}^{K}{\mu_{k,i}} =\sum_{k=1}^{K}{Pr(Y_i=k)}= \frac{1}{Z}\sum_{k=1}^{K}e^{W_k^TX_i} = 1\\
 &amp;\Longleftrightarrow Z = \sum_{k=1}^{K}e^{W_k^TX_i}
 \end{aligned}\]</span>
-<p>최종적으로,임의의 클래스 c에 속할 확률은 아래와 같으며 소프트맥스 함수입니다.그러므로,소프트맥스 회귀라는 이름이 붙었습니다.<br> <span class="math display">\[\mu_{c,i} = Pr(Y_i = (0,0,\dots,1_{c-th},0,\dots,0)|X_i;W_k) = \frac{e^{W_c^TX_i}}{\sum_{k=1}^{K}e^{W_k^TX_i}} = softmax(c,W_1^TX_i,W_2^TX_i,\dots,W_K^TX_i)\]</span></p>
+<p>최종적으로, 결과를 정리하면 다음과 같습니다. - 추정하고자하는 카테고리분포의 모수는 <span class="math inline">\(\mu_k\)</span>는 <span class="math inline">\(W_k\)</span>와 <span class="math inline">\(X_i\)</span>의 일차결합으로 표현되었습니다. 이는 소프트맥스 함수이므로 소프트맥스 회귀라는 이름이 붙었습니다.<br> <span class="math display">\[\mu_{c,i}(X_i;W) = Pr(Y_i = (0,0,\dots,1_{c-th},0,\dots,0)|X_i;W_k) = \frac{e^{W_c^TX_i}}{\sum_{k=1}^{K}e^{W_k^TX_i}} = softmax(c,W_1^TX_i,W_2^TX_i,\dots,W_K^TX_i)\]</span> - 카테고리분포의 위에서 구한 모수로 다시 정리하면 확률질량 함수는 새로운 모수 <span class="math inline">\(W_1,W_2,\dots,W_K\)</span>를 가집니다.(인덱스 <span class="math inline">\(k-&gt;j,c-&gt;k\)</span>) <span class="math display">\[Y_i \sim Cat(y|X_i;W_1,W_2,\dots,W_K) = \prod_{k=1}^{K}\frac{e^{W_k^TX_i}}{\sum_{j=1}^{K}e^{W_j^TX_i}}\]</span></p>
+</section>
+<section id="mle" class="level2">
+<h2 class="anchored" data-anchor-id="mle"><span style="color:"><strong>MLE</strong></span></h2>
+<p>여기까지의 과정으로부터 카테고리분포의 모수는 설명변수와 가중치(회귀계수)의 일차결합으로 표현되며 또한 확률질량함수가 새로운 모수 <span class="math inline">\(W = (W_1,W_2,\dots,W_K)\)</span>로 표현되었습니다.만약 카테고리분포의 모수만 추정할 수 있다면 우리는 데이터포인트가 어떤 범주에 속할 확률이 가장 높은지 알 수 있으며 범주를 분류할 수 있습니다. 여기서는 카테고리분포의 모수<span class="math inline">\(W\)</span>를 MLE로 추정합니다.<br></p>
+확률분포에서 임의의 모수<span class="math inline">\(W = (W_1,W_2,\dots,W_K)\)</span>를 가정할 때, 확률변수 <span class="math inline">\(Y_1,Y_2,\dots,Y_N\)</span>으로부터 realization인 <span class="math inline">\(y_1,y_2,\dots,y_N\)</span>이 나올 가능도는 다음과 같습니다.<br>
+<span class="math display">\[\begin{aligned}
+&amp;
+\begin{aligned}
+L({W};X_i|y_1,y_2,\dots,y_n) &amp;= Pr_{Y_1,Y_2,\dots,Y_N}(y1,y2,\dots,y_n|X_i;W)\\
+&amp;= \prod_{i=1}^{N}Pr_{Y_i}(Y_i=y_i|X_i;W) \\
+&amp;= \prod_{i=1}^{N}\prod_{k=1}^{K}\frac{e^{W_k^TX_i}}{\sum_{j=1}^{K}e^{W_j^TX_i}}\\
+\end{aligned}
+\\
+&amp;\text{where } \{W\} = \{W1,W2,\dots,W_N\}
+\end{aligned}\]</span>
+위와 같은 가능도를 최소화 하는 <span class="math inline">\(W\)</span>를 찾는 것이 목적입니다.다음과 같습니다
+<span class="math display">\[\begin{aligned}
+\overset{*}{\{W\}} = \underset{\{W\}}{\text{argmax}} \prod_{i=1}^{N}\prod_{k=1}^{K}\frac{e^{W_k^TX_i}}{\sum_{j=1}^{K}e^{W_j^TX_i}}
+\end{aligned}\]</span>
 
 
 </section>
