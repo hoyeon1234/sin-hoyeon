@@ -1,0 +1,10 @@
+---
+author: 신호연
+date: 2022-12-30
+title: "Multinomial Logistic Regression & Softmax Regression"
+format: html
+categories: [Deep learning]
+---
+[Deep Learning Series - Part3]
+
+# <span style="color:#00994C">**개요**</span>
