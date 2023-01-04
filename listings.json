@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/Linear Algebra/linear combination,span,columnspace.html",
       "/posts/Linear Algebra/span과 columns space.html",
       "/posts/Linear Algebra/rank.html",
       "/posts/Linear Algebra/행렬곱에 대한 여러가지 시각.html",
