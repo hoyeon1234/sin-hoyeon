@@ -172,7 +172,9 @@ x_n
 </section>
 <section id="case1-a가-full-column-rank일-때" class="level1">
 <h1><span style="color : #00994c"><strong>Case1 : A가 full column rank일 때</strong></span></h1>
-<p><span class="math inline">\(A \in \mathbb{R}^{m \times n},\text{rank}(A) = n&lt;m\)</span>인 full column rank라 하자. 그러면 A는 아마도 위아래로 긴 행렬이 되어 Ax는 다음과 같을 것이다.<br> <img src="./full column rank.jpg" class="img-fluid" alt="full column rank"></p>
+<p>문제 : <span class="math inline">\(A \in \mathbb{R}^{m \times n},\text{rank}(A) = n&lt;m\,,x = \in \mathbb{R}^{n \times 1}\,,b\in \mathbb{R}^{m \times 1}\)</span> 일때, <span class="math inline">\(Ax = b\)</span>를 만족하는 x의 갯수는?</p>
+<p><img src="https://raw.githubusercontent.com/hoyeon1234/sin-hoyeon/master/posts/Linear%20Algebra/Ax%3Db/full%20column%20rank.jpg" width="500" height="400"> <br> 위의 문제에서 A는 full column rank이다. full column rank일 경우 <span class="math inline">\(Ax\)</span>의 모양은 위와 같고 열공간은 m차원 벡터공간의 부분공간이자 n차원 벡터공간이다.앞에서 “m차원 벡터공간의 부분공간인 n차원 벡터공간” 이라 했는데 그 이유는 (열)벡터가 m차원 벡터공간의 원소(벡터)이기 때문이다. m차원 벡터공간에 있는 (열)벡터 n개를 기저로 생성된 공간이기 때문에 m차원 벡터공간의 부분공간이면서 동시에 n차원 벡터공간이 된다. <br></p>
+<p>위에서 언급했듯이 열공간은 임의의 x에 대하여 가능한 <span class="math inline">\(Ax\)</span>의 집합이기에 방정식의 해가 존재하려면 b가 열공간안에 있으면 되고 아니면 바깥에 있으면 된다. 그렇다면 이 경우 b의 위치는 어떻게 될까?</p>
 </section>
 <section id="참고자료" class="level1">
 <h1><span style="color : #00994c"><strong>참고자료</strong></span></h1>
