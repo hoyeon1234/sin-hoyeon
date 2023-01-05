@@ -227,7 +227,7 @@ x_n
 <p>문제 : <span class="math inline">\(A \in \mathbb{R}^{m \times m},\text{rank}(A) = \alpha &lt; \text{min}(m,n)\,,x = \in \mathbb{R}^{n \times 1}\,,b\in \mathbb{R}^{m \times 1}\)</span> 일때, <span class="math inline">\(Ax = b\)</span>를 만족하는 x의 갯수는?</p>
 <p><img src="https://raw.githubusercontent.com/hoyeon1234/sin-hoyeon/master/posts/Linear%20Algebra/Ax%3Db/full%20row%20rank.png" width="650" height="400"> <br></p>
 <p>위의 예시에서는 A가 rank deficient인 경우 중, <span class="math inline">\(m&lt;n\)</span> 인 경우를 생각해보자. 행렬 A의 column space는 m차원 공간의 부분공간이자 <span class="math inline">\(\alpha\)</span>차원의 벡터공간이다.<span class="math inline">\(b \in \mathbb{R}^{m \times 1}\)</span>이므로 가능한 경우는 아래와 같다.</p>
-<p><img src="https://raw.githubusercontent.com/hoyeon1234/sin-hoyeon/master/posts/Linear%20Algebra/Ax%3Db/full%20column%20rank%20with%20b.png" width="650" height="400"> <br></p>
+<p><img src="https://raw.githubusercontent.com/hoyeon1234/sin-hoyeon/master/posts/Linear%20Algebra/Ax%3Db/rank%20deficient%20with%20b.jpg" width="650" height="400"> <br></p>
 <p>1번의 경우라면 b는 column space의 원소가 아니므로 방정식의 해는 존재하지 않는다. 만약 2번의 경우라면 해가 존재한다. 이때에는 null space를 고려한 완전해를 따져야하므로 랭크-널리티 정리를 확인한다.<br></p>
 <span class="math display">\[\begin{aligned}
 &amp;\text{rank}(A) + \text{nulity}(A) = \alpha + \text{nulity}(A) = n \\
@@ -239,6 +239,45 @@ x_n
 &amp;\text{where, } x_{null} \in N(A) = \mathbb{R}^{n-\alpha}
 \end{aligned}\]</span>
 <p>결론적으로, rank deficient의 경우 해는 무수히 많거나 해는 존재하지 않는다.</p>
+</section>
+<section id="정리" class="level1">
+<h1><span style="color : #00994c"><strong>정리</strong></span></h1>
+<table class="table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>rank type</th>
+<th>expression</th>
+<th>해의 갯수</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>full column rank</td>
+<td><span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>,<span class="math inline">\(\text{rank}(A) = n&lt;m\)</span></td>
+<td>해가 없거나 해가 한개만 존재한다.</td>
+</tr>
+<tr class="even">
+<td>full row rank</td>
+<td><span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>,<span class="math inline">\(\text{rank}(A) = m&lt;n\)</span></td>
+<td>해가 무수히 많다.</td>
+</tr>
+<tr class="odd">
+<td>full rank</td>
+<td><span class="math inline">\(A \in \mathbb{R}^{m \times m}\)</span>,<span class="math inline">\(\text{rank}(A) = m\)</span></td>
+<td>해가 한개만 존재한다.</td>
+</tr>
+<tr class="even">
+<td>rank deficient</td>
+<td><span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>,<span class="math inline">\(\text{rank}(A) &lt; \text{min}(m,n)\)</span></td>
+<td>해가 없거나 해가 무수히 많다.</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="참고자료" class="level1">
 <h1><span style="color : #00994c"><strong>참고자료</strong></span></h1>
