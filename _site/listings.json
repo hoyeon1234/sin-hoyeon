@@ -2,8 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Linear Algebra/Ax=b/Ax = b의 해석.html",
+      "/posts/Linear Algebra/rank and null space/rank and null space.html",
       "/posts/Linear Algebra/span과 columns space.html",
-      "/posts/Linear Algebra/rank.html",
       "/posts/Linear Algebra/행렬곱에 대한 여러가지 시각.html",
       "/posts/Deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html",
       "/posts/Probability&Statistics/categori distribution.html",
