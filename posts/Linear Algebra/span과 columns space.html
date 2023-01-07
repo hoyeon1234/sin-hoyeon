@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="신호연">
+<meta name="dcterms.date" content="2023-01-03">
 
-<title>Hoyeon’s Blog - Linear Combination &amp; Span &amp; 열공간으로 Ax=b 해석</title>
+<title>Hoyeon’s Blog - Linear Combination &amp; Span</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -171,14 +173,29 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Linear Combination &amp; Span &amp; 열공간으로 Ax=b 해석</h1>
-                      </div>
+      <h1 class="title">Linear Combination &amp; Span</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Linear Algebra</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>신호연 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 3, 2023</p>
+      </div>
+    </div>
     
       
     </div>
@@ -194,7 +211,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p>선형조합,(선형)생성,열공간을 기반으로 한 Ax = b에 대해 정리한 글입니다.</p>
+<p>유투브 - 혁펜하임님의 선형대수학강의를 정리하기 위해 작성한 글입니다.<br></p>
 <section id="linear-combination" class="level1">
 <h1><span style="color : #00994C"><strong>linear Combination</strong></span></h1>
 <p>벡터 <span class="math inline">\(\bf{v_1,v_2,\dots,v_n}\)</span>의 선형결합(또는 일차결합)은 다음과 같다. <span class="math display">\[w_1{\bf v_1} + w_2{\bf v_2} + \dots + w_n{\bf v_n}\]</span> 선형결합의 결과는 여러가지 벡터들의 결합이다. 여기서 각각의 <span class="math inline">\(w_1,w_2,\dots,w_n\)</span>은 스칼라이며 대응하는 <span class="math inline">\(x_1,x_2,\dots,x_n\)</span>를 결합에 사용하는 정도를 의미한다. 만약 <span class="math inline">\(w_1 = 0.0001\)</span>이면 여러 벡터들을 결합하지만 그 결합 중 <span class="math inline">\(\bf v_1\)</span>이 아주 사용하여 결합하는 것이고 <span class="math inline">\(w_2 = 120\)</span>이라면 결합에서 <span class="math inline">\(\bf v_2\)</span>를 아주 많이 사용하는 것이다.</p>
@@ -202,8 +219,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <section id="span" class="level1">
 <h1><span style="color : #00994c"><strong>span</strong></span></h1>
 <p>벡터 <span class="math inline">\(v_1,v_2,\dots,v_n\)</span>의 선형결합에서 <span class="math inline">\(w_1,w_2,\dots,w_n\)</span>(스칼라,결합에 사용하는 정도)를 바꿨을때 가능한 모든 벡터들의 집합이며 즉,벡터의 선형결합으로 가능한 모든 집합들이며 정의는 다음과 같다. <span class="math display">\[\text{span}({\bf{v_1,v_2,\dots,v_n}}) := \{w_1{\bf{v_1}} + w_2{\bf{v_2}} + \dots + w_n{\bf{v_n}}:w_1,w_2,\dots,w_n \in K\}\]</span> <br> span은 선형결합으로 만들어지는 또다른 벡터공간이다. 여기서 K는 field를 의미하는데 스칼라는 field라는 또다른 집합으로부터 가져온 원소이기때문에 그렇다.<br><br>임의의 벡터들의 span은 어떨까? 아래의 그림을 확인해보자.</p>
-<p>&lt;참고&gt;<br> span은 동사로도 사용한다.<br> ex : 벡터공간을 생성한다. 열공간은 열벡터들이 생성하는 공간이다.(=열공간은 열벡터의 생성이다.).기저들이 벡터공간을 생성한다.</p>
-<div class="cell" data-execution_count="35">
+<p>&lt;참고&gt;<br> span은 동사로도 사용한다.<br> ex : 벡터공간을 생성한다. 열공간은 열벡터들이 생성하는 공간이다.(=열공간은 열벡터의 생성이다.).기저들이 벡터공간을 생성한다.<br></p>
+<p>:는 <a href="https://math.stackexchange.com/questions/1501123/set-builder-notation-colon-or-vertical-line">조건</a>을 의미합니다.</p>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> random</span>
@@ -229,7 +249,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <span id="cb1-23"><a href="#cb1-23"></a>v1 <span class="op">=</span> np.array([[<span class="dv">0</span>],[<span class="dv">0</span>]])</span>
 <span id="cb1-24"><a href="#cb1-24"></a>v2 <span class="op">=</span> np.array([[<span class="dv">0</span>],[<span class="dv">0</span>]])</span>
 <span id="cb1-25"><a href="#cb1-25"></a>x,y <span class="op">=</span> linrcmb(v1,v2)</span>
-<span id="cb1-26"><a href="#cb1-26"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">5</span>))</span>
+<span id="cb1-26"><a href="#cb1-26"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">30</span>,<span class="dv">5</span>))</span>
 <span id="cb1-27"><a href="#cb1-27"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">1</span>)</span>
 <span id="cb1-28"><a href="#cb1-28"></a>plt.title(<span class="st">"$v_1 = [0,0]^</span><span class="sc">{T}</span><span class="st">,v_2 = [0,0]^T$"</span>)</span>
 <span id="cb1-29"><a href="#cb1-29"></a>plt.scatter(x,y,color<span class="op">=</span><span class="st">"black"</span>)</span>
@@ -281,34 +301,23 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <span id="cb1-75"><a href="#cb1-75"></a>plt.scatter(x,y,color<span class="op">=</span><span class="st">"blue"</span>,alpha<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb1-76"><a href="#cb1-76"></a>plt.subplots_adjust(wspace<span class="op">=</span><span class="fl">0.4</span>,hspace<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb1-77"><a href="#cb1-77"></a>plt.suptitle(<span class="st">"span$(v_1,v_2)$"</span>,y<span class="op">=</span><span class="fl">1.02</span>,fontsize<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>Text(0.5, 1.02, 'span$(v_1,v_2)$')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="span과 columns space_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p>점 하나는 벡터 하나를 나타낸다. 1번째 그림에서 벡터들의 생성(span)은 2차원 벡터공간의 부분공간이자 0차원 벡터공간(점)이며 2,3번째 그림어세 벡터들의 생성(span)은 2차원 벡터공간의 1부분 공간이자 1차원 벡터공간(직선)이다. 이와는 다르게 3번째 그림에서의 벡터들의 생성(span)은 3차원 벡터공간 그 자체인데 3차원 벡터공간의 모든 점을 표현할 수 있기 때문이다.</p>
+<p>점 하나는 벡터 하나를 나타낸다. 1번째 그림에서 벡터들의 생성(span)은 2차원 벡터공간의 부분공간이자 0차원 벡터공간(점)이며 2,3번째 그림에서 벡터들의 생성(span)은 2차원 벡터공간의 부분공간이자 1차원 벡터공간(직선)이다. 이와는 다르게 3번째 그림에서의 벡터들의 생성(span)은 3차원 벡터공간 그 자체인데 그 이유는 3차원 벡터공간의 모든 점을 표현할 수 있기 때문이다.</p>
 </section>
 <section id="column-space" class="level1">
 <h1><span style="color : #00994C"><strong>column Space</strong></span></h1>
-<p>열공간(columns space)은 행렬의 열벡터들의 span 즉, 행렬의 열벡터들로 가능한 모든 선형조합(벡터)의 집합입니다. 다음과 같이 적을 수 있습니다. <span class="math inline">\(v_1,v_2,\dots,v_n\)</span>이 행렬A의 열벡터들이라고 할 때, 열공간은 다음과 같습니다.<br> <span class="math display">\[\text{C}(A) = \text{span}(v_1,v_2,\dots,v_n) = \{w_1{\bf v_1} + w_2{\bf v_2} + \dots + w_n{\bf v_n}:w_1,w_2,\dots,w_n \in K\}\]</span></p>
+<p>열공간(columns space)은 행렬의 열벡터들의 span 즉, 행렬의 열벡터들로 가능한 모든 선형조합(벡터)의 집합입니다. <span class="math inline">\(v_1,v_2,\dots,v_n\)</span>이 행렬A의 열벡터들이라고 할 때, 열공간은 다음과 같습니다.<br> <span class="math display">\[\text{C}(A) = \text{span}(v_1,v_2,\dots,v_n) = \{w_1{\bf v_1} + w_2{\bf v_2} + \dots + w_n{\bf v_n}:w_1,w_2,\dots,w_n \in K\}\]</span> 열공간은 방정식 <span class="math inline">\(Ax = b\)</span>의 해의 갯수를 파악하는데 쓰입니다.</p>
 </section>
-<section id="열공간을-기반으로-한-axb의-해석" class="level1">
-<h1><span style="color : #00994C"><strong>열공간을 기반으로 한 Ax=b의 해석</strong></span></h1>
-<p>행렬 <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>와 벡터<span class="math inline">\(x = \begin{bmatrix}x_1,x_2,\dots,x_n\end{bmatrix}^T\in \mathbb{R}^{n \times 1}\)</span>의 곱을 생각해보자.<br></p>
-<span class="math display">\[\begin{aligned}
-Ax = A
-\begin{bmatrix}
-x_1\\
-x_2\\
-\vdots\\
-x_n
-\end{bmatrix}
-= Ax_1 + Ax_2 + \dots Ax_n
-\end{aligned}\]</span>
-<p>위와 같이 행렬과 벡터의곱은 행렬에 있는 (열)벡터들의 선형조합이다. 그러므로, <span class="math inline">\(x\)</span>가 어떤 벡터든지 열벡터들의 선형조합은 열벡터들의 생성에 속하는 원소(벡터)이며 <span class="math inline">\(Ax\)</span>로 가능한 모든 결과들의 집합이라고 볼 수 있다.다음과 같다.<br> <span class="math display">\[Ax \in C(A)\]</span></p>
-<p>만약 <span class="math inline">\(Ax = b\)</span>인 방정식의 해 <span class="math inline">\(x\)</span>를 구하려 한다 하자. <span class="math inline">\(C(A)\)</span>는 <span class="math inline">\(x\)</span>값이 무엇이든지 항상<span class="math inline">\(x\)</span>를 포함하는가능한 <span class="math inline">\(Ax\)</span>의 모든 집합이였다. 만약 <span class="math inline">\(C(A)\)</span>가 <span class="math inline">\(b\)</span>의 원소중에 <span class="math inline">\(b\)</span>가 있다면 <span class="math inline">\(Ax=b\)</span>인 <span class="math inline">\(x\)</span>가 존재하여 방정식의 해가 존재하고 <span class="math inline">\(C(A)\)</span>가 <span class="math inline">\(b\)</span>를 포함하지 않는다면 <span class="math inline">\(Ax = b\)</span>인 <span class="math inline">\(x\)</span>값이 존재하지 않고 따라서 방정식의 해도 존재하지 않는다.</p>
+<section id="참고자료" class="level1">
+<h1><span style="color : #00994C"><strong>참고자료</strong></span></h1>
+<p><a href="https://rfriend.tistory.com/173">[선형대수] 벡터공간(vector space), 벡터 부분공간(vector subspace), 생성공간(span), 차원(dimension)</a><br> <a href="https://en.wikipedia.org/wiki/Linear_span">위키피디아-Linear span</a><br> <a href="https://en.wikipedia.org/wiki/Row_and_column_spaces">위키피디아-Row and columns spaces</a><br> <a href="https://www.youtube.com/watch?v=g0eaDeVRdZk&amp;list=PL_iJu012NOxdZDxoGsYidMf2_bERIQaP0&amp;index=8">혁펜하임 - [선대] 2-6강. span 과 column space (열공간) 직관적 설명</a></p>
 
 
 </section>

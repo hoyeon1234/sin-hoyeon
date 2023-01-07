@@ -2,17 +2,20 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Linear Algebra/Least Squares/Least Squares.html",
+      "/posts/visualization/plotly_visualization/ploty 시각화 모음.html",
+      "/posts/Linear Algebra/Ax=b의 해의 갯수 알아내기/Ax = b의 해석.html",
+      "/posts/Linear Algebra/rank and null space/rank and null space.html",
       "/posts/Linear Algebra/span과 columns space.html",
-      "/posts/Linear Algebra/rank.html",
       "/posts/Linear Algebra/행렬곱에 대한 여러가지 시각.html",
-      "/posts/Deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html",
+      "/posts/deep learning/Deep learning theory/(3) Multinomial Logistic Regression & Softmax Regression/Multinomial Logistic Regression,Softmatx Regression.html",
       "/posts/Probability&Statistics/categori distribution.html",
       "/posts/Probability&Statistics/Maximum likelyhood estimation/MLE.html",
       "/posts/Probability&Statistics/notation.html",
-      "/posts/Deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html",
+      "/posts/deep learning/Deep learning theory/(2) Logistic Regression/Logistic Regression.html",
       "/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html",
-      "/posts/Deep learning/pytorch 구현/Pytorch Rnn 구현.html",
-      "/posts/Deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html"
+      "/posts/deep learning/pytorch 구현/Pytorch Rnn 구현.html",
+      "/posts/deep learning/Deep learning theory/(1) Linear Regression/Linear Regression.html"
     ]
   }
 ]
