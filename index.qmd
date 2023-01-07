@@ -2,10 +2,17 @@
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
   categories: true
   sort-ui: false
-  filter-ui: false
+  filter-ui: true
+  grid-columns: 2
+  grid-item-border: true
+  image-height: "1"
+  date-format: "short"
+  fields: [image, date, title,subtitle]
+  page-size: 36
 page-layout: full
 title-block-banner: true
+#https://quarto.org/docs/websites/website-listings.html#sorting-items
 ---

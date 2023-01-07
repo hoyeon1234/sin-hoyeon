@@ -2,7 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/numpy/np.gradient.html",
+      "/posts/numpy/수치미분 & np.gradient.html",
       "/posts/Linear Algebra/Least Squares/Least Squares.html",
       "/posts/visualization/plotly_visualization/ploty 시각화 모음.html",
       "/posts/Linear Algebra/Ax=b의 해의 갯수 알아내기/Ax = b의 해석.html",
