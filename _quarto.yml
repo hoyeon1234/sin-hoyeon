@@ -15,7 +15,9 @@ website:
 #웹사이트 스타일 설정      
 format:
   html:
-    theme: Simplex
+    theme: 
+      - Simplex
+      - custom.scss
     css: styles.css
     toc: false
     code-fold: false
