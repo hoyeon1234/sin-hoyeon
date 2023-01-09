@@ -255,6 +255,44 @@ split(sep=None, maxsplit=-1) method of builtins.str instance
 </div>
 <p>string객체의 인스턴스 즉,문자열에 대해서만 사용할 수 있는 메서드<br> sep파라미터에 전달한 인수를 구분자로 사용하여 문자열안에 있는 단어들을 가져옴. 가져온 단어들은 리스트의 원소가 되어 반환됨<br> Parameter<br> - sep - …</p>
 <p>Return - list[word1,word2,…] (구분자를 통하여 구분된 단어들,기본값은 공백(space))</p>
+</section>
+<section id="예시" class="level1">
+<h1><span style="color:#00994C"><strong>예시</strong></span></h1>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#문자열 내에 구분기준이 없는 경우?</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#sep = " "으로 기본값으로 설정되어 있음. 공백이 없으므로 그냥 문자열을 리스트에 넣어서 반환</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>_t <span class="op">=</span> <span class="st">"abcde"</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>answer <span class="op">=</span> _t.split()</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['abcde']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#문자열 내에 구분기준이 있는 경우?</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>_t <span class="op">=</span> <span class="st">"ab cd esda dg"</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>answer <span class="op">=</span> _t.split()</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['ab', 'cd', 'esda', 'dg']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>_t <span class="op">=</span> <span class="st">"abtcdtesdatdg"</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>answer <span class="op">=</span> _t.split(<span class="st">"t"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['ab', 'cd', 'esda', 'dg']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>_t <span class="op">=</span> <span class="st">"ab;;cd;;esd;;atdg"</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>answer <span class="op">=</span> _t.split(<span class="st">";;"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['ab', 'cd', 'esd', 'atdg']</code></pre>
+</div>
+</div>
 
 
 </section>
