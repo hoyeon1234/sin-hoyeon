@@ -2,8 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/numpy/수치미분 & np.gradient.html",
+      "/posts/coading test/[프로그래머스]Lv1.시저암호.html",
+      "/posts/coading test/[프로그래머스]Lv1.이상한 문자 만들기.html",
+      "/posts/coading test/[프로그래머스]Lv1.크기가 작은 부분 문자열.html",
       "/posts/Linear Algebra/Least Squares/Least Squares.html",
+      "/posts/numpy/np.meshgrid.html",
+      "/posts/numpy/수치미분 & np.gradient/수치미분 & np.gradient.html",
       "/posts/visualization/plotly_visualization/ploty 시각화 모음.html",
       "/posts/Linear Algebra/Ax=b의 해의 갯수 알아내기/Ax = b의 해석.html",
       "/posts/Linear Algebra/rank and null space/rank and null space.html",
