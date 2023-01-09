@@ -111,7 +111,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Least Squares</h1>
-                      </div>
+            <p class="subtitle lead">열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Linear Algebra</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -145,17 +149,15 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p>선형대수학에서 <span class="math inline">\(C(A)\)</span>와 projection을 활용하여 최소제곱법에 대하여 정리.</p>
 <section id="problem-setting" class="level1">
 <h1><span style="color : #00994C"><strong>Problem Setting</strong></span></h1>
-<p><span class="math inline">\(A \in \mathbb{R}^{m \times n},\text{rank}(A) = n&lt;m,x \in \mathbb{R}^{n \times 1},b \in \mathbb{R}^{m \times 1}\)</span> 가 주어지고 방정식 <span class="math inline">\(Ax = b\)</span>를 만족하는 해인 <span class="math inline">\(x\)</span>를 구할 수 없을 때, <span class="math inline">\(Ax\)</span>가 <span class="math inline">\(b\)</span>와 가장 비슷하게 하는 <span class="math inline">\(x\)</span>를 찾는 것이 목적이다.</p>
-<p>주어진 문제상황을 다시 해석하면 <span class="math inline">\(A\)</span>가 full column rank이면서 해를 구할 수 없는 상황 즉, <span class="math inline">\(b \notin \text{C}(A)\)</span>상황이다.</p>
-<p>그림 그림 그림</p>
+<p><span class="math inline">\(A \in \mathbb{R}^{m \times n},\text{rank}(A) = n&lt;m,x \in \mathbb{R}^{n \times 1},b \in \mathbb{R}^{m \times 1}\)</span> 가 주어지고 방정식 <span class="math inline">\(Ax = b\)</span>를 만족하는 해인 <span class="math inline">\(x\)</span>를 구할 수 없을 때, <span class="math inline">\(Ax\)</span>가 <span class="math inline">\(b\)</span>와 가장 비슷하게 하는 <span class="math inline">\(x\)</span>를 찾는 것이 목적입니다.</p>
 </section>
 <section id="least-squares" class="level1">
 <h1><span style="color : #00994C"><strong>Least Squares</strong></span></h1>
+<p>주어진 문제상황을 보면 <span class="math inline">\(A\)</span>가 full column rank이면서 해를 구할 수 없는 상황 즉, <span class="math inline">\(b \notin \text{C}(A)\)</span>인 아래와 같은 상황입니다.</p>
 <p><img src="./c1.PNG" class="img-fluid"></p>
-<p>최소제곱법(Least Squares)은 위와같이 full column rank인 A가 주어진 <span class="math inline">\(Ax = b\)</span>인 연립방정식에서 <span class="math inline">\(b \not \in C(A)\)</span> 때문에 해를 구할 수 없는 상황에서 사용합니다. 최소제곱법은 <span class="math inline">\(b\)</span>와 가장 비슷한 <span class="math inline">\(\hat{b}\in C(A)\)</span>를 구하고 그때의 조건으로 방정식 <span class="math inline">\(A\hat{x} = \hat{b}\)</span>를 풀어서 근사적으로 방정식의 해 <span class="math inline">\(\hat{x}\)</span>를 구합니다.<br></p>
+<p>최소제곱법(Least Squares)은 위와같이 full column rank인 <span class="math inline">\(A\)</span>가 주어진 <span class="math inline">\(Ax = b\)</span>인 연립방정식에서 <span class="math inline">\(b \not \in C(A)\)</span> 때문에 해를 구할 수 없는 상황에서 사용합니다. 최소제곱법은 <span class="math inline">\(b\)</span>와 가장 비슷한 <span class="math inline">\(\hat{b}\in C(A)\)</span>를 구하고 그때의 조건으로 방정식 <span class="math inline">\(A\hat{x} = \hat{b}\)</span>를 풀어서 근사적으로 해<span class="math inline">\(\hat{x}\)</span>을 구합니다.<br></p>
 <p><img src="./c2.PNG" class="img-fluid"></p>
 <p>그렇다면 먼저 <span class="math inline">\(C(A)\)</span>의 벡터 중에서 <span class="math inline">\(b\)</span>와 가장 비슷한 벡터 <span class="math inline">\(\hat{b}\)</span>를 찾는 것입니다. 위의 그림에 있는 빨강색 벡터들 중 어떤 벡터가 가장 <span class="math inline">\(b\)</span>와 비슷할까요? 벡터는 공간상에서 점(화살표의 종점)로 해석할 수 있고 점과 점이 비슷하다는 것은 두 점사이의 거리가 가깝다는 것을 의미합니다. 그러므로 <span style="color : blue">두 벡터가 가장 비슷하다</span> =&gt; 두 점이 가장 비슷하다 =&gt; <span style="color : blue">점과 점 사이의 거리가 가장 가깝다</span> 이므로 두 벡터(점)사이의 거리를 가장 가깝게 좁히는 벡터가 바로 <span class="math inline">\(\hat{b}\)</span>입니다.</p>
 <p>여기서 만약 <span class="math inline">\(e = b-Ax\)</span>로 정의하면 두 점사이의 거리는 <span class="math inline">\(||e||_2\)</span>(L2-norm)이 됩니다. L2-norm은 루트가 붙어있어서 계산하기가 불편하므로 제곱을 해서 루트를 없애주면 <span class="math inline">\(e\)</span>의 원소들의 제곱(squares)이 되는데 이를 최소화하는 <span class="math inline">\(x\)</span>를 찾는 방법이므로 least squares라고 한다고 합니다. 이런식으로 <span class="math inline">\(e\)</span>를 직접 구해서 하는 방법도 있지만 여기서는 다른방식으로 구합니다.(내적!)</p>
