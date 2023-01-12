@@ -295,7 +295,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 <p>데이콘 competetion - 데이터 차원축소하기</p>
 <section id="import" class="level1">
 <h1><span style="color:#00994c"><strong>import</strong></span></h1>
-<div class="cell" data-execution_count="32">
+<div class="cell" data-execution_count="237">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -309,7 +309,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 <span id="cb1-11"><a href="#cb1-11"></a>test_path <span class="op">=</span> <span class="st">"./test.csv"</span></span>
 <span id="cb1-12"><a href="#cb1-12"></a>train_path <span class="op">=</span> <span class="st">"./train.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="33">
+<div class="cell" data-execution_count="240">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># %pip install plotly (jupyter notebook)</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">from</span> plotly.offline <span class="im">import</span> iplot</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> plotly.graph_objs <span class="im">as</span> go</span>
@@ -323,20 +323,20 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 </section>
 <section id="data" class="level1">
 <h1><span style="color:#00994c"><strong>Data</strong></span></h1>
-<div class="cell" data-execution_count="34">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>train <span class="op">=</span> pd.read_csv(train_path).drop(columns <span class="op">=</span> [<span class="st">"id"</span>])</span>
 <span id="cb3-2"><a href="#cb3-2"></a>train_len <span class="op">=</span> <span class="bu">len</span>(train)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>test <span class="op">=</span> pd.read_csv(test_path)</span>
 <span id="cb3-4"><a href="#cb3-4"></a>id_test <span class="op">=</span> test[<span class="st">"id"</span>]</span>
 <span id="cb3-5"><a href="#cb3-5"></a>test <span class="op">=</span> pd.read_csv(test_path).drop(columns <span class="op">=</span> [<span class="st">"id"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="35">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dataset <span class="op">=</span> pd.concat([train,test],axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>dataset <span class="op">=</span> dataset.drop(columns <span class="op">=</span> [<span class="st">"father"</span>,<span class="st">"mother"</span>,<span class="st">"gender"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="36">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>dataset.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
 
@@ -472,7 +472,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 </section>
 <section id="preprocessing" class="level1">
 <h1><span style="color:#00994c"><strong>Preprocessing</strong></span></h1>
-<div class="cell" data-execution_count="37">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>_t <span class="op">=</span> []</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="cf">for</span> val <span class="kw">in</span> dataset.SNP_01 <span class="op">==</span> <span class="st">"G G"</span>:</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">if</span> val <span class="op">==</span> <span class="va">True</span>:</span>
@@ -489,7 +489,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 <span id="cb6-14"><a href="#cb6-14"></a>        _t.append(<span class="dv">0</span>)</span>
 <span id="cb6-15"><a href="#cb6-15"></a>dataset[<span class="st">"has02AA"</span>] <span class="op">=</span> _t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="38">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> create_col(dataset,col,value):</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    _t <span class="op">=</span> []</span>
 <span id="cb7-3"><a href="#cb7-3"></a>    <span class="cf">for</span> val <span class="kw">in</span> dataset[col] <span class="op">==</span> value:</span>
@@ -527,7 +527,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 <span id="cb7-35"><a href="#cb7-35"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_13"</span>,<span class="st">"A A"</span>)</span>
 <span id="cb7-36"><a href="#cb7-36"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_14"</span>,<span class="st">"A A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="39">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#one-hot encoding for distance base algorithm</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>dataset_ohe <span class="op">=</span> pd.get_dummies(dataset,columns <span class="op">=</span> dataset.columns.drop(<span class="st">"class"</span>),drop_first<span class="op">=</span><span class="va">True</span>) <span class="co">#multicollinearity를 막기위한 drop_first 옵션</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a>train_ohe <span class="op">=</span> dataset_ohe[:train_len].copy()</span>
@@ -538,9 +538,9 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 <span id="cb8-8"><a href="#cb8-8"></a>X_train_ohe <span class="op">=</span> train_ohe.drop(columns <span class="op">=</span> <span class="st">"class"</span>)</span>
 <span id="cb8-9"><a href="#cb8-9"></a>Y_train_ohe <span class="op">=</span> train_ohe[<span class="st">"class"</span>] <span class="co">#X와 통일성을 위해 ohe로 일단 이름지음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="40">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>Y_train_ohe[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>0    1
 1    2
 2    1
@@ -549,18 +549,18 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 Name: class, dtype: int32</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="41">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> torch</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="42">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>X_train_ohe <span class="op">=</span> torch.from_numpy(X_train_ohe.values).<span class="bu">float</span>()</span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="co">#y_train_ohe = torch.from_numpy(pd.get_dummies(Y_train_ohe).values).float()</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a>Y_train_ohe <span class="op">=</span> torch.from_numpy(Y_train_ohe.values).<span class="bu">long</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="43">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>Y_train_ohe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>tensor([1, 2, 1, 0, 2, 1, 1, 1, 1, 2, 1, 1, 2, 2, 1, 0, 0, 0, 0, 2, 1, 1, 0, 1,
         2, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 2, 1, 0, 1, 1, 1, 1, 1, 0, 2, 1, 1, 0,
         2, 0, 0, 2, 0, 2, 1, 1, 0, 0, 2, 2, 1, 0, 2, 2, 0, 2, 2, 0, 1, 2, 2, 2,
@@ -574,10 +574,10 @@ Name: class, dtype: int32</code></pre>
         0, 2, 2, 1, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 1, 1, 1, 2, 0, 0, 1])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="44">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>X_train_ohe.requires_grad <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>X_train_ohe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>tensor([[1., 0., 1.,  ..., 0., 1., 1.],
         [1., 1., 0.,  ..., 0., 0., 1.],
         [1., 0., 1.,  ..., 0., 1., 1.],
@@ -590,7 +590,7 @@ Name: class, dtype: int32</code></pre>
 </section>
 <section id="dimension-reduction-using-autoencoder-with-pytorch" class="level1">
 <h1><span style="color:#00994c"><strong>Dimension Reduction using autoencoder with pytorch</strong></span></h1>
-<div class="cell" data-execution_count="45">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">class</span> Encoder(nn.Module):</span>
 <span id="cb17-2"><a href="#cb17-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,in_features,encoding_features):</span>
 <span id="cb17-3"><a href="#cb17-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -627,16 +627,16 @@ Name: class, dtype: int32</code></pre>
 <h2 class="anchored" data-anchor-id="encoding-dimension3"><strong>encoding dimension=3</strong></h2>
 <section id="training-autoencoder" class="level3">
 <h3 class="anchored" data-anchor-id="training-autoencoder"><strong>training autoencoder</strong></h3>
-<div class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>autoencoder <span class="op">=</span> AutoEncoder(<span class="dv">47</span>,<span class="dv">3</span>)</span>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>autoencoder_3 <span class="op">=</span> AutoEncoder(<span class="dv">47</span>,<span class="dv">3</span>)</span>
 <span id="cb18-2"><a href="#cb18-2"></a>loss_fn <span class="op">=</span> torch.nn.MSELoss()</span>
 <span id="cb18-3"><a href="#cb18-3"></a>relu <span class="op">=</span> torch.nn.LeakyReLU()</span>
-<span id="cb18-4"><a href="#cb18-4"></a>optimizer <span class="op">=</span> torch.optim.Adam(autoencoder.parameters(),lr<span class="op">=</span><span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-4"><a href="#cb18-4"></a>optimizer <span class="op">=</span> torch.optim.Adam(autoencoder_3.parameters(),lr<span class="op">=</span><span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="47">
+<div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50000</span>):</span>
 <span id="cb19-2"><a href="#cb19-2"></a>    <span class="co">#1.yhat</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a>    out <span class="op">=</span> autoencoder(X_train_ohe)</span>
+<span id="cb19-3"><a href="#cb19-3"></a>    out <span class="op">=</span> autoencoder_3(X_train_ohe)</span>
 <span id="cb19-4"><a href="#cb19-4"></a>    <span class="co">#2</span></span>
 <span id="cb19-5"><a href="#cb19-5"></a>    loss <span class="op">=</span> loss_fn(out,X_train_ohe)</span>
 <span id="cb19-6"><a href="#cb19-6"></a>    <span class="co">#3</span></span>
@@ -647,66 +647,166 @@ Name: class, dtype: int32</code></pre>
 <span id="cb19-11"><a href="#cb19-11"></a>    optimizer.step()</span>
 <span id="cb19-12"><a href="#cb19-12"></a>    optimizer.zero_grad()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>epoch:0 loss:0.5541974306106567
-epoch:10000 loss:0.11526340991258621
+<pre><code>epoch:0 loss:0.49660149216651917
+epoch:10000 loss:0.11526340246200562
 epoch:20000 loss:0.11526338756084442
 epoch:30000 loss:0.11526338756084442
-epoch:40000 loss:0.11526346206665039</code></pre>
+epoch:40000 loss:0.11526338756084442</code></pre>
 </div>
 </div>
 </section>
 <section id="visualization" class="level3">
 <h3 class="anchored" data-anchor-id="visualization"><strong>visualization</strong></h3>
-<div class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="202">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>class_map_inv <span class="op">=</span> {}</span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="cf">for</span> key,value <span class="kw">in</span> class_map.items():</span>
 <span id="cb21-3"><a href="#cb21-3"></a>    class_map_inv[value] <span class="op">=</span> key</span>
 <span id="cb21-4"><a href="#cb21-4"></a>class_map_inv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="48">
+<div class="cell-output cell-output-display" data-execution_count="202">
 <pre><code>{0: 'A', 1: 'B', 2: 'C'}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>dt_visual <span class="op">=</span> pd.DataFrame({<span class="st">"class"</span>:Y_train_ohe})</span>
-<span id="cb23-2"><a href="#cb23-2"></a>dt_visual <span class="op">=</span> pd.concat([pd.DataFrame(np.array(autoencoder.encoder(X_train_ohe).tolist())),dt_visual],axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb23-3"><a href="#cb23-3"></a>dt_visual <span class="op">=</span> dt_visual.rename(columns <span class="op">=</span> {<span class="dv">0</span>:<span class="st">"x"</span>,<span class="dv">1</span>:<span class="st">"y"</span>,<span class="dv">2</span>:<span class="st">"z"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="203">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>dt_dim3 <span class="op">=</span> pd.DataFrame({<span class="st">"class"</span>:Y_train_ohe})</span>
+<span id="cb23-2"><a href="#cb23-2"></a>dt_dim3 <span class="op">=</span> pd.concat([pd.DataFrame(np.array(autoencoder_3.encoder(X_train_ohe).tolist())),dt_dim3],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>dt_dim3 <span class="op">=</span> dt_dim3.rename(columns <span class="op">=</span> {<span class="dv">0</span>:<span class="st">"x"</span>,<span class="dv">1</span>:<span class="st">"y"</span>,<span class="dv">2</span>:<span class="st">"z"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>data <span class="op">=</span> []</span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="cf">for</span> cl <span class="kw">in</span> dt_visual[<span class="st">"class"</span>].unique():</span>
-<span id="cb24-4"><a href="#cb24-4"></a>    cond <span class="op">=</span> dt_visual[<span class="st">"class"</span>] <span class="op">==</span> cl</span>
-<span id="cb24-5"><a href="#cb24-5"></a>    _data <span class="op">=</span> dt_visual.loc[cond,:]</span>
-<span id="cb24-6"><a href="#cb24-6"></a>    x <span class="op">=</span> _data.x.tolist()</span>
-<span id="cb24-7"><a href="#cb24-7"></a>    y <span class="op">=</span> _data.y.tolist()</span>
-<span id="cb24-8"><a href="#cb24-8"></a>    z <span class="op">=</span> _data.z.tolist()</span>
-<span id="cb24-9"><a href="#cb24-9"></a>    <span class="cf">if</span> count <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb24-10"><a href="#cb24-10"></a>        color <span class="op">=</span> <span class="st">"red"</span></span>
-<span id="cb24-11"><a href="#cb24-11"></a>    <span class="cf">elif</span> count <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb24-12"><a href="#cb24-12"></a>        color <span class="op">=</span> <span class="st">"blue"</span></span>
-<span id="cb24-13"><a href="#cb24-13"></a>    <span class="cf">else</span>:</span>
-<span id="cb24-14"><a href="#cb24-14"></a>        color <span class="op">=</span> <span class="st">"black"</span></span>
-<span id="cb24-15"><a href="#cb24-15"></a>    trace<span class="op">=</span>go.Scatter3d(</span>
-<span id="cb24-16"><a href="#cb24-16"></a>        x<span class="op">=</span>x,</span>
-<span id="cb24-17"><a href="#cb24-17"></a>        y<span class="op">=</span>y,</span>
-<span id="cb24-18"><a href="#cb24-18"></a>        z<span class="op">=</span>z,</span>
-<span id="cb24-19"><a href="#cb24-19"></a>        mode<span class="op">=</span><span class="st">"markers"</span>,</span>
-<span id="cb24-20"><a href="#cb24-20"></a>        marker <span class="op">=</span> <span class="bu">dict</span>(color <span class="op">=</span> color,size<span class="op">=</span><span class="dv">5</span>),</span>
-<span id="cb24-21"><a href="#cb24-21"></a>        name <span class="op">=</span> <span class="bu">str</span>(class_map_inv[cl])</span>
-<span id="cb24-22"><a href="#cb24-22"></a>        )</span>
-<span id="cb24-23"><a href="#cb24-23"></a>    data.append(trace)</span>
-<span id="cb24-24"><a href="#cb24-24"></a>    count<span class="op">+=</span><span class="dv">1</span></span>
-<span id="cb24-25"><a href="#cb24-25"></a></span>
-<span id="cb24-26"><a href="#cb24-26"></a>layout <span class="op">=</span> go.Layout(title<span class="op">=</span><span class="bu">dict</span>(text <span class="op">=</span> <span class="st">"vectors"</span>))</span>
-<span id="cb24-27"><a href="#cb24-27"></a></span>
-<span id="cb24-28"><a href="#cb24-28"></a><span class="co">#4. figure</span></span>
-<span id="cb24-29"><a href="#cb24-29"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>data,layout<span class="op">=</span>layout)</span>
-<span id="cb24-30"><a href="#cb24-30"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="204">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>dt_dim3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="204">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.015199</td>
+      <td>2.127167</td>
+      <td>1.899696</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.357647</td>
+      <td>1.292911</td>
+      <td>1.256117</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.067119</td>
+      <td>1.748802</td>
+      <td>2.436509</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.946788</td>
+      <td>0.257365</td>
+      <td>1.436741</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.148674</td>
+      <td>2.298697</td>
+      <td>2.467313</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>257</th>
+      <td>1.095892</td>
+      <td>1.868273</td>
+      <td>1.673351</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>258</th>
+      <td>0.338616</td>
+      <td>1.650317</td>
+      <td>1.807891</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>259</th>
+      <td>0.730807</td>
+      <td>0.186738</td>
+      <td>1.142093</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>260</th>
+      <td>0.884372</td>
+      <td>0.357274</td>
+      <td>1.256723</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>261</th>
+      <td>1.058513</td>
+      <td>2.127081</td>
+      <td>2.248857</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>262 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="241">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>data <span class="op">=</span> []</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="cf">for</span> cl <span class="kw">in</span> dt_dim3[<span class="st">"class"</span>].unique():</span>
+<span id="cb25-4"><a href="#cb25-4"></a>    cond <span class="op">=</span> dt_dim3[<span class="st">"class"</span>] <span class="op">==</span> cl</span>
+<span id="cb25-5"><a href="#cb25-5"></a>    _data <span class="op">=</span> dt_dim3.loc[cond,:]</span>
+<span id="cb25-6"><a href="#cb25-6"></a>    x <span class="op">=</span> _data.x.tolist()</span>
+<span id="cb25-7"><a href="#cb25-7"></a>    y <span class="op">=</span> _data.y.tolist()</span>
+<span id="cb25-8"><a href="#cb25-8"></a>    z <span class="op">=</span> _data.z.tolist()</span>
+<span id="cb25-9"><a href="#cb25-9"></a>    <span class="cf">if</span> count <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb25-10"><a href="#cb25-10"></a>        color <span class="op">=</span> <span class="st">"red"</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a>    <span class="cf">elif</span> count <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb25-12"><a href="#cb25-12"></a>        color <span class="op">=</span> <span class="st">"blue"</span></span>
+<span id="cb25-13"><a href="#cb25-13"></a>    <span class="cf">else</span>:</span>
+<span id="cb25-14"><a href="#cb25-14"></a>        color <span class="op">=</span> <span class="st">"black"</span></span>
+<span id="cb25-15"><a href="#cb25-15"></a>    trace<span class="op">=</span>go.Scatter3d(</span>
+<span id="cb25-16"><a href="#cb25-16"></a>        x<span class="op">=</span>x,</span>
+<span id="cb25-17"><a href="#cb25-17"></a>        y<span class="op">=</span>y,</span>
+<span id="cb25-18"><a href="#cb25-18"></a>        z<span class="op">=</span>z,</span>
+<span id="cb25-19"><a href="#cb25-19"></a>        mode<span class="op">=</span><span class="st">"markers"</span>,</span>
+<span id="cb25-20"><a href="#cb25-20"></a>        marker <span class="op">=</span> <span class="bu">dict</span>(color <span class="op">=</span> color,size<span class="op">=</span><span class="dv">2</span>),</span>
+<span id="cb25-21"><a href="#cb25-21"></a>        name <span class="op">=</span> <span class="bu">str</span>(class_map_inv[cl])</span>
+<span id="cb25-22"><a href="#cb25-22"></a>        )</span>
+<span id="cb25-23"><a href="#cb25-23"></a>    data.append(trace)</span>
+<span id="cb25-24"><a href="#cb25-24"></a>    count<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb25-25"><a href="#cb25-25"></a></span>
+<span id="cb25-26"><a href="#cb25-26"></a>layout <span class="op">=</span> go.Layout(title<span class="op">=</span><span class="bu">dict</span>(text <span class="op">=</span> <span class="st">"3-dimension "</span>))</span>
+<span id="cb25-27"><a href="#cb25-27"></a></span>
+<span id="cb25-28"><a href="#cb25-28"></a><span class="co">#4. figure</span></span>
+<span id="cb25-29"><a href="#cb25-29"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>data,layout<span class="op">=</span>layout)</span>
+<span id="cb25-30"><a href="#cb25-30"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
-<div>                            <div id="65c5d253-d3d5-4851-8c19-30419c5414d0" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("65c5d253-d3d5-4851-8c19-30419c5414d0")) {                    Plotly.newPlot(                        "65c5d253-d3d5-4851-8c19-30419c5414d0",                        [{"marker":{"color":"red","size":5},"mode":"markers","name":"B","x":[1.6221723556518555,0.7098959684371948,1.0222889184951782,1.749800205230713,1.003223180770874,1.2933804988861084,1.4414958953857422,1.8997738361358643,0.8330683708190918,1.677372932434082,1.6001956462860107,1.8823201656341553,1.3130176067352295,1.1033587455749512,0.9642328023910522,1.714806318283081,1.5375511646270752,1.8637781143188477,1.3179030418395996,1.144385576248169,1.3688571453094482,1.7510082721710205,1.412304401397705,1.6968011856079102,1.8854484558105469,1.20444655418396,1.2750904560089111,1.708259105682373,1.2128562927246094,1.3865721225738525,1.5788912773132324,1.8199422359466553,1.1853723526000977,2.0684337615966797,1.1894052028656006,1.4891095161437988,1.3321406841278076,1.170924425125122,1.5432484149932861,1.5646910667419434,1.51063871383667,1.1983704566955566,1.674426794052124,1.4977712631225586,1.6766836643218994,1.8957607746124268,1.4353547096252441,1.577711820602417,1.7725558280944824,1.3116493225097656,1.780273199081421,1.8777546882629395,1.7173857688903809,1.4903974533081055,0.9689724445343018,1.0963993072509766,1.5542025566101074,1.3669335842132568,1.3848767280578613,1.3686439990997314,1.4097065925598145,1.3669335842132568,1.5232911109924316,1.700495719909668,1.2067524194717407,1.593172550201416,1.3306543827056885,2.209054708480835,1.1058552265167236,0.7436472177505493,1.2258516550064087,1.1923928260803223,1.6757113933563232,1.2731739282608032,1.1496894359588623,1.4040040969848633,1.1338787078857422,1.6999142169952393,1.842055082321167,1.567730188369751,1.4791414737701416,1.2279789447784424,1.5149364471435547,1.0885661840438843,1.8696162700653076,1.3231534957885742,0.8333300352096558,1.4795424938201904,1.0903007984161377,2.0922276973724365,1.547825574874878,1.7011339664459229,1.3284847736358643,1.6803429126739502,1.1117265224456787,0.991841197013855,1.2418313026428223,1.0194706916809082,0.9689012765884399,1.9197337627410889,1.5405335426330566,1.2918388843536377,1.9952268600463867,1.4544093608856201,1.7824110984802246,1.4450645446777344,1.5505080223083496,1.2117602825164795,1.7161908149719238,2.1851086616516113,1.6854944229125977,1.5345542430877686,1.5800588130950928,1.2604408264160156],"y":[2.7805256843566895,2.169086456298828,2.8584067821502686,2.9946889877319336,2.5399539470672607,2.5077388286590576,2.5626778602600098,2.8198652267456055,2.362995147705078,2.912346124649048,3.134699583053589,2.908315896987915,2.972102642059326,2.761054515838623,2.3498198986053467,2.746232271194458,2.9908623695373535,2.9405136108398438,2.111391305923462,2.2933802604675293,2.9017186164855957,2.5451931953430176,2.6726627349853516,3.214752197265625,2.5375354290008545,2.6904027462005615,2.2566001415252686,3.0967297554016113,2.391700029373169,2.9589521884918213,2.720566749572754,2.1560871601104736,2.8518331050872803,2.5441782474517822,2.8775110244750977,2.623964786529541,2.804649591445923,2.2961885929107666,2.6938633918762207,2.9760751724243164,3.2989113330841064,2.857572555541992,2.5970232486724854,2.9513425827026367,3.169705629348755,2.5305588245391846,2.3281500339508057,2.6050808429718018,2.8902487754821777,2.9496233463287354,2.664280652999878,2.857243299484253,2.810676336288452,2.6452391147613525,2.669548749923706,2.7425343990325928,3.152791738510132,3.160135269165039,2.4948763847351074,2.3947370052337646,2.9139647483825684,3.160135269165039,3.023097038269043,2.6896142959594727,3.003105640411377,2.7889881134033203,3.0677549839019775,2.6895766258239746,2.8758630752563477,2.5308144092559814,2.307816743850708,2.7130470275878906,2.560911178588867,2.8421616554260254,2.2771215438842773,2.336594343185425,2.6837286949157715,2.7322471141815186,2.8744938373565674,2.4877371788024902,3.096193313598633,2.681135892868042,3.295722246170044,2.8596103191375732,2.51914119720459,3.080007314682007,2.310729742050171,3.0574662685394287,2.3473851680755615,2.4387738704681396,2.6058874130249023,3.140068769454956,2.387988805770874,2.92901611328125,2.6966357231140137,2.781998872756958,2.615530252456665,2.8159801959991455,2.638810873031616,3.0553689002990723,2.4018280506134033,2.7682039737701416,2.391051769256592,2.430309772491455,2.738375186920166,2.5654361248016357,2.9180188179016113,2.956392765045166,2.96846866607666,2.6481478214263916,2.665454387664795,3.1081736087799072,2.5096547603607178,2.690495252609253],"z":[1.4726996421813965,1.3517013788223267,1.7123171091079712,1.5424926280975342,1.3852466344833374,1.8798191547393799,1.762542486190796,1.5416728258132935,1.5313812494277954,1.4994879961013794,1.3716710805892944,1.6227363348007202,1.3155776262283325,1.5590866804122925,1.3164647817611694,1.5801576375961304,1.3153181076049805,1.495710849761963,0.8512259125709534,1.7677977085113525,1.1438902616500854,1.479796051979065,1.9975529909133911,1.332102656364441,1.6503440141677856,1.5165148973464966,1.6403303146362305,1.1786305904388428,1.721184492111206,1.2359246015548706,1.339237928390503,1.1316466331481934,1.6524018049240112,1.0490926504135132,1.576962947845459,1.3934279680252075,1.4573323726654053,1.8688814640045166,1.1835294961929321,1.2450850009918213,1.4989947080612183,1.669547438621521,0.6983665227890015,1.075615406036377,1.6632676124572754,1.0854241847991943,1.255447506904602,1.4438552856445312,1.7203172445297241,1.55736243724823,1.1580458879470825,0.7999640703201294,1.5357450246810913,1.7008869647979736,1.6220725774765015,1.4413398504257202,1.3758105039596558,1.4058051109313965,1.9135632514953613,1.1941249370574951,1.0442187786102295,1.4058051109313965,1.2171155214309692,1.0636109113693237,1.8323956727981567,1.002943515777588,1.163649082183838,1.345258355140686,1.6360154151916504,1.3487673997879028,1.1525075435638428,1.5732676982879639,1.4501549005508423,1.6101553440093994,1.5625540018081665,1.6122373342514038,1.5084013938903809,1.3244686126708984,0.9241034388542175,1.3124133348464966,1.4181245565414429,1.4773863554000854,1.3441050052642822,1.7711045742034912,1.3646509647369385,1.2906792163848877,1.130585789680481,1.3322114944458008,1.5792378187179565,1.118486762046814,1.1333695650100708,1.6137373447418213,1.1672190427780151,1.041465163230896,1.3541579246520996,1.5798372030258179,1.475242257118225,1.4858771562576294,1.4272736310958862,1.1469085216522217,0.7204752564430237,1.667077898979187,1.0602706670761108,1.284698247909546,1.536647915840149,1.1763026714324951,1.203005075454712,1.440650224685669,1.6641520261764526,1.2362252473831177,0.8866159915924072,1.1118875741958618,1.163490653038025,1.5331307649612427],"type":"scatter3d"},{"marker":{"color":"blue","size":5},"mode":"markers","name":"C","x":[1.6539149284362793,1.1800053119659424,1.3439953327178955,1.375720500946045,1.5128531455993652,1.4318888187408447,1.3090720176696777,1.4933464527130127,1.5979666709899902,1.3227190971374512,1.3488423824310303,1.7260267734527588,1.272658109664917,1.5060887336730957,1.4606401920318604,1.54103422164917,1.478600025177002,1.4476633071899414,1.164870262145996,1.7217321395874023,1.8035045862197876,1.3974498510360718,1.7281875610351562,1.7273623943328857,1.587712049484253,1.1737746000289917,1.4941067695617676,1.494795799255371,1.3209807872772217,1.1169778108596802,1.8620208501815796,1.8957538604736328,1.4685547351837158,1.808586597442627,1.137608289718628,1.5050928592681885,1.419816017150879,1.5939533710479736,1.1563012599945068,1.3501862287521362,1.5574426651000977,1.225528359413147,1.7885915040969849,1.5524942874908447,1.4546629190444946,1.8018913269042969,1.601088047027588,1.6409540176391602,1.5274417400360107,1.3977630138397217,1.8335051536560059,1.5679621696472168,1.3927044868469238,1.219950795173645,1.3951058387756348,1.7475595474243164,1.1018900871276855,1.8308825492858887,1.8285629749298096,1.1207358837127686,1.3914532661437988,1.3924022912979126,1.20994234085083,1.3264880180358887,1.7424936294555664,1.5751283168792725,1.6068049669265747,1.295884609222412,1.719618558883667,1.1711665391921997,1.4184482097625732,1.4671270847320557,1.1918301582336426,1.5922443866729736,1.6944451332092285,1.5926125049591064,1.3623361587524414,1.6646666526794434,1.4468903541564941],"y":[1.9269901514053345,2.8469128608703613,2.620558738708496,2.54878306388855,2.1284661293029785,2.0054869651794434,2.583649158477783,2.1675190925598145,2.3496012687683105,2.253451347351074,2.2125027179718018,2.0743823051452637,2.3810973167419434,2.1947765350341797,1.8924267292022705,1.933990240097046,1.8042736053466797,2.326190233230591,2.0998024940490723,1.8722184896469116,1.82075035572052,1.91376531124115,2.707885980606079,1.7587167024612427,2.462285041809082,2.664222240447998,2.6440627574920654,2.3212342262268066,2.289719820022583,2.795168161392212,2.2721359729766846,2.138568878173828,1.8578474521636963,2.5586752891540527,2.009456157684326,2.1053314208984375,2.565875291824341,2.1567564010620117,2.4817843437194824,2.024888515472412,2.45963716506958,1.9809645414352417,1.7931808233261108,1.7712994813919067,2.175959348678589,2.160338878631592,2.531073570251465,2.0093958377838135,2.4125146865844727,2.424959659576416,2.045793056488037,2.580465316772461,2.3869786262512207,2.5433008670806885,2.204580783843994,2.108430862426758,2.318021059036255,1.6778316497802734,2.3518004417419434,1.9755772352218628,2.3371238708496094,1.9820195436477661,2.0895888805389404,2.2782156467437744,2.0705246925354004,2.8103792667388916,2.5840625762939453,2.012160539627075,2.132462739944458,1.9724892377853394,1.9435148239135742,2.2791295051574707,1.8934986591339111,2.528489112854004,2.1435680389404297,1.6713933944702148,2.0982794761657715,2.6739697456359863,2.2365241050720215],"z":[1.4569424390792847,1.6091350317001343,1.2228704690933228,1.8834950923919678,1.4987231492996216,1.7597873210906982,1.9908504486083984,1.7597304582595825,1.5816072225570679,1.9421137571334839,1.9864234924316406,1.4624816179275513,1.5953598022460938,1.9074203968048096,1.1670448780059814,1.6656699180603027,1.3339754343032837,1.8644226789474487,1.6713181734085083,1.7413303852081299,1.3406394720077515,1.2832778692245483,1.7886412143707275,1.5159575939178467,1.3924678564071655,1.5278068780899048,1.9102493524551392,1.7227703332901,1.826462745666504,1.5339581966400146,1.0143952369689941,1.5296696424484253,1.2385035753250122,1.1538387537002563,1.732102870941162,1.825187087059021,1.7233920097351074,1.6670738458633423,1.3959604501724243,1.105063557624817,1.6960017681121826,1.6095728874206543,1.3623778820037842,1.6711065769195557,1.1890336275100708,1.7260857820510864,1.8319343328475952,1.6046274900436401,1.2871414422988892,2.1151719093322754,1.293115496635437,1.2911349534988403,1.736596703529358,1.9020345211029053,1.8270103931427002,1.3083622455596924,1.4398832321166992,1.248942494392395,1.19553542137146,1.6578017473220825,2.0299482345581055,1.8428518772125244,1.824883222579956,1.7226858139038086,1.3480273485183716,1.6523709297180176,1.6030116081237793,1.5588141679763794,1.4151870012283325,1.764739751815796,1.6431305408477783,1.759703516960144,1.6330174207687378,1.7874211072921753,1.6685841083526611,1.3542747497558594,1.9085614681243896,1.3292235136032104,1.8600327968597412],"type":"scatter3d"},{"marker":{"color":"black","size":5},"mode":"markers","name":"A","x":[0.3243613541126251,0.4458819031715393,0.35886821150779724,1.2767220735549927,0.3209538459777832,0.27020376920700073,0.5071717500686646,0.8320039510726929,1.202350378036499,0.35630863904953003,0.5298658609390259,0.7650165557861328,0.4971567988395691,1.2356675863265991,0.41891029477119446,0.15261507034301758,0.31392034888267517,0.4097130000591278,0.45226094126701355,0.1991240382194519,0.6557140350341797,0.43025633692741394,0.45027944445610046,1.005435824394226,0.9259034395217896,0.8890203237533569,0.5756746530532837,1.1536506414413452,0.3780616521835327,0.5116614699363708,0.19987726211547852,0.7177692651748657,0.6137514114379883,0.41891029477119446,0.5914098024368286,0.2696789801120758,0.528965950012207,1.271992564201355,0.001920364797115326,0.5916115641593933,1.126650094985962,0.1279110461473465,0.16397882997989655,0.5729399919509888,1.164703607559204,0.2724136710166931,1.1404261589050293,1.0695438385009766,0.8410434722900391,0.2724136710166931,0.653104305267334,0.3231637179851532,0.374358206987381,1.3927149772644043,0.32806476950645447,0.3967370092868805,0.7506667375564575,0.28467538952827454,1.0436270236968994,0.31392034888267517,0.15261507034301758,0.6817548274993896,0.3243613541126251,0.33118435740470886,0.3987185060977936,0.4536292850971222,0.31615158915519714,0.611919641494751,0.6169552803039551],"y":[0.5575001239776611,0.6052296161651611,0.6584803462028503,1.0294389724731445,0.4954800009727478,0.35439208149909973,0.6809372901916504,0.973181962966919,1.1435598134994507,0.5807197093963623,0.8584262132644653,0.7622595429420471,0.702903151512146,0.974108099937439,0.5631850957870483,0.3311555087566376,0.41810745000839233,0.690507173538208,0.38450849056243896,0.3240922689437866,0.6531645059585571,0.6045750379562378,0.5163193941116333,0.9036127328872681,0.7053290009498596,1.046438455581665,0.6149430274963379,0.8689678907394409,0.49302518367767334,0.8285006284713745,0.4174129366874695,0.7479695677757263,0.6294987201690674,0.5631850957870483,0.8828504085540771,0.3978065252304077,0.7656008005142212,0.9855251312255859,0.549666166305542,0.5770715475082397,0.9289066791534424,0.2617467939853668,0.7299388647079468,0.6534331440925598,0.7354650497436523,0.359316349029541,0.7624101042747498,0.8500173091888428,0.9806442260742188,0.359316349029541,0.631431519985199,0.5004042983055115,0.6052674055099487,1.4975138902664185,0.44525790214538574,0.4460100531578064,0.6228126883506775,0.313504695892334,0.657397985458374,0.41810745000839233,0.3311555087566376,0.7773119211196899,0.5575001239776611,0.3064414858818054,0.31419920921325684,0.6106278896331787,0.824992299079895,0.5527094602584839,0.731063961982727],"z":[0.27145108580589294,0.23322409391403198,0.18335264921188354,0.6751154661178589,0.1943555325269699,0.17451366782188416,0.23278667032718658,0.6305525898933411,0.794434130191803,0.4748038053512573,0.357017457485199,0.6019601821899414,0.25911909341812134,0.8534680604934692,0.3663727641105652,0.06956687569618225,0.18086448311805725,0.5855404138565063,0.14964838325977325,0.13263694941997528,0.4578864574432373,0.3384292721748352,0.1514790803194046,0.6758955121040344,0.8286610841751099,0.4035941958427429,0.12405169755220413,0.49252790212631226,0.1817706674337387,0.6469139456748962,0.11883778870105743,0.23890730738639832,0.34500640630722046,0.3663727641105652,0.5544578433036804,0.16846051812171936,0.49664735794067383,0.5836755037307739,0.27209538221359253,0.6086195707321167,0.6521057486534119,0.2533816695213318,0.3695938289165497,0.13968154788017273,0.604561984539032,0.15283063054084778,0.5748008489608765,0.7509210109710693,0.5776264667510986,0.15283063054084778,0.20209261775016785,0.17267253994941711,0.3050921559333801,0.8244868516921997,0.1481296420097351,0.07491794228553772,0.2425926923751831,0.011060565710067749,0.5290442705154419,0.18086448311805725,0.06956687569618225,0.35696935653686523,0.27145108580589294,0.07413065433502197,0.07308724522590637,0.1562255322933197,0.5546239614486694,0.36438071727752686,0.34238287806510925],"type":"scatter3d"}],                        {"title":{"text":"vectors"},"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="5a350d97-d20b-4aca-bb2c-20fed06771c3" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("5a350d97-d20b-4aca-bb2c-20fed06771c3")) {                    Plotly.newPlot(                        "5a350d97-d20b-4aca-bb2c-20fed06771c3",                        [{"marker":{"color":"red","size":2},"mode":"markers","name":"B","x":[1.0151989459991455,1.0671190023422241,1.139413833618164,1.0604379177093506,1.1892415285110474,0.6002478003501892,0.6770408749580383,0.8585794568061829,1.003334641456604,1.0679407119750977,1.385804533958435,0.8639841675758362,1.4408270120620728,1.1615540981292725,1.1205123662948608,0.8527937531471252,1.3530254364013672,1.0078378915786743,1.1819496154785156,0.6008290648460388,1.511095404624939,0.7693546414375305,0.5697774291038513,1.4375745058059692,0.5535071492195129,1.098502516746521,0.6243862509727478,1.4760104417800903,0.6860498785972595,1.4664630889892578,1.1055489778518677,0.7427167296409607,1.1126753091812134,0.9994401335716248,1.1959779262542725,1.0243500471115112,1.1790541410446167,0.5026571750640869,1.2367651462554932,1.3907883167266846,1.4415388107299805,1.0957624912261963,1.526129961013794,1.5502159595489502,1.1233205795288086,1.0356203317642212,0.9425784945487976,0.92538982629776,0.8148042559623718,1.213163137435913,1.1287657022476196,1.544468879699707,0.9396924376487732,0.7715607285499573,1.0977756977081299,1.2530436515808105,1.417083740234375,1.4822062253952026,0.5189587473869324,1.077714204788208,1.588647484779358,1.4822062253952026,1.4702247381210327,1.2668344974517822,1.0618740320205688,1.4449162483215332,1.638887643814087,0.7885486483573914,1.1815096139907837,1.332066297531128,1.1125905513763428,1.0716583728790283,0.8414573073387146,1.1018363237380981,0.7652559876441956,0.65113765001297,1.1324313879013062,1.0717828273773193,1.4656689167022705,0.9548967480659485,1.3709038496017456,1.1141464710235596,1.5725191831588745,1.059009313583374,0.7955067753791809,1.5408635139465332,1.312401294708252,1.41593599319458,0.8319997191429138,0.8472208380699158,1.2106339931488037,1.1326143741607666,1.1143276691436768,1.4789268970489502,1.2868601083755493,1.2104198932647705,1.0597056150436401,1.3063533306121826,1.2444127798080444,1.3747868537902832,1.4181166887283325,0.9868059754371643,0.9054046273231506,0.986671507358551,0.8538841605186462,1.1895865201950073,1.3891475200653076,1.3655848503112793,0.9494423270225525,0.8625804781913757,1.4095889329910278,1.6220958232879639,1.0958924293518066,1.0585134029388428],"y":[2.127166986465454,1.7488024234771729,2.3493289947509766,2.305483341217041,2.0391125679016113,1.9497671127319336,1.965201497077942,2.101059913635254,1.9112911224365234,2.2422118186950684,2.4729866981506348,2.192668914794922,2.382404327392578,2.2328743934631348,1.8625612258911133,2.0743935108184814,2.3474483489990234,2.2252955436706543,1.53828763961792,1.7748773097991943,2.297421932220459,1.8691885471343994,2.0835416316986084,2.5265603065490723,1.833837628364563,2.139887809753418,1.7058290243148804,2.406740665435791,1.8529773950576782,2.3503966331481934,2.0767011642456055,1.469002604484558,2.303480625152588,1.7837189435958862,2.3253836631774902,2.005117416381836,2.2184009552001953,1.7734873294830322,2.055603504180908,2.3253984451293945,2.655580997467041,2.305966377258301,1.920657753944397,2.313654899597168,2.495028018951416,1.8117977380752563,1.7292253971099854,1.9669733047485352,2.20306396484375,2.3661794662475586,1.9709148406982422,2.126314163208008,2.134990692138672,2.031818389892578,2.1776537895202637,2.2138924598693848,2.5014562606811523,2.553668975830078,1.916240930557251,1.8081049919128418,2.297293186187744,2.553668975830078,2.3800745010375977,2.0120818614959717,2.4484448432922363,2.132115364074707,2.467498302459717,1.8974828720092773,2.3449974060058594,2.0905048847198486,1.7570641040802002,2.1656830310821533,1.901394009590149,2.272270679473877,1.7536675930023193,1.751765251159668,2.1497602462768555,2.05871319770813,2.1541061401367188,1.8533439636230469,2.465364456176758,2.1239733695983887,2.648332118988037,2.3362655639648438,1.8132917881011963,2.483855724334717,1.8516844511032104,2.425957679748535,1.8362125158309937,1.677791953086853,1.9681612253189087,2.4595112800598145,1.8104913234710693,2.247610569000244,2.1639904975891113,2.2799482345581055,2.057546615600586,2.304619312286377,2.1439290046691895,2.3154993057250977,1.7641433477401733,2.1975369453430176,1.6531445980072021,1.8240094184875488,2.0498733520507812,1.9547755718231201,2.2715096473693848,2.393657684326172,2.290678024291992,1.860549807548523,1.9884607791900635,2.457274913787842,1.8682725429534912,2.1270806789398193],"z":[1.8996963500976562,2.436509132385254,2.6754469871520996,1.9292409420013428,2.3859779834747314,2.1737451553344727,2.019318103790283,1.6409285068511963,2.485623359680176,1.9393861293792725,2.14821195602417,1.7440040111541748,2.3336410522460938,2.477778911590576,2.27592396736145,1.801837682723999,2.100466012954712,1.7537927627563477,1.5976760387420654,2.155975818634033,2.177734375,1.593642234802246,2.190525770187378,2.0883519649505615,1.4854295253753662,2.305924415588379,1.953416109085083,1.9525468349456787,2.1384217739105225,2.2226481437683105,1.8700685501098633,1.151796579360962,2.4765594005584717,1.1320066452026367,2.470245361328125,1.9138944149017334,2.230661153793335,2.155231237411499,1.8493010997772217,2.0420615673065186,2.395756959915161,2.470475912094116,1.510347604751587,2.053741216659546,2.165188789367676,1.3209779262542725,1.7280206680297852,1.816443681716919,1.8769710063934326,2.3823812007904053,1.562154769897461,1.4977192878723145,1.8328347206115723,2.0076241493225098,2.5770890712738037,2.4413833618164062,2.212568998336792,2.431264877319336,2.072894334793091,1.8323442935943604,2.115384817123413,2.431264877319336,2.1134562492370605,1.642777919769287,2.60695219039917,1.814863681793213,2.342301368713379,1.1579163074493408,2.5763590335845947,2.6544783115386963,1.9168174266815186,2.3498103618621826,1.6795070171356201,2.36215877532959,2.0852413177490234,1.8608739376068115,2.3763270378112793,1.7413609027862549,1.5815021991729736,1.710378885269165,2.2659366130828857,2.2627854347229004,2.348517894744873,2.61910343170166,1.4148433208465576,2.39237380027771,2.343322515487671,2.215656042098999,2.2046427726745605,1.049593448638916,1.7687759399414062,2.1044552326202393,1.8645970821380615,1.8281738758087158,2.3693177700042725,2.6203792095184326,2.200960397720337,2.5899085998535156,2.504737138748169,1.6824297904968262,1.5250842571258545,2.3042171001434326,1.1069097518920898,1.7869071960449219,1.7107369899749756,1.8646070957183838,2.005368947982788,2.4661214351654053,1.9793305397033691,1.1262352466583252,1.595945119857788,2.1336488723754883,1.6733510494232178,2.248857021331787],"type":"scatter3d"},{"marker":{"color":"blue","size":2},"mode":"markers","name":"C","x":[0.3576470613479614,1.1486738920211792,1.237424612045288,0.5905882716178894,0.540168285369873,0.2555963099002838,0.5538901686668396,0.3517168462276459,0.5995851159095764,0.33664339780807495,0.2547919452190399,0.43403002619743347,0.7599968314170837,0.23752912878990173,0.6720548272132874,0.23257136344909668,0.450639009475708,0.4033411145210266,0.5266960263252258,0.036622993648052216,0.30945640802383423,0.6166887283325195,0.6352630257606506,0.14307789504528046,0.8559325337409973,1.0816677808761597,0.5864554047584534,0.5018661022186279,0.4662347435951233,1.2034807205200195,0.9148198962211609,0.34686312079429626,0.5797163844108582,1.0377260446548462,0.4168597161769867,0.2418595254421234,0.7231249213218689,0.3786172866821289,1.0647037029266357,0.878985583782196,0.6021708250045776,0.46178439259529114,0.27610018849372864,0.09755590558052063,0.8741376399993896,0.2350015640258789,0.5191570520401001,0.29799485206604004,0.9371061325073242,0.28317496180534363,0.5104157328605652,1.0442110300064087,0.5864821076393127,0.6416937708854675,0.3665129244327545,0.5842507481575012,0.925334632396698,0.26715874671936035,0.8330079913139343,0.4635779857635498,0.29271817207336426,0.18307726085186005,0.3649086654186249,0.5454578995704651,0.5230221748352051,0.9023718237876892,0.7572643160820007,0.49796801805496216,0.5220164656639099,0.3446553647518158,0.3159175217151642,0.4496897757053375,0.3894863426685333,0.559625506401062,0.3208940923213959,0.2789948284626007,0.2288033366203308,1.0389217138290405,0.3386162221431732],"y":[1.292911171913147,2.298696517944336,2.0330111980438232,1.9697284698486328,1.5218875408172607,1.4283854961395264,2.02134108543396,1.5702508687973022,1.718005657196045,1.6978204250335693,1.653160572052002,1.419273853302002,1.8255093097686768,1.5964207649230957,1.2987751960754395,1.3310385942459106,1.2130178213119507,1.7369736433029175,1.5805153846740723,1.2301748991012573,1.1524360179901123,1.3375656604766846,2.0386087894439697,1.1138367652893066,1.8253711462020874,2.1213409900665283,2.034475326538086,1.7181676626205444,1.7308335304260254,2.262112617492676,1.5686136484146118,1.4423191547393799,1.265160322189331,1.8614436388015747,1.5010406970977783,1.5090736150741577,1.972214698791504,1.5342313051223755,1.9463239908218384,1.4522309303283691,1.8359565734863281,1.450058937072754,1.129759430885315,1.1710524559020996,1.5754729509353638,1.4897918701171875,1.8981952667236328,1.3788641691207886,1.7892076969146729,1.8497023582458496,1.362204909324646,1.9421926736831665,1.8058501482009888,2.0020158290863037,1.630951166152954,1.443274736404419,1.8017077445983887,1.0057415962219238,1.6573035717010498,1.4708375930786133,1.7642149925231934,1.4168086051940918,1.5638222694396973,1.7161729335784912,1.4088345766067505,2.1706695556640625,1.9433577060699463,1.4625111818313599,1.475241780281067,1.4580481052398682,1.3691141605377197,1.6845927238464355,1.3739198446273804,1.8964684009552002,1.4973838329315186,1.0581207275390625,1.5378031730651855,2.010772705078125,1.6503167152404785],"z":[1.2561166286468506,2.467313051223755,2.0266854763031006,2.1130459308624268,1.56419038772583,1.6348598003387451,2.238717794418335,1.6817333698272705,1.6494250297546387,1.9775516986846924,1.931647777557373,1.2834022045135498,2.0320844650268555,1.7252490520477295,1.36785888671875,1.4395954608917236,1.329543113708496,1.8716282844543457,1.9711503982543945,1.2173664569854736,0.9865888953208923,1.483327865600586,1.814453125,1.0716524124145508,1.69101881980896,2.3233039379119873,2.0575575828552246,1.7795884609222412,1.974902868270874,2.4803905487060547,1.1569424867630005,1.1597857475280762,1.353541374206543,1.454756259918213,1.9531738758087158,1.6422722339630127,2.0347847938537598,1.53969144821167,2.1791186332702637,1.567134141921997,1.801112413406372,1.8045392036437988,0.9891224503517151,1.3133056163787842,1.5813140869140625,1.3294782638549805,1.8397672176361084,1.3671939373016357,1.6944425106048584,2.061739921569824,1.1006841659545898,1.7698638439178467,1.941399335861206,2.285290002822876,1.8334875106811523,1.2431247234344482,2.1344094276428223,0.8314885497093201,1.297144889831543,1.9284803867340088,1.9840939044952393,1.6832592487335205,1.9551098346710205,1.9336373805999756,1.2323834896087646,2.0190021991729736,1.811359167098999,1.7361834049224854,1.3184878826141357,1.8987176418304443,1.5753116607666016,1.7896387577056885,1.7857706546783447,1.8356645107269287,1.420151710510254,1.1158921718597412,1.8156826496124268,1.7400305271148682,1.8078911304473877],"type":"scatter3d"},{"marker":{"color":"black","size":2},"mode":"markers","name":"A","x":[0.9467880129814148,0.961398184299469,1.0855448246002197,0.5226883292198181,0.9675440192222595,0.8999964594841003,0.991788923740387,0.7208197116851807,0.5397668480873108,0.7723745703697205,1.0093977451324463,0.6142409443855286,0.9898353219032288,0.34282490611076355,0.825194776058197,1.0273675918579102,0.9235072135925293,0.7359649538993835,0.8617963194847107,0.9457151889801025,0.7060089707374573,0.8757759928703308,0.9621995091438293,0.5486668944358826,0.2996473014354706,0.9494050145149231,1.0049041509628296,0.6144298315048218,0.9508042931556702,0.74213707447052,1.0289162397384644,0.9420694708824158,0.8056675791740417,0.825194776058197,0.8278163075447083,0.9391069412231445,0.8166278004646301,0.570259690284729,1.0877186059951782,0.5454282760620117,0.5335482954978943,0.8251115679740906,1.0670592784881592,1.0221062898635864,0.4094354808330536,0.9219047427177429,0.46721065044403076,0.4127481281757355,0.7684177160263062,0.9219047427177429,0.9141464233398438,0.9894524216651917,0.9311345219612122,0.6987234950065613,0.9664577841758728,0.9998151063919067,0.8276541829109192,1.0048208236694336,0.4708077311515808,0.9235072135925293,1.0273675918579102,0.8778179287910461,0.9467880129814148,0.9231684803962708,0.8994118571281433,1.0294044017791748,0.9087750315666199,0.7308071255683899,0.8843724131584167],"y":[0.25736498832702637,0.2739960253238678,0.3450111448764801,0.4973905384540558,0.19617529213428497,0.07160094380378723,0.33255133032798767,0.5468166470527649,0.6275777220726013,0.27647602558135986,0.501534104347229,0.3580096662044525,0.3563889265060425,0.4570513367652893,0.24256272614002228,0.07466483116149902,0.12306274473667145,0.37261858582496643,0.05716580152511597,0.05822885036468506,0.2752278745174408,0.2789570391178131,0.18501998484134674,0.43948423862457275,0.2701059579849243,0.5995038747787476,0.25032442808151245,0.3669660687446594,0.18020981550216675,0.4834860861301422,0.14785033464431763,0.3478776216506958,0.25997957587242126,0.24256272614002228,0.514884352684021,0.11378234624862671,0.41496598720550537,0.453523725271225,0.32638391852378845,0.22017747163772583,0.43476688861846924,0.01751519739627838,0.46440333127975464,0.28855711221694946,0.23797039687633514,0.0755496621131897,0.26915624737739563,0.3740909695625305,0.5505924224853516,0.0755496621131897,0.24964670836925507,0.20012396574020386,0.29231780767440796,0.9256318807601929,0.14525699615478516,0.12834346294403076,0.21909984946250916,0.02527688443660736,0.18964548408985138,0.12306274473667145,0.07466483116149902,0.38715481758117676,0.25736498832702637,0.00884091854095459,0.0004893094301223755,0.2758748531341553,0.5240012407302856,0.1867377907037735,0.35727375745773315],"z":[1.4367406368255615,1.3272154331207275,1.4473423957824707,0.8310897946357727,1.3761379718780518,1.3271245956420898,1.3132469654083252,1.267277479171753,1.0242555141448975,1.471055507659912,1.4463191032409668,1.1840852499008179,1.3463177680969238,0.8832351565361023,1.3618519306182861,1.4122798442840576,1.3259751796722412,1.5192558765411377,1.1422154903411865,1.3728127479553223,1.189215064048767,1.3710081577301025,1.2379815578460693,1.0396230220794678,1.0267813205718994,1.1974871158599854,1.1631152629852295,0.8045468330383301,1.3086419105529785,1.521190881729126,1.4342281818389893,1.1313128471374512,1.1891475915908813,1.3618519306182861,1.447728157043457,1.3570356369018555,1.418137550354004,0.7808071374893188,1.7854630947113037,1.2452216148376465,0.9182631373405457,1.438509464263916,1.7605738639831543,1.1974658966064453,0.727554440498352,1.3226852416992188,0.7655284404754639,0.9509395956993103,1.2486677169799805,1.3226852416992188,1.1102129220962524,1.3716986179351807,1.4243383407592773,1.073702335357666,1.3210439682006836,1.2272861003875732,1.0076110363006592,1.2397727966308594,0.7856445908546448,1.3259751796722412,1.4122798442840576,1.222287893295288,1.4367406368255615,1.200305700302124,1.1315200328826904,1.302551507949829,1.708827257156372,1.142093300819397,1.256723165512085],"type":"scatter3d"}],                        {"title":{"text":"3-dimension "},"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('65c5d253-d3d5-4851-8c19-30419c5414d0');
+var gd = document.getElementById('5a350d97-d20b-4aca-bb2c-20fed06771c3');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -733,41 +833,178 @@ if (outputEl) {{
 </div>
 </section>
 </section>
-<section id="encoding-dimension-10" class="level2">
-<h2 class="anchored" data-anchor-id="encoding-dimension-10"><strong>encoding dimension = 10</strong></h2>
-<section id="training-autoencoder-1" class="level3">
-<h3 class="anchored" data-anchor-id="training-autoencoder-1"><strong>training autoencoder</strong></h3>
-<div class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>autoencoder <span class="op">=</span> AutoEncoder(<span class="dv">47</span>,<span class="dv">10</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a>loss_fn <span class="op">=</span> torch.nn.MSELoss()</span>
-<span id="cb25-3"><a href="#cb25-3"></a>relu <span class="op">=</span> torch.nn.LeakyReLU()</span>
-<span id="cb25-4"><a href="#cb25-4"></a>optimizer <span class="op">=</span> torch.optim.Adam(autoencoder.parameters(),lr<span class="op">=</span><span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="outlier-detection" class="level1">
+<h1><span style="color:#00994c"><strong><em>Outlier Detection</em></strong></span></h1>
+<ul>
+<li>3차원상에서 각각의 관측치를 표현 후, 클래스별로 독립변수의 중앙값 + IQR * 1.5이 두 개 이상 넘어가는 관측치를 <strong>이상치(outlier)</strong>로 정함</li>
+<li>tukey method</li>
+</ul>
+<div class="cell" data-execution_count="212">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">def</span> outlier_tukey(df,class_map_inv<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb26-2"><a href="#cb26-2"></a>    df <span class="op">=</span> df.copy()</span>
+<span id="cb26-3"><a href="#cb26-3"></a>    df[<span class="st">"outlier_count"</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="cf">for</span> cl <span class="kw">in</span> df[<span class="st">"class"</span>].unique():</span>
+<span id="cb26-5"><a href="#cb26-5"></a>        cond <span class="op">=</span> df[<span class="st">"class"</span>] <span class="op">==</span> cl</span>
+<span id="cb26-6"><a href="#cb26-6"></a>        _data <span class="op">=</span> df.loc[cond,:]</span>
+<span id="cb26-7"><a href="#cb26-7"></a>        cols <span class="op">=</span> df.columns.unique().drop([<span class="st">"class"</span>,<span class="st">"outlier_count"</span>])</span>
+<span id="cb26-8"><a href="#cb26-8"></a>        <span class="cf">for</span> col <span class="kw">in</span> cols:</span>
+<span id="cb26-9"><a href="#cb26-9"></a>            col_data <span class="op">=</span> _data.loc[:,col]</span>
+<span id="cb26-10"><a href="#cb26-10"></a>            <span class="cf">if</span> class_map_inv <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb26-11"><a href="#cb26-11"></a>                <span class="co">#print(f'col_name : {col} // class : {cl}')</span></span>
+<span id="cb26-12"><a href="#cb26-12"></a>                <span class="cf">pass</span></span>
+<span id="cb26-13"><a href="#cb26-13"></a>            <span class="cf">else</span>:</span>
+<span id="cb26-14"><a href="#cb26-14"></a>                <span class="co">#print(f'col_name : {col} // class : {class_map_inv[cl]}')</span></span>
+<span id="cb26-15"><a href="#cb26-15"></a>                <span class="cf">pass</span></span>
+<span id="cb26-16"><a href="#cb26-16"></a>            median <span class="op">=</span> col_data.median()</span>
+<span id="cb26-17"><a href="#cb26-17"></a>            <span class="co">#print(f'median : {median}')</span></span>
+<span id="cb26-18"><a href="#cb26-18"></a>            IQR <span class="op">=</span> col_data.quantile(<span class="fl">0.75</span>) <span class="op">-</span> col_data.quantile(<span class="fl">0.25</span>)</span>
+<span id="cb26-19"><a href="#cb26-19"></a>            <span class="co">#print(f'IQR : {IQR}')</span></span>
+<span id="cb26-20"><a href="#cb26-20"></a>            outlier_cond <span class="op">=</span> (col_data <span class="op">&gt;=</span> median <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR) <span class="op">|</span> (col_data <span class="op">&lt;=</span> median <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR)</span>
+<span id="cb26-21"><a href="#cb26-21"></a>            <span class="co">#print(f'nums_outlier : {sum(outlier_cond)}')</span></span>
+<span id="cb26-22"><a href="#cb26-22"></a>            out_index <span class="op">=</span> _data[outlier_cond].index.tolist()</span>
+<span id="cb26-23"><a href="#cb26-23"></a>            df.loc[out_index,<span class="st">"outlier_count"</span>] <span class="op">=</span> df.loc[out_index,<span class="st">"outlier_count"</span>].values <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb26-24"><a href="#cb26-24"></a>    <span class="cf">return</span> df</span>
+<span id="cb26-25"><a href="#cb26-25"></a>    </span>
+<span id="cb26-26"><a href="#cb26-26"></a>df <span class="op">=</span> outlier_tukey(dt_dim3,class_map_inv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50000</span>):</span>
-<span id="cb26-2"><a href="#cb26-2"></a>    <span class="co">#1.yhat</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>    out <span class="op">=</span> autoencoder(X_train_ohe)</span>
-<span id="cb26-4"><a href="#cb26-4"></a>    <span class="co">#2</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a>    loss <span class="op">=</span> loss_fn(out,X_train_ohe)</span>
-<span id="cb26-6"><a href="#cb26-6"></a>    <span class="co">#3</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a>    loss.backward()</span>
-<span id="cb26-8"><a href="#cb26-8"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">10000</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb26-9"><a href="#cb26-9"></a>        <span class="bu">print</span>(<span class="ss">f"epoch:</span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss"> loss:</span><span class="sc">{</span>loss<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb26-10"><a href="#cb26-10"></a>    <span class="co">#4</span></span>
-<span id="cb26-11"><a href="#cb26-11"></a>    optimizer.step()</span>
-<span id="cb26-12"><a href="#cb26-12"></a>    optimizer.zero_grad()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="227">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df[<span class="st">"isoutlier"</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>cond <span class="op">=</span> df[<span class="st">"outlier_count"</span>] <span class="op">&gt;=</span> <span class="dv">2</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>df.loc[cond,<span class="st">"isoutlier"</span>] <span class="op">=</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="227">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>class</th>
+      <th>outlier_count</th>
+      <th>isoutlier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.015199</td>
+      <td>2.127167</td>
+      <td>1.899696</td>
+      <td>1</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.357647</td>
+      <td>1.292911</td>
+      <td>1.256117</td>
+      <td>2</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.067119</td>
+      <td>1.748802</td>
+      <td>2.436509</td>
+      <td>1</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.946788</td>
+      <td>0.257365</td>
+      <td>1.436741</td>
+      <td>0</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.148674</td>
+      <td>2.298697</td>
+      <td>2.467313</td>
+      <td>2</td>
+      <td>2</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>257</th>
+      <td>1.095892</td>
+      <td>1.868273</td>
+      <td>1.673351</td>
+      <td>1</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>258</th>
+      <td>0.338616</td>
+      <td>1.650317</td>
+      <td>1.807891</td>
+      <td>2</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>259</th>
+      <td>0.730807</td>
+      <td>0.186738</td>
+      <td>1.142093</td>
+      <td>0</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>260</th>
+      <td>0.884372</td>
+      <td>0.357274</td>
+      <td>1.256723</td>
+      <td>0</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>261</th>
+      <td>1.058513</td>
+      <td>2.127081</td>
+      <td>2.248857</td>
+      <td>1</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>262 rows × 6 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="236">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="bu">print</span>(<span class="st">"탐지한 이상치의 갯수 :"</span>,<span class="bu">sum</span>(df[<span class="st">"isoutlier"</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>epoch:0 loss:0.4686844050884247
-epoch:10000 loss:0.06043228879570961
-epoch:20000 loss:0.06043199077248573
-epoch:30000 loss:0.06043161451816559
-epoch:40000 loss:0.06043161079287529</code></pre>
+<pre><code>탐지한 이상치의 갯수 : 11</code></pre>
 </div>
+</div>
+<div class="cell" data-execution_count="229">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>df.to_csv(<span class="st">"./outlierdetect.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

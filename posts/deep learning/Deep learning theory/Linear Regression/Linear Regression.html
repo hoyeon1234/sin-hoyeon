@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신호연">
+<meta name="dcterms.date" content="2022-12-22">
+
+<title>Hoyeon’s Blog - Linear Regression</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Hoyeon’s Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Linear Regression</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Deep learning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>신호연 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 22, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>선형회귀에 대해서 정리한 글입니다.</p>
+<section id="linear-regression" class="level1">
+<h1>Linear Regression</h1>
+<p>선형회귀는 확률변수사이의 관계가 <strong>선형</strong>이라고 가정한 모델링이며 종속변수 Y가 연속형 변수일때 사용합니다. 주어진 표본에 적합한 계수를 찾으면 두 변수사이의 관계를 대략적으로 알 수 있습니다. 2차원에서는 직선을 3차원에서는 평면을 4차원 이상에서는 초평면을 찾는 과정이라고도 할 수 있습니다.<br><br></p>
+<section id="population-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="population-regression-model">population regression model</h2>
+<p><span id="eq-poprgmodel"><span class="math display">\[
+Y = w_0 + w_1X_1  \dots + w_mX_m + \epsilon
+\tag{1}\]</span></span> 위와 모집단의 확률변수사이의 관계를 선형이라고 가정한 모형을 모형을 population regression model이라고 합니다. population regression model은 <strong>아주 작은 오차(error)</strong>를 포함합니다.<br></p>
+</section>
+<section id="sample-regression-modelvector-form" class="level2">
+<h2 class="anchored" data-anchor-id="sample-regression-modelvector-form">sample regression model(vector form)</h2>
+<p>위와 같은 regression model로부터 sampling n개의 표본을 얻으면 다음과 같습니다.<br> <span class="math display">\[
+y_1 = w_0 + w_1x_{11} + \dots + w_mx_{1m} + \epsilon_1
+\]</span> <span class="math display">\[
+y_2 = w_0 + w_1x_{21} + \dots + w_mx_{2m} + \epsilon_2
+\]</span> <span class="math display">\[
+\vdots
+\]</span> <span class="math display">\[
+y_n = w_0 + w_1x_{n1} + \dots +w_mx_{nm} + \epsilon_n
+\]</span> <br></p>
+<p>샘플을 벡터-행렬로 표현해서 좀 더 간단히 나타낼 수 있습니다.<br> <span class="math display">\[
+\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\y_n\end{bmatrix} =
+\begin{bmatrix}
+1 &amp; x_{11} &amp; x_{12} &amp; \dots &amp;x_{1m}\\
+1 &amp; x_{21} &amp; x_{22} &amp; \dots &amp;x_{2m}\\
+1 &amp; x_{31} &amp; x_{32} &amp; \dots &amp;x_{3m}\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+1 &amp; x_{n1} &amp; x_{n2} &amp; \dots &amp; x_{nm}\\
+\end{bmatrix}
+\begin{bmatrix}
+w_0\\
+w_1\\
+w_2\\
+\vdots\\
+w_m
+\end{bmatrix}
++
+\begin{bmatrix}
+\epsilon_0\\
+\epsilon_1\\
+\epsilon_2\\
+\vdots\\
+\epsilon_n
+\end{bmatrix}
+\]</span><br> <span id="eq-samplergmodel"><span class="math display">\[
+\Longleftrightarrow
+\bf{y} = \bf{X}\bf{W} + \bf{\epsilon}
+\tag{2}\]</span></span> <br> 위와 같이 샘플링한 표본을 나타내는 모형을 sample regression model이라고 합니다.</p>
+<div class="cell" data-execution_count="131">
+<div class="cell-output cell-output-display" data-execution_count="131">
+<pre><code>Text(0.5, 1.0, 'n=200')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><span class="math inline">\(w_1=1,w_0=0\)</span>인 population regression model로부터 200개의 표본을 추출하여 시각화하면 다음과 같습니다. 선형회귀는 위와 같이 표본만 주어질때(given), 우리가 모르는 <span class="math inline">\(w_1,w_0\)</span>를 추정하는 것입니다. 표본으로부터 <span class="math inline">\(\bf{W}\)</span>를 추정할 수 있다면 두 변수사이의 관계가 이렇겠구나라고 알 수 있게 됩니다.<br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>실제문제에서 population regression model의 가중치 <span class="math inline">\(\bf{w} = (w_0,w_,1,...,w_m)\)</span>는 정확히 알 수 없습니다. 우리는 표본을 통해서 가중치를 추정할 뿐입니다. 위에서는 샘플데이터를 만들기 위해 어쩔 수 없이 알게되었지만 실제문제에서는 알 수 없습니다.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="gradient-descent" class="level1">
+<h1>Gradient Descent</h1>
+<p>경사하강법은 <span class="math inline">\(\bf{w}\)</span>를 구하는 방법입니다. 경사하강법의 대략적인 흐름을 요약하면 다음과 같습니다.<br></p>
+<p><img src="(1)gradient descent.png" class="img-fluid" alt="nn"><br> 그림출처 : https://www.kdnuggets.com/2020/05/5-concepts-gradient-descent-cost-function.html</p>
+<p>(경사하강법의 대략적인 흐름)<br> 1. <span class="math inline">\(\bf{W}\)</span>의 추정값 <span class="math inline">\(\hat{\bf{W}}\)</span>을 임의적으로 가정(초기화)한다.<br> 2. 가정한 <span class="math inline">\(\hat{\bf{W}}\)</span>로 <span class="math inline">\(\hat{\bf{y}}\)</span>(<span class="math inline">\(\bf{y}\)</span>에 대한 추정값)을 구하여 실제값<span class="math inline">\(\bf{y}\)</span>와 <strong>얼마나 비슷하지 않은지,틀린지 확인</strong>한다. =&gt; Loss function의 역할입니다.<br> 3. <strong>기울기(편미분계수,gradient)를 사용</strong>하여 <span class="math inline">\(\hat{\bf{W}}\)</span>을 수정한다.많이 틀리면 많이수정하고 적게틀리면 적게 수정한다.<br> 4. 2번,3번을 계속해서 반복한 후 어느정도 적게 틀리면 종료한다..<br><br></p>
+<section id="선형회귀의-loss-function" class="level2">
+<h2 class="anchored" data-anchor-id="선형회귀의-loss-function">선형회귀의 Loss function</h2>
+<p>2번에서 구한 추정값 <span class="math inline">\(\hat{\bf{W}}\)</span>이 <strong>얼마나 틀린지,부정확한지</strong> 알려주는 함수를 Loss function 또는 Cost function이라고 합니다. 선형회귀에서의 Loss function은 일반적으로 MSE를 사용하며 주어진 샘플에서 잔차(residual,<span class="math inline">\(\hat{y}_i-y\)</span>)들을 전부 제곱하여 더한 값입니다.<br></p>
+<p>(Loss function)<br> <span class="math inline">\(MSE = \Sigma_{i=1}^{i=n}(y_i - \hat{y_i})^{2} = \frac{1}{n}({\bf{y} - \bf{\hat{y}}})^{T}({\bf{y} - \bf{\hat{y}}}) = \frac{1}{n}(\bf{y}-X\hat{\bf{W}})^{T}(\bf{y}-X\hat{\bf{W}})\)</span><br></p>
+<p>MSE와 같은 Loss function은 우리의 추정이 <strong>얼마나 틀렸는지</strong>를 나타내는 <span class="math inline">\(\hat{\bf{W}}\)</span>에 대한 함수입니다. 그러므로, loss function을 가장 최소화 하는 <span class="math inline">\(\bf{\hat{W}}\)</span>을 찾아내면 확률변수사이의 선형관계인 <span class="math inline">\(\bf{W}\)</span>를 알아낼 수 있습니다.</p>
+<div class="cell" data-execution_count="132">
+<div class="cell-output cell-output-display" data-execution_count="132">
+<pre><code>Text(110, 15, 'residual')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="parameter-update" class="level2">
+<h2 class="anchored" data-anchor-id="parameter-update">Parameter update</h2>
+<p>n개의 독립변수를 가지는 다변수 스칼라 함수에 대한 Gradient는 수학적으로 다음과 같습니다.<br></p>
+<p><span class="math inline">\(\nabla_{X}{f(x_1,x_2,...,x_n)} = (\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2},\dots,\frac{\partial f}{\partial x_n})\)</span><br> 다변수 스칼라 함수에 그레디언트를 취하면 벡터입니다.그러므로,그레디언트를 벡터(다변수)를 입력했을 때,벡터를 출력으로 하는 벡터함수라고 생각해도 무방합니다.중요한 사실은 <strong>임의의 공간상의 임의의 point <span class="math inline">\(X\)</span>에서 스칼라함수에 대한 gradient of f = <span class="math inline">\(-\nabla_{X}{f}\)</span> 방향은 스칼라함수가 가장 급격하게 감소하는 방향</strong>이라는 사실입니다.(증명생략)<br></p>
+<p>위의 사실에 의하면,우리는 임의의 <span class="math inline">\(\hat{\bf{W}}\)</span>에서 Loss function이 가장 급격하게 감소하는 방향을 찾을 수 있습니다. 그러므로 감소하는 방향을 찾고 이동하고 감소하는 방향을 찾고 이동하고 반복하다보면… 궁극적인 목적인 틀린정도를 최소화하는 즉,Loss function값이 가장 작은 <span class="math inline">\(\hat{\bf{W}}\)</span>를 찾을 수 있습니다. <span class="math inline">\(\bf\hat{W}\)</span>를 수정하는 구체적인 수식은 다음과 같습니다.<br></p>
+<p>(Gradient descent parameter update)<br> <span class="math inline">\(\hat{\bf{W}}_{t} = \hat{\bf{W}}_{t-1} - \alpha\times\nabla_{W}{L}\)</span><br></p>
+<p><span class="math inline">\(\hat{\bf{W}}_{t-1}\)</span>은 수정되기전의 가중치(벡터)이며 <span class="math inline">\(\hat{\bf{W}_{t}}\)</span>는 파라미터를 한번 업데이트 한 후의 가중치(벡터)입니다. <span class="math inline">\(t-1\)</span>의 <span class="math inline">\(\hat{\bf{W_{t-1}}}\)</span>에 <span class="math inline">\(-\alpha\times\nabla_{W}{L}\)</span>를 더해줌으로서 <span class="math inline">\(\hat{\bf{W}}_{t-1}\)</span>은 loss function이 가장 급격히(많이)감소하는 방향으로 이동하며 <span class="math inline">\(\hat{\bf{W}}_{t}\)</span>가 됩니다. <span class="math inline">\(\alpha\)</span>는 학습률(learning rate)입니다. <span class="math inline">\(\hat{\bf{W}}_{t-1}\)</span>과 곱해져서 얼마나 많이 또는 적게 움직일지를 결정합니다. 한번에 얼마나 이동할지에 비유한 “보폭”으로 생각할 수 있습니다.<br></p>
+<p>요약하자면, 경사하강법을 통하여 위와 같이 가중치<span class="math inline">\(\hat{\bf{W}}\)</span>를 재귀적으로 업데이트 하면 loss function <span class="math inline">\(L\)</span>이 가장 최소가 되는 지점의 <span class="math inline">\(\hat{\bf{W}}\)</span>를 찾을 수 있습니다.<br><br></p>
+</section>
+<section id="mse에-대한-더-상세한-전개" class="level2">
+<h2 class="anchored" data-anchor-id="mse에-대한-더-상세한-전개">MSE에 대한 더 상세한 전개</h2>
+<p>MSE를 더 상세히 전개하면 다음과 같습니다.<br> <span class="math inline">\(MSE = \Sigma_{i=1}^{i=n}(y_i - \hat{y_i})^{2}\)</span><br> <span class="math inline">\(= \frac{1}{n}({\bf{y} - \bf{\hat{y}}})^{T}({\bf{y} - \bf{\hat{y}}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(\bf{y}-X\hat{\bf{W}})^{T}(\bf{y}-X\hat{\bf{W}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(\bf{y^T - \hat{\bf{W}}^{T}\bf{X}^{T})(\bf{y} - \bf{X}\bf{\hat{W}}})\)</span><br> <span class="math inline">\(= \frac{1}{n}(\bf{y^Ty-y^TX\hat{W}} - \hat{W}X^Ty + \hat{W}^TX^TX\hat{W})\)</span><br></p>
+<p>여기서 <span class="math inline">\(\bf{y^TX\hat{W}} \in \bf{R}^{1 \times 1}\)</span> 이므로 <span class="math inline">\(\bf{y^TX\hat{W}} = (\bf{y^TX\hat{W}})^T = (\bf{\hat{W}X^Ty})\)</span>가 성립합니다. 그러므로 MSE를 정리하면 다음과 같습니다.<br> (MSE)<br> <span class="math inline">\(MSE = \frac{1}{n}(\bf{y^Ty -2\hat{W}X^Ty + \hat{W}^TX^TX\hat{W}})\)</span><br></p>
+</section>
+<section id="gradient-descent에-대한-더-상세한-전개loss-mse일-경우" class="level2">
+<h2 class="anchored" data-anchor-id="gradient-descent에-대한-더-상세한-전개loss-mse일-경우">Gradient Descent에 대한 더 상세한 전개(<span class="math inline">\(Loss\)</span> = MSE일 경우)</h2>
+<p>(Gradient of MSE)<br> <span class="math inline">\(\nabla{L} = MSE\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}\frac{\partial}{\partial \hat{W}}(\bf{y^Ty - 2\hat{W}^TX^T + \hat{W}^TX^TX\hat{W}})}\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}}(\bf{\frac{\partial}{\partial \hat{W}}}{y^{T}y} - \frac{\partial}{\partial \hat{W}}2\hat{W}^{T}X^{T}y + \frac{\partial}{\partial\hat{W}}\hat{W}^{T}X^{T}X\hat{W})\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}(\frac{\partial}{\partial \hat{W}}{y^{T}y} - \frac{\partial}{\partial \hat{W}}2y^TX\hat{W} + \frac{\partial}{\partial\hat{W}}\hat{W}^TX^TX\hat{W})}\)</span><br> <span class="math inline">\(= \bf{\frac{1}{n}[0 - 2X^Ty + (X^TX + X^TX)\hat{W}]}\)</span><br> <span class="math inline">\(= \bf{\frac{2}{n}X^T(X\hat{W} - y)}\)</span></p>
+<p>(parameter update)<br> <span class="math inline">\(\bf{\hat{W}_{t} = \hat{W}_{t-1} - \alpha \times \frac{2}{n}X^T(X\hat{W} - y)}\)</span></p>
+</section>
+</section>
+<section id="구현" class="level1">
+<h1>구현</h1>
+<div class="cell" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> torch</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb3-5"><a href="#cb3-5"></a>plt.style.use(<span class="st">'ggplot'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>모집단의 두 확률변수사이의 관계가 다음과 같다고 가정해봅시다.<br> <span class="math inline">\(y = 2.5 + 3x + \epsilon\)</span><br></p>
+<p>모집단에서 크기가 n인 표본을 뽑으면 다음과 같습니다.</p>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#n=200인 표본 추출</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>n<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>torch.manual_seed(<span class="dv">2202</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>W <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="dv">1</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb4-5"><a href="#cb4-5"></a>_x <span class="op">=</span> torch.randint(<span class="op">-</span><span class="dv">100</span>,<span class="dv">150</span>,(n,<span class="dv">1</span>))</span>
+<span id="cb4-6"><a href="#cb4-6"></a>_ones <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
+<span id="cb4-7"><a href="#cb4-7"></a>_epsilon <span class="op">=</span> torch.randn((n,<span class="dv">1</span>)) <span class="op">*</span> <span class="dv">10</span> <span class="co">#변동을 조금 더 주기 위해서 오차를 곱해줌</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>X <span class="op">=</span> torch.concat((_ones,_x),axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb4-9"><a href="#cb4-9"></a>y <span class="op">=</span> X <span class="op">@</span> W <span class="op">+</span> _epsilon</span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb4-12"><a href="#cb4-12"></a>plt.title(<span class="st">"n=200"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="134">
+<pre><code>Text(0.5, 1.0, 'n=200')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>경사하강법으로 표본에 가장 잘 맞는 직선을 찾아봅시다.<br> 먼저 임의의 <span class="math inline">\(\bf{\hat{w}} = (w_0,w_1)=(0,-5)\)</span>로 가정합니다.</p>
+<div class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#1. 먼저 임의의 W_hat을 가정한다.</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>W_hat <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="op">-</span><span class="dv">5</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#시각화코드</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"g--"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a>plt.title(<span class="st">"initializing What"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="135">
+<pre><code>Text(0.5, 1.0, 'initializing What')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#n=100인 표본 추출</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>n<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>torch.manual_seed(<span class="dv">2202</span>)</span>
+<span id="cb8-5"><a href="#cb8-5"></a>W <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="dv">1</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb8-6"><a href="#cb8-6"></a>_x <span class="op">=</span> torch.randint(<span class="op">-</span><span class="dv">40</span>,<span class="dv">25</span>,(n,<span class="dv">1</span>))</span>
+<span id="cb8-7"><a href="#cb8-7"></a>_ones <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
+<span id="cb8-8"><a href="#cb8-8"></a>_epsilon <span class="op">=</span> torch.randn((n,<span class="dv">1</span>))<span class="op">*</span><span class="dv">5</span> <span class="co">#변동을 조금 더 주기 위해서 오차를 곱해줌</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>X <span class="op">=</span> torch.concat((_ones,_x),axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb8-10"><a href="#cb8-10"></a>y <span class="op">=</span> X <span class="op">@</span> W <span class="op">+</span> _epsilon</span>
+<span id="cb8-11"><a href="#cb8-11"></a></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#plt.plot(X[:,1],y,"go",alpha=0.5)</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">#1. 먼저 임의의 W_hat을 가정한다.</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>W_hat <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="op">-</span><span class="dv">5</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb8-16"><a href="#cb8-16"></a></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">#2.loss 를 계산한다.</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">#2.1</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">#pytorch의 MSELoss 클래스로 loss_fn이라는 객체(object)를 만듭니다.</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">#이 객체는 호출(call)하여 MSE를 계산할 수 있습니다</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a>loss_fn <span class="op">=</span> torch.nn.MSELoss()</span>
+<span id="cb8-22"><a href="#cb8-22"></a>yhat <span class="op">=</span> X <span class="op">@</span> W</span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="co">#2.2</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="co">#call하여 MSE를 계산</span></span>
+<span id="cb8-25"><a href="#cb8-25"></a>loss <span class="op">=</span> loss_fn(yhat,y)</span>
+<span id="cb8-26"><a href="#cb8-26"></a><span class="bu">print</span>(loss)</span>
+<span id="cb8-27"><a href="#cb8-27"></a></span>
+<span id="cb8-28"><a href="#cb8-28"></a><span class="co">#3.파라미터를 업데이트 한다</span></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="bu">print</span>(<span class="st">"업데이트 전 W_hat :"</span>,W_hat)</span>
+<span id="cb8-30"><a href="#cb8-30"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-31"><a href="#cb8-31"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"g--"</span>)</span>
+<span id="cb8-32"><a href="#cb8-32"></a>W_hat.data <span class="op">=</span> W_hat.data <span class="op">-</span> <span class="fl">1e-1</span> <span class="op">*</span> loss.data</span>
+<span id="cb8-33"><a href="#cb8-33"></a><span class="bu">print</span>(<span class="st">"파라미터 한 번 업데이트 후 W_hat :"</span>,W_hat)</span>
+<span id="cb8-34"><a href="#cb8-34"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"r--"</span>)</span>
+<span id="cb8-35"><a href="#cb8-35"></a>plt.legend([<span class="st">"samples"</span>,<span class="st">"before update"</span>,<span class="st">"after one update"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tensor(27.4176)
+업데이트 전 W_hat : tensor([[ 0.],
+        [-5.]])
+파라미터 한 번 업데이트 후 W_hat : tensor([[-2.7418],
+        [-7.7418]])</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="136">
+<pre><code>&lt;matplotlib.legend.Legend at 0x25e64b4d3a0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-7-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<p>경사하강법의 흐름을 따라서 파이토치에서 구현하기위해 4가지 과정이 필요합니다.<br> 1)<span class="math inline">\(\bf{\hat{y}}\)</span><br> 2)loss<br> 3)derivative<br> 4)update &amp; clean<br> 위와 같이 파라미터를 업데이트 한 방식을 여러번 반복하면 알맞은 직선을 얻을 수 있습니다.여기서는 위의 절차를 다 수행하지 않고 최종적으로 정리해놓은 MSE에 대한 미분을 활용하여 구현해보겠습니다.</p>
+<div class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>torch.manual_seed(<span class="dv">2202</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>W <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="dv">1</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb11-3"><a href="#cb11-3"></a>_x <span class="op">=</span> torch.randint(<span class="op">-</span><span class="dv">40</span>,<span class="dv">25</span>,(n,<span class="dv">1</span>))</span>
+<span id="cb11-4"><a href="#cb11-4"></a>_ones <span class="op">=</span> torch.ones((n,<span class="dv">1</span>))</span>
+<span id="cb11-5"><a href="#cb11-5"></a>_epsilon <span class="op">=</span> torch.randn((n,<span class="dv">1</span>))<span class="op">*</span><span class="dv">5</span> <span class="co">#변동을 조금 더 주기 위해서 오차를 곱해줌</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>X <span class="op">=</span> torch.concat((_ones,_x),axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb11-7"><a href="#cb11-7"></a>y <span class="op">=</span> X <span class="op">@</span> W <span class="op">+</span> _epsilon</span>
+<span id="cb11-8"><a href="#cb11-8"></a></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co">#plt.plot(X[:,1],y,"go",alpha=0.5)</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="co">#1. 먼저 임의의 W_hat을 가정한다.</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>W_hat <span class="op">=</span> torch.tensor([<span class="dv">0</span>,<span class="op">-</span><span class="dv">5</span>]).reshape(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>).<span class="bu">float</span>()</span>
+<span id="cb11-13"><a href="#cb11-13"></a></span>
+<span id="cb11-14"><a href="#cb11-14"></a><span class="co">#상세히 전개한 parameter update수식 사용.</span></span>
+<span id="cb11-15"><a href="#cb11-15"></a><span class="co">#2~4반복</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a>plt.subplots(<span class="dv">1</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">50</span>,<span class="dv">20</span>))</span>
+<span id="cb11-17"><a href="#cb11-17"></a>i<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb11-18"><a href="#cb11-18"></a></span>
+<span id="cb11-19"><a href="#cb11-19"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb11-20"><a href="#cb11-20"></a>    <span class="co">#1~3 yhat,loss,derivative(gradient) skip</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a>    <span class="co">#4 update</span></span>
+<span id="cb11-22"><a href="#cb11-22"></a>    W_hat.data <span class="op">=</span> W_hat.data <span class="op">-</span> (<span class="fl">1e-5</span> <span class="op">*</span> <span class="dv">2</span><span class="op">/</span>n <span class="op">*</span> X.T<span class="op">@</span>(X<span class="op">@</span>W_hat <span class="op">-</span> y)).data <span class="co">#직선의 변화를 관찰하기위한 작은 학습률</span></span>
+<span id="cb11-23"><a href="#cb11-23"></a></span>
+<span id="cb11-24"><a href="#cb11-24"></a>    <span class="co">#시각화코드</span></span>
+<span id="cb11-25"><a href="#cb11-25"></a>    </span>
+<span id="cb11-26"><a href="#cb11-26"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">100</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb11-27"><a href="#cb11-27"></a>        plt.subplot(<span class="dv">2</span>,<span class="dv">5</span>,i)</span>
+<span id="cb11-28"><a href="#cb11-28"></a>        plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb11-29"><a href="#cb11-29"></a>        plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"r--"</span>)</span>
+<span id="cb11-30"><a href="#cb11-30"></a>        t <span class="op">=</span> W_hat.data</span>
+<span id="cb11-31"><a href="#cb11-31"></a>        text<span class="op">=</span><span class="ss">f"What = (</span><span class="sc">{</span><span class="bu">round</span>(t[<span class="dv">0</span>].tolist()[<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="bu">round</span>(t[<span class="dv">1</span>].tolist()[<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb11-32"><a href="#cb11-32"></a>        plt.title(text)</span>
+<span id="cb11-33"><a href="#cb11-33"></a>        i<span class="op">+=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="결과해석" class="level2">
+<h2 class="anchored" data-anchor-id="결과해석">결과해석</h2>
+<p>200개의 샘플로부터 <span class="math inline">\(\bf{w}\)</span>를 추정하여 <span class="math inline">\(\hat{\bf{w}}= (0.125,0.969)\)</span>를 얻었습니다. population regression model의 <span class="math inline">\({\bf{w}} = (w_0,w_1) = (0,1)\)</span>을 올바르게 추정했음을 알 수 있습니다. 아주 약간의 차이가 존재하는데 이 차이는 모집단에서 샘플을 더 얻거나 더 세밀하게 업데이트하면 최소화할 수 있습니다.</p>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#plt.title("w_1 : {} // w_0: {}".format(round(W_hat[1].tolist()[0],3),round(W_hat[0].tolist()[0],3)))</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>plt.title(<span class="st">"Linear Regression"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>text<span class="op">=</span><span class="ss">f"What = (</span><span class="sc">{</span><span class="bu">round</span>(t[<span class="dv">0</span>].tolist()[<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="bu">round</span>(t[<span class="dv">1</span>].tolist()[<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">"bo"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb12-5"><a href="#cb12-5"></a>plt.plot(X[:,<span class="dv">1</span>],X<span class="op">@</span>W_hat,<span class="st">"r--"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6"></a>plt.gca().axes.xaxis.set_visible(<span class="va">False</span>)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>plt.gca().axes.yaxis.set_visible(<span class="va">False</span>)</span>
+<span id="cb12-8"><a href="#cb12-8"></a>plt.title(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="139">
+<pre><code>Text(0.5, 1.0, 'What = (-0.125,0.969)')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
