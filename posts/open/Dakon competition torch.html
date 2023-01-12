@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Hoyeon’s Blog - Untitled</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Hoyeon’s Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Untitled</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> random</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> os</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">from</span> sklearn <span class="im">import</span> preprocessing</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="im">import</span> torch</span>
+<span id="cb1-10"><a href="#cb1-10"></a>test_path <span class="op">=</span> <span class="st">"C:/Users/22668/Desktop/github/sin-hoyeon/open/test.csv"</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>train_path <span class="op">=</span> <span class="st">"C:/Users/22668/Desktop/github/sin-hoyeon/open/train.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>train <span class="op">=</span> pd.read_csv(train_path).drop(columns <span class="op">=</span> [<span class="st">"id"</span>])</span>
+<span id="cb2-2"><a href="#cb2-2"></a>train_len <span class="op">=</span> <span class="bu">len</span>(train)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>test <span class="op">=</span> pd.read_csv(test_path)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>id_test <span class="op">=</span> test[<span class="st">"id"</span>]</span>
+<span id="cb2-5"><a href="#cb2-5"></a>test <span class="op">=</span> pd.read_csv(test_path).drop(columns <span class="op">=</span> [<span class="st">"id"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>dataset <span class="op">=</span> pd.concat([train,test],axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>dataset <span class="op">=</span> dataset.drop(columns <span class="op">=</span> [<span class="st">"father"</span>,<span class="st">"mother"</span>,<span class="st">"gender"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dataset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>trait</th>
+      <th>SNP_01</th>
+      <th>SNP_02</th>
+      <th>SNP_03</th>
+      <th>SNP_04</th>
+      <th>SNP_05</th>
+      <th>SNP_06</th>
+      <th>SNP_07</th>
+      <th>SNP_08</th>
+      <th>SNP_09</th>
+      <th>SNP_10</th>
+      <th>SNP_11</th>
+      <th>SNP_12</th>
+      <th>SNP_13</th>
+      <th>SNP_14</th>
+      <th>SNP_15</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>A G</td>
+      <td>A G</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C C</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>2</td>
+      <td>A G</td>
+      <td>G G</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>C A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>C A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>C A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>2</td>
+      <td>A G</td>
+      <td>G G</td>
+      <td>C A</td>
+      <td>G A</td>
+      <td>C C</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>C C</td>
+      <td>G A</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>437 rows × 17 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>_t <span class="op">=</span> []</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="cf">for</span> val <span class="kw">in</span> dataset.SNP_01 <span class="op">==</span> <span class="st">"G G"</span>:</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="cf">if</span> val <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb5-4"><a href="#cb5-4"></a>        _t.append(<span class="dv">1</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-6"><a href="#cb5-6"></a>        _t.append(<span class="dv">0</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>dataset[<span class="st">"has01GG"</span>] <span class="op">=</span> _t</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>_t <span class="op">=</span> []</span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="cf">for</span> val <span class="kw">in</span> dataset.SNP_02 <span class="op">==</span> <span class="st">"A A"</span>:</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="cf">if</span> val <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb5-12"><a href="#cb5-12"></a>        _t.append(<span class="dv">1</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-14"><a href="#cb5-14"></a>        _t.append(<span class="dv">0</span>)</span>
+<span id="cb5-15"><a href="#cb5-15"></a>dataset[<span class="st">"has02AA"</span>] <span class="op">=</span> _t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> create_col(dataset,col,value):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    _t <span class="op">=</span> []</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">for</span> val <span class="kw">in</span> dataset[col] <span class="op">==</span> value:</span>
+<span id="cb6-4"><a href="#cb6-4"></a>        <span class="cf">if</span> val <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb6-5"><a href="#cb6-5"></a>            _t.append(<span class="dv">1</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-7"><a href="#cb6-7"></a>            _t.append(<span class="dv">0</span>)</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    </span>
+<span id="cb6-9"><a href="#cb6-9"></a>    col_name_base <span class="op">=</span> <span class="st">"has"</span><span class="op">+</span>col[<span class="op">-</span><span class="dv">2</span>:]</span>
+<span id="cb6-10"><a href="#cb6-10"></a>    value_name <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="cf">for</span> <span class="bu">chr</span> <span class="kw">in</span> value:</span>
+<span id="cb6-12"><a href="#cb6-12"></a>        <span class="cf">if</span> <span class="bu">chr</span> <span class="op">!=</span> <span class="st">" "</span>:</span>
+<span id="cb6-13"><a href="#cb6-13"></a>            value_name<span class="op">+=</span><span class="bu">chr</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a>    col_name <span class="op">=</span> col_name_base<span class="op">+</span>value_name</span>
+<span id="cb6-15"><a href="#cb6-15"></a>    <span class="co">#print(col_name)</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>    dataset[col_name] <span class="op">=</span> _t</span>
+<span id="cb6-17"><a href="#cb6-17"></a></span>
+<span id="cb6-18"><a href="#cb6-18"></a>    <span class="cf">return</span> dataset</span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_03"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb6-21"><a href="#cb6-21"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_04"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb6-22"><a href="#cb6-22"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_05"</span>,<span class="st">"C C"</span>)</span>
+<span id="cb6-23"><a href="#cb6-23"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_06"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb6-24"><a href="#cb6-24"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_07"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb6-25"><a href="#cb6-25"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_07"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb6-26"><a href="#cb6-26"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_08"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb6-27"><a href="#cb6-27"></a></span>
+<span id="cb6-28"><a href="#cb6-28"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_09"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb6-29"><a href="#cb6-29"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_09"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb6-30"><a href="#cb6-30"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_11"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb6-31"><a href="#cb6-31"></a></span>
+<span id="cb6-32"><a href="#cb6-32"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_12"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb6-33"><a href="#cb6-33"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_12"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb6-34"><a href="#cb6-34"></a></span>
+<span id="cb6-35"><a href="#cb6-35"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_13"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb6-36"><a href="#cb6-36"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_14"</span>,<span class="st">"A A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>has03AA
+has04GG
+has05CC
+has06AA
+has07AA
+has07GG
+has08GG
+has09AA
+has09GG
+has11AA
+has12AA
+has12GG
+has13AA
+has14AA</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>dataset <span class="op">=</span> dataset.drop(columns <span class="op">=</span> <span class="st">"SNP_03"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#one-hot encoding for distance base algorithm</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>dataset_ohe <span class="op">=</span> pd.get_dummies(dataset,columns <span class="op">=</span> dataset.columns.drop(<span class="st">"class"</span>),drop_first<span class="op">=</span><span class="va">True</span>) <span class="co">#multicollinearity를 막기위한 drop_first 옵션</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>train_ohe <span class="op">=</span> dataset_ohe[:train_len].copy()</span>
+<span id="cb9-4"><a href="#cb9-4"></a>test_ohe <span class="op">=</span> dataset_ohe[train_len:].copy().drop(columns<span class="op">=</span><span class="st">"class"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>class_map <span class="op">=</span> {<span class="st">"A"</span>:<span class="dv">0</span>,<span class="st">"B"</span>:<span class="dv">1</span>,<span class="st">"C"</span>:<span class="dv">2</span>}</span>
+<span id="cb9-7"><a href="#cb9-7"></a>train_ohe[<span class="st">"class"</span>]<span class="op">=</span>train_ohe[<span class="st">"class"</span>].<span class="bu">map</span>(class_map).astype(<span class="bu">int</span>)</span>
+<span id="cb9-8"><a href="#cb9-8"></a>X_train_ohe <span class="op">=</span> train_ohe.drop(columns <span class="op">=</span> <span class="st">"class"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9"></a>Y_train_ohe <span class="op">=</span> train_ohe[<span class="st">"class"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>Y_train_ohe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>0      1
+1      2
+2      1
+3      0
+4      2
+      ..
+257    1
+258    2
+259    0
+260    0
+261    1
+Name: class, Length: 262, dtype: int32</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> torch</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>X_train_ohe <span class="op">=</span> torch.from_numpy(X_train_ohe.values).<span class="bu">float</span>()</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co">#y_train_ohe = torch.from_numpy(pd.get_dummies(Y_train_ohe).values).float()</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>Y_train_ohe <span class="op">=</span> torch.from_numpy(Y_train_ohe.values).<span class="bu">long</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">class</span> mynet(nn.Module):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,in_features,dropout_p,l1_out<span class="op">=</span><span class="dv">64</span>):</span>
+<span id="cb14-3"><a href="#cb14-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb14-4"><a href="#cb14-4"></a>        <span class="va">self</span>.linr1 <span class="op">=</span> torch.nn.Linear(in_features,l1_out)</span>
+<span id="cb14-5"><a href="#cb14-5"></a>        <span class="va">self</span>.relu1 <span class="op">=</span> torch.nn.ReLU()</span>
+<span id="cb14-6"><a href="#cb14-6"></a>        <span class="va">self</span>.d1 <span class="op">=</span> torch.nn.Dropout(p<span class="op">=</span>dropout_p)</span>
+<span id="cb14-7"><a href="#cb14-7"></a>        <span class="va">self</span>.b1 <span class="op">=</span> torch.nn.BatchNorm1d(l1_out)</span>
+<span id="cb14-8"><a href="#cb14-8"></a>        <span class="co"># 256</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>        </span>
+<span id="cb14-10"><a href="#cb14-10"></a>        <span class="va">self</span>.linr2 <span class="op">=</span> torch.nn.Linear(l1_out,l1_out<span class="op">//</span><span class="dv">2</span>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a>        <span class="va">self</span>.relu2 <span class="op">=</span> torch.nn.ReLU()</span>
+<span id="cb14-12"><a href="#cb14-12"></a>        <span class="va">self</span>.d2 <span class="op">=</span> torch.nn.Dropout(p<span class="op">=</span>dropout_p)</span>
+<span id="cb14-13"><a href="#cb14-13"></a>        <span class="va">self</span>.b2 <span class="op">=</span> torch.nn.BatchNorm1d(l1_out<span class="op">//</span><span class="dv">2</span>)</span>
+<span id="cb14-14"><a href="#cb14-14"></a>        <span class="co"># 128</span></span>
+<span id="cb14-15"><a href="#cb14-15"></a></span>
+<span id="cb14-16"><a href="#cb14-16"></a>        <span class="va">self</span>.linr3 <span class="op">=</span> torch.nn.Linear(l1_out<span class="op">//</span><span class="dv">2</span>,l1_out<span class="op">//</span><span class="dv">4</span>)</span>
+<span id="cb14-17"><a href="#cb14-17"></a>        <span class="va">self</span>.relu3 <span class="op">=</span> torch.nn.ReLU()</span>
+<span id="cb14-18"><a href="#cb14-18"></a>        <span class="va">self</span>.d3 <span class="op">=</span> torch.nn.Dropout(p<span class="op">=</span>dropout_p)</span>
+<span id="cb14-19"><a href="#cb14-19"></a>        <span class="va">self</span>.b3 <span class="op">=</span> torch.nn.BatchNorm1d(l1_out<span class="op">//</span><span class="dv">4</span>)</span>
+<span id="cb14-20"><a href="#cb14-20"></a>        <span class="co"># 64</span></span>
+<span id="cb14-21"><a href="#cb14-21"></a>        <span class="va">self</span>.linr4 <span class="op">=</span> torch.nn.Linear(l1_out<span class="op">//</span><span class="dv">4</span>,l1_out<span class="op">//</span><span class="dv">8</span>)</span>
+<span id="cb14-22"><a href="#cb14-22"></a>        <span class="va">self</span>.relu4 <span class="op">=</span> torch.nn.ReLU()</span>
+<span id="cb14-23"><a href="#cb14-23"></a>        <span class="va">self</span>.d4 <span class="op">=</span> torch.nn.Dropout(p<span class="op">=</span>dropout_p)</span>
+<span id="cb14-24"><a href="#cb14-24"></a>        <span class="va">self</span>.b4 <span class="op">=</span> torch.nn.BatchNorm1d(l1_out<span class="op">//</span><span class="dv">8</span>)</span>
+<span id="cb14-25"><a href="#cb14-25"></a>        <span class="co"># 32</span></span>
+<span id="cb14-26"><a href="#cb14-26"></a>        <span class="va">self</span>.linr5 <span class="op">=</span> torch.nn.Linear(l1_out<span class="op">//</span><span class="dv">8</span>,l1_out<span class="op">//</span><span class="dv">16</span>)</span>
+<span id="cb14-27"><a href="#cb14-27"></a>        <span class="va">self</span>.relu5 <span class="op">=</span> torch.nn.ReLU()</span>
+<span id="cb14-28"><a href="#cb14-28"></a>        <span class="va">self</span>.d5 <span class="op">=</span> torch.nn.Dropout(p<span class="op">=</span>dropout_p)</span>
+<span id="cb14-29"><a href="#cb14-29"></a>        <span class="va">self</span>.b5 <span class="op">=</span> torch.nn.BatchNorm1d(l1_out<span class="op">//</span><span class="dv">16</span>)</span>
+<span id="cb14-30"><a href="#cb14-30"></a>        <span class="co">#16</span></span>
+<span id="cb14-31"><a href="#cb14-31"></a>        <span class="va">self</span>.linr6 <span class="op">=</span> torch.nn.Linear(l1_out<span class="op">//</span><span class="dv">16</span>,<span class="dv">3</span>)</span>
+<span id="cb14-32"><a href="#cb14-32"></a></span>
+<span id="cb14-33"><a href="#cb14-33"></a>    <span class="kw">def</span> forward(<span class="va">self</span>,x):</span>
+<span id="cb14-34"><a href="#cb14-34"></a>        out <span class="op">=</span> <span class="va">self</span>.b1(<span class="va">self</span>.d1(<span class="va">self</span>.relu1(<span class="va">self</span>.linr1(x))))</span>
+<span id="cb14-35"><a href="#cb14-35"></a>        out <span class="op">=</span> <span class="va">self</span>.b2(<span class="va">self</span>.d2(<span class="va">self</span>.relu2(<span class="va">self</span>.linr2(out))))</span>
+<span id="cb14-36"><a href="#cb14-36"></a>        out <span class="op">=</span> <span class="va">self</span>.b3(<span class="va">self</span>.d3(<span class="va">self</span>.relu3(<span class="va">self</span>.linr3(out))))</span>
+<span id="cb14-37"><a href="#cb14-37"></a>        out <span class="op">=</span> <span class="va">self</span>.b4(<span class="va">self</span>.d4(<span class="va">self</span>.relu4(<span class="va">self</span>.linr4(out))))</span>
+<span id="cb14-38"><a href="#cb14-38"></a>        out <span class="op">=</span> <span class="va">self</span>.b5(<span class="va">self</span>.d5(<span class="va">self</span>.relu5(<span class="va">self</span>.linr5(out))))</span>
+<span id="cb14-39"><a href="#cb14-39"></a>        out <span class="op">=</span> <span class="va">self</span>.linr6(out)</span>
+<span id="cb14-40"><a href="#cb14-40"></a>        <span class="co">#out = self.b3(self.d3(self.relu3(self.linr3(x))))</span></span>
+<span id="cb14-41"><a href="#cb14-41"></a>        <span class="cf">return</span> out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> StratifiedKFold</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="im">import</span> random</span>
+<span id="cb15-3"><a href="#cb15-3"></a>epochs_list <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1400</span>,<span class="dv">2000</span>,<span class="dv">20</span>)]</span>
+<span id="cb15-4"><a href="#cb15-4"></a>weight_decay <span class="op">=</span> np.linspace(<span class="fl">0.001</span>,<span class="fl">0.0001</span>,<span class="dv">500</span>).tolist()</span>
+<span id="cb15-5"><a href="#cb15-5"></a>lr <span class="op">=</span> np.linspace(<span class="fl">1e-2</span>,<span class="fl">1e-5</span>,<span class="dv">500</span>).tolist()</span>
+<span id="cb15-6"><a href="#cb15-6"></a>hidden_nodes <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1300</span>,<span class="dv">1800</span>)]</span>
+<span id="cb15-7"><a href="#cb15-7"></a>dropout_p <span class="op">=</span> np.linspace(<span class="fl">0.6</span>,<span class="fl">0.8</span>,<span class="dv">1000</span>).tolist()</span>
+<span id="cb15-8"><a href="#cb15-8"></a>rs <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">500</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">def</span> dl_cv(epochs,weight_decay,learning_rate,hidden1_nodes,dropout_p,rs):</span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>    try_number<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>    skf <span class="op">=</span> StratifiedKFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    skf.get_n_splits(X_train_ohe,Y_train_ohe)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>    </span>
+<span id="cb16-7"><a href="#cb16-7"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb16-8"><a href="#cb16-8"></a>        try_number<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a>        <span class="bu">print</span>(<span class="ss">f'try:</span><span class="sc">{</span>try_number<span class="sc">}</span><span class="ss">...'</span>)</span>
+<span id="cb16-10"><a href="#cb16-10"></a>        train_accs <span class="op">=</span> []</span>
+<span id="cb16-11"><a href="#cb16-11"></a>        val_accs <span class="op">=</span> []</span>
+<span id="cb16-12"><a href="#cb16-12"></a>        hdly1 <span class="op">=</span> random.sample(hidden1_nodes,<span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb16-13"><a href="#cb16-13"></a>        lr <span class="op">=</span> random.sample(learning_rate,<span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb16-14"><a href="#cb16-14"></a>        wght_decay <span class="op">=</span> random.sample(weight_decay,<span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb16-15"><a href="#cb16-15"></a>        epoch <span class="op">=</span> random.sample(epochs,<span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb16-16"><a href="#cb16-16"></a>        drop_p <span class="op">=</span> random.sample(dropout_p,<span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb16-17"><a href="#cb16-17"></a>        r_seed <span class="op">=</span> random.sample(rs,<span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb16-18"><a href="#cb16-18"></a>        <span class="bu">print</span>(<span class="ss">f'lr:</span><span class="sc">{</span>lr<span class="sc">}</span><span class="ss"> wght_decay:</span><span class="sc">{</span>wght_decay<span class="sc">}</span><span class="ss"> epochs:</span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss"> hidden_l1nodes:</span><span class="sc">{</span>hdly1<span class="sc">}</span><span class="ss"> dropout_prob:</span><span class="sc">{</span>drop_p<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb16-19"><a href="#cb16-19"></a>        <span class="cf">for</span> train_index,valid_index <span class="kw">in</span> skf.split(X_train_ohe,Y_train_ohe): </span>
+<span id="cb16-20"><a href="#cb16-20"></a>            torch.manual_seed(r_seed)</span>
+<span id="cb16-21"><a href="#cb16-21"></a>            net <span class="op">=</span> mynet(<span class="dv">45</span>,drop_p,l1_out<span class="op">=</span>hdly1)</span>
+<span id="cb16-22"><a href="#cb16-22"></a>            optimizer <span class="op">=</span> torch.optim.Adam(net.parameters(),lr<span class="op">=</span>lr,weight_decay <span class="op">=</span> wght_decay)        </span>
+<span id="cb16-23"><a href="#cb16-23"></a>            loss_fn <span class="op">=</span> torch.nn.CrossEntropyLoss()</span>
+<span id="cb16-24"><a href="#cb16-24"></a>            <span class="co">#KFold</span></span>
+<span id="cb16-25"><a href="#cb16-25"></a>            train_index <span class="op">=</span> train_index.tolist()<span class="op">;</span>valid_index <span class="op">=</span> valid_index.tolist()</span>
+<span id="cb16-26"><a href="#cb16-26"></a>            X_tr <span class="op">=</span> X_train_ohe[train_index,:]<span class="op">;</span>y_tr <span class="op">=</span> Y_train_ohe[train_index]</span>
+<span id="cb16-27"><a href="#cb16-27"></a>            X_tst <span class="op">=</span> X_train_ohe[valid_index,:]<span class="op">;</span>y_valid <span class="op">=</span> Y_train_ohe[valid_index]</span>
+<span id="cb16-28"><a href="#cb16-28"></a></span>
+<span id="cb16-29"><a href="#cb16-29"></a>            <span class="co">#fitting</span></span>
+<span id="cb16-30"><a href="#cb16-30"></a>            <span class="cf">for</span> ep <span class="kw">in</span> <span class="bu">range</span>(epoch):</span>
+<span id="cb16-31"><a href="#cb16-31"></a>                net.train()</span>
+<span id="cb16-32"><a href="#cb16-32"></a>                <span class="co">#1 yhat</span></span>
+<span id="cb16-33"><a href="#cb16-33"></a>                yhat <span class="op">=</span> net(X_tr)</span>
+<span id="cb16-34"><a href="#cb16-34"></a>                <span class="co">#2 loss</span></span>
+<span id="cb16-35"><a href="#cb16-35"></a>                loss <span class="op">=</span> loss_fn(yhat,y_tr)</span>
+<span id="cb16-36"><a href="#cb16-36"></a>                <span class="cf">if</span> ep <span class="op">%</span> <span class="dv">50</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb16-37"><a href="#cb16-37"></a>                    <span class="cf">pass</span></span>
+<span id="cb16-38"><a href="#cb16-38"></a>                    <span class="co">#print(loss)</span></span>
+<span id="cb16-39"><a href="#cb16-39"></a>                <span class="co">#3 derivative</span></span>
+<span id="cb16-40"><a href="#cb16-40"></a>                loss.backward()</span>
+<span id="cb16-41"><a href="#cb16-41"></a>                <span class="co">#4 update</span></span>
+<span id="cb16-42"><a href="#cb16-42"></a>                optimizer.step()</span>
+<span id="cb16-43"><a href="#cb16-43"></a>                optimizer.zero_grad()</span>
+<span id="cb16-44"><a href="#cb16-44"></a>            train_yhat <span class="op">=</span> torch.argmax(net(X_tr),dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb16-45"><a href="#cb16-45"></a>            train_acc <span class="op">=</span> torch.mean((train_yhat<span class="op">==</span>y_tr).<span class="bu">float</span>())</span>
+<span id="cb16-46"><a href="#cb16-46"></a>            <span class="bu">print</span>(<span class="st">"trainacc : "</span>,train_acc)</span>
+<span id="cb16-47"><a href="#cb16-47"></a>            train_accs.append(train_acc)</span>
+<span id="cb16-48"><a href="#cb16-48"></a>            net.<span class="bu">eval</span>()</span>
+<span id="cb16-49"><a href="#cb16-49"></a>            <span class="cf">with</span> torch.no_grad():</span>
+<span id="cb16-50"><a href="#cb16-50"></a>                val_yhat <span class="op">=</span> torch.argmax(net(X_tst),dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb16-51"><a href="#cb16-51"></a>                val_acc <span class="op">=</span> torch.mean((val_yhat <span class="op">==</span> y_valid).<span class="bu">float</span>()).tolist()</span>
+<span id="cb16-52"><a href="#cb16-52"></a>                <span class="bu">print</span>(<span class="st">"validacc : "</span>,val_acc)</span>
+<span id="cb16-53"><a href="#cb16-53"></a>                val_accs.append(val_acc)</span>
+<span id="cb16-54"><a href="#cb16-54"></a>            <span class="cf">if</span> val_acc <span class="op">&lt;</span> <span class="fl">0.97</span>:</span>
+<span id="cb16-55"><a href="#cb16-55"></a>                <span class="cf">break</span></span>
+<span id="cb16-56"><a href="#cb16-56"></a></span>
+<span id="cb16-57"><a href="#cb16-57"></a>        valid_accuracy <span class="op">=</span> torch.mean(torch.tensor(val_accs))</span>
+<span id="cb16-58"><a href="#cb16-58"></a>        <span class="bu">print</span>(<span class="ss">f"K-Fold train accuracy </span><span class="sc">{</span>torch<span class="sc">.</span>mean(torch.tensor(train_accs))<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-59"><a href="#cb16-59"></a>        <span class="bu">print</span>(<span class="ss">f"K-Fold valid accuracy </span><span class="sc">{</span>torch<span class="sc">.</span>mean(torch.tensor(val_accs))<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-60"><a href="#cb16-60"></a>        <span class="bu">print</span>(<span class="st">"=========================================================="</span>)</span>
+<span id="cb16-61"><a href="#cb16-61"></a>        <span class="cf">if</span> valid_accuracy <span class="op">&gt;</span> <span class="fl">0.99</span>:</span>
+<span id="cb16-62"><a href="#cb16-62"></a>            path <span class="op">=</span> <span class="st">"./model</span><span class="sc">{}</span><span class="st">.pth"</span>.<span class="bu">format</span>(try_number)</span>
+<span id="cb16-63"><a href="#cb16-63"></a>            torch.save(net,path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>t <span class="op">=</span> dl_cv(epochs_list,weight_decay,lr,hidden_nodes,dropout_p,rs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>try:1...
+lr:0.007377374749498998 wght_decay:0.0003597194388777555 epochs:1480 hidden_l1nodes:1609 dropout_prob:0.6712712712712713
+trainacc :  tensor(0.9952)
+validacc :  0.9433962106704712
+K-Fold train accuracy 0.9952152967453003
+K-Fold valid accuracy 0.9433962106704712
+==========================================================
+try:2...
+lr:0.0031931863727454905 wght_decay:0.00048597194388777553 epochs:1900 hidden_l1nodes:1639 dropout_prob:0.786986986986987
+trainacc :  tensor(0.9952)
+validacc :  0.9433962106704712
+K-Fold train accuracy 0.9952152967453003
+K-Fold valid accuracy 0.9433962106704712
+==========================================================
+try:3...
+lr:0.00439438877755511 wght_decay:0.0006266533066132265 epochs:1920 hidden_l1nodes:1583 dropout_prob:0.7737737737737738
+trainacc :  tensor(0.9952)
+validacc :  0.9245283007621765
+K-Fold train accuracy 0.9952152967453003
+K-Fold valid accuracy 0.9245283007621765
+==========================================================
+try:4...
+lr:0.0018118036072144288 wght_decay:0.00023166332665330663 epochs:1960 hidden_l1nodes:1427 dropout_prob:0.6944944944944945
+trainacc :  tensor(1.)
+validacc :  0.9056603908538818
+K-Fold train accuracy 1.0
+K-Fold valid accuracy 0.9056603908538818
+==========================================================
+try:5...
+lr:0.0040340280561122245 wght_decay:0.0002983967935871743 epochs:1740 hidden_l1nodes:1544 dropout_prob:0.6948948948948949
+trainacc :  tensor(1.)
+validacc :  0.9622641801834106
+K-Fold train accuracy 1.0
+K-Fold valid accuracy 0.9622641801834106
+==========================================================
+try:6...
+lr:0.0032332264529058114 wght_decay:0.0007889779559118236 epochs:1860 hidden_l1nodes:1774 dropout_prob:0.7327327327327328
+trainacc :  tensor(0.9856)
+validacc :  0.9056603908538818
+K-Fold train accuracy 0.9856459498405457
+K-Fold valid accuracy 0.9056603908538818
+==========================================================
+try:7...
+lr:0.00995995991983968 wght_decay:0.0009585170340681363 epochs:1740 hidden_l1nodes:1363 dropout_prob:0.6546546546546547
+trainacc :  tensor(0.9809)
+validacc :  0.9433962106704712
+K-Fold train accuracy 0.980861246585846
+K-Fold valid accuracy 0.9433962106704712
+==========================================================
+try:8...
+lr:0.002092084168336672 wght_decay:0.0009314629258517034 epochs:1880 hidden_l1nodes:1740 dropout_prob:0.6902902902902903
+trainacc :  tensor(0.9952)
+validacc :  0.9245283007621765
+K-Fold train accuracy 0.9952152967453003
+K-Fold valid accuracy 0.9245283007621765
+==========================================================
+try:9...
+lr:0.009759759519038076 wght_decay:0.0007312625250501003 epochs:1780 hidden_l1nodes:1395 dropout_prob:0.6788788788788789
+trainacc :  tensor(0.9809)
+validacc :  0.9056603908538818
+K-Fold train accuracy 0.980861246585846
+K-Fold valid accuracy 0.9056603908538818
+==========================================================
+try:10...
+lr:0.006116112224448898 wght_decay:0.0004535070140280561 epochs:1820 hidden_l1nodes:1308 dropout_prob:0.6164164164164164
+trainacc :  tensor(0.9904)
+validacc :  0.9433962106704712
+K-Fold train accuracy 0.9904305934906006
+K-Fold valid accuracy 0.9433962106704712
+==========================================================
+try:11...
+lr:0.004634629258517034 wght_decay:0.0008935871743486974 epochs:1460 hidden_l1nodes:1605 dropout_prob:0.7099099099099099
+trainacc :  tensor(0.9952)
+validacc :  0.9433962106704712
+K-Fold train accuracy 0.9952152967453003
+K-Fold valid accuracy 0.9433962106704712
+==========================================================
+try:12...
+lr:0.006956953907815632 wght_decay:0.0006248496993987976 epochs:1620 hidden_l1nodes:1616 dropout_prob:0.7661661661661662
+trainacc :  tensor(0.9761)
+validacc :  0.9245283007621765
+K-Fold train accuracy 0.9760765433311462
+K-Fold valid accuracy 0.9245283007621765
+==========================================================
+try:13...
+lr:0.005035030060120241 wght_decay:0.0006825651302605211 epochs:1460 hidden_l1nodes:1382 dropout_prob:0.6962962962962963
+trainacc :  tensor(0.9904)
+validacc :  0.9622641801834106
+K-Fold train accuracy 0.9904305934906006
+K-Fold valid accuracy 0.9622641801834106
+==========================================================
+try:14...
+lr:0.006596593186372745 wght_decay:0.00027314629258517033 epochs:1780 hidden_l1nodes:1640 dropout_prob:0.7631631631631632
+trainacc :  tensor(0.9904)
+validacc :  0.9433962106704712
+K-Fold train accuracy 0.9904305934906006
+K-Fold valid accuracy 0.9433962106704712
+==========================================================
+try:15...
+lr:0.004814809619238477 wght_decay:0.0003002004008016032 epochs:1420 hidden_l1nodes:1746 dropout_prob:0.7347347347347347
+trainacc :  tensor(0.9904)
+validacc :  0.9433962106704712
+K-Fold train accuracy 0.9904305934906006
+K-Fold valid accuracy 0.9433962106704712
+==========================================================
+try:16...
+lr:0.006356352705410821 wght_decay:0.0008809619238476954 epochs:1700 hidden_l1nodes:1498 dropout_prob:0.7955955955955957
+trainacc :  tensor(0.9474)
+validacc :  1.0
+trainacc :  tensor(0.9665)
+validacc :  0.9622641801834106
+K-Fold train accuracy 0.9569377899169922
+K-Fold valid accuracy 0.9811320900917053
+==========================================================
+try:17...
+lr:0.003933927855711422 wght_decay:0.0009440881763527055 epochs:1620 hidden_l1nodes:1533 dropout_prob:0.7239239239239239</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>KeyboardInterrupt: </code></pre>
+</div>
+</div>
+<section id="assemble" class="level1">
+<h1>Assemble</h1>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>test_ohe <span class="op">=</span> torch.from_numpy(test_ohe.values).<span class="bu">float</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">import</span> os</span>
+<span id="cb21-2"><a href="#cb21-2"></a>path <span class="op">=</span> <span class="st">"C:/Users/22668/Desktop/새 폴더"</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>models <span class="op">=</span> []</span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="cf">for</span> model <span class="kw">in</span> os.listdir(path):</span>
+<span id="cb21-5"><a href="#cb21-5"></a>    md_path <span class="op">=</span> os.path.join(path,model)</span>
+<span id="cb21-6"><a href="#cb21-6"></a>    models.append(torch.load(md_path))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>assemble <span class="op">=</span> torch.zeros(test_ohe.shape[<span class="dv">0</span>],<span class="dv">3</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>assemble.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="93">
+<pre><code>torch.Size([175, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>soft <span class="op">=</span> torch.nn.Softmax(dim<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="cf">for</span> model <span class="kw">in</span> models:</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    net <span class="op">=</span> model</span>
+<span id="cb25-3"><a href="#cb25-3"></a>    yhat <span class="op">=</span> soft(model(test_ohe))</span>
+<span id="cb25-4"><a href="#cb25-4"></a>    assemble <span class="op">+=</span>yhat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>test_predict <span class="op">=</span> torch.argmax(assemble,dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-2"><a href="#cb26-2"></a>result <span class="op">=</span> pd.concat([pd.Series(id_test),pd.Series(test_predict)],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-3"><a href="#cb26-3"></a>result.columns <span class="op">=</span> [<span class="st">"id"</span>,<span class="st">"class"</span>]</span>
+<span id="cb26-4"><a href="#cb26-4"></a>class_map_inv <span class="op">=</span> {<span class="dv">0</span>:<span class="st">"A"</span>,<span class="dv">1</span>:<span class="st">"B"</span>,<span class="dv">2</span>:<span class="st">"C"</span>}</span>
+<span id="cb26-5"><a href="#cb26-5"></a>result[<span class="st">"class"</span>] <span class="op">=</span> result[<span class="st">"class"</span>].<span class="bu">map</span>(class_map_inv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="103">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>id</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TEST_000</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TEST_001</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>TEST_002</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>TEST_003</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>TEST_004</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>TEST_170</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>TEST_171</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>TEST_172</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>TEST_173</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>TEST_174</td>
+      <td>B</td>
+    </tr>
+  </tbody>
+</table>
+<p>175 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="104">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>result.to_csv(<span class="st">"./submission_dl.csv"</span>,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신호연">
+<meta name="dcterms.date" content="2023-01-12">
+
+<title>Hoyeon’s Blog - 차원축소를 위한 AutoEncoder</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Hoyeon’s Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">차원축소를 위한 AutoEncoder</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Competetion</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>신호연 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 12, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>데이콘 competetion - 데이터 차원축소하기</p>
+<section id="import" class="level1">
+<h1><span style="color:#00994c"><strong>import</strong></span></h1>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> random</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> os</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="im">from</span> sklearn <span class="im">import</span> preprocessing</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="im">import</span> torch</span>
+<span id="cb1-11"><a href="#cb1-11"></a>test_path <span class="op">=</span> <span class="st">"./test.csv"</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>train_path <span class="op">=</span> <span class="st">"./train.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># %pip install plotly (jupyter notebook)</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">from</span> plotly.offline <span class="im">import</span> iplot</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> plotly.graph_objs <span class="im">as</span> go</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="im">import</span> plotly.figure_factory <span class="im">as</span> ff</span>
+<span id="cb2-7"><a href="#cb2-7"></a>pio.renderers.default <span class="op">=</span> <span class="st">"plotly_mimetype+notebook"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level1">
+<h1><span style="color:#00994c"><strong>Data</strong></span></h1>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>train <span class="op">=</span> pd.read_csv(train_path).drop(columns <span class="op">=</span> [<span class="st">"id"</span>])</span>
+<span id="cb3-2"><a href="#cb3-2"></a>train_len <span class="op">=</span> <span class="bu">len</span>(train)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>test <span class="op">=</span> pd.read_csv(test_path)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>id_test <span class="op">=</span> test[<span class="st">"id"</span>]</span>
+<span id="cb3-5"><a href="#cb3-5"></a>test <span class="op">=</span> pd.read_csv(test_path).drop(columns <span class="op">=</span> [<span class="st">"id"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>dataset <span class="op">=</span> pd.concat([train,test],axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>dataset <span class="op">=</span> dataset.drop(columns <span class="op">=</span> [<span class="st">"father"</span>,<span class="st">"mother"</span>,<span class="st">"gender"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>dataset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>trait</th>
+      <th>SNP_01</th>
+      <th>SNP_02</th>
+      <th>SNP_03</th>
+      <th>SNP_04</th>
+      <th>SNP_05</th>
+      <th>SNP_06</th>
+      <th>SNP_07</th>
+      <th>SNP_08</th>
+      <th>SNP_09</th>
+      <th>SNP_10</th>
+      <th>SNP_11</th>
+      <th>SNP_12</th>
+      <th>SNP_13</th>
+      <th>SNP_14</th>
+      <th>SNP_15</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>A G</td>
+      <td>A G</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C C</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>2</td>
+      <td>A G</td>
+      <td>G G</td>
+      <td>C C</td>
+      <td>A A</td>
+      <td>C A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>C A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>C A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>2</td>
+      <td>A G</td>
+      <td>G G</td>
+      <td>C A</td>
+      <td>G A</td>
+      <td>C C</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>A G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>2</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>C C</td>
+      <td>G A</td>
+      <td>C A</td>
+      <td>A A</td>
+      <td>G A</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>G G</td>
+      <td>G G</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>A A</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>437 rows × 17 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="preprocessing" class="level1">
+<h1><span style="color:#00994c"><strong>Preprocessing</strong></span></h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>_t <span class="op">=</span> []</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="cf">for</span> val <span class="kw">in</span> dataset.SNP_01 <span class="op">==</span> <span class="st">"G G"</span>:</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">if</span> val <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb6-4"><a href="#cb6-4"></a>        _t.append(<span class="dv">1</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-6"><a href="#cb6-6"></a>        _t.append(<span class="dv">0</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a>dataset[<span class="st">"has01GG"</span>] <span class="op">=</span> _t</span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a>_t <span class="op">=</span> []</span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="cf">for</span> val <span class="kw">in</span> dataset.SNP_02 <span class="op">==</span> <span class="st">"A A"</span>:</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="cf">if</span> val <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb6-12"><a href="#cb6-12"></a>        _t.append(<span class="dv">1</span>)</span>
+<span id="cb6-13"><a href="#cb6-13"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-14"><a href="#cb6-14"></a>        _t.append(<span class="dv">0</span>)</span>
+<span id="cb6-15"><a href="#cb6-15"></a>dataset[<span class="st">"has02AA"</span>] <span class="op">=</span> _t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> create_col(dataset,col,value):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    _t <span class="op">=</span> []</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="cf">for</span> val <span class="kw">in</span> dataset[col] <span class="op">==</span> value:</span>
+<span id="cb7-4"><a href="#cb7-4"></a>        <span class="cf">if</span> val <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb7-5"><a href="#cb7-5"></a>            _t.append(<span class="dv">1</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a>        <span class="cf">else</span>:</span>
+<span id="cb7-7"><a href="#cb7-7"></a>            _t.append(<span class="dv">0</span>)</span>
+<span id="cb7-8"><a href="#cb7-8"></a>    </span>
+<span id="cb7-9"><a href="#cb7-9"></a>    col_name_base <span class="op">=</span> <span class="st">"has"</span><span class="op">+</span>col[<span class="op">-</span><span class="dv">2</span>:]</span>
+<span id="cb7-10"><a href="#cb7-10"></a>    value_name <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>    <span class="cf">for</span> <span class="bu">chr</span> <span class="kw">in</span> value:</span>
+<span id="cb7-12"><a href="#cb7-12"></a>        <span class="cf">if</span> <span class="bu">chr</span> <span class="op">!=</span> <span class="st">" "</span>:</span>
+<span id="cb7-13"><a href="#cb7-13"></a>            value_name<span class="op">+=</span><span class="bu">chr</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a>    col_name <span class="op">=</span> col_name_base<span class="op">+</span>value_name</span>
+<span id="cb7-15"><a href="#cb7-15"></a>    <span class="co">#print(col_name)</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>    dataset[col_name] <span class="op">=</span> _t</span>
+<span id="cb7-17"><a href="#cb7-17"></a></span>
+<span id="cb7-18"><a href="#cb7-18"></a>    <span class="cf">return</span> dataset</span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_03"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb7-21"><a href="#cb7-21"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_04"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb7-22"><a href="#cb7-22"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_05"</span>,<span class="st">"C C"</span>)</span>
+<span id="cb7-23"><a href="#cb7-23"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_06"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb7-24"><a href="#cb7-24"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_07"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_07"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb7-26"><a href="#cb7-26"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_08"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb7-27"><a href="#cb7-27"></a></span>
+<span id="cb7-28"><a href="#cb7-28"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_09"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb7-29"><a href="#cb7-29"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_09"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb7-30"><a href="#cb7-30"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_11"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb7-31"><a href="#cb7-31"></a></span>
+<span id="cb7-32"><a href="#cb7-32"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_12"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb7-33"><a href="#cb7-33"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_12"</span>,<span class="st">"G G"</span>)</span>
+<span id="cb7-34"><a href="#cb7-34"></a></span>
+<span id="cb7-35"><a href="#cb7-35"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_13"</span>,<span class="st">"A A"</span>)</span>
+<span id="cb7-36"><a href="#cb7-36"></a>dataset <span class="op">=</span> create_col(dataset,<span class="st">"SNP_14"</span>,<span class="st">"A A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#one-hot encoding for distance base algorithm</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>dataset_ohe <span class="op">=</span> pd.get_dummies(dataset,columns <span class="op">=</span> dataset.columns.drop(<span class="st">"class"</span>),drop_first<span class="op">=</span><span class="va">True</span>) <span class="co">#multicollinearity를 막기위한 drop_first 옵션</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>train_ohe <span class="op">=</span> dataset_ohe[:train_len].copy()</span>
+<span id="cb8-4"><a href="#cb8-4"></a>test_ohe <span class="op">=</span> dataset_ohe[train_len:].copy().drop(columns<span class="op">=</span><span class="st">"class"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a>class_map <span class="op">=</span> {<span class="st">"A"</span>:<span class="dv">0</span>,<span class="st">"B"</span>:<span class="dv">1</span>,<span class="st">"C"</span>:<span class="dv">2</span>}</span>
+<span id="cb8-7"><a href="#cb8-7"></a>train_ohe[<span class="st">"class"</span>]<span class="op">=</span>train_ohe[<span class="st">"class"</span>].<span class="bu">map</span>(class_map).astype(<span class="bu">int</span>)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>X_train_ohe <span class="op">=</span> train_ohe.drop(columns <span class="op">=</span> <span class="st">"class"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9"></a>Y_train_ohe <span class="op">=</span> train_ohe[<span class="st">"class"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>Y_train_ohe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>0      1
+1      2
+2      1
+3      0
+4      2
+      ..
+257    1
+258    2
+259    0
+260    0
+261    1
+Name: class, Length: 262, dtype: int32</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> torch</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>X_train_ohe <span class="op">=</span> torch.from_numpy(X_train_ohe.values).<span class="bu">float</span>()</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co">#y_train_ohe = torch.from_numpy(pd.get_dummies(Y_train_ohe).values).float()</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>Y_train_ohe <span class="op">=</span> torch.from_numpy(Y_train_ohe.values).<span class="bu">long</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>Y_train_ohe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>tensor([1, 2, 1, 0, 2, 1, 1, 1, 1, 2, 1, 1, 2, 2, 1, 0, 0, 0, 0, 2, 1, 1, 0, 1,
+        2, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 2, 1, 0, 1, 1, 1, 1, 1, 0, 2, 1, 1, 0,
+        2, 0, 0, 2, 0, 2, 1, 1, 0, 0, 2, 2, 1, 0, 2, 2, 0, 2, 2, 0, 1, 2, 2, 2,
+        0, 1, 1, 1, 2, 1, 2, 0, 1, 1, 2, 0, 2, 0, 2, 2, 2, 1, 1, 1, 2, 2, 1, 1,
+        2, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2,
+        1, 1, 2, 0, 0, 1, 1, 0, 2, 2, 2, 0, 1, 2, 0, 1, 2, 0, 2, 1, 1, 2, 2, 1,
+        1, 1, 2, 2, 0, 1, 0, 2, 2, 2, 1, 0, 1, 1, 1, 1, 1, 0, 1, 2, 1, 1, 1, 0,
+        0, 2, 2, 0, 0, 2, 2, 2, 2, 0, 2, 0, 0, 2, 0, 2, 2, 1, 1, 2, 1, 2, 2, 1,
+        1, 1, 0, 1, 1, 2, 1, 2, 0, 1, 0, 1, 0, 2, 2, 1, 2, 1, 2, 1, 0, 0, 1, 2,
+        0, 0, 2, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 2, 2, 1, 2, 1, 2, 1, 0, 2, 0,
+        0, 2, 2, 1, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 1, 1, 1, 2, 0, 0, 1])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>X_train_ohe.requires_grad <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>X_train_ohe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>tensor([[1., 0., 1.,  ..., 0., 1., 1.],
+        [1., 1., 0.,  ..., 0., 0., 1.],
+        [1., 0., 1.,  ..., 0., 1., 1.],
+        ...,
+        [0., 1., 0.,  ..., 1., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [1., 0., 1.,  ..., 0., 0., 1.]], requires_grad=True)</code></pre>
+</div>
+</div>
+</section>
+<section id="dimension-reduction-using-autoencoder-with-pytorch" class="level1">
+<h1><span style="color:#00994c"><strong>Dimension Reduction using autoencoder with pytorch</strong></span></h1>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">class</span> Encoder(nn.Module):</span>
+<span id="cb17-2"><a href="#cb17-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,in_features,encoding_features):</span>
+<span id="cb17-3"><a href="#cb17-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb17-4"><a href="#cb17-4"></a>        <span class="va">self</span>.in_features <span class="op">=</span> in_features</span>
+<span id="cb17-5"><a href="#cb17-5"></a>        <span class="va">self</span>.encoding_features <span class="op">=</span> encoding_features</span>
+<span id="cb17-6"><a href="#cb17-6"></a>        <span class="va">self</span>.linr <span class="op">=</span> torch.nn.Linear(in_features,encoding_features)</span>
+<span id="cb17-7"><a href="#cb17-7"></a>        <span class="va">self</span>.active_func <span class="op">=</span> torch.nn.ReLU()</span>
+<span id="cb17-8"><a href="#cb17-8"></a>    <span class="kw">def</span> forward(<span class="va">self</span>,x):</span>
+<span id="cb17-9"><a href="#cb17-9"></a>        out <span class="op">=</span> <span class="va">self</span>.active_func(<span class="va">self</span>.linr(x))</span>
+<span id="cb17-10"><a href="#cb17-10"></a>        <span class="cf">return</span> out</span>
+<span id="cb17-11"><a href="#cb17-11"></a>        </span>
+<span id="cb17-12"><a href="#cb17-12"></a><span class="kw">class</span> Decoder(nn.Module):</span>
+<span id="cb17-13"><a href="#cb17-13"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,encoding_features,out_features):</span>
+<span id="cb17-14"><a href="#cb17-14"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb17-15"><a href="#cb17-15"></a>        <span class="va">self</span>.encoding_features <span class="op">=</span> encoding_features</span>
+<span id="cb17-16"><a href="#cb17-16"></a>        <span class="va">self</span>.out_features <span class="op">=</span> out_features</span>
+<span id="cb17-17"><a href="#cb17-17"></a>        <span class="va">self</span>.linr <span class="op">=</span> torch.nn.Linear(encoding_features,out_features)</span>
+<span id="cb17-18"><a href="#cb17-18"></a>    <span class="kw">def</span> forward(<span class="va">self</span>,x):</span>
+<span id="cb17-19"><a href="#cb17-19"></a>        out <span class="op">=</span> <span class="va">self</span>.linr(x)</span>
+<span id="cb17-20"><a href="#cb17-20"></a>        <span class="cf">return</span> out</span>
+<span id="cb17-21"><a href="#cb17-21"></a></span>
+<span id="cb17-22"><a href="#cb17-22"></a><span class="kw">class</span> AutoEncoder(nn.Module):</span>
+<span id="cb17-23"><a href="#cb17-23"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,in_features,encoding_features):</span>
+<span id="cb17-24"><a href="#cb17-24"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb17-25"><a href="#cb17-25"></a>        out_features <span class="op">=</span> in_features</span>
+<span id="cb17-26"><a href="#cb17-26"></a>        <span class="va">self</span>.encoder <span class="op">=</span> Encoder(in_features,encoding_features)</span>
+<span id="cb17-27"><a href="#cb17-27"></a>        <span class="va">self</span>.decoder <span class="op">=</span> Decoder(encoding_features,out_features)</span>
+<span id="cb17-28"><a href="#cb17-28"></a>    <span class="kw">def</span> forward(<span class="va">self</span>,x):</span>
+<span id="cb17-29"><a href="#cb17-29"></a>        out <span class="op">=</span> <span class="va">self</span>.encoder(x)</span>
+<span id="cb17-30"><a href="#cb17-30"></a>        out <span class="op">=</span> <span class="va">self</span>.decoder(out)</span>
+<span id="cb17-31"><a href="#cb17-31"></a>        <span class="cf">return</span> out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="encoding-dimension3" class="level2">
+<h2 class="anchored" data-anchor-id="encoding-dimension3"><strong>encoding dimension=3</strong></h2>
+<section id="training-autoencoder" class="level3">
+<h3 class="anchored" data-anchor-id="training-autoencoder"><strong>training autoencoder</strong></h3>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>autoencoder <span class="op">=</span> AutoEncoder(<span class="dv">47</span>,<span class="dv">3</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>loss_fn <span class="op">=</span> torch.nn.MSELoss()</span>
+<span id="cb18-3"><a href="#cb18-3"></a>relu <span class="op">=</span> torch.nn.LeakyReLU()</span>
+<span id="cb18-4"><a href="#cb18-4"></a>optimizer <span class="op">=</span> torch.optim.Adam(autoencoder.parameters(),lr<span class="op">=</span><span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50000</span>):</span>
+<span id="cb19-2"><a href="#cb19-2"></a>    <span class="co">#1.yhat</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>    out <span class="op">=</span> autoencoder(X_train_ohe)</span>
+<span id="cb19-4"><a href="#cb19-4"></a>    <span class="co">#2</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>    loss <span class="op">=</span> loss_fn(out,X_train_ohe)</span>
+<span id="cb19-6"><a href="#cb19-6"></a>    <span class="co">#3</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>    loss.backward()</span>
+<span id="cb19-8"><a href="#cb19-8"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">10000</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb19-9"><a href="#cb19-9"></a>        <span class="bu">print</span>(<span class="ss">f"epoch:</span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss"> loss:</span><span class="sc">{</span>loss<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb19-10"><a href="#cb19-10"></a>    <span class="co">#4</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a>    optimizer.step()</span>
+<span id="cb19-12"><a href="#cb19-12"></a>    optimizer.zero_grad()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>epoch:0 loss:0.42684122920036316
+epoch:10000 loss:0.1271684169769287
+epoch:20000 loss:0.12717127799987793
+epoch:30000 loss:0.1271684169769287
+epoch:40000 loss:0.1271684169769287</code></pre>
+</div>
+</div>
+</section>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization"><strong>visualization</strong></h3>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>class_map_inv <span class="op">=</span> {}</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="cf">for</span> key,value <span class="kw">in</span> class_map.items():</span>
+<span id="cb21-3"><a href="#cb21-3"></a>    class_map_inv[value] <span class="op">=</span> key</span>
+<span id="cb21-4"><a href="#cb21-4"></a>class_map_inv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>{0: 'A', 1: 'B', 2: 'C'}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>dt_visual <span class="op">=</span> pd.DataFrame({<span class="st">"class"</span>:Y_train_ohe})</span>
+<span id="cb23-2"><a href="#cb23-2"></a>dt_visual <span class="op">=</span> pd.concat([pd.DataFrame(np.array(autoencoder.encoder(X_train_ohe).tolist())),dt_visual],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>dt_visual <span class="op">=</span> dt_visual.rename(columns <span class="op">=</span> {<span class="dv">0</span>:<span class="st">"x"</span>,<span class="dv">1</span>:<span class="st">"y"</span>,<span class="dv">2</span>:<span class="st">"z"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>data <span class="op">=</span> []</span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="cf">for</span> cl <span class="kw">in</span> dt_visual[<span class="st">"class"</span>].unique():</span>
+<span id="cb24-4"><a href="#cb24-4"></a>    cond <span class="op">=</span> dt_visual[<span class="st">"class"</span>] <span class="op">==</span> cl</span>
+<span id="cb24-5"><a href="#cb24-5"></a>    _data <span class="op">=</span> dt_visual.loc[cond,:]</span>
+<span id="cb24-6"><a href="#cb24-6"></a>    x <span class="op">=</span> _data.x.tolist()</span>
+<span id="cb24-7"><a href="#cb24-7"></a>    y <span class="op">=</span> _data.y.tolist()</span>
+<span id="cb24-8"><a href="#cb24-8"></a>    z <span class="op">=</span> _data.z.tolist()</span>
+<span id="cb24-9"><a href="#cb24-9"></a>    <span class="cf">if</span> count <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb24-10"><a href="#cb24-10"></a>        color <span class="op">=</span> <span class="st">"red"</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a>    <span class="cf">elif</span> count <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb24-12"><a href="#cb24-12"></a>        color <span class="op">=</span> <span class="st">"blue"</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-14"><a href="#cb24-14"></a>        color <span class="op">=</span> <span class="st">"black"</span></span>
+<span id="cb24-15"><a href="#cb24-15"></a>    trace<span class="op">=</span>go.Scatter3d(</span>
+<span id="cb24-16"><a href="#cb24-16"></a>        x<span class="op">=</span>x,</span>
+<span id="cb24-17"><a href="#cb24-17"></a>        y<span class="op">=</span>y,</span>
+<span id="cb24-18"><a href="#cb24-18"></a>        z<span class="op">=</span>z,</span>
+<span id="cb24-19"><a href="#cb24-19"></a>        mode<span class="op">=</span><span class="st">"markers"</span>,</span>
+<span id="cb24-20"><a href="#cb24-20"></a>        marker <span class="op">=</span> <span class="bu">dict</span>(color <span class="op">=</span> color,size<span class="op">=</span><span class="dv">5</span>),</span>
+<span id="cb24-21"><a href="#cb24-21"></a>        name <span class="op">=</span> <span class="bu">str</span>(class_map_inv[cl])</span>
+<span id="cb24-22"><a href="#cb24-22"></a>        )</span>
+<span id="cb24-23"><a href="#cb24-23"></a>    data.append(trace)</span>
+<span id="cb24-24"><a href="#cb24-24"></a>    count<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb24-25"><a href="#cb24-25"></a></span>
+<span id="cb24-26"><a href="#cb24-26"></a>layout <span class="op">=</span> go.Layout(title<span class="op">=</span><span class="bu">dict</span>(text <span class="op">=</span> <span class="st">"vectors"</span>))</span>
+<span id="cb24-27"><a href="#cb24-27"></a></span>
+<span id="cb24-28"><a href="#cb24-28"></a><span class="co">#4. figure</span></span>
+<span id="cb24-29"><a href="#cb24-29"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>data,layout<span class="op">=</span>layout)</span>
+<span id="cb24-30"><a href="#cb24-30"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>                            <div id="e74c7dd0-f815-4358-8853-5337daba173c" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("e74c7dd0-f815-4358-8853-5337daba173c")) {                    Plotly.newPlot(                        "e74c7dd0-f815-4358-8853-5337daba173c",                        [{"marker":{"color":"red","size":5},"mode":"markers","name":"B","x":[0.7287448644638062,1.0010780096054077,0.6236692667007446,0.5932351350784302,0.7304942607879639,1.1764321327209473,1.088253378868103,0.8178951740264893,0.956655740737915,0.6274889707565308,0.291228711605072,0.7745299339294434,0.334409236907959,0.6477258205413818,0.869594931602478,0.8626577854156494,0.3831942081451416,0.652696967124939,0.9172472953796387,1.2786558866500854,0.3111882507801056,1.0146572589874268,1.1203718185424805,0.21252545714378357,1.1750125885009766,0.7229776382446289,1.2723891735076904,0.23629498481750488,1.1675165891647339,0.31829243898391724,0.6895085573196411,1.2075504064559937,0.6402344703674316,0.8299438953399658,0.5660439729690552,0.7978328466415405,0.6061606407165527,1.350130558013916,0.6044902801513672,0.36035671830177307,0.17881526052951813,0.6500011682510376,0.42555636167526245,0.25431230664253235,0.46970972418785095,0.8157666921615601,0.994608998298645,0.8772716522216797,0.8239830732345581,0.5156887769699097,0.6895517110824585,0.2865370512008667,0.7682557106018066,0.9782238006591797,0.7420895099639893,0.587675929069519,0.2613491415977478,0.2163054198026657,1.2398399114608765,0.8656103610992432,0.24587279558181763,0.2163054198026657,0.28105753660202026,0.5775436162948608,0.6094040870666504,0.4031357765197754,0.14173106849193573,0.9173532724380493,0.5808334350585938,0.637535810470581,0.8840957880020142,0.7334777116775513,0.9563874006271362,0.6494042873382568,1.1621474027633667,1.21133291721344,0.7033116817474365,0.7050591707229614,0.33935829997062683,0.9082781076431274,0.3245072364807129,0.7147138118743896,0.08158273994922638,0.6808942556381226,1.0022218227386475,0.21015720069408417,0.7481198310852051,0.3081243336200714,1.0825234651565552,0.9908864498138428,0.6637191772460938,0.47514626383781433,0.84270179271698,0.3110846281051636,0.5823769569396973,0.6058917045593262,0.7845350503921509,0.5172426700592041,0.6456916332244873,0.32302534580230713,0.5999237298965454,0.7684893608093262,0.9725432395935059,0.914718508720398,0.8627541065216064,0.701553463935852,0.3884100914001465,0.40205395221710205,0.689782977104187,0.88141930103302,0.48175308108329773,0.12818273901939392,0.7920322418212891,0.7508078813552856],"y":[1.7514102458953857,1.3438307046890259,1.7610684633255005,1.8504717350006104,1.4548369646072388,2.0572643280029297,1.9911022186279297,1.919656753540039,1.5518888235092163,1.7875295877456665,1.613045573234558,1.9862691164016724,1.4643385410308838,1.6466292142868042,1.3881781101226807,1.8955094814300537,1.5457580089569092,1.8505284786224365,1.0763667821884155,1.908827304840088,1.3201225996017456,1.8258647918701172,2.2048940658569336,1.6030006408691406,2.0458130836486816,1.6474660634994507,1.8333691358566284,1.4640580415725708,1.8794595003128052,1.4136513471603394,1.6074259281158447,1.5375385284423828,1.7621084451675415,1.5153508186340332,1.6867833137512207,1.636640191078186,1.6269488334655762,2.018989086151123,1.441901445388794,1.4870036840438843,1.6929850578308105,1.7838691473007202,1.0157989263534546,1.2956745624542236,1.9285551309585571,1.4889765977859497,1.5035899877548218,1.7212326526641846,2.044334650039673,1.706223726272583,1.5063477754592896,1.1707228422164917,1.8470920324325562,1.941378116607666,1.66692316532135,1.5286437273025513,1.5986015796661377,1.5582189559936523,2.1260013580322266,1.412298321723938,1.2352718114852905,1.5582189559936523,1.439910888671875,1.3809027671813965,1.9366556406021118,1.2726516723632812,1.3117653131484985,1.8499740362167358,1.7145068645477295,1.3234398365020752,1.3250346183776855,1.6977472305297852,1.7673271894454956,1.753624439239502,1.7077957391738892,1.8469061851501465,1.6139757633209229,1.636983871459961,1.2795424461364746,1.5962064266204834,1.617587685585022,1.618587613105774,1.5405826568603516,1.8438365459442139,1.757642388343811,1.4343271255493164,1.1580181121826172,1.5355033874511719,1.6963387727737427,1.6018178462982178,1.401214599609375,1.8908206224441528,1.371212363243103,1.3317923545837402,1.451431393623352,1.6241836547851562,1.6266974210739136,1.537766695022583,1.4754947423934937,1.5148944854736328,1.004258155822754,1.8233331441879272,1.5120983123779297,1.5314024686813354,1.8779449462890625,1.4086661338806152,1.4449131488800049,1.5527088642120361,1.9612236022949219,1.7362688779830933,1.201279878616333,1.3324939012527466,1.4509742259979248,1.6847537755966187],"z":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"type":"scatter3d"},{"marker":{"color":"blue","size":5},"mode":"markers","name":"C","x":[1.6070455312728882,0.6157627105712891,0.6446654796600342,1.1621222496032715,1.3845446109771729,1.6567249298095703,1.1766369342803955,1.5091472864151,1.2365845441818237,1.488266110420227,1.5671577453613281,1.4800375699996948,1.1145567893981934,1.582314372062683,1.3939605951309204,1.7021913528442383,1.5993473529815674,1.400465965270996,1.4209827184677124,1.870284914970398,1.685299277305603,1.4280952215194702,1.0429083108901978,1.8414286375045776,0.9935051202774048,0.7489367723464966,1.1176362037658691,1.3267549276351929,1.374583125114441,0.600297749042511,1.0243008136749268,1.5101314783096313,1.4785703420639038,0.8047376871109009,1.5452691316604614,1.619153380393982,1.0531748533248901,1.4898015260696411,0.8446006774902344,1.1827648878097534,1.1867986917495728,1.520944595336914,1.7233843803405762,1.8766100406646729,1.114185094833374,1.5880223512649536,1.21502685546875,1.6151964664459229,0.9573060274124146,1.448145866394043,1.431506633758545,0.7994668483734131,1.237626552581787,1.132098913192749,1.4850531816482544,1.3511790037155151,1.0253351926803589,1.7805018424987793,1.0512142181396484,1.526026964187622,1.4809248447418213,1.7233439683914185,1.5451899766921997,1.3200269937515259,1.4144142866134644,0.802044153213501,1.011889100074768,1.4769431352615356,1.3882653713226318,1.614902377128601,1.6398789882659912,1.386112928390503,1.6160484552383423,1.1862776279449463,1.5353724956512451,1.7837793827056885,1.637697458267212,0.7574170827865601,1.4895914793014526],"y":[1.8194100856781006,1.7178535461425781,1.4129211902618408,2.088385581970215,1.7920562028884888,2.031278610229492,2.1677427291870117,2.0408477783203125,1.887076735496521,2.151674747467041,2.2086753845214844,1.838642954826355,1.7777132987976074,2.1905763149261475,1.4624429941177368,1.984438180923462,1.6423282623291016,2.1146469116210938,1.8367748260498047,2.1318423748016357,1.7678560018539429,1.5521414279937744,2.1110637187957764,1.919570803642273,1.6857293844223022,1.6502337455749512,2.15093994140625,1.9914406538009644,2.032966136932373,1.6238411664962769,1.4270031452178955,1.9634079933166504,1.539164423942566,1.522004246711731,1.8944915533065796,2.115143299102783,1.9442193508148193,1.9866911172866821,1.5276399850845337,1.3482483625411987,1.9772114753723145,1.8075735569000244,1.7862519025802612,2.0076677799224854,1.4579099416732788,2.122182607650757,2.1221189498901367,1.954649567604065,1.562760829925537,2.337347984313965,1.7127501964569092,1.5677452087402344,1.962225079536438,2.0491738319396973,2.0680856704711914,1.6910102367401123,1.5648231506347656,1.6987049579620361,1.588329553604126,1.8169701099395752,2.2577359676361084,2.1012301445007324,2.0065488815307617,1.9327284097671509,1.7315725088119507,1.9105746746063232,1.891921043395996,1.7805551290512085,1.7851017713546753,1.9424806833267212,1.9154125452041626,2.0216119289398193,1.8256911039352417,2.0751359462738037,2.0269086360931396,1.715688943862915,2.1457486152648926,1.6335078477859497,2.11746883392334],"z":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"type":"scatter3d"},{"marker":{"color":"black","size":5},"mode":"markers","name":"A","x":[1.833754062652588,1.7965145111083984,1.6825817823410034,1.9024925231933594,1.8464256525039673,1.9626610279083252,1.737215518951416,1.7964292764663696,1.8412129878997803,1.9531810283660889,1.6430163383483887,1.9742894172668457,1.7293126583099365,2.0643670558929443,1.9188902378082275,1.8820013999938965,1.9145504236221313,1.928855538368225,1.9707038402557373,1.944743037223816,1.958801031112671,1.8619141578674316,1.8359365463256836,1.9504420757293701,2.229975461959839,1.5893088579177856,1.754392385482788,1.9108904600143433,1.8578158617019653,1.8579179048538208,1.8401615619659424,1.736066222190857,1.896140456199646,1.9188902378082275,1.7660613059997559,1.9136276245117188,1.8297971487045288,1.8869686126708984,1.7437719106674194,2.116220474243164,1.9456766843795776,2.0661959648132324,1.6717395782470703,1.7242064476013184,2.1245908737182617,1.9438135623931885,2.0699615478515625,2.0742690563201904,1.757018804550171,1.9438135623931885,1.8121434450149536,1.8275781869888306,1.8221001625061035,1.5546603202819824,1.8694697618484497,1.8413195610046387,1.8772354125976562,1.901698112487793,2.1183266639709473,1.9145504236221313,1.8820013999938965,1.7725859880447388,1.833754062652588,1.9644397497177124,1.976086974143982,1.742598533630371,1.7420307397842407,1.9870409965515137,1.791124701499939],"y":[0.26109397411346436,0.26412975788116455,0.17782215774059296,0.9763458967208862,0.1886637955904007,0.16153009235858917,0.2802804708480835,0.772199273109436,1.0583093166351318,0.4734654724597931,0.3974893093109131,0.7365096807479858,0.3012884855270386,1.143513560295105,0.39008423686027527,0.015484146773815155,0.17871622741222382,0.5940769910812378,0.2017642706632614,0.0960259735584259,0.561764121055603,0.3634094297885895,0.19202940165996552,0.8873939514160156,1.026065468788147,0.561273455619812,0.20285196602344513,0.7628375291824341,0.19733785092830658,0.6812452077865601,0.07497832179069519,0.35869088768959045,0.4357307255268097,0.39008423686027527,0.6146464347839355,0.15150505304336548,0.5437822341918945,0.8878358602523804,0.1425073891878128,0.6941186189651489,0.906566858291626,0.1947692483663559,0.28469187021255493,0.21416474878787994,0.8891555070877075,0.14019227027893066,0.848289966583252,0.9902642965316772,0.72245192527771,0.14019227027893066,0.3078119158744812,0.1673259735107422,0.3092753291130066,1.1292517185211182,0.14915651082992554,0.10154005885124207,0.38499048352241516,0.007536999881267548,0.7754700183868408,0.17871622741222382,0.015484146773815155,0.46050557494163513,0.26109397411346436,0.08807876706123352,0.11127492785453796,0.18979117274284363,0.5176017880439758,0.4605375826358795,0.4259966015815735],"z":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"type":"scatter3d"}],                        {"title":{"text":"vectors"},"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('e74c7dd0-f815-4358-8853-5337daba173c');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+</section>
+<section id="encoding-dimension-10" class="level2">
+<h2 class="anchored" data-anchor-id="encoding-dimension-10"><strong>encoding dimension = 10</strong></h2>
+<section id="training-autoencoder-1" class="level3">
+<h3 class="anchored" data-anchor-id="training-autoencoder-1"><strong>training autoencoder</strong></h3>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>autoencoder <span class="op">=</span> AutoEncoder(<span class="dv">47</span>,<span class="dv">10</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>loss_fn <span class="op">=</span> torch.nn.MSELoss()</span>
+<span id="cb25-3"><a href="#cb25-3"></a>relu <span class="op">=</span> torch.nn.LeakyReLU()</span>
+<span id="cb25-4"><a href="#cb25-4"></a>optimizer <span class="op">=</span> torch.optim.Adam(autoencoder.parameters(),lr<span class="op">=</span><span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50000</span>):</span>
+<span id="cb26-2"><a href="#cb26-2"></a>    <span class="co">#1.yhat</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>    out <span class="op">=</span> autoencoder(X_train_ohe)</span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="co">#2</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>    loss <span class="op">=</span> loss_fn(out,X_train_ohe)</span>
+<span id="cb26-6"><a href="#cb26-6"></a>    <span class="co">#3</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a>    loss.backward()</span>
+<span id="cb26-8"><a href="#cb26-8"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">10000</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb26-9"><a href="#cb26-9"></a>        <span class="bu">print</span>(<span class="ss">f"epoch:</span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss"> loss:</span><span class="sc">{</span>loss<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-10"><a href="#cb26-10"></a>    <span class="co">#4</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a>    optimizer.step()</span>
+<span id="cb26-12"><a href="#cb26-12"></a>    optimizer.zero_grad()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>epoch:0 loss:0.06043163314461708
+epoch:10000 loss:0.06043798848986626
+epoch:20000 loss:0.06043170019984245
+epoch:30000 loss:0.060431692749261856
+epoch:40000 loss:0.060431867837905884</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
