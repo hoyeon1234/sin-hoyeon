@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-01-12">
 
-<title>Hoyeon’s Blog - 차원축소를 위한 AutoEncoder</title>
+<title>Hoyeon’s Blog - Dimension Reduction using Auto Encoder with pytorch &amp; Outlier Detection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -254,7 +254,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">차원축소를 위한 AutoEncoder</h1>
+      <h1 class="title">Dimension Reduction using Auto Encoder with pytorch &amp; Outlier Detection</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Competetion</div>
               </div>
@@ -835,7 +835,7 @@ if (outputEl) {{
 </section>
 </section>
 <section id="outlier-detection" class="level1">
-<h1><span style="color:#00994c"><strong><em>Outlier Detection</em></strong></span></h1>
+<h1><span style="color:#00994c"><strong>Outlier Detection</strong></span></h1>
 <ul>
 <li>3차원상에서 각각의 관측치를 표현 후, 클래스별로 독립변수의 중앙값 + IQR * 1.5이 1개 또는 2개 이상 넘어가는 관측치를 <strong>이상치(outlier)</strong>로 정함</li>
 <li>tukey method</li>
@@ -1162,13 +1162,17 @@ if (outputEl) {{
 </section>
 </section>
 <section id="결론" class="level1">
-<h1>결론</h1>
+<h1><span style="color:#00994c"><strong>결론</strong></span></h1>
 <ul>
 <li>1개를 기준으로 하면 너무 많은 데이터 손실발생 =&gt; 일단 기준을 2개로 잡은 것을 이상치로 규정</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>df.to_csv(<span class="st">"./outlierdetect.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="참고링크" class="level1">
+<h1><span style="color:#00994c"><strong>참고링크</strong></span></h1>
+<p><a href="https://dodonam.tistory.com/301">링크1</a><br> <a href="https://yamalab.tistory.com/116">링크2</a><br></p>
 
 
 </section>
