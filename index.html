@@ -71,7 +71,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
@@ -501,7 +502,7 @@ Multinomial Logistic Regression &amp; Softmax Regression
 <a href="./posts/Probability&amp;Statistics/Maximum likelyhood estimation/MLE.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./posts/Probability&amp;Statistics/Maximum likelyhood estimation/image.png" class="thumbnail-image card-img" style="height: 0.5;">
+<img data-src="./posts/Probability&amp;Statistics/Maximum likelyhood estimation/image.png" class="thumbnail-image card-img" style="height: 0.5;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -539,7 +540,7 @@ Maximum likelyhood estimation
 <a href="./posts/Deep learning/Logistic Regression.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./posts/Deep learning/thumbnails/Logistic Regression.png" class="thumbnail-image card-img" style="height: 0.5;">
+<img data-src="./posts/Deep learning/thumbnails/Logistic Regression.png" class="thumbnail-image card-img" style="height: 0.5;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -558,7 +559,7 @@ Logistic Regression
 <a href="./posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./posts/python/(1) allocation,variable,interning/image.png" class="thumbnail-image card-img" style="height: 0.5;">
+<img data-src="./posts/python/(1) allocation,variable,interning/image.png" class="thumbnail-image card-img" style="height: 0.5;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -577,7 +578,7 @@ Logistic Regression
 <a href="./posts/Deep learning/Linear Regression.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./posts/Deep learning/thumbnails/Linear Regression.png" class="thumbnail-image card-img" style="height: 0.5;">
+<img data-src="./posts/Deep learning/thumbnails/Linear Regression.png" class="thumbnail-image card-img" style="height: 0.5;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -615,6 +616,9 @@ pytorch로 Rnn구현하기
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
