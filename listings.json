@@ -19,17 +19,14 @@
       "/posts/Linear Algebra/rank and null space/rank and null space.html",
       "/posts/Linear Algebra/span과 columns space.html",
       "/posts/Linear Algebra/행렬곱에 대한 여러가지 시각.html",
-      "/posts/Deep learning/Multinomial Logistic Regression,Softmatx Regression.html",
-      "/posts/Linear Algebra/Multinomial Logistic Regression,Softmatx Regression.html",
+      "/posts/DL/Multinomial Logistic Regression,Softmatx Regression.html",
       "/posts/Probability&Statistics/categori distribution.html",
       "/posts/Probability&Statistics/Maximum likelyhood estimation/MLE.html",
       "/posts/Probability&Statistics/notation.html",
-      "/posts/Deep learning/Logistic Regression.html",
-      "/posts/Linear Algebra/Logistic Regression.html",
+      "/posts/DL/Logistic Regression.html",
       "/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html",
-      "/posts/Deep learning/Linear Regression.html",
-      "/posts/Deep learning/Pytorch Rnn 구현.html",
-      "/posts/Linear Algebra/Linear Regression.html"
+      "/posts/DL/Linear Regression.html",
+      "/posts/DL/Pytorch Rnn 구현.html"
     ]
   }
 ]

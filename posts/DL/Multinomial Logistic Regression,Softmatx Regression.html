@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신호연">
+<meta name="dcterms.date" content="2022-12-30">
+
+<title>Hoyeon’s Blog - Multinomial Logistic Regression &amp; Softmax Regression</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Hoyeon’s Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Multinomial Logistic Regression &amp; Softmax Regression</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Deep learning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>신호연 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 30, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>[Deep Learning Series - Part3]</p>
+<p>안녕하세요!!😀 이번 포스트에서는 다항로지스틱 회귀와 소프트맥스 회귀에 대해서 정리해보고자 합니다. 공부하면서 생각보다 모르는 내용이 많아서 다시 처음부터 공부하고 복습해야 하는 내용이 많았네요. 잡담은 그만하고 시작해보겠습니다!! 읽어주셔서 감사해요😎<br><br></p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>시작하기전 필요한 지식<br> <a href="https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&amp;Statistics/MLE.html">Maximum Likelyhood Estimation</a><br> <a href="https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&amp;Statistics/categori%20distribution.html">Category distribution</a><br> 이전 시리즈<br> <a href="https://hoyeon1234.github.io/sin-hoyeon/posts/deep%20learning/Deep%20learning%20theory/(2)%20Logistic%20Regression/Logistic%20Regression.html">[Deep Learning Series - Part2] - Logistic Regression</a><br></td>
+</tr>
+</tbody>
+</table>
+<section id="개요" class="level1">
+<h1><span style="color:#00994C"><strong>개요</strong></span></h1>
+<p><strong>로지스틱회귀</strong>에서는 종속변수 y가 0또는1의 2가지 범주만 가지는 <strong>이진분류문제</strong>를 해결할 수 있었습니다. <strong>다항로지스틱 회귀와 소프트맥스 회귀</strong>는 종속변수 y가 더 다양한 범주를 가지는 <strong>일반적인 분류문제</strong>를 해결할때 사용하는 모형입니다.</p>
+</section>
+<section id="problem-setting" class="level1">
+<h1><span style="color:#00994C"><strong>Problem Setting</strong></span></h1>
+<span class="math display">\[\begin{aligned}
+&amp;\text{Given, }D = {(x_{1,i},x_{2,i},\dots,x_{M,i},y_i})_{i=1}^{i=N} \\
+&amp;\text{where, $y_i$는 각각의 datapoint의 클래스를 원핫인코딩한 벡터} \\ \\
+&amp;\text{Goal : x가 입력될 때, 어떤 범주(y값)에 속하는지 예측하는 모형 만들기}
+\end{aligned}\]</span>
+</section>
+<section id="multinomial-logistic-regression" class="level1">
+<h1><span style="color:#00994C"><strong>Multinomial Logistic Regression</strong></span></h1>
+<p>다항로지스틱 회귀는 이진로지스틱 회귀를 확장하여 종속변수가 0또는1의 이진값이 아닌 더 많은 값을 가지는 문제를 가질때 분류하기위한 모형입니다.</p>
+<section id="가정-1" class="level2">
+<h2 class="anchored" data-anchor-id="가정-1"><strong>가정 (1)</strong></h2>
+<p>로지스틱회귀를 복기해보면… 종속변수 <span class="math inline">\(y_i\)</span>는 베르누이분포를 따르는 확률변수<span class="math inline">\(Y_i\)</span>로부터 샘플링된 값으로 가정했습니다. 또한 베르누이분포의 모수<span class="math inline">\(W\)</span>는 주어진 조건인 <span class="math inline">\(X_i\)</span>와 회귀계수(가중치)<span class="math inline">\(W\)</span>의 일차결합으로 가정했습니다. 이렇게 모수를 가정하면서 베르누이분포의 확률질량함수도 새로운 모수<span class="math inline">\(W\)</span>를 가지게되었고 W를 적절히 추정하면 데이터가 0또는1에 속할 확률을 알아내게 되어 확률이 더 높은 클래스를 주어진데이터에 대한 클래스로 예측했었습니다.다항로지스틱회귀와 소프트맥스회귀에서도 이러한 과정 즉,분포를 가정하고 데이터를 기반으로 모수를 추정하여 확률분포를 기반으로 예측하는 매커니즘은 거의 그대로입니다.<br></p>
+먼저 다항로지스틱회귀와 소프트맥스회귀에서 종속변수에 대한 가정을 해보겠습니다. 다항로지스틱 회귀와 소프트맥스회귀에서 모두 각각의 관측치(each observation)에서 종속변수의 realization인 <span class="math inline">\(y_i\)</span>는 확률변수<span class="math inline">\(Y_i\)</span>로부터 표본추출(sampling)되었다고 가정합니다. 이때 각각의 관측치에서의 확률변수 <span class="math inline">\(Y_i\)</span>가 따르는 분포는 설명변수 <span class="math inline">\(x_{1,i},x_{2,i},\dots,x_{M,i}\)</span>가 조건으로 주어질 때, 각각의 범주(클래스)에 속할 확률들을 모수로 가지는 카테고리분포를 따릅니다.
+<span class="math display">\[\begin{aligned}
+&amp;
+\begin{aligned}
+Y_i|x_{1,i},x_{2,i},\dots,x_{M,i} \sim \text{Cat}(y|x_{1,i},x_{2,i},\dots,x_{M,i};\mu_i)
+&amp; =
+\begin{cases}
+\mu_{1,i} \text{ if } y = (1,0,\dots,0,0) \\
+\mu_{2,i} \text{ if } y = (0,1,\dots,0,0) \\
+\quad\quad \vdots \\
+\mu_{K,i} \text{ if } y = (0,0,\dots,0,1) \\
+\end{cases} \\
+&amp;= \mu_{1,i}^{y_1}\mu_{2,i}^{y_2},\dots,\mu_{K,i}^{y_K} \\
+&amp;= \prod_{K=1}^{K}\mu_{K,i}y_{K,i} \\
+\end{aligned} \\
+&amp;
+\begin{aligned}
+&amp;\text{where, }\\
+&amp;\mu_i = {\mu_{1,i},\mu_{2,i},\dots,\mu_{K,i}} \\
+&amp;\mu_{1,i} = Pr(Y_i = (1,0,\dots,0)|x_{1,i},\dots,x_{M,i}) \\
+&amp;\mu_{2,i} = Pr(Y_i = (0,1,\dots,0)|x_{1,i},\dots,x_{M,i}) \\
+&amp;\quad \quad \quad \quad \quad \quad \quad \quad \vdots \\
+&amp;\mu_{K,i} = Pr(Y_i = (0,0,\dots,0,1)|x_{1,i},\dots,x_{M,i}) \\
+\end{aligned}\\
+\end{aligned}\]</span>
+</section>
+<section id="가정-2" class="level2">
+<h2 class="anchored" data-anchor-id="가정-2"><strong>가정 (2)</strong></h2>
+각각의 관측치에서 확률변수<span class="math inline">\(Y_i\)</span>가 따르는 카테고리분포의 모수<span class="math inline">\(\mu_i\)</span>는 <span style="color:blue"><strong>데이터포인트마다 다른 설명변수(X_i)와 시행마다 변하지 않는 고정된 회귀계수(W)의 일차결합을 포함하는 수식으로 표현됩니다.</strong></span> 주어진 <span style="color:blue"><strong>X값을 W와 일차결합하여 추정하고자 하는 값을 표현하는 선형회귀의 핵심아이디어</strong></span>이자 대부분의 회귀문제에서 사용하는 중요한 아이디어 입니다.<br>
+<span class="math display">\[\begin{aligned}
+&amp;\mu_{k,i}  = \mu_{k,i}(X_i;W_{k,i}) = \mu_{k,i}(X_iW_{k,i}) =  Pr(Y_i = (0,\dots,1_{k-th},0,\dots,0)|X_i)\\
+&amp;\text{where},\\
+&amp;w_{m,k} : \text{$k$번째 모수를 표현하기위해 $m$번째 값과 곱해지는 가중치} \\
+&amp;x_{m,i} : \text{i-th 관측치의 $m$번째 독립변수의 값} \\
+&amp;X_i = [x_{0,i},x_{1,i},\dots,x_{M,i}]^{\text{T}}\text{ : i-th관측치의 feature vector(단,$x_{0,i}$ = 1)} \\
+&amp;W_k = [w_{0,k},w_{1,k},\dots,w_{M,k}]^{\text{T}}\text{ : 카테고리 분포의 임의의 k-th 모수$\mu_k$를 구하기 위한 가중치를 모아놓은 벡터} \\
+&amp;\mu_{k,i} = \text{i-th 관측치의 $k$번째 모수}
+\end{aligned}\]</span>
+</section>
+<section id="xw의-선형조합을-포함한-모수의-표현-유도하기" class="level2">
+<h2 class="anchored" data-anchor-id="xw의-선형조합을-포함한-모수의-표현-유도하기"><strong>X,W의 선형조합을 포함한 모수의 표현 유도하기</strong></h2>
+<p>위에서 언급했듯이 대부분의 회귀에서 모델링의 핵심아이디어는 추정하고자 하는 대상을 설명변수와 가중치의 일차결합(선형조합)이 포함되도록 표현하는 것입니다. 다항로지스틱회귀도 추정하고자 하는 모수<span class="math inline">\(\mu_i = (\mu_{1,i},\mu_{2,i},\dots,\mu_{K,i})\)</span>를 각각을 설명변수와 가중치의 일차결합으로 표현해야 합니다.이진로지스틱회귀와에서도 이렇게 모수를 표현했었는데 다항로지스틱회귀에서는 일차결합으로 표현해야할 모수가 좀 더 많습니다. -_-;;</p>
+차근차근 한번 유도해보겠습니다. 일단 K개의 모수를 표현하는 일차결합을 만들어줍니다. 이러한 일차결합에서 x는 관측치마다 존재하는 설명변수의 값에 따라서 회귀계수(가중치)인 W는 관측치에 따라서 변하지 않는 일정한 값입니다.<br><br>
+<span class="math display">\[\begin{aligned}
+&amp;\mu_{1,i} = Pr(Y_i=(1,0,0,\dots,0)|X_i;W_1)\quad \\
+&amp;\quad\,\,\, = w_{0,1}x_{0,i}+w_{1,1}x_{1,i} + w_{2,1}x_{2,i} + \dots \ + w_{M,1}x_{M,i} = W_1^TX_i-\text{ln}Z \\
+&amp;\mu_{2,i} = Pr(Y_i=(0,1,0,\dots,0)|X_i;W_2) = \\
+&amp;\quad\,\,\, = w_{0,2}x_{0,i}+w_{1,2}x_{1,i} + w_{2,2}x_{2,i} + \dots \ + w_{M,2}x_{M,i} = W_2^TX_i-\text{ln}Z \\
+&amp;\mu_{3,i} = Pr(Y_i = (0,0,1,\dots,0)|X_i;W_2)) = \\
+&amp;\quad\,\,\, = w_{0,3}x_{0,i}+w_{1,3}x_{1,i} + w_{2,3}x_{2,i} + \dots \ + w_{M,3}x_{M,i} = W_3^TX_i-\text{ln}Z \\
+&amp;\quad \quad \quad \quad \quad \quad \quad \quad \quad  \quad \quad \quad \quad \quad \quad \quad  \quad \vdots \\
+&amp;\mu_{k,i} = Pr(Y_i = (0,0,\dots,1_{k-th},\dots,0,0)|X_i;W_k)) \\
+&amp;\quad\,\,\,= w_{0,k}x_{0,i}+w_{1,k}x_{1,i} + w_{2,k}x_{2,i} + \dots +w_{m,k}x_{m,i} \dots + w_{M,k}x_{M,i} = W_k^TX_i {\text{ (임의의 k번째 항)}}\\  
+&amp;\quad \quad \quad \quad \quad \quad \quad \quad \quad  \quad \quad \quad \quad \quad \quad \quad  \quad \vdots \\
+&amp;\mu_{K-1,i} = Pr(Y_i = (0,0,0,\dots,1,0)|X_i;W_{K-1})) \\
+&amp;\quad\,\,\,= w_{0,K}x_{0,i}+w_{1,K-1}x_{1,i} + w_{2,K-1}x_{2,i} + \dots \ + w_{M,K-1}x_{M,i} = W_{K-1}^TX_i \\ \\
+&amp;where,\\
+&amp;w_{m,k} : \text{$k$번째 모수를 표현하기위해 $m$번째 값과 곱해지는 가중치} \\
+&amp;x_{m,i} : \text{i-th 관측치의 $m$번째 독립변수의 값} \\
+&amp;X_i = [x_{0,i},x_{1,i},\dots,x_{M,i}]^{\text{T}}\text{ : i-th관측치의 feature vector(단,$x_{0,i}$ = 1)} \\
+&amp;W_k : [w_{0,k},w_{1,k},\dots,w_{M,k}]^{\text{T}}\text{ : 카테고리 분포의 임의의 k-th 모수$\mu_k$를 구하기 위한 가중치를 모아놓은 벡터} \\
+\end{aligned}\]</span>
+<p><br><br> 한 가지 유의해야 할 점은 마지막 모수는 일차결합으로 표현하지 않는다는 것입니다. 카테고리분포에서 모수의 총합은 1이기 때문에 마지막 <span class="math inline">\(K\)</span>번째 모수는 1에서 전부 빼면 되기 때문입니다.</p>
+<p>그런데 섣불리 일차결합을 만들다보니 … 좌변에 있는 모수는 <span class="math inline">\([0,1]\)</span>의 범위이고 우변은 <span class="math inline">\([-\infty,\infty]\)</span>의 범위이므로 가지므로 양변의 범위가 전혀 맞지 않습니다. 그러므로 좌변을 Odds Ratio(엄밀히 Odds Ratio는 아니지만 통일성을 위해 Odds Ratio라고 하겠습니다.) + Logit transform을 취하여 좌변이 우변과 같은 범위를 가질 수 있도록 확장하여 줍니다. (로그안에 있는 분모가 K번째 클래스에 대한 항임을 유의합니다.)<br><br> <span class="math display">\[\text{ln}\frac{\mu_{k,i}}{Pr(Y_i = (0,\dots,0,1)|X_i)} = \text{ln}\frac{Pr(Y_i = (0,\dots,1_{k-th},0,\dots,0)|X_i;W_k)}{Pr(Y_i = (0,\dots,0,1)|X_i)} = W_k^TX_i\]</span></p>
+원래의 목적은 모수에 대한 일차결합이 포함된 항을 얻는 것이었습니다. 그러므로 정리하여 모수에 대한 표현을 얻습니다.<br><br>
+<span class="math display">\[\begin{aligned}
+\mu_{k,i} = Pr(Y_i = (0,\dots,0,1_{k-th},0,\dots,0|X_i;W_k) = Pr(Y_i = K|X_i)e^{X_iW_k}
+\end{aligned}\]</span>
+여기까지 해서 모수에 대한 표현을 얻었습니다. 다만 <span class="math inline">\(Y_i\)</span>가 <span class="math inline">\(K\)</span>번째 클래스에 대한 확률은 카테고리분포에서의 모수에 대한 제약조건을 활용하여 더 간단하게 바꿀 수 있습니다.<br><br>
+<span class="math display">\[\begin{aligned}
+&amp;Pr(Y_i = K|X_i) = 1- \sum_{k=1}^{K-1}Pr(Y_i = K|X_i)e^{X_iW_k} = 1-Pr(Y_i = K|X_i)\sum_{k=1}^{K-1}e^{X_iW_k} \\
+&amp;\Longleftrightarrow Pr(Y_i = K|X_i) = \frac{1}{1+\sum_{k=1}^{K-1}e^{X_iW_k}}
+\end{aligned}\]</span>
+더 간단하게 표현된 항으로 다시 정리하여 쓰면 다음과 같습니다.<br><br>
+<span class="math display">\[\begin{aligned}
+&amp;\mu_{k,i}=Pr(Y_i = k|X_i) = Pr(Y_i = K|X_i)e^{X_iW_k} = \frac{e^{X_iW_k}}{1+\sum_{j=1}^{K-1}e^{X_iW_j}}\\
+&amp;\text{인덱스 겹치므로 시그마의 $k \rightarrow j$}
+\end{aligned}\]</span>
+<br><br> 최종적으로 카테고리 분포의 모수는 다음과 같습니다. 전개하는 과정이 마지막 <span class="math inline">\(K\)</span>번째 항은 제외한채 진행되었으므로 K번째 항에대한 확률은 따로 써줍니다.<br><br>
+<span class="math display">\[\begin{aligned}
+&amp;\mu_{k,i}=Pr(Y_i = k|X_i) = \frac{e^{X_iW_k}}{1+\sum_{j=1}^{K-1}e^{X_iW_j}} \text{(단, $k != K$)}\\
+&amp;\mu_{K,i}=Pr(Y_i = K|X_i) = \frac{1}{1+\sum_{j=1}^{K-1}e^{X_iW_k}}
+\end{aligned}\]</span>
+</section>
+<section id="estimation" class="level2">
+<h2 class="anchored" data-anchor-id="estimation"><strong>Estimation</strong></h2>
+<p>더 공부해 오겠습니다 ^__^;;</p>
+</section>
+</section>
+<section id="softmax-regression" class="level1">
+<h1><span style="color:#00994C"><strong>Softmax Regression</strong></span></h1>
+<p>소프트맥스 회귀 다항 로지스틱 회귀와 마찬가지로 이진로지스틱 회귀를 확장하여 종속변수가 0또는1의 이진값이 아닌 더 일반적인 분류문제를 해결하기 위한 문제입니다. 두 분류모형간 가장 큰 차이점이라면 유도과정 시 다항로지스틱회귀에서는 마지막 모수를 설명변수와 가중치의 일차결합으로 나타내지 않은 반면 소프트맥스 회귀에서는 마지막 클래스의 모수도 설명변수와 반응변수의 일차결합으로 나타낸다는 점입니다.</p>
+<section id="가정" class="level2">
+<h2 class="anchored" data-anchor-id="가정"><strong>가정</strong></h2>
+<p>소프트맥스회귀의 가정은 로지스틱회귀의 가정과 습니다. 각 datapoint에서의 종속변수의 값은 카테고리분포를 따르는 확률변수에서 샘플링되었으며 카테고리분포의 모수는 각 datapoint마다 변하는 설명변수와 회귀계수(가중치)의 일차결합으로 표현됩니다.</p>
+</section>
+<section id="xw의-선형조합을-포함한-모수의-표현-유도하기-1" class="level2">
+<h2 class="anchored" data-anchor-id="xw의-선형조합을-포함한-모수의-표현-유도하기-1"><strong>X,W의 선형조합을 포함한 모수의 표현 유도하기</strong></h2>
+<p>소프트맥스 회귀마찬가지로 추정하고자 하는 모수를 설명변수와 가중치의 일차결합이 포함된 항으로 표현합니다.</p>
+먼저 설명변수와 가중치의 일차결합형태로 모수를 나타냅니다. 임의의 i번째 관측치가 각각의 범주에 <span class="math inline">\((1,2,...,K)\)</span> 속할 확률을 의미하는 모수는 다음과 같습니다.<br>
+<span class="math display">\[\begin{aligned}
+&amp;\mu_{1,i} = Pr(Y_i=(1,0,0,\dots,0)|X_i;W_1)\quad \\
+&amp;\quad\,\,\, = w_{0,1}x_{0,i}+w_{1,1}x_{1,i} + w_{2,1}x_{2,i} + \dots \ + w_{M,1}x_{M,i} = W_1^TX_i-\text{ln}Z \\
+&amp;\mu_{2,i} = Pr(Y_i=(0,1,0,\dots,0)|X_i;W_2) = \\
+&amp;\quad\,\,\, = w_{0,2}x_{0,i}+w_{1,2}x_{1,i} + w_{2,2}x_{2,i} + \dots \ + w_{M,2}x_{M,i} = W_2^TX_i-\text{ln}Z \\
+&amp;\mu_{3,i} = Pr(Y_i = (0,0,1,\dots,0)|X_i;W_2)) = \\
+&amp;\quad\,\,\, = w_{0,3}x_{0,i}+w_{1,3}x_{1,i} + w_{2,3}x_{2,i} + \dots \ + w_{M,3}x_{M,i} = W_3^TX_i-\text{ln}Z \\
+&amp;\quad \quad \quad \quad \quad \quad \quad \quad \quad  \quad \quad \quad \quad \quad \quad \quad  \quad \vdots \\
+&amp;\mu_{k,i} = Pr(Y_i = (0,0,\dots,1_{k-th},\dots,0,0)|X_i;W_k)) \\
+&amp;\quad\,\,\,= w_{0,k}x_{0,i}+w_{1,k}x_{1,i} + w_{2,k}x_{2,i} + \dots +w_{m,k}x_{m,i} \dots + w_{M,k}x_{M,i} = W_k^TX_i \\  
+&amp;\quad \quad \quad \quad \quad \quad \quad \quad \quad  \quad \quad \quad \quad \quad \quad \quad  \quad \vdots \\
+&amp;\mu_{K-1,i} = Pr(Y_i = (0,0,0,\dots,1,0)|X_i;W_{K-1})) \\
+&amp;\quad\,\,\,= w_{0,K}x_{0,i}+w_{1,K-1}x_{1,i} + w_{2,K-1}x_{2,i} + \dots \ + w_{M,K-1}x_{M,i} = W_{K-1}^TX_i \\ \\
+&amp;where,\\
+&amp;w_{m,k} : \text{$k$번째 모수를 표현하기위해 $m$번째 값과 곱해지는 가중치} \\
+&amp;x_{m,i} : \text{i-th 관측치의 $m$번째 독립변수의 값} \\
+&amp;X_i = [x_{0,i},x_{1,i},\dots,x_{M,i}]^{\text{T}}\text{ : i-th관측치의 feature vector(단,$x_{0,i}$ = 1)} \\
+&amp;W_k : [w_{0,k},w_{1,k},\dots,w_{M,k}]^{\text{T}}\text{ : 카테고리 분포의 임의의 k-th 모수$\mu_k$를 구하기 위한 가중치를 모아놓은 벡터} \\
+\end{aligned}\]</span>
+이렇게 나타내고 보니 좌변과 0~1사이의 수만 갖지만 우변은 어떤 수던지 나올 수 있습니다. 범위를 맞춰 주기 위해서 좌변에 로그를 씌워 로그확률로 만들어줍니다. 추가적으로 우변에 <span class="math inline">\(-lnZ\)</span>라는 normalizating factor를 더해줍니다. 다음과정에서 카테고리분포의 모수의 합이 1이되도록 하는 확률질량함수의 특징을 유지하기 위해서 사용합니다.<br>
+<span class="math display">\[\begin{aligned}
+&amp;\text{ln}\mu_{1,i} = w_{0,1}x_{0,i}+w_{1,1}x_{1,i} + w_{2,1}x_{2,i} + \dots \ + w_{M,1}x_{M,i} = W_1^TX_i-\text{ln}Z \\
+\\
+&amp;\text{ln}\mu_{2,i} = w_{0,2}x_{0,i}+w_{1,2}x_{1,i} + w_{2,2}x_{2,i} + \dots \ + w_{M,2}x_{M,i} = W_2^TX_i-\text{ln}Z \\
+\\
+&amp;\quad \quad \quad \quad \quad \quad \quad \quad \quad  \quad \quad \quad \quad \quad \quad \quad  \quad \vdots \\
+&amp;\text{ln}\mu_{k,i} = w_{0,k}x_{0,i}+w_{1,k}x_{1,i} + w_{2,k}x_{2,i} + \dots +w_{m,k}x_{M,i} \dots + w_{M,k}x_{M,i} = W_k^TX_i-\text{ln}Z \\
+\\
+&amp;\quad \quad \quad \quad \quad \quad \quad \quad \quad  \quad \quad \quad \quad \quad \quad \quad  \quad \vdots \\
+&amp;\text{ln}\mu_{K-1,i} = w_{0,K}x_{0,i}+w_{1,K-1}x_{1,i} + w_{2,K-1}x_{2,i} + \dots \ + w_{M,K-1}x_{M,i} = W_{K-1}^TX_i-\text{ln}Z \\
+\\
+\end{aligned}\]</span>
+<p>따라서,임의의 <span class="math inline">\(k\)</span>번째 모수는 다음과 같습니다.<br> <span class="math display">\[\mu_{k,i} = Pr(Y_i = (0,0,\dots,1_{k-th}|X_i;W_k) = \frac{1}{Z}e^{W_k^TX_i}\]</span></p>
+카테고리분포의 제약조건 즉,모수는 각각의 범주에 속할 확률을 나타내므로 총합이 1임을 활용합니다. 이를 활용하여 Z를 표현하면 다음과 같습니다.<br>
+<span class="math display">\[\begin{aligned}
+&amp;\sum_{k=1}^{K}{\mu_{k,i}} =\sum_{k=1}^{K}{Pr(Y_i=k)}= \frac{1}{Z}\sum_{k=1}^{K}e^{W_k^TX_i} = 1\\
+&amp;\Longleftrightarrow Z = \sum_{k=1}^{K}e^{W_k^TX_i}
+\end{aligned}\]</span>
+<p>최종적으로, 결과를 정리하면 다음과 같습니다. - 추정하고자하는 카테고리분포의 모수는 <span class="math inline">\(\mu_k\)</span>는 <span class="math inline">\(W_k\)</span>와 <span class="math inline">\(X_i\)</span>의 일차결합으로 표현되었습니다. 이는 소프트맥스 함수이므로 소프트맥스 회귀라는 이름이 붙었습니다.<br> <span class="math display">\[\mu_{c,i}(X_i;W) = Pr(Y_i = (0,0,\dots,1_{c-th},0,\dots,0)|X_i;W_k) = \frac{e^{W_c^TX_i}}{\sum_{k=1}^{K}e^{W_k^TX_i}} = softmax(c,W_1^TX_i,W_2^TX_i,\dots,W_K^TX_i)\]</span> - 카테고리분포의 위에서 구한 모수로 다시 정리하면 확률질량 함수는 새로운 모수 <span class="math inline">\(W_1,W_2,\dots,W_K\)</span>를 가집니다.(인덱스 <span class="math inline">\(k-&gt;j,c-&gt;k\)</span>) <span class="math display">\[Y_i \sim Cat(y|X_i;W_1,W_2,\dots,W_K) = \prod_{k=1}^{K}\frac{e^{W_k^TX_i}}{\sum_{j=1}^{K}e^{W_j^TX_i}}\]</span></p>
+</section>
+<section id="mle" class="level2">
+<h2 class="anchored" data-anchor-id="mle"><span style="color:"><strong>MLE</strong></span></h2>
+<p>여기까지의 과정으로부터 카테고리분포의 모수는 설명변수와 가중치(회귀계수)의 일차결합으로 표현되며 또한 확률질량함수가 새로운 모수 <span class="math inline">\(W = (W_1,W_2,\dots,W_K)\)</span>로 표현되었습니다.만약 카테고리분포의 모수만 추정할 수 있다면 우리는 데이터포인트가 어떤 범주에 속할 확률이 가장 높은지 알 수 있으며 범주를 분류할 수 있습니다. 여기서는 카테고리분포의 모수<span class="math inline">\(W\)</span>를 MLE로 추정합니다.<br></p>
+확률분포에서 임의의 모수<span class="math inline">\(W = (W_1,W_2,\dots,W_K)\)</span>를 가정할 때, 확률변수 <span class="math inline">\(Y_1,Y_2,\dots,Y_N\)</span>으로부터 realization인 <span class="math inline">\(y_1,y_2,\dots,y_N\)</span>이 나올 가능도는 다음과 같습니다.<br>
+<span class="math display">\[\begin{aligned}
+&amp;
+\begin{aligned}
+L({W};X_i|y_1,y_2,\dots,y_n) &amp;= Pr_{Y_1,Y_2,\dots,Y_N}(y1,y2,\dots,y_n|X_i;W)\\
+&amp;= \prod_{i=1}^{N}Pr_{Y_i}(Y_i=y_i|X_i;W) \\
+&amp;= \prod_{i=1}^{N}\prod_{k=1}^{K}\frac{e^{W_k^TX_i}}{\sum_{j=1}^{K}e^{W_j^TX_i}}\\
+\end{aligned}
+\\
+&amp;\text{where } \{W\} = \{W1,W2,\dots,W_N\}
+\end{aligned}\]</span>
+위와 같은 가능도를 최소화 하는 <span class="math inline">\(W\)</span>를 찾는 것이 목적입니다.다음과 같습니다
+<span class="math display">\[\begin{aligned}
+\overset{*}{\{W\}} = \underset{\{W\}}{\text{argmax}} \prod_{i=1}^{N}\prod_{k=1}^{K}\frac{e^{W_k^TX_i}}{\sum_{j=1}^{K}e^{W_j^TX_i}}
+\end{aligned}\]</span>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
