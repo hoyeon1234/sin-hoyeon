@@ -4,6 +4,8 @@ project:
 #웹사이트 맨 위쪽에 있는 제목이랑 아이콘링크 설정
 website:
   title: "Hoyeon's Blog"
+  site-url: "https://hoyeon1234.github.io/sin-hoyeon/"
+  site-path: '/'
   comments : false
   google-analytics: "G-JE4129QJZV"
   navbar:

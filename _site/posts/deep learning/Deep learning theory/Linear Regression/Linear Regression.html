@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신호연">
-<meta name="dcterms.date" content="2022-12-22">
+<meta name="dcterms.date" content="2023-01-01">
 
 <title>Hoyeon’s Blog - Linear Regression</title>
 <style>
@@ -193,7 +193,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 22, 2022</p>
+        <p class="date">January 1, 2023</p>
       </div>
     </div>
     
@@ -287,7 +287,7 @@ Note
 <section id="gradient-descent" class="level1">
 <h1>Gradient Descent</h1>
 <p>경사하강법은 <span class="math inline">\(\bf{w}\)</span>를 구하는 방법입니다. 경사하강법의 대략적인 흐름을 요약하면 다음과 같습니다.<br></p>
-<p><img src="(1)gradient descent.png" class="img-fluid" alt="nn"><br> 그림출처 : https://www.kdnuggets.com/2020/05/5-concepts-gradient-descent-cost-function.html</p>
+<p><img src="gradient descent.png" class="img-fluid" alt="nn"><br> 그림출처 : https://www.kdnuggets.com/2020/05/5-concepts-gradient-descent-cost-function.html</p>
 <p>(경사하강법의 대략적인 흐름)<br> 1. <span class="math inline">\(\bf{W}\)</span>의 추정값 <span class="math inline">\(\hat{\bf{W}}\)</span>을 임의적으로 가정(초기화)한다.<br> 2. 가정한 <span class="math inline">\(\hat{\bf{W}}\)</span>로 <span class="math inline">\(\hat{\bf{y}}\)</span>(<span class="math inline">\(\bf{y}\)</span>에 대한 추정값)을 구하여 실제값<span class="math inline">\(\bf{y}\)</span>와 <strong>얼마나 비슷하지 않은지,틀린지 확인</strong>한다. =&gt; Loss function의 역할입니다.<br> 3. <strong>기울기(편미분계수,gradient)를 사용</strong>하여 <span class="math inline">\(\hat{\bf{W}}\)</span>을 수정한다.많이 틀리면 많이수정하고 적게틀리면 적게 수정한다.<br> 4. 2번,3번을 계속해서 반복한 후 어느정도 적게 틀리면 종료한다..<br><br></p>
 <section id="선형회귀의-loss-function" class="level2">
 <h2 class="anchored" data-anchor-id="선형회귀의-loss-function">선형회귀의 Loss function</h2>
