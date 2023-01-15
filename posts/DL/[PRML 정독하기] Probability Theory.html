@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신호연">
+<meta name="dcterms.date" content="2023-01-13">
+
+<title>HIHO - [PRML 읽기] 1 - 확률론 개요</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">[PRML 읽기] 1 - 확률론 개요</h1>
+            <p class="subtitle lead">Sum rule, Product rule, Baye’s rule,random variable independence</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Deep learning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>신호연 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 13, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="probability-theory" class="level1">
+<h1><span style="color : #00994c"><strong>Probability Theory</strong></span></h1>
+<section id="개요" class="level2">
+<h2 class="anchored" data-anchor-id="개요"><span style="color : #00994c"><strong>개요</strong></span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/PRML/fig1.9.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure1.9</figcaption><p></p>
+</figure>
+</div>
+<p>빨강색,파랑색 상자 중 하나를 선택하고 선택한 상자안에서 사과(초록) 또는 오렌지(주황)를 꺼낸다고 합시다. 여러번 반복했을 때, 빨강색 상자와 파랑색 상자가 선택된 비율이 각각 40%,60%라고 알려져 있는 상태입니다. 미래에 선택된 상자를 나타내는 변수를 B라고 하면 실제로 상자를 선택하기 전까지는 각각의 상자를 뽑을 확률(가능성)만이 존재하므로 변수B는 확률변수 입니다. 이 확률변수가 취할 수 있는 값은 r 또는 b로 두 가지 입니다. 마찬가지로 미래에 선택된 과일을 나타내는 확률변수 F를 놓을 수 있고 F가 취할 수 있는 값을 a 또는 o로 놓을 수 있습니다.</p>
+<p>빈도주의 관점에서 어떠한 사건이 발생할 확률은 <strong>시행횟수 N을 무한히</strong> 했을 때, <strong>시행횟수와 특정한 사건이 발생한 경우의 횟수사이의 비(fraction,ratio)</strong>로 정의됩니다. 위에서 여러번 반복했을때 빨강색 또는 파랑색상자인 사건이 발생하는 경우가 각각 전체에서 40%,60%였다고 했으므로 이는 확률입니다. 또한 확률변수 B가 r을 취하는 사건에 대한 확률과 확률변수 B가 b를 취하는 사건에 대한 확률이라고 말하며 다음과 같이 적을 수 있습니다.</p>
+<span class="math display">\[\begin{aligned}
+p(B = r) = 0.4 \\
+p(B = b) = 0.6
+\end{aligned}\]</span>
+<p>각각의 상자를 선택하는 사건의 확률은 확률의 정의에 의해서 [0,1]사이의 구간에만 존재합니다. 또한 각각의 상자를 선택하는 사건은 상호베타적이면서 시행으로부터 나올 수 있는 모든 결과들 입니다. 그러므로 확률의 합은 1입니다.</p>
+<p>몇 가지 궁금한 점이 생겼습니다. “사과(초록)이나 오렌지(주황)가 나올 확률은?” 또는 “사과를 뽑았을 때 어떤 상자를 선택할 가능성이 높은지?”에 대해서 궁금합니다. 이는 sum rule과 product rule을 알아야 합니다.</p>
+<p>상호베타 보충설명</p>
+</section>
+<section id="sum-rule-product-rule" class="level2">
+<h2 class="anchored" data-anchor-id="sum-rule-product-rule"><span style="color : #00994c"><strong>Sum Rule &amp; Product Rule</strong></span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/PRML/fig1.10.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure1.9</figcaption><p></p>
+</figure>
+</div>
+<p>확률변수 <span class="math inline">\(X,Y\)</span>가 존재하고 <span class="math inline">\(X\)</span>가 취할 수 있는 값은 <span class="math inline">\(x_i(i=1,2,\dots,M)\)</span> <span class="math inline">\(Y\)</span>가 취할 수 있는 값은 <span class="math inline">\(y_j(j=1,2,\dots,L)\)</span>라고 합시다. 총 <span class="math inline">\(N\)</span>번을 시행했다고 할 때,시행의 결과 중 <span class="math inline">\(X = x_i\)</span>이면서 동시에 <span class="math inline">\(Y=y_i\)</span>인 경우의 횟수는 <span class="math inline">\(n_{ij}\)</span>이며 <span class="math inline">\(X = x_i\)</span>인 경우의 횟수는 <span class="math inline">\(c_i\)</span>이고 확률변수 <span class="math inline">\(Y = y_j\)</span>인 경우의 횟수는 <span class="math inline">\(r_j\)</span>입니다.</p>
+<p>확률변수 <span class="math inline">\(X = x_i\)</span>이고 <span class="math inline">\(Y=y_j\)</span>인 사건이 동시에 발생할 확률을 <span class="math inline">\(X=x_i,Y=y_j\)</span>일 때의 결합확률(joint probability)라고 합니다.</p>
+<p><span class="math display">\[p(X = x_i,Y = y_j)\]</span></p>
+<p>결합확률은 시행횟수 <span class="math inline">\(N \rightarrow \infty\)</span>일 때, 시행횟수 <span class="math inline">\(N\)</span>과 <span class="math inline">\(X=x_i,Y=y_j\)</span>인 사건이 발생하는 경우의 횟수인<span class="math inline">\(n_{ij}\)</span>사이의 비입니다.</p>
+<p><span class="math display">\[p(X=x_i,Y=y_j) = \frac{c_{ij}}{N}\]</span></p>
+<p>확률변수 <span class="math inline">\(X = x_i\)</span>인 사건이 발생하는 경우의 횟수는 <span class="math inline">\(c_i\)</span>는 <span class="math inline">\(X = x_i,Y = y_j(\text{for } j=1,2,\dots,L)\)</span>인 사건이 발생하는 각각의 경우의 횟수들을 모두 더해야 합니다. 예를 들어서 사과를 선택한 사건 <span class="math inline">\(F = a\)</span>이 발생한 경우의 횟수는 사과를 선택하고 상자가 파랑색 상자인 <span class="math inline">\(F=a,B=r\)</span> 사건이 발생한 경우의 횟수와 사과를 선택하고 상자가 빨강색 상자인<span class="math inline">\(F=a,B=b\)</span> 사건이 발생한 경우의 횟수를 더한것과 같습니다.</p>
+<p><span class="math display">\[c_i = \sum_{j=1}^{L}n_{ij}\]</span></p>
+<p>결과적으로 ,<span class="math inline">\(X = x_i\)</span>인 사건의 확률은 다음과 같습니다.</p>
+<span class="math display">\[\begin{aligned}
+p(X = x_i) &amp;= \frac{c_{i}}{N} \\
+&amp;=\frac{\sum_{j=1}^{L}n_{ij}}{N}\\
+&amp;= p(X=x_i,Y=y_1) + p(X=x_i,Y=y_2) + \dots + p(X=x_i,Y=y_L) \\
+&amp;= \sum_{j=1}^{L}p(X=x_i,Y=y_j) \\
+\end{aligned}\]</span>
+<p>위와 같이 임의의 확률변수 <span class="math inline">\(X\)</span>가 <span class="math inline">\(x_i\)</span>인 사건에 대한 확률을 구할 때, 다른 확률변수와의 모든 결합확률을 더하여 구하는 법칙을 <strong>sum rule of probability</strong>라고 합니다. 이때 구한 확률은 다른 확률변수와 <span class="math inline">\(Y\)</span>와의 결합확률을 marginalizing 또는 summing out하여 구하므로 marginal probability라고 합니다.</p>
+<p>시행의 결과가 <span class="math inline">\(X=x_i\)</span>인 특정 조건을 만족하는 경우에 대해서만 고려해본다고 합시다. 이러한 경우안에서 <span class="math inline">\(Y = y_j\)</span>인 사건이 발생하는 횟수의 비는 <span class="math inline">\(p(Y=y_j|X=x_i)\)</span>라고 표기하며 다음과 같습니다.</p>
+<p><span class="math display">\[p(Y=y_j|X=x_i) = \frac{n_{ij}}{c_j}\]</span></p>
+<p>이를 <span class="math inline">\(X=x_i\)</span>로 주어졌을 때, <span class="math inline">\(Y=y_j\)</span>인 사건에 대한 <strong>조건부확률</strong>이라고 합니다. 조건부 확률의 경우 기호<span class="math inline">\(|\)</span> 다음에 조건이 오며 분모에는 모든 결과 중 확률변수가 어떤 값을 취하는 사건이 발생한 경우의 횟수들을 하나하나 세어본 값이 오지만 일반적인 확률의 경우 모든 경우에 대한 횟수가 옵니다. 이러한 이유는 조건부확률은 일반적인 확률과 다르게 <strong>어떤 특정한 조건안에서 다른사건이 발생할 확률</strong>이기 때문입니다.</p>
+<p>위에서 정의한 조건부확률로 결합확률을 다시 적어보면 다음과 같습니다.</p>
+<p><span class="math display">\[p(X=x_i,Y=y_j) = \frac{n_{ij}}{N} = \frac{n_{ij}}{c_i}\frac{c_i}{N} = p(Y=y_j|X=x_i)p(X = x_i)\]</span></p>
+<p>즉 결합확률은 <span class="math inline">\(X=x_i\)</span>인 사건이 발생한 확률과 발생한 사건을 조건<span class="math inline">\(X=x_i\)</span>으로하고 <span class="math inline">\(Y=y_j\)</span>가 발생할 확률의 곱과 같습니다. 이는 어느정도 직관과 일치한다고 볼 수 있는데 예를 들자면 빨강색상자에서 사과를 뽑을 가능성은 먼저 빨강색상자를 고르고 그 다음 사과를 뽑을 가능성이기 때문입니다.</p>
+</section>
+<section id="중간정리---sum-rule-product-rule" class="level2">
+<h2 class="anchored" data-anchor-id="중간정리---sum-rule-product-rule"><span style="color : #00994c"> <strong>중간정리 - Sum rule &amp; Product rule</strong></span></h2>
+<ul>
+<li>Sum rule은 여러확률변수에 대한 결합확률이 주어질 때, 특정한 하나의 변수에 대한 확률(marginal probability)을 구함</li>
+</ul>
+<p><span class="math display">\[p(X) = \sum_Yp(X,Y)\]</span></p>
+<ul>
+<li>Product rule은 조건부확률과 주변확률사이의 곱으로 결합확률을 구함</li>
+</ul>
+<p><span class="math display">\[p(X,Y) = p(Y|X)p(X) = p(X|Y)p(Y)\]</span></p>
+</section>
+<section id="bayes-rule" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-rule"><span style="color : #00994C"><strong>Bayes rule</strong></span></h2>
+<p>위에서 적은 결합확률로부터 다음과 같은 식을 얻어낼 수 있습니다.</p>
+<p><span class="math display">\[p(Y|X) = \frac{p(X|Y)p(Y)}{p(X)}\]</span></p>
+<p>이를 베이즈정리 라고 합니다. 베이즈 정리에서 <span class="math inline">\(p(Y|X)\)</span>는 posterior probability(사후확률)로 어떤 조건 또는 증거가 발견되었을때의 확률입니다. <span class="math inline">\(p(Y)\)</span>는 prior probability로 어떤 증거 또는 조건이 발견되기전의 확률입니다. 베이즈 정리로부터 우리는 posterior와 prior의 관계 즉,<strong>조건 또는 증거가 발견되기 전,후의 확률사이의 수식을</strong> 알 수 있습니다. 그러므로 만약 <strong>사전확률을 알고 있다면 그 확률을 통하여 사후확률을 구할 수 있습니다.</strong> 여기서 분모는 Sum rule과 Product rule에 의하여 다시 쓸 수 있습니다.</p>
+<p><span class="math display">\[p(Y|X) = \frac{p(X|Y)p(Y)}{p(X)} = \frac{p(X|Y)p(Y)}{\sum_{Y}p(X,Y)} = \frac{p(X|Y)p(Y)}{\sum_{Y}p(X|Y)p(Y)}\]</span></p>
+<p>사후확률 <span class="math inline">\(p(Y|X)\)</span>는 <span class="math inline">\(X\)</span>라는 증거,조건이 주어질 때 결과 <span class="math inline">\(Y\)</span>에 대한 확률이었습니다. 위의 수식을 곰곰히 보면 … <span class="math inline">\(X\)</span>가 조건으로 주어질때 결과<span class="math inline">\(Y\)</span>에 대한 조건부 확률을 구하기 위하여 <span class="math inline">\(Y\)</span>가 주어질때의 <span class="math inline">\(X\)</span>에 대한 조건부 확률로 계산합니다. 여기서 나타나는 베이즈 정리에서 가장 중요한 핵심은 <strong>어떤 조건이 주어지고 결과에 대한 확률을 구할 때, 결과를 조건으로 조건을 결과로 역으로 바꾼 확률</strong>에 대한 정보를 이용한다는 점입니다. 즉 X가 조건일 때, Y에 대한 조건부 확률이 잘 구해지지 않는다면 이를 뒤집어서 <span class="math inline">\(Y\)</span>가 조건이고 <span class="math inline">\(X\)</span>가 결과일때의 확률을 이용할 수 있습니다.</p>
+<p>베이즈 정리에서 분모는 normalization 상수로 모든 <span class="math inline">\(Y\)</span>에 대하여 확률의 합이 1이 되도록 합니다.</p>
+<p>예시로 돌아가서 오렌지 또는 사과가 나올 확률과 사과를 골랐을 때 어떤 상자를 골랐을 확률이 높은지를 계산해봅시다. 각각의 경우에 대해 확률을 정리하면 다음과 같습니다.</p>
+<p><span class="math display">\[\begin{align}
+&amp;p(B = r) = 0.4 \\
+&amp;p(B = b) = 0.6 \\
+&amp;p(F = a | B = r) = \frac{1}{4}\\
+&amp;p(F = o | B = r) = \frac{3}{4}\\
+&amp;p(F = a | B = b) = \frac{3}{4}\\
+&amp;p(F = o | B = b) = \frac{1}{4}\\
+\end{align}\]</span></p>
+<p>(3)(4),(5)(6) 각각의 합은 normalization constant로 인해 합이 1이 되는것을 알 수 있습니다.</p>
+<p>이어서 원래 궁금했던 첫번째 문제인 사과 또는 오렌지가 나올 확률을 Product rule로 계산해볼 수 있습니다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;
+\begin{aligned}
+p(F = a) &amp;= p(F=a,B=r) + p(F=a,B=b) \\
+&amp;=p(F=a|B=r)p(B=r) + p(F=a|B=b)p(B=b) \\
+&amp;=\frac{1}{4}\times\frac{4}{10} + \frac{3}{4}\times\frac{6}{10}\\
+&amp;= \frac{11}{20}\\
+\end{aligned}
+\\
+&amp;p(F=b) = 1-\frac{11}{20}= \frac{9}{20}
+\end{aligned}\]</span>
+<p>또다른 문제인 오렌지 또는 사과를 뽑았을때 어떤 박스를 선택했는지 알고 싶습니다. 즉 알고싶은 확률은 <span class="math inline">\(p(B|F=a)\)</span> 또는 <span class="math inline">\(p(B|F=o)\)</span>입니다. 그런데 우리에게 주어진 확률들은 사전확률인 <span class="math inline">\(p(F)\)</span>와 조건과 결과가 역으로 뒤집힌 확률인 <span class="math inline">\(p(F|B)\)</span>입니다. 그러므로 ,Bayes Rule을 사용하여 원하는 확률을 구할 수 있습니다.</p>
+<p><span class="math display">\[\begin{align}
+&amp;p(B|F) = \frac{p(F|B)p(F)}{p(B)} \\
+&amp;p(B=r|F=o) = \frac{p(F=o|B=r)p(B=r)}{p(F=o)} = \frac{2}{3}\\
+&amp;\leftrightarrow p(B=b|F=o) = 1-\frac{2}{3} = \frac{1}{3}
+\end{align}\]</span></p>
+<p>오렌지를 확인하기전까지는 빨강색 박스일 확률이 절반이 안되는 0.4 였는데 오렌지를 확인하고는 <span class="math inline">\(\frac{2}{3}\)</span>로 확률이 상승한모습입니다. 이는 주어지는 정보,주건이 확률에 큰 영향을 미치는 것을 확인할 수 있습니다. 또한 구한 확률이 직관적으로 그림에서 확인할 수 있는 사실과도 일치함을 알 수 있습니다.<br></p>
+</section>
+<section id="random-variable-independence" class="level2">
+<h2 class="anchored" data-anchor-id="random-variable-independence"><span style="color : #00994C"><strong>random variable independence</strong></span></h2>
+</section>
+</section>
+<section id="보충설명" class="level1">
+<h1><span style="color : #00994C">보충설명</span></h1>
+<section id="참고링크" class="level2">
+<h2 class="anchored" data-anchor-id="참고링크"><span style="color : #00994C"><strong>참고링크</strong></span></h2>
+<p><a href="https://junpyopark.github.io/bayes/">가장 쉽게 이해하는 베이즈 정리(Bayes’ Law)</a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
