@@ -75,7 +75,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -142,7 +142,27 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#probability-theory" id="toc-probability-theory" class="nav-link active" data-scroll-target="#probability-theory"><span style="color : black"><strong>Probability Theory</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#개요" id="toc-개요" class="nav-link" data-scroll-target="#개요"><span style="color : black"><strong>개요</strong></span></a></li>
+  <li><a href="#sum-rule-product-rule" id="toc-sum-rule-product-rule" class="nav-link" data-scroll-target="#sum-rule-product-rule"><span style="color : black"><strong>Sum Rule &amp; Product Rule</strong></span></a></li>
+  <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link" data-scroll-target="#bayes-rule"><span style="color : black"><strong>Bayes rule</strong></span></a></li>
+  <li><a href="#random-variable-independence" id="toc-random-variable-independence" class="nav-link" data-scroll-target="#random-variable-independence"><span style="color : black"><strong>random variable independence</strong></span></a></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color : black"> <strong>정리</strong></span></a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span style="color : black"><strong>Appendix</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#확률변수의-독립에-관한-식-설명" id="toc-확률변수의-독립에-관한-식-설명" class="nav-link" data-scroll-target="#확률변수의-독립에-관한-식-설명"><span style="color : black">확률변수의 독립에 관한 식 설명</span></a></li>
+  </ul></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료"><span style="color : black"><strong>참고자료</strong></span></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -150,9 +170,9 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 <section id="probability-theory" class="level1">
-<h1><span style="color : #00994c"><strong>Probability Theory</strong></span></h1>
+<h1><span style="color : black"><strong>Probability Theory</strong></span></h1>
 <section id="개요" class="level2">
-<h2 class="anchored" data-anchor-id="개요"><span style="color : #00994c"><strong>개요</strong></span></h2>
+<h2 class="anchored" data-anchor-id="개요"><span style="color : black"><strong>개요</strong></span></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./images/PRML/fig1.9.png" class="img-fluid figure-img"></p>
@@ -167,10 +187,9 @@ p(B = b) = 0.6
 \end{aligned}\]</span>
 <p>각각의 상자를 선택하는 사건의 확률은 확률의 정의에 의해서 [0,1]사이의 구간에만 존재합니다. 또한 각각의 상자를 선택하는 사건은 상호베타적이면서 시행으로부터 나올 수 있는 모든 결과들 입니다. 그러므로 확률의 합은 1입니다.</p>
 <p>몇 가지 궁금한 점이 생겼습니다. “사과(초록)이나 오렌지(주황)가 나올 확률은?” 또는 “사과를 뽑았을 때 어떤 상자를 선택할 가능성이 높은지?”에 대해서 궁금합니다. 이는 sum rule과 product rule을 알아야 합니다.</p>
-<p>상호베타 보충설명</p>
 </section>
 <section id="sum-rule-product-rule" class="level2">
-<h2 class="anchored" data-anchor-id="sum-rule-product-rule"><span style="color : #00994c"><strong>Sum Rule &amp; Product Rule</strong></span></h2>
+<h2 class="anchored" data-anchor-id="sum-rule-product-rule"><span style="color : black"><strong>Sum Rule &amp; Product Rule</strong></span></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./images/PRML/fig1.10.png" class="img-fluid figure-img"></p>
@@ -199,19 +218,8 @@ p(X = x_i) &amp;= \frac{c_{i}}{N} \\
 <p><span class="math display">\[p(X=x_i,Y=y_j) = \frac{n_{ij}}{N} = \frac{n_{ij}}{c_i}\frac{c_i}{N} = p(Y=y_j|X=x_i)p(X = x_i)\]</span></p>
 <p>즉 결합확률은 <span class="math inline">\(X=x_i\)</span>인 사건이 발생한 확률과 발생한 사건을 조건<span class="math inline">\(X=x_i\)</span>으로하고 <span class="math inline">\(Y=y_j\)</span>가 발생할 확률의 곱과 같습니다. 이는 어느정도 직관과 일치한다고 볼 수 있는데 예를 들자면 빨강색상자에서 사과를 뽑을 가능성은 먼저 빨강색상자를 고르고 그 다음 사과를 뽑을 가능성이기 때문입니다.</p>
 </section>
-<section id="중간정리---sum-rule-product-rule" class="level2">
-<h2 class="anchored" data-anchor-id="중간정리---sum-rule-product-rule"><span style="color : #00994c"> <strong>중간정리 - Sum rule &amp; Product rule</strong></span></h2>
-<ul>
-<li>Sum rule은 여러확률변수에 대한 결합확률이 주어질 때, 특정한 하나의 변수에 대한 확률(marginal probability)을 구함</li>
-</ul>
-<p><span class="math display">\[p(X) = \sum_Yp(X,Y)\]</span></p>
-<ul>
-<li>Product rule은 조건부확률과 주변확률사이의 곱으로 결합확률을 구함</li>
-</ul>
-<p><span class="math display">\[p(X,Y) = p(Y|X)p(X) = p(X|Y)p(Y)\]</span></p>
-</section>
 <section id="bayes-rule" class="level2">
-<h2 class="anchored" data-anchor-id="bayes-rule"><span style="color : #00994C"><strong>Bayes rule</strong></span></h2>
+<h2 class="anchored" data-anchor-id="bayes-rule"><span style="color : black"><strong>Bayes rule</strong></span></h2>
 <p>위에서 적은 결합확률로부터 다음과 같은 식을 얻어낼 수 있습니다.</p>
 <p><span class="math display">\[p(Y|X) = \frac{p(X|Y)p(Y)}{p(X)}\]</span></p>
 <p>이를 베이즈정리 라고 합니다. 베이즈 정리에서 <span class="math inline">\(p(Y|X)\)</span>는 posterior probability(사후확률)로 어떤 조건 또는 증거가 발견되었을때의 확률입니다. <span class="math inline">\(p(Y)\)</span>는 prior probability로 어떤 증거 또는 조건이 발견되기전의 확률입니다. 베이즈 정리로부터 우리는 posterior와 prior의 관계 즉,<strong>조건 또는 증거가 발견되기 전,후의 확률사이의 수식을</strong> 알 수 있습니다. 그러므로 만약 <strong>사전확률을 알고 있다면 그 확률을 통하여 사후확률을 구할 수 있습니다.</strong> 여기서 분모는 Sum rule과 Product rule에 의하여 다시 쓸 수 있습니다.</p>
@@ -246,17 +254,63 @@ p(F = a) &amp;= p(F=a,B=r) + p(F=a,B=b) \\
 &amp;p(B=r|F=o) = \frac{p(F=o|B=r)p(B=r)}{p(F=o)} = \frac{2}{3}\\
 &amp;\leftrightarrow p(B=b|F=o) = 1-\frac{2}{3} = \frac{1}{3}
 \end{align}\]</span></p>
-<p>오렌지를 확인하기전까지는 빨강색 박스일 확률이 절반이 안되는 0.4 였는데 오렌지를 확인하고는 <span class="math inline">\(\frac{2}{3}\)</span>로 확률이 상승한모습입니다. 이는 주어지는 정보,주건이 확률에 큰 영향을 미치는 것을 확인할 수 있습니다. 또한 구한 확률이 직관적으로 그림에서 확인할 수 있는 사실과도 일치함을 알 수 있습니다.<br></p>
+<p>오렌지를 확인하기전까지는 빨강색 박스일 확률이 절반이 안되는 0.4 였는데 오렌지를 확인하고는 <span class="math inline">\(\frac{2}{3}\)</span>로 확률이 상승했습니다. 이는 주어지는 정보,주건이 확률에 큰 영향을 미치는 것을 확인할 수 있습니다. 또한 구한 확률이 직관적으로 그림에서 확인할 수 있는 사실과도 일치함을 알 수 있습니다.<br></p>
 </section>
 <section id="random-variable-independence" class="level2">
-<h2 class="anchored" data-anchor-id="random-variable-independence"><span style="color : #00994C"><strong>random variable independence</strong></span></h2>
+<h2 class="anchored" data-anchor-id="random-variable-independence"><span style="color : black"><strong>random variable independence</strong></span></h2>
+<p>두 확률변수가 독립이면 다음과 같습니다.</p>
+<p><span class="math display">\[\text{X and Y are independent random variables} \iff p(X,Y) = p(X)p(Y)\]</span></p>
+<p>예시에서 확인해봅시다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;p(B=r|F=o) = \frac{2}{3} ,p(B=r) = \frac{4}{10}\\
+&amp;p(B=r|F=o) \not = p(B=r) \Longleftrightarrow \text{X and Y are dependent}
+\end{aligned}\]</span>
+<p>만약 두 박스안에 들어있는 오랜지와 사과의 각각 <span class="math inline">\(t,h\)</span>로 같다고 하면</p>
+<span class="math display">\[\begin{aligned}
+p(F=o | B=r) = p(F = o) = t\\
+p(F=a | B=r) = p(F = a) = h \\
+p(F=o | B=b) = p(F = o) = t \\
+p(F=a | B=b) = p(F = a) = h
+\end{aligned}\]</span>
+<p>따라서 상자안에 있는 과일의 갯수가 같을 경우, 두 확률변수는 독립입니다.</p>
+</section>
+<section id="정리" class="level2">
+<h2 class="anchored" data-anchor-id="정리"><span style="color : black"> <strong>정리</strong></span></h2>
+<ul>
+<li>Sum rule은 여러확률변수에 대한 결합확률이 주어질 때, 특정한 하나의 변수에 대한 확률(marginal probability)을 구함</li>
+</ul>
+<p><span class="math display">\[p(X) = \sum_Yp(X,Y)\]</span></p>
+<ul>
+<li>Product rule은 조건부확률과 주변확률사이의 곱으로 결합확률을 구함</li>
+</ul>
+<p><span class="math display">\[p(X,Y) = p(Y|X)p(X) = p(X|Y)p(Y)\]</span></p>
+<ul>
+<li>베이즈정리는 posterior(사후확률)를 prior(사전확률)과 조건과 결과가 바뀌었을때의 확률을 통해서 구합니다. 또한 사전확률과 사후확률사이의 관계(수식)입니다.</li>
+</ul>
+<p><span class="math display">\[p(X|Y) = \frac{p(Y|X)p(Y)}{p(X)} = \frac{p(Y|X)p(Y)}{\sum_Yp(X,Y)p(Y)}\]</span></p>
+<ul>
+<li>두 확률변수가 독립일 경우 , 결합확률(분포)는 각각의 변수에 대한 (주변)확률의 곱입니다</li>
+</ul>
+<p><span class="math display">\[\text{X and Y are independent random variables} \iff p(X,Y) = p(X)p(Y)\]</span></p>
+</section>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix"><span style="color : black"><strong>Appendix</strong></span></h2>
+<section id="확률변수의-독립에-관한-식-설명" class="level3">
+<h3 class="anchored" data-anchor-id="확률변수의-독립에-관한-식-설명"><span style="color : black">확률변수의 독립에 관한 식 설명</span></h3>
+<p>확률변수가 독립이라면 <span class="math inline">\(Y\)</span>의 조건부확률은 조건<span class="math inline">\(X\)</span>가 어떤 값이던간에 전혀 영향이 없습니다(독립적입니다).</p>
+<span class="math display">\[\begin{aligned}
+&amp;p(Y|X) = p(Y) \\
+&amp;\leftrightarrow p(Y|X) = \frac{p(X,Y)}{p(X)} = p(Y)\\
+&amp;\leftrightarrow p(X,Y) = p(X)p(Y)
+\end{aligned}\]</span>
+<p>반대로 해도 성립합니다.</p>
 </section>
 </section>
-<section id="보충설명" class="level1">
-<h1><span style="color : #00994C">보충설명</span></h1>
-<section id="참고링크" class="level2">
-<h2 class="anchored" data-anchor-id="참고링크"><span style="color : #00994C"><strong>참고링크</strong></span></h2>
+<section id="참고자료" class="level2">
+<h2 class="anchored" data-anchor-id="참고자료"><span style="color : black"><strong>참고자료</strong></span></h2>
 <p><a href="https://junpyopark.github.io/bayes/">가장 쉽게 이해하는 베이즈 정리(Bayes’ Law)</a></p>
+<p><a href="https://www.probabilitycourse.com/chapter3/3_1_4_independent_random_var.php">Independent Random Variables</a></p>
+<p><a href="">PRML 1.2-probability theory</a></p>
 
 
 </section>

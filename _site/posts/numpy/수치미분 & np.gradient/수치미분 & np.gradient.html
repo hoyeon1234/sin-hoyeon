@@ -138,7 +138,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -204,7 +204,38 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#gradient와-수치미분" id="toc-gradient와-수치미분" class="nav-link active" data-scroll-target="#gradient와-수치미분"><span style="color:#00994c"> <strong>Gradient와 수치미분</strong></span></a></li>
+  <li><a href="#taylor-series" id="toc-taylor-series" class="nav-link" data-scroll-target="#taylor-series"><span style="color : #00994C"> <strong>Taylor Series</strong></span></a></li>
+  <li><a href="#수치미분" id="toc-수치미분" class="nav-link" data-scroll-target="#수치미분"><span style="color : #00994C"> <strong>수치미분</strong></span></a></li>
+  <li><a href="#np.gradient" id="toc-np.gradient" class="nav-link" data-scroll-target="#np.gradient"><span style="color:#00994c"> <strong>np.gradient?</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#차원-배열의-경우" id="toc-차원-배열의-경우" class="nav-link" data-scroll-target="#차원-배열의-경우"><strong>1차원 배열의 경우</strong></a>
+  <ul class="collapse">
+  <li><a href="#ex-dx-1" id="toc-ex-dx-1" class="nav-link" data-scroll-target="#ex-dx-1"><strong>Ex) <span class="math inline">\(dx\)</span> = 1</strong></a></li>
+  <li><a href="#ex-dx-not-1-default가-아닐-경우" id="toc-ex-dx-not-1-default가-아닐-경우" class="nav-link" data-scroll-target="#ex-dx-not-1-default가-아닐-경우"><strong>Ex) <span class="math inline">\(dx \not = 1\)</span> (default가 아닐 경우)</strong></a></li>
+  <li><a href="#ex-x값의-좌표를-직접-정해주는-경우" id="toc-ex-x값의-좌표를-직접-정해주는-경우" class="nav-link" data-scroll-target="#ex-x값의-좌표를-직접-정해주는-경우"><strong>Ex) x값의 좌표를 직접 정해주는 경우</strong></a></li>
+  </ul></li>
+  <li><a href="#차원-배열의-경우-1" id="toc-차원-배열의-경우-1" class="nav-link" data-scroll-target="#차원-배열의-경우-1"><strong>2차원 배열의 경우</strong></a>
+  <ul class="collapse">
+  <li><a href="#ex-dx1dy1" id="toc-ex-dx1dy1" class="nav-link" data-scroll-target="#ex-dx1dy1"><strong>Ex) <span class="math inline">\(dx=1,dy=1\)</span></strong></a></li>
+  <li><a href="#ex-dx-not-1dy-not-1-default가-아닌-경우" id="toc-ex-dx-not-1dy-not-1-default가-아닌-경우" class="nav-link" data-scroll-target="#ex-dx-not-1dy-not-1-default가-아닌-경우"><strong>Ex) <span class="math inline">\(dx \not = 1,dy \not = 1\)</span> (default가 아닌 경우)</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#sec-plot" id="toc-sec-plot" class="nav-link" data-scroll-target="#sec-plot"><span style="color : #00994c"><strong>Appendix</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#전향차분근사-유도" id="toc-전향차분근사-유도" class="nav-link" data-scroll-target="#전향차분근사-유도"><strong>전향차분근사 유도</strong></a></li>
+  <li><a href="#후향차분근사-유도" id="toc-후향차분근사-유도" class="nav-link" data-scroll-target="#후향차분근사-유도"><strong>후향차분근사 유도</strong></a></li>
+  <li><a href="#중앙차분근사-유도" id="toc-중앙차분근사-유도" class="nav-link" data-scroll-target="#중앙차분근사-유도"><strong>중앙차분근사 유도</strong></a></li>
+  </ul></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료"><span style="color : #00994C"><strong>참고자료</strong></span></a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 

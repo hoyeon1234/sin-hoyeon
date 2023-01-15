@@ -138,7 +138,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -189,7 +189,52 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import">Import</a></li>
+  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda">EDA</a>
+  <ul class="collapse">
+  <li><a href="#fathermothergender" id="toc-fathermothergender" class="nav-link" data-scroll-target="#fathermothergender">father,mother,gender</a></li>
+  </ul></li>
+  <li><a href="#trait" id="toc-trait" class="nav-link" data-scroll-target="#trait">trait</a>
+  <ul class="collapse">
+  <li><a href="#snp_01" id="toc-snp_01" class="nav-link" data-scroll-target="#snp_01">SNP_01</a></li>
+  <li><a href="#snp_02" id="toc-snp_02" class="nav-link" data-scroll-target="#snp_02">SNP_02</a></li>
+  <li><a href="#snp_03" id="toc-snp_03" class="nav-link" data-scroll-target="#snp_03">SNP_03</a></li>
+  <li><a href="#snp_04" id="toc-snp_04" class="nav-link" data-scroll-target="#snp_04">SNP_04</a></li>
+  <li><a href="#snp_05" id="toc-snp_05" class="nav-link" data-scroll-target="#snp_05">SNP_05</a></li>
+  <li><a href="#snp_06" id="toc-snp_06" class="nav-link" data-scroll-target="#snp_06">SNP_06</a></li>
+  <li><a href="#snp_07" id="toc-snp_07" class="nav-link" data-scroll-target="#snp_07">SNP_07</a></li>
+  <li><a href="#snp_08" id="toc-snp_08" class="nav-link" data-scroll-target="#snp_08">SNP_08</a></li>
+  <li><a href="#snp_09" id="toc-snp_09" class="nav-link" data-scroll-target="#snp_09">SNP_09</a></li>
+  <li><a href="#snp_10" id="toc-snp_10" class="nav-link" data-scroll-target="#snp_10">SNP_10</a></li>
+  <li><a href="#snp_11" id="toc-snp_11" class="nav-link" data-scroll-target="#snp_11">SNP_11</a></li>
+  <li><a href="#snp_12" id="toc-snp_12" class="nav-link" data-scroll-target="#snp_12">SNP_12</a></li>
+  <li><a href="#snp_13" id="toc-snp_13" class="nav-link" data-scroll-target="#snp_13">SNP_13</a></li>
+  <li><a href="#snp_14" id="toc-snp_14" class="nav-link" data-scroll-target="#snp_14">SNP_14</a></li>
+  <li><a href="#snp_15" id="toc-snp_15" class="nav-link" data-scroll-target="#snp_15">SNP_15</a></li>
+  <li><a href="#class별-관측치의-숫자" id="toc-class별-관측치의-숫자" class="nav-link" data-scroll-target="#class별-관측치의-숫자">class별 관측치의 숫자</a></li>
+  </ul></li>
+  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing">Preprocessing</a>
+  <ul class="collapse">
+  <li><a href="#chi2-test-between-abc" id="toc-chi2-test-between-abc" class="nav-link" data-scroll-target="#chi2-test-between-abc">chi^2 test, between [“A”,“B”,“C”]</a></li>
+  <li><a href="#chi2-test-between-bc" id="toc-chi2-test-between-bc" class="nav-link" data-scroll-target="#chi2-test-between-bc">chi^2 test, between “B”,“C”</a></li>
+  <li><a href="#add-column-delete-column" id="toc-add-column-delete-column" class="nav-link" data-scroll-target="#add-column-delete-column">add column &amp; delete column</a></li>
+  <li><a href="#encoding" id="toc-encoding" class="nav-link" data-scroll-target="#encoding">encoding</a>
+  <ul class="collapse">
+  <li><a href="#onehot-encoding-trait-1-a클래스-빼고" id="toc-onehot-encoding-trait-1-a클래스-빼고" class="nav-link" data-scroll-target="#onehot-encoding-trait-1-a클래스-빼고">onehot-encoding trait != 1 (A클래스 빼고)</a></li>
+  <li><a href="#label-encoding-trait-0-a클래스-빼고" id="toc-label-encoding-trait-0-a클래스-빼고" class="nav-link" data-scroll-target="#label-encoding-trait-0-a클래스-빼고">label-encoding trait != 0 (A클래스 빼고)</a></li>
+  <li><a href="#one-hot-encoding" id="toc-one-hot-encoding" class="nav-link" data-scroll-target="#one-hot-encoding">One-hot encoding</a></li>
+  <li><a href="#label-encoding" id="toc-label-encoding" class="nav-link" data-scroll-target="#label-encoding">Label encoding</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">modeling</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 

@@ -21,7 +21,7 @@ format:
       - Simplex
       - custom.scss
     css: styles.css
-    toc: false
+    toc: true
     code-fold: false
     code-line-numbers: true
     code-copy: true
