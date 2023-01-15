@@ -6,6 +6,7 @@
       "/posts/open/Dakon competetion.html",
       "/posts/open/Dakon competition torch.html",
       "/posts/visualization/plotly_visualization/Untitled-1.html",
+      "/posts/DL/[PRML 정독하기] Probability Theory.html",
       "/posts/open/Dakon competition AutoEncoder.html",
       "/posts/open/Dakon competition modeling.html",
       "/posts/coading test/programmers시저암호.html",
@@ -19,14 +20,14 @@
       "/posts/Linear Algebra/rank and null space/rank and null space.html",
       "/posts/Linear Algebra/span과 columns space.html",
       "/posts/Linear Algebra/행렬곱에 대한 여러가지 시각.html",
-      "/posts/Deep learning/Multinomial Logistic Regression,Softmatx Regression.html",
+      "/posts/DL/Multinomial Logistic Regression,Softmatx Regression.html",
       "/posts/Probability&Statistics/categori distribution.html",
       "/posts/Probability&Statistics/Maximum likelyhood estimation/MLE.html",
       "/posts/Probability&Statistics/notation.html",
-      "/posts/Deep learning/Logistic Regression.html",
+      "/posts/DL/Logistic Regression.html",
       "/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html",
-      "/posts/Deep learning/Linear Regression.html",
-      "/posts/Deep learning/Pytorch Rnn 구현.html"
+      "/posts/DL/Linear Regression.html",
+      "/posts/DL/Pytorch Rnn 구현.html"
     ]
   }
 ]
