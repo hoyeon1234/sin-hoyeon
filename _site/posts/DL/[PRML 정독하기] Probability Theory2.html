@@ -149,6 +149,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <ul>
   <li><a href="#probability-density-function" id="toc-probability-density-function" class="nav-link active" data-scroll-target="#probability-density-function"><span style="color : black"><strong>Probability density function</strong></span></a></li>
   <li><a href="#probabiltiy-variable-transform" id="toc-probabiltiy-variable-transform" class="nav-link" data-scroll-target="#probabiltiy-variable-transform"><span style="color : black"><strong>Probabiltiy variable transform</strong></span></a></li>
+  <li><a href="#sum-rule-product-rule-of-continuous-variable" id="toc-sum-rule-product-rule-of-continuous-variable" class="nav-link" data-scroll-target="#sum-rule-product-rule-of-continuous-variable"><span style="color : black"><strong>Sum rule &amp; Product rule of continuous variable</strong></span></a></li>
+  <li><a href="#expectations-and-variances" id="toc-expectations-and-variances" class="nav-link" data-scroll-target="#expectations-and-variances"><span style="color : black"><strong>Expectations and Variances</strong></span></a></li>
   <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span style="color : black"><strong>Appendix</strong></span></a>
   <ul class="collapse">
   <li><a href="#확률밀도함수에-관한-여러가지-증명" id="toc-확률밀도함수에-관한-여러가지-증명" class="nav-link" data-scroll-target="#확률밀도함수에-관한-여러가지-증명">확률밀도함수에 관한 여러가지 증명</a></li>
@@ -191,15 +193,24 @@ p(x) \geq 0 \\
 p_Y(y) &amp;= p_X(x) \begin {vmatrix} \frac{dx}{dy} \end {vmatrix} \\
 &amp;= p_X(g(y))|g^{'}(y)|
 \end{aligned}\]</span>
-<p>확률분포함수를 최대화 하는 문제에서 유용하게 사용할 수 있습니다. 어떤 변수로 변환하느냐에 따라서 최대화해야하는 확률함수가 바뀜을 알 수 있습니다.</p>
+<p>확률변수의 변환은 확률분포함수를 최대화 하는 문제에서 유용하게 사용할 수 있다고 합니다. 변환할 변수를 선택하면 최대화해야하는 확률함수를 바꿀 수 있습니다.</p>
+</section>
+<section id="sum-rule-product-rule-of-continuous-variable" class="level2">
+<h2 class="anchored" data-anchor-id="sum-rule-product-rule-of-continuous-variable"><span style="color : black"><strong>Sum rule &amp; Product rule of continuous variable</strong></span></h2>
+<p>이산확률변수에 대해서는 Sum rule과 Product rule을 살펴봤었지만 연속확률변수 대해서는 보지 않았었습니다. 연속확률변수의 경우 다음과 같습니다. 엄밀한 증명은 measure theroy로 증명해야 하므로 .. 생략하겠습니다.(간략한 증명)</p>
 <span class="math display">\[\begin{aligned}
 &amp;p(x) = \int_y f(x,y)dy \\
 &amp;p(x,y) = p(y|x)p(x)
 \end{aligned}\]</span>
+</section>
+<section id="expectations-and-variances" class="level2">
+<h2 class="anchored" data-anchor-id="expectations-and-variances"><span style="color : black"><strong>Expectations and Variances</strong></span></h2>
+<p>함수의 기댓값(또는 평균)은 함숫값이 어떤 값을 중심으로 분포하는지를 알려줍니다. 가능한 모든x에 대하여 함숫값과 확률밀도값을 가중평균하여 얻을 수 있습니다.</p>
 <span class="math display">\[\begin{aligned}
 &amp;\mathbb{E}[f] = \sum_x p(x)f(x) \quad \text{If X is a discrete R.V} \\
 &amp;\mathbb{E}[f] = \int_x p(x)f(x)dx \quad \text{If X is a continuous R.V}
 \end{aligned}\]</span>
+<p>표본의 크기가 무한할 경우, 표본으로 부터 구한 함숫값의 평균과 기댓값은 값이 같습니다.</p>
 <p><span class="math display">\[\mathbb{E}[f] = \lim_{N \rightarrow \infty}\frac{1}{N}\sum_{n=1}^{N}f(x_n)\]</span></p>
 <p>다변수 함수가 주어져 있다고 합시다. 여러 확률변수 중 하나의 특정한 확률변수에 대해서 가능한 함숫값과 확률분포로 함숫값의 가중평균을 취한 기댓값은 다음과 같이 표기합니다.</p>
 <p><span class="math display">\[\mathbb{E}_x[f(x,y)] = f(y)\]</span></p>
@@ -221,7 +232,7 @@ p_Y(y) &amp;= p_X(x) \begin {vmatrix} \frac{dx}{dy} \end {vmatrix} \\
 \text{cov}[x,y] &amp;= \mathbb{E}_{x,y}[\{x-\mathbb{E}[x]\}\{y-\mathbb{E}[y]\}] \\
 &amp;=\mathbb{E}_{x,y}[xy] - \mathbb{E}[x]\mathbb{E}[y]
 \end{align}\]</span></p>
-<p>두 번째 식은 괄호안을 전개하면 얻을 수 있습니다(증명적기)</p>
+<p>두 번째 식은 괄호안을 전개하면 얻을 수 있습니다.(증명적기)표본으로 부터 구할 수 있는 표본공분산은</p>
 </section>
 <section id="appendix" class="level2">
 <h2 class="anchored" data-anchor-id="appendix"><span style="color : black"><strong>Appendix</strong></span></h2>
