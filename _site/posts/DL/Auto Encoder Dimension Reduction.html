@@ -290,10 +290,10 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import"><span style="color:#00994c"><strong>import</strong></span></a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span style="color:#00994c"><strong>Data</strong></span></a></li>
-  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing"><span style="color:#00994c"><strong>Preprocessing</strong></span></a></li>
-  <li><a href="#dimension-reduction-using-autoencoder-with-pytorch" id="toc-dimension-reduction-using-autoencoder-with-pytorch" class="nav-link" data-scroll-target="#dimension-reduction-using-autoencoder-with-pytorch"><span style="color:#00994c"><strong>Dimension Reduction using autoencoder with pytorch</strong></span></a>
+  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import"><span style="color:black"><strong>import</strong></span></a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span style="color:black"><strong>Data</strong></span></a></li>
+  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing"><span style="color:black"><strong>Preprocessing</strong></span></a></li>
+  <li><a href="#dimension-reduction-using-autoencoder-with-pytorch" id="toc-dimension-reduction-using-autoencoder-with-pytorch" class="nav-link" data-scroll-target="#dimension-reduction-using-autoencoder-with-pytorch"><span style="color:black"><strong>Dimension Reduction using autoencoder with pytorch</strong></span></a>
   <ul class="collapse">
   <li><a href="#encoding-dimension3" id="toc-encoding-dimension3" class="nav-link" data-scroll-target="#encoding-dimension3"><strong>encoding dimension=3</strong></a>
   <ul class="collapse">
@@ -302,7 +302,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
   </ul></li>
   <li><a href="#encoding-dimension10" id="toc-encoding-dimension10" class="nav-link" data-scroll-target="#encoding-dimension10"><strong>encoding dimension=10</strong></a></li>
   </ul></li>
-  <li><a href="#참고링크" id="toc-참고링크" class="nav-link" data-scroll-target="#참고링크"><span style="color:#00994c"><strong>참고링크</strong></span></a></li>
+  <li><a href="#참고링크" id="toc-참고링크" class="nav-link" data-scroll-target="#참고링크"><span style="color:black"><strong>참고링크</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -313,7 +313,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 
 
 <section id="import" class="level1">
-<h1><span style="color:#00994c"><strong>import</strong></span></h1>
+<h1><span style="color:black"><strong>import</strong></span></h1>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -339,7 +339,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 </div>
 </section>
 <section id="data" class="level1">
-<h1><span style="color:#00994c"><strong>Data</strong></span></h1>
+<h1><span style="color:black"><strong>Data</strong></span></h1>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>train <span class="op">=</span> pd.read_csv(train_path).drop(columns <span class="op">=</span> [<span class="st">"id"</span>])</span>
 <span id="cb3-2"><a href="#cb3-2"></a>train_len <span class="op">=</span> <span class="bu">len</span>(train)</span>
@@ -488,7 +488,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 </div>
 </section>
 <section id="preprocessing" class="level1">
-<h1><span style="color:#00994c"><strong>Preprocessing</strong></span></h1>
+<h1><span style="color:black"><strong>Preprocessing</strong></span></h1>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>_t <span class="op">=</span> []</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="cf">for</span> val <span class="kw">in</span> dataset.SNP_01 <span class="op">==</span> <span class="st">"G G"</span>:</span>
@@ -573,7 +573,7 @@ Name: class, dtype: int32</code></pre>
 </div>
 </section>
 <section id="dimension-reduction-using-autoencoder-with-pytorch" class="level1">
-<h1><span style="color:#00994c"><strong>Dimension Reduction using autoencoder with pytorch</strong></span></h1>
+<h1><span style="color:black"><strong>Dimension Reduction using autoencoder with pytorch</strong></span></h1>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> Encoder(nn.Module):</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,in_features,encoding_features):</span>
@@ -747,7 +747,7 @@ epoch:30000 loss:0.060432031750679016</code></pre>
 </section>
 </section>
 <section id="참고링크" class="level1">
-<h1><span style="color:#00994c"><strong>참고링크</strong></span></h1>
+<h1><span style="color:black"><strong>참고링크</strong></span></h1>
 <p><a href="https://dodonam.tistory.com/301">링크1</a><br> <a href="https://yamalab.tistory.com/116">링크2</a><br></p>
 
 
