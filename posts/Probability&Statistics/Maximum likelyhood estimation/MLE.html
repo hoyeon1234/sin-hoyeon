@@ -209,16 +209,18 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link active" data-scroll-target="#problem-setting"><span style="color:#00994C"><strong>Problem Setting</strong></span></a></li>
-  <li><a href="#what-is-estimation" id="toc-what-is-estimation" class="nav-link" data-scroll-target="#what-is-estimation"><span style="color : #00994C"> <strong>What is estimation?</strong> </span></a></li>
-  <li><a href="#likelyhood-function" id="toc-likelyhood-function" class="nav-link" data-scroll-target="#likelyhood-function"><span style="color : #00994C"><strong>Likelyhood function</strong> </span></a></li>
-  <li><a href="#mle최대가능도-추정법" id="toc-mle최대가능도-추정법" class="nav-link" data-scroll-target="#mle최대가능도-추정법"><span style="color : #00994C"><strong>MLE(최대가능도 추정법)</strong></span></a>
+  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link active" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></a></li>
+  <li><a href="#what-is-estimation" id="toc-what-is-estimation" class="nav-link" data-scroll-target="#what-is-estimation"><span style="color : black"> <strong>What is estimation?</strong> </span></a></li>
+  <li><a href="#mle최대가능도-추정법" id="toc-mle최대가능도-추정법" class="nav-link" data-scroll-target="#mle최대가능도-추정법"><span style="color : black"><strong>MLE(최대가능도 추정법)</strong></span></a></li>
+  <li><a href="#likelyhood-function" id="toc-likelyhood-function" class="nav-link" data-scroll-target="#likelyhood-function"><span style="color : black"><strong>Likelyhood function</strong> </span></a></li>
+  <li><a href="#likelyhood의-최댓값-구하기" id="toc-likelyhood의-최댓값-구하기" class="nav-link" data-scroll-target="#likelyhood의-최댓값-구하기"><span style="color : black"><strong>Likelyhood의 최댓값 구하기</strong> </span></a></li>
+  <li><a href="#베이즈-정리에-의한-mle" id="toc-베이즈-정리에-의한-mle" class="nav-link" data-scroll-target="#베이즈-정리에-의한-mle"><span style="color : black"><strong>베이즈 정리에 의한 MLE</strong></span></a>
   <ul class="collapse">
-  <li><a href="#예시" id="toc-예시" class="nav-link" data-scroll-target="#예시">예시</a></li>
+  <li><a href="#예시---정규분포-데이터가-주어진-경우" id="toc-예시---정규분포-데이터가-주어진-경우" class="nav-link" data-scroll-target="#예시---정규분포-데이터가-주어진-경우">예시 - 정규분포 데이터가 주어진 경우</a></li>
   <li><a href="#ll" id="toc-ll" class="nav-link" data-scroll-target="#ll"><strong>LL</strong></a></li>
   <li><a href="#nll" id="toc-nll" class="nav-link" data-scroll-target="#nll"><strong>NLL</strong></a></li>
   </ul></li>
-  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color : #00994C"><strong>정리</strong></span></a></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color : black"><strong>정리</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -230,7 +232,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 <p>최대가능도 추정법(MLE)에 대한 정리</p>
 <section id="problem-setting" class="level2">
-<h2 class="anchored" data-anchor-id="problem-setting"><span style="color:#00994C"><strong>Problem Setting</strong></span></h2>
+<h2 class="anchored" data-anchor-id="problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></h2>
 <span class="math display">\[\begin{aligned}
 &amp;\text{Given}\,x_1,x_2,...,x_N\ \text{which are realizations of a random sample }X_1,X_2,\dots,X_N \\
 &amp;\text{where,}\, X_1 \sim f_1(x_1;\theta),X_2 \sim f_2(x_1;\theta),\dots,X_N \sim f_N(x_N;\theta) \\ \\
@@ -239,7 +241,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 \end{aligned}\]</span>
 </section>
 <section id="what-is-estimation" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-estimation"><span style="color : #00994C"> <strong>What is estimation?</strong> </span></h2>
+<h2 class="anchored" data-anchor-id="what-is-estimation"><span style="color : black"> <strong>What is estimation?</strong> </span></h2>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -265,8 +267,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p>확률분포의 추정에서 보통 분포의 모양은 어떠한 분포로 가정합니다(ex 정규분포,베타분포,베르누이분포,다항분포 등등…). 그 다음은 확률분포의 모수를 추정해야 합니다. 이때 모수를 추정하는 방법 중 하나가 바로 최대가능도 추정법(Maximum likelihood estimation)입니다.<br></p>
 <p>아까전 상황을 다시 생각해봅시다. 우리는 확률분포로부터 몇 가지의 해석을 할 수 있었습니다. 이는 확률분포의 모양과 모수(평균,분산)를 먼저 가정을 했기 때문이었고,이로부터 특정한 표본이 나올 수 있는 가능성을 알 수 있었습니다.이와는 반대로,최대가능도 추정법에서는 역으로 샘플이 주어져있다고 가정하고 가정한 확률분포의 모양에 대해서 가장 가능성이 높은 모수를 이 모수를 모수에 대한 추정량(estimated value)로 합니다.</p>
 </section>
+<section id="mle최대가능도-추정법" class="level2">
+<h2 class="anchored" data-anchor-id="mle최대가능도-추정법"><span style="color : black"><strong>MLE(최대가능도 추정법)</strong></span></h2>
+</section>
 <section id="likelyhood-function" class="level2">
-<h2 class="anchored" data-anchor-id="likelyhood-function"><span style="color : #00994C"><strong>Likelyhood function</strong> </span></h2>
+<h2 class="anchored" data-anchor-id="likelyhood-function"><span style="color : black"><strong>Likelyhood function</strong> </span></h2>
 <p>위에서 <strong>샘플이 주어져있다고 가정하고 가장 가능성이 높은 모수</strong>가 모수에 대한 추정량이라고 했습니다. 그렇다면 가능성이 가장 높은 모수를 정하기 위해서 <strong>모수의 가능성</strong>이라는 지표를 정의할 필요가 있습니다. 모수의 가능성은 어떻게 정의해야 할까요?</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>rv1 <span class="op">=</span> sp.stats.norm(<span class="dv">175</span>,<span class="dv">10</span>)</span>
@@ -327,17 +332,27 @@ L(\theta|D) = L(\theta|x_1,x_2,\dots,x_N) &amp;= f_{X_1,X_2,\dots,X_N}(x_1,x_2,\
 \end{align}\]</span></p>
 <p>식(1)은 가능도 = 결합확률임을 의미합니다. 식(2)는 확률변수가 독립일 경우의 결합확률 = 확률의 곱입니다. 각각의 샘플에 대한 확률변수는 모두 독립이라고 가정합니다.</p>
 </section>
-<section id="mle최대가능도-추정법" class="level2">
-<h2 class="anchored" data-anchor-id="mle최대가능도-추정법"><span style="color : #00994C"><strong>MLE(최대가능도 추정법)</strong></span></h2>
-<p>최대가능도추정법(MLE)는 확률분포의 모수를 추정하는 점추정방법 중 하나로 가능도를 가장크게하는 모숫값을 모수에 대한 추정값 하는 방법입니다.다음과 같습니다.<br></p>
+<section id="likelyhood의-최댓값-구하기" class="level2">
+<h2 class="anchored" data-anchor-id="likelyhood의-최댓값-구하기"><span style="color : black"><strong>Likelyhood의 최댓값 구하기</strong> </span></h2>
+<p>여기까지 가능도함수를 구하는 방법을 알아봤습니다. 가능도함수를 최대화 할때의 값이 주어진 샘플에 대해서 가장 가능성이 높은 확률분포의 모수이므로 그때의 값으로 모수를 추정합니다. MLE추정량은 다음과 같습니다.<br></p>
 <span class="math display">\[\begin{aligned}
 \hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,L(\theta|x_1,x_2 \dots x_n) \\
 &amp;=  \underset{\theta}{\text{argmax}},f_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
 &amp;= \underset{\theta}{\text{argmax}}\,\prod_{i=1}^{N}f_{X_i}(x_i;\theta)
 \end{aligned}\]</span>
 <p><br></p>
-<section id="예시" class="level3">
-<h3 class="anchored" data-anchor-id="예시">예시</h3>
+</section>
+<section id="베이즈-정리에-의한-mle" class="level2">
+<h2 class="anchored" data-anchor-id="베이즈-정리에-의한-mle"><span style="color : black"><strong>베이즈 정리에 의한 MLE</strong></span></h2>
+<p><span class="math inline">\(D=(t_1,t_2,\dots,t_n)\)</span>는 샘플(데이터셋), <span class="math inline">\(\theta\)</span>는 우리가 알고싶은 확률분포의 모수라고 합시다. 베이즈정리는 증거 또는 조건이 주어지기 전의 사전확률 <span class="math inline">\(p(D)\)</span>와 주어진 후의 사후확률 <span class="math inline">\(p(\theta|D)\)</span>사이의 관계를 알려줍니다.</p>
+<span class="math display">\[\begin{aligned}
+p(\theta|D) = \frac{p(D|\theta)p(\theta)}{p(D)} \propto p(\theta|D) \times p(\theta)
+\end{aligned}\]</span>
+<p>여기서 사후확률은 <span class="math inline">\(\theta\)</span>에 대한 확률분포로 데이터(샘플)이 주어질때 확률분포의 임의의 모수<span class="math inline">\(\theta\)</span>가 얼마나 가능한지 또는 불확실한지 그 정도를 알려주는 확률을 함숫값으로 가지는 확률함수입니다. 그러므로 사후확률을 최대로 하는 모수<span class="math inline">\(\theta\)</span>가 데이터셋이 주어져있을 때 가장 확률이 높은,가능성이 높은 모수이므로 그때의 값을 확률분포의 모수로 추정하면 됩니다.</p>
+<p>문제는 왼쪽의 확률분포는 바로 알기가 쉽지 않다는 점입니다. 따라서 베이즈정리를 통하여 우변의 식을 최대화 하는 값을 구합니다. 우변의 식에서 분모는 주어진 데이터에 의하여 고정된 상수(normalization constant라고 합니다)입니다. 그러므로 최댓값을 구하는데 영향을 주지 않습니다. 우리는 분자에 있는 <span class="math inline">\(p(D|\theta)p(\theta)\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 찾으면 됩니다.</p>
+<p>여기서 <span class="math inline">\(p(D|\theta)\)</span>를 가능도(likelyhood)라 합니다. MLE에서는 분자에서 가능도만 최대로 하는 <span class="math inline">\(\theta\)</span>를 구합니다. MAP라는 다른 방법은 분자에 있는 <span class="math inline">\(p(D|\theta)p(\theta)\)</span>를 최대화 하는 <span class="math inline">\(\theta\)</span>를 구한다고 합니다.</p>
+<section id="예시---정규분포-데이터가-주어진-경우" class="level3">
+<h3 class="anchored" data-anchor-id="예시---정규분포-데이터가-주어진-경우">예시 - 정규분포 데이터가 주어진 경우</h3>
 <p>대한민국 20대 남성들의 키의 분포가 정규분포를 따른다고 가정해보겠습니다. 샘플링하여 크기가 4인표본[173,177,175,180]을 얻은 상태입니다. 목적은 정규분포의 모수인 <span class="math inline">\(\mu\)</span>를 MLE로 추정하는 것입니다.<br></p>
 <p>다음을 계산해야 합니다<br></p>
 <span class="math display">\[\begin{aligned}
@@ -375,11 +390,11 @@ L(\theta|D) = L(\theta|x_1,x_2,\dots,x_N) &amp;= f_{X_1,X_2,\dots,X_N}(x_1,x_2,\
 </section>
 <section id="nll" class="level3">
 <h3 class="anchored" data-anchor-id="nll"><strong>NLL</strong></h3>
-<p>NLL은 LL에 -(negative)를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있습니다. <span class="math display">\[NLL = -\text{ln }L(\theta|x_1,X_2 = x_2 \dots x_N)\]</span></p>
+<p>NLL은 LL에 -(negative)를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있습니다. 머신러닝이나 최적화에서 사용하는 방법입니다. <span class="math display">\[NLL = -\text{ln }L(\theta|x_1,X_2 = x_2 \dots x_N)\]</span></p>
 </section>
 </section>
 <section id="정리" class="level1">
-<h1><span style="color : #00994C"><strong>정리</strong></span></h1>
+<h1><span style="color : black"><strong>정리</strong></span></h1>
 <p>MLE를 통해서 모수에 대한 추정량을 구하면 다음과 같습니다.</p>
 <span class="math display">\[\begin{aligned}
 \hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,L(\theta|x_1,x_2 \dots x_N)\\
