@@ -209,9 +209,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link active" data-scroll-target="#linear-regression">Linear Regression</a>
+  <li><a href="#개요" id="toc-개요" class="nav-link active" data-scroll-target="#개요"><span style="color:black"><strong>개요</strong></span></a></li>
+  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></a></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression"><span style="color:black"><strong>Linear Regression</strong></span></a>
   <ul class="collapse">
-  <li><a href="#population-regression-model" id="toc-population-regression-model" class="nav-link" data-scroll-target="#population-regression-model">population regression model</a></li>
+  <li><a href="#가정-1" id="toc-가정-1" class="nav-link" data-scroll-target="#가정-1"><span style="color : black"><strong>가정 (1)</strong></span></a></li>
   <li><a href="#sample-regression-modelvector-form" id="toc-sample-regression-modelvector-form" class="nav-link" data-scroll-target="#sample-regression-modelvector-form">sample regression model(vector form)</a></li>
   </ul></li>
   <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient Descent</a>
@@ -235,14 +237,33 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 <p>선형회귀에 대해서 정리한 글입니다.</p>
+<section id="개요" class="level1">
+<h1><span style="color:black"><strong>개요</strong></span></h1>
+<p>선형회귀는 변수사이의 관계가 선형이라고 가정했을 때, 독립변수 <span class="math inline">\(X\)</span>로 연속형 변수인 종속변수 <span class="math inline">\(Y\)</span>의 값을 예측하기 위한 문제에서 사용합니다.</p>
+</section>
+<section id="problem-setting" class="level1">
+<h1><span style="color:black"><strong>Problem Setting</strong></span></h1>
+<p>데이터셋이 주어져 있다고 합시다. 데이터는 m개의 독립변수를 가지며 1개의 연속적인 종속변수를 가집니다. 우리의 목적은 x를 입력으로 하고 y값을 예측하는 선형모형을 만드는 것이 목적입니다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;\text{Given, }D = {(x_{1,i},x_{2,i},\dots,x_{M,i},y_i})_{i=1}^{i=N} \\
+&amp;\text{Goal : x를 입력으로 연속형변수 y값을 예측하는 선형모형만들기}
+\end{aligned}\]</span>
+</section>
 <section id="linear-regression" class="level1">
-<h1>Linear Regression</h1>
-<p>선형회귀는 확률변수사이의 관계가 <strong>선형</strong>이라고 가정한 모델링이며 종속변수 Y가 연속형 변수일때 사용합니다. 주어진 표본에 적합한 계수를 찾으면 두 변수사이의 관계를 대략적으로 알 수 있습니다. 2차원에서는 직선을 3차원에서는 평면을 4차원 이상에서는 초평면을 찾는 과정이라고도 할 수 있습니다.<br><br></p>
-<section id="population-regression-model" class="level2">
-<h2 class="anchored" data-anchor-id="population-regression-model">population regression model</h2>
-<p><span id="eq-poprgmodel"><span class="math display">\[
-Y = w_0 + w_1X_1  \dots + w_mX_m + \epsilon
-\tag{1}\]</span></span> 위와 모집단의 확률변수사이의 관계를 선형이라고 가정한 모형을 모형을 population regression model이라고 합니다. population regression model은 <strong>아주 작은 오차(error)</strong>를 포함합니다.<br></p>
+<h1><span style="color:black"><strong>Linear Regression</strong></span></h1>
+<p>선형회귀는 독립변수와 종속변수사이의 관계를 선형으로 모델링하여 독립변수<span class="math inline">\(x\)</span>를 입력으로 할 때, 연속형변수인 종속변수 <span class="math inline">\(y\)</span>값을 예측하는 문제에 활용됩니다. 선형회귀는 가장 간단한 예측모형으로 선형회귀의 핵심아이디어를 모방하여 다른 모형에서도 활용합니다.</p>
+<section id="가정-1" class="level2">
+<h2 class="anchored" data-anchor-id="가정-1"><span style="color : black"><strong>가정 (1)</strong></span></h2>
+<p>선형회귀에서 독립변수와 종속변수는 선형관계에 있다고 가정합니다. 이때 무시할만한 아주 작은 오차(<span class="math inline">\(\epsilon\)</span>,error)를 포함하며 이 오차는 측정과정에서의 오류나 다른 변수의 영향을 의미합니다. 오차는 평균이 0인 정규분포를 따른다고 가정합니다. 이 식 수정 ….. 잘못된 식임 …. 무조건 확률변수라고 대문자 확률변수가 아니라고 소문자 이딴 …. 건 없음 …</p>
+<span class="math display">\[\begin{aligned}
+&amp;Y = w_0 + w_1X_1  \dots + w_mX_m + \epsilon \\
+&amp;\text{where, } \epsilon \sim \mathcal{N}(0,\sigma^2)
+\end{aligned}\]</span>
+<p>이때 변수<span class="math inline">\(Y\)</span>는 확률변수로 확률분포를 가집니다. 확률분포가 중심은 어디고 변동이 얼마나 있는지 알아보기 위해서 기댓값과 분산을 구해보겠습니다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;E[Y|X] = E[w_0] + E[w_1X_1] + ... + E[w_mX_m] = w_0 + w_1X_1 + \dots + w_mX_m \\
+&amp;\text{var}[Y|X] = \mathbb{E}[(w_0+w_1x_1+ \dots +w_mX_m + \epsilon - E[Y|X])^2] = \mathbb{E}[\epsilon^2]
+\end{aligned}\]</span>
 </section>
 <section id="sample-regression-modelvector-form" class="level2">
 <h2 class="anchored" data-anchor-id="sample-regression-modelvector-form">sample regression model(vector form)</h2>
@@ -282,7 +303,7 @@ w_m
 \]</span><br> <span id="eq-samplergmodel"><span class="math display">\[
 \Longleftrightarrow
 \bf{y} = \bf{X}\bf{W} + \bf{\epsilon}
-\tag{2}\]</span></span> <br> 위와 같이 샘플링한 표본을 나타내는 모형을 sample regression model이라고 합니다.</p>
+\tag{1}\]</span></span> <br> 위와 같이 샘플링한 표본을 나타내는 모형을 sample regression model이라고 합니다.</p>
 <div class="cell" data-execution_count="131">
 <div class="cell-output cell-output-display" data-execution_count="131">
 <pre><code>Text(0.5, 1.0, 'n=200')</code></pre>

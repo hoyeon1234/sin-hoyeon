@@ -154,7 +154,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span style="color : black"><strong>Appendix</strong></span></a>
   <ul class="collapse">
   <li><a href="#확률밀도함수에-관한-여러가지-증명" id="toc-확률밀도함수에-관한-여러가지-증명" class="nav-link" data-scroll-target="#확률밀도함수에-관한-여러가지-증명">확률밀도함수에 관한 여러가지 증명</a></li>
-  <li><a href="#공분산-유도" id="toc-공분산-유도" class="nav-link" data-scroll-target="#공분산-유도">공분산 유도</a></li>
+  <li><a href="#공분산-전개하기" id="toc-공분산-전개하기" class="nav-link" data-scroll-target="#공분산-전개하기">공분산 전개하기</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -170,9 +170,9 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="probability-density-function"><span style="color : black"><strong>Probability density function</strong></span></h2>
 <p>확률밀도함수는 연속확률변수가 미소구간안에 속하는 사건에 대한 확률을 미소구간의 길이로 나눈 확률밀도값을 함숫값으로 가지는 확률함수로 정의합니다.</p>
 <p><span class="math display">\[p(x) \overset{\Delta}{=} \lim_{\Delta x \rightarrow 0}\frac{p(x&lt;X\leq x+\Delta x))}{\Delta x}\]</span></p>
-<p>확률밀도함수를 정적분하면 확률변수가 임의의 구간안에 속하는 확률을 얻을 수 있습니다. 이는 누적분포함수,정적분과 연관지어 설명할 수 있습니다.</p>
+<p>확률밀도함수를 정적분하면 확률변수가 임의의 구간안에 속하는 사건에 대한 확률을 얻을 수 있습니다.(증명)</p>
 <span class="math display">\[\begin{aligned}
-P(a &lt; X \leq b) = \int_{a}^{b}f(t)dt
+P(a &lt; X \leq b) = \int_{a}^{b}p(u)d(u)
 \end{aligned}\]</span>
 <p>확률밀도함수는 다음의 두 가지 조건을 만족해야 합니다. 첫번째 식은 확률(밀도)는 반드시 0보다 크거나 같음을 의미합니다. 두번째 식에서 확률변수는 반드시 <span class="math inline">\((-\infty,\infty]\)</span>인 구간안에 속함을 의미합니다.</p>
 <p><span class="math display">\[\begin{align}
@@ -205,17 +205,16 @@ p_Y(y) &amp;= p_X(x) \begin {vmatrix} \frac{dx}{dy} \end {vmatrix} \\
 </section>
 <section id="expectations-and-variances" class="level2">
 <h2 class="anchored" data-anchor-id="expectations-and-variances"><span style="color : black"><strong>Expectations and Variances</strong></span></h2>
-<p>함수의 기댓값(또는 평균)은 함숫값이 어떤 값을 중심으로 분포하는지를 알려줍니다. 가능한 모든x에 대하여 함숫값과 확률밀도값을 가중평균하여 얻을 수 있습니다.</p>
+<p>함수의 기댓값(또는 평균)은 함숫값이 어떤 값을 중심으로 분포하는지를 알려줍니다. 가능한 모든<span class="math inline">\(x\)</span>에 대하여 함숫값과 그때의 확률분포의 값을 곱하여 얻은 가중평균입니다.</p>
 <span class="math display">\[\begin{aligned}
 &amp;\mathbb{E}[f] = \sum_x p(x)f(x) \quad \text{If X is a discrete R.V} \\
 &amp;\mathbb{E}[f] = \int_x p(x)f(x)dx \quad \text{If X is a continuous R.V}
 \end{aligned}\]</span>
-<p>표본의 크기가 무한할 경우, 표본으로 부터 구한 함숫값의 평균과 기댓값은 값이 같습니다.</p>
+<p>표본의 크기가 무한할 경우, 표본으로 부터 구한 함숫값의 평균과 기댓값은 값이 같습니다. 이를 통해서 확률분포의 기댓값을 알 수 있다면 표본이 적당히 크기가 클 경우 함숫값이 어느정도 일지 대략적으로 예측할 수 있습니다.</p>
 <p><span class="math display">\[\mathbb{E}[f] = \lim_{N \rightarrow \infty}\frac{1}{N}\sum_{n=1}^{N}f(x_n)\]</span></p>
-<p>다변수 함수가 주어져 있다고 합시다. 여러 확률변수 중 하나의 특정한 확률변수에 대해서 가능한 함숫값과 확률분포로 함숫값의 가중평균을 취한 기댓값은 다음과 같이 표기합니다.</p>
+<p>다변수함수는 여러개의 변수를 가지는 함수입니다. 따라서 각각의 변수가 따르는 확률분포중에서 하나를 선택하여 그때의 확률분포와 함숫값의 기댓값을 구할 수 있습니다. 이때 기댓값은 나머지 확률변수에 대한 함수가 됩니다.</p>
 <p><span class="math display">\[\mathbb{E}_x[f(x,y)] = f(y)\]</span></p>
-<p>여기서 기댓값은 가능한 모든<span class="math inline">\(x\)</span>에 대해서 계산되므로 y의 함수가 됩니다.</p>
-<p>함수의 조건부 기댓값은 조건부 확률분포와의 가중평균으로 정의할 수 있습니다. y가 조건으로 주어질 때, x의 조건부 기댓값은 다음과 같습니다.</p>
+<p>함수의 조건부 기댓값은 조건부 확률분포와의 가중평균으로 정의할 수 있습니다. <span class="math inline">\(y\)</span>가 조건으로 주어질 때, <span class="math inline">\(x\)</span>의 조건부 기댓값은 다음과 같습니다.</p>
 <p><span class="math display">\[\mathbb{E}_x[f|y] = \sum_x{p(x|y)}{f(x)}\]</span></p>
 <p>확률변수 <span class="math inline">\(f(x)\)</span>의 분산(variance)는 함수가 기댓값을 중심으로 얼마나 퍼져있는지 알려줍니다. 편차제곱의 기댓값(평균)으로 정의합니다.</p>
 <span class="math display">\[\begin{aligned}
@@ -227,12 +226,11 @@ p_Y(y) &amp;= p_X(x) \begin {vmatrix} \frac{dx}{dy} \end {vmatrix} \\
 &amp;= \mathbb{E}[x^2] - \mathbb{E}[x]^2\\
 \end{aligned}
 \end{aligned}\]</span>
-<p>두 개의 확률변수에 대해서 공분산은 다음과 같습니다.</p>
+<p>두 개의 확률변수에 대해서 공분산은 다음과 같습니다.(2번째 식에 대한 전개)</p>
 <p><span class="math display">\[\begin{align}
 \text{cov}[x,y] &amp;= \mathbb{E}_{x,y}[\{x-\mathbb{E}[x]\}\{y-\mathbb{E}[y]\}] \\
 &amp;=\mathbb{E}_{x,y}[xy] - \mathbb{E}[x]\mathbb{E}[y]
 \end{align}\]</span></p>
-<p>두 번째 식은 괄호안을 전개하면 얻을 수 있습니다.(증명적기)표본으로 부터 구할 수 있는 표본공분산은</p>
 </section>
 <section id="appendix" class="level2">
 <h2 class="anchored" data-anchor-id="appendix"><span style="color : black"><strong>Appendix</strong></span></h2>
@@ -252,8 +250,8 @@ P(a &lt; X \leq b) &amp;= P(-\infty &lt; X \leq b) - P(-\infty &lt; X \leq a) \\
 &amp;= \int_{a}^{b}f(t)dt
 \end{aligned}\]</span>
 </section>
-<section id="공분산-유도" class="level3">
-<h3 class="anchored" data-anchor-id="공분산-유도">공분산 유도</h3>
+<section id="공분산-전개하기" class="level3">
+<h3 class="anchored" data-anchor-id="공분산-전개하기">공분산 전개하기</h3>
 <span class="math display">\[\begin{aligned}
 \text{cov}[x,y] &amp;= \mathbb{E}_{x,y}[\{x-\mathbb{E}[x]\}\{y-\mathbb{E}[y]\}] \\
 &amp;=\mathbb{E}_{x,y}[xy - x\mathbb{E}[y] - y\mathbb{E}[x] + \mathbb{E}[x]\mathbb{E}[y]]\\
@@ -261,9 +259,9 @@ P(a &lt; X \leq b) &amp;= P(-\infty &lt; X \leq b) - P(-\infty &lt; X \leq a) \\
 \end{aligned}\]</span>
 <p>여기서 <span class="math inline">\(\mathbb{E}_{x,y}[x\mathbb{E}[y]]\)</span>는 다음과 같다.</p>
 <span class="math display">\[\begin{aligned}
-\int_x\int_yx\mathbb{E}[y]p(y)p(x)dydx &amp;=  \int_xx\mathbb{E}[y]p(x)\bigg(\int_yp(y)dy\bigg)dx \\
-&amp;= \int_xx\mathbb{E}[y]p(x)dx \\
-&amp;= \mathbb{E}[y]\int_xxp(x)dx \\
+\int_{\infty}^{\infty}\int_{\infty}^{\infty}x\mathbb{E}[y]p(y)p(x)dydx &amp;=  \int_{\infty}^{\infty}x\mathbb{E}[y]p(x)\bigg(\int_{\infty}^{\infty}p(y)dy\bigg)dx \\
+&amp;= \int_{\infty}^{\infty}x\mathbb{E}[y]p(x)dx \\
+&amp;= \mathbb{E}[y]\int_{\infty}^{\infty}xp(x)dx \\
 &amp;= \mathbb{E}[y]\mathbb{E}[x]
 \end{aligned}\]</span>
 <p>마찬가지로 <span class="math inline">\(\mathbb{E}_{x,y}[y\mathbb{E}[x]]\)</span>도 같은 값을 가진다. 따라서 다음과 같다.</p>
