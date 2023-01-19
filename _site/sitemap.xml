@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/index.html</loc>
-    <lastmod>2023-01-18T20:30:09.639Z</lastmod>
+    <lastmod>2023-01-19T20:35:36.627Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/coading test/programmers시저암호.html</loc>
@@ -22,11 +22,11 @@
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Auto Encoder Dimension Reduction.html</loc>
-    <lastmod>2023-01-17T16:11:35.580Z</lastmod>
+    <lastmod>2023-01-19T19:39:28.025Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Linear Regression.html</loc>
-    <lastmod>2023-01-18T20:46:23.158Z</lastmod>
+    <lastmod>2023-01-19T19:39:15.803Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Logistic Regression.html</loc>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Multinomial Logistic Regression,Softmatx Regression.html</loc>
-    <lastmod>2023-01-18T19:30:08.830Z</lastmod>
+    <lastmod>2023-01-19T19:39:16.563Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Pytorch Rnn 구현.html</loc>
@@ -42,11 +42,11 @@
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/[PRML 정독하기] Probability Theory.html</loc>
-    <lastmod>2023-01-17T16:11:38.475Z</lastmod>
+    <lastmod>2023-01-19T19:39:17.277Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/[PRML 정독하기] Probability Theory2.html</loc>
-    <lastmod>2023-01-17T16:11:38.963Z</lastmod>
+    <lastmod>2023-01-19T19:39:17.923Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/Ax=b의 해의 갯수 알아내기/Ax = b의 해석.html</loc>
@@ -98,15 +98,15 @@
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&Statistics/Maximum likelyhood estimation/MLE.html</loc>
-    <lastmod>2023-01-18T20:30:10.849Z</lastmod>
+    <lastmod>2023-01-19T19:39:19.299Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&Statistics/notation.html</loc>
-    <lastmod>2023-01-18T18:53:23.977Z</lastmod>
+    <lastmod>2023-01-19T19:39:19.908Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&Statistics/sample space and random variable.html</loc>
-    <lastmod>2023-01-17T17:03:27.849Z</lastmod>
+    <lastmod>2023-01-19T19:39:21.914Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html</loc>
@@ -119,5 +119,13 @@
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/visualization/plotly_visualization/Untitled-1.html</loc>
     <lastmod>2023-01-17T16:11:52.011Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/DQN review.html</loc>
+    <lastmod>2023-01-19T20:35:35.424Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/DQN review - 복사본.html</loc>
+    <lastmod>2023-01-19T20:33:41.815Z</lastmod>
   </url>
 </urlset>
