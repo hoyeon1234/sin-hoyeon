@@ -146,16 +146,16 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#개요" id="toc-개요" class="nav-link active" data-scroll-target="#개요"><span style="color:#00994C"><strong>개요</strong></span></a></li>
-  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link" data-scroll-target="#problem-setting"><span style="color:#00994C"><strong>Problem Setting</strong></span></a></li>
-  <li><a href="#multinomial-logistic-regression" id="toc-multinomial-logistic-regression" class="nav-link" data-scroll-target="#multinomial-logistic-regression"><span style="color:#00994C"><strong>Multinomial Logistic Regression</strong></span></a>
+  <li><a href="#개요" id="toc-개요" class="nav-link active" data-scroll-target="#개요"><span style="color:black"><strong>개요</strong></span></a></li>
+  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></a></li>
+  <li><a href="#multinomial-logistic-regression" id="toc-multinomial-logistic-regression" class="nav-link" data-scroll-target="#multinomial-logistic-regression"><span style="color:black"><strong>Multinomial Logistic Regression</strong></span></a>
   <ul class="collapse">
   <li><a href="#가정-1" id="toc-가정-1" class="nav-link" data-scroll-target="#가정-1"><strong>가정 (1)</strong></a></li>
   <li><a href="#가정-2" id="toc-가정-2" class="nav-link" data-scroll-target="#가정-2"><strong>가정 (2)</strong></a></li>
   <li><a href="#xw의-선형조합을-포함한-모수의-표현-유도하기" id="toc-xw의-선형조합을-포함한-모수의-표현-유도하기" class="nav-link" data-scroll-target="#xw의-선형조합을-포함한-모수의-표현-유도하기"><strong>X,W의 선형조합을 포함한 모수의 표현 유도하기</strong></a></li>
   <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation"><strong>Estimation</strong></a></li>
   </ul></li>
-  <li><a href="#softmax-regression" id="toc-softmax-regression" class="nav-link" data-scroll-target="#softmax-regression"><span style="color:#00994C"><strong>Softmax Regression</strong></span></a>
+  <li><a href="#softmax-regression" id="toc-softmax-regression" class="nav-link" data-scroll-target="#softmax-regression"><span style="color:black"><strong>Softmax Regression</strong></span></a>
   <ul class="collapse">
   <li><a href="#가정" id="toc-가정" class="nav-link" data-scroll-target="#가정"><strong>가정</strong></a></li>
   <li><a href="#xw의-선형조합을-포함한-모수의-표현-유도하기-1" id="toc-xw의-선형조합을-포함한-모수의-표현-유도하기-1" class="nav-link" data-scroll-target="#xw의-선형조합을-포함한-모수의-표현-유도하기-1"><strong>X,W의 선형조합을 포함한 모수의 표현 유도하기</strong></a></li>
@@ -180,11 +180,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </tbody>
 </table>
 <section id="개요" class="level1">
-<h1><span style="color:#00994C"><strong>개요</strong></span></h1>
+<h1><span style="color:black"><strong>개요</strong></span></h1>
 <p><strong>로지스틱회귀</strong>에서는 종속변수 y가 0또는1의 2가지 범주만 가지는 <strong>이진분류문제</strong>를 해결할 수 있었습니다. <strong>다항로지스틱 회귀와 소프트맥스 회귀</strong>는 종속변수 y가 더 다양한 범주를 가지는 <strong>일반적인 분류문제</strong>를 해결할때 사용하는 모형입니다.</p>
 </section>
 <section id="problem-setting" class="level1">
-<h1><span style="color:#00994C"><strong>Problem Setting</strong></span></h1>
+<h1><span style="color:black"><strong>Problem Setting</strong></span></h1>
 <span class="math display">\[\begin{aligned}
 &amp;\text{Given, }D = {(x_{1,i},x_{2,i},\dots,x_{M,i},y_i})_{i=1}^{i=N} \\
 &amp;\text{where, $y_i$는 각각의 datapoint의 클래스를 원핫인코딩한 벡터} \\ \\
@@ -192,7 +192,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 \end{aligned}\]</span>
 </section>
 <section id="multinomial-logistic-regression" class="level1">
-<h1><span style="color:#00994C"><strong>Multinomial Logistic Regression</strong></span></h1>
+<h1><span style="color:black"><strong>Multinomial Logistic Regression</strong></span></h1>
 <p>다항로지스틱 회귀는 이진로지스틱 회귀를 확장하여 종속변수가 0또는1의 이진값이 아닌 더 많은 값을 가지는 문제를 가질때 분류하기위한 모형입니다.</p>
 <section id="가정-1" class="level2">
 <h2 class="anchored" data-anchor-id="가정-1"><strong>가정 (1)</strong></h2>
@@ -287,7 +287,7 @@ Y_i|x_{1,i},x_{2,i},\dots,x_{M,i} \sim \text{Cat}(y|x_{1,i},x_{2,i},\dots,x_{M,i
 </section>
 </section>
 <section id="softmax-regression" class="level1">
-<h1><span style="color:#00994C"><strong>Softmax Regression</strong></span></h1>
+<h1><span style="color:black"><strong>Softmax Regression</strong></span></h1>
 <p>소프트맥스 회귀 다항 로지스틱 회귀와 마찬가지로 이진로지스틱 회귀를 확장하여 종속변수가 0또는1의 이진값이 아닌 더 일반적인 분류문제를 해결하기 위한 문제입니다. 두 분류모형간 가장 큰 차이점이라면 유도과정 시 다항로지스틱회귀에서는 마지막 모수를 설명변수와 가중치의 일차결합으로 나타내지 않은 반면 소프트맥스 회귀에서는 마지막 클래스의 모수도 설명변수와 반응변수의 일차결합으로 나타낸다는 점입니다.</p>
 <section id="가정" class="level2">
 <h2 class="anchored" data-anchor-id="가정"><strong>가정</strong></h2>
