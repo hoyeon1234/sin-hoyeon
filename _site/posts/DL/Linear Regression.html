@@ -213,7 +213,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></a></li>
   <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression"><span style="color:black"><strong>Linear Regression</strong></span></a>
   <ul class="collapse">
-  <li><a href="#가정-1" id="toc-가정-1" class="nav-link" data-scroll-target="#가정-1"><span style="color : black"><strong>가정 (1)</strong></span></a></li>
+  <li><a href="#데이터에-대한-가정-모델링" id="toc-데이터에-대한-가정-모델링" class="nav-link" data-scroll-target="#데이터에-대한-가정-모델링"><span style="color : black"><strong>데이터에 대한 가정 &amp; 모델링</strong></span></a></li>
+  <li><a href="#w에-대한-추정---mle" id="toc-w에-대한-추정---mle" class="nav-link" data-scroll-target="#w에-대한-추정---mle"><span style="color : black"><strong>w에 대한 추정 - MLE</strong></span></a></li>
   <li><a href="#sample-regression-modelvector-form" id="toc-sample-regression-modelvector-form" class="nav-link" data-scroll-target="#sample-regression-modelvector-form">sample regression model(vector form)</a></li>
   </ul></li>
   <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient Descent</a>
@@ -226,6 +227,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#구현" id="toc-구현" class="nav-link" data-scroll-target="#구현">구현</a>
   <ul class="collapse">
   <li><a href="#결과해석" id="toc-결과해석" class="nav-link" data-scroll-target="#결과해석">결과해석</a></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료"><span style="color : black"><strong>참고자료</strong></span></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -239,31 +241,78 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p>선형회귀에 대해서 정리한 글입니다.</p>
 <section id="개요" class="level1">
 <h1><span style="color:black"><strong>개요</strong></span></h1>
-<p>선형회귀는 변수사이의 관계가 선형이라고 가정했을 때, 독립변수 <span class="math inline">\(X\)</span>로 연속형 변수인 종속변수 <span class="math inline">\(Y\)</span>의 값을 예측하기 위한 문제에서 사용합니다.</p>
+<p>선형회귀는 변수사이의 관계가 선형이라고 가정했을 때, 독립변수로 연속형 변수인 종속변수의 값을 예측하기 위한 문제에서 사용합니다.</p>
 </section>
 <section id="problem-setting" class="level1">
 <h1><span style="color:black"><strong>Problem Setting</strong></span></h1>
-<p>데이터셋이 주어져 있다고 합시다. 데이터는 m개의 독립변수를 가지며 1개의 연속적인 종속변수를 가집니다. 우리의 목적은 x를 입력으로 하고 y값을 예측하는 선형모형을 만드는 것이 목적입니다.</p>
+<p>데이터셋이 주어져 있다고 합시다. 데이터는 m개의 독립변수를 가지며 1개의 연속적인 종속변수를 가집니다. 우리의 목적은 x를 입력으로 하고 y값을 예측하는 모형을 만드는 것이 목적입니다.</p>
 <span class="math display">\[\begin{aligned}
-&amp;\text{Given, }D = {(x_{1,i},x_{2,i},\dots,x_{M,i},y_i})_{i=1}^{i=N} \\
-&amp;\text{Goal : x를 입력으로 연속형변수 y값을 예측하는 선형모형만들기}
+&amp;\text{Given, }D = \{(x_{i,1},x_{2,i},\dots,x_{M,i},y_i)\}_{i=1}^{i=N} \\
+&amp;\text{Goal : unseendata에 대해서 x를 입력으로 연속형변수 y값을 예측하는 선형모형만들기}
 \end{aligned}\]</span>
 </section>
 <section id="linear-regression" class="level1">
 <h1><span style="color:black"><strong>Linear Regression</strong></span></h1>
-<p>선형회귀는 독립변수와 종속변수사이의 관계를 선형으로 모델링하여 독립변수<span class="math inline">\(x\)</span>를 입력으로 할 때, 연속형변수인 종속변수 <span class="math inline">\(y\)</span>값을 예측하는 문제에 활용됩니다. 선형회귀는 가장 간단한 예측모형으로 선형회귀의 핵심아이디어를 모방하여 다른 모형에서도 활용합니다.</p>
-<section id="가정-1" class="level2">
-<h2 class="anchored" data-anchor-id="가정-1"><span style="color : black"><strong>가정 (1)</strong></span></h2>
-<p>선형회귀에서 독립변수와 종속변수는 선형관계에 있다고 가정합니다. 이때 무시할만한 아주 작은 오차(<span class="math inline">\(\epsilon\)</span>,error)를 포함하며 이 오차는 측정과정에서의 오류나 다른 변수의 영향을 의미합니다. 오차는 평균이 0인 정규분포를 따른다고 가정합니다. 이 식 수정 ….. 잘못된 식임 …. 무조건 확률변수라고 대문자 확률변수가 아니라고 소문자 이딴 …. 건 없음 …</p>
+<p>선형회귀는 독립변수와 종속변수사이의 관계를 선형(일차식,직선,평면)으로 모델링하여 독립변수<span class="math inline">\(x\)</span>를 입력으로 연속형변수인 종속변수 <span class="math inline">\(y\)</span>값을 예측하는 문제에 활용됩니다. 선형회귀는 가장 간단한 예측모형으로 선형회귀의 핵심아이디어를 모방하여 다른 모형에서도 활용합니다.</p>
+<section id="데이터에-대한-가정-모델링" class="level2">
+<h2 class="anchored" data-anchor-id="데이터에-대한-가정-모델링"><span style="color : black"><strong>데이터에 대한 가정 &amp; 모델링</strong></span></h2>
+<div class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>Text(0.5, 1.0, 'n=200')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Linear Regression_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>우리가 가진 데이터를 관찰해봅시다. 가장크게 눈에 띄는 사실은 x와 y사이의 관계가 선형적이라는 점입니다. 따라서 간단한 선형모형으로 독립변수와 종속변수사이의 관계를 모델링할 수 있을 것 같습니다. 조금 더 세부적으로 들어가서 각각의 x값에 대해서 y값을 관찰해 봅시다. <span style="color : blue">첫번째로 알 수 있는 점은 동일한 x값에 대해서도 서로다른 y값을 가지는 점들 데이터가 많이 있다</span>는 것입니다. 이로부터 <span class="math inline">\(y\)</span>가 <span class="math inline">\(x\)</span>뿐만아니라 또다른 확률변수 <span class="math inline">\(\epsilon\)</span>의 값에 의해 결정된다는 것을 알 수 있습니다. <span style="color : blue">두번째로 x값에 의해서 찍히는 점의 위치(y)의 양상이 다르다는 점을 알 수 있습니다.</span> x가 작으면 일반적으로 y는 낮은위치에서 점이 찍히고 x가 크면클수록 일반적으로 높은 위치에서 점이 찍히는 것을 알 수 있습니다.</p>
+<p>데이터를 관찰하면서 얻은 사실로부터 <span class="math inline">\(x\)</span>와 <span class="math inline">\(y\)</span>사이의 관계를 수학적으로 모델링 해보겠습니다. 첫번째 사실로부터 우리는 동일한 <span class="math inline">\(x\)</span>라도 각각의 데이터에 대해서 어떤 또다른 값이 더해짐을 알 수 있습니다. 이렇게 뽑힐때마다 그 값이 다른 변수는 확률변수 <span class="math inline">\(\epsilon_i\)</span>를 더해줌으로서 표현할 수 있습니다. 여기서 오차가 따르는 분포에 대해서 가정을 합니다. 오차는 평균이 0이고 분산이 <span class="math inline">\(\sigma^2\)</span>인 정규분포를 따르는 확률변수라고 가정합니다.</p>
+<p>또한 두번째 사실로부터 우리는 <span class="math inline">\(x\)</span>와 <span class="math inline">\(y\)</span>는 커지면 커지고 작아지면 작아지는 관계임을 알 수 있습니다. 이러한 관계를 표현할 수 있는 방법은 여러가지가 있지만 선형회귀에서는 선형으로 이 관계를 표현합니다.</p>
 <span class="math display">\[\begin{aligned}
-&amp;Y = w_0 + w_1X_1  \dots + w_mX_m + \epsilon \\
-&amp;\text{where, } \epsilon \sim \mathcal{N}(0,\sigma^2)
+&amp;Y_i = w_0 + w_1x_1 + \dots + w_Mx_M + \epsilon_i=x_iw + \epsilon_i\\
+&amp;\text{where , }x_i = \begin {bmatrix}0,x_{i,1},\dots,x_{i,M} \end {bmatrix} \in \mathbb{R^{1 \times (M+1)},w = \begin {bmatrix} w_0,w_1,\dots,w_M\end{bmatrix}}^T \in \mathbb{R^{(M+1)\times 1}}\\
+\quad\quad\quad &amp;\epsilon_i \overset{i.i.d}{\sim} \mathcal{N}(0,\sigma^2)\,\,(\text{for } i=1,2,\dots,N)
 \end{aligned}\]</span>
-<p>이때 변수<span class="math inline">\(Y\)</span>는 확률변수로 확률분포를 가집니다. 확률분포가 중심은 어디고 변동이 얼마나 있는지 알아보기 위해서 기댓값과 분산을 구해보겠습니다.</p>
+<p>이렇게 <span class="math inline">\(x_i\)</span>와 <span class="math inline">\(Y_i\)</span>사이의 관계를 정할 경우 각각의 <span class="math inline">\(Y_i\)</span>안에 확률변수 <span class="math inline">\(\epsilon_i\)</span>가 <span class="math inline">\(Y_i\)</span>도 마찬가지로 정규분로를 따르는 확률변수로 그 값이 <span class="math inline">\(\epsilon\)</span>에 의해 독립변수의 값이 동일하더라도 추출할때마다 다를 수 있습니다. <span class="math inline">\(Y_i\)</span>도 확률변수이므로 정규분포를 따르는 확률변수이므로 중심위치와 변동을 확인하기 위해 기댓값과 분산을 구해볼 수 있습니다. 이때 <span class="math inline">\(x\)</span>는 주어져 있으므로 그때의 확률분포에 대해서 계산하면 다음과 같습니다.</p>
 <span class="math display">\[\begin{aligned}
-&amp;E[Y|X] = E[w_0] + E[w_1X_1] + ... + E[w_mX_m] = w_0 + w_1X_1 + \dots + w_mX_m \\
-&amp;\text{var}[Y|X] = \mathbb{E}[(w_0+w_1x_1+ \dots +w_mX_m + \epsilon - E[Y|X])^2] = \mathbb{E}[\epsilon^2]
+&amp;\mathbb{E}[Y_i] = \mathbb{E}[w_0 + \dots + w_Mx_M+\epsilon_i] = w_0 + w_1x_1 + \dots + w_Mx_M=x_iw \\
+&amp;\text{var}[Y_i] = \text{var}[w_0 + \dots + w_Mx_M+\epsilon_i] = \text{var}[\epsilon_i] = \sigma^2
 \end{aligned}\]</span>
+<p>위수식으로부터 각각의 <span class="math inline">\(Y_i\)</span>에 대한 확률분포는 정규분포이며(<span class="math inline">\(\epsilon_i\)</span>에 의해) 기댓값은 <span class="math inline">\(x\)</span>와 <span class="math inline">\(w\)</span>에 의해 정해지지만 분산은 <span class="math inline">\(\sigma^2\)</span>으로 항상 동일하다는 점을 알 수 있습니다. 모두 정규분포를 따르지만 기댓값만 <span class="math inline">\(x\)</span>에 의하여 달라집니다. 즉 다음과 같습니다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;Y_i|w;x_i \sim \mathcal{N}(x_iw,\sigma^2)\, \text{ for } i = 1,2,\dots,N\\
+&amp;p(y_i|w;x_i) = 정규분포식
+\end{aligned}\]</span>
+<p><a href="./img1.PNG">이미지</a></p>
+<p>여기까지 우리가 가진 데이터를 기반으로 <span class="math inline">\(x\)</span>와 <span class="math inline">\(Y\)</span>사이의 관계로 선형모형을 만들어봤습니다. 그렇다면 <strong>궁극적인 목적인 unseen data에 적절하게 <span class="math inline">\(Y\)</span>값을 예측하려면</strong> 어떻게 해야할까요?만약 학습데이터로부터 적절히 <span class="math inline">\(w\)</span>를 구할수만 있다면 <strong>주어진 입력<span class="math inline">\(x\)</span>에 대하여 <span class="math inline">\(Y\)</span>가 따르는 정규분포</strong>를 대략적으로 알 수 있고 <strong>분포가 최댓값을 가지는 곳의 y값인 xw를 예측값</strong>으로 하면 됩니다. 기하학적으로 생각했을때 <span class="math inline">\(w\)</span>를 구한다면 <strong>데이터를 가장 잘 표현하는 직선</strong>(평면,초평면)을 얻은것이므로 <strong>입력x에 대하여 직선의 값을 읽어서 예측값</strong>으로 하면 됩니다. 두 경우 모두 <strong><span class="math inline">\(w\)</span>를 구해야</strong>하므로 우리의 목적은 이제 <strong>w</strong>를 구하는 것입니다.</p>
+</section>
+<section id="w에-대한-추정---mle" class="level2">
+<h2 class="anchored" data-anchor-id="w에-대한-추정---mle"><span style="color : black"><strong>w에 대한 추정 - MLE</strong></span></h2>
+<p>가중치<span class="math inline">\(w\)</span>는 그렇다면 어떻게 구해야 할까요? 어떻게 해야 적절한 <span class="math inline">\(w\)</span>를 구할 수 있을까요? 우리가 가진것은 데이터셋 <span class="math inline">\(X,y\)</span>이므로 이로부터 <span class="math inline">\(w\)</span>를 구해야 합니다. 확률론에서 데이터셋으로부터 <span class="math inline">\(w\)</span>를 구한다는 것은 <strong>주어진 데이터로부터 가장 나올 가능성이 높은 w를 찾자</strong>라는 말과 같습니다. 이 말은 다른말로 <strong>데이터셋이 주어졌다는 조건하에서 가장 확률분포를 최대화 하는 <span class="math inline">\(w\)</span>를 찾자</strong>와 같습니다. 최대화 해야하는 조건부확률분포는 다음과 같습니다.</p>
+<p><span class="math display">\[p(w|y;X)\]</span></p>
+<p>하지만 우리는 위와같은 조건부 확률을 현재는 알지 못합니다. 그렇기에 먼저 베이즈 정리의 도움을 받아야 합니다. 베이즈 정리는 다음과 같습니다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;p(w|y,X) = \frac{p(\mathcal{D}|w)p(w)}{p(\mathcal{D})} \propto (\mathcal{D}|w)p(w)\\
+&amp;\text{where, } \mathcal{D} = (y_1,y_2,\dots,y_n)
+\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}
+&amp;p(w|\mathcal{D}) = \frac{p(\mathcal{D}|w)p(w)}{p(\mathcal{D})} \propto (\mathcal{D}|w)p(w)\\
+&amp;\text{where, } \mathcal{D} = (y_1,y_2,\dots,y_n)
+\end{aligned}\]</span>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>여기서 는 우리에게 주어진 데이터셋이 아니라 위에서 데이터셋에서의 y값들만을 말합니다. MLE에서는 구하고자(추정하고자)하는 파라미터<span class="math inline">\(w\)</span>는 확률변수가 따르는 어떠한 확률분포의 파라미터이고 그 값을 구하기 위해서 확률변수의 값(realizations)을 사용합니다. 여기서 확률분포로부터 나온 확률변수의 값은 (y_1,y_2,,y_n)입니다.</p>
+</div>
+</div>
+<p>오른쪽 수식에서 분모는 normalization constant라 하는 상수입니다. 그러므로 분자를 최대화하는 <span class="math inline">\(w\)</span>를 구하면 되는데 <strong>MLE는 분자의<span class="math inline">\(p(\mathcal{D}|w)\)</span>를 최대화 하는 것을 목적으로 합니다</strong>. <span class="math inline">\(p(\mathcal{D}|w)\)</span>는 likelyhood(function)라고 하며 이렇게 <span class="math inline">\(w\)</span>에 대해 추정하는 방법을 maximum likelyhood estimation이라고 부르는 이유입니다.</p>
+<p>그렇다면 조건부확률분포 <span class="math inline">\(p(\mathcal{D}|w)\)</span>는 어떻게 구해야 할까요? 먼저 <span class="math inline">\(p(\mathcal{D}|w)\)</span>는 w가 주어져있을때 = (y_1,y_2,,y_n)에 대한 확률입니다.</p>
 </section>
 <section id="sample-regression-modelvector-form" class="level2">
 <h2 class="anchored" data-anchor-id="sample-regression-modelvector-form">sample regression model(vector form)</h2>
@@ -304,14 +353,6 @@ w_m
 \Longleftrightarrow
 \bf{y} = \bf{X}\bf{W} + \bf{\epsilon}
 \tag{1}\]</span></span> <br> 위와 같이 샘플링한 표본을 나타내는 모형을 sample regression model이라고 합니다.</p>
-<div class="cell" data-execution_count="131">
-<div class="cell-output cell-output-display" data-execution_count="131">
-<pre><code>Text(0.5, 1.0, 'n=200')</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
-</div>
-</div>
 <p><span class="math inline">\(w_1=1,w_0=0\)</span>인 population regression model로부터 200개의 표본을 추출하여 시각화하면 다음과 같습니다. 선형회귀는 위와 같이 표본만 주어질때(given), 우리가 모르는 <span class="math inline">\(w_1,w_0\)</span>를 추정하는 것입니다. 표본으로부터 <span class="math inline">\(\bf{W}\)</span>를 추정할 수 있다면 두 변수사이의 관계가 이렇겠구나라고 알 수 있게 됩니다.<br></p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -343,7 +384,7 @@ Note
 <pre><code>Text(110, 15, 'residual')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+<p><img src="Linear Regression_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -395,7 +436,7 @@ Note
 <pre><code>Text(0.5, 1.0, 'n=200')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+<p><img src="Linear Regression_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>경사하강법으로 표본에 가장 잘 맞는 직선을 찾아봅시다.<br> 먼저 임의의 <span class="math inline">\(\bf{\hat{w}} = (w_0,w_1)=(0,-5)\)</span>로 가정합니다.</p>
@@ -411,7 +452,7 @@ Note
 <pre><code>Text(0.5, 1.0, 'initializing What')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+<p><img src="Linear Regression_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="136">
@@ -461,7 +502,7 @@ Note
 <pre><code>&lt;matplotlib.legend.Legend at 0x25e64b4d3a0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-7-output-3.png" class="img-fluid"></p>
+<p><img src="Linear Regression_files/figure-html/cell-8-output-3.png" class="img-fluid"></p>
 </div>
 </div>
 <p>경사하강법의 흐름을 따라서 파이토치에서 구현하기위해 4가지 과정이 필요합니다.<br> 1)<span class="math inline">\(\bf{\hat{y}}\)</span><br> 2)loss<br> 3)derivative<br> 4)update &amp; clean<br> 위와 같이 파라미터를 업데이트 한 방식을 여러번 반복하면 알맞은 직선을 얻을 수 있습니다.여기서는 위의 절차를 다 수행하지 않고 최종적으로 정리해놓은 MSE에 대한 미분을 활용하여 구현해보겠습니다.</p>
@@ -500,7 +541,7 @@ Note
 <span id="cb11-32"><a href="#cb11-32"></a>        plt.title(text)</span>
 <span id="cb11-33"><a href="#cb11-33"></a>        i<span class="op">+=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+<p><img src="Linear Regression_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="결과해석" class="level2">
@@ -519,9 +560,13 @@ Note
 <pre><code>Text(0.5, 1.0, 'What = (-0.125,0.969)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Linear Regression_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+<p><img src="Linear Regression_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
+<section id="참고자료" class="level2">
+<h2 class="anchored" data-anchor-id="참고자료"><span style="color : black"><strong>참고자료</strong></span></h2>
+<p><a href="https://hyeongminlee.github.io/post/bnn002_mle_map/">Maximum Likelihood Estimation(MLE) &amp; Maximum A Posterior(MAP)</a></p>
 
 
 </section>
