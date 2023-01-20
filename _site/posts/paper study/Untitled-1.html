@@ -6,15 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<<<<<<< HEAD
 
-<title>HIHO - DQN 리뷰</title>
-=======
-<meta name="author" content="신호연">
-<meta name="dcterms.date" content="2023-01-20">
-
-<title>HIHO - DQN review</title>
->>>>>>> 18ac20137545637f7b9a04a05f510202550dc0bb
+<title>HIHO – untitled-1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,10 +68,6 @@ gtag('js', new Date());
 gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </script>
 
-<<<<<<< HEAD
-=======
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
->>>>>>> 18ac20137545637f7b9a04a05f510202550dc0bb
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -115,58 +104,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-<<<<<<< HEAD
-      <h1 class="title">DQN 리뷰</h1>
-=======
-      <h1 class="title">DQN review</h1>
->>>>>>> 18ac20137545637f7b9a04a05f510202550dc0bb
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-<<<<<<< HEAD
-      
-=======
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>신호연 </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">January 20, 2023</p>
-      </div>
-    </div>
->>>>>>> 18ac20137545637f7b9a04a05f510202550dc0bb
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#개요" id="toc-개요" class="nav-link active" data-scroll-target="#개요"><span style="color : black"><strong>개요</strong></span></a></li>
-<<<<<<< HEAD
-=======
-  <li><a href="#q-learning" id="toc-q-learning" class="nav-link" data-scroll-target="#q-learning"><span style="color : black"><strong><span class="math inline">\(Q\)</span>-learning</strong></span></a></li>
-  <li><a href="#q-update" id="toc-q-update" class="nav-link" data-scroll-target="#q-update"><span style="color : black"><strong><span class="math inline">\(Q\)</span>-update</strong></span></a></li>
->>>>>>> 18ac20137545637f7b9a04a05f510202550dc0bb
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -174,34 +116,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<section id="개요" class="level1">
-<h1><span style="color : black"><strong>개요</strong></span></h1>
-<<<<<<< HEAD
-=======
-<p><img src="./deep rein relation 1.png" class="img-fluid"></p>
-<p>기존의 딥러닝과 강화학습은 그림의 왼쪽과 같이 공통분모가 거의 없는 분야였습니다. 그러나 2013년 구글딥마인드에서 발표한 D<span class="math inline">\(Q\)</span>N논문에서는 강화학습의 한 분야인 <span class="math inline">\(Q\)</span>-learning에 딥러닝을 접목시켰고 그 후 계속해서 발전하여 거의 모든 강화학습논문에는 딥러닝이 사용된다고 합니다. 따라서 이제는 오른쪽과 같이 강화학습도 거의 딥러닝의 하나의 분야로 자리잡았습니다.</p>
-</section>
-<section id="q-learning" class="level1">
-<h1><span style="color : black"><strong><span class="math inline">\(Q\)</span>-learning</strong></span></h1>
-<p><span class="math inline">\(Q\)</span>-learning은 <strong><span class="math inline">\(Q\)</span>값을 학습하는 알고리즘으로 그리드형식을 가진 문제에서 활용</strong>될 수 있습니다. 강화학습에서 주체(agent)는 현재의 상태(state)를 관찰하여 어떠한 행동(action)이 가장 큰 보상(reward)를 가져다주는지 학습하며 <span class="math inline">\(Q\)</span>-learning에서 이러한 학습의 대상은 <span class="math inline">\(Q\)</span>입니다.</p>
-<p><img src="https://raw.githubusercontent.com/hoyeon1234/sin-hoyeon/master/posts/paper%20study/Q%20learning.png" class="img-fluid"></p>
-<p>위의 그림은 학습이 끝난 <span class="math inline">\(Q\)</span>값의 예시입니다.(실제로 맞는 수치는 아님)<span class="math inline">\(Q\)</span>-learning 알고리즘에서 agent는 greedy action을 취합니다. 따라서 <strong>agent가 격자의 시작지점에 들어가게 된다면 greedy action을 통해 가장 큰 <span class="math inline">\(Q\)</span>값이 있는 방향으로 이동</strong>하여 시작부터 종료지점까지 일직선으로 가장빠르게 이동합니다. 위와 같은 그리드에서는 더 빠르게 가거나 리워드도 더 좋은 곳은 없으므로 적절하게 학습이 끝났다는 것을 알 수 있습니다.</p>
-</section>
-<section id="q-update" class="level1">
-<h1><span style="color : black"><strong><span class="math inline">\(Q\)</span>-update</strong></span></h1>
-<p><span class="math display">\[ Q(s_t,a_t) = (1-\alpha)Q(s_t,a_t) + \alpha(R_t + \gamma \underset{a_{t+1}}{\text{argmax}}Q(s_{t+1},a_{t+1}))\]</span></p>
-<p><span class="math inline">\(Q\)</span>-learning에서는 위와 같은 수식으로 각각의 <span class="math inline">\(Q\)</span>를 업데이트합니다. 여기서 중요한점은 <strong><span class="math inline">\(Q\)</span>가 state와 action의 함수</strong>라는 점입니다. 위와 같은 길찾기 문제의 경우 그렇게 state(25개)가 많지는 않습니다.그러나 <a href="https://www.youtube.com/watch?v=V1eYniJ0Rnk">Atari 벽돌깨기 게임</a>과 같은 경우, 움직이는 주체인 가로막대바 위치,벽돌의 갯수,깨진위치,공이 날아오는 각도 등등 … 매우 많은 state가 가능하고 어떤방향으로 공을 날릴지에 대한 action도 수없이 많이 가능합니다. 기존의 방식으로 Q를 업데이트 하기위해서는 이러한 <strong>수많은 조합에 대하여 state와 action을 기억해놓고</strong> 업데이트 해야합니다. 이러한 방식은 <strong>컴퓨터의 메모리에 부담을 주고 exploration(탐험)하는데 걸리는 시간을 더 오래 만듭니다.</strong></p>
-<p>Deep-<span class="math inline">\(Q\)</span>-learning에서는 DNN을 통해 함수로서 <span class="math inline">\(Q\)</span>값을 저장하여 위와 같은 단점을 줄입니다. 또한 loss function을 정의하고 gradient desent를 사용하여 새롭게 Q값을 업데이트 합니다.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://raw.githubusercontent.com/hoyeon1234/sin-hoyeon/master/posts/paper%20study/Q-learning%20vs%20deep%20Q-learning.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">그림출처 : 이것저것 테크 블로그</figcaption><p></p>
-</figure>
-</div>
->>>>>>> 18ac20137545637f7b9a04a05f510202550dc0bb
 
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
