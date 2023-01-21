@@ -164,10 +164,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <h1><spam style="color:black"> <strong>용어정리</strong></spam></h1>
 <ul>
 <li>agent : 강화학습에서 학습하는 대상(object)를 말한다.</li>
-<li>action : Agent가 하는 실제 행동을 말한다.</li>
-<li>state : Agent가 action을 취하기 위한 구체적 정보이자 action을 취하면 (environment에 의해)변화하는 것이다.</li>
-<li>reward : Agent가 action을 취했을때 받는 보수,보상,값이다. 어떠한 action을 유도하기 위해서는 + 보상을 action을 방지하기 위해서는 -보상을 준다.</li>
-<li>Environment <br> – 1)Agent가 놓여있는 world(세계)이다.<br> – 2)Agent가 어떤 action을 취하면 state가 변화하는데 이 때 새로운 state를 return해주는 존재를 말한다.<br> – 3)Agent가 어떤 행동을 했을때 어떤 보상을 줘야하는지에 대한 setting이다.<br> – 뭔가 직관적으로 이해가 가지 않는다.예시를 들어보자면 말은 안되지만 아주더운 나가기면 하면 땀나는 아프리카 사막에서 1시간 달리는 것과 시원한 헬스장에서 1시간 달리는 것을 비교해보자. 사막에서 달리는게 차원이 다른 힘듦과 체중감량 효과를 줄 것이다. 이는 같은 action을 취해도 서로다른 envirionment가 다른state를 return(제공)해주기에 그렇다. 각각의 환경은 또한 감량에 대하여 서로다른 setting에 의해 reward를 줄것이다.<br></li>
+<li>action : agent가 하는 실제 행동을 말한다.</li>
+<li>state : agent가 action을 취하기 위한 구체적 정보이자 action을 취하면 (environment에 의해)변화하는 것이다.</li>
+<li>observation : 실제문제에서 agent는 모든 state를 알기는 불가능하다. agent는 state중 일부정보만을 받는데 이것을 observation이라고 한다.</li>
+<li>reward : agent가 action을 취했을때 받는 보수,보상,값이다. 어떠한 action을 유도하기 위해서는 + 보상을 action을 방지하기 위해서는 -보상을 준다.</li>
+<li>Environment <br> – 1)agent가 놓여있는 world(세계)이다.<br> – 2)agent가 어떤 action을 취하면 state가 변화하는데 이 때 새로운 state를 return해주는 존재를 말한다.<br> – 3)agent가 어떤 행동을 했을때 어떤 보상을 줘야하는지에 대한 setting이다.<br> – 뭔가 직관적으로 이해가 가지 않는다.예시를 들어보자면 말은 안되지만 아주더운 나가기면 하면 땀나는 아프리카 사막에서 1시간 달리는 것과 시원한 헬스장에서 1시간 달리는 것을 비교해보자. 사막에서 달리는게 차원이 다른 힘듦과 체중감량 효과를 줄 것이다. 이는 같은 action을 취해도 서로다른 envirionment가 다른state를 return(제공)해주기에 그렇다. 각각의 환경은 또한 감량에 대하여 서로다른 setting에 의해 reward를 줄것이다.<br></li>
 <li>policy <br> – agent가 어떻게 행동을 해야할지 알려주는 방향,가이드,지표의 느낌이다. 정책라는 의미가 너무 와닿지 않아서 네이버에 검색해보니 개인의 앞으로 나아갈 노선이나 취해야 할 방침라고 한다. (지표의 그냥 어려운 말)<br> – policy는 크게 deterministic policy와 stochastic policy로 나뉜다고 한다. 내가 이해하는대로 쉽게 말해보자면 상황에 따라서 가능한 행동이 단 한가지라면 deterministic(정해져 있는,결정론적인) policy가 있는 것이고 하고 가능한 행동이 여러가지라면 stochastic(안정해져 있는,확률론적인) policy가 있는 것이다.</li>
 <li>return <br> agent는 당장에 받는 reward뿐만 아니라 미래에 받는 reward도 고려해야 한다. return은 현재의 state로부터 미래의 action,state를 전부 고려했을때 내가 미래에 받게 될 discounted reward의 총합,누적합이다. 여기서 discounted가 붙는 이유는 미래에 받게되는 reward에 대해서는 어느정도 discount가 들어가기 때문이다. discount의 양은 discount factor(<span class="math inline">\(\gamma\)</span>)에 의해 결정되는데 이값을 1에 가깝게 할수록 미래에 받는 action 대한 reward의 discount가 커지고 0에 가깝게 할수록 미래의 action에 대한 reward의 discount가 작아진다. 강화학습의 최종 목적은 평균적으로 받는 return이 가장 커지도록(return도 랜덤이기 때문에 평균적으로 커져야 한다.)policy를 학습하는 것이다.</li>
 <li>exploration<br> 현재 agent가 가지고 있는 사전지식,경험을 버리고 틀을깨어 새로운 방식으로 action하여 보는 것을 의미한다. 랜덤한 확률(<span class="math inline">\(\epsilon\)</span>)로 policy를 거슬러서 다른 모든 액션중에 랜덤한 하나의 action을 취하게 된다. locacl optima에서 벗어나 최적의 policy를 탐색할 더 많은 기회를 제공한다.</li>

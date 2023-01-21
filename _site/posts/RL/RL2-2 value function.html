@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-01-21">
 
-<title>HIHO - [강화학습] 2-1 Markov Decision process and property</title>
+<title>HIHO - [강화학습] 2-2 Reward &amp; Return &amp; State Value f &amp; Action Value f &amp; Optimal Policy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,8 +110,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">[강화학습] 2-1 Markov Decision process and property</h1>
-            <p class="subtitle lead">MDP와 중요한 property 정리</p>
+      <h1 class="title">[강화학습] 2-2 Reward &amp; Return &amp; State Value f &amp; Action Value f &amp; Optimal Policy</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Reinforcement Learning</div>
               </div>
@@ -147,11 +146,9 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#markov-decision-process" id="toc-markov-decision-process" class="nav-link active" data-scroll-target="#markov-decision-process"><spam style="color:black"> <strong>Markov Decision Process</strong></spam></a></li>
-  <li><a href="#transition-probability" id="toc-transition-probability" class="nav-link" data-scroll-target="#transition-probability"><span style="color:black"><strong>transition probability</strong></span></a></li>
-  <li><a href="#policy" id="toc-policy" class="nav-link" data-scroll-target="#policy"><span style="color:black"><strong>Policy</strong></span></a></li>
-  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color:black"><strong>정리</strong></span></a></li>
-  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료"><span style="color:black"><strong>참고자료</strong></span></a></li>
+  <li><a href="#reward" id="toc-reward" class="nav-link active" data-scroll-target="#reward"><span style="color:black"> <strong>Reward</strong></span></a></li>
+  <li><a href="#return" id="toc-return" class="nav-link" data-scroll-target="#return"><span style="color:black"> <strong>Return</strong></span></a></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료"><span style="color:black"> <strong>참고자료</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -161,80 +158,37 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<section id="markov-decision-process" class="level1">
-<h1><spam style="color:black"> <strong>Markov Decision Process</strong></spam></h1>
-<p>자기전에 스타를 했더니 상대방에게 핵을 맞았다고 하자…</p>
-<p><img src="./images/starcraft nuclear.jpg" class="img-fluid"></p>
-<p>나는 왜 핵을 맞았을까? 게임속에서 내게 주어지는 여러가지 상황(state)속에서 판단(action을 의미함)을 계속해서 했을 때 가능한 결과중 하나가 나에게 돌아온 것이다. 좀 더 자세히 말하면 어떤 상황(<span class="math inline">\(s_0\)</span>)에서 액션(<span class="math inline">\(a_0\)</span>)을 취하고 또다른 상황(<span class="math inline">\(s_1\)</span>)에서 액션(<span class="math inline">\(s_1\)</span>)을 취하고 … 상황(<span class="math inline">\(s_{t-1}\)</span>)에서 액션(<span class="math inline">\(a_{t-1}\)</span>)을 취했을때 가능한 결과들 중 하나가 나에게 돌아온 것이다. 이것은 조건부 확률과 강화학습의 용어를 빌리면 action들과 state들에 대한 조건이 주어져 있을때 state에 대한 조건부확률분포(conditional distribution)에서 하나의 샘플로 어떠한 사건이 발생(핵을 맞는 사건이)한 것이다. 조건부 확률분포는 다음과 같다.</p>
-<p><span class="math display">\[p_{S_t|S_0,A_0\dots,S_{t-1}A_{t-1}}(s_t|s_0,a_0,\dots,s_{t-1},a_{t-1})\]</span></p>
-<p>이와 비슷하게 내가 핵을 맞기전에 취할 수 있는 판단도 여러가지며 또한 취하는 판단의 근거도 마찬가지로 이전의 상황과 내가 취한 판단에 의해 결정되었을 것이다. action과 state들이 주어졌을때 취할 수 있는 action에 대한 조건부 확률분포는 다음과 같다.</p>
-<p><span class="math display">\[p_{A_t|S_0,A_0,\dots,S_{t-1},A_{t-1}}(a_t|s_0,a_0,\dots,s_t)\]</span></p>
-<p>위의 내용은 일반적으로 우리가 생각하는 직관과 일치하는 경우이다. 하지만 (지금까지 연구된)<strong>강화학습의 경우 이와는 다르게 Markov Decision Process를 가정</strong>한다. 그렇다면 Markov decision process란 뭔가? <a href="https://en.wikipedia.org/wiki/Markov_chain">위키피디아의 정의에</a> 의하면 “각 사건에 대한 확률이 사건으로부터 얻은 상태에만 의존하는 일련의 가능한 이벤트를 설명하는 확률적 모델”이라고 적혀있다. 강화학습이 MDP를 따르므로 다시 말하자면 <strong>현재 내가 놓인 상황(의 확률분포)이나 현재 내가 하는 액션(의 확률분포)은 바로 이전의 상태나 행동의 영향만을 받는다</strong>는 것이다. MDP가 따르는 이러한 특성을 Markov property라고 한다.</p>
-<span class="math display">\[\begin{aligned}
-&amp;\text{Markov property}\\
-&amp;\forall{t,}\,\,p_{\small{S_t|S_0,A_0\dots,S_{t-1}A_{t-1}}}(s_t|s_0,a_0,\dots,s_{t-1},a_{t-1}) = p_{\small{S_t|S_{t-1}},A_{t-1}}(s_t|s_{t-1},a_{t-1})\\
-&amp;\forall{t,}\,\,p_{\small{A_t|S_0,A_0,\dots,S_{t-1},A_{t-1}}}(a_t|s_0,a_0,\dots,s_t)=p_{\small{A_t|S_{t}}}(a_t|s_t)
-\end{aligned}\]</span>
-<p>첫번째 확률은 상태<span class="math inline">\(s_{t-1}\)</span>에서 (<span class="math inline">\(a_{t-1}\)</span>을 취하여) <span class="math inline">\(s_{t}\)</span>로 transition(변할때)에 대한 확률분포이므로 transition probability라고 부른다. 두번째 확률은 policy(정책,지표)로 어떤 상황에서 어떤 액션을 취할지에 대한 기준이 되는 확률분포이다.(후에 optimal policy에 대해 자세히 다룬다.)</p>
+<p>지난 포스팅에서는 MDP와 policy에 대해서 공부했다. 또한 사각형 그리드 예제에서 optimal policy가 뭔지 대충 살펴봤었다. 이번 포스팅에서는 강화학습의 reward의 정의와 궁극적인 목적과 연관된 G_t와 state value function,action value function,optimal policy를 공부한다.</p>
+<section id="reward" class="level1">
+<h1><span style="color:black"> <strong>Reward</strong></span></h1>
+<p>(immediate) reward는 <span class="math inline">\(R_a(s_t,s_{t+1})\)</span>로 표기하며 이는 <span class="math inline">\(s_t\)</span>에서 action을 취하여 <span class="math inline">\(s_{t+1}\)</span>로 상태가 바뀌었을때의 확률변수이다. 이것이 확률변수인 이유는 모든 시간에서 state와 action은 랜덤이기 때문이다.</p>
+<p>알파고를 예를 들어서 생각해보자. 알파고가 바둑판에(<span class="math inline">\(s_t\)</span>)에 검은돌을 놓으면(<span class="math inline">\(a_{t}\)</span>) 상대도 어떤 위치에 흰돌을 놓을것이다. 이 흰돌의 위치도 stochastic한 환경에 의해 랜덤적으로 결정되기 때문에 알파고가 다시 인식하는 상황(<span class="math inline">\(s_{t+1}\)</span>)도 확률변수이며 어떤 확률분포를 따른다.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>위에서 인식하는 상황이라고 썼는데 사실 state는 agent가 인식하는 것이 아니라 사실은 environment에가 반환(return)하는 것입니다. agent는 state중 일부를 받는데 이것을 observation이라고 합니다. 그러나 실제 논문에서는 딱히 state와 observation을 구별하지않고 쓰는 경우가 많다고 합니다.</p>
+</div>
+</div>
 </section>
-<section id="transition-probability" class="level1">
-<h1><span style="color:black"><strong>transition probability</strong></span></h1>
+<section id="return" class="level1">
+<h1><span style="color:black"> <strong>Return</strong></span></h1>
 <span class="math display">\[\begin{aligned}
-&amp;\text{definition of transition probability}\\
-&amp;p_{\small{S_t|S_{t-1}},A_{t-1}}(s_t|s_{t-1},a_{t-1})\\
+&amp;\text{definition of return } G_t\\
+&amp;G_t \overset{\Delta}{=} R_t + \gamma R_{t+1} + \gamma R_{t+2} + \dots
 \end{aligned}\]</span>
-<p><img src="./images/state transition matrix.png" class="img-fluid"></p>
-<p>위와 같은 그림을 살펴보자.왼쪽로봇의 경우 Deterministic Grid World(=Envirion ment)에 놓여있고 앞으로 가는 action을 취할 경우 반드시 앞으로 가므로 state가 결정적(deterministic)이라고 할 수 있다.반면에 오른쪽로봇의 경우 Stochastic Grid World에 놓여있다.이러한 경우에는 action을 취해도 3가지 상황에 취해질 수 있으며 이 경우 state는 Stochastic하다고(바람의 영향이나,로봇이 오작동하거나)할 수 있다.다시말하면 state는 확률분포에 따라 임의적(randomly)이다.</p>
-</section>
-<section id="policy" class="level1">
-<h1><span style="color:black"><strong>Policy</strong></span></h1>
-<p>정책<span class="math inline">\(\pi(a_t|s_t)\)</span>는 어떤 상태가 주어질때 어떤 행동을 취할 것인지 명시한 (조건부)확률분포를 말한다.</p>
-<span class="math display">\[\begin{aligned}
-&amp;\text{definition of poilcy} \\
-&amp;{\pi}({a_t,s_t}) \overset{\Delta}{=}p_{A_t|S_{t}}(a_t|s_t)
-\end{aligned}\]</span>
-<p>아래와 같은 그림을 보자 초기 state는 파랑색 위치이며 agent는 왼쪽위나 오른쪽아래의 종료지점까지 가야한다.</p>
-<p><img src="./images/pol.png" class="img-fluid"></p>
-<p><img src="./images/policy.png" class="img-fluid"></p>
-<p>왼쪽위의 그림에서 모든 policy는 다음과 같다.</p>
-<span class="math display">\[\begin{aligned}
-\forall{t},\pi(a_t,s_t) = p_{\small{A_t|S_t}}(a_t|s_t) =
-
-\begin{cases}
-p_{\small{A_t|S_t}}(\text{right}|s_t) = \frac{1}{4}\\
-p_{\small{A_t|S_t}}(\text{left}|s_t) = \frac{1}{4}\\
-p_{\small{A_t|S_t}}(\text{up}|s_t) = \frac{1}{4}\\
-p_{\small{A_t|S_t}}(\text{down}|s_t) = \frac{1}{4}\\
-
-\end{cases}
-
-\end{aligned}\]</span>
-<p>각각의 state에서 action은 위와 같은 policy를 따르므로 아래와 같은 경로가 예제해로 나올 수 있다.</p>
-<p>왼쪽에서 두번째 있는 그림의 모든 policy는 다음과 같다.</p>
-<span class="math display">\[\begin{aligned}
-p_{\small{A_t|S_t}}(a_t|s_t)=
-\begin{cases}
-\frac{1}{4} \text{  if } a_t = \text{down} \\
-0\text{ otherwise}
-\end{cases}
-\end{aligned}\]</span>
-<p>위와 같은 policy를 따르므로 모든 state에 대해서 남쪽방향으로만 나온다.</p>
-<p>오른쪽에서 두번째 그림의 policy는 다음과 같다.</p>
-<p><img src="./images/pol3.png" class="img-fluid"></p>
-<p>가장 오른쪽 그림의 policy는 다음과 같다.</p>
-<p><img src="./images/pol2.png" class="img-fluid"></p>
-<p>생각해보면 가장오른쪽 위 사각형같은 policy가 정해지면 가장 빠르게 목표에 도달할 수 있다. 이는 최고의 보상(reward)를 받도록 학습된 결과이며 최적정책(optimal policy)이다.</p>
-</section>
-<section id="정리" class="level1">
-<h1><span style="color:black"><strong>정리</strong></span></h1>
-<ul>
-<li>강화학습은 MDP를 가정한다. 이는 이전 state나 액션에 의해서만 확률분포가 영향을 받는다는 것이다.</li>
-<li>policy는 임의의 state에서 action에 대한 확률분포함수로 어떤 action을 취할지의 지표이다.</li>
-</ul>
+<p>return(<span class="math inline">\(G_t\)</span>)은 현재의 reward뿐만아니라 앞으로 미래에 받게될 discounted reward들의 total sum이다.다시 말하면 sum of discounted rewards이다. discounted reward는 discount factor(<span class="math inline">\(\gamma\)</span>)가 곱해진 리워드이며 이 값이 작을수록 지금 당장받는 리워드 중요시하며 이 값이 클수록 미래에 받는 리워드를 중요시한다. 또한 효율적인 path결정을 위해서도 중요하다.(Q-learning예시로 설명해야 함)</p>
+<p>강화학습의 궁극적인 목적은 return의 평균(기댓값)을 가장 크게 만드는 policy들을 찾는 것이다. 조금 풀어쓰자면 강화학습의 목적은 “agent의 action이 단기적인 보상뿐만이 아니라 미래의 보상도 염두하여 현재 취해야할 행동에 대한 정책을 학습”이라는 것이다.</p>
 </section>
 <section id="참고자료" class="level1">
-<h1><span style="color:black"><strong>참고자료</strong></span></h1>
-<p><a href="https://en.wikipedia.org/wiki/Markov_chain">위키피디아 - markov chain(=markov process)</a><br> <a href="https://www.youtube.com/watch?v=DbbcaspZATg&amp;list=PL_iJu012NOxehE8fdF9me4TLfbdv3ZW8g&amp;index=3">혁펜하임-[강화학습] 2-1강. Markov Decision Process (MDP) 쉬운 설명</a><br> <a href="https://dnddnjs.gitbook.io/rl/chapter-2-markov-decision-process/markov-decision-process">Fundamental of Reinforcement Learning</a><br> <a href="https://wordbe.tistory.com/entry/RL-%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-part1-policy-value-function">wordbe</a></p>
+<h1><span style="color:black"> <strong>참고자료</strong></span></h1>
+<p><a href="https://velog.io/@kjb0531/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC1">jdk.log</a><br> <a href="https://namu.wiki/w/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/%EC%9A%A9%EC%96%B4">나무위키 - 강화학습 용어정리</a><br> <a href="https://ai.stackexchange.com/questions/10442/how-are-the-reward-functions-rs-rs-a-and-rs-a-s-equivalent">stackexchange</a></p>
 
 
 </section>
