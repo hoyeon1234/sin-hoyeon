@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "HIHO",
     "section": "",
-    "text": "Untitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 1 - 강화학습 용어정리\n\n\n강화학습 공부하면서 용어정리\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-1 Markov Decision process and property\n\n\nMDP와 중요한 property 정리\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 2-2 Reward & Return & State Value f & Action Value f & Optimal Policy\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDQN review\n\n\n\n1/20/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[PRML 읽기] 1 - 확률론 개요\n\n\nSum rule, Product rule, Baye’s rule,random variable independence\n\n\n\n1/15/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[PRML 읽기] 2 - 확률론 개요(작성중 …)\n\n\nprobability density, expectation and covariance, Bayesian probabilities,Gausian distribution\n\n\n\n1/15/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimension Reduction using Auto Encoder with pytorch\n\n\n\n1/12/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nimport\n\n\n\n1/12/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv.1시저암호\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv1.이상한 문자 만들기\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv1.크기가 작은 부분 문자열\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeast Squares\n\n\n열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnp.meshgrid\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률론 용어정리\n\n\nrandom variable,event,sample space,probability distribution,randomsample,realization\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinite Difference Method with np.gradient\n\n\n\n1/7/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplotly 시각화 모음\n\n\n\n1/6/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAx=b의 해의 갯수 알아내기\n\n\n\n1/5/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrank & null space(kernel)\n\n\n\n1/5/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nLinear Combination & Span\n\n\n\n1/3/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n행렬곱에 대한 여러가지 관점\n\n\n\n1/2/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n12/30/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n카테고리 분포\n\n\n\n12/30/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMaximum likelyhood estimation\n\n\n\n12/29/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n12/27/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression\n\n\n\n12/26/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n12/25/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n\n12/24/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\npytorch로 Rnn구현하기\n\n\n\n12/24/22\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Untitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 1 - 강화학습 용어정리\n\n\n강화학습 공부하면서 용어정리\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-1 Markov Decision process and property\n\n\nMDP와 중요한 property 정리\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 2-2 Reward & Return & State Value f & Action Value f\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDQN review\n\n\n\n1/20/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[PRML 읽기] 1 - 확률론 개요\n\n\nSum rule, Product rule, Baye’s rule,random variable independence\n\n\n\n1/15/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[PRML 읽기] 2 - 확률론 개요(작성중 …)\n\n\nprobability density, expectation and covariance, Bayesian probabilities,Gausian distribution\n\n\n\n1/15/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimension Reduction using Auto Encoder with pytorch\n\n\n\n1/12/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nimport\n\n\n\n1/12/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv.1시저암호\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv1.이상한 문자 만들기\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv1.크기가 작은 부분 문자열\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeast Squares\n\n\n열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnp.meshgrid\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률론 용어정리\n\n\nrandom variable,event,sample space,probability distribution,randomsample,realization\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinite Difference Method with np.gradient\n\n\n\n1/7/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplotly 시각화 모음\n\n\n\n1/6/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAx=b의 해의 갯수 알아내기\n\n\n\n1/5/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrank & null space(kernel)\n\n\n\n1/5/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nLinear Combination & Span\n\n\n\n1/3/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n행렬곱에 대한 여러가지 관점\n\n\n\n1/2/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n12/30/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n카테고리 분포\n\n\n\n12/30/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMaximum likelyhood estimation\n\n\n\n12/29/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n12/27/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression\n\n\n\n12/26/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n12/25/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n\n12/24/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\npytorch로 Rnn구현하기\n\n\n\n12/24/22\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/coading test/programmers시저암호.html",
@@ -1024,8 +1024,43 @@
   {
     "objectID": "posts/RL/RL2-2 value function.html",
     "href": "posts/RL/RL2-2 value function.html",
-    "title": "[강화학습] 2-2 Reward & Return & State Value f & Action Value f & Optimal Policy",
+    "title": "[강화학습] 2-2 Reward & Return & State Value f & Action Value f",
     "section": "",
-    "text": "지난 포스팅에서는 MDP와 policy에 대해서 공부했다. 또한 사각형 그리드 예제에서 optimal policy가 뭔지 대충 살펴봤었다. 이번 포스팅에서는 강화학습의 reward의 정의와 궁극적인 목적과 연관된 G_t와 state value function,action value function,optimal policy를 공부한다.\n\n Reward\n(immediate) reward는 \\(R_a(s_t,s_{t+1})\\)로 표기하며 이는 \\(s_t\\)에서 action을 취하여 \\(s_{t+1}\\)로 상태가 바뀌었을때의 확률변수이다. 이것이 확률변수인 이유는 모든 시간에서 state와 action은 랜덤이기 때문이다.\n알파고를 예를 들어서 생각해보자. 알파고가 바둑판에(\\(s_t\\))에 검은돌을 놓으면(\\(a_{t}\\)) 상대도 어떤 위치에 흰돌을 놓을것이다. 이 흰돌의 위치도 stochastic한 환경에 의해 랜덤적으로 결정되기 때문에 알파고가 다시 인식하는 상황(\\(s_{t+1}\\))도 확률변수이며 어떤 확률분포를 따른다.\n\n\n\n\n\n\nNote\n\n\n\n위에서 인식하는 상황이라고 썼는데 사실 state는 agent가 인식하는 것이 아니라 사실은 environment에가 반환(return)하는 것입니다. agent는 state중 일부를 받는데 이것을 observation이라고 합니다. 그러나 실제 논문에서는 딱히 state와 observation을 구별하지않고 쓰는 경우가 많다고 합니다.\n\n\n\n\n Return\n\\[\\begin{aligned}\n&\\text{definition of return } G_t\\\\\n&G_t \\overset{\\Delta}{=} R_t + \\gamma R_{t+1} + \\gamma R_{t+2} + \\dots\n\\end{aligned}\\]\nreturn(\\(G_t\\))은 현재의 reward뿐만아니라 앞으로 미래에 받게될 discounted reward들의 total sum이다.다시 말하면 sum of discounted rewards이다. discounted reward는 discount factor(\\(\\gamma\\))가 곱해진 리워드이며 이 값이 작을수록 지금 당장받는 리워드 중요시하며 이 값이 클수록 미래에 받는 리워드를 중요시한다. 또한 효율적인 path결정을 위해서도 중요하다.(Q-learning예시로 설명해야 함)\n강화학습의 궁극적인 목적은 return의 평균(기댓값)을 가장 크게 만드는 policy들을 찾는 것이다. 조금 풀어쓰자면 강화학습의 목적은 “agent의 action이 단기적인 보상뿐만이 아니라 미래의 보상도 염두하여 현재 취해야할 행동에 대한 정책을 학습”이라는 것이다.\n\n\n 참고자료\njdk.log 나무위키 - 강화학습 용어정리 stackexchange"
+    "text": "(immediate) reward는 \\(R_a(s_t,s_{t+1})\\)로 표기하며 이는 \\(s_t\\)에서 action을 취하여 \\(s_{t+1}\\)로 상태가 바뀌었을때의 얻는 값을 나타내는 확률변수이다. 확률변수인 이유는 모든 시간에서 state와 action은 랜덤이기 때문이다.\n알파고를 예를 들어서 생각해보자. 알파고가 바둑판에(\\(s_t\\))에 검은돌을 놓으면(\\(a_{t}\\)) 상대하는 사람(또는기계)도 어떤 위치에 흰돌을 놓을것이다. 이 흰돌의 위치도 envirionment에 의해 랜덤적으로 결정되 때문에 알파고가 인식하는 다음상황(\\(s_{t+1}\\))도 랜덤적인 확률변수이며 reward도 확률변수이다.\n\n\n\n\n\n\nNote\n\n\n\n위에서 인식하는 상황이라고 썼는데 사실 state는 agent가 인식하는 것이 아니라 사실은 environment에가 반환(return)하는 것입니다. agent는 state중 일부를 받는데 이것을 observation이라고 합니다. 그러나 실제 논문에서는 딱히 state와 observation을 구별하지않고 쓰는 경우가 많다고 합니다."
+  },
+  {
+    "objectID": "posts/RL/RL2-2 value function.html#expected-value-of-return",
+    "href": "posts/RL/RL2-2 value function.html#expected-value-of-return",
+    "title": "[강화학습] 2-2 Reward & Return & State Value f & Action Value f",
+    "section": "Expected value of return",
+    "text": "Expected value of return\n강화학습의 목적은 return의 평균을 가장크게 하는 policy를 찾는것이다. 그렇다면 어떠한 policy가 return의 평균을 가장 크게 만들 수 있을까? return에 대한 두가지의 함수는 이러한 목적 즉, return을 가장 크게 만들기 위해 policy가 좋은지 나쁜지 그것의 가치를 평가한다.(그래서 value function이라 한다.)"
+  },
+  {
+    "objectID": "posts/RL/RL2-2 value function.html#state-value-function",
+    "href": "posts/RL/RL2-2 value function.html#state-value-function",
+    "title": "[강화학습] 2-2 Reward & Return & State Value f & Action Value f",
+    "section": "(state) value function",
+    "text": "(state) value function\nstate value function은 함수의 입력으로 주어지는 어떤 특정한 state를 가졍했을때 특정 policy가 좋은지 나쁜지 그것의 가치를 평가한다. 평가는 현재state부터 마지막 시점까지 Agent가 가능한 모든 action과 놓여질 수 있는 모든 state를 고려하여 기대되는 보수의 총합(return)을 계산하는 방식이다. 이는 상태가 주어졌을때 함수\\(G_t\\)의 조건부 기댓값을 구하는 것과 같다.\n\\[\\begin{aligned}\n&\\text{definition of state value function}\\\\\n&V^{\\pi}(s_t) \\overset{\\Delta}{=} \\mathbb{E}[G_t|S_t=s_t,\\pi]= \\int_{a_t:a_{\\infty}}G_t\\,p(a_t,s_{t+1},\\dots,a_{\\infty}|s_t)da_t:a_{\\infty}\n\\end{aligned}\\]\n윗식은 \\(G_t\\)를 확률분포와 곱해서 \\(a_t,s_t,a_{t+1},s_{t+1}\\dots a_{\\infty}\\)에 대해 모두 적분함을 의미한다."
+  },
+  {
+    "objectID": "posts/RL/RL2-2 value function.html#optimal-policy",
+    "href": "posts/RL/RL2-2 value function.html#optimal-policy",
+    "title": "[강화학습] 2-2 Reward & Return & State Value f & Action Value f",
+    "section": "optimal policy",
+    "text": "optimal policy\noptimal policy는 value function인 \\(V(s_t)\\)를 가장 크게 하는 policy들(\\(p(a_t|s_t),p(a_{t+1}|s_{t+1}),\\dots,p(a_{\\infty}|s_{\\infty})\\))이다.나중에 더 자세히 공부해야할 것 같다."
+  },
+  {
+    "objectID": "posts/RL/RL2-2 value function.html#action-value-function",
+    "href": "posts/RL/RL2-2 value function.html#action-value-function",
+    "title": "[강화학습] 2-2 Reward & Return & State Value f & Action Value f",
+    "section": "action value function",
+    "text": "action value function\naction value function은 state,action의 함수의 입력으로 주어지는 어떤 state에서 (마찬가지로 주어지는)action을 취했을때 특정 policy가 좋은지 나쁜지(가치)를 평가한다. 평가는 action을 취한뒤의 다음 state부터 마지막 시점까지 Agent가 가능한 모든 action과 놓여질 수 있는 모든 state를 고려하여 기대되는 보수의 총합을 계산하는방식이다. 이것도 마찬가지로 결국은 \\(G_t\\)에 대한 조건부 함수이다.\n\\[\\begin{aligned}\nQ^{\\pi}(s_t,a_t) \\underset{=}{\\Delta} \\mathbb{E}[G_t|A_t=a_t,S_t=s_t,\\pi] = \\int_{s_{t+1}:a_{\\infty}}G_tp(s_{t+1},\\dots,a_{\\infty})ds_{t+1}:da_{\\infty}\n\\end{aligned}\\]\n\\[\\begin{aligned}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "posts/RL/RL2-2 value function.html#state-value-function-1",
+    "href": "posts/RL/RL2-2 value function.html#state-value-function-1",
+    "title": "[강화학습] 2-2 Reward & Return & State Value f & Action Value f",
+    "section": "state value function",
+    "text": "state value function"
   }
 ]
