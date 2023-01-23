@@ -164,8 +164,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <h1><spam style="color:black"> <strong>용어정리</strong></spam></h1>
 <ul>
 <li>agent : 강화학습에서 학습하는 대상(object)를 말한다.</li>
-<li>action : agent가 하는 실제 행동을 말한다.</li>
-<li>state : agent가 action을 취하기 위한 구체적 정보이자 action을 취하면 (environment에 의해)변화하는 것이다.</li>
+<li>action : agent가 하는 실제 행동을 말한다. action을 취하면 state가 변화한다.</li>
+<li>state : agent가 인식하고 있는 자신의 상태이며 action을 취하기 위한 구체적 정보이다.어떠한 action을 취하면 (environment에 의해)변화한다.</li>
 <li>observation : 실제문제에서 agent는 모든 state를 알기는 불가능하다. agent는 state중 일부정보만을 받는데 이것을 observation이라고 한다.</li>
 <li>reward : agent가 action을 취했을때 받는 보수,보상,값이다. 어떠한 action을 유도하기 위해서는 + 보상을 action을 방지하기 위해서는 -보상을 준다.</li>
 <li>Environment <br> – 1)agent가 놓여있는 world(세계)이다.<br> – 2)agent가 어떤 action을 취하면 state가 변화하는데 이 때 새로운 state를 return해주는 존재를 말한다.<br> – 3)agent가 어떤 행동을 했을때 어떤 보상을 줘야하는지에 대한 setting이다.<br> – 뭔가 직관적으로 이해가 가지 않는다.예시를 들어보자면 말은 안되지만 아주더운 나가기면 하면 땀나는 아프리카 사막에서 1시간 달리는 것과 시원한 헬스장에서 1시간 달리는 것을 비교해보자. 사막에서 달리는게 차원이 다른 힘듦과 체중감량 효과를 줄 것이다. 이는 같은 action을 취해도 서로다른 envirionment가 다른state를 return(제공)해주기에 그렇다. 각각의 환경은 또한 감량에 대하여 서로다른 setting에 의해 reward를 줄것이다.<br></li>

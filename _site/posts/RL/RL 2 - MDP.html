@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신호연">
-<meta name="dcterms.date" content="2023-01-21">
+<meta name="dcterms.date" content="2023-01-22">
 
 <title>HIHO - [강화학습] 2-1 Markov Decision process and property</title>
 <style>
@@ -131,7 +131,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 21, 2023</p>
+        <p class="date">January 22, 2023</p>
       </div>
     </div>
     
@@ -165,7 +165,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <h1><spam style="color:black"> <strong>Markov Decision Process</strong></spam></h1>
 <p>자기전에 스타를 했더니 상대방에게 핵을 맞았다고 하자…</p>
 <p><img src="./images/starcraft nuclear.jpg" class="img-fluid"></p>
-<p>나는 왜 핵을 맞았을까? 게임속에서 내게 주어지는 여러가지 상황(state)속에서 판단(action을 의미함)을 계속해서 했을 때 가능한 결과중 하나가 나에게 돌아온 것이다. 좀 더 자세히 말하면 어떤 상황(<span class="math inline">\(s_0\)</span>)에서 액션(<span class="math inline">\(a_0\)</span>)을 취하고 또다른 상황(<span class="math inline">\(s_1\)</span>)에서 액션(<span class="math inline">\(s_1\)</span>)을 취하고 … 상황(<span class="math inline">\(s_{t-1}\)</span>)에서 액션(<span class="math inline">\(a_{t-1}\)</span>)을 취했을때 가능한 결과들 중 하나가 나에게 돌아온 것이다. 이것은 조건부 확률과 강화학습의 용어를 빌리면 action들과 state들에 대한 조건이 주어져 있을때 state에 대한 조건부확률분포(conditional distribution)에서 하나의 샘플로 어떠한 사건이 발생(핵을 맞는 사건이)한 것이다. 조건부 확률분포는 다음과 같다.</p>
+<p>나는 왜 핵을 맞았을까? 게임안에서 <strong>주어지는 여러가지 state에서 action을 취했을 때 가능한 여러가지 결과 중 하나가 나에게 돌아온 것이다.</strong></p>
+<p>조건부 확률과 용어를 빌리면 action들과 state들에 대한 조건이 주어져 있을때 state에 대한 조건부확률분포(conditional distribution)에서 하나의 event가 sample로 뽑힌 것이다.(여기서는 핵을 맞는 사건이 뽑힌것이다.)</p>
 <p><span class="math display">\[p_{S_t|S_0,A_0\dots,S_{t-1}A_{t-1}}(s_t|s_0,a_0,\dots,s_{t-1},a_{t-1})\]</span></p>
 <p>이와 비슷하게 내가 핵을 맞기전에 취할 수 있는 판단도 여러가지며 또한 취하는 판단의 근거도 마찬가지로 이전의 상황과 내가 취한 판단에 의해 결정되었을 것이다. action과 state들이 주어졌을때 취할 수 있는 action에 대한 조건부 확률분포는 다음과 같다.</p>
 <p><span class="math display">\[p_{A_t|S_0,A_0,\dots,S_{t-1},A_{t-1}}(a_t|s_0,a_0,\dots,s_t)\]</span></p>
@@ -223,13 +224,13 @@ p_{\small{A_t|S_t}}(a_t|s_t)=
 <p><img src="./images/pol3.png" class="img-fluid"></p>
 <p>가장 오른쪽 그림의 policy는 다음과 같다.</p>
 <p><img src="./images/pol2.png" class="img-fluid"></p>
-<p>생각해보면 가장오른쪽 위 사각형같은 policy가 정해지면 가장 빠르게 목표에 도달할 수 있다. 이는 최고의 보상(reward)를 받도록 학습된 결과이며 최적정책(optimal policy)이다.</p>
+<p>생각해보면 가장오른쪽 위 사각형같은 policy가 정해지면 가장 빠르게 목표에 도달할 수 있다. 이는 최고의 reward를 받도록 학습된 결과이다.</p>
 </section>
 <section id="정리" class="level1">
 <h1><span style="color:black"><strong>정리</strong></span></h1>
 <ul>
 <li>강화학습은 MDP를 가정한다. 이는 이전 state나 액션에 의해서만 확률분포가 영향을 받는다는 것이다.</li>
-<li>policy는 임의의 state에서 action에 대한 확률분포함수로 어떤 action을 취할지의 지표이다.</li>
+<li>policy는 임의의 state에 취한 action의 확률분포함수로 어떤 action을 할지는 이것에 의해 결정된다.</li>
 </ul>
 </section>
 <section id="참고자료" class="level1">
