@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신호연">
-<meta name="dcterms.date" content="2023-02-08">
+<meta name="dcterms.date" content="2023-02-10">
 
-<title>HIHO - Quadratic Form</title>
+<title>HIHO - Quadratic Form(작성중)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -173,7 +173,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Quadratic Form</h1>
+      <h1 class="title">Quadratic Form(작성중)</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Linear Algebra</div>
               </div>
@@ -193,7 +193,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 8, 2023</p>
+        <p class="date">February 10, 2023</p>
       </div>
     </div>
     
@@ -215,6 +215,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#example---직교대각화" id="toc-example---직교대각화" class="nav-link" data-scroll-target="#example---직교대각화"><span style="color : black"> <strong>Example - 직교대각화</strong></span></a></li>
   <li><a href="#example---change-of-variable-in-quadratic-form" id="toc-example---change-of-variable-in-quadratic-form" class="nav-link" data-scroll-target="#example---change-of-variable-in-quadratic-form"><span style="color : black"> <strong>Example - Change of Variable in Quadratic Form</strong></span></a></li>
   <li><a href="#the-principal-axes-theorem" id="toc-the-principal-axes-theorem" class="nav-link" data-scroll-target="#the-principal-axes-theorem"><span style="color : black"> <strong>The Principal Axes Theorem</strong></span></a></li>
+  <li><a href="#classifiying-quadratic-forms" id="toc-classifiying-quadratic-forms" class="nav-link" data-scroll-target="#classifiying-quadratic-forms"><span style="color:black"><strong>Classifiying Quadratic Forms</strong></span></a></li>
+  <li><a href="#bfxtabfx-0-rightarrow-a-invertible" id="toc-bfxtabfx-0-rightarrow-a-invertible" class="nav-link" data-scroll-target="#bfxtabfx-0-rightarrow-a-invertible"><span style="color:black"> <strong><span class="math inline">\({\bf{x}}^TA{\bf{x}}&gt; 0 \rightarrow\)</span> A : invertible</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -224,7 +226,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p><a href="https://deep-learning-stud%7B\bf%7By%7D%7D.tistor%7B\bf%7By%7D%7D.com/458">딥러닝공부방</a>을 읽고 정리한 내용입니다.</p>
+<p><a href="https://deep-learning-study.tistory.com/458">딥러닝공부방</a>,<a href="https://soohee410.github.io/quadratic_form">soohee410님의 블로그</a>을 읽고 정리한 내용입니다.</p>
 <section id="definition-of-quadratic-form" class="level1">
 <h1><span style="color : black"> <strong>Definition of Quadratic Form</strong></span></h1>
 <p>벡터<span class="math inline">\({\bf{x}}\)</span>의 이차형식(Quadratic form)은 다음과 같이 정의한다.</p>
@@ -307,7 +309,7 @@ y_1 &amp; y_2 &amp; \dots &amp; y_n
 \end{bmatrix}
 = \lambda_1y_1^2 + \lambda_2y_2^2 + \dots + \lambda_ny_n^2
 \end{aligned}\]</span>
-<p>조금 더 전개해보면 다음과 같이 <span class="math inline">\(y\)</span>에 관한식으로 나타나며 <span class="math inline">\(D\)</span>가 대각행렬이기 때문에 crossproduct term은 나타나지 않는 것을 볼 수 있다.</p>
+<p>조금 더 전개해보면 다음과 같은 <span class="math inline">\(y\)</span>에 관한 식으로 나타난다.결론적으로 <span class="math inline">\(D\)</span>가 대각행렬이기 때문에 crossproduct term이 나타나지 않으며 <span class="math inline">\(B = \{p_1,p_2,\dots,p_n\}\)</span>을 기저로 하는 새로운 좌표축에서 식을 표현할 수 있다.</p>
 </section>
 <section id="example---직교대각화" class="level1">
 <h1><span style="color : black"> <strong>Example - 직교대각화</strong></span></h1>
@@ -391,9 +393,37 @@ Q({\bf{x}}) &amp;= x^TAx = (Py)^TA(Py) = y^TP^TAPy = y^TP^TAPy\\
 </section>
 <section id="the-principal-axes-theorem" class="level1">
 <h1><span style="color : black"> <strong>The Principal Axes Theorem</strong></span></h1>
-<p>행렬 <span class="math inline">\(A = A^T \in R^{n \times n}\)</span>라 가정해보자. 두 벡터사이에 <span class="math inline">\({\bf{x}}=P{\bf{y}}\)</span>인 관계가 있다면 <span class="math inline">\({\bf{x}}\)</span>의 이차형식 <span class="math inline">\(Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}}\)</span>는 cross-product form이 없는 <span class="math inline">\(\bf{y}\)</span>의 이차형식 <span class="math inline">\({\bf{y}}^TD{\bf{y}}\)</span>와 같다는 정리이다. 이때 <span class="math inline">\(A\)</span>행렬의 고유벡터행렬가 column을 이루는 orthonormal matrix(정규직교행렬) <span class="math inline">\(P\)</span>를 이차형식의 주축(principal axes)라고 부른다.</p>
+<p>행렬 <span class="math inline">\(A = A^T \in R^{n \times n}\)</span>라 가정해보자. 두 벡터사이에 <span class="math inline">\({\bf{x}}=P{\bf{y}}\)</span>인 관계가 있다면 <span class="math inline">\({\bf{x}}\)</span>의 이차형식 <span class="math inline">\(Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}}\)</span>는 cross-product form이 없는 <span class="math inline">\(\bf{y}\)</span>의 이차형식 <span class="math inline">\({\bf{y}}^TD{\bf{y}}\)</span>와 같다는 정리이다. 이때 <span class="math inline">\(A\)</span>행렬의 고유벡터가 각각의 column을 이루는 orthonormal matrix(정규직교행렬) <span class="math inline">\(P\)</span>의 각각의 열들을 이차형식 <span class="math inline">\(x^TAx\)</span>의 주축(principal axes)라고 부른다.</p>
 <p><img src="./principal axes.png" class="img-fluid"></p>
-<p>위의 그림은 주축을 시각화한</p>
+<p>위의 그림의 (a)는 바로 위 예제에서 사용된 이차형식이다. <span class="math inline">\(y_1\)</span>과 <span class="math inline">\(y_2\)</span>는 <span class="math inline">\(\mathbb{R}\)</span>^2의 기저인 <span class="math inline">\(B = \{p_1,p_2\}\)</span>을 기저로 하는 새로운 축이며 타원은 이 축을 기준으로 원점에 놓이며 회전하지 않은 형태이다.</p>
+</section>
+<section id="classifiying-quadratic-forms" class="level1">
+<h1><span style="color:black"><strong>Classifiying Quadratic Forms</strong></span></h1>
+<p>이차형식의 부호는 다음과 같이 정의할 수 있다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;x \not =0,Q(x)&gt;0 \leftrightarrow \text{positive definite}\\
+&amp;x \not =0,Q(x)&lt;0 \leftrightarrow \text{negative definite}\\
+&amp;\text{Q(x)가 양수와 음수 모두 지닌다면} \leftrightarrow \text{indefinite}\\
+&amp;Q(x)\geq 0 \leftrightarrow \text{positive semidefinite}\\
+&amp;Q(x)\leq 0 \leftrightarrow \text{negative semidefinite}
+\end{aligned}\]</span>
+<p>고윳값으로 이차형식의 부호를 알 수 있다. 이차형식을 전개하면 다음과 같다.</p>
+<p><span class="math display">\[Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}} = \lambda_1x_1^2 + \lambda_2x_2^2 + \dots + \lambda_nx_n^2\]</span></p>
+<p><span class="math inline">\(x\)</span>에 관한 제곱항은 모두 양수이므로 행렬 <span class="math inline">\(A\)</span>의 고윳값의 부호에 의하여 이차형식의 부호가 결정된다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;\forall i,\lambda_i &gt; 0 \leftrightarrow \text{positive definite}\\
+&amp;\forall i,\lambda_i &lt; 0 \leftrightarrow \text{negative definite}\\
+&amp;\forall i,\lambda_i\text{ 가 양수이거나 음수이다.}\leftrightarrow \text{indefinite}
+\end{aligned}\]</span>
+</section>
+<section id="bfxtabfx-0-rightarrow-a-invertible" class="level1">
+<h1><span style="color:black"> <strong><span class="math inline">\({\bf{x}}^TA{\bf{x}}&gt; 0 \rightarrow\)</span> A : invertible</strong></span></h1>
+<p>임의의 행렬 <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span>일 때 다음이 성립한다.</p>
+<p>$$(A) = _1_2_n</p>
+<p>만약 <span class="math inline">\(A = A^T\)</span>인 대칭행렬이며 이차형식이 positive definite라면 다음과 같다.</p>
+<p><span class="math display">\[({\bf{x}}^TA{\bf{x}}&gt;0) \leftrightarrow \text{positive definite}\rightarrow \forall i,\lambda_i &gt;0 \rightarrow \text{det(A)}&gt;0 \rightarrow A : \text{invertible}\]</span></p>
+<p>그러므로, 이차형식이 positive definite라면 이차형식의 행렬<span class="math inline">\(A\)</span>는 invertible하다.</p>
+<p><span style="color:black"></span></p>
 
 
 </section>
