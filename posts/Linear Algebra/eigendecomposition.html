@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신호연">
-<meta name="dcterms.date" content="2023-01-31">
+<meta name="dcterms.date" content="2023-02-10">
 
 <title>HIHO - Eigendecomposition &amp; Property</title>
 <style>
@@ -130,7 +130,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 31, 2023</p>
+        <p class="date">February 10, 2023</p>
       </div>
     </div>
     
@@ -148,13 +148,20 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <ul>
   <li><a href="#eigendecomposition" id="toc-eigendecomposition" class="nav-link active" data-scroll-target="#eigendecomposition"><span style="color:black"> <strong>eigendecomposition</strong></span></a></li>
   <li><a href="#diagonalizable" id="toc-diagonalizable" class="nav-link" data-scroll-target="#diagonalizable"><span style="color:black"> <strong>diagonalizable</strong></span></a></li>
-  <li><a href="#동치명제-정리" id="toc-동치명제-정리" class="nav-link" data-scroll-target="#동치명제-정리"><span style="color:black"> <strong>동치명제 정리</strong></span></a></li>
+  <li><a href="#대각화-관련-동치명제-정리" id="toc-대각화-관련-동치명제-정리" class="nav-link" data-scroll-target="#대각화-관련-동치명제-정리"><span style="color:black"> <strong>대각화 관련 동치명제 정리</strong></span></a></li>
   <li><a href="#좋은-점" id="toc-좋은-점" class="nav-link" data-scroll-target="#좋은-점"><span style="color:black"> <strong>좋은 점</strong></span></a>
   <ul class="collapse">
   <li><a href="#행렬의-거듭제곱을-간단히-구한다." id="toc-행렬의-거듭제곱을-간단히-구한다." class="nav-link" data-scroll-target="#행렬의-거듭제곱을-간단히-구한다.">행렬의 거듭제곱을 간단히 구한다.</a></li>
   <li><a href="#inverse-matrix의-계산이-간단해진다." id="toc-inverse-matrix의-계산이-간단해진다." class="nav-link" data-scroll-target="#inverse-matrix의-계산이-간단해진다.">inverse matrix의 계산이 간단해진다.</a></li>
   <li><a href="#eigenvector를-모두-곱하면-determinant이다." id="toc-eigenvector를-모두-곱하면-determinant이다." class="nav-link" data-scroll-target="#eigenvector를-모두-곱하면-determinant이다.">eigenvector를 모두 곱하면 determinant이다.</a></li>
   <li><a href="#eigenvector를-모두-더하면-trace이다." id="toc-eigenvector를-모두-더하면-trace이다." class="nav-link" data-scroll-target="#eigenvector를-모두-더하면-trace이다.">eigenvector를 모두 더하면 trace이다.</a></li>
+  </ul></li>
+  <li><a href="#알아둬야-할-것들" id="toc-알아둬야-할-것들" class="nav-link" data-scroll-target="#알아둬야-할-것들"><span style="color:black"> <strong>알아둬야 할 것들</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#at의-eigen-value와-a의-eigen-value는-같다." id="toc-at의-eigen-value와-a의-eigen-value는-같다." class="nav-link" data-scroll-target="#at의-eigen-value와-a의-eigen-value는-같다."><span class="math inline">\(A^T\)</span>의 eigen value와 <span class="math inline">\(A\)</span>의 eigen value는 같다.</a></li>
+  <li><a href="#q가-q-1-qt인-orthonomal-matrix라면-lambda-1-text-or-lambda--1" id="toc-q가-q-1-qt인-orthonomal-matrix라면-lambda-1-text-or-lambda--1" class="nav-link" data-scroll-target="#q가-q-1-qt인-orthonomal-matrix라면-lambda-1-text-or-lambda--1"><span class="math inline">\(Q\)</span>가 <span class="math inline">\(Q^{-1} = Q^T\)</span>인 orthonomal matrix라면 <span class="math inline">\(\lambda = 1 \text{ or } \lambda = -1\)</span></a></li>
+  <li><a href="#대칭행렬이-positive-definite-leftrightarrow-forall-ilambda_i-0-단aat인-symmetric-matrixlambda_i는-행렬a의-모든-고윳값" id="toc-대칭행렬이-positive-definite-leftrightarrow-forall-ilambda_i-0-단aat인-symmetric-matrixlambda_i는-행렬a의-모든-고윳값" class="nav-link" data-scroll-target="#대칭행렬이-positive-definite-leftrightarrow-forall-ilambda_i-0-단aat인-symmetric-matrixlambda_i는-행렬a의-모든-고윳값">대칭행렬이 positive definite <span class="math inline">\(\leftrightarrow \forall i,\lambda_i &gt; 0\)</span> (단,<span class="math inline">\(A=A^T\)</span>인 symmetric matrix,<span class="math inline">\(\lambda_i\)</span>는 행렬A의 모든 고윳값)</a></li>
+  <li><a href="#diagonalizable-matrix의-non-zero-eigenvalue의-수-ranka" id="toc-diagonalizable-matrix의-non-zero-eigenvalue의-수-ranka" class="nav-link" data-scroll-target="#diagonalizable-matrix의-non-zero-eigenvalue의-수-ranka">Diagonalizable matrix의 non-zero eigenvalue의 수 = rank(A)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -207,13 +214,13 @@ A\begin{bmatrix}v_1\,v_2\end{bmatrix} = \begin{bmatrix}Av_1\,Av_2\end{bmatrix} =
 \end{aligned}\]</span>
 <p>이때 <span class="math inline">\(A\)</span>는 diagonalizable(대각화 가능하다)이라고 한다.<br></p>
 </section>
-<section id="동치명제-정리" class="level1">
-<h1><span style="color:black"> <strong>동치명제 정리</strong></span></h1>
+<section id="대각화-관련-동치명제-정리" class="level1">
+<h1><span style="color:black"> <strong>대각화 관련 동치명제 정리</strong></span></h1>
 <p><span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span>이라 했을때 다음의 명제는 동치이다.</p>
 <span class="math display">\[\begin{aligned}
 &amp;A\text{가 diagonalizable하다.} \\
-&amp;\Longleftrightarrow A \text{가 eigendecomposition이 가능하다.}\\
-&amp;\Longleftrightarrow A \text{의 independent한 eigenvector가 n개 존재한다.}
+&amp;\longleftrightarrow A \text{가 eigendecomposition이 가능하다.}\\
+&amp;\longleftrightarrow A \text{의 independent한 eigenvector가 n개 존재한다.}
 \end{aligned}\]</span>
 </section>
 <section id="좋은-점" class="level1">
@@ -246,6 +253,119 @@ A^k =  V\Lambda V^{-1}V\Lambda V^{-1}V\Lambda V^{-1} \dots V\Lambda V^{-1} = V\L
 &amp;\Longleftrightarrow  \prod_{i=1}^n\lambda_i = 0 \\
 &amp;\Longleftrightarrow \text{0인 eigen value가 하나 이상 존재한다.}
 \end{aligned}\]</span>
+</section>
+</section>
+<section id="알아둬야-할-것들" class="level1">
+<h1><span style="color:black"> <strong>알아둬야 할 것들</strong></span></h1>
+<section id="at의-eigen-value와-a의-eigen-value는-같다." class="level3">
+<h3 class="anchored" data-anchor-id="at의-eigen-value와-a의-eigen-value는-같다."><span class="math inline">\(A^T\)</span>의 eigen value와 <span class="math inline">\(A\)</span>의 eigen value는 같다.</h3>
+<strong>(characteristic equation이 같음을 보인다.)</strong>
+<span class="math display">\[\begin{aligned}
+\text{det}(A-\lambda I) &amp;= \text{det}((A-\lambda I)^T)\quad(\text{ by} |A| = |A^T|)\\
+&amp;= \text{det}(A^T - \lambda I)
+\end{aligned}\]</span>
+</section>
+<section id="q가-q-1-qt인-orthonomal-matrix라면-lambda-1-text-or-lambda--1" class="level3">
+<h3 class="anchored" data-anchor-id="q가-q-1-qt인-orthonomal-matrix라면-lambda-1-text-or-lambda--1"><span class="math inline">\(Q\)</span>가 <span class="math inline">\(Q^{-1} = Q^T\)</span>인 orthonomal matrix라면 <span class="math inline">\(\lambda = 1 \text{ or } \lambda = -1\)</span></h3>
+<span class="math display">\[\begin{aligned}
+&amp;Qv = \lambda v \\
+&amp;\longleftrightarrow (Qv)^TQv = v^TQ^TQv = v^Tv = |v|_2^2 = \lambda^2|v|_2^2\\
+&amp;\longleftrightarrow \lambda = 1 \text{ or } \lambda = -1
+
+\end{aligned}\]</span>
+</section>
+<section id="대칭행렬이-positive-definite-leftrightarrow-forall-ilambda_i-0-단aat인-symmetric-matrixlambda_i는-행렬a의-모든-고윳값" class="level3">
+<h3 class="anchored" data-anchor-id="대칭행렬이-positive-definite-leftrightarrow-forall-ilambda_i-0-단aat인-symmetric-matrixlambda_i는-행렬a의-모든-고윳값">대칭행렬이 positive definite <span class="math inline">\(\leftrightarrow \forall i,\lambda_i &gt; 0\)</span> (단,<span class="math inline">\(A=A^T\)</span>인 symmetric matrix,<span class="math inline">\(\lambda_i\)</span>는 행렬A의 모든 고윳값)</h3>
+<section id="증명1-대칭행렬이-positive-definite-rightarrow-forall-ilambda_i-0" class="level4">
+<h4 class="anchored" data-anchor-id="증명1-대칭행렬이-positive-definite-rightarrow-forall-ilambda_i-0">증명1: 대칭행렬이 positive definite <span class="math inline">\(\rightarrow \forall i,\lambda_i &gt; 0\)</span></h4>
+<ul>
+<li>먼저 대칭행렬은 랭크1 매트릭스의 합임을 보인다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+A &amp;= V\Lambda V^T
+=
+\begin{bmatrix}v_1 &amp; v_2 &amp; \dots &amp;  v_n\end{bmatrix}
+\begin{bmatrix}
+\lambda_1 &amp; 0 &amp;\dots &amp; 0 \\
+0 &amp; \lambda_2 &amp;\dots &amp;0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0&amp; \dots &amp; \lambda_n
+\end{bmatrix}
+\begin{bmatrix}
+v_1^T \\ v_2^T \\ \vdots \\ v_n^T
+\end{bmatrix}
+\\
+&amp;=
+\begin{bmatrix}
+\lambda_1v_1 &amp; \lambda_2v_2 &amp; \dots &amp; \lambda_nv_n
+\end{bmatrix}
+\begin{bmatrix}
+v_1^T \\ v_2^T \\ \vdots \\ v_n^T
+\end{bmatrix} \\
+&amp;=\sum_{i=1}^{n}\lambda_iv_iv_i^T
+\end{aligned}\]</span>
+<ul>
+<li>대칭행렬<span class="math inline">\(A\)</span>가 양의 정부호일 경우 <span class="math inline">\({\bf{x}}^TA{\bf{x}} &gt;0\)</span> 이므로 <span class="math inline">\(x\)</span>를 행렬A의 임의의 고유벡터인 <span class="math inline">\(v_j\)</span>로 놓아도 성립해야한다. 즉 다음과 같다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+&amp;\forall j\in(1,\dots,n),\,v_j^TAv_j &gt;0 \\
+&amp;\longleftrightarrow\forall j\in(1,\dots,n),\,v_j^T(\sum_{i=1}^n\lambda_iv_iv_i^T)v_j &gt;0
+\end{aligned}\]</span>
+<ul>
+<li>그런데 대칭행렬의 경우 고유벡터는 직교(orthogonal)한다. 즉 다음과 같이 정리된다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+&amp;\forall j\in(1,\dots,n),\,v_j^T(\sum_{i=1}^n\lambda_iv_iv_i^T)v_j &gt;0\\
+&amp;\longleftrightarrow\forall j\in(1,\dots,n),\, v_j^T(\lambda_1v_1 + \lambda_2v_2 + \dots + \lambda_jv_j + \dots \lambda_nv_n)v_j &gt;0\\
+&amp;\longleftrightarrow\forall j\in(1,\dots,n),\,\lambda_jv_j^Tv_j = \lambda_j|v_j|_2^2&gt;0\\
+&amp;\longleftrightarrow\forall j\in(1,\dots,n),\,\lambda_j&gt;0
+\end{aligned}\]</span>
+<p>그러므로, 고윳값은 항상0보다 크다.</p>
+</section>
+<section id="증명2-forall-ilambda_i-0-rightarrow-대칭행렬이-positive-definite" class="level4">
+<h4 class="anchored" data-anchor-id="증명2-forall-ilambda_i-0-rightarrow-대칭행렬이-positive-definite">증명2: <span class="math inline">\(\forall i,\lambda_i &gt; 0 \rightarrow\)</span> 대칭행렬이 positive definite</h4>
+<ul>
+<li>이차형식은 다음과 같다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+{\bf{x}}^TA{\bf{x}} &amp;= {\bf{x}}^T(\sum_{i=1}^{n}\lambda_iv_iv_i^T){\bf{x}} = \sum_{i=1}^n\lambda_i{\bf{x}}^Tv_iv_i^T{\bf{x}} = \sum_{i=1}^n\lambda_i{\bf{x}}^Tv_i({\bf{x}}^Tv_i)^T \\
+&amp;=\sum_{i=1}^n\lambda_i({\bf{x}}^Tv_i)^T{\bf{x}}^Tv_i = \sum_{i=1}^n\lambda_i||{\bf{x}}^Tv_i||^2\\
+&amp;=\lambda_1||{\bf{x}}^Tv_1||^2 + \lambda_2||{\bf{x}}^Tv_2||^2 + \dots + \lambda_n||{\bf{x}}^Tv_n||^2
+\end{aligned}\]</span>
+<ul>
+<li>행렬A의 고유벡터의 집합을 <span class="math inline">\(B = {v_1,v_2,\dots,v_n}\)</span>으로 두면 고유벡터는 서로간에 직교하므로 orthogonal set이며 이는 <span class="math inline">\(\mathbb{R}^n\)</span>의 직교기저가 될 수 있음을 의미한다.그러므로, <span class="math inline">\({\bf{x}} \in \mathbb{R}^n\)</span>인 <span class="math inline">\({\bf{x}}\)</span>에 대하여 내적<span class="math inline">\({\bf{x}}^Tv_i\)</span>의 값은 적어도 하나는 고유벡터에서는 0보다 커야한다.(간단히 2차원상에 존재하는 벡터는 2차원 공간을 span하는 기저와 모두 직교할 수 없으며 적어도 하나의 기저와는 내적을 했을때 0보다 크다.)</li>
+</ul>
+<p><span class="math display">\[||{\bf{x}}^Tv_1||^2 + ||{\bf{x}}^Tv_2||^2 + \dots + ||{\bf{x}}^Tv_n||^2 &gt; 0\]</span></p>
+<ul>
+<li>결과적으로,<span class="math inline">\(\forall i,\lambda_i&gt;0\)</span>이라고 가정했으므로 다음과 같다.</li>
+</ul>
+<p><span class="math display">\[{\bf{x}}^TA{\bf{x}} = \lambda_1||{\bf{x}}^Tv_1||^2 + \lambda_2||{\bf{x}}^Tv_2||^2 + \dots + \lambda_n||{\bf{x}}^Tv_n||^2 &gt; 0\]</span></p>
+</section>
+</section>
+<section id="diagonalizable-matrix의-non-zero-eigenvalue의-수-ranka" class="level3">
+<h3 class="anchored" data-anchor-id="diagonalizable-matrix의-non-zero-eigenvalue의-수-ranka">Diagonalizable matrix의 non-zero eigenvalue의 수 = rank(A)</h3>
+<ul>
+<li>행렬A의 고윳값 분해는 다음과 같다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+A = V\Lambda V^{-1}
+\end{aligned}\]</span>
+<ul>
+<li>임의의 행렬이 서로다른 행렬의 곱인 경우 가장 작은 랭크는 가장작은 랭크를 따라간다. 윗 식에서 <span class="math inline">\(V,V^{-1}\)</span>는 fullrank이므로 랭크는 <span class="math inline">\(\Lambda\)</span>에 달려있다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+&amp;\text{rank}(A) = \text{rank}(V\Lambda V^{-1}) = \text{rank}(\Lambda)\\
+&amp;\text{where } \Lambda =
+\begin{bmatrix}
+\lambda_1 &amp; 0 &amp;\dots &amp; 0 \\
+0 &amp; \lambda_2 &amp;\dots &amp;0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0&amp; \dots &amp; \lambda_n
+\end{bmatrix}
+\end{aligned}\]</span>
+<ul>
+<li>그러므로,<span class="math inline">\(\text{rank}(\Lambda)\)</span>는 0이아닌 고윳값의 갯수와 같음을 알 수 있다.</li>
+</ul>
 
 
 </section>

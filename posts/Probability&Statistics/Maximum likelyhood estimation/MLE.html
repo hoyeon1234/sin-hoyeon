@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2022-12-29">
 
-<title>HIHO - Maximum likelyhood estimation</title>
+<title>HIHO - MLE &amp; MAP (작성중)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,69 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -173,7 +110,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Maximum likelyhood estimation</h1>
+      <h1 class="title">MLE &amp; MAP (작성중)</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Probability&amp;Statistics</div>
               </div>
@@ -210,17 +147,9 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link active" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></a></li>
-  <li><a href="#what-is-estimation" id="toc-what-is-estimation" class="nav-link" data-scroll-target="#what-is-estimation"><span style="color : black"> <strong>What is estimation?</strong> </span></a></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span style="color : black"> <strong>Modeling</strong> </span></a></li>
   <li><a href="#mle최대가능도-추정법" id="toc-mle최대가능도-추정법" class="nav-link" data-scroll-target="#mle최대가능도-추정법"><span style="color : black"><strong>MLE(최대가능도 추정법)</strong></span></a></li>
-  <li><a href="#likelyhood-function" id="toc-likelyhood-function" class="nav-link" data-scroll-target="#likelyhood-function"><span style="color : black"><strong>Likelyhood function</strong> </span></a></li>
-  <li><a href="#likelyhood의-최댓값-구하기" id="toc-likelyhood의-최댓값-구하기" class="nav-link" data-scroll-target="#likelyhood의-최댓값-구하기"><span style="color : black"><strong>Likelyhood의 최댓값 구하기</strong> </span></a></li>
-  <li><a href="#베이즈-정리에-의한-mle" id="toc-베이즈-정리에-의한-mle" class="nav-link" data-scroll-target="#베이즈-정리에-의한-mle"><span style="color : black"><strong>베이즈 정리에 의한 MLE</strong></span></a>
-  <ul class="collapse">
-  <li><a href="#예시---정규분포-데이터가-주어진-경우" id="toc-예시---정규분포-데이터가-주어진-경우" class="nav-link" data-scroll-target="#예시---정규분포-데이터가-주어진-경우">예시 - 정규분포 데이터가 주어진 경우</a></li>
-  <li><a href="#ll" id="toc-ll" class="nav-link" data-scroll-target="#ll"><strong>LL</strong></a></li>
-  <li><a href="#nll" id="toc-nll" class="nav-link" data-scroll-target="#nll"><strong>NLL</strong></a></li>
-  </ul></li>
-  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color : black"><strong>정리</strong></span></a></li>
+  <li><a href="#베이즈-정리에서-바라본-mle" id="toc-베이즈-정리에서-바라본-mle" class="nav-link" data-scroll-target="#베이즈-정리에서-바라본-mle"><span style="color : black"><strong>베이즈 정리에서 바라본 MLE</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -230,120 +159,125 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p>최대가능도 추정법(MLE)에 대한 정리</p>
+<p><a href="https://hyeongminlee.github.io/post/bnn002_mle_map/">HYEONGMIN LEE’S WEBSITE - MLE &amp; MAP</a>를 개인적으로 공부하고 정리한 글입니다.</p>
 <section id="problem-setting" class="level2">
 <h2 class="anchored" data-anchor-id="problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></h2>
-<span class="math display">\[\begin{aligned}
-&amp;\text{Given}\,x_1,x_2,...,x_N\ \text{which are realizations of a random sample }X_1,X_2,\dots,X_N \\
-&amp;\text{where,}\, X_1 \sim f_1(x_1;\theta),X_2 \sim f_2(x_1;\theta),\dots,X_N \sim f_N(x_N;\theta) \\ \\
-
-&amp;\text{Goal : 확률분포의 모수 $\theta$를 점추정하기}
-\end{aligned}\]</span>
+<p>실제 <span class="math inline">\(N\)</span>명의 사람들로부터 키(<span class="math inline">\(x\)</span>)와 몸무게(<span class="math inline">\(t\)</span>)를 조사한 다음과 같은 data set <span class="math inline">\(D\)</span>를 가지고 있다고 해보자.</p>
+<p><span class="math display">\[ D = \{(x_1,t_1),(x_2,t_2,),\dots,(x_N,t_N)\}\]</span></p>
+<p>키로 몸무게를 예측하는 모형을 만들고자 한다. 어떻게 만들 수 있을까?</p>
 </section>
-<section id="what-is-estimation" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-estimation"><span style="color : black"> <strong>What is estimation?</strong> </span></h2>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4"></a>plt.style.use(<span class="st">"ggplot"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
-<span id="cb1-7"><a href="#cb1-7"></a>rv <span class="op">=</span> sp.stats.norm(<span class="dv">175</span>,<span class="dv">10</span>)</span>
-<span id="cb1-8"><a href="#cb1-8"></a>x <span class="op">=</span> np.linspace(<span class="dv">150</span>,<span class="dv">200</span>,<span class="dv">500</span>)</span>
-<span id="cb1-9"><a href="#cb1-9"></a>plt.plot(x,rv.pdf(x),<span class="st">"b"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10"></a>plt.title(<span class="st">"$N(175,10)$"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12"></a>plt.ylabel(<span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>Text(0, 0.5, 'y')</code></pre>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling"><span style="color : black"> <strong>Modeling</strong> </span></h2>
+<p>가장 단순한 접근은 <strong>키(<span class="math inline">\(x\)</span>)를 입력</strong>으로 하고 <strong>몸무게(<span class="math inline">\(t\)</span>)를 출력</strong>하는 <strong>함수</strong><span class="math inline">\(y(x|w)\)</span>를 만드는 것이다.</p>
+<p><span class="math display">\[t = y(x|w)\]</span></p>
+<ul>
+<li><span class="math inline">\(w\)</span>는 함수의 parameter를 나타낸다.</li>
+</ul>
+<p>파라미터<span class="math inline">\(w\)</span>를 학습하여 키-몸무게 사이의 관계를 표현하는 거의 완벽하게 표현하는 함수를 얻었다고 해보자. 그렇다면 키<span class="math inline">\(x\)</span>를 입력으로 하여 몸무게에 대한 예측값 <span class="math inline">\(t\)</span>하나를 얻을 수 있다. 예를 들어 키가 175cm인 사람의 몸무게가 함수를 통하여 얻은 예측값이 72kg이라고 하자. 이 결과를 말로하면 “<strong>키가 175cm인 사람의 몸무게는 72kg이야.</strong>”라고 하는 것과 같다.</p>
+<p>이렇게 키<span class="math inline">\(x\)</span>에 대해서 몸무게에 대한 하나의 예측값<span class="math inline">\(y\)</span>를 하나만 돌려주는 방법은 옳을까? 결론적으로 말하면 <strong>그렇지 않다.</strong> 왜냐하면 실제 data의 형태는 <strong>키<span class="math inline">\(x\)</span>에 대해 하나의 몸무게<span class="math inline">\(t\)</span>만을 가지지 않기</strong>이다. 예를 들자면 <span class="math inline">\((175,62),(175,72),(175,83),(175,88)\dots\)</span>등등 다양한 키-몸무게 다양한 조합이 가능하지만 <strong>함수로 표현할 경우 하나의 입력은 하나의 출력에만 mapping</strong>되며 <strong>이 밖에 나올 수 있는 다른 값들에 대한 설명은 전혀 하지 않기 때문</strong>이다. 그렇다면 어떠한 방법이 더 좋을까? <strong>키가 175cm인 사람의 몸무게는 아마도 72kg 꺼야</strong> 정도의 말을 할 수 있다면 가장 좋을 것이다.</p>
+<p>이러한 해석은 키가 175cm인 사람에 대해서 몸무게에 대한 예측이 거의 72kg이라고 확신하지만 이와 동시에 <strong>몸무게의 예측값이 불확실</strong>하며 <strong>키가 동일하다 할지라도 어느정도는 랜덤하다는 것을 내포</strong>한다.이렇게 불확실하며 랜덤한 가지는 값은 randomvariable라고 하며 문제에서 <strong>몸무게<span class="math inline">\(t\)</span>를 random-variable로 취급하면 위와 같은 해석이 가능</strong>하다. 예를들어 키가 <span class="math inline">\(x\)</span>인 사람의 몸무게<span class="math inline">\(t\)</span>가 randomvariable이며 다음과 같은 정규분포를 따른다고 가정하자.</p>
+<span class="math display">\[\begin{aligned}
+&amp;t\sim\mathcal{N}(y(x|w),\sigma^2) \\
+&amp;\longleftrightarrow p(t|x,w,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t-y(x|w))^2}{2\sigma^2})
+\end{aligned}\]</span>
+<p>위와 같다면 <span class="math inline">\(y(x|w)\)</span>에사 가장 높은 확률을 가지는 정규분포이므로 “키가 <span class="math inline">\(x\)</span>인 사람의 몸무게<span class="math inline">\(t\)</span>는 아마도 <span class="math inline">\(y(x|w)\)</span>일꺼야”라는 것을 의미하며 또한 다른 값들에 대한 확률들도 어느정도 담고 있으므로 <span class="math inline">\(t\)</span>가 불확실하며 랜덤하다는 것도 확실하게 표현함을 알 수 있다.</p>
+<p>여기서 <span class="math inline">\(\sigma^2\)</span>는 <strong>우리가 한 예측에 대해서 얼마나 불확실인지를 나타내는 정도</strong>이다. <span class="math inline">\(\sigma^2\)</span>가 커서 확률분포의 변동이 크다면 모든 값에 대하여 일정한 확률을 부여하므로 예측값 <span class="math inline">\(t\)</span>에 대한 확신이 없다는 것이고 변동이 작다면 어떤 특정 값에만 확률을 몰아서 부여한 것이므로 예측값<span class="math inline">\(t\)</span>에 대한 확신이 크다는 것이다</p>
+<p>예를 들어 <span class="math inline">\(x = 175,\,y(x|w) = 72,\,t\sim\mathcal{N}(72,\sigma^2)\)</span>인 두 개의 정규분포를 따른다면 모양은 다음과 같다.</p>
+<div class="cell" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>&lt;matplotlib.legend.Legend at 0x19bf519daf0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="MLE_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p>대한민국 20대 남성들의 키가 다음과 확률분포를 따른다고 가정해보겠습니다. 우리는 “키가 175근처인 사람이 대부분이네??” 또는 “키가 160이하이거나 190이상인 사람은 거의 없겠네?” 등의 해석을 할 수 있습니다. 이러한 해석을 가능하게 하는것은 우리가 확률분포의 모양(정규분포)과 모수(평균,분산)을 가정했기 때문입니다. 극단적으로,같은 평균이라는 모수를 가지지만 전혀다른 분포인 베르누이분포라고 가정을 하면 확률변수의 값이 딱 떨어지는 2개의 이산적인 값만을 가지므로 “이하”라는 표현이나 “이상”이라는 표현은 쓸 수 없습니다.(물론 베르누이분포는 분산은 모수가 아니긴합니다.) 모양이 같지만 모수가 다른 경우도 마찬가지입니다. 같은 정규분포라도 평균이나 분산이 다르면 전혀 다른 해석이 가능합니다.<br></p>
-<p>만약 위와 같은 해석을 하고싶으나 20대 남성들의 키가 따르는 분포자체를 모른다면 해야할까요? 위와 같은 해석을 하기위해서는 확률분포 더 상세히말하자면 확률분포의 모양과 확률분포의 모수를 알아야 합니다. 이를 확률분포의 추정이라고 합니다.<br></p>
-<p>확률분포의 추정에서 보통 분포의 모양은 어떠한 분포로 가정합니다(ex 정규분포,베타분포,베르누이분포,다항분포 등등…). 그 다음은 확률분포의 모수를 추정해야 합니다. 이때 모수를 추정하는 방법 중 하나가 바로 최대가능도 추정법(Maximum likelihood estimation)입니다.<br></p>
-<p>아까전 상황을 다시 생각해봅시다. 우리는 확률분포로부터 몇 가지의 해석을 할 수 있었습니다. 이는 확률분포의 모양과 모수(평균,분산)를 먼저 가정을 했기 때문이었고,이로부터 특정한 표본이 나올 수 있는 가능성을 알 수 있었습니다.이와는 반대로,최대가능도 추정법에서는 역으로 샘플이 주어져있다고 가정하고 가정한 확률분포의 모양에 대해서 가장 가능성이 높은 모수를 이 모수를 모수에 대한 추정량(estimated value)로 합니다.</p>
+<p>이와 같이 키<span class="math inline">\(x=175\)</span>에 일때 몸무게<span class="math inline">\(t\)</span>는 randomvariable이며 평균이72 확률이 가장 높으므로 <strong>키가 175cm인 사람의 몸무게는 아마도 72kg 꺼야</strong>라는 말을 할 수 있으며 또한 다른 값으로 나올 확률도 빠짐없이 표현되어 있으므로 이와 같은 몸무게<span class="math inline">\(t\)</span>는 확률변수로 표현하는 적절하다. 또한 빨간색 그래프는 파란색그래프보다 <span class="math inline">\(\sigma^2\)</span>가 더 크며 <span class="math inline">\(t=72\)</span>에서 더 높은 확률을 부여하므로 예측에 대한 확신이 더 크다는 것을 나타낸다.</p>
+<p>지금까지 몸무게 <span class="math inline">\(t\)</span>를 randomvariable이며 확률분포 <span class="math inline">\(\mathcal{N}(y(x|w),\sigma^2)\)</span>를 따른다고 하였다. 예시에서는 확률분포를 parameter를 가정하고 그래프를 그려서 비교했지만 실제로는 <strong>확률분포의 종류도 모르거니와 확률분포의 parameter도 모르기에 위와 같은 해석을 할 수 없다.</strong> 그러므로 여기서부터는 확률분포를 추정하는 것에 관한 얘기를 해보고자 한다.</p>
 </section>
 <section id="mle최대가능도-추정법" class="level2">
 <h2 class="anchored" data-anchor-id="mle최대가능도-추정법"><span style="color : black"><strong>MLE(최대가능도 추정법)</strong></span></h2>
-</section>
-<section id="likelyhood-function" class="level2">
-<h2 class="anchored" data-anchor-id="likelyhood-function"><span style="color : black"><strong>Likelyhood function</strong> </span></h2>
-<p>위에서 <strong>샘플이 주어져있다고 가정하고 가장 가능성이 높은 모수</strong>가 모수에 대한 추정량이라고 했습니다. 그렇다면 가능성이 가장 높은 모수를 정하기 위해서 <strong>모수의 가능성</strong>이라는 지표를 정의할 필요가 있습니다. 모수의 가능성은 어떻게 정의해야 할까요?</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>rv1 <span class="op">=</span> sp.stats.norm(<span class="dv">175</span>,<span class="dv">10</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>rv2 <span class="op">=</span> sp.stats.norm(<span class="dv">185</span>,<span class="dv">10</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a>rv3 <span class="op">=</span> sp.stats.norm(<span class="dv">160</span>,<span class="dv">10</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>x <span class="op">=</span> np.linspace(<span class="dv">150</span>,<span class="dv">200</span>,<span class="dv">500</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
-<span id="cb3-6"><a href="#cb3-6"></a>plt.plot(x,rv1.pdf(x),<span class="st">"b"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>plt.plot(x,rv2.pdf(x),<span class="st">"g"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8"></a>plt.plot(x,rv3.pdf(x),<span class="st">"purple"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9"></a>plt.plot([<span class="dv">177</span>],[<span class="dv">0</span>],<span class="st">"o"</span>,color<span class="op">=</span><span class="st">"black"</span>,ms<span class="op">=</span><span class="st">"10"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10"></a>plt.plot </span>
-<span id="cb3-11"><a href="#cb3-11"></a>plt.axvline(<span class="dv">177</span>,color <span class="op">=</span> <span class="st">"black"</span>,linewidth <span class="op">=</span> <span class="dv">1</span>,linestyle <span class="op">=</span> <span class="st">"--"</span>,ymin<span class="op">=</span><span class="fl">0.07</span>)</span>
-<span id="cb3-12"><a href="#cb3-12"></a>plt.title(<span class="st">"Normal distributions"</span>)</span>
-<span id="cb3-13"><a href="#cb3-13"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb3-14"><a href="#cb3-14"></a>plt.ylabel(<span class="st">"y"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15"></a>plt.legend([<span class="st">"$N(175,10)$"</span>,<span class="st">"$N(170,10)$"</span>,<span class="st">"$N(165,10)$"</span>],loc<span class="op">=</span><span class="st">"upper right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>&lt;matplotlib.legend.Legend at 0x21d4e82fb20&gt;</code></pre>
+<p>주어진 데이터에 맞는 확률분포는 어떻게 결정할 수 있을까? 크게 두 단계로 나뉜다. - 확률분포의 종류 결정 - 확률분포의 파라미터 추정</p>
+<p>확률분포의 종류를 결정하는 일은 문제마다 다르다. 위에서 예시로 들었던 몸무게와 같은 연속적인 확률변수일 경우 연속확률분포 중 하나를 가정하고 이산확률변수일 경우 이산확률분포 중 하나를 가정한다. 위의 문제에서는 정규분포를 몸무게<span class="math inline">\(t\)</span>의 분포로 가정했다. 그러나 이는 문제에 따라 다르며 문제에 맞는 적절한 확률분포를 먼저 가정해야 한다.</p>
+<p>확률분포를 가정했다면 다음은 확률분포의 parameter를 구하면 된다.(추정한다고 말한다.)parameter를 추정할 경우 우리는 확률분포에 대한 완전한 식을 얻을 수 있으며 따라서 확률분포로부터 여러가지 정보를 얻을 수 있다. 여기서는 MLE를 통해서 확률분포의 파라미터를 추정한다.</p>
+<p>앞선 문제를 풀기전에 앞서서 간단한 예시로 예를 MLE에 대한 감을 잡아보자.예를 들어 대한민국 20대 남성들 중 한명의 키를 골라서 얻은 data set <span class="math inline">\(D = \{65\}\)</span>가 주어졌다고 가정 해보자. 분포의 모양은 먼저 정규분포로 가정한다.</p>
+<div class="cell" data-execution_count="53">
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>&lt;matplotlib.legend.Legend at 0x19bf1d77f10&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="MLE_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p>그림과 같이 크기가1인 표본을 177 얻었고 확률분포의 모양은 정규분포로 가정했다고 해봅시다. 샘플이 주어져 있을때 가능성이 가장 높은 모수는 무엇일까요? 그래프를 들여다보니 보라색 확률분포에서는 뭔가 표본을 얻기는 힘들 것 같습니다. 표본을 뽑을 확률(엄밀히는 확률밀도이지만 확률로 적겠습니다.)이 너무 낮아서 가능성이 너무 낮기 때문입니다. 초록색의 경우는 보라색보다는 확률이 더 크기때문에 가능성이 더 커보입니다. 파랑색의 경우는 확률이 초록색보다도 더 큽니다. 그러므로 3개의 분포중에서는 파랑색 확률분포의 모수인 175가 가능성이 가장 커보이고 이를 실제 모수에 대한 추정값으로 하는 것이 합리적입니다.<br></p>
-<p>위의 예시에서 가능성을 확인하기 위해서 확률분포의 값(y축,확률,확률밀도)을 확인했습니다.결국 우리가 정의하기로 지표인 <strong>모수의 가능성</strong>은 결국은 <strong>확률(또는 확률밀도)</strong> 그 자체임을 알 수 있습니다. 그러나 확률과는 약간 다르게 확률(또는 확률밀도)은 모수를 고정하고 확률분포의 읽는 확률변수에 대한 함수이고 반면에 <strong>모수의 가능성</strong>은 샘플은 고정되있고 모수를 바꿔가며 서로다른 확률분포에서 값을 읽는 모수에 대한 함수라는 점에 차이가 있습니다. 모수의 가능성에는 <strong>가능도(likelyhood)</strong>라는 이름을 붙여줍니다.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>rv1 <span class="op">=</span> sp.stats.norm(<span class="dv">175</span>,<span class="dv">10</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>rv2 <span class="op">=</span> sp.stats.norm(<span class="dv">185</span>,<span class="dv">10</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a>rv3 <span class="op">=</span> sp.stats.norm(<span class="dv">160</span>,<span class="dv">10</span>)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>x <span class="op">=</span> np.linspace(<span class="dv">150</span>,<span class="dv">200</span>,<span class="dv">500</span>)</span>
-<span id="cb5-5"><a href="#cb5-5"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
-<span id="cb5-6"><a href="#cb5-6"></a>plt.plot(x,rv1.pdf(x),<span class="st">"b"</span>)</span>
-<span id="cb5-7"><a href="#cb5-7"></a>plt.plot(x,rv2.pdf(x),<span class="st">"g"</span>)</span>
-<span id="cb5-8"><a href="#cb5-8"></a>plt.plot(x,rv3.pdf(x),<span class="st">"purple"</span>)</span>
-<span id="cb5-9"><a href="#cb5-9"></a>s <span class="op">=</span> [<span class="dv">173</span>,<span class="dv">177</span>,<span class="dv">175</span>,<span class="dv">180</span>]</span>
-<span id="cb5-10"><a href="#cb5-10"></a>plt.plot(s,[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],<span class="st">"o"</span>,color<span class="op">=</span><span class="st">"black"</span>,ms<span class="op">=</span><span class="st">"10"</span>)</span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="cf">for</span> i <span class="kw">in</span> s:</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    temp <span class="op">=</span> [i]</span>
-<span id="cb5-13"><a href="#cb5-13"></a>    plt.axvline(temp,linestyle <span class="op">=</span> <span class="st">"--"</span>,color<span class="op">=</span><span class="st">"black"</span>,linewidth<span class="op">=</span><span class="dv">1</span>,ymin<span class="op">=</span><span class="fl">0.07</span>,ymax <span class="op">=</span> <span class="fl">0.96</span>)</span>
-<span id="cb5-14"><a href="#cb5-14"></a>plt.title(<span class="st">"Normal distributions"</span>)</span>
-<span id="cb5-15"><a href="#cb5-15"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb5-16"><a href="#cb5-16"></a>plt.ylabel(<span class="st">"y"</span>)</span>
-<span id="cb5-17"><a href="#cb5-17"></a>plt.legend([<span class="st">"$N(175,10)$"</span>,<span class="st">"$N(170,10)$"</span>,<span class="st">"$N(165,10)$"</span>],loc<span class="op">=</span><span class="st">"upper right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>&lt;matplotlib.legend.Legend at 0x21d4e89d160&gt;</code></pre>
+<p>평균만 다른 정규분포 3개를 고려해보자. 이 중 어떤 분포에서 <span class="math inline">\(D\)</span>가 나왔을까? 주어진 3개의 분포중에는 <span class="math inline">\(\mu=63\)</span>인 파랑색에 해당하는 분포에서 <span class="math inline">\(D=\{65\}\)</span>를 나왔을 가능성이 가장 크다. <strong>왜냐하면 파랑색 확률분포에서 dataset에 속한 하나의 datapoint가 나올 확률이 가장 크기때문</strong>이다. 그러므로 3개의 정규분포중에서는 <span class="math inline">\(\mu =63\)</span>인 경우가 <span class="math inline">\(D\)</span>에 가장 적합하다고 할 수 있으며 그 다음은 보라색 그 다음은 초록색 분포의 모수가 적합하다.<br></p>
+<p>이번에는 2개의 관측치가 존재하는 data set <span class="math inline">\(D = \{62,65\}\)</span>가 주어졌다고 가정 해보자.</p>
+<div class="cell" data-execution_count="94">
+<div class="cell-output cell-output-display" data-execution_count="94">
+<pre><code>&lt;matplotlib.legend.Legend at 0x19bf7255e80&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="MLE_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p>이번에는 크기가 4인 표본을 얻었다고 해봅시다. 분포의 모양은 마찬가지로 정규분포로 가정했습니다. 이번에는 샘플의 크기가4이므로 이전과는 다르게 하나의 데이터포인트만 반영하는 것이 아니라 4개의 데이터포인트를 모두 반영하여 가능성이 가장 높은 모수를 고려해야 합니다. <br></p>
-<p>위에서 1개의 데이터포인트(표본)를 고려할때에는 여러가지 모수를 따르는 분포에서 1개의 확률값만 읽고 어떤 모수가 가능성이 가장 높은지 확인하고 가능도라는 것을 정의했습니다. 4개일때도 다르지 않습니다. 4개일때에도 확률값을 읽는데 다만 달라진 것은 4개의 확률값을 동시에 함께 반영해야 한다는 점입니다. 4개일 경우에는 4개의 표본 모두에 대하여 동시에 함께 그 가능성을 고려해야 합니다. 그러므로 여기서는 가능도인 확률을 각각의 데이터포인트를 뽑을 동시에 함께 뽑을 확률이자 확률의 곱인 확률인 결합확률(joint distribution)로 계산해야 합니다.</p>
-<p><span style="font-size:15pt"><strong>정리</strong></span><br> 모수의 가능도는 샘플과 확률분포의 모양이 주어져있을 때,<strong>샘플이 모수로부터 나오기가 얼마나 가능한지를 알려주며</strong> 결과적으로는 <strong>(결합)확률</strong> 입니다. 다만 확률(또는 확률분포)의 경우에는 목적이 모수가 정해진 확률분포로부터 읽는 그 값을 읽어 어떤 샘플 x값을 취할 가능성을 파악하는 것이고 반면 가능도는 샘플이 이미 뽑혀서 정해져있을때, 서로다른 모수를 가지는 확률분포의 값을 읽어서 어떤 모수가 가장 가능성이 높은지 파악하는 것입니다. 수학적으로 표기하면 다음과 같습니다.<br></p>
+<p>어떤 확률분포에서 <span class="math inline">\(D=\{62,65\}\)</span>가 나왔을까? 마찬가지로 파랑색 분포가 주어진 분포중에서는 가장 가능성이 커보이는데 왜냐하면 마찬가지로 <strong>dataset에 속한 2개의 각각의 datapoint를 얻을 확률이 가장 커보이기 때문</strong>이다. 그러므로 위와 동일하게 3개의 정규분포중에서는 <span class="math inline">\(\mu =63\)</span>인 경우가 <span class="math inline">\(D\)</span>에 가장 적합하다고 할 수 있으며 이번에는 초록색,보라색 순서로 모수가 적합하다.<br></p>
+<p>이번에는 크기가 <span class="math inline">\(N\)</span>인 <span class="math inline">\(D\)</span>가 주어져있다고 가정해보자.</p>
+<div class="cell" data-execution_count="95">
+<div class="cell-output cell-output-display">
+<p><img src="MLE_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>그래프는 크기가 30인data set이지만 N이라고 보자..!</li>
+</ul>
+<p>이번에도 어떤 확률분포에서 <span class="math inline">\(D\)</span>가 나왔을지 한번 구분해보자. 그러나 이전에는 <span class="math inline">\(D\)</span>의 크기가 1또는 2여서 직관적으로 보였지만 이번에는 데이터가 너무 많기 때문에 바로 보이지 않는다.</p>
+<p>그러나 이전에 했던 과정들 중에서 <span class="math inline">\(D\)</span>에 있는 <strong>각각의 datapoint를 취할 확률을 모두 고려한뒤에 그 값이 가장 큰 parameter를 주어진 <span class="math inline">\(D\)</span>에 가장 적합한 parameter</strong> 로 결정했었는데 이 사실은 그대로 사용할 수 있다. 왜냐하면 사실 각각의 <strong>datapoint를 모두 취할 확률은 결합확률이기 때문</strong>이다. 또한 각각의 datapoint는 모두 독립적이며 동일한 분포로부터 뽑힌 값이기 때문에 <strong>결합확률은 각 datapoin를 모두 동시에 취할 확률</strong>이다.</p>
 <p><span class="math display">\[\begin{align}
-L(\theta|D) = L(\theta|x_1,x_2,\dots,x_N) &amp;= f_{X_1,X_2,\dots,X_N}(x_1,x_2,\dots,x_N;\theta) \\
-&amp;= \prod_{i=1}^{N}f_{X_i}(x_i;\theta)
+p(D|\theta) &amp;= p_{X_1,X_2,\dots,X_N}(x_1,x_2,\dots,x_N;\theta) \\
+&amp;= p_{X_1}(x_1|\theta)\cdot p_{X_2}(x_2|\theta)\dots  \cdot p_{X_N}(x_N|\theta) \\
+&amp;= \prod_{i=1}^{N}p_{X_i}(x_i;\theta)
 \end{align}\]</span></p>
-<p>식(1)은 가능도 = 결합확률임을 의미합니다. 식(2)는 확률변수가 독립일 경우의 결합확률 = 확률의 곱입니다. 각각의 샘플에 대한 확률변수는 모두 독립이라고 가정합니다.</p>
-</section>
-<section id="likelyhood의-최댓값-구하기" class="level2">
-<h2 class="anchored" data-anchor-id="likelyhood의-최댓값-구하기"><span style="color : black"><strong>Likelyhood의 최댓값 구하기</strong> </span></h2>
-<p>여기까지 가능도함수를 구하는 방법을 알아봤습니다. 가능도함수를 최대화 할때의 값이 주어진 샘플에 대해서 가장 가능성이 높은 확률분포의 모수이므로 그때의 값으로 모수를 추정합니다. MLE추정량은 다음과 같습니다.<br></p>
+<ul>
+<li><span class="math inline">\(\theta\)</span>는 parameter를 의미한다. 정규분포의 parameter이므로 <span class="math inline">\(\mu,\sigma^2\)</span>라 생각하면 된다.</li>
+<li>결합확률은 likelyhood라고도 한다.</li>
+</ul>
+<p>그러므로 3개의 서로다른 <span class="math inline">\(\theta\)</span>에 대한 확률분포에 대하여 모두 likelyhood를 구한뒤 그 중 가장 큰 값을 parameter로 하면 된다. 그런데 사실 우리의 비교 대상은 단 3개의 <span class="math inline">\(\theta\)</span>가 아니다. <strong>가능한 모든 확률분포 즉 가능한 모든 <span class="math inline">\(\theta\)</span>에 대하여 likelyhood의 가장 큰 값을 구해야</strong> 한다. 그러므로 <strong><span class="math inline">\(\theta\)</span>를 변수로 생각하여 likelyhood를 가장크게 하는 <span class="math inline">\(\theta\)</span>를 찾는다.</strong> 따라서 maximum likelyhood estimation이며 이를 통하여 나온 parameter <span class="math inline">\(\theta\)</span>에 대한 추정량은 다음과 같다.</p>
 <span class="math display">\[\begin{aligned}
-\hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,L(\theta|x_1,x_2 \dots x_n) \\
-&amp;=  \underset{\theta}{\text{argmax}},f_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
-&amp;= \underset{\theta}{\text{argmax}}\,\prod_{i=1}^{N}f_{X_i}(x_i;\theta)
+\hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,p_{X_1,X_2,\dots,X_n}(x_1,x_2 \dots x_n|\theta) \\
+&amp;=  \underset{\theta}{\text{argmax}}\,p_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
+&amp;= \underset{\theta}{\text{argmax}}\,\prod_{i=1}^{N}p_{X_i}(x_i;\theta)
 \end{aligned}\]</span>
-<p><br></p>
+<p>정리하자면 결국 MLE는 파라미터를 추정하는 방법으로 likelyhood(<span class="math inline">\(D\)</span>에 있는 각각의 datapoint가 모두 나올 확률)를 최대화하는 파라미터<span class="math inline">\(\theta\)</span>를 추정량으로 한다는 것이다.</p>
+<p>이제 기존문제로 돌아가보자. 우리에게 주어진 data set <span class="math inline">\(D\)</span>는 다음과 같았으며 정규분포로 몸무게는 <span class="math inline">\(t\)</span>로 가정했었다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;D = \{(x_1,t_1),(x_2,t_2,),\dots,(x_N,t_N)\} \\
+&amp;t\sim\mathcal{N}(y(x|w),\sigma^2) \\
+&amp;\longleftrightarrow p(t|x,w,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t-y(x|w))^2}{2\sigma^2})
+\end{aligned}\]</span>
+<p><span class="math inline">\(D\)</span>에 있는 각각의 datapoint를 모두 나올 확률은 키가 <span class="math inline">\(x_1\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_1\)</span>이고, 키가 <span class="math inline">\(x_2\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_2\)</span>이고, <span class="math inline">\(x_N\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_N\)</span>일 확률과 같다. 따라서 likelyhood는 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+p(D|\theta) &amp;= p(t_1,t_2,\dots,t_N|X,w,\sigma^2) \\
+&amp;= \prod_{n=1}^Np(t_i|x_i,w,\sigma^2) \\
+&amp;= \prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|w))^2}{2\sigma^2})
+\end{aligned}\]</span>
+<p>결국 찾으려는 parameter <span class="math inline">\(w\)</span>는 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+\hat{w}_{MLE} = \underset{w}{\text{argmax}}&amp;\prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|w))^2}{2\sigma^2})
+\end{aligned}\]</span>
+<p>위의 식으로부터 직접 최대화 하는 <span class="math inline">\(w\)</span>를 찾기는 어려우므로 likelyhood에 <span class="math inline">\(-\text{ln}\)</span>를 곱해준 NLL을 사용한다. <span class="math inline">\(\text{ln}\)</span>함수는 곱해도 최댓값(또는 최솟값)의 위치가 변하지 않으며 곱셈연산을 덧셈연산으로 바꿔 계산을 간단하게 해준다. 또한 -를 곱해줌으로서 최소지점을 찾는 문제로 바뀌게 된다.</p>
+<span class="math display">\[\begin{aligned}
+\hat{w}_{MLE} &amp;= \underset{w}{\text{argmin}}-\text{ln}\prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|w))^2}{2\sigma^2})\\
+&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^N\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|w))^2}{2\sigma^2}) \\
+&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^{N}\bigg[\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}} + \text{ln}\,\text{exp}(\frac{-(t_i-y(x_i|w))^2}
+{2\sigma^2})\bigg]\\
+&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^{N}\bigg[\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}} - \frac{(t_i-y(x_i|w))^2}{2\sigma^2}\bigg]
+\end{aligned}\]</span>
+<p>여기서 <span class="math inline">\(w\)</span>의 관점에서 상수(<span class="math inline">\(\pi,\sigma^2\)</span>)를 제거하고 보면 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+\hat{w}_{MLE} = \underset{w}{\text{argmin}}\sum_{n=1}^{N}(t_i-y(x_i|w))^2
+\end{aligned}\]</span>
+<p>어디선가 많이 본 식이다. 바로 MSE Loss이다. 이렇게 정규분포로 데이터를 가정하고 MLE를 사용하면 MSE Loss를 유도할 수 있다. 이것이 바로 일반적으로 회귀문제에서 MSE Loss를 사용하는 이유이다. 이진분류문제의 경우 베르누이분포를 가정하고 하면 Binary cross entropy Loss를 유도할 수 있다.</p>
 </section>
-<section id="베이즈-정리에-의한-mle" class="level2">
-<h2 class="anchored" data-anchor-id="베이즈-정리에-의한-mle"><span style="color : black"><strong>베이즈 정리에 의한 MLE</strong></span></h2>
+<section id="베이즈-정리에서-바라본-mle" class="level2">
+<h2 class="anchored" data-anchor-id="베이즈-정리에서-바라본-mle"><span style="color : black"><strong>베이즈 정리에서 바라본 MLE</strong></span></h2>
 <p><span class="math inline">\(D=(t_1,t_2,\dots,t_n)\)</span>는 샘플(데이터셋), <span class="math inline">\(\theta\)</span>는 우리가 알고싶은 확률분포의 모수라고 합시다. 베이즈정리는 증거 또는 조건이 주어지기 전의 사전확률 <span class="math inline">\(p(D)\)</span>와 주어진 후의 사후확률 <span class="math inline">\(p(\theta|D)\)</span>사이의 관계를 알려줍니다.</p>
 <span class="math display">\[\begin{aligned}
 p(\theta|D) = \frac{p(D|\theta)p(\theta)}{p(D)} \propto p(\theta|D) \times p(\theta)
@@ -351,56 +285,7 @@ p(\theta|D) = \frac{p(D|\theta)p(\theta)}{p(D)} \propto p(\theta|D) \times p(\th
 <p>여기서 사후확률은 <span class="math inline">\(\theta\)</span>에 대한 확률분포로 데이터(샘플)이 주어질때 확률분포의 임의의 모수<span class="math inline">\(\theta\)</span>가 얼마나 가능한지 또는 불확실한지 그 정도를 알려주는 확률을 함숫값으로 가지는 확률함수입니다. 그러므로 사후확률을 최대로 하는 모수<span class="math inline">\(\theta\)</span>가 데이터셋이 주어져있을 때 가장 확률이 높은,가능성이 높은 모수이므로 그때의 값을 확률분포의 모수로 추정하면 됩니다.</p>
 <p>문제는 왼쪽의 확률분포는 바로 알기가 쉽지 않다는 점입니다. 따라서 베이즈정리를 통하여 우변의 식을 최대화 하는 값을 구합니다. 우변의 식에서 분모는 주어진 데이터에 의하여 고정된 상수(normalization constant라고 합니다)입니다. 그러므로 최댓값을 구하는데 영향을 주지 않습니다. 우리는 분자에 있는 <span class="math inline">\(p(D|\theta)p(\theta)\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 찾으면 됩니다.</p>
 <p>여기서 <span class="math inline">\(p(D|\theta)\)</span>를 가능도(likelyhood)라 합니다. MLE에서는 분자에서 가능도만 최대로 하는 <span class="math inline">\(\theta\)</span>를 구합니다. MAP라는 다른 방법은 분자에 있는 <span class="math inline">\(p(D|\theta)p(\theta)\)</span>를 최대화 하는 <span class="math inline">\(\theta\)</span>를 구한다고 합니다.</p>
-<section id="예시---정규분포-데이터가-주어진-경우" class="level3">
-<h3 class="anchored" data-anchor-id="예시---정규분포-데이터가-주어진-경우">예시 - 정규분포 데이터가 주어진 경우</h3>
-<p>대한민국 20대 남성들의 키의 분포가 정규분포를 따른다고 가정해보겠습니다. 샘플링하여 크기가 4인표본[173,177,175,180]을 얻은 상태입니다. 목적은 정규분포의 모수인 <span class="math inline">\(\mu\)</span>를 MLE로 추정하는 것입니다.<br></p>
-<p>다음을 계산해야 합니다<br></p>
-<span class="math display">\[\begin{aligned}
-\underset{\theta}{\text{argmax }}L(\theta;x_1,x_2,x_3) &amp;= \prod_{i=1}^{4}f_{X_i}(x_i;\theta)\\
-&amp;= \underset{\theta}{\text{argmax }}f_{X_1}(x_1;\theta)f_{X_2}(x_2;\theta)f_{X_2}(x_2;\theta)f_{X_2}(x_2;\theta)\\
-&amp;= \underset{\theta}{\text{argmax }}\mathcal{N}(x_1;\mu,\sigma^2)\mathcal{N}(x_2;\mu,\sigma^2)\mathcal{N}(x_3;\mu,\sigma^2)\mathcal{N}(x_4;\mu,\sigma^2) \\
-&amp;= \underset{\theta}{\text{argmax }}\frac{1}{\sqrt{2\pi\sigma^2}} \exp\left({-\frac{(173-\mu)^2}{2\sigma^2}}\right) \cdot \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left({-\frac{(177-\mu)^2}{2\sigma^2}}\right) \\ \cdot &amp;\frac{1}{\sqrt{2\pi\sigma^2}} \exp\left({-\frac{(175-\mu)^2}{2\sigma^2}}\right) \cdot\frac{1}{\sqrt{2\pi\sigma^2}} \exp\left({-\frac{(178-\mu)^2}{2\sigma^2}}\right)\\
-&amp;= \underset{\theta}{\text{argmax }}\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(-\frac{(173-\mu)^2 + (177-\mu)^2 + (175-\mu)^2 + (178-\mu)^2}{\sigma^2})
-\end{aligned}\]</span>
-<p>위의 가능도 함수가 최대가 되려면 exp의 지수의 분자인 <span class="math inline">\(-[(173-\mu)^2 + (177-\mu)^2 + (175-\mu)^2 + (178-\mu)^2]\)</span>가 최대가 되면 됩니다.(분산은 고려하지 않겠습니다.)분자는 2차함수이므로 최대가 되는 지점을 구할 수 있습니다. 여기서는 넘파이를 활용하여 계산하겠습니다.</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">120</span>,<span class="dv">232</span>,<span class="dv">50000</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>y <span class="op">=</span> <span class="op">-</span>((<span class="dv">173</span><span class="op">-</span>x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span>(<span class="dv">177</span><span class="op">-</span>x)<span class="op">**</span><span class="dv">2</span><span class="op">+</span>(<span class="dv">175</span><span class="op">-</span>x)<span class="op">**</span><span class="dv">2</span><span class="op">+</span>(<span class="dv">178</span><span class="op">-</span>x)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a>max_idx <span class="op">=</span> np.where(y <span class="op">==</span> np.<span class="bu">max</span>(y))</span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="bu">print</span>(x[max_idx])</span>
-<span id="cb7-5"><a href="#cb7-5"></a>plt.axvline(x[max_idx],color<span class="op">=</span><span class="st">"black"</span>,linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6"></a>plt.plot(x,y,<span class="st">"b"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7"></a>plt.scatter(x[max_idx],y[max_idx],s<span class="op">=</span><span class="dv">100</span>,c<span class="op">=</span><span class="st">"black"</span>,marker<span class="op">=</span><span class="st">"s"</span>)</span>
-<span id="cb7-8"><a href="#cb7-8"></a>plt.title(<span class="ss">f"max(y) = </span><span class="sc">{</span><span class="bu">round</span>(np.<span class="bu">max</span>(y),<span class="dv">3</span>)<span class="sc">}</span><span class="ss"> if $\mu$ = </span><span class="sc">{</span><span class="bu">round</span>(x[max_idx][<span class="dv">0</span>],<span class="dv">3</span>)<span class="sc">}</span><span class="ss">, "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[175.750235]</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>Text(0.5, 1.0, 'max(y) = -14.75 if $\\mu$ = 175.75, ')</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="MLE_files/figure-html/cell-5-output-3.png" class="img-fluid"></p>
-</div>
-</div>
 <p>가능도함수를 최대로 하는 모숫값은 175.75입니다. 따라서 MLE에 의한 모수에 대한 추정값은 175.75입니다.<br> <span class="math display">\[\hat{\theta}_{MLE} = 175.75\]</span></p>
-</section>
-<section id="ll" class="level3">
-<h3 class="anchored" data-anchor-id="ll"><strong>LL</strong></h3>
-<p>LL은 log likelyhood의 약자로 likelyhood에 log를 취해준 값입니다. 로그함수를 취해도 함수가 MLE의 계산결과(가능도가 최대인 모수에 대한 추정값)의 위치가 변하지 않고 계산을 곱셈을 더하기로 바꿔서 계산하기에 더 편리하기 때문에 LL을 사용할 수도 있습니다.<br> <span class="math display">\[LL = \text{ln }L(\theta|x_1,x_2 \dots,x_N)\]</span></p>
-</section>
-<section id="nll" class="level3">
-<h3 class="anchored" data-anchor-id="nll"><strong>NLL</strong></h3>
-<p>NLL은 LL에 -(negative)를 곱해준 값입니다. 함수가 최대인 지점을 찾는 문제를 최소인 지점을 찾는 문제로 바꿀 수 있습니다. 머신러닝이나 최적화에서 사용하는 방법입니다. <span class="math display">\[NLL = -\text{ln }L(\theta|x_1,X_2 = x_2 \dots x_N)\]</span></p>
-</section>
-</section>
-<section id="정리" class="level1">
-<h1><span style="color : black"><strong>정리</strong></span></h1>
-<p>MLE를 통해서 모수에 대한 추정량을 구하면 다음과 같습니다.</p>
-<span class="math display">\[\begin{aligned}
-\hat{\theta}_{MLE} &amp;= \underset{\theta}{\text{argmax}}\,L(\theta|x_1,x_2 \dots x_N)\\
-&amp;= \underset{\theta}{\text{argmax}},f_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n|\theta) \\
-&amp;= \underset{\theta}{argmin}\,-\text{ln}\,L(\theta|x_1,x_2\dots x_N)
-\end{aligned}\]</span>
 <p><a href="https://stats.stackexchange.com/questions/239500/what-is-the-difference-between-random-variable-and-random-sample">링크1(random sample vs random variable)</a><br> <a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=soohwan2-&amp;logNo=100200023641">링크2(추정,추정량,추정값)</a><br> <a href="https://angeloyeo.github.io/2020/07/17/MLE.html">링크3(mle)</a><br> <a href="https://datascienceschool.net/02%20mathematics/09.02%20%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84%20%EC%B6%94%EC%A0%95%EB%B2%95.html">링크4(mle)</a></p>
 
 
