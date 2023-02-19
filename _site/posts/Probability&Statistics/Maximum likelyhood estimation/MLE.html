@@ -148,7 +148,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <ul>
   <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link active" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></a></li>
   <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span style="color : black"> <strong>Modeling</strong> </span></a></li>
-  <li><a href="#mle최대가능도-추정법" id="toc-mle최대가능도-추정법" class="nav-link" data-scroll-target="#mle최대가능도-추정법"><span style="color : black"><strong>MLE(최대가능도 추정법)</strong></span></a></li>
+  <li><a href="#maximum-likelyhood-estimation" id="toc-maximum-likelyhood-estimation" class="nav-link" data-scroll-target="#maximum-likelyhood-estimation"><span style="color : black"><strong>Maximum Likelyhood Estimation</strong></span></a></li>
+  <li><a href="#maximum-a-posterior" id="toc-maximum-a-posterior" class="nav-link" data-scroll-target="#maximum-a-posterior"><span style="color : black"><strong>Maximum a Posterior</strong></span></a></li>
   <li><a href="#베이즈-정리에서-바라본-mle" id="toc-베이즈-정리에서-바라본-mle" class="nav-link" data-scroll-target="#베이즈-정리에서-바라본-mle"><span style="color : black"><strong>베이즈 정리에서 바라본 MLE</strong></span></a></li>
   </ul>
 </nav>
@@ -159,7 +160,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p><a href="https://hyeongminlee.github.io/post/bnn002_mle_map/">HYEONGMIN LEE’S WEBSITE - MLE &amp; MAP</a>를 개인적으로 공부하고 정리한 글입니다.</p>
+<p><a href="https://hyeongminlee.github.io/post/bnn002_mle_map/">HYEONGMIN LEE’S WEBSITE - MLE &amp; MAP</a>를 공부하고 정리한 글입니다.</p>
 <section id="problem-setting" class="level2">
 <h2 class="anchored" data-anchor-id="problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></h2>
 <p>실제 <span class="math inline">\(N\)</span>명의 사람들로부터 키(<span class="math inline">\(x\)</span>)와 몸무게(<span class="math inline">\(t\)</span>)를 조사한 다음과 같은 data set <span class="math inline">\(D\)</span>를 가지고 있다고 해보자.</p>
@@ -168,21 +169,21 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </section>
 <section id="modeling" class="level2">
 <h2 class="anchored" data-anchor-id="modeling"><span style="color : black"> <strong>Modeling</strong> </span></h2>
-<p>가장 단순한 접근은 <strong>키(<span class="math inline">\(x\)</span>)를 입력</strong>으로 하고 <strong>몸무게(<span class="math inline">\(t\)</span>)를 출력</strong>하는 <strong>함수</strong><span class="math inline">\(y(x|w)\)</span>를 만드는 것이다.</p>
-<p><span class="math display">\[t = y(x|w)\]</span></p>
+<p>가장 단순한 접근은 <strong>키(<span class="math inline">\(x\)</span>)를 입력</strong>으로 하고 <strong>몸무게(<span class="math inline">\(t\)</span>)를 출력</strong>하는 <strong>함수</strong><span class="math inline">\(y(x|\theta)\)</span>를 만드는 것이다.</p>
+<p><span class="math display">\[t = y(x|\theta)\]</span></p>
 <ul>
-<li><span class="math inline">\(w\)</span>는 함수의 parameter를 나타낸다.</li>
+<li><span class="math inline">\(\theta\)</span>는 함수의 parameter를 나타낸다.</li>
 </ul>
-<p>파라미터<span class="math inline">\(w\)</span>를 학습하여 키-몸무게 사이의 관계를 표현하는 거의 완벽하게 표현하는 함수를 얻었다고 해보자. 그렇다면 키<span class="math inline">\(x\)</span>를 입력으로 하여 몸무게에 대한 예측값 <span class="math inline">\(t\)</span>하나를 얻을 수 있다. 예를 들어 키가 175cm인 사람의 몸무게가 함수를 통하여 얻은 예측값이 72kg이라고 하자. 이 결과를 말로하면 “<strong>키가 175cm인 사람의 몸무게는 72kg이야.</strong>”라고 하는 것과 같다.</p>
+<p>파라미터<span class="math inline">\(\theta\)</span>를 학습하여 키-몸무게 사이의 관계를 표현하는 거의 완벽하게 표현하는 함수를 얻었다고 해보자. 그렇다면 키<span class="math inline">\(x\)</span>를 입력으로 하여 몸무게에 대한 예측값 <span class="math inline">\(t\)</span>하나를 얻을 수 있다. 예를 들어 키가 175cm인 사람의 몸무게가 함수를 통하여 얻은 예측값이 72kg이라고 하자. 이 결과를 말로하면 “<strong>키가 175cm인 사람의 몸무게는 72kg이야.</strong>”라고 하는 것과 같다.</p>
 <p>이렇게 키<span class="math inline">\(x\)</span>에 대해서 몸무게에 대한 하나의 예측값<span class="math inline">\(y\)</span>를 하나만 돌려주는 방법은 옳을까? 결론적으로 말하면 <strong>그렇지 않다.</strong> 왜냐하면 실제 data의 형태는 <strong>키<span class="math inline">\(x\)</span>에 대해 하나의 몸무게<span class="math inline">\(t\)</span>만을 가지지 않기</strong>이다. 예를 들자면 <span class="math inline">\((175,62),(175,72),(175,83),(175,88)\dots\)</span>등등 다양한 키-몸무게 다양한 조합이 가능하지만 <strong>함수로 표현할 경우 하나의 입력은 하나의 출력에만 mapping</strong>되며 <strong>이 밖에 나올 수 있는 다른 값들에 대한 설명은 전혀 하지 않기 때문</strong>이다. 그렇다면 어떠한 방법이 더 좋을까? <strong>키가 175cm인 사람의 몸무게는 아마도 72kg 꺼야</strong> 정도의 말을 할 수 있다면 가장 좋을 것이다.</p>
 <p>이러한 해석은 키가 175cm인 사람에 대해서 몸무게에 대한 예측이 거의 72kg이라고 확신하지만 이와 동시에 <strong>몸무게의 예측값이 불확실</strong>하며 <strong>키가 동일하다 할지라도 어느정도는 랜덤하다는 것을 내포</strong>한다.이렇게 불확실하며 랜덤한 가지는 값은 randomvariable라고 하며 문제에서 <strong>몸무게<span class="math inline">\(t\)</span>를 random-variable로 취급하면 위와 같은 해석이 가능</strong>하다. 예를들어 키가 <span class="math inline">\(x\)</span>인 사람의 몸무게<span class="math inline">\(t\)</span>가 randomvariable이며 다음과 같은 정규분포를 따른다고 가정하자.</p>
 <span class="math display">\[\begin{aligned}
-&amp;t\sim\mathcal{N}(y(x|w),\sigma^2) \\
-&amp;\longleftrightarrow p(t|x,w,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t-y(x|w))^2}{2\sigma^2})
+&amp;t\sim\mathcal{N}(y(x|\theta),\sigma^2) \\
+&amp;\longleftrightarrow p(t|x,\theta,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t-y(x|\theta))^2}{2\sigma^2})
 \end{aligned}\]</span>
-<p>위와 같다면 <span class="math inline">\(y(x|w)\)</span>에사 가장 높은 확률을 가지는 정규분포이므로 “키가 <span class="math inline">\(x\)</span>인 사람의 몸무게<span class="math inline">\(t\)</span>는 아마도 <span class="math inline">\(y(x|w)\)</span>일꺼야”라는 것을 의미하며 또한 다른 값들에 대한 확률들도 어느정도 담고 있으므로 <span class="math inline">\(t\)</span>가 불확실하며 랜덤하다는 것도 확실하게 표현함을 알 수 있다.</p>
+<p>위와 같다면 <span class="math inline">\(y(x|\theta)\)</span>에사 가장 높은 확률을 가지는 정규분포이므로 “키가 <span class="math inline">\(x\)</span>인 사람의 몸무게<span class="math inline">\(t\)</span>는 아마도 <span class="math inline">\(y(x|\theta)\)</span>일꺼야”라는 것을 의미하며 또한 다른 값들에 대한 확률들도 어느정도 담고 있으므로 <span class="math inline">\(t\)</span>가 불확실하며 랜덤하다는 것도 확실하게 표현함을 알 수 있다.</p>
 <p>여기서 <span class="math inline">\(\sigma^2\)</span>는 <strong>우리가 한 예측에 대해서 얼마나 불확실인지를 나타내는 정도</strong>이다. <span class="math inline">\(\sigma^2\)</span>가 커서 확률분포의 변동이 크다면 모든 값에 대하여 일정한 확률을 부여하므로 예측값 <span class="math inline">\(t\)</span>에 대한 확신이 없다는 것이고 변동이 작다면 어떤 특정 값에만 확률을 몰아서 부여한 것이므로 예측값<span class="math inline">\(t\)</span>에 대한 확신이 크다는 것이다</p>
-<p>예를 들어 <span class="math inline">\(x = 175,\,y(x|w) = 72,\,t\sim\mathcal{N}(72,\sigma^2)\)</span>인 두 개의 정규분포를 따른다면 모양은 다음과 같다.</p>
+<p>예를 들어 <span class="math inline">\(x = 175,\,y(x|\theta) = 72,\,t\sim\mathcal{N}(72,\sigma^2)\)</span>인 두 개의 정규분포를 따른다면 모양은 다음과 같다.</p>
 <div class="cell" data-execution_count="32">
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>&lt;matplotlib.legend.Legend at 0x19bf519daf0&gt;</code></pre>
@@ -192,10 +193,10 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </div>
 </div>
 <p>이와 같이 키<span class="math inline">\(x=175\)</span>에 일때 몸무게<span class="math inline">\(t\)</span>는 randomvariable이며 평균이72 확률이 가장 높으므로 <strong>키가 175cm인 사람의 몸무게는 아마도 72kg 꺼야</strong>라는 말을 할 수 있으며 또한 다른 값으로 나올 확률도 빠짐없이 표현되어 있으므로 이와 같은 몸무게<span class="math inline">\(t\)</span>는 확률변수로 표현하는 적절하다. 또한 빨간색 그래프는 파란색그래프보다 <span class="math inline">\(\sigma^2\)</span>가 더 크며 <span class="math inline">\(t=72\)</span>에서 더 높은 확률을 부여하므로 예측에 대한 확신이 더 크다는 것을 나타낸다.</p>
-<p>지금까지 몸무게 <span class="math inline">\(t\)</span>를 randomvariable이며 확률분포 <span class="math inline">\(\mathcal{N}(y(x|w),\sigma^2)\)</span>를 따른다고 하였다. 예시에서는 확률분포를 parameter를 가정하고 그래프를 그려서 비교했지만 실제로는 <strong>확률분포의 종류도 모르거니와 확률분포의 parameter도 모르기에 위와 같은 해석을 할 수 없다.</strong> 그러므로 여기서부터는 확률분포를 추정하는 것에 관한 얘기를 해보고자 한다.</p>
+<p>지금까지 몸무게 <span class="math inline">\(t\)</span>를 randomvariable이며 확률분포 <span class="math inline">\(\mathcal{N}(y(x|\theta),\sigma^2)\)</span>를 따른다고 하였다. 예시에서는 확률분포를 parameter를 가정하고 그래프를 그려서 비교했지만 실제로는 <strong>확률분포의 종류도 모르거니와 확률분포의 parameter도 모르기에 위와 같은 해석을 할 수 없다.</strong> 그러므로 여기서부터는 확률분포를 추정하는 것에 관한 얘기를 해보고자 한다.</p>
 </section>
-<section id="mle최대가능도-추정법" class="level2">
-<h2 class="anchored" data-anchor-id="mle최대가능도-추정법"><span style="color : black"><strong>MLE(최대가능도 추정법)</strong></span></h2>
+<section id="maximum-likelyhood-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-likelyhood-estimation"><span style="color : black"><strong>Maximum Likelyhood Estimation</strong></span></h2>
 <p>주어진 데이터에 맞는 확률분포는 어떻게 결정할 수 있을까? 크게 두 단계로 나뉜다. - 확률분포의 종류 결정 - 확률분포의 파라미터 추정</p>
 <p>확률분포의 종류를 결정하는 일은 문제마다 다르다. 위에서 예시로 들었던 몸무게와 같은 연속적인 확률변수일 경우 연속확률분포 중 하나를 가정하고 이산확률변수일 경우 이산확률분포 중 하나를 가정한다. 위의 문제에서는 정규분포를 몸무게<span class="math inline">\(t\)</span>의 분포로 가정했다. 그러나 이는 문제에 따라 다르며 문제에 맞는 적절한 확률분포를 먼저 가정해야 한다.</p>
 <p>확률분포를 가정했다면 다음은 확률분포의 parameter를 구하면 된다.(추정한다고 말한다.)parameter를 추정할 경우 우리는 확률분포에 대한 완전한 식을 얻을 수 있으며 따라서 확률분포로부터 여러가지 정보를 얻을 수 있다. 여기서는 MLE를 통해서 확률분포의 파라미터를 추정한다.</p>
@@ -249,39 +250,75 @@ p(D|\theta) &amp;= p_{X_1,X_2,\dots,X_N}(x_1,x_2,\dots,x_N;\theta) \\
 <p>이제 기존문제로 돌아가보자. 우리에게 주어진 data set <span class="math inline">\(D\)</span>는 다음과 같았으며 정규분포로 몸무게는 <span class="math inline">\(t\)</span>로 가정했었다.</p>
 <span class="math display">\[\begin{aligned}
 &amp;D = \{(x_1,t_1),(x_2,t_2,),\dots,(x_N,t_N)\} \\
-&amp;t\sim\mathcal{N}(y(x|w),\sigma^2) \\
-&amp;\longleftrightarrow p(t|x,w,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t-y(x|w))^2}{2\sigma^2})
+&amp;t\sim\mathcal{N}(y(x|\theta),\sigma^2) \\
+&amp;\longleftrightarrow p(t|x,\theta,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t-y(x|\theta))^2}{2\sigma^2})
 \end{aligned}\]</span>
-<p><span class="math inline">\(D\)</span>에 있는 각각의 datapoint를 모두 나올 확률은 키가 <span class="math inline">\(x_1\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_1\)</span>이고, 키가 <span class="math inline">\(x_2\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_2\)</span>이고, <span class="math inline">\(x_N\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_N\)</span>일 확률과 같다. 따라서 likelyhood는 다음과 같다.</p>
+<p><span class="math inline">\(D\)</span>에 있는 각각의 datapoint를 모두 나올 확률은 키가 <span class="math inline">\(x_1\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_1\)</span>이고, 키가 <span class="math inline">\(x_2\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_2\)</span>이고, <span class="math inline">\(x_N\)</span>일 때 실제 몸무게가 <span class="math inline">\(t_N\)</span>일 확률과 같다.</p>
 <span class="math display">\[\begin{aligned}
-p(D|\theta) &amp;= p(t_1,t_2,\dots,t_N|X,w,\sigma^2) \\
-&amp;= \prod_{n=1}^Np(t_i|x_i,w,\sigma^2) \\
-&amp;= \prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|w))^2}{2\sigma^2})
+p(D|\theta) &amp;= p(t_1,t_2,\dots,t_N|X,\theta,\sigma^2) \\
+&amp;= \prod_{n=1}^Np(t_i|x_i,\theta,\sigma^2) \\
+&amp;= \prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|\theta))^2}{2\sigma^2})
 \end{aligned}\]</span>
-<p>결국 찾으려는 parameter <span class="math inline">\(w\)</span>는 다음과 같다.</p>
+<p>MLE는 likelyhood를 최대화 하는 파라미터를 구하는 방법이므로 <span class="math inline">\(\theta\)</span>는 다음과 같다.</p>
 <span class="math display">\[\begin{aligned}
-\hat{w}_{MLE} = \underset{w}{\text{argmax}}&amp;\prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|w))^2}{2\sigma^2})
+\hat{\theta}_{MLE} = \underset{w}{\text{argmax}}&amp;\prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|\theta))^2}{2\sigma^2})
 \end{aligned}\]</span>
-<p>위의 식으로부터 직접 최대화 하는 <span class="math inline">\(w\)</span>를 찾기는 어려우므로 likelyhood에 <span class="math inline">\(-\text{ln}\)</span>를 곱해준 NLL을 사용한다. <span class="math inline">\(\text{ln}\)</span>함수는 곱해도 최댓값(또는 최솟값)의 위치가 변하지 않으며 곱셈연산을 덧셈연산으로 바꿔 계산을 간단하게 해준다. 또한 -를 곱해줌으로서 최소지점을 찾는 문제로 바뀌게 된다.</p>
+<p>위의 식으로부터 직접 최대화 하는 <span class="math inline">\(\theta\)</span>를 찾기는 어려우므로 likelyhood에 <span class="math inline">\(-\text{ln}\)</span>를 곱해준 NLL을 사용한다. <span class="math inline">\(\text{ln}\)</span>함수는 곱해도 최댓값(또는 최솟값)의 위치가 변하지 않으며 곱셈연산을 덧셈연산으로 바꿔 계산을 간단하게 해준다. 또한 -를 곱해줌으로서 최소지점을 찾는 문제로 바뀌게 된다.</p>
 <span class="math display">\[\begin{aligned}
-\hat{w}_{MLE} &amp;= \underset{w}{\text{argmin}}-\text{ln}\prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|w))^2}{2\sigma^2})\\
-&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^N\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|w))^2}{2\sigma^2}) \\
-&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^{N}\bigg[\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}} + \text{ln}\,\text{exp}(\frac{-(t_i-y(x_i|w))^2}
+\hat{\theta}_{MLE} &amp;= \underset{w}{\text{argmin}}-\text{ln}\prod_{n=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|\theta))^2}{2\sigma^2})\\
+&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^N\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(\frac{-(t_i-y(x_i|\theta))^2}{2\sigma^2}) \\
+&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^{N}\bigg[\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}} + \text{ln}\,\text{exp}(\frac{-(t_i-y(x_i|\theta))^2}
 {2\sigma^2})\bigg]\\
-&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^{N}\bigg[\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}} - \frac{(t_i-y(x_i|w))^2}{2\sigma^2}\bigg]
+&amp;= \underset{w}{\text{argmin}}-\sum_{n=1}^{N}\bigg[\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}} - \frac{(t_i-y(x_i|\theta))^2}{2\sigma^2}\bigg]
 \end{aligned}\]</span>
-<p>여기서 <span class="math inline">\(w\)</span>의 관점에서 상수(<span class="math inline">\(\pi,\sigma^2\)</span>)를 제거하고 보면 다음과 같다.</p>
+<p>여기서 <span class="math inline">\(\theta\)</span>의 관점에서 상수(<span class="math inline">\(\pi,\sigma^2\)</span>)를 제거하고 보면 다음과 같다.</p>
 <span class="math display">\[\begin{aligned}
-\hat{w}_{MLE} = \underset{w}{\text{argmin}}\sum_{n=1}^{N}(t_i-y(x_i|w))^2
+\hat{\theta}_{MLE} = \underset{w}{\text{argmin}}\sum_{n=1}^{N}(t_i-y(x_i|\theta))^2
 \end{aligned}\]</span>
-<p>어디선가 많이 본 식이다. 바로 MSE Loss이다. 이렇게 정규분포로 데이터를 가정하고 MLE를 사용하면 MSE Loss를 유도할 수 있다. 이것이 바로 일반적으로 회귀문제에서 MSE Loss를 사용하는 이유이다. 이진분류문제의 경우 베르누이분포를 가정하고 하면 Binary cross entropy Loss를 유도할 수 있다.</p>
+<p>어디선가 많이 본 식인데 바로 L2 Loss이다. 이렇게 datapoint가 정규분포를 따른다고 가정하고 MLE를 통해 L2 Loss를 나옴을 밝힘으로써 <strong>회귀문제에서 L2 Loss를 왜 사용하는지 그 이유를 설명</strong>할 수 있고 역으로 <strong>회귀문제에서 L2 Loss를 사용한다면 datapoint가 정규분포를 따른다고 가정하고 MLE를 통해서 파라미터를 구하는 것</strong>이겠구나 하고 알 수 있다.</p>
+<p>참고적으로 classification에서는 datapoint가 베르누이분포를 따른다고 가정한다면 binary cross entropy loss를 얻을 수 있다고 한다.</p>
+<p>간단정리 - Dataset이 어떠한 확률분포를 따르는지 결정하기 위해서는 parameter를 구해야 한다. - MLE은 Likelyhood를 가장 크게 만드는 parameter를 찾고 그 값을 parameter에 대한 추정량으로 한다.</p>
+</section>
+<section id="maximum-a-posterior" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-a-posterior"><span style="color : black"><strong>Maximum a Posterior</strong></span></h2>
+<p>MLE는 likelyhood인 <span class="math inline">\(p(D|\theta)\)</span>를 maximize하는 <span class="math inline">\(\theta\)</span>를 구하였다. MAP는 반대로 posterior인 <span class="math inline">\(p(\theta|D)\)</span>를 maximize하는 <span class="math inline">\(\theta\)</span>를 구한다. 한마디로 설명하자면 주어진 데이터셋 <span class="math inline">\(D\)</span>에 확률이 가장 큰 <span class="math inline">\(\theta\)</span>를 선택하는 방식이라고 할 수 있다.</p>
+<p>MLE대신 MAP를 통해 파라미터를 구함으로써 얻을 수 있는 장점은 뭘까? 먼저 posterior를 bayes rule에 의해서 적어보면 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;p(\theta|D) = \frac{p(D|\theta)p(\theta)}{p(D)} \propto p(\theta|D)p(\theta)\\
+&amp;\text{where }  \\
+&amp;
+\begin{aligned}
+&amp;p(\theta|D) : \text{posterior}\\
+&amp;p(D|\theta) : \text{likelyhood}\\
+&amp;p(\theta)   : \text{prior} \\
+&amp;p(D) : \text{normalization constant}
+&amp;\end{aligned}
+\end{aligned}\]</span>
+<p>주목할 점은 posterior에는 <strong>우리가 정할 수 있는 prior가 포함</strong>되어 있다는 것이다. 따라서 prior를 통하여 가지고 있는 <strong>사전지식을 posterior에 충분히 반영</strong>할 수 있고 사전지식이 없다고 할지라도 prior를 통해 <strong>overfitting을 방지</strong>할 수 있다. overfitting은 <strong><span class="math inline">\(|\theta|\)</span>가 커서 신경망의 표현력이 과할 경우 일어나는 현상</strong>이므로 <strong>prior에 평균이 0인 분포를 가정</strong>해준다면 우리는 posterior를 통해서 <strong>비교적 작은 크기를 갖는 <span class="math inline">\(\theta\)</span>를 얻을 수 있다.</strong></p>
+<p>여기서는 <span class="math inline">\(\theta\)</span>가 정규분포를 따른다고 가정하고 overfitting을 막아주는 L2 Regularization(weight decay)를 유도해보자.</p>
+<span class="math display">\[\begin{aligned}
+\hat{\theta}_{MAP} &amp;= \underset{\theta}{\text{argmax}}\,P(\theta|D) \\
+&amp;= \underset{\theta}{\text{argmax}}\,p(\theta|D)p(\theta)\\
+&amp;= \underset{\theta}{\text{argmax}}\,\text{ln}\,p(\theta|D)p(\theta)\\
+&amp;= \underset{\theta}{\text{argmax}}\,\text{ln}\,p(\theta|D) + \text{ln}\,p(\theta)\\
+&amp;= \underset{\theta}{\text{argmin}}\, -\text{ln}\,p(\theta|D) - \text{ln}\,p(\theta)
+\end{aligned}\]</span>
+<p>여기서 <span class="math inline">\(-\text{ln}p(\theta|D)\)</span>는 MLE에서의 negative log likelyhood와 같으며 <span class="math inline">\(\text{ln}p(\theta)\)</span>는 우리가 정하는 prior에 의한 값이다. <span class="math inline">\(\theta\)</span>에 대한 prior가 정규분포를 따른다고 가정하고 구해보면 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;\theta \sim \mathcal{N}(\theta|0,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\text{exp}(-\frac{\theta^2}{2\sigma^2_\theta})\\
+&amp;-\text{ln}p(\theta) = -\text{ln}\frac{1}{\sqrt{2\pi\sigma^2}} + \frac{\theta^2}{2\sigma^2_{\theta}}
+\end{aligned}\]</span>
+<p>상수값을 제거하고 대입하면 MAP를 통해 구한 parameter는 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+\hat{\theta}_{MAP} &amp;= \underset{\theta}{\text{argmin}}\sum_{i=1}^{N}(t - y(x_i|w))^2 + \frac{w^2}{2\sigma_{\theta}^2}\\
+&amp;= \underset{\theta}{\text{argmin}}\sum_{i=1}^{N}(t - y(x_i|w))^2 + \alpha w^2 \quad(\alpha = \frac{1}{2\sigma^2})
+
+\end{aligned}\]</span>
+<p>이 또한 어디선가 많이 본 식이며 바로 L2 Loss에 L2 Regularization을 추가한 것이다. 이와 같이 parameter의 prior가 정규분포라고 가정하고 MAP를 통해 loss function을 구한다면 우리가 사용하고자 하는 모델의 <strong>loss function에서 regularization term이 왜 저렇게 나오는가</strong>를 설명할 수 있다. 또한 역으로 <strong>L2 Regularization term이 포함된 loss function을 사용한다면 paraemter에 대한 prior를 정규분포임로 가정했음</strong>을 알 수 있다.</p>
 </section>
 <section id="베이즈-정리에서-바라본-mle" class="level2">
 <h2 class="anchored" data-anchor-id="베이즈-정리에서-바라본-mle"><span style="color : black"><strong>베이즈 정리에서 바라본 MLE</strong></span></h2>
 <p><span class="math inline">\(D=(t_1,t_2,\dots,t_n)\)</span>는 샘플(데이터셋), <span class="math inline">\(\theta\)</span>는 우리가 알고싶은 확률분포의 모수라고 합시다. 베이즈정리는 증거 또는 조건이 주어지기 전의 사전확률 <span class="math inline">\(p(D)\)</span>와 주어진 후의 사후확률 <span class="math inline">\(p(\theta|D)\)</span>사이의 관계를 알려줍니다.</p>
-<span class="math display">\[\begin{aligned}
-p(\theta|D) = \frac{p(D|\theta)p(\theta)}{p(D)} \propto p(\theta|D) \times p(\theta)
-\end{aligned}\]</span>
 <p>여기서 사후확률은 <span class="math inline">\(\theta\)</span>에 대한 확률분포로 데이터(샘플)이 주어질때 확률분포의 임의의 모수<span class="math inline">\(\theta\)</span>가 얼마나 가능한지 또는 불확실한지 그 정도를 알려주는 확률을 함숫값으로 가지는 확률함수입니다. 그러므로 사후확률을 최대로 하는 모수<span class="math inline">\(\theta\)</span>가 데이터셋이 주어져있을 때 가장 확률이 높은,가능성이 높은 모수이므로 그때의 값을 확률분포의 모수로 추정하면 됩니다.</p>
 <p>문제는 왼쪽의 확률분포는 바로 알기가 쉽지 않다는 점입니다. 따라서 베이즈정리를 통하여 우변의 식을 최대화 하는 값을 구합니다. 우변의 식에서 분모는 주어진 데이터에 의하여 고정된 상수(normalization constant라고 합니다)입니다. 그러므로 최댓값을 구하는데 영향을 주지 않습니다. 우리는 분자에 있는 <span class="math inline">\(p(D|\theta)p(\theta)\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 찾으면 됩니다.</p>
 <p>여기서 <span class="math inline">\(p(D|\theta)\)</span>를 가능도(likelyhood)라 합니다. MLE에서는 분자에서 가능도만 최대로 하는 <span class="math inline">\(\theta\)</span>를 구합니다. MAP라는 다른 방법은 분자에 있는 <span class="math inline">\(p(D|\theta)p(\theta)\)</span>를 최대화 하는 <span class="math inline">\(\theta\)</span>를 구한다고 합니다.</p>
