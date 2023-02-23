@@ -140,7 +140,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span style="color:black"><strong>Method</strong></span></a>
   <ul class="collapse">
   <li><a href="#latent-variable-model-assumption" id="toc-latent-variable-model-assumption" class="nav-link" data-scroll-target="#latent-variable-model-assumption"><span style="color:black"><strong>Latent Variable Model Assumption</strong></span></a></li>
-  <li><a href="#variational-inference후에-더-적절한-제목-찾기" id="toc-variational-inference후에-더-적절한-제목-찾기" class="nav-link" data-scroll-target="#variational-inference후에-더-적절한-제목-찾기"><span style="color:black"><strong>Variational Inference,후에 더 적절한 제목 찾기</strong></span></a></li>
+  <li><a href="#posterior-inference" id="toc-posterior-inference" class="nav-link" data-scroll-target="#posterior-inference"><span style="color:black"><strong>posterior inference</strong></span></a></li>
   <li><a href="#generalization-model" id="toc-generalization-model" class="nav-link" data-scroll-target="#generalization-model"><span style="color:black"><strong>generalization model</strong></span></a></li>
   </ul></li>
   <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span style="color:black"><strong>Appendix</strong></span></a></li>
@@ -157,14 +157,12 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 <section id="problem-setting" class="level1">
 <h1><span style="color:black"><strong>Problem Setting</strong></span></h1>
-<p>Bayesian Neural Network는 <strong>parameter와 output의 분포그 자체를 구해내고자 하는 것이 목적</strong>이다. 분포를 구한다면 <strong>모델의 예측이 얼마나 믿을만한지,얼마나 불확실한지를 알 수 있다는 장점이 있기 때문</strong>이다.</p>
-<p><img src="./images/standard vs bayesian.PNG" class="img-fluid"></p>
-<p>이 과정에서 파라미터에 대한 posterior(사후확률분포)를 구하게 되는데 문제는 여기서 발생한다.</p>
 <span class="math display">\[\begin{aligned}
 p(z|x) = \frac{p(x|{z})p(x)}{p(x)} = \frac{p(x|z)p(x)}{\int p(x|z)p(x)dz}
 \end{aligned}\]</span>
 <ul>
-<li><span class="math inline">\(z\)</span>는 latent variable로 숨겨져 있으며(이러한 의미에서 hidden variable이라고도 한다.) 관측가능한 변수인 <span class="math inline">\(x\)</span>의 값에 영향을 미치는 확률변수(random variable)이다. observed data로부터 계산을 통해서만 구할 수 있으며 Bayesian Nueral Network에서는 <span class="math inline">\(w\)</span>이다.</li>
+<li><span class="math inline">\(x = [x_1,x_2,\dots,x_k]\in \mathbb{R}^k\)</span> : 관측된(observed) 데이터를 의미한다.(realization)</li>
+<li><span class="math inline">\(z = [z_1,z_2,\dots,z_m] \in \mathbb{R}^m\)</span>는 latent variables로 보통 숨겨져 있으며 <span class="math inline">\(x\)</span>의 값에 영향을 미치는 확률변수(random variable)이다. Bayesian Nueral Network에서는 <span class="math inline">\(w\)</span>이다.</li>
 </ul>
 <p>분자의 likelyhood와 prior는 MAP나 ML에서와 마찬가지로 우리가 알고있는 비교적 계산이 편리한 분포로 주로 가정한다. 하지만 분모는 수많은 weight에 대한 다중적분이기 때문에 계산하기가 매우 어렵다. 따라서 <strong>posterior를 근사적으로 구할 수 있는 방법들이 여러가지가 연구되었으며 Variational Inference는 이 중 한가지 방법</strong>이다.</p>
 <p>이번 포스트에서는 어떻게 AutoEncoder가 Variational Inference를 통해서 어떻게 <strong>posterior를 근사할 수 있는지 알아보며 또한 (Probabilistic) Generative model로서 어떻게 작동하는지</strong> 살펴본다.</p>
@@ -178,8 +176,8 @@ p(z|x) = \frac{p(x|{z})p(x)}{p(x)} = \frac{p(x|z)p(x)}{\int p(x|z)p(x)dz}
 <p>뿐만 아니라 두 확률변수에 대한 joint distribution이 존재하며 parameter <span class="math inline">\(\theta\)</span>가 있다고 가정한다. 이는 joint distribution으로부터 얻을 수 있는 conditional distribution,marginal distribution 또한 모두 <span class="math inline">\(\theta\)</span>로 parameterize 됨을 의미한다.</p>
 <p><span class="math display">\[p_{\theta}(z,x)\]</span></p>
 </section>
-<section id="variational-inference후에-더-적절한-제목-찾기" class="level2">
-<h2 class="anchored" data-anchor-id="variational-inference후에-더-적절한-제목-찾기"><span style="color:black"><strong>Variational Inference,후에 더 적절한 제목 찾기</strong></span></h2>
+<section id="posterior-inference" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-inference"><span style="color:black"><strong>posterior inference</strong></span></h2>
 <p>Variational Inference에서는 어떻게 posetrior를 얻을 수 있을까? <strong>우리는 <span class="math inline">\(z\)</span>에 관한 또다른 확률분포 <span class="math inline">\(q_{\phi}(z|x)\)</span>를 가정한 후 이를 점점 실제 posterior인 <span class="math inline">\(p_{\theta}(z|x)\)</span>에 다가가도록 한다.</strong> 이때 <span class="math inline">\(q_{\phi}\)</span>는 우리가 알고있는 비교적 계산이 편리한 함수로 가정한다.(예를 들면 정규분포가 있다.) 따라서 얼마나 다가가야하는지 알기 위해서는 먼저 두 분포가 얼마나 “차이”나는지 알아야 하며 대표적인 값인 KL-divergence를 사용한다.</p>
 <span class="math display">\[\begin{aligned}
 \text{D}_{KL}[q_{\phi}(z|x)||p_{\theta}(z|x)] &amp;:= \int_zq_{\phi}(z|x)\text{log}\frac{q_{\phi}(z|x)}{p_{\theta}(z|x)}dz \\
