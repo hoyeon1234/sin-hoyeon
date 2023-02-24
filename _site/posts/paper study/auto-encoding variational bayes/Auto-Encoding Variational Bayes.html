@@ -139,9 +139,9 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link active" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></a></li>
   <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span style="color:black"><strong>Method</strong></span></a>
   <ul class="collapse">
-  <li><a href="#latent-variable-model-assumption" id="toc-latent-variable-model-assumption" class="nav-link" data-scroll-target="#latent-variable-model-assumption"><span style="color:black"><strong>Latent Variable Model Assumption</strong></span></a></li>
-  <li><a href="#posterior-inference" id="toc-posterior-inference" class="nav-link" data-scroll-target="#posterior-inference"><span style="color:black"><strong>posterior inference</strong></span></a></li>
-  <li><a href="#generalization-model" id="toc-generalization-model" class="nav-link" data-scroll-target="#generalization-model"><span style="color:black"><strong>generalization model</strong></span></a></li>
+  <li><a href="#posterior-inference-via-variational-inference" id="toc-posterior-inference-via-variational-inference" class="nav-link" data-scroll-target="#posterior-inference-via-variational-inference"><span style="color:black"><strong>posterior inference via Variational Inference</strong></span></a></li>
+  <li><a href="#estimate-boldsymboltheta-via-mle" id="toc-estimate-boldsymboltheta-via-mle" class="nav-link" data-scroll-target="#estimate-boldsymboltheta-via-mle"><span style="color:black"><strong>estimate <span class="math inline">\(\boldsymbol{\theta}^*\)</span> via MLE</strong></span></a></li>
+  <li><a href="#solving-optimization-problem" id="toc-solving-optimization-problem" class="nav-link" data-scroll-target="#solving-optimization-problem"><span style="color:black"><strong>Solving Optimization Problem</strong></span></a></li>
   </ul></li>
   <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span style="color:black"><strong>Appendix</strong></span></a></li>
   <li><a href="#evidence-lower-boundelbo" id="toc-evidence-lower-boundelbo" class="nav-link" data-scroll-target="#evidence-lower-boundelbo"><span style="color:black"><strong>evidence lower bound(ELBO)</strong></span></a></li>
@@ -157,63 +157,152 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 <section id="problem-setting" class="level1">
 <h1><span style="color:black"><strong>Problem Setting</strong></span></h1>
+<p>다음과 같은 data set 주어져 있다고 해보자.</p>
 <span class="math display">\[\begin{aligned}
-p(z|x) = \frac{p(x|{z})p(x)}{p(x)} = \frac{p(x|z)p(x)}{\int p(x|z)p(x)dz}
+&amp;{\bf{X}} = \{{\bf{x}^{(i)}}\}_{n=1}^N\\
+&amp;\,\text{consisiting of N i.i.d samples of discrete(or) random variable {\bf{x}}} \in \mathbb{R}^K\\
 \end{aligned}\]</span>
+<p>Data set은 다음과 같은 random process에 의해서 생성되었다고 가정한다.</p>
+<ol type="1">
+<li><span class="math inline">\({\bf{z}}^{i} \in \mathbb{R}^P\)</span>는 <span class="math inline">\(p_{{\boldsymbol{\theta}}^*}({\bf{z}})\)</span>에서 먼저 생성되었다. (generated) (단, <span class="math inline">\(K&gt;P\)</span>)</li>
+<li><span class="math inline">\({\bf{x^{(i)}}}\)</span>가 <span class="math inline">\({\bf{z^{(i)}}}\)</span>를 condition으로 하는 distribution <span class="math inline">\(p_{{\boldsymbol{\theta}}^*}({\bf{x}}|{\bf{z}} = {\bf{z^{(i)}}})\)</span>에서 생성되었다.</li>
+</ol>
+<p>또한 계산의 간단함을 위해서 prior <span class="math inline">\(p_{{\boldsymbol{\theta}}^*}(\bf{z})\)</span>와 likelyhood <span class="math inline">\(p_{{\boldsymbol{\theta}}^*}\bf{(x|z)}\)</span>는 동일한 파라미터를 가지는 분포 <span class="math inline">\(p_{{\boldsymbol{\theta}}}(\bf{z})\)</span>와 <span class="math inline">\(p_{{\boldsymbol{\theta}}}(\bf{x|z})\)</span>이며 <span class="math inline">\({\boldsymbol{\theta}},z\)</span>에 대하여 거의 모든 곳에서 미분가능하다고 가정한다.</p>
 <ul>
-<li><span class="math inline">\(x = [x_1,x_2,\dots,x_k]\in \mathbb{R}^k\)</span> : 관측된(observed) 데이터를 의미한다.(realization)</li>
-<li><span class="math inline">\(z = [z_1,z_2,\dots,z_m] \in \mathbb{R}^m\)</span>는 latent variables로 보통 숨겨져 있으며 <span class="math inline">\(x\)</span>의 값에 영향을 미치는 확률변수(random variable)이다. Bayesian Nueral Network에서는 <span class="math inline">\(w\)</span>이다.</li>
+<li><span class="math inline">\({\bf{z}^{(i)}}\)</span>는 i-번째 생성된 latent variable이다. 이 randomvariable은 우리는 알려지지 않았다.</li>
+<li><span class="math inline">\({\bf{x}^{(i)}}\)</span>는 i-번째 latent variable을 condition으로 하는 conditional distribution으로부터 sampling된 값(벡터)이다.</li>
+<li><span class="math inline">\(p_{{\boldsymbol{\theta}}}\)</span>는 parameter가 <span class="math inline">\({\boldsymbol{\theta}}\)</span>인 확률분포함수이다. 예를들어 정규분포라면 <span class="math inline">\({\boldsymbol{\theta}} = \{\boldsymbol{\mu},\boldsymbol{\sigma^2}\}\)</span>이다.</li>
 </ul>
-<p>분자의 likelyhood와 prior는 MAP나 ML에서와 마찬가지로 우리가 알고있는 비교적 계산이 편리한 분포로 주로 가정한다. 하지만 분모는 수많은 weight에 대한 다중적분이기 때문에 계산하기가 매우 어렵다. 따라서 <strong>posterior를 근사적으로 구할 수 있는 방법들이 여러가지가 연구되었으며 Variational Inference는 이 중 한가지 방법</strong>이다.</p>
-<p>이번 포스트에서는 어떻게 AutoEncoder가 Variational Inference를 통해서 어떻게 <strong>posterior를 근사할 수 있는지 알아보며 또한 (Probabilistic) Generative model로서 어떻게 작동하는지</strong> 살펴본다.</p>
+<p>생성모델을 만들고자 할때 나타나는 일반적인 상황은 다음과 같다.</p>
+<ul>
+<li>일반적으로 생성모델은 <span class="math inline">\(p_{\boldsymbol{\theta}}{\bf{({\bf{x}})}} = \int_z p_{\boldsymbol{\theta}}({\bf{z}})p_{\boldsymbol{\theta}}({\bf{x|z}})d{\bf{z}}\)</span>가 <span class="math inline">\(\bf{z}\)</span>의 차원이 너무커서 적분을 할 수 없음. 따라서 posterior를 구할 수 없는 Intractability가 존재.(Note : likelyhood와 prior를 쉬운 분포로 가정해놔도 계산할 수 없음!)</li>
+<li>large dataset이 주어져서 batch단위로 optimization을 하기에는 너무 큰 computational cost가 예상됨.</li>
+</ul>
+<p>논문에서 위와 같은 문제점을 극복하여 다음의 것들을 문제를 풀고자 한다.</p>
+<ol type="1">
+<li>True Parameter인 <span class="math inline">\({\boldsymbol{\theta}^*}\)</span>를 추정하여 random process 모방. 즉, True <span class="math inline">\(p_{{\boldsymbol{\theta}}}{\bf{(x|z)}}\)</span>를 학습하여 latent variable에서 input space로의 mapping 학습. (<span class="math inline">\(\boldsymbol{\theta} \rightarrow \boldsymbol{\theta}^*\)</span>)</li>
+<li>True Posterior <span class="math inline">\(p_{{\boldsymbol{\theta}^*}}{\bf{({\bf{z|x}})}}\)</span>를 구하여 representation,coding task에서의 사용.(<span class="math inline">\(\boldsymbol{\theta}^*\)</span>를 알고있어도 구하는 것이 불가능했던 확률분포)</li>
+</ol>
+<p>결국에 보면 encooder,decoder를 학습하는 문제이다.</p>
 </section>
 <section id="method" class="level1">
 <h1><span style="color:black"><strong>Method</strong></span></h1>
-<section id="latent-variable-model-assumption" class="level2">
-<h2 class="anchored" data-anchor-id="latent-variable-model-assumption"><span style="color:black"><strong>Latent Variable Model Assumption</strong></span></h2>
-<p>Variational Auto-Encoder는 Gradient를 기반으로 학습하는 latent variable model이다. latent variable model에서는 관측된 값 <span class="math inline">\(x\)</span>가 latent <span class="math inline">\(z\)</span>로부터 generated 되었다고 가정한다. latent variable들은 관측된 값의 structure에 대한 정보를 담고있으며 바로 눈에 보이지 않는 숨겨진 변수이다. (예시 추가할지말지 고민 …)</p>
-<p><span class="math display">\[z \rightarrow x\]</span></p>
-<p>뿐만 아니라 두 확률변수에 대한 joint distribution이 존재하며 parameter <span class="math inline">\(\theta\)</span>가 있다고 가정한다. 이는 joint distribution으로부터 얻을 수 있는 conditional distribution,marginal distribution 또한 모두 <span class="math inline">\(\theta\)</span>로 parameterize 됨을 의미한다.</p>
-<p><span class="math display">\[p_{\theta}(z,x)\]</span></p>
-</section>
-<section id="posterior-inference" class="level2">
-<h2 class="anchored" data-anchor-id="posterior-inference"><span style="color:black"><strong>posterior inference</strong></span></h2>
-<p>Variational Inference에서는 어떻게 posetrior를 얻을 수 있을까? <strong>우리는 <span class="math inline">\(z\)</span>에 관한 또다른 확률분포 <span class="math inline">\(q_{\phi}(z|x)\)</span>를 가정한 후 이를 점점 실제 posterior인 <span class="math inline">\(p_{\theta}(z|x)\)</span>에 다가가도록 한다.</strong> 이때 <span class="math inline">\(q_{\phi}\)</span>는 우리가 알고있는 비교적 계산이 편리한 함수로 가정한다.(예를 들면 정규분포가 있다.) 따라서 얼마나 다가가야하는지 알기 위해서는 먼저 두 분포가 얼마나 “차이”나는지 알아야 하며 대표적인 값인 KL-divergence를 사용한다.</p>
+<section id="posterior-inference-via-variational-inference" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-inference-via-variational-inference"><span style="color:black"><strong>posterior inference via Variational Inference</strong></span></h2>
+<p>2번째 문제인 True posterior를 구하기 위해서는 어떻게 해야할까? 먼저 <span class="math inline">\(\boldsymbol{\theta} \rightarrow \boldsymbol{\theta}^*\)</span>가 되도록 학습(1번째 목적)해야하며 또한 True parameter <span class="math inline">\(\boldsymbol{\theta^*}\)</span>를 찾았다고 해도 intractability를 해결하여 Posterior를 구해야 한다. True parameter를 찾는 방법은 일단 재껴두고 여기서는 <strong>임의의 <span class="math inline">\(\boldsymbol{\theta}\)</span>으로 parameterize된 posterior <span class="math inline">\(p_{\boldsymbol{\theta}}(\bf{{\bf{z|x}}})\)</span>를 구하는 것에만 집중</strong>한다. 또한 먼저 논의를 간단히 하기 위해서 single observation <span class="math inline">\({\bf{x}}\)</span>에 대해서만 고려한다.</p>
+<p>Posterior <span class="math inline">\(p_{\boldsymbol{\theta}}(\bf{{\bf{z|x}}})\)</span>는 어떻게 구할 수 있을까? 논문에서는 <strong>variational inference의 방법</strong> 즉, <strong><span class="math inline">\(\bf{z}\)</span>에 관한 또다른 확률분포 <span class="math inline">\(q_{\boldsymbol{\phi}}\bf{({\bf{z|x}})}\)</span>를 가정한 후 이를 점점 실제 posterior인 <span class="math inline">\(p_{{\boldsymbol{\theta}}}\bf{({\bf{z|x}})}\)</span>에 다가가도록 하는 것</strong>이다. <strong><span class="math inline">\(q_{{\boldsymbol{\phi}}}\)</span>가 충분히 <span class="math inline">\(p_{\boldsymbol{\theta}}\)</span>에 다가가면 이를 posterior 대신 사용</strong>한다. 단,여기서 <span class="math inline">\(q_{\boldsymbol{\phi}}\)</span>는 계속해서 <span class="math inline">\({\boldsymbol{\phi}}\)</span>를 수정해 나가야하므로 우리가 알고있는 계산이 편리한 함수로 가정한다.(예를 들면 정규분포)</p>
+<p>위와 같은 방법을 사용하기 위해서는 두 분포사이의 “차이”를 좁혀나가야 하며 이를 알려주는 값인 KL-divergence를 사용한다.</p>
 <span class="math display">\[\begin{aligned}
-\text{D}_{KL}[q_{\phi}(z|x)||p_{\theta}(z|x)] &amp;:= \int_zq_{\phi}(z|x)\text{log}\frac{q_{\phi}(z|x)}{p_{\theta}(z|x)}dz \\
+\text{D}_{KL}[q_{\boldsymbol{\phi}}({\bf{z|x}})||p_{{\boldsymbol{\theta}}}({\bf{z|x}})] &amp;:= \int_zq_{\boldsymbol{\phi}}({\bf{z|x}})\text{log}\frac{q_{\boldsymbol{\phi}}({\bf{z|x}})}{p_{{\boldsymbol{\theta}}}({\bf{z|x}})}dz \\
 \end{aligned}\]</span>
-<p>그렇다면 우리의 목적은 다음과 같이 KL-divergence를 가장 줄이는 <span class="math inline">\(\hat{q_{\phi}}\)</span>를 찾는 문제와 같다.</p>
-<p><span class="math display">\[{\hat{q_{\phi}}} = \underset{q_{\phi}}{\text{argmin}}\,\text{D}_{KL}[q_{\phi}(z|x)||p_{\theta}(z|x)] \]</span></p>
+<p>그렇다면 2번째 목적은 다음과 같이 KL-divergence를 가장 줄이는 <span class="math inline">\(\hat{q_{\boldsymbol{\phi}}}\)</span>를 찾는 것과 같다.</p>
+<p><span class="math display">\[{\hat{q_{\boldsymbol{\phi}}}} = \underset{q_{\boldsymbol{\phi}}}{\text{argmin}}\,\text{D}_{KL}[q_{\boldsymbol{\phi}}({\bf{z|x}})||p_{{\boldsymbol{\theta}}}({\bf{z|x}})] \]</span></p>
 <p>여기서 RHS term인 KL-divergence는 ELBO와 evidence(marginal log likelyhood)의 차이로 전개할 수 있다.</p>
 <span class="math display">\[\begin{aligned}
 &amp;
 \begin{aligned}
-\text{D}_{KL}[q_{\phi}(z|x)||p_{\theta}(z|x)] &amp;:= \int_zq_{\phi}(z|x)\text{log}\frac{q_{\phi}(z|x)}{p_{\theta}(z|x)}dz \\
-&amp;= -\mathcal{L}(\phi,\theta;x) + \text{log}\,p_{\theta}(x)\\
+\text{D}_{KL}[q_{\boldsymbol{\phi}}({\bf{z|x}})||p_{{\boldsymbol{\theta}}}({\bf{z|x}})] &amp;:= \int_zq_{\boldsymbol{\phi}|}({\bf{z|x}})\text{log}\frac{q_{\boldsymbol{\phi}}({\bf{z|x}})}{p_{{\boldsymbol{\theta}}}({\bf{z|x}})}dz \\
+&amp;= -\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}}) + \text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x}})\\
 \end{aligned}
 \\
-&amp;\text{where } \mathcal{L}(\phi,\theta;x) := \mathbb{E}_{Z\sim q}\left[\text{log}\,\frac{p_{\theta}(x,z)}{q_{\phi}(z|x)} \right] = \mathbb{E}_{Z\sim q}\left[\text{log}\,p_{\theta}(x,z)-\text{log}\,q_{\phi}(z|x) \right]
+&amp;\text{where } \mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}}) := \mathbb{E}_{Z\sim q}\left[\text{log}\,\frac{p_{{\boldsymbol{\theta}}}({\bf{x,z}})}{q_{\boldsymbol{\phi}}({\bf{z|x}})} \right] = \mathbb{E}_{Z\sim q}\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}}) \right]
 \end{aligned}\]</span>
 <ul>
-<li>evidence를 <span class="math inline">\(\phi,\theta\)</span>의 함수로 notation한 이유는 이후의 optimization에서는 변수이기.(MLE에서 parameter는 하나의 고정된 상수이지만 일단은 변수로 보고 likelyhood의 max값을 찾는 과정과 비슷한 느낌인 것 같다.)</li>
-<li>관측값<span class="math inline">\(x\)</span>는 고정이므로 ;뒤에 놓았다.(이것도 MLE에서 관측한 값은 고정인 느낌과 같다.) 우리의 목적은 관측된 값 <span class="math inline">\(x\)</span>가 있을 때의 latent variable <span class="math inline">\(z\)</span>의 posterior를 구하는 것이다.</li>
+<li><span class="math inline">\(\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}})\)</span>는 evidence = <span class="math inline">\(\text{log}p_{\boldsymbol{\theta}}(\bf{x})\)</span>의 lowerbound(하한)이다. i.e.&nbsp;<span class="math inline">\(\text{log}\,p_{\boldsymbol{\theta}}(\bf{x}) \geq \mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}})\)</span> 줄여서 ELBO라고 한다.</li>
+<li>ELBO를 <span class="math inline">\(\boldsymbol{\phi},{\boldsymbol{\theta}}\)</span>의 함수로 notation한 이유는 optimization과정에서 parameter를 변수이기.(MLE에서 parameter는 하나의 고정된 상수이지만 일단은 변수로 보고 likelyhood의 max값을 찾는 과정과 비슷한 느낌인 것 같다.)</li>
+<li><span class="math inline">\({\bf{x}}\)</span>는 single observation으로 고정된 관측값이다. 우리의 목적은 관측된 값 <span class="math inline">\({\bf{x}}\)</span>가 있을 때의 latent variable <span class="math inline">\({\bf{z}}\)</span>의 posterior를 구하는 것임을 기억하자.</li>
 </ul>
-<p>여기서 <span class="math inline">\(p_{\theta}(x)\)</span>는 <span class="math inline">\(q_{\phi}\)</span>와 독립적이므로 <span class="math inline">\(q_{\phi}\)</span>를 maximization하는 과정에서는 상수취급 할 수 있으므로 이는 ELBO를 maximization하는 문제로 바뀌게 된다.</p>
+<p>여기서 <span class="math inline">\(p_{{\boldsymbol{\theta}}}({\bf{x}})\)</span>는 <span class="math inline">\(q_{\boldsymbol{\phi}}\)</span>와 독립적이므로 <span class="math inline">\(q_{\boldsymbol{\phi}}\)</span>를 maximization하는 과정에서는 상수취급 할 수 있으므로 이는 ELBO를 maximization하는 문제로 바뀌게 된다.</p>
 <span class="math display">\[\begin{aligned}
-\hat{q_{\phi}} &amp;= \underset{q_{\phi}}{\text{argmax}}\,\mathcal{L}(\phi,\theta;x) \\
-&amp;= \underset{q_{\phi}}{\text{argmax}}\,\mathbb{E}_{Z\sim q}\left[\text{log}\,p_{\theta}(x,z)-\text{log}\,q_{\phi}(z|x) \right]
+\hat{q_{\boldsymbol{\phi}}} &amp;= \underset{q_{\boldsymbol{\phi}}}{\text{argmax}}\,\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}}) \\
+&amp;= \underset{q_{\boldsymbol{\phi}}}{\text{argmax}}\,\mathbb{E}_{Z\sim q}\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}}) \right]
 \end{aligned}\]</span>
-<p>또한 <span class="math inline">\(z\)</span>는 integral후에 사라지는 적분변수이며 <span class="math inline">\(x\)</span>는 관측값이다. 결국 <span class="math inline">\(q_{\phi}\)</span>를 control하여 KL-divergence를 maximize하는 것은 <span class="math inline">\(\phi\)</span>를 control하여 KL-divergence를 maximize하는 <span class="math inline">\(\hat{\phi}\)</span>를 찾는 것과 같은 문제이다.</p>
+<p>또한 <span class="math inline">\({\bf{z}}\)</span>는 integral후에 사라지는 적분변수이며 <span class="math inline">\({\bf{x}}\)</span>는 관측값이다. 결국 <span class="math inline">\(q_{\boldsymbol{\phi}}\)</span>를 control하여 KL-divergence를 maximize하는 것은 <span class="math inline">\(\boldsymbol{\phi}\)</span>를 control하여 KL-divergence를 maximize하는 <span class="math inline">\(\hat{\boldsymbol{\phi}}\)</span>를 찾는 것과 같은 문제이다.</p>
 <span class="math display">\[\begin{aligned}
-\hat{\phi} = \underset{\phi}{\text{argmax}}\,\mathcal{L}(\phi;\theta,x)
+\hat{\boldsymbol{\phi}} = \underset{\boldsymbol{\phi}}{\text{argmax}}\,\mathcal{L}(\boldsymbol{\phi};{\boldsymbol{\theta}},x)
 \end{aligned}\]</span>
 <ul>
-<li>maximization 과정에서는 <span class="math inline">\(\phi\)</span>만 움직이는 변수 취급하므로 <span class="math inline">\(\theta\)</span>는 일단 고정된 값으로 취급하였다.</li>
+<li>maximization 과정에서는 <span class="math inline">\(\boldsymbol{\phi}\)</span>만 움직이는 변수 취급하므로 <span class="math inline">\({\boldsymbol{\theta}}\)</span>는 일단 고정된 값으로 취급하였다.</li>
 </ul>
-<p>정리하자면 문제는 원래 우리가 임의로 설정한 posterior인 <span class="math inline">\(q_{\phi}\)</span>를 true posterior인 <span class="math inline">\(p(z|x)\)</span>와 비슷하게 만드는 문제였다. 이는 KL-divergence를 minimize하는 <span class="math inline">\(q_{\phi}\)</span>를 찾는 것이었으며 수식전개를 통해서 결국에는 ELBO를 maximize하는 <span class="math inline">\(\phi\)</span>를 찾는 문제와 같음을 알 수 있다.</p>
+<p>정리하자면 문제는 원래 우리가 임의로 설정한 posterior인 <span class="math inline">\(q_{\boldsymbol{\phi}}\)</span>를 posterior인 <span class="math inline">\(p_{\boldsymbol{\theta}}\)</span>와 비슷하게 만드는 문제였다. 이는 KL-divergence를 minimize하는 <span class="math inline">\(q_{\boldsymbol{\phi}}\)</span>를 찾는 것이었으며 수식전개를 통해서 결국에는 ELBO를 maximize하는 <span class="math inline">\(\boldsymbol{\phi}\)</span>를 찾는 문제와 같음을 알 수 있다. 문제를 끝까지 푸는 건 잠시 뒤로 미루고 1번째 문제를 푸는 방법에 대해서 생각해보자.</p>
 </section>
-<section id="generalization-model" class="level2">
-<h2 class="anchored" data-anchor-id="generalization-model"><span style="color:black"><strong>generalization model</strong></span></h2>
+<section id="estimate-boldsymboltheta-via-mle" class="level2">
+<h2 class="anchored" data-anchor-id="estimate-boldsymboltheta-via-mle"><span style="color:black"><strong>estimate <span class="math inline">\(\boldsymbol{\theta}^*\)</span> via MLE</strong></span></h2>
+<p>위에서 2번 문제를 푸는 방법을 알았기에 이제 해결해야 할 것은 1번문제인 true parameter인 <span class="math inline">\(\theta^*\)</span>를 구하는 것이다. 이 문제도 풀게되면 True posterior,True likelyhood,True prior을 근사적으로 구하며 randomprocess(encoder,decoder)를 묘사할 수 있다.</p>
+<p>우리는 true parameter인 <span class="math inline">\(\theta^*\)</span>에 가장 근접하도록 <span class="math inline">\(\theta\)</span>를 구해야 하기 때문에 먼저 <span class="math inline">\(\theta^*\)</span>에 대해 생각해보자. <span class="math inline">\(\theta^*\)</span>은 과연 어떤 값일까? 아마도 <span class="math inline">\(\theta^*\)</span>는 관측된 데이터 <span class="math inline">\({\bf{x}}\)</span>에 대해서 가장 높은 확률을 부여하는 값일 것이다. 따라서 우리는 관측된 데이터에 대해서 가장 높은 확률을 부여하는 <span class="math inline">\(\theta\)</span>를 찾아야 한다. 이는 전체적으로 MLE의 방법과 동일하다.</p>
+<span class="math display">\[\begin{aligned}
+\hat{\theta} = \underset{{\bf{\theta}}}{\text{argmax}}\,\text{log}\,p_{\boldsymbol{\theta}}(\bf{x})
+\end{aligned}\]</span>
+<p>문제는 <span class="math inline">\(p_{\boldsymbol{\theta}}{\bf{({\bf{x}})}} = \int_z p_{\boldsymbol{\theta}}({\bf{z}})p_{\boldsymbol{\theta}}({\bf{x|z}})d{\bf{z}}\)</span>이다. problem setting에서 언급했듯이 구할 수 없는 값이다. 여기서 문제를 약간 우회하여 <span class="math inline">\(\text{log}\,p_{\boldsymbol{\theta}}(\bf{x})\)</span>의 lowerbound인 ELBO를 maximize하는 문제로 바꾼다. 즉 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+&amp;\hat{\theta} = \underset{{\bf{\theta}}}{\text{argmax}}\,\text{log}\,p_{\boldsymbol{\theta}}(\bf{x}) \approx \underset{{\bf{\theta}}}{\text{argmax}}\,\mathcal{L}({\boldsymbol{\theta}};\boldsymbol{\phi},{\bf{x}}) \\
+&amp;\text{where }\\
+&amp;\text{evidence} := \text{log}p_{\boldsymbol{\theta}}({\bf{x}})\\
+&amp;\text{log}\,p_{\boldsymbol{\theta}}({\bf{x}}) \geq \text{ELBO} := \mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}})=\mathbb{E}_{Z\sim q}\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}}) \right]
+\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\theta\)</span>만 바꿔가며 위의 문제를 풀게되므로 <span class="math inline">\(\boldsymbol{\phi}\)</span>는 fixed된 값이며 ;뒤에 위치시켰다.</li>
+</ul>
+<p>물론 ELBO도 <span class="math inline">\(z\)</span>에 대한 적분이기 때문에 풀 수 없음을 알 수 있다. 하지만 이제 문제가 ELBO를 optimization문제로 바뀌었음을 알 수 있으며 우리는 ELBO 하나의 값에 대해서 집중적으로 풀어낼 수 있는 방법을 사용할 것이다.(쉽게말하면 ELBO 하나만 샘플링해서 풀기위해서 이렇게 바꾼 것이다.)</p>
+<span class="math display">\[\begin{aligned}
+&amp;\boldsymbol{\theta,\phi}=\underset{{\boldsymbol{\theta,\phi}}}{\text{argmax}}\,\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};\bf{x})\\
+&amp;\text{where }\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}},{\bf{x}}) = \mathbb{E}_{Z\sim q}\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}}) \right]
+\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\boldsymbol{\theta,\phi}\)</span> : parameters of function <span class="math inline">\(q\)</span> and <span class="math inline">\(p\)</span></li>
+<li><span class="math inline">\({\bf{x}}\)</span> : single observation</li>
+</ul>
+</section>
+<section id="solving-optimization-problem" class="level2">
+<h2 class="anchored" data-anchor-id="solving-optimization-problem"><span style="color:black"><strong>Solving Optimization Problem</strong></span></h2>
+<p>문제는 전적으로 이제 ELBO를 Optimization하는 문제로 바뀌었다. 우리는 ELBO에 Gradient ascent를 사용하여 optimal한 <span class="math inline">\(\hat{\boldsymbol{\phi}},\hat{\boldsymbol{\theta}}\)</span>를 구할것이다. 그러기전에 먼저 ELBO를 살펴보자.</p>
+<span class="math display">\[\begin{aligned}
+\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}},{\bf{x}}) &amp;= \mathbb{E}_{Z\sim q}\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}}) \right] \\
+&amp;= \int_z\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}})\right]q({\bf{z|x}})d{\bf{z}}
+\end{aligned}\]</span>
+<p>이전에도 계속 문제였던 <span class="math inline">\(d\bf{{z}}\)</span>가 또 등장한다. 그러므로 우리는 expectation을 구할 수 없다. 따라서 samping을 통해 expectation을 근사적으로 구하는 Monte carlo method를 사용한다. 이는 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}}) &amp;= \mathbb{E}_{Z\sim q}\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}}) \right] \\
+&amp;= \int_z\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}})\right]q({\bf{z|x}})d{\bf{z}} \\
+&amp;\approx \frac{1}{L}\sum_{l=1}^L[\text{log}\,p_{\boldsymbol{\theta}}({\bf{x,z}}^{(l)}) - \text{log}\,q_{\boldsymbol{{\phi}}}({\bf{z}}|{\bf{x}}^{(l)})]
+\end{aligned}\]</span>
+<p><span class="math display">\[\text{where } {\bf{z}}^{(l)} \sim q_{\boldsymbol{\phi}}({\bf{z}})\]</span></p>
+<p>ELBO를 근사적으로 구했으므로 최적화를 위해 gradient를 구해야 한다. 먼저 <span class="math inline">\(\theta\)</span>에 대한 gradient를 구해보자.</p>
+<span class="math display">\[\begin{aligned}
+\nabla_{\theta}\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}}) &amp;= \mathbb{E}_{Z\sim q}\left[\nabla_\theta\text{log}\,p_{\boldsymbol{\theta}}({\bf{x,z}})\right]\\
+&amp;\approx \frac{1}{L}\sum_{l=1}^L\nabla_\theta\text{log}\,p_{\boldsymbol{\theta}}({\bf{x,z}}^{(l)})
+\end{aligned}\]</span>
+<ul>
+<li>뒷항은 <span class="math inline">\(\theta\)</span>에 대해 parameterize되어있지 않으므로 미분과정에서 제거됨.</li>
+</ul>
+<p><span class="math inline">\(\theta\)</span>에 대한 gradient는 전혀 문제없이 잘 구해짐을 알 수 있다. 하지만 문제는 <span class="math inline">\(\phi\)</span>에 대한 gradient를 구할 때 발생한다. <span class="math inline">\(f({\bf{z}}) = \text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}})\)</span>라 할 때 gradient는 다음과 같이 구해진다.(증명생략)</p>
+<span class="math display">\[\begin{aligned}
+\nabla_{\phi}\mathbb{E}_{q_{\boldsymbol{\phi}}({\bf{z})}}[f({\bf{z}})] &amp;= \mathbb{E}_{q_{\boldsymbol{\phi}(\bf{z})}} \nabla_{q_{\boldsymbol{\phi}(\bf{z})}}\text{log}\,q_{\phi}({\bf{z}}) \\&amp;\approx \frac{1}{L}\sum_{l=1}^L f({\bf{z}})\nabla_{q_{\boldsymbol{\phi}({\bf{z}})}}\text{log}\,q_{\boldsymbol{\phi}}({\bf{z}}^{(l)})
+\end{aligned}\]</span>
+<p>갑자기 로그가 들어간 형태로 gradient가 구해진다. 이러한 gradient에 대한 추정량은 unbiased estimator이지만 high variance를 가진다고 한다. 그러므로 샘플링을 아주많이(거의무한하게)취하는 것이 아니면 이 값은 수렴하지 않는 값이므로 적당한 샘플링을 통해서 문제를 풀어야 하는 우리의 방식에는 맞지않는다. 그러므로 샘플을 대체적으로 취하는 방식인 reparameterization을 사용한다. 이를 사용하면 unbiased estimator를 얻을뿐만 아니라 low variance를 가진다. (더 자세한 논의는 <a href="https://stats.stackexchange.com/questions/199605/how-does-the-reparameterization-trick-for-vaes-work-and-why-is-it-important">링크</a>에서 확인 가능)</p>
+<p><strong>(reparameterization trick)</strong><br> <span class="math inline">\({\bf{z}}\)</span>가 conditional distribution인 <span class="math inline">\(q_{\phi}(\bf{z|x})\)</span>를 따르는 continuous 또는 discrete random-variable일때 <span class="math inline">\({\bf{z}} = g_{\phi}(\boldsymbol{\epsilon},\bf{x})\)</span>인 g에 대해 deterministic한 random variable로 나타낼 수 있다는 것이다.(where, <span class="math inline">\({\bf{\epsilon}}\sim p(\boldsymbol{\epsilon})\)</span>)</p>
+<p>그러므로 우리는 reparameterization trick을 사용해서 ELBO를 Monte carlo method를 통해 다르게 생각할 수 있다. 이렇게 ELBO를 구하면 Gradient estimator는 unbiased일 뿐만 아니라 low variance를 가진다.</p>
+<span class="math display">\[\begin{aligned}
+\tilde{\mathcal{L}}^A(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}}) &amp;= \mathbb{E}_{Z\sim q}\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}}) \right] \\
+&amp;= \int_z\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}})\right]q({\bf{z|x}})d{\bf{z}} \\
+&amp;\approx \frac{1}{L}\sum_{l=1}^L[\text{log}\,p_{\boldsymbol{\theta}}({\bf{x,z}}^{(l)}) - \text{log}\,q_{\boldsymbol{{\phi}}}({\bf{z}}|{\bf{x}}^{(l)})]
+\end{aligned}\]</span>
+<p>$$ {}^{(l)} = q_{}({}^{(l)},{}),{}p()</p>
+<ul>
+<li>A는 type A를 의미함.</li>
+</ul>
+<p>논문에는 이러한 estimator말고도 다른 방법으로 구한 것도 있다. 이는 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+\tilde{\mathcal{L}}^B(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}}) = -D_{KL}(q_{\boldsymbol{\phi}}({\bf{z|x}})||p_\theta({\bf{z}})) + \frac{1}{L}\sum_{l=1}^L(\text{log}\,p_\theta({\bf{x}}|{\bf{z}}^{(l)})
+\end{aligned}\]</span>
+<p>$$ {}^{(l)} = q_{}({}^{(l)},{}),{}p()</p>
+<p>두번째 estimator를 통해서 ELBO를 maximization하는 최적화 문제를 푸는것이 왜 auto-encoder와 연결되는지 알 수 있다. ELBO를 maximize하려면 첫번째 term을 가능한 작게 해야 하는데 이는 observation을 보고 latent variable가 따르는 예측한 값이 얼마나 차이가 나느냐이다.(encoder의 성능?인 것 같다.)두번째 텀은 decoder가 얼마나 latenr variable에서 input space로 mapping을 잘 하느냐를 의미한다.(decoder의 성능?)</p>
+<p>여기까지 단 한개의 관측치에 대해서 모든 과정을 수행해봤다. 사실은 한 개의 관측치가 아니라 data set의 크기가 m인 mini-batch에 대하여 위의 과정을 수행해줘야 하므로 이것을 고려한 ELBO는 다음과 같다.</p>
+<span class="math display">\[\begin{aligned}
+\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{X}}) \approx
+\tilde{L}^M(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{X}})=\frac{N}{M}\sum_{i=1}^M\tilde{L}(\boldsymbol{\theta},\boldsymbol{\phi};{\bf{x}}^{(i)})
+\end{aligned}\]</span>
+<p><span class="math display">\[\text{where } {\bf{z}}^{(l)} \sim q_{\boldsymbol{\phi}}({\bf{z}})\]</span></p>
 </section>
 </section>
 <section id="appendix" class="level1">
@@ -222,30 +311,31 @@ p(z|x) = \frac{p(x|{z})p(x)}{p(x)} = \frac{p(x|z)p(x)}{\int p(x|z)p(x)dz}
 <section id="evidence-lower-boundelbo" class="level1">
 <h1><span style="color:black"><strong>evidence lower bound(ELBO)</strong></span></h1>
 <p>먼저 evidence는 다음과 같이 marginzalization된 loglikelyhood로 정의한다.</p>
-<p><span class="math display">\[\text{evidence} := \text{log}\,p(x;\theta) = \int_z p_{\theta}(x,z)dz\]</span></p>
+<p><span class="math display">\[\text{evidence} := \text{log}\,p(x;{\boldsymbol{\theta}}) = \int_z p_{{\boldsymbol{\theta}}}({\bf{x,z}})dz\]</span></p>
 <p>evidence를 쭉 전개하면 다음과 같다.</p>
 <span class="math display">\[\begin{aligned}
-\text{log}\,p(x;\theta) &amp;= \int_z p_{\theta}(x,z)dz \\
-&amp;=\text{log}\,\int_z \frac{p_{\theta}(x,z)}{q_{\phi}(z|x)}q_{\phi}(z|x)dz \\
-&amp;=\text{log}\,\mathbb{E}_{Z\sim q}\left[\frac{p_{\theta}(x,z)}{q_{\phi}(z|x)} \right]
+\text{log}\,p(x;{\boldsymbol{\theta}}) &amp;= \int_z p_{{\boldsymbol{\theta}}}({\bf{x,z}})dz \\
+&amp;=\text{log}\,\int_z \frac{p_{{\boldsymbol{\theta}}}({\bf{x,z}})}{q_{\boldsymbol{\phi}}({\bf{z|x}})}q_{\boldsymbol{\phi}}({\bf{z|x}})dz \\
+&amp;=\text{log}\,\mathbb{E}_{Z\sim q}\left[\frac{p_{{\boldsymbol{\theta}}}({\bf{x,z}})}{q_{\boldsymbol{\phi}}({\bf{z|x}})} \right]
 \end{aligned}\]</span>
-<p><a href="https://ko.wikipedia.org/wiki/%EC%98%8C%EC%84%BC_%EB%B6%80%EB%93%B1%EC%8B%9D">Jenson’s inequality</a> <span class="math inline">\(f(E[X])\leq E[f(X)]\)</span>에 의하여 evidence의 lowerbound를 찾을 수 있다. 이를 evidence lower bound(ELBO)라 정의한다.</p>
+<p><a href="https://ko.wikipedia.org/wiki/%EC%98%8C%EC%84%BC_%EB%B6%80%EB%93%B1%EC%8B%9D">Jenson’s inequality</a> <span class="math inline">\(f(E[X])\leq E[f({\bf{x}})]\)</span>에 의하여 evidence의 lowerbound를 찾을 수 있다. 이를 evidence lower bound(ELBO)라 정의한다.</p>
 <span class="math display">\[\begin{aligned}
-&amp;\text{log}\,p(x;\theta) \geq \mathbb{E}_{Z\sim q}\left[\text{log}\,\frac{p_{\theta}(x,z)}{q_{\phi}(z|x)} \right]\\
-&amp;\mathcal{L(\phi,\theta;x)} := \mathbb{E}_{Z\sim q}\left[\text{log}\,\frac{p_{\theta}(x,z)}{q_{\phi}(z|x)} \right] = \mathbb{E}_{Z\sim q}\left[\text{log}\,p_{\theta}(x,z)-\text{log}\,q_{\phi}(z|x) \right]
+&amp;\text{log}\,p(x;{\boldsymbol{\theta}}) \geq \mathbb{E}_{Z\sim q}\left[\text{log}\,\frac{p_{{\boldsymbol{\theta}}}({\bf{x,z}})}{q_{\boldsymbol{\phi}}({\bf{z|x}})} \right]\\
+&amp;\mathcal{L(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}})} := \mathbb{E}_{Z\sim q}\left[\text{log}\,\frac{p_{{\boldsymbol{\theta}}}({\bf{x,z}})}{q_{\boldsymbol{\phi}}({\bf{z|x}})} \right] = \mathbb{E}_{Z\sim q}\left[\text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x,z}})-\text{log}\,q_{\boldsymbol{\phi}}({\bf{z|x}}) \right]
 \end{aligned}\]</span>
 <ul>
-<li>evidence를 <span class="math inline">\(\phi,\theta\)</span>의 함수로 notation한 이유는 optimization 과정에서 변수로 보고 사용하기 때문이다.(MLE에서 parameter는 하나의 고정된 상수이지만 일단은 변수로 보고 likelyhood의 max값을 찾는 과정과 비슷한 느낌인 것 같다.)</li>
-<li>관측값<span class="math inline">\(x\)</span>는 고정이므로 ;뒤에 놓았다.(이것도 MLE에서 관측한 값은 고정인 느낌과 같다.)</li>
+<li>evidence를 <span class="math inline">\(\boldsymbol{\phi},{\boldsymbol{\theta}}\)</span>의 함수로 notation한 이유는 optimization 과정에서 변수로 보고 사용하기 때문이다.(MLE에서 parameter는 하나의 고정된 상수이지만 일단은 변수로 보고 likelyhood의 max값을 찾는 과정과 비슷한 느낌인 것 같다.)</li>
+<li>관측값<span class="math inline">\({\bf{x}}\)</span>는 고정이므로 ;뒤에 놓았다.(이것도 MLE에서 관측한 값은 고정인 느낌과 같다.)</li>
 </ul>
 </section>
 <section id="kl-divergence-전개" class="level1">
 <h1><span style="color:black"><strong>KL-divergence 전개</strong></span></h1>
 <span class="math display">\[\begin{aligned}
-\text{D}_{KL}[q_{\phi}(z|x)||p_{\theta}(z|x)] &amp;:= \int_zq_{\phi}(z|x)\text{log}\frac{q_{\phi}(z|x)}{p_{\theta}(z|x)}dz \\
-&amp;= \int_zq_{\phi}(z|x)\text{log}\frac{q_{\phi}(z|x)p_{\theta}(x)}{p_{\theta}(x,z)}dz \\
-&amp;= \int_zq_{\phi}(z|x)\text{log}\frac{q_{\phi}(z|x)}{p_{\theta}(x,z)}dz  + \int_z q_{\phi}(z|x)\text{log}\,p_\theta(x)dz\\
-&amp;= -\mathcal{L}(\phi,\theta;x) + \text{log}\,p_{\theta}(x)
+\text{D}_{KL}[q_{\boldsymbol{\phi}}({\bf{z|x}})||p_{\boldsymbol{\theta}}({\bf{z|x}})] &amp;:= \int_zq_{\boldsymbol{\phi}}
+({\bf{z|x}})\text{log}\frac{q_{\boldsymbol{\phi}}({\bf{z|x}})}{p_{{\boldsymbol{\theta}}}({\bf{z|x}})}dz \\
+&amp;= \int_zq_{\boldsymbol{\phi}}({\bf{z|x}})\text{log}\frac{q_{\boldsymbol{\phi}}({\bf{z|x}})p_{{\boldsymbol{\theta}}}({\bf{x}})}{p_{\boldsymbol{\theta}}({\bf{x,z}})}dz \\
+&amp;= \int_zq_{\boldsymbol{\phi}}({\bf{z|x}})\text{log}\frac{q_{\boldsymbol{\phi}}({\bf{z|x}})}{p_{{\boldsymbol{\theta}}}({\bf{x,z}})}dz  + \int_z q_{\boldsymbol{\phi}}({\bf{z|x}})\text{log}\,p_{\boldsymbol{\theta}}({\bf{x}})dz\\
+&amp;= -\mathcal{L}(\boldsymbol{\phi},{\boldsymbol{\theta}};{\bf{x}}) + \text{log}\,p_{{\boldsymbol{\theta}}}({\bf{x}})
 \end{aligned}\]</span>
 
 
