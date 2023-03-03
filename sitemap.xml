@@ -2,178 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/about.html</loc>
-    <lastmod>2023-02-24T12:51:51.031Z</lastmod>
+    <lastmod>2023-03-03T15:00:57.783Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/index.html</loc>
-    <lastmod>2023-02-24T12:51:51.969Z</lastmod>
+    <lastmod>2023-03-03T15:00:58.852Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/coading test/programmers시저암호.html</loc>
-    <lastmod>2023-02-24T12:51:52.491Z</lastmod>
+    <lastmod>2023-03-03T15:00:59.406Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/coading test/programmers이상한문자만들기.html</loc>
-    <lastmod>2023-02-24T12:51:52.973Z</lastmod>
+    <lastmod>2023-03-03T15:00:59.941Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/coading test/programmers크기가작은부분문자열.html</loc>
-    <lastmod>2023-02-24T12:51:53.396Z</lastmod>
+    <lastmod>2023-03-03T15:01:00.451Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Auto Encoder Dimension Reduction.html</loc>
-    <lastmod>2023-02-24T12:51:54.743Z</lastmod>
+    <lastmod>2023-03-03T15:01:02.231Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Linear Regression.html</loc>
-    <lastmod>2023-02-24T12:51:55.392Z</lastmod>
+    <lastmod>2023-03-03T15:01:02.949Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Logistic Regression.html</loc>
-    <lastmod>2023-02-24T12:51:56.011Z</lastmod>
+    <lastmod>2023-03-03T15:01:03.615Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Multinomial Logistic Regression,Softmatx Regression.html</loc>
-    <lastmod>2023-02-24T12:51:56.592Z</lastmod>
+    <lastmod>2023-03-03T15:01:04.241Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/Pytorch Rnn 구현.html</loc>
-    <lastmod>2023-02-24T12:51:57.088Z</lastmod>
+    <lastmod>2023-03-03T15:01:04.816Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/[PRML 정독하기] Probability Theory.html</loc>
-    <lastmod>2023-02-24T12:51:57.611Z</lastmod>
+    <lastmod>2023-03-03T15:01:05.392Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/DL/[PRML 정독하기] Probability Theory2.html</loc>
-    <lastmod>2023-02-24T12:51:58.076Z</lastmod>
+    <lastmod>2023-03-03T15:01:05.929Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/Ax=b의 해의 갯수 알아내기/Ax = b의 해석.html</loc>
-    <lastmod>2023-02-24T12:51:58.592Z</lastmod>
+    <lastmod>2023-03-03T15:01:06.502Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/eigendecomposition.html</loc>
-    <lastmod>2023-02-24T12:51:59.088Z</lastmod>
+    <lastmod>2023-03-03T15:01:07.052Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/eigenvalue eigenvector.html</loc>
-    <lastmod>2023-02-24T12:51:59.556Z</lastmod>
+    <lastmod>2023-03-03T15:01:07.590Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/Least Squares/Least Squares.html</loc>
-    <lastmod>2023-02-24T12:52:00.025Z</lastmod>
+    <lastmod>2023-03-03T15:01:08.126Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/orthonormal diagonalizability.html</loc>
-    <lastmod>2023-02-24T12:52:00.498Z</lastmod>
+    <lastmod>2023-03-03T15:01:08.634Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/orthonormal matrix.html</loc>
-    <lastmod>2023-02-24T12:52:00.965Z</lastmod>
+    <lastmod>2023-03-03T15:01:09.175Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/quadratic form/quadratic forms.html</loc>
-    <lastmod>2023-02-24T12:52:01.468Z</lastmod>
+    <lastmod>2023-03-03T15:01:09.745Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/rank and null space/rank and null space.html</loc>
-    <lastmod>2023-02-24T12:52:03.233Z</lastmod>
+    <lastmod>2023-03-03T15:01:11.740Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/span과 columns space.html</loc>
-    <lastmod>2023-02-24T12:52:03.785Z</lastmod>
+    <lastmod>2023-03-03T15:01:12.335Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Linear Algebra/행렬곱에 대한 여러가지 시각.html</loc>
-    <lastmod>2023-02-24T12:52:04.229Z</lastmod>
+    <lastmod>2023-03-03T15:01:12.836Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/numpy/np.meshgrid.html</loc>
-    <lastmod>2023-02-24T12:52:04.643Z</lastmod>
+    <lastmod>2023-03-03T15:01:13.355Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/numpy/수치미분 & np.gradient/수치미분 & np.gradient.html</loc>
-    <lastmod>2023-02-24T12:52:06.150Z</lastmod>
+    <lastmod>2023-03-03T15:01:14.556Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/open/Dakon competetion chisquare test.html</loc>
-    <lastmod>2023-02-24T12:52:07.472Z</lastmod>
+    <lastmod>2023-03-03T15:01:16.058Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/open/Dakon competetion.html</loc>
-    <lastmod>2023-02-24T12:52:08.280Z</lastmod>
+    <lastmod>2023-03-03T15:01:16.976Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/open/Dakon competition modeling.html</loc>
-    <lastmod>2023-02-24T12:52:08.885Z</lastmod>
+    <lastmod>2023-03-03T15:01:17.658Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/open/Dakon competition torch.html</loc>
-    <lastmod>2023-02-24T12:52:09.418Z</lastmod>
+    <lastmod>2023-03-03T15:01:18.280Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/auto-encoding variational bayes/Auto-Encoding Variational Bayes.html</loc>
-    <lastmod>2023-02-24T12:52:09.958Z</lastmod>
+    <lastmod>2023-03-03T15:01:18.875Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/auto-encoding variational bayes implement/Auto-Encoding Variational Bayes.html</loc>
+    <lastmod>2023-03-03T15:01:19.457Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/batchnormalization.html</loc>
-    <lastmod>2023-02-24T12:52:10.455Z</lastmod>
+    <lastmod>2023-03-03T15:01:20.014Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/DQN review.html</loc>
-    <lastmod>2023-02-24T12:52:10.903Z</lastmod>
+    <lastmod>2023-03-03T15:01:20.531Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/DQN.html</loc>
-    <lastmod>2023-02-24T12:52:11.357Z</lastmod>
+    <lastmod>2023-03-03T15:01:21.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/gan/gan.html</loc>
+    <lastmod>2023-03-03T15:01:21.589Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/paper study/Untitled-1.html</loc>
-    <lastmod>2023-02-24T12:52:11.761Z</lastmod>
+    <lastmod>2023-03-03T15:01:22.097Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&Statistics/categori distribution.html</loc>
-    <lastmod>2023-02-24T12:52:12.209Z</lastmod>
+    <lastmod>2023-03-03T15:01:22.603Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&Statistics/Maximum likelyhood estimation/MLE.html</loc>
-    <lastmod>2023-02-24T12:52:12.813Z</lastmod>
+    <lastmod>2023-03-03T15:01:23.224Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&Statistics/notation.html</loc>
-    <lastmod>2023-02-24T12:52:13.271Z</lastmod>
+    <lastmod>2023-03-03T15:01:23.747Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/Probability&Statistics/sample space and random variable.html</loc>
-    <lastmod>2023-02-24T12:52:14.562Z</lastmod>
+    <lastmod>2023-03-03T15:01:25.399Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html</loc>
-    <lastmod>2023-02-24T12:52:15.102Z</lastmod>
+    <lastmod>2023-03-03T15:01:26.000Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/RL/Bellman Equation(번외).html</loc>
-    <lastmod>2023-02-24T12:52:15.535Z</lastmod>
+    <lastmod>2023-03-03T15:01:26.513Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/RL/RL 1.html</loc>
-    <lastmod>2023-02-24T12:52:16.008Z</lastmod>
+    <lastmod>2023-03-03T15:01:27.054Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/RL/RL 2 - MDP.html</loc>
-    <lastmod>2023-02-24T12:52:16.503Z</lastmod>
+    <lastmod>2023-03-03T15:01:27.620Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/RL/RL2-2 value function.html</loc>
-    <lastmod>2023-02-24T12:52:17.043Z</lastmod>
+    <lastmod>2023-03-03T15:01:28.207Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/visualization/plotly_visualization/ploty 시각화 모음.html</loc>
-    <lastmod>2023-02-24T12:52:18.640Z</lastmod>
+    <lastmod>2023-03-03T15:01:29.967Z</lastmod>
   </url>
   <url>
     <loc>https://hoyeon1234.github.io/sin-hoyeon/posts/visualization/plotly_visualization/Untitled-1.html</loc>
-    <lastmod>2023-02-24T12:52:19.064Z</lastmod>
+    <lastmod>2023-03-03T15:01:30.457Z</lastmod>
   </url>
 </urlset>
