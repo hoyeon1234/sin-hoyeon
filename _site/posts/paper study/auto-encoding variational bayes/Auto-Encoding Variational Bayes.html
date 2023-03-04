@@ -136,8 +136,14 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link active" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem Setting</strong></span></a></li>
-  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span style="color:black"><strong>Method</strong></span></a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span style="color:black"><strong>Introduction</strong></span></a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span style="color:black"><strong>Background</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#latent-variable-model" id="toc-latent-variable-model" class="nav-link" data-scroll-target="#latent-variable-model"><span style="color:black"><strong>Latent Variable Model</strong></span></a></li>
+  <li><a href="#generative-model" id="toc-generative-model" class="nav-link" data-scroll-target="#generative-model"><span style="color:black"><strong>Generative Model</strong></span></a></li>
+  </ul></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span style="color:black"><strong>Method</strong></span></a></li>
+  <li><a href="#method-1" id="toc-method-1" class="nav-link" data-scroll-target="#method-1"><span style="color:black"><strong>Method</strong></span></a>
   <ul class="collapse">
   <li><a href="#posterior-inference-via-variational-inference" id="toc-posterior-inference-via-variational-inference" class="nav-link" data-scroll-target="#posterior-inference-via-variational-inference"><span style="color:black"><strong>posterior inference via Variational Inference</strong></span></a></li>
   <li><a href="#estimate-boldsymboltheta-via-mle" id="toc-estimate-boldsymboltheta-via-mle" class="nav-link" data-scroll-target="#estimate-boldsymboltheta-via-mle"><span style="color:black"><strong>estimate <span class="math inline">\(\boldsymbol{\theta}^*\)</span> via MLE</strong></span></a></li>
@@ -155,8 +161,41 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<section id="problem-setting" class="level1">
-<h1><span style="color:black"><strong>Problem Setting</strong></span></h1>
+<section id="introduction" class="level1">
+<h1><span style="color:black"><strong>Introduction</strong></span></h1>
+<p>variational auto-encoder는 <strong>generative model</strong>로서 intractable한 posterior를 포함하는 latent variable이 있고 large dataset에도 잘 동작한다. <strong>이는 1)variational lower bound를 reparamet-<br>erization을 통해 샘플링</strong>하고 SGD를 사용하며 <strong>2)posterior를 variational inference로 구한 뒤 encoder(inference model)로 학습</strong>시키기에 가능하다. 이번 포스트에서는 논문에서 사용된 방법들에 대해서 자세하게 수식적으로 설명한다.</p>
+</section>
+<section id="background" class="level1">
+<h1><span style="color:black"><strong>Background</strong></span></h1>
+<section id="latent-variable-model" class="level2">
+<h2 class="anchored" data-anchor-id="latent-variable-model"><span style="color:black"><strong>Latent Variable Model</strong></span></h2>
+<p>latent variable model은 <strong>관측가능한 데이터를 변수와 관련짓는 통계학적 모델</strong>이다. 이때의 <strong>변수를 latent variable이라고 하며 데이터가 어떻게 생성되는지에 영향</strong>을 미친다. latent variable model에서 데이터가 만들어지는 과정은 다음과 같다.</p>
+<p><strong>(Data Generation Process)</strong><br> <strong>1.</strong> latent variable <span class="math inline">\(\bf{z}\)</span>가 <span class="math inline">\(p(\bf{z})\)</span>에서 먼저 sampling된다. <br> <strong>2.</strong> observed data <span class="math inline">\(\bf{x}\)</span>가 그 후 <span class="math inline">\(p({\bf{x}}|{\bf{z}}) = p({\bf{x}}|f_{\theta}({\bf{z}}))\)</span>에서 sampling된다. <br></p>
+<ul>
+<li>여기서 <span class="math inline">\(f_\theta(\bf{z})\)</span>는 <span class="math inline">\(\theta\)</span>를 parameter로 갖는 vector function으로 여러개(또는 하나의)의 output을 가집니다.</li>
+</ul>
+<p>예를 들어 학교에 “고양이”를 주제로 하여 과제를 제출해야 한다고 가정해보자. latent variable은 교수님이 지정한 글자크기,글자간격,글자수,주제(고양이)로 비유할 수 있으며 제출할 과제는 이러한 잠재변수들이 결과를 미쳤을 것이라 볼 수 있다. 특히 주목할 점은 latent variable <span class="math inline">\(\bf{z}\)</span>가 그대로 영향을 미칠 수도 있고 적절한 transform(function)을 거친 <span class="math inline">\(f_{\theta}(\bf{z})\)</span>가 영향을 미칠 수도 있다는 것이다. 이는 주제가 “고양이”로 선정되었어도 누군가는 “고양이에게 줘야하는 음식”으로 다른 누군가는 “고양이의 행동분석”으로 과제를 제출하는 것에 비유할 수 있다.</p>
+</section>
+<section id="generative-model" class="level2">
+<h2 class="anchored" data-anchor-id="generative-model"><span style="color:black"><strong>Generative Model</strong></span></h2>
+<p>Generative Model(생성모델)은 observed data와 유사하면서도 다른 new samples을 생성해내는 것이 목적이다. 이를 다시말하면 <strong>Generative model의 목적은 <span class="math inline">\(p_{data}(x)\)</span>를 구하는 것</strong>이라고 할 수 있다. 관측된 데이터를 생성하는 확률분포 <span class="math inline">\(p_{data}(\bf{x})\)</span>를 알면 sampling을 통해서 생성해낼 수 있기 때문이다.</p>
+</section>
+</section>
+<section id="method" class="level1">
+<h1><span style="color:black"><strong>Method</strong></span></h1>
+<p><span class="math inline">\(p_{data}(\bf{x})\)</span>는 어떻게 구할 수 있을까? VAE에서는 Maximum likelyhood estimation으로 확률분포를 구하고자 한다. 구체적인 단계는 다음과 같다.</p>
+<p>(<strong>Probability density estimation</strong>)<br> <strong>1.</strong> <span class="math inline">\(p_{data}(\bf{x})\)</span>를 근사할 likelyhood <span class="math inline">\(p(\bf{x})\)</span>를 가정<br> <strong>2.</strong> likelyhood가 어떤 확률분포를 따를지 결정(ex 정규분포,베르누이분포 …)<br> <strong>3.</strong> likelyhood를 가장 크게하는 parameter를 <span class="math inline">\(p(\bf{x})\)</span>의 parameter로 설정 <br> <strong>4.</strong> <span class="math inline">\(p({\bf{x}}) \approx p_{data}({\bf{x}}) \rightarrow p(\bf{x})\)</span>를 <span class="math inline">\(p_{data}(\bf{x})\)</span>대신 사용!!</p>
+<ol type="1">
+<li>먼저 <span class="math inline">\(p(\bf{x})\)</span>를 구해보자. 이는 latent variable의 영향을 받으므로 다음과 같은 explicit form으로 적어줄 수 있다.</li>
+</ol>
+<p><span class="math display">\[p({\bf{x}}) = \int_z p({\bf{x}}|{\bf{z}})p({\bf{z}})d{\bf{z}} = \int_z p({\bf{x}}|{f_{\theta}(\bf{z})})p({\bf{z}})d{\bf{z}}\]</span></p>
+<ol start="2" type="1">
+<li><span class="math inline">\(p(\bf{x})\)</span>를 결정하는 것은 적분안의 함수를 모두 결정하는 것과 같다. VAE에서 <span class="math inline">\(p({\bf{x}}|f_{\theta}({\bf{z}}))\)</span>는 <span class="math inline">\(\bf{x}\)</span>가 실수전체에서 연속적일 경우 정규분포로 0과1사이에서 연속적일 경우 베르누이분포로 가정한다. <span class="math inline">\(p({\bf{x}}|f_{\theta}{(\bf{z})}) = \mathcal{N}({\bf{x}}|f_{\theta}(\bf{z}),\sigma^2 * \bf{I})\)</span>로 가정하고 전개해보자.</li>
+</ol>
+<span class="math display">\[\begin{aligned}
+p({\bf{x}}) &amp;= \int_z p({\bf{x}}|{f_{\theta}(\bf{z})})p({\bf{z}})d{\bf{z}}\\
+&amp;= \int_z \mathcal{N}({\bf{x}}|f_{\theta}({\bf{z}}),\sigma^2 * {\bf{I}})p({\bf{z}})d{\bf{z}}
+\end{aligned}\]</span>
 <p>다음과 같은 data set 주어져 있다고 해보자.</p>
 <span class="math display">\[\begin{aligned}
 &amp;{\bf{X}} = \{{\bf{x}^{(i)}}\}_{n=1}^N\\
@@ -185,7 +224,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </ol>
 <p>결국에 보면 encooder,decoder를 학습하는 문제이다.</p>
 </section>
-<section id="method" class="level1">
+<section id="method-1" class="level1">
 <h1><span style="color:black"><strong>Method</strong></span></h1>
 <section id="posterior-inference-via-variational-inference" class="level2">
 <h2 class="anchored" data-anchor-id="posterior-inference-via-variational-inference"><span style="color:black"><strong>posterior inference via Variational Inference</strong></span></h2>
