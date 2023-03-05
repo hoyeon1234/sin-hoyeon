@@ -172,6 +172,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p>latent variable model은 <strong>관측가능한 데이터를 변수와 관련짓는 통계학적 모델</strong>이다. 이때의 <strong>변수를 latent variable이라고 하며 데이터가 어떻게 생성되는지에 영향</strong>을 미친다. latent variable model에서 데이터가 만들어지는 과정은 다음과 같다.</p>
 <p><strong>(Data Generation Process)</strong><br> <strong>1.</strong> latent variable <span class="math inline">\(\bf{z}\)</span>가 <span class="math inline">\(p(\bf{z})\)</span>에서 먼저 sampling된다. <br> <strong>2.</strong> observed data <span class="math inline">\(\bf{x}\)</span>가 그 후 <span class="math inline">\(p({\bf{x}}|{\bf{z}}) = p({\bf{x}}|f_{\theta}({\bf{z}}))\)</span>에서 sampling된다. <br></p>
 <ul>
+<li><span class="math inline">\(\bf{z}\)</span>의 dimension은 일반적으로 <span class="math inline">\(\bf{x}\)</span>의 dimension보다 작다고 가정한다.</li>
 <li>여기서 <span class="math inline">\(f_\theta(\bf{z})\)</span>는 <span class="math inline">\(\theta\)</span>를 parameter로 갖는 vector function으로 여러개(또는 하나의)의 output을 가집니다.</li>
 </ul>
 <p>예를 들어 학교에 “고양이”를 주제로 하여 과제를 제출해야 한다고 가정해보자. latent variable은 교수님이 지정한 글자크기,글자간격,글자수,주제(고양이)로 비유할 수 있으며 제출할 과제는 이러한 잠재변수들이 결과를 미쳤을 것이라 볼 수 있다. 특히 주목할 점은 latent variable <span class="math inline">\(\bf{z}\)</span>가 그대로 영향을 미칠 수도 있고 적절한 transform(function)을 거친 <span class="math inline">\(f_{\theta}(\bf{z})\)</span>가 영향을 미칠 수도 있다는 것이다. 이는 주제가 “고양이”로 선정되었어도 누군가는 “고양이에게 줘야하는 음식”으로 다른 누군가는 “고양이의 행동분석”으로 과제를 제출하는 것에 비유할 수 있다.</p>
@@ -186,7 +187,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p><span class="math inline">\(p_{data}(\bf{x})\)</span>는 어떻게 구할 수 있을까? VAE에서는 Maximum likelyhood estimation으로 확률분포를 구하고자 한다. 구체적인 단계는 다음과 같다.</p>
 <p>(<strong>Probability density estimation</strong>)<br> <strong>1.</strong> <span class="math inline">\(p_{data}(\bf{x})\)</span>를 근사할 likelyhood <span class="math inline">\(p(\bf{x})\)</span>를 가정<br> <strong>2.</strong> likelyhood가 어떤 확률분포를 따를지 결정(ex 정규분포,베르누이분포 …)<br> <strong>3.</strong> likelyhood를 가장 크게하는 parameter를 <span class="math inline">\(p(\bf{x})\)</span>의 parameter로 설정 <br> <strong>4.</strong> <span class="math inline">\(p({\bf{x}}) \approx p_{data}({\bf{x}}) \rightarrow p(\bf{x})\)</span>를 <span class="math inline">\(p_{data}(\bf{x})\)</span>대신 사용!!</p>
 <ol type="1">
-<li>먼저 <span class="math inline">\(p(\bf{x})\)</span>를 구해보자. 이는 latent variable의 영향을 받으므로 다음과 같은 explicit form으로 적어줄 수 있다.</li>
+<li>먼저 <span class="math inline">\(p(\bf{x})\)</span>를 구해보자. Generation process가 latent variable model이라고 하면 다음과 같은 explicit form으로 적어줄 수 있다.</li>
 </ol>
 <p><span class="math display">\[p({\bf{x}}) = \int_z p({\bf{x}}|{\bf{z}})p({\bf{z}})d{\bf{z}} = \int_z p({\bf{x}}|{f_{\theta}(\bf{z})})p({\bf{z}})d{\bf{z}}\]</span></p>
 <ol start="2" type="1">
@@ -196,6 +197,14 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 p({\bf{x}}) &amp;= \int_z p({\bf{x}}|{f_{\theta}(\bf{z})})p({\bf{z}})d{\bf{z}}\\
 &amp;= \int_z \mathcal{N}({\bf{x}}|f_{\theta}({\bf{z}}),\sigma^2 * {\bf{I}})p({\bf{z}})d{\bf{z}}
 \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(f_{\theta}(z)\)</span>가 정규분포의 parameter(평균)이므로 명시적으로 <span class="math inline">\(\boldsymbol{\theta}\)</span>표시. $ p({}) p(\bf{x}|)$</li>
+</ul>
+<p>여기서 latent variable의 distribution인 <span class="math inline">\(p(\bf{z})\)</span>만 잘 결정해주면 우리는 monte carlo method를 사용하여 likelyhood를 근사하고 Gradient Ascent를 사용하면 될 것이다. 그러나 이는 쉽지않은 조심스러운 문제이다.</p>
+<p>예를 들어서 숫자이미지를 생성하는 latent variable을 생각해보자. 단순하게 생각하면 어떤 숫자를 적어야 하는지에 관한 변수가 있지만 이 외에도 굵기,각도,스타일등의 <strong>여러가지 우리가 알지못하는 변수들이 데이터의 생성에 영향</strong>을 미칠 수 있다. 또한 각도가 휘어있는 숫자는 누군가가 빨리 쓰다가 그랬다고 생각할 수 있으며 이는 상당히 얇은 굵기를 만들어 낼 수도 있으므로 <strong>변수들간에 상관관계도 존재</strong>할 수 있다. 요약하자면 <strong>latent variable의 distribution은 매우 복잡하다는 것</strong>이다.</p>
+<p>그렇다면 VAE에서는 어떻게 <span class="math inline">\(p(\bf{z})\)</span>를 가정할까? 그냥 <strong>단순히 평균이 0이며 상관관계가 존재하지 않는(공분산이 존재하지 않는) 가장 단순한 정규분포로 가정</strong>해버린다.</p>
+<p><span class="math display">\[{\bf{z}} \sim p({\bf{z}}) = \mathcal{N}({\bf{z}}|0,\bf{I})\]</span></p>
+<p>당연하게도 이렇게 <strong>단순하게 분포를 가정해버린다면 복잡한 latent variable의 분포를 전혀 대표하지 못할 것 같다?</strong>라는 생각이 든다. 왜냐하면 <strong>너무 쉬운 latent variable의 distribution을</strong>가정했기 때문이다. 여기서 <strong>복잡한 함수로서 역할을 하는 Deep Neural Network</strong>가 이 문제를 해결해줄 수 있다.</p>
 <p>다음과 같은 data set 주어져 있다고 해보자.</p>
 <span class="math display">\[\begin{aligned}
 &amp;{\bf{X}} = \{{\bf{x}^{(i)}}\}_{n=1}^N\\
