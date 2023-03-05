@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="hoyeon">
-<meta name="dcterms.date" content="2023-03-02">
+<meta name="dcterms.date" content="2023-03-04">
 
 <title>HIHO - Genarative Adversarial Nets</title>
 <style>
@@ -127,7 +127,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 2, 2023</p>
+        <p class="date">March 4, 2023</p>
       </div>
     </div>
     
@@ -232,7 +232,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <li>실제로는 목적함수를 D,G에 번갈아가며 numerical,iterative method를 사용하여 최적화함.</li>
 <li>충분한 성능을 가져서 더 이상 개선되지 않을 때(nash equilibrium에 도달했을 때), G의 확률분포 <span class="math inline">\(p_g \approx p_{data}\)</span></li>
 </ul>
-<p><strong>(Detail)</strong> - 주어진 G에 대해서 D를 끝까지 최적화 하는 것은 비효율적이며 과적합을 발생시킴 <span class="math inline">\(\rightarrow\)</span> Discriminator를 업데이트 횟수를 k로 제한(논문에서 <span class="math inline">\(k\)</span> = 1) - 학습 초기에 Generator G가 좋지 못할 경우 <span class="math inline">\(\text{log}(1-D(G(\bf{z})))\)</span>는 기울기가 거의 없음 =&gt; 학습 초기에만 <span class="math inline">\(\text{log}(1-D(G(\bf{z})))\)</span>를 minimize하지 않고 <span class="math inline">\(\text{log}D(G(z))\)</span>를 maximize 하는 방식을 취함 =&gt; 더 큰 gradient가 flow</p>
+<p><strong>(Detail)</strong> - 주어진 G에 대해서 D를 끝까지 최적화 하는 것은 비효율적이며 과적합을 발생시킴 <span class="math inline">\(\rightarrow\)</span> Discriminator를 업데이트 횟수를 k로 제한(논문에서 <span class="math inline">\(k\)</span> = 1)<br> - 학습 초기에 Generator G가 좋지 못할 경우 <span class="math inline">\(\text{log}(1-D(G(\bf{z})))\)</span>는 기울기가 거의 없음 =&gt; 학습 초기에만 <span class="math inline">\(\text{log}(1-D(G(\bf{z})))\)</span>를 minimize하지 않고 <span class="math inline">\(\text{log}D(G(z))\)</span>를 maximize 하는 방식을 취함 =&gt; 더 큰 gradient가 flow</p>
 </section>
 <section id="proof" class="level1">
 <h1><span style="color:black"> <strong>Proof</strong></span></h1>
