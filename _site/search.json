@@ -1236,6 +1236,34 @@
     "href": "posts/paper study/seq2seq/seq2seq.html",
     "title": "Sequence to Sequence Learning with Neural Networks",
     "section": "",
-    "text": "Abstract\nDeep Nueral Network는 복잡한 task에 놀라운 성능을 보여왔다. 그러나 sequence에서 sequence를 mapping에서는 잘 사용되지 못했다. 논문에서는 sequence의 구조에 대한 최소한의 가정만으로 sequence를 학습하는 end-to-end approach를 소개한다. 대략적인 방법은 Input sequence를 고정된 크기의 vector로 mapping하는 역할을 Multi Layered LSTM이 사용되며 vector로부터 target sequence로부터 mapping할때에도 또다른 LSTM을 사용한다.\n\n\n Problem Setting\nDNN(RNN)은 구조상 고정된 길이의 inputs과 outputs을 가지는 sequence의 mapping만 학습할 수 있다. 대부분의 sequence에서 sequence를 mapping하는 중요한 문제들 예를들면 machine translation,question answering 같은 task는 사전에 길이를 제한하지 않아야 좋은 표현을얻을 수 있기 때문에 이는 큰 한계라고 할 수 있다. 논문에서는 이러한 문제를 극복하기 위해 LSTM 아키텍쳐를 사용한 일반적인 sequence to sequence를 풀 수 있는 쉬운 방법을 설명한다.\n\n\n Method\n\n\n\nSequence to Sequence Learning with Neural Networks - Figure 1\n\n\n아주 대략적인 방법은 Input sequence에 LSTM을 사용하여 large fixed dimensional vector representation를 얻고 또다른 LSTM을 사용하여 vector에서 output sequence를 얻는 것이다. 여기서 굳이 왜 LSTM을 사용하냐는 의문이 들 수 있는데 당시에는 LSTM이 긴 문장을 처리할 수 있는(long range temproal dependencies) state of the art 였기 때문에 그렇다."
+    "text": "Deep Nueral Network는 복잡한 task에 놀라운 성능을 보여왔지만 sequence에서 sequence를 mapping에서는 task에서는 잘 사용되지 못했습니다.\n논문에서는 sequence의 구조에 대한 최소한의 가정만으로 학습하는 end-to-end approach를 소개한다."
+  },
+  {
+    "objectID": "posts/paper study/seq2seq/seq2seq.html#note",
+    "href": "posts/paper study/seq2seq/seq2seq.html#note",
+    "title": "Sequence to Sequence Learning with Neural Networks",
+    "section": "(Note)",
+    "text": "(Note)"
+  },
+  {
+    "objectID": "posts/paper study/seq2seq/seq2seq.html#intuition",
+    "href": "posts/paper study/seq2seq/seq2seq.html#intuition",
+    "title": "Sequence to Sequence Learning with Neural Networks",
+    "section": " Intuition",
+    "text": "Intuition\n\n\n\nSequence to Sequence Learning with Neural Networks - Figure 1\n\n\n(대략적인 설명)\n\n먼저 LSTM에 Input sequence를 each time step마다 각각 입력합니다.\n마지막 토큰인 \\(\\text{<EOS>}\\)이 입력되고 난 후 context vector(\\(\\bf{v}\\))를 얻는다. \n\\(\\bf{v}\\)를 또 다른 LSTM의 입력으로 사용합니다.\nLSTM은 each time step마다 하나씩 하나씩 출력 sequence 출력합니다. 이는 <EOS>를 만날때 종료됩니다.\n\n(context vector란?)\n\ncontext \\(\\bf{v}\\)는 input sequence보다 적은 차원을 가지며 모든 input에 대해서 고정된 크기를 가지는 벡터이다.\n\\(\\bf{v}\\)는 sequence의 의미를 포착하여 핵심정보만 가져온 축소된 표현입니다.(비슷한 의미를 가지는 문장은 거리가 가깝고 완전 다른 의미라면 거리가 멀다.)\n\n(왜 하필 LSTM?)\n\nLSTM는 당시에는 긴 문장을 처리할 수 있는(long range temproal dependencies) state of the art였기 때문에 LSTM 위주로 설명되어 있습니다.\n더 성능이 잘 나온다면 얼마든지 다른 모델도 사용할 수 있습니다.(ex GRU 등등…)\n\n(Note)\n\n고정된 크기의 context vector로 mapping되기 때문에 output sequence를 내놓기 위해 필요한 정보가 사라질 수 있습니다. (고정된 context vector의 한계)\ncontext vector를 lstm에 입력하여 \\(\\text{<EOS>}\\)토큰을 만날때까지 출력하기 때문에 input과 output sequence의 길이는 다릅니다. (기존의 many to many RNN과의 차이점)"
+  },
+  {
+    "objectID": "posts/paper study/seq2seq/seq2seq.html#intuition-1",
+    "href": "posts/paper study/seq2seq/seq2seq.html#intuition-1",
+    "title": "Sequence to Sequence Learning with Neural Networks",
+    "section": " Intuition",
+    "text": "Intuition"
+  },
+  {
+    "objectID": "posts/paper study/seq2seq/seq2seq.html#modeling",
+    "href": "posts/paper study/seq2seq/seq2seq.html#modeling",
+    "title": "Sequence to Sequence Learning with Neural Networks",
+    "section": " Modeling",
+    "text": "Modeling"
   }
 ]
