@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2023-02-27">
 
 <title>HIHO - Batch Normalization(작성중)</title>
 <style>
@@ -172,13 +174,28 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Batch Normalization(작성중)</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Paper study</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>hoyeon </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 27, 2023</p>
+      </div>
+    </div>
     
       
     </div>
@@ -195,7 +212,6 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link active" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem setting</strong></span></a></li>
   <li><a href="#normalization-via-mini-batch-statistics" id="toc-normalization-via-mini-batch-statistics" class="nav-link" data-scroll-target="#normalization-via-mini-batch-statistics"><span style="color:black"><strong>Normalization via Mini-Batch Statistics</strong></span></a></li>
   <li><a href="#training-and-inference-with-batch-normalized-networks" id="toc-training-and-inference-with-batch-normalized-networks" class="nav-link" data-scroll-target="#training-and-inference-with-batch-normalized-networks"><span style="color:black"><strong>Training and Inference with Batch-Normalized Networks</strong></span></a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span style="color:black"><strong>Introduction</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -268,23 +284,6 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 &amp;\text{where }E[x] = E_\mathcal{B}[\mu_\mathcal{B}],\text{Var}[x] = \frac{m}{m-1}E_\mathcal{B}[\sigma_\mathcal{B}^2]
 \end{aligned}\]</span>
 <p><span class="math inline">\(\frac{m}{m-1}\)</span>은 unbiased estimate를 위하여 곱해진 값이며 <span class="math inline">\(E_{\mathcal{B}}\)</span>는 moving average 또는 exponential average를 의미한다. test에서의 normalization은 단순히 linear transform으로 볼 수 있는데 이는 평균과 분산을 구하는 것이 아닌 training에서 구해놓은 값을 단순히 averaging한 고정된(fixed)값을 활용하기 때문이다.</p>
-</section>
-<section id="introduction" class="level1">
-<h1><span style="color:black"><strong>Introduction</strong></span></h1>
-<p>SGD는 <strong>간단하고 효율적인 알고리즘</strong>이지만 그 자체로는 <strong>상당히 민감하고 까다로운</strong> 알고리즘이며 그 이유는 다음과 같다.</p>
-<ul>
-<li>requires care ful <strong>tuning of hyper-parameters</strong> (specifically the <strong>learning rate</strong>,<strong>initial values for the parameters</strong>)</li>
-<li>The <strong>inputs to each layer</strong> are <strong>affected</strong> by the <strong>parameters of all preceeding layers</strong> =&gt; small changing to the network =&gt; amplification of gradient(<strong>vanish or slope</strong>)</li>
-</ul>
-<p>SGD로 최적화 하면 <strong>임의의 layer(sub-network)</strong>으로 들어가는 <strong>inputs의 distribution은 계속해서 변화</strong>하며 이는 <strong>각각의 레이어에 존재하는 파라미터</strong>를 <strong>각각의 입력들의 분포에 맞게 다시 학습</strong>해야 함을 의미한다.</p>
-<p>만약 각 레이어에 들어가는 input의 분포가 고정되어 있다면 어떨까? 크게 다음과 같은 이점을 가진다고 논문에서는 설명한다.<br> - 입력의 분포가 변화하는 것에 대하여 파라미터를 재조정 할 필요가 없다.(따라서 유리하다.) - nonlinearity의 inputs이 saturated regime에 gradient vanish가 되는 현상을 막아준다. =&gt; 이는 batchnormalization을 추가하면 학습시간이 덜 들어가는 이유이다.</p>
-<p>또한 fixed distribution은</p>
-<ul>
-<li>allows us to use much higer learning rates</li>
-<li>less careful about initilization</li>
-<li>acts as a regularizaer</li>
-<li>in some cases eliminating the need for dropout</li>
-</ul>
 
 
 </section>

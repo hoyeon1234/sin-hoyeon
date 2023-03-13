@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-03-06">
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2023-03-11">
 
 <title>HIHO - Sequence to Sequence Learning with Neural Networks</title>
 <style>
@@ -21,69 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -173,17 +111,26 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Sequence to Sequence Learning with Neural Networks</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Paper study</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>hoyeon </p>
+            </div>
+    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 6, 2023</p>
+        <p class="date">March 11, 2023</p>
       </div>
     </div>
     
@@ -207,8 +154,6 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span style="color:black"> <strong>Modeling</strong></span></a>
   <ul class="collapse">
   <li><a href="#searching-algorithm" id="toc-searching-algorithm" class="nav-link" data-scroll-target="#searching-algorithm"><span style="color:black"> <strong>Searching Algorithm</strong></span></a></li>
-  <li><a href="#greedy-search-algorithm" id="toc-greedy-search-algorithm" class="nav-link" data-scroll-target="#greedy-search-algorithm"><span style="color:black"> <strong>Greedy-search Algorithm</strong></span></a></li>
-  <li><a href="#beam-search-algorithm" id="toc-beam-search-algorithm" class="nav-link" data-scroll-target="#beam-search-algorithm"><span style="color:black"> <strong>Beam-search Algorithm</strong></span></a></li>
   </ul></li>
   <li><a href="#experiments" id="toc-experiments" class="nav-link" data-scroll-target="#experiments"><span style="color:black"> <strong>Experiments</strong></span></a>
   <ul class="collapse">
@@ -230,7 +175,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <h1><span style="color:black"> <strong>Abstract</strong></span></h1>
 <ul>
 <li>Deep Nueral Network는 복잡한 task에 놀라운 성능을 보여왔지만 sequence에서 sequence를 mapping에서는 task에서는 잘 사용되지 못했습니다.</li>
-<li>논문에서는 <strong>sequence의 구조에 대한 최소한의 가정만으로 학습</strong>하는 <strong>end-to-end approach</strong>를 소개합니다.</li>
+<li>논문에서는 <strong>sequence의 구조에 대한 최소한의 가정</strong>만으로 학습하는 <strong>end-to-end approach</strong>를 소개합니다.</li>
 </ul>
 </section>
 <section id="problem-setting" class="level1">
@@ -253,15 +198,15 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p><strong>(Process)</strong><br></p>
 <ul>
 <li>먼저 LSTM에 Input sequence를 each time step마다 각각 입력합니다.</li>
-<li>마지막 토큰인 <span class="math inline">\(\text{&lt;EOS&gt;}\)</span>이 입력되고 나면 마지막 hidden state인 <strong>context vector(<span class="math inline">\(\bf{v}\)</span>)</strong>를 얻습니다. <br></li>
+<li>마지막 토큰인 <span class="math inline">\(\text{&lt;EOS&gt;}\)</span>이 입력되고 나면 <strong>마지막 hidden state인 </strong>context vector(<span class="math inline">\(\bf{v}\)</span>)<strong>를 얻습니다.</strong> <br></li>
 <li><strong><span class="math inline">\(\bf{v}\)</span></strong>를 <strong>또 다른 LSTM</strong>의 입력으로 사용합니다.<br></li>
-<li>LSTM은 each time step마다 예측 y를 얻은 뒤 다음 state의 입력으로 활용합니다.</li>
+<li>LSTM은 <strong>each time step마다 예측 y를 얻은 뒤 다음 state의 입력으로 활용</strong>합니다.</li>
 <li>output sequence는 <strong>&lt;EOS&gt;를 만날때 더 이상 출력하지 않습니다.</strong></li>
 </ul>
 <p><strong>(context vector란?)</strong><br></p>
 <ul>
 <li>context <span class="math inline">\(\bf{v}\)</span>는 <strong>input sequence보다 적은 차원</strong>을 가지며 <strong>모든 input에 대해서 고정된 크기</strong>를 가지는 벡터이다.</li>
-<li><span class="math inline">\(\bf{v}\)</span>는 input sequence의 핵심적인 의미를 포착합니다.(비슷한 의미를 가지는 문장은 거리가 가깝고 완전 다른 의미라면 거리가 멀다.)</li>
+<li><span class="math inline">\(\bf{v}\)</span>는 <strong>input sequence의 핵심적인 의미를 포착</strong>합니다.(비슷한 의미를 가지는 문장은 거리가 가깝고 완전 다른 의미라면 거리가 멀다.)</li>
 </ul>
 <p>(왜 하필 LSTM?)<br></p>
 <ul>
@@ -296,27 +241,22 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <li>LSTM의 목적은 왼쪽의 output <span class="math inline">\(y_1,y_2,\dots,y_{T'}\)</span>에 대한 conditional probability distribution을 얻는 것입니다.</li>
 <li>즉, each time step t마다 softmax를 통과한 output인 conditional distribution을 모두 메모리에 저장한 뒤 전부 곱하는 것을 의미합니다.</li>
 <li>output은 가장 높은 확률을 가질때의 <span class="math inline">\(\bf{y}\)</span>라고 생각할 수 있습니다.</li>
-<li>이렇게 sequence를 출력하는 알고리즘을 <strong>exhaustive search</strong>라 하며 <strong>매우 높은 시간복잡도</strong>를 가진다는 단점이 있습니다. &gt; 1.번역을 하는 문제라면 각각의 <span class="math inline">\(y_1,y_2\dots\)</span>가 가질 수 있는 값들이 dictionary의 크기와 같으며 <strong>모든조합에 대해 곱하여 확률분포를 계산</strong>해야 합니다.<br> &gt; 2. 확률분포를 다 계산했다 하더라도 <strong>가장 높은 확률을 가지는 <span class="math inline">\(\bf{y}\)</span>를 탐색해야 하는 search space가 너무 큽니다.</strong></li>
+<li>이렇게 sequence를 출력하는 알고리즘을 <strong>exhaustive search</strong>라 하며 <strong>매우 높은 시간복잡도</strong>를 가진다는 단점이 있습니다.<br>
+<ol type="1">
+<li>각각의 <span class="math inline">\(y_1,y_2\dots\)</span>가 가질 수 있는 값들이 너무 다양하며(vocab의 크기) <strong>모든조합에 대해 곱하여 확률분포를 계산</strong>해야 합니다.<br></li>
+<li>확률분포를 다 계산했다 하더라도 <strong>가장 높은 확률을 가지는 <span class="math inline">\(\bf{y}\)</span>를 탐색해야 하는 search space가 너무 큽니다.</strong><br></li>
+</ol></li>
 <li>따라서 다른 알고리즘을 통해서 conditional probability distribution의 max값을 구해야 합니다.</li>
 </ul>
 <section id="searching-algorithm" class="level3">
 <h3 class="anchored" data-anchor-id="searching-algorithm"><span style="color:black"> <strong>Searching Algorithm</strong></span></h3>
-</section>
-<section id="greedy-search-algorithm" class="level3">
-<h3 class="anchored" data-anchor-id="greedy-search-algorithm"><span style="color:black"> <strong>Greedy-search Algorithm</strong></span></h3>
+<section id="greedy-search-algorithm" class="level4">
+<h4 class="anchored" data-anchor-id="greedy-search-algorithm"><span style="color:black"> <strong>Greedy-search Algorithm</strong></span></h4>
 <span class="math display">\[\begin{aligned}
 
 &amp;\text{until } \hat{y_t} \text{ is not }\text{&lt;EOS&gt;}\\
 &amp;\hat{y_t} = \underset{y_t}{\text{argmax}}\,p(y_t|v,y_1,y_2,\dots,y_{t-1})\\
 \end{aligned}\]</span>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#1 initialize</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>predict <span class="kw">is</span> <span class="bu">list</span> </span>
-<span id="cb1-3"><a href="#cb1-3"></a>yhat <span class="kw">is</span> scalar</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#2 predict</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="cf">while</span> yhat <span class="kw">is</span> <span class="kw">not</span> <span class="op">&lt;</span>EOS<span class="op">&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>    yhat <span class="op">=</span> argmax_{y}p(y_t<span class="op">|</span>v,y1,y2,...,y_t<span class="op">-</span><span class="dv">1</span>) <span class="co">#lstm -&gt; softmax -&gt; argmax</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>    predict.append(yhat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Greedy Algorithm은 Each timestep t에서 얻은 각각의 condional distribution의 max값을 찾는 알고리즘입니다.</li>
 <li>Exhaustive Algorithm과 다르게 search space가 그렇게 크지 않습니다. 따라서 더 적은 시간복잡도를 가집니다.</li>
@@ -336,20 +276,27 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <ul>
 <li>위의 그림은 t=2에서만 greedy하게 진행하지 않은 경우를 나타냅니다.</li>
 <li><span class="math inline">\(p(y_1,y_2,y_3,y_4) = 0.054\)</span>로 오히려 더 높은 확률을 가집니다.</li>
-<li>Greedy Algorithm이 optimal sequence를 보장하지 못한다는 사실을 알 수 있습니다.</li>
+<li><strong>Greedy Algorithm이 optimal sequence를 보장하지 못한다</strong>는 사실을 알 수 있습니다.</li>
 </ul>
 </section>
-<section id="beam-search-algorithm" class="level3">
-<h3 class="anchored" data-anchor-id="beam-search-algorithm"><span style="color:black"> <strong>Beam-search Algorithm</strong></span></h3>
+<section id="beam-search-algorithm" class="level4">
+<h4 class="anchored" data-anchor-id="beam-search-algorithm"><span style="color:black"> <strong>Beam-search Algorithm</strong></span></h4>
 <ul>
 <li>요약하자면 Beam-search는 Greedy Search를 <span class="math inline">\(K\)</span>개 하는 것입니다.</li>
 </ul>
 <p><img src="./beam.png" class="img-fluid"></p>
 <ul>
 <li><strong>Beam-searh Algorithm은 Greedy Algorithm이 optimal sequence를 잘 찾지 못한다는 점을 보완한 알고리즘</strong>입니다.</li>
-<li><strong>처음 <span class="math inline">\(k\)</span>개의 beam을 통하여 Greedy Search를 수행</strong>하는 알고리즘 입니다.</li>
+<li><strong>처음 <span class="math inline">\(k\)</span>개의 beam</strong>을 통하여 <strong>Greedy Search를 수행</strong>하는 알고리즘 입니다.</li>
 </ul>
-<p><strong>(Beam-Algorithm Process)</strong> - 먼저 <strong>hyparparameter인 Beamsize(<span class="math inline">\(k\)</span>)를 입력</strong>으로 받습니다. - timestep = 1에서 <strong>가장 확률이 높은 <span class="math inline">\(k\)</span>개의 Beam을 선택</strong>합니다. - 각각의 Beam에서 계속해서 <strong>conditional probability를 계산하며 Greedy하게 탐색</strong>합니다. - 각각의 Beam은 <span class="math inline">\(\text{&lt;EOS&gt;}\)</span>를 만났을때 탐색을 종료하며 candidate에 추가됩니다. - candidate에 있는 모든 Beam에 대해서 score를 계산합니다.</p>
+<p><strong>(Beam-Algorithm Process)</strong></p>
+<ul>
+<li>먼저 hyparparameter인 <strong>Beamsize(<span class="math inline">\(k\)</span>)를 입력</strong>으로 받습니다.</li>
+<li>timestep = 1에서 <strong>가장 확률이 높은 <span class="math inline">\(k\)</span>개의 Beam을 선택</strong>합니다.</li>
+<li>각각의 Beam에서 계속해서 <strong>conditional probability를 계산하며 Greedy하게 탐색</strong>합니다.</li>
+<li>각각의 Beam은 <strong><span class="math inline">\(\text{&lt;EOS&gt;}\)</span>를 만났을때 탐색을 종료</strong>하며 candidate에 추가됩니다.</li>
+<li>candidate에 있는 <strong>모든 Beam에 대해서 score를 계산</strong>합니다.</li>
+</ul>
 <strong>(score)</strong>
 <span class="math display">\[\begin{aligned}
 \frac{1}{L^{\alpha}}\text{log}\,p(y_1,\dots,y_L|{\bf{c}}) = \frac{1}{L^{\alpha}}\sigma_{t=1}^{L}\text{log}\,p(y_t|y_1,\dots,t_{t-1}|{\bf{c}})
@@ -357,6 +304,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <ul>
 <li><span class="math inline">\(L\)</span>은 문장의 길이 <span class="math inline">\(\alpha\)</span>는 보통 0.75로 긴 시퀀스에 대해서 패널티를 주기위해서 사용합니다.</li>
 </ul>
+</section>
 </section>
 </section>
 <section id="experiments" class="level2">
@@ -378,10 +326,15 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <ul>
 <li>SMT기반의 방법만큼이나 LSTM기반의 방법도 도 좋은 결과를 냄</li>
 </ul>
-<p><img src="./model analysis.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./model analysis.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">context vector를 2차원상에 투영한 그림</figcaption><p></p>
+</figure>
+</div>
 <ul>
 <li>context vector를 PCA로 2차원상에 투영한 그림</li>
-<li>비슷한 의미의 문장은 가깝고 좀 다른 의미의 문장은 거리가 멀다.</li>
+<li>비슷한 의미의 문장은 가깝고 다른 의미의 문장은 거리가 멀더라 =&gt; LSTM기반의 네트워크가 <strong>의미를 잘 포착함</strong>을 알 수 있습니다.</li>
 </ul>
 </section>
 </section>
