@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="신호연">
-<meta name="dcterms.date" content="2023-02-03">
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2023-03-06">
 
-<title>HIHO - DQN</title>
+<title>HIHO - [강화학습] Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,9 +70,8 @@ gtag('js', new Date());
 gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -82,7 +81,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">HIHO</span>
     </a>
   </div>
@@ -92,7 +91,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
+    <a class="nav-link" href="../../../about.html">
  <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item compact">
@@ -110,9 +109,9 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">DQN</h1>
+      <h1 class="title">[강화학습] Introduction</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Paper study</div>
+                <div class="quarto-category">Reinforcement Learning</div>
               </div>
                   </div>
   </div>
@@ -123,14 +122,14 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>신호연 </p>
+               <p>hoyeon </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 3, 2023</p>
+        <p class="date">March 6, 2023</p>
       </div>
     </div>
     
@@ -146,12 +145,12 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span style="color:black"> <strong>Introduction</strong></span></a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span style="color:black"> <strong>Background</strong></span></a></li>
-  <li><a href="#deep-reinforcement-learning" id="toc-deep-reinforcement-learning" class="nav-link" data-scroll-target="#deep-reinforcement-learning"><span style="color:black"> <strong>Deep Reinforcement Learning</strong></span></a>
+  <li><a href="#reinforcement-learning" id="toc-reinforcement-learning" class="nav-link active" data-scroll-target="#reinforcement-learning"><span style="color:black"> <strong>Reinforcement Learning</strong></span></a>
   <ul class="collapse">
-  <li><a href="#experience-replay" id="toc-experience-replay" class="nav-link" data-scroll-target="#experience-replay"><span style="color:black"> <strong>experience replay</strong></span></a></li>
-  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm"><span style="color:black"> <strong>algorithm</strong></span></a></li>
+  <li><a href="#강화학습이란" id="toc-강화학습이란" class="nav-link" data-scroll-target="#강화학습이란"><span style="color:black"> <strong>강화학습이란?</strong></span></a></li>
+  <li><a href="#강화학습-vs-지도학습" id="toc-강화학습-vs-지도학습" class="nav-link" data-scroll-target="#강화학습-vs-지도학습"><span style="color:black"> <strong>강화학습 vs 지도학습</strong></span></a></li>
+  <li><a href="#강화학습-vs-비지도학습" id="toc-강화학습-vs-비지도학습" class="nav-link" data-scroll-target="#강화학습-vs-비지도학습"><span style="color:black"> <strong>강화학습 vs 비지도학습</strong></span></a></li>
+  <li><a href="#exploration-vs-exploitation" id="toc-exploration-vs-exploitation" class="nav-link" data-scroll-target="#exploration-vs-exploitation"><span style="color:black"> <strong>exploration vs exploitation</strong></span></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -162,54 +161,57 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<section id="introduction" class="level1">
-<h1><span style="color:black"> <strong>Introduction</strong></span></h1>
-<p>당시 neural network가 발전함에 따라서 RL에도 그대로 DL을 적용하고자 시도함</p>
-<p>그러나 여러가지 <strong>문제점</strong>이 많이 존재</p>
 <ul>
-<li>The delay between actions and resulting rewards, which can be thousands of timesteps long, seems particularly daunting when compared to the direct association between inputs and targets found in supervised learning. <br> =&gt; 강화학습은 보상을 기반으로 학습을 하나 <strong>보상을 받는 시점이 정해지지 않음</strong>. 이는 딥러닝과는 다름</li>
-<li>Another issue is that most deep learning algorithms assume the data samples to be independent, while in reinforcement learning one typically encounters sequences of highly correlated states.<br> =&gt; 딥러닝은 변수들이 독립임을 가정하지만 강화학습에서 해결하고자 하는 <strong>데이터(시퀀스)가 높은 상관성</strong>을 가진채로 존재함</li>
-<li>Furthermore, in RL the data distribution changes as the algorithm learns new behaviours, which can be problematic for deep learning methods that assume a ﬁxed underlying distribution.<br> =&gt; 딥러닝은 fixed underlying function(확률분포)를 가정하지만 <strong>강화학습의 경우 distribution이 변화</strong>함.</li>
+<li><strong>우리는 환경과 상호작용(interacting)하면서 배운다</strong>는 것은 우리가 <code>학습의 본질</code>에 대해 생각할때 가장 먼저 떠올릴 수 있는 생각이다.</li>
+<li>이 책에서는 <code>상호작용</code>으로부터 배우기 위한 <code>computational approach</code>를 배운다</li>
+<li>우리가 배울 접근방식 즉, <code>reinforcement learning</code>은 기계학습의 다른 접근법들보다 훨씬 <code>목표지향적 학습</code>에 중점을 둔다.</li>
 </ul>
-<p>논문에서는 위와 같은 문제점들을 극복하여 neural network를 RL(Q-learning)에 적용</p>
-</section>
-<section id="background" class="level1">
-<h1><span style="color:black"> <strong>Background</strong></span></h1>
-<p><strong>(optimal action value function)</strong></p>
-<span class="math display">\[\begin{aligned}
-Q^*(s,a) = \mathbb{E}[r + \gamma\underset{a`}{\text{max}}Q^*(s',a')|s,a]
-\end{aligned}\]</span>
-<p>state(s)와 action(a)에서의 optimal action value fuction. 이 함수를 가능한 정확히 근사해야 문제의 solution이 좋음</p>
-<span class="math display">\[\begin{aligned}
-Q_{i+1}(s,a) = \mathbb{E}[r + \gamma\underset{a`}{\text{max}}Q_i(s',a')|s,a]
-\end{aligned}\]</span>
-<p>optimal action value function 개념적으로는 윗 식에서 $i $으로 iteration을 수없이 많이 iteration하여 얻을 수 있음. 그러나 이 방법은 실제 사용할 수 없는데 구현해야할 때에 <strong>수많은 state와 action을 table에서 s,a를 모두 저장</strong>해야 하기 때문이다.</p>
-<p><strong>(loss function of Q-network)</strong></p>
-<span class="math display">\[\begin{aligned}
-&amp;L_i(\theta_i) = \mathbb{E}_{s,a}[(y_i - Q(s,a;\theta_i))^2]\\
-&amp;\text{where, } y_i = \mathbb{E}[r+\gamma \underset{a'}{\text{max}}Q(s',a';\theta_{i-1})]
-\end{aligned}\]</span>
-<p>따라서 위와 같이 Loss function을 정의하여 Neural network를 stochastic GD로 학습시켜서 Q값을 근사한다.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://raw.githubusercontent.com/hoyeon1234/sin-hoyeon/master/posts/paper%20study/Q-learning%20vs%20deep%20Q-learning.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">그림출처 : 이것저것 테크 블로그</figcaption><p></p>
-</figure>
-</div>
-</section>
-<section id="deep-reinforcement-learning" class="level1">
-<h1><span style="color:black"> <strong>Deep Reinforcement Learning</strong></span></h1>
-<section id="experience-replay" class="level2">
-<h2 class="anchored" data-anchor-id="experience-replay"><span style="color:black"> <strong>experience replay</strong></span></h2>
+<section id="reinforcement-learning" class="level1">
+<h1><span style="color:black"> <strong>Reinforcement Learning</strong></span></h1>
+<section id="강화학습이란" class="level2">
+<h2 class="anchored" data-anchor-id="강화학습이란"><span style="color:black"> <strong>강화학습이란?</strong></span></h2>
 <ul>
-<li><strong>store the agent’s experiences</strong> at each time-step, et = (st , at , rt , st+1 ) in a data-set D = e1 , …, eN</li>
-<li><strong>During the inner loop of the algorithm</strong>, we apply Q-learning updates, or minibatch updates, to samples of experience, e ∼ D, <strong>drawn at random from the pool of stored samples</strong>.</li>
-<li>After performing experience replay, the <strong>agent selects and executes an action according to an -greedy policy</strong>.</li>
+<li>강화학습은 어떤 <code>situation</code>에서 어떻게 <code>action</code>을 <code>대응</code>시킬지를 배우는 <code>학습</code>이다.</li>
+<li><code>learner</code>에게 <strong>어떤 행동을 취해야할지 알려주지 않으며</strong> 따라서 learner는 <strong>어떤 <code>action</code>이 가장 많은 <code>reward</code>를 주는지 여러번 <code>시도</code>하면서 <code>발견</code>해야 합니다.</strong></li>
+<li>대부분의 문제에서 action은 즉각적으로 받는 reward 뿐만 아니라 <strong>다음 situation과 뒤따르는 모든 후속 reward에 영향을 미칠 수 있습니다.</strong></li>
+<li>이와 같은 강화학습의 두 가지 특성 <code>trial and error search</code> 그리고 <code>delayed reward</code>는 강화학습의 가장 중요하면서 차별적인 두 가지 특징입니다.</li>
 </ul>
 </section>
-<section id="algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="algorithm"><span style="color:black"> <strong>algorithm</strong></span></h2>
-<p><img src="./DQn algorithm.jpg" class="img-fluid"></p>
+<section id="강화학습-vs-지도학습" class="level2">
+<h2 class="anchored" data-anchor-id="강화학습-vs-지도학습"><span style="color:black"> <strong>강화학습 vs 지도학습</strong></span></h2>
+<ul>
+<li><code>지도학습</code>은 labeling이 되어 있는 example(또는 observation)또는 training set으로부터 학습합니다.</li>
+<li>각 example은 situation과 그때의 situation에 대해 시스템이 취해야 하는 올바른 행동(label)에 대한 label입니다.</li>
+<li><code>지도학습</code>의 목적은 training set에 없었던 상황에서 올바르게 동작하도록 <code>extrapolate(추론)</code>하거나 <code>generalization(일반화)</code>하는 것입니다.</li>
+<li>상호작용하는 문제에서 <code>agent</code>에게 <strong>바라거나,해야하는 행동을 정확히 대표하는 예시를 얻는 다는 것은 비현실적</strong>입니다. (쉽게 생각해보자면 말하자면 정확히 어떤 상황에서 어떤 행동을 하라고 정확하게 알려주는 것은 불가능하다. 아마도 상황이 수없이 많을 뿐더러 어떤 행동이 최적의 선택인지도 모르기 때문인 것 같다.)</li>
+<li>미지의 영역(학습이 가장 도움이 될 것으로 예상되는)에서 <strong>에이전트는 자신의 경험으로 부터 스스로 배울 수 있어야 합니다.</strong></li>
+</ul>
+</section>
+<section id="강화학습-vs-비지도학습" class="level2">
+<h2 class="anchored" data-anchor-id="강화학습-vs-비지도학습"><span style="color:black"> <strong>강화학습 vs 비지도학습</strong></span></h2>
+<ul>
+<li><code>비지도학습</code>은 unlabeled data에 대한 hidden structure를 찾는 것이 목적입니다.</li>
+<li>강화학습이 correct behavior에 대한 labeled data를 가지고 있지 않기 때문에 누군가는 비지도 학습으로 착각하기도 하지만 강화학습의 목적은 reward signal을 최대화 하는 것이 목적이며 비지도학습 처럼 hidden structure를 찾는 것이 목적이 아닙니다.</li>
+<li>물론 hidden structure를 찾는 것이 강화학습에 유용할 수는 있지만 <strong>reward signal을 최대화하는 것이 목적</strong>이라는 강화학습의 문제를 설명하지 못합니다.</li>
+</ul>
+</section>
+<section id="exploration-vs-exploitation" class="level2">
+<h2 class="anchored" data-anchor-id="exploration-vs-exploitation"><span style="color:black"> <strong>exploration vs exploitation</strong></span></h2>
+<ul>
+<li>강화학습에만 존재하는 한가지 문제는 <code>exploration</code>과 <code>exploitation</code>사이의 <code>trade-off</code>입니다.</li>
+<li><code>exploration</code>,<code>exploitation</code>은 의사결정문제에서 가능한 두가지 행동방식으로 서로간에 장단점을 가집니다.</li>
+<li><code>exploitation</code>
+<ul>
+<li>더 많은 reward를 얻기 위해 지금까지의 데이터를 통해 optimal하다고 여겨지는 decision을 선택하는 것입니다.(알려진 것을 계속 연구하는 것)</li>
+<li>리워드를 최대화하기위해 알려진 정보를 사용하여 행동하는 것입니다.</li>
+</ul></li>
+<li><code>exploration</code>
+<ul>
+<li>지금까지 데이터를 통해 optimal하다고 여겨지는 decision을 선택하지 않는 것 입니다.</li>
+<li>environment에 대해서 더 많은 정보를 찾기위해 랜덤하게 행동하는 것입니다.</li>
+<li>이는 관측된 데이터가 best option을 결정하기에 충분하지 않다는 사실을 가정합니다.(알려진 것을 거부하고 새롭게 탐험하는 것).</li>
+</ul></li>
+</ul>
 
 
 </section>
