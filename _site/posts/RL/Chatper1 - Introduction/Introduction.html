@@ -199,11 +199,18 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="exploration-vs-exploitation"><span style="color:black"> <strong>exploration vs exploitation</strong></span></h2>
 <ul>
 <li>강화학습에만 존재하는 한가지 문제는 <code>exploration</code>과 <code>exploitation</code>사이의 <code>trade-off</code>입니다.</li>
-<li><code>exploit</code> : 더 많은 reward를 얻기 위해서는 강화학습의 agent는 과거에 시도되었고 reward를 제공하는데에 더 효과적이라고 알려진 action을 선호해야 합니다.</li>
-<li><code>explore</code> : 하지만 이러한 효과적인 action들을 발견하기 위해서는 이전에는 선택되지 않았던 action들을 시도해야 합니다.</li>
-<li>여기서 딜레마는 exploration이나 exploitation이 작업에서 실패하지 않고 따로 정해질 수 없다는 것입니다.</li>
-<li>agent는 다양한 action을 시도해봐야 하며 최고로 보이는 것을 점진적으로 선호해야 합니다.</li>
-<li></li>
+<li><code>exploration</code>,<code>exploitation</code>은 의사결정문제에서 가능한 두가지 행동방식으로 서로간에 장단점을 가집니다.</li>
+<li><code>exploitation</code>
+<ul>
+<li>더 많은 reward를 얻기 위해 지금까지의 데이터를 통해 optimal하다고 여겨지는 decision을 선택하는 것입니다.(알려진 것을 계속 연구하는 것)</li>
+<li>리워드를 최대화하기위해 알려진 정보를 사용하여 행동하는 것입니다.</li>
+</ul></li>
+<li><code>exploration</code>
+<ul>
+<li>지금까지 데이터를 통해 optimal하다고 여겨지는 decision을 선택하지 않는 것 입니다.</li>
+<li>environment에 대해서 더 많은 정보를 찾기위해 랜덤하게 행동하는 것입니다.</li>
+<li>이는 관측된 데이터가 best option을 결정하기에 충분하지 않다는 사실을 가정합니다.(알려진 것을 거부하고 새롭게 탐험하는 것).</li>
+</ul></li>
 </ul>
 
 

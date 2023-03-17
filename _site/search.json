@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "HIHO",
     "section": "",
-    "text": "Untitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nBellman Equation\n\n\n\n\n\n\n\n\n\n \n\n\n\nStochastic Process\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nSequence to Sequence Learning with Neural Networks\n\n\n\n3/11/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuto-Encoding Variational Bayes(작성중)\n\n\n\n3/6/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Introduction\n\n\n\n3/6/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGenarative Adversarial Nets\n\n\n\n3/4/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBatch Normalization(작성중)\n\n\n\n2/27/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nEigendecomposition & Property\n\n\n\n2/10/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuadratic Form(작성중)\n\n\n\n2/10/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n2/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDQN\n\n\n\n2/3/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\neigenvalue & eigenvector\n\n\n\n1/31/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-1 Markov Decision process and property\n\n\nMDP와 중요한 property 정리\n\n\n\n1/22/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 1 - 강화학습 용어정리\n\n\n강화학습 공부하면서 용어정리\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-2 Reward & Return & State Value f & Action Value f\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[PRML 읽기] 1 - 확률론 개요\n\n\nSum rule, Product rule, Baye’s rule,random variable independence\n\n\n\n1/15/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[PRML 읽기] 2 - 확률론 개요(작성중 …)\n\n\nprobability density, expectation and covariance, Bayesian probabilities,Gausian distribution\n\n\n\n1/15/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimension Reduction using Auto Encoder with pytorch\n\n\n\n1/12/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv.1시저암호\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv1.이상한 문자 만들기\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv1.크기가 작은 부분 문자열\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeast Squares\n\n\n열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnp.meshgrid\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률론 용어정리\n\n\nrandom variable,event,sample space,probability distribution,randomsample,realization\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinite Difference Method with np.gradient\n\n\n\n1/7/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplotly 시각화 모음\n\n\n\n1/6/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAx=b의 해의 갯수 알아내기\n\n\n\n1/5/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrank & null space(kernel)\n\n\n\n1/5/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nLinear Combination & Span\n\n\n\n1/3/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n행렬곱에 대한 여러가지 관점\n\n\n\n1/2/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n12/30/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n카테고리 분포\n\n\n\n12/30/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMLE & MAP (작성중)\n\n\n\n12/29/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n12/27/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression\n\n\n\n12/26/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n12/25/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n\n12/24/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\npytorch로 Rnn구현하기\n\n\n\n12/24/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n2/9/22\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Import\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nBellman Equation\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] injection,subjection,bijection\n\n\n\n3/17/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSequence to Sequence Learning with Neural Networks\n\n\n\n3/11/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuto-Encoding Variational Bayes(작성중)\n\n\n\n3/6/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Introduction\n\n\n\n3/6/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGenarative Adversarial Nets\n\n\n\n3/4/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBatch Normalization(작성중)\n\n\n\n2/27/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nEigendecomposition & Property\n\n\n\n2/10/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuadratic Form(작성중)\n\n\n\n2/10/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n2/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDQN\n\n\n\n2/3/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\neigenvalue & eigenvector\n\n\n\n1/31/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-1 Markov Decision process and property\n\n\nMDP와 중요한 property 정리\n\n\n\n1/22/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 1 - 강화학습 용어정리\n\n\n강화학습 공부하면서 용어정리\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-2 Reward & Return & State Value f & Action Value f\n\n\n\n1/21/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[PRML 읽기] 1 - 확률론 개요\n\n\nSum rule, Product rule, Baye’s rule,random variable independence\n\n\n\n1/15/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n[PRML 읽기] 2 - 확률론 개요(작성중 …)\n\n\nprobability density, expectation and covariance, Bayesian probabilities,Gausian distribution\n\n\n\n1/15/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimension Reduction using Auto Encoder with pytorch\n\n\n\n1/12/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv.1시저암호\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv1.이상한 문자 만들기\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[프로그래머스]Lv1.크기가 작은 부분 문자열\n\n\n\n1/9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeast Squares\n\n\n열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률론 용어정리\n\n\nrandom variable,event,sample space,probability distribution,randomsample,realization\n\n\n\n1/8/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinite Difference Method with np.gradient\n\n\n\n1/7/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplotly 시각화 모음\n\n\n\n1/6/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAx=b의 해의 갯수 알아내기\n\n\n\n1/5/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrank & null space(kernel)\n\n\n\n1/5/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nLinear Combination & Span\n\n\n\n1/3/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n행렬곱에 대한 여러가지 관점\n\n\n\n1/2/23\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n12/30/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n카테고리 분포\n\n\n\n12/30/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMLE & MAP (작성중)\n\n\n\n12/29/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n12/27/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression\n\n\n\n12/26/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n12/25/22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n\n12/24/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\npytorch로 Rnn구현하기\n\n\n\n12/24/22\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n2/9/22\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/coading test/programmers시저암호.html",
@@ -977,6 +977,370 @@
     "href": "posts/RL/Chatper1 - Introduction/Introduction.html#exploration-vs-exploitation",
     "title": "[강화학습] Introduction",
     "section": " exploration vs exploitation",
-    "text": "exploration vs exploitation\n\n강화학습에만 존재하는 한가지 문제는 exploration과 exploitation사이의 trade-off입니다.\nexploit : 더 많은 reward를 얻기 위해서는 강화학습의 agent는 과거에 시도되었고 reward를 제공하는데에 더 효과적이라고 알려진 action을 선호해야 합니다.\nexplore : 하지만 이러한 효과적인 action들을 발견하기 위해서는 이전에는 선택되지 않았던 action들을 시도해야 합니다.\n여기서 딜레마는 exploration이나 exploitation이 작업에서 실패하지 않고 따로 정해질 수 없다는 것입니다.\nagent는 다양한 action을 시도해봐야 하며 최고로 보이는 것을 점진적으로 선호해야 합니다."
+    "text": "exploration vs exploitation\n\n강화학습에만 존재하는 한가지 문제는 exploration과 exploitation사이의 trade-off입니다.\nexploration,exploitation은 의사결정문제에서 가능한 두가지 행동방식으로 서로간에 장단점을 가집니다.\nexploitation\n\n더 많은 reward를 얻기 위해 지금까지의 데이터를 통해 optimal하다고 여겨지는 decision을 선택하는 것입니다.(알려진 것을 계속 연구하는 것)\n리워드를 최대화하기위해 알려진 정보를 사용하여 행동하는 것입니다.\n\nexploration\n\n지금까지 데이터를 통해 optimal하다고 여겨지는 decision을 선택하지 않는 것 입니다.\nenvironment에 대해서 더 많은 정보를 찾기위해 랜덤하게 행동하는 것입니다.\n이는 관측된 데이터가 best option을 결정하기에 충분하지 않다는 사실을 가정합니다.(알려진 것을 거부하고 새롭게 탐험하는 것)."
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html",
+    "title": "HIHO",
+    "section": "",
+    "text": "import numpy as np\nimport pandas as pd"
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html#data",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html#data",
+    "title": "HIHO",
+    "section": "Data",
+    "text": "Data\n\ns = pd.Series([\"cat\",\"dog\",np.nan,\"rabbit\"])"
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html#arg가-dict인-경우",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html#arg가-dict인-경우",
+    "title": "HIHO",
+    "section": "arg가 dict인 경우",
+    "text": "arg가 dict인 경우\n\ns.map({\"cat\":\"kitten\",\"dog\":\"puppy\"})\n\n0    kitten\n1     puppy\n2       NaN\n3       NaN\ndtype: object\n\n\n\nSeries의 값 중 dict의 key와 일치하는 값이 없으면 NaN으로 바뀜."
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html#arg가-series인-경우",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html#arg가-series인-경우",
+    "title": "HIHO",
+    "section": "arg가 Series인 경우",
+    "text": "arg가 Series인 경우\n\ns2 = pd.Series([\"lion\",\"elephant\",\"dog\",np.nan])\ns.map(s2)\n\n0    NaN\n1    NaN\n2    NaN\n3    NaN\ndtype: object"
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html#arg가-function인-경우",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html#arg가-function인-경우",
+    "title": "HIHO",
+    "section": "arg가 function인 경우",
+    "text": "arg가 function인 경우\n\ns.map(lambda x : \"I am a {}\".format(x))\n\n0    I am a 0.1\n1    I am a 3.0\n2    I am a 2.0\n3    I am a 0.4\ndtype: object"
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html#잘못된-사용-예시",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html#잘못된-사용-예시",
+    "title": "HIHO",
+    "section": "잘못된 사용 예시",
+    "text": "잘못된 사용 예시\ns = pd.Series([0.1,3,2,0.4])\ns.map(lambda x : sum(x))\n>>> TypeError: 'float' object is not iterable\n\n각각의 값(여기선 float)이 따로따로 함수(mapping)이 입력된다. 하지만 sum함수는 float형을 input으로 할 수 없으므로 오류 발생함.(float형은 iterable하지 않음)"
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html#data-1",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html#data-1",
+    "title": "HIHO",
+    "section": "Data",
+    "text": "Data\n\nn1 = pd.Series([0.1,4,0.35,2])\nn2 = pd.Series([0.3,0.4,3,-5])\ndf = pd.DataFrame({\"n1\":n1,\"n2\":n2})\ndf\n\n\n\n\n\n  \n    \n      \n      n1\n      n2\n    \n  \n  \n    \n      0\n      0.10\n      0.3\n    \n    \n      1\n      4.00\n      0.4\n    \n    \n      2\n      0.35\n      3.0\n    \n    \n      3\n      2.00\n      -5.0"
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html#column에-function-적용",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html#column에-function-적용",
+    "title": "HIHO",
+    "section": "column에 function 적용",
+    "text": "column에 function 적용\n\ncolumn vector에 함수 적용한다고 생각하자.\n\n\ndf.apply(func = lambda x : sum(x)/len(x),axis=0)\n\nn1    1.6125\nn2   -0.3250\ndtype: float64\n\n\n\ndf.apply(np.mean,axis=0)\n\nn1    1.6125\nn2   -0.3250\ndtype: float64\n\n\n\n#vector에 elementwise**2\n#np.array를 **2하면 모든 원소가 제곱되는 것과 같다.\ndf.apply(func = lambda x : x ** 2,axis=0)\n\n\n\n\n\n  \n    \n      \n      n1\n      n2\n    \n  \n  \n    \n      0\n      0.0100\n      0.09\n    \n    \n      1\n      16.0000\n      0.16\n    \n    \n      2\n      0.1225\n      9.00\n    \n    \n      3\n      4.0000\n      25.00\n    \n  \n\n\n\n\n\n#vector에 elementwise로 sin취함.\ndf.apply(func = lambda x : np.sin(x),axis=0)\n\n\n\n\n\n  \n    \n      \n      n1\n      n2\n    \n  \n  \n    \n      0\n      0.099833\n      0.295520\n    \n    \n      1\n      -0.756802\n      0.389418\n    \n    \n      2\n      0.342898\n      0.141120\n    \n    \n      3\n      0.909297\n      0.958924"
+  },
+  {
+    "objectID": "posts/numpy & pandas/pandas apply map applymap.html#row에-function-적용",
+    "href": "posts/numpy & pandas/pandas apply map applymap.html#row에-function-적용",
+    "title": "HIHO",
+    "section": "row에 function 적용",
+    "text": "row에 function 적용\n\nrow vector에 함수 적용.\n\n\ndf.apply(sum,axis=1)\n\n0    0.40\n1    4.40\n2    3.35\n3   -3.00\ndtype: float64\n\n\n\ndf.apply(np.sin,axis=1)\n\n\n\n\n\n  \n    \n      \n      n1\n      n2\n    \n  \n  \n    \n      0\n      0.099833\n      0.295520\n    \n    \n      1\n      -0.756802\n      0.389418\n    \n    \n      2\n      0.342898\n      0.141120\n    \n    \n      3\n      0.909297\n      0.958924\n    \n  \n\n\n\n\n\n#vector에 elementwise**2\n#np.array를 **2하면 모든 원소가 제곱되는 것과 같다.\ndf.apply(func = lambda x : x ** 2,axis=1)\n\n\n\n\n\n  \n    \n      \n      n1\n      n2\n    \n  \n  \n    \n      0\n      0.0100\n      0.09\n    \n    \n      1\n      16.0000\n      0.16\n    \n    \n      2\n      0.1225\n      9.00\n    \n    \n      3\n      4.0000\n      25.00"
+  },
+  {
+    "objectID": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html",
+    "href": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html",
+    "title": "Finite Difference Method with np.gradient",
+    "section": "",
+    "text": "\\({\\bf x} =\\begin{bmatrix}x_1&x_2&\\dots&x_m\\end{bmatrix}^T\\)일 때, \\(x\\)에 대한 다변수함수 \\(f({\\bf x})\\)의 gradient는 다음과 같다.\n\\[\\begin{aligned}\n&\\text{gradient of }f({\\bf{x}}) = \\frac{\\partial f}{\\partial {\\bf x}} = \\nabla f(\\bf{x}) =\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x_1} \\\\ \\frac{\\partial f}{\\partial x_2} \\\\ \\vdots \\\\ \\frac{\\partial }{\\partial x_m}\n\\end{pmatrix}\n\\end{aligned}\\]\n함수가 가지는 모든 변수에 대해서 편미분 한 뒤 모아놓은 벡터라고 생각하면 된다. 함수의 수식을 알고 미분이 가능하면 우리는 해석적으로 미분해서(미분공식써서) 그레디언트를 구하고 각각의 어떤 point에서의 편미분계수들도 구할 수 있다. 그러나 우리가 주어진 데이터는 함수f의 함숫값들이 주어진다. 예를 들면 다음과 같다.\n\nimport numpy as np\nf = np.array([1,2,4,7,11,17],dtype = float)\nprint(\"f(x)\")\nprint(f)\n\nf(x)\n[ 1.  2.  4.  7. 11. 17.]\n\n\n위와 같은 함숫값들만 주어질때에는 원래의 함수를 알기는 불가능하다. 따라서 도함수를 통한 정확한 미분계수를 구하기가 불가능하므로 주어진 데이터로 \\(\\bf x\\)에서의 미분계수의 값을 근사적으로 구할 수 있는데 이를 수치미분이라 한다."
+  },
+  {
+    "objectID": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#차원-배열의-경우",
+    "href": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#차원-배열의-경우",
+    "title": "Finite Difference Method with np.gradient",
+    "section": "1차원 배열의 경우",
+    "text": "1차원 배열의 경우\n\nEx) \\(dx\\) = 1\n넘파이 1차원 배열이 다음과 같이 주어져 있다고 하자.\n\nfrom IPython.display import display, Markdown\nf = np.array([1,2,4,7,11,16],dtype=float)\nprint(f)\n\n[ 1.  2.  4.  7. 11. 16.]\n\n\nnp.gradient함수는 1차원 배열의 내부에 있는 각각의 값들은 \\(x\\)값이 거리가 \\(dx\\)=1씩 변화할때마다의 함숫값\\(f(x)\\)들로 이해한다. 즉,다음과 같다.\n\nfor i in range(len(f)):\n    display(Markdown(rf'$x_{i+1}$에서의 함숫값 $f(x_{i+1})$ = {f[i]}'))\n\n\\(x_1\\)에서의 함숫값 \\(f(x_1)\\) = 1.0\n\n\n\\(x_2\\)에서의 함숫값 \\(f(x_2)\\) = 2.0\n\n\n\\(x_3\\)에서의 함숫값 \\(f(x_3)\\) = 4.0\n\n\n\\(x_4\\)에서의 함숫값 \\(f(x_4)\\) = 7.0\n\n\n\\(x_5\\)에서의 함숫값 \\(f(x_5)\\) = 11.0\n\n\n\\(x_6\\)에서의 함숫값 \\(f(x_6)\\) = 16.0\n\n\n위에서 넘파이의 그래디언트는 끝값을 제외한 내부의 요소에는 중앙차분근사 양끝값에 대해서는 후향차분 또는 전향차분을 사용한다고 언급했었다. 계산한,\\(x_2,x_5\\)에서 미분계수의 2차중앙차분근사는 다음과 같다.\n\\[\\begin{aligned}\n&f^{'}(x_2) \\overset{\\sim}{=} \\frac{f(x_3)-f(x_1)}{2h} = \\frac{4-1}{2} = 1.5 \\\\\n&f^{'}(x_5) \\overset{\\sim}{=} \\frac{f(x_6)-f(x_4)}{2h} = \\frac{16-7}{2} = 4.5 \\\\\n&\\text{where, } h = x_3-x_2 = x_2-x_1 = 1\n\\end{aligned}\\]\n1차원 배열의 가장 처음에 오는 값에 전향차분근사를 사용하고 가장 마지막에 오는 값에서는 후향차분근사를 사용한다.\n\\[\\begin{aligned}\n&f^{'}(x_1) = \\frac{f(x_2) - f(x_1)}{h} = \\frac{2-1}{1} = 1 \\\\\n&f^{'}(x_6) = \\frac{f(x_6) - f(x_5)}{h} = \\frac{16-11}{1} = 5\n\\end{aligned}\\]\n계산한 값과 실제로 일치하는지 확인.\n\nnum_diff = np.gradient(f)\nprint(\"np.gradient의 출력값\")\nprint(num_diff)\nfor i in range(len(num_diff)):\n    display(Markdown(rf'$x_{i+1}$에서의 도함수의 근삿값 $\\frac{{dy}}{{dx}}|_{{x = x_{i+1}}}$ ~= {num_diff[i]}'))\n\nnp.gradient의 출력값\n[1.  1.5 2.5 3.5 4.5 5. ]\n\n\n\\(x_1\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_1}\\) ~= 1.0\n\n\n\\(x_2\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_2}\\) ~= 1.5\n\n\n\\(x_3\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_3}\\) ~= 2.5\n\n\n\\(x_4\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_4}\\) ~= 3.5\n\n\n\\(x_5\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_5}\\) ~= 4.5\n\n\n\\(x_6\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_6}\\) ~= 5.0\n\n\n\n\nEx) \\(dx \\not = 1\\) (default가 아닐 경우)\n거리\\(dx=2\\)일때 계산한,\\(x_2,x_5\\)에서 미분계수의 2차중앙차분근사는 다음과 같다.\n\\[\\begin{aligned}\n&f^{'}(x_2) \\overset{\\sim}{=} \\frac{f(x_3)-f(x_1)}{2h} = \\frac{4-1}{4} = 0.75 \\\\\n&f^{'}(x_5) \\overset{\\sim}{=} \\frac{f(x_6)-f(x_4)}{2h} = \\frac{16-7}{4} = 2.25 \\\\\n&\\text{where, } h = x_3-x_1 = x_6-x_4 = 2\n\\end{aligned}\\]\n거리가 \\(dx=2\\)일때 배열의 양 끝값에서 전향,후향차분근사를 통한 미분계수의 값은 다음과 같다.\n\\[\\begin{aligned}\n&f^{'}(x_1) = \\frac{f(x_2) - f(x_1)}{h} = \\frac{2-1}{2} = 0.5 \\\\\n&f^{'}(x_6) = \\frac{f(x_6) - f(x_5)}{h} = \\frac{16-11}{2} = 2.5\n\\end{aligned}\\]\nx값 사이의 거리\\(dx\\)를 바꾸고 싶다면? => 두번째 인수에 스칼라 대입하면 된다.\n\ndx = 2\nnum_diff = np.gradient(f,dx)\nprint(\"np.gradient의 출력값\")\nprint(num_diff)\nfor i in range(len(num_diff)):\n    display(Markdown(rf'$x_{i+1}$에서의 도함수의 근삿값 $\\frac{{dy}}{{dx}}|_{{x = x_{i+1}}}$ ~= {num_diff[i]}'))\n\nnp.gradient의 출력값\n[0.5  0.75 1.25 1.75 2.25 2.5 ]\n\n\n\\(x_1\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_1}\\) ~= 0.5\n\n\n\\(x_2\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_2}\\) ~= 0.75\n\n\n\\(x_3\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_3}\\) ~= 1.25\n\n\n\\(x_4\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_4}\\) ~= 1.75\n\n\n\\(x_5\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_5}\\) ~= 2.25\n\n\n\\(x_6\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_6}\\) ~= 2.5\n\n\n\n\nEx) x값의 좌표를 직접 정해주는 경우\n이전에는 각각의 인덱스간의 거리는 모두 동일하게 기본값 1이거나 다른값을 사용했다. 그러지 않고 \\(x_1,x_2,\\dots,x_6\\)의 좌표를 직접 지정해주는 것도 가능하다. 함수의 2번재 인수에 좌표를 직접 넣어주면 된다.\n먼저 x값의 좌표를 다음과 같다고 해보자.\n\nx = np.array([0., 1., 1.5, 3.5, 4., 6.], dtype=float)\nf = np.array([1,2,4,7,11,16],dtype=float)\nprint(\"각각의 좌표와 함숫값\")\nfor i in range(len(x)):\n    display(Markdown(rf'$x_{i+1}$ = {x[i]}, $f(x_{i+1})$ = {f[i]}'))\n\n각각의 좌표와 함숫값\n\n\n\\(x_1\\) = 0.0, \\(f(x_1)\\) = 1.0\n\n\n\\(x_2\\) = 1.0, \\(f(x_2)\\) = 2.0\n\n\n\\(x_3\\) = 1.5, \\(f(x_3)\\) = 4.0\n\n\n\\(x_4\\) = 3.5, \\(f(x_4)\\) = 7.0\n\n\n\\(x_5\\) = 4.0, \\(f(x_5)\\) = 11.0\n\n\n\\(x_6\\) = 6.0, \\(f(x_6)\\) = 16.0\n\n\n각각의 좌표에서 도함수의 근삿값을 구하면 아래와 같다.(수식 계산은 잘 모르겠네요 … 추후에 더 공부하겠습니다!)\n\nnum_diff = np.gradient(f,x)\nprint(\"np.gradient의 출력값\")\nprint(num_diff)\nfor i in range(len(num_diff)):\n    display(Markdown(rf'$x_{i+1}$에서의 도함수의 근삿값 $\\frac{{dy}}{{dx}}|_{{x = x_{i+1}}}$ ~= {num_diff[i]}'))\n\nnp.gradient의 출력값\n[1.  3.  3.5 6.7 6.9 2.5]\n\n\n\\(x_1\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_1}\\) ~= 1.0\n\n\n\\(x_2\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_2}\\) ~= 2.9999999999999996\n\n\n\\(x_3\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_3}\\) ~= 3.5\n\n\n\\(x_4\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_4}\\) ~= 6.700000000000001\n\n\n\\(x_5\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_5}\\) ~= 6.899999999999999\n\n\n\\(x_6\\)에서의 도함수의 근삿값 \\(\\frac{dy}{dx}|_{x = x_6}\\) ~= 2.5"
+  },
+  {
+    "objectID": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#차원-배열의-경우-1",
+    "href": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#차원-배열의-경우-1",
+    "title": "Finite Difference Method with np.gradient",
+    "section": "2차원 배열의 경우",
+    "text": "2차원 배열의 경우\n2차원 배열의 경우 axis=0(세로축)과 axis=1(가로축) 두 축방향으로 계산한 도함수의 근삿값을 반환한다.axis=0일 경우 각각의 열마다 따로따로 독립적으로 \\(x_1,x_2...\\)에 대한 함숫값\\(f(x_1),f(x_2),\\dots\\)이 있다고 생각하면 되고 axis=1일 경우 각각의 행마다 따로따로 독립적으로 \\(x_1,x_2...\\)에 대한 함숫값\\(f(x_1),f(x_2),\\dots\\)이 있다고 생각하면 된다.또한 1차원 배열과 유사하게 각각의 행,열의 끝값에는 전향or후향차분근사를 행,열의 내부에 있는 값은 중앙차분근사를 사용한다.\n\nEx) \\(dx=1,dy=1\\)\n2차원 배열은 다음과 같다.\n\nnp.array([[1, 2, 6], [3, 4, 5]], dtype=float)\n\narray([[1., 2., 6.],\n       [3., 4., 5.]])\n\n\n\nax0_difcoef,ax1_difcoef= np.gradient(np.array([[1, 2, 6], [3, 4, 5]], dtype=float))\nprint(f'axis = 0 방향으로 도함수의 근삿값 계산 \\n{ax0_difcoef}')\nprint(f'axis = 1 방향으로 도함수의 근삿값 계산 \\n{ax1_difcoef}')\n\naxis = 0 방향으로 도함수의 근삿값 계산 \n[[ 2.  2. -1.]\n [ 2.  2. -1.]]\naxis = 1 방향으로 도함수의 근삿값 계산 \n[[1.  2.5 4. ]\n [1.  1.  1. ]]\n\n\n\n\nEx) \\(dx \\not = 1,dy \\not = 1\\) (default가 아닌 경우)\n각각의 행,열마다 거리를 따로 설정해주고 싶은 경우? => 스칼라 2개 인수로 전달.\n\ndx = 2;dy = 2\nax0_difcoef,ax1_difcoef= np.gradient(np.array([[1, 2, 6], [3, 4, 5]], dtype=float),dx,dy)\nprint(f'axis = 0 방향으로 도함수의 근삿값 계산 \\n{ax0_difcoef}')\nprint(f'axis = 1 방향으로 도함수의 근삿값 계산 \\n{ax1_difcoef}')\n\naxis = 0 방향으로 도함수의 근삿값 계산 \n[[ 1.   1.  -0.5]\n [ 1.   1.  -0.5]]\naxis = 1 방향으로 도함수의 근삿값 계산 \n[[0.5  1.25 2.  ]\n [0.5  0.5  0.5 ]]"
+  },
+  {
+    "objectID": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#전향차분근사-유도",
+    "href": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#전향차분근사-유도",
+    "title": "Finite Difference Method with np.gradient",
+    "section": "전향차분근사 유도",
+    "text": "전향차분근사 유도\n\\(x_1,x_2,\\dots,x_{i-1},x_i,x_{i+1},\\dots,x_n\\)과 각각에 대응하는 함숫값 \\(f(x_1),f(x_2),\\dots,f(x_{i-1}),f(x_i),f(x_{i+1}),\\dots,f(x_n)\\) 주어진 데이터라고 가정하자. 목적은 x_i에서의 미분계수를 구하는 것이다. \\(a = x_i\\)에서 함수\\(f(x)\\)의 테일러 급수 근사는 다음과 같다. \\[f(x) = \\sum_{n=0}^{\\infty}\\frac{f^{n}(x_i)}{n!}(x-x_i)^n = f(x_i) + \\frac{f^{'}(x_i)}{1!}(x-x_i) + \\frac{f^{''}(x_i)}{2!}(x-x_i)^2 + \\dots \\]\n\\(x=x_{i+1}\\)에서의 함숫값은 다음과 같다. \\[f(x_{i+1}) = \\sum_{n=0}^{\\infty}\\frac{f^{n}(x_i)}{n!}(x_{i+1}-x_i)^n = f(x_i) + \\frac{f^{'}(x_i)}{1!}(x_{i+1}-x_i) + \\frac{f^{''}(x_i)}{2!}(x_{i+1}-x_i)^2 + \\dots \\]\n\\(f'(x_i)\\)가 포함된항만 남겨두고 나머지는 이항하면 다음과 같다. \\[f^{'}(x_i)(x_{i+1}-x_i) = f(x_{i+1}) - f(x_i) - \\frac{f^{''}(x_i)}{2!}(x_{i+1}-x_i)^2 + \\dots\\]\n\\(h = x_{i+1}-x_i\\)로 두고 양변을 h로 나누면 다음과 같다. \\[f'(x_i) = \\frac{f(x_{i+1})}{h} - \\frac{f(x_i)}{h} - \\frac{hf^{''}(x_i)}{2!} - \\frac{h^2f^{'''}(x_i)}{3!}\\]\n여기서 우변의 두개의 항만 남겨두고 \\(O(h) = - \\frac{hf^{''}(x_i)}{2!} - \\frac{h^2f^{'''}(x_i)}{3!} - \\dots\\)라 하면 다음과 같다. \\[\\begin{align}\n&f'(x_i) \\overset{\\sim}{=} \\frac{f(x_{i+1})-f(x_i)}{h}\\\\\n&O(h) = - \\frac{hf^{''}(x_i)}{2!} - \\frac{h^2f^{'''}(x_i)}{3!} - \\dots\\\\\n&\\text{where, } h = x_{i+1} - x_i \\nonumber\n\\end{align}\\]"
+  },
+  {
+    "objectID": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#후향차분근사-유도",
+    "href": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#후향차분근사-유도",
+    "title": "Finite Difference Method with np.gradient",
+    "section": "후향차분근사 유도",
+    "text": "후향차분근사 유도\n\\(x_1,x_2,\\dots,x_{i-1},x_i,x_{i+1},\\dots,x_n\\)과 각각에 대응하는 함숫값 \\(f(x_1),f(x_2),\\dots,f(x_{i-1}),f(x_i),f(x_{i+1}),\\dots,f(x_n)\\) 주어진 데이터라고 가정하자. 목적은 x_i에서의 미분계수를 구하는 것이다. \\(a = x_i\\)에서 함수\\(f(x)\\)의 테일러 급수 근사는 다음과 같다. \\[f(x) = \\sum_{n=0}^{\\infty}\\frac{f^{n}(x_i)}{n!}(x-x_i)^n = f(x_i) + \\frac{f^{'}(x_i)}{1!}(x-x_i) + \\frac{f^{''}(x_i)}{2!}(x-x_i)^2 + \\dots \\]\n\\(f(x_i)\\)는 다음과 같다. \\[f(x_{i-1}) = \\sum_{n=0}^{\\infty}\\frac{f^n(x_i)}{n!}(x_{i-1}-x_i)^n = f(x_i) + \\frac{f^{'}(x_i)}{1!}(x_{i-1}-x_i) + \\frac{f^{''}(x_i)}{2!}(x_{i-1}-x_i)^2+\\dots \\]\n1차미분이 포함된 항만 남기고 나머지는 이항하면 다음과 같다. \\[f^{'}(x_i)(x_{i-1}-x_i) = f(x_{i-1}) - f(x_i) - \\frac{f^{''}(x_i)}{2!}(x_{i-1}-x_i)^2-\\frac{f^{'''}(x_i)}{3!}(x_{i-1}-x_i)^3-\\dots \\]\n\\(h = x_{i} - x_{i-1}\\)로 놓으면 다음과 같다. \\[f^{'}(x_i)(-h) = f(x_{i-1}) - f(x_i) - \\frac{f^{''}(x_i)}{2!}h^2+\\frac{f^{'''}(x_i)}{3!}h^3-\\dots \\]\n양변을 \\(-h\\)로 나누면 다음과 같다.\n\\[\\begin{aligned}\nf^{'}(x_i) &= \\frac{f(x_{i-1})}{-h} + \\frac{f(x_i)}{h} + \\frac{f^{''}(x_i)}{2!}h-\\frac{f^{'''}(x_i)}{3!}h^2+\\dots \\\\\n&=\\frac{f(x_i)-f(x_{i-1}) }{h} +  \\frac{f^{''}(x_i)}{2!}h-\\frac{f^{'''}(x_i)}{3!}h^2+\\dots\n\\end{aligned}\\]\n마찬가지로 우변의 두개 항만 남겨두고 \\(O(h) = \\frac{hf^{''}(x_i)}{2!} - \\frac{h^2f^{'''}(x_i)}{3!} + \\dots\\)라 하면 다음과 같다. \\[\\begin{align}\n&f'(x_i) \\overset{\\sim}{=} \\frac{f(x_{i})-f(x_{i-1})}{h}\\\\\n&O(h) = \\frac{h}{2!}f^{''}(x_i) - \\frac{h^2}{3!}f{'''}(x_i)+\\dots \\\\\n&\\text{where, } h = x_{i} - x_{i-1}, \\nonumber\n\\end{align}\\]"
+  },
+  {
+    "objectID": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#중앙차분근사-유도",
+    "href": "posts/numpy & pandas/수치미분 & np.gradient/수치미분 & np.gradient.html#중앙차분근사-유도",
+    "title": "Finite Difference Method with np.gradient",
+    "section": "중앙차분근사 유도",
+    "text": "중앙차분근사 유도\n전향차분근사와 후향차분근사의 유도과정에서의 테일러 전개식은 다음과 같다. \\[f'(x_i) = \\frac{f(x_{i+1})}{h} - \\frac{f(x_i)}{h} - \\frac{hf^{''}(x_i)}{2!} - \\frac{h^2f^{'''}(x_i)}{3!} - ...\\] \\[f'(x_i) = \\frac{f(x_{i})}{h} - \\frac{f(x_{i-1})}{h} + \\frac{hf^{''}(x_i)}{2!} - \\frac{h^2f^{'''}(x_i)}{3!} + ...\\]\n두 식을 더해주면 다음과 같다.\n\\[\\begin{aligned}\n&2f^{'}(x_i) = \\frac{f(x_{i+1})-f(x_{i-1})}{h} - \\frac{2h^2f^{'''}(x_i)}{3!} \\\\\n&\\Leftrightarrow f^{'}(x_i) = \\frac{f(x_{i+1})-f(x_{i-1})}{2h} - \\frac{h^2f^{'''}(x_i)}{3!} - ...\n\\end{aligned}\\]\n마찬가지로 우변의 두개 항만 남겨두고 절단오차\\(O(h^2) = -\\frac{h^2f^{'''}(x_i)}{3!} - \\dots\\)라 하면 다음과 같다. \\[\\begin{align}\n&f'(x_i) \\overset{\\sim}{=} \\frac{f(x_{i+1})-f(x_{i-1})}{2h}\\\\\n&O(h) = - \\frac{h^2}{3!}f{'''}(x_i)+\\dots \\\\\n&\\text{where, } h = x_{i} - x_{i-1}\\,\\,\\text{or}\\,\\, h = x_{i+1} - x_i\\nonumber\n\\end{align}\\]"
+  },
+  {
+    "objectID": "posts/RL/A simple bandit algorithm.html",
+    "href": "posts/RL/A simple bandit algorithm.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "import numpy as np\nfrom scipy.stats import bernoulli,norm\nimport random\n\n\ndef argmax(q_func):\n    q_max = max(q_func.values())\n    max_actions = []\n    for action in q_func.keys():\n        if q_func[action] == q_max:\n            max_actions.append(action)\n    argmax_q = random.sample(max_actions,1)\n    return argmax_q[0]\n\n\ndef bandit(q_star):\n    #각 bandit에 해당하는 정규분포에서 샘플하나 가져오기\n    sampled_reward = norm.rvs(loc=q_star,scale=1,size=1)\n    return sampled_reward[0]\n\n\ndef simple_bandit(num_actions, #action의 갯수\n                  epsilon,     #greedy하게 안 움직일 확률\n                  q_stars, #각 action(k개의 bandit)에 대한 reward의 (정규)분포의 mean\n                  terminate_cond\n                  ):\n    if num_actions != len(q_stars):\n        print(\"action의 갯수와 bandit_mean의 갯수는 같아야 함\")\n        return \n    Q = {}\n    n = {}\n\n    #Initialize,for a=1 to k\n    for i in range(1,num_actions+1):\n        Q[i] = 0\n        n[i] = 0\n    \n    #set probability,reward distribution(bandit)\n    max_prob = 1-epsilon\n\n    #epsilon-greedy action\n    while True:\n\n        #epsilon-greedy action\n        #1.greedy action? or random action?\n        greedy_or_random = bernoulli.rvs(p=max_prob,size=1)\n        #2.select action\n        if greedy_or_random == 1: \n            action = argmax(Q)\n        else:\n            action = random.sample(Q.keys(),1)[0]\n\n        #sampling reward from gaussian(mean = q_star,variance = 1)\n        q_star = q_stars[action-1]\n        reward = bandit(q_star) #sampling\n\n        #incremental Q-update\n        n[action] +=1\n        Q[action] = Q[action] + (1/n[action]) * (reward - Q[action])\n\n        #Terminating\n        if np.max(q_stars - np.array(list(Q.values()))) <= terminate_cond:\n            break\n    return n,Q\n\n\nnum_actions=10\nq_stars = norm.rvs(loc=0,scale=1,size=num_actions)\nnum_action,Q_estimated = simple_bandit(num_actions=num_actions,epsilon=0.1,q_stars=q_stars,terminate_cond=0.01)\nfor i in range(1,num_actions+1):\n    print(\"action :\",i)    \n    print(\"taken_num\",num_action[i])\n    print(\"q_star :\",q_stars[i-1])\n    print(\"Q_estimated\",Q_estimated[i]) \n    print(\"=============================================\")\n\nC:\\Users\\22668\\AppData\\Local\\Temp\\ipykernel_5296\\2459308436.py:30: DeprecationWarning: Sampling from a set deprecated\nsince Python 3.9 and will be removed in a subsequent version.\n  action = random.sample(Q.keys(),1)[0]\n\n\naction : 1\ntaken_num 7710\nq_star : 1.0622402967553395\nQ_estimated 1.0780006731009761\n=============================================\naction : 2\ntaken_num 7750\nq_star : -0.04393405775378968\nQ_estimated -0.0464016778867334\n=============================================\naction : 3\ntaken_num 7688\nq_star : -0.2977471187595547\nQ_estimated -0.28941229886239545\n=============================================\naction : 4\ntaken_num 7766\nq_star : -0.6942140347822109\nQ_estimated -0.6957038264269383\n=============================================\naction : 5\ntaken_num 702767\nq_star : 1.114864011478195\nQ_estimated 1.1163009140188438\n=============================================\naction : 6\ntaken_num 7695\nq_star : -2.0791842661153535\nQ_estimated -2.0891168451782134\n=============================================\naction : 7\ntaken_num 7704\nq_star : -1.204190113360393\nQ_estimated -1.2086679112146015\n=============================================\naction : 8\ntaken_num 7754\nq_star : 0.9093721477182354\nQ_estimated 0.908951189305117\n=============================================\naction : 9\ntaken_num 7658\nq_star : 0.0790709385366291\nQ_estimated 0.08704136534792037\n=============================================\naction : 10\ntaken_num 7736\nq_star : -0.06424396205536466\nQ_estimated -0.05355515687875377\n============================================="
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "",
+    "text": "궁극적인 목표는 크기가 무한히 큰 유리수집합\\(\\mathbb{Q}\\)의 길이와 무리수집합\\(\\mathbb{Q}^c\\) 길이가 다름을 확인하는 것이다.\n그러기 위해서 먼저 두 집합의 크기에 해당하는 개념인 cardinality를 무한집합에서 생각해보자.\n무한집합의 cardinality를 알 수 있다면 무한집합사이에서도 서로다른 급(격?,체급차이?)을 알 수 있고 이를 통해서 두 집합의 길이와 연관지으실 듯 하다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injection",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injection",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "Injection",
+    "text": "Injection\n\n(definition of Injection) \\[\\text{The function is injective, or one-to-one} \\Longleftrightarrow \\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\]\n\n\ndomain에 속하는 임의의 서로다른 두 원소가 codomain의 서로다른 두 원소에 mapping될 때 Injection이라고 한다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injection-function",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injection-function",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " Injection function",
+    "text": "Injection function\n\n(definition of Injection) \\[\\text{The function is injective, or one-to-one} \\Longleftrightarrow \\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\]\n\n\ndomain에 속하는 임의의 서로다른 두 원소가 codomain의 서로다른 두 원소에 mapping될 때 Injection function이라고 한다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injection-function-1",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injection-function-1",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " Injection function",
+    "text": "Injection function\n\n(definition of Injection) \\[\\text{The function is injective, or one-to-one} \\Longleftrightarrow \\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\]\n\n\ndomain에 속하는 임의의 서로다른 두 원소가 codomain의 서로다른 두 원소에 mapping될 때 Injection function이라고 한다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#surjection-function",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#surjection-function",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " Surjection function",
+    "text": "Surjection function\n\n(definition of Surjection) \\[\\text{The function is Surjection, or one-to-one} \\Longleftrightarrow \\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\]\n\n\ndomain에 속하는 임의의 서로다른 두 원소가 codomain의 서로다른 두 원소에 mapping될 때 Injection function이라고 한다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#surjective-function",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#surjective-function",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " surjective function",
+    "text": "surjective function\n\n(definition of surjective function)\n\\[\\begin{aligned}\n&\\text{The function is surjective, or onto} \\\\\n&\\Longleftrightarrow \\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\n\\end{aligned}\\]\n\n\ncodomain에 속하는 임의의,모든 원소가 domain에 속하는 원소에 대해 적어도 하나의 mapping이 (모두)존재할 때 surjective function이라고 한다.\n암기1:domian의 image(상)인 치역이 공역과 같다.\n암기2:inverse image가 정의역에 있어야 한다 (중요)\n느낌 : 화살표가 쫙 모이는 느낌"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injective-function",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injective-function",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " Injective function",
+    "text": "Injective function\n\n(definition of Injective function) \n\\[\\begin{aligned}\n&\\text{The function is injective, or one-to-one}\\\\\n&\\Longleftrightarrow \\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\n\\end{aligned}\\]\n\n\ndomain에 속하는 임의의,모든 서로다른 두 원소가 codomain에 속하는 서로다른 두 원소에 mapping될 때 Injection function이라고 한다.\n암기(입력이 다르면 출력이 다르다)\n느낌(화살표가 쫙 펴지는 느낌이다.)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#surjective-function-1",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#surjective-function-1",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " surjective function",
+    "text": "surjective function\n\n(definition of Surjective function) \\[\\text{The function is surjective, or onto} \\Longleftrightarrow \\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\]\n\n\ncodomain에 속하는 임의의,모든 원소가 domain에 속하는 원소에 대해 적어도 하나의 mapping이 (모두)존재할 때 surjective function이라고 한다.\ndomian의 image(상)인 치역이 공역과 같다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#bijective-function",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#bijective-function",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " bijective function",
+    "text": "bijective function\n\n(definition of bijective function)\n\\[\\begin{aligned}\n&\\text{The function is bijective, or one-to-one and onto}\\\\\n&\\Longleftrightarrow \\forall y \\in Y,\\exists !x \\in X \\text{ such that } y = f(x) \\\\\n&\\text{where } \\exists!x \\text{ means \"there exists exactly one x\".}\n\\end{aligned}\\]\n\n\ncodomain에 속하는 임의의,모든 원소가 domain에 속하는 정확히 하나의 원소에만 mapping되는 경우 bijective function이라고 한다.\ninjective이며 동시에 surjective인 function이다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#bijective-function-1",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#bijective-function-1",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " bijective function",
+    "text": "bijective function"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " 용어 정리",
+    "text": "용어 정리\n\ninjective = 단사 = one-to-one, injective function = injection = 단사함수\nsurjective = 전사 = onto, surjective function = surjection = 전사함수\nbijecitve = 전단사 = one-to-one and onto , bijective function = bijection = 전단사함수"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리헷갈림-주의",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리헷갈림-주의",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " 용어 정리(헷갈림 주의)",
+    "text": "용어 정리(헷갈림 주의)\n\ninjective = 단사 = one-to-one, injective function = injection = 단사함수\nsurjective = 전사 = onto, surjective function = surjection = 전사함수\nbijecitve = 전단사 = one-to-one and onto , bijective function = bijection = 전단사함수"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리헷갈림",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리헷갈림",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " 용어 정리(헷갈림)",
+    "text": "용어 정리(헷갈림)\n\ninjective = 단사 = one-to-one, injective function = injection = 단사함수\nsurjective = 전사 = onto, surjective function = surjection = 전사함수\nbijecitve = 전단사 = one-to-one and onto , bijective function = bijection = 전단사함수"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리헷갈림-1",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리헷갈림-1",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " 용어 정리(헷갈림)",
+    "text": "용어 정리(헷갈림)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#property",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#property",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " property",
+    "text": "property"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#cardinality와",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#cardinality와",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " Cardinality와 ",
+    "text": "Cardinality와"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#cardinality와의-관계",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#cardinality와의-관계",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": " Cardinality와의 관계",
+    "text": "Cardinality와의 관계\n\n(property1) 어떤 함수가 전사함수 & 단사함수 \\(\\Rightarrow\\) 전단사함수\n\n\n(property2) 두 집합사이에서 정의되는 함수로 집합의 크기비교가 가능하다. - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 단사함수가 존재한다. \\(\\Longleftrightarrow |X| \\leq |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전사함수가 존재한다. \\(\\Longleftrightarrow |X| \\geq |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전단사함수가 존재한다. \\(\\Longleftrightarrow |X| = |Y|\\) - 유한집합에 대해서 위의 사실은 당연해보인다. 이 논리를 무한집합에도 확장하여 무한집합끼리의 cardinality를 비교한다.\n\nQ-물어볼꺼 : 동치인가?"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#x",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#x",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "X =",
+    "text": "X ="
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#x-135",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#x-135",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "\\(X = {1,3,5,\\)",
+    "text": "\\(X = {1,3,5,\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#x-135dots",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#x-135dots",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "\\(X = {1,3,5,\\dots}\\)",
+    "text": "\\(X = {1,3,5,\\dots}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-x-135dots",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-x-135dots",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "EX) \\(X = {1,3,5,\\dots}\\),",
+    "text": "EX) \\(X = {1,3,5,\\dots}\\),"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-x-135y",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-x-135y",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "EX) $X = {1,3,5,},Y = {} $",
+    "text": "EX) $X = {1,3,5,},Y = {} $"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-x-135y-246",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-x-135y-246",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "**EX $X = {1,3,5,},Y = {2,4,6,} $",
+    "text": "**EX $X = {1,3,5,},Y = {2,4,6,} $"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex1-x-135y-246",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex1-x-135y-246",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "EX1) $X = {1,3,5,},Y = {2,4,6,} $",
+    "text": "EX1) $X = {1,3,5,},Y = {2,4,6,} $"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-x-135dotsy-246dots",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-x-135dotsy-246dots",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "EX \\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)",
+    "text": "EX \\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "EX ",
+    "text": "EX \n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)**"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex1",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex1",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "EX1)",
+    "text": "EX1)\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex1-두-개의-무한집합",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex1-두-개의-무한집합",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "EX1 두 개의 무한집합",
+    "text": "EX1 두 개의 무한집합\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex1두-개의-무한집합",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex1두-개의-무한집합",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "EX1두 개의 무한집합",
+    "text": "EX1두 개의 무한집합\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-두-개의-무한집합",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex-두-개의-무한집합",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "Ex) 두 개의 무한집합",
+    "text": "Ex) 두 개의 무한집합\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-개의-무한집합",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-개의-무한집합",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "Ex)두 개의 무한집합",
+    "text": "Ex)두 개의 무한집합\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-무한집합",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-무한집합",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "Ex)두 무한집합",
+    "text": "Ex)두 무한집합\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-무한집합의-cardinality",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-무한집합의-cardinality",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "Ex)두 무한집합의 cardinality",
+    "text": "Ex)두 무한집합의 cardinality\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-무한집합의-cardinality비교",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-무한집합의-cardinality비교",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "Ex)두 무한집합의 cardinality비교",
+    "text": "Ex)두 무한집합의 cardinality비교\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-무한집합의-경우",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex두-무한집합의-경우",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "Ex)두 무한집합의 경우",
+    "text": "Ex)두 무한집합의 경우\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)\n\n두 무한집합사이에 cardinality를 비교하려면 두 집합사이에 1)적당한 함수를 정의하고 2)어떤 함수인지 정의를 통해 확인한 후 3)cardinality를 구한다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(2) &= 4 \\\\\nf(3) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?(정의를 통해 확인)\n\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n\n전사함수인가?(정의를 통해 확인)\n\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n\n결론\n\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |X| = |Y|\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#전사함수인가정의를-통해-확인",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#전사함수인가정의를-통해-확인",
+    "title": "[Stochestic Process] injection,subjection,bijection",
+    "section": "3. 전사함수인가?(정의를 통해 확인)",
+    "text": "3. 전사함수인가?(정의를 통해 확인)"
   }
 ]

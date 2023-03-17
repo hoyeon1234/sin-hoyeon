@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2023-03-17">
+
+<title>HIHO - [Stochestic Process] injection,subjection,bijection</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">[Stochestic Process] injection,subjection,bijection</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>hoyeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 17, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#학습목표" id="toc-학습목표" class="nav-link active" data-scroll-target="#학습목표"><span style="color:black"> <strong>학습목표</strong></span></a></li>
+  <li><a href="#cardinality" id="toc-cardinality" class="nav-link" data-scroll-target="#cardinality"><span style="color:black"> <strong>cardinality</strong></span></a></li>
+  <li><a href="#bijectioninjectionsurjection" id="toc-bijectioninjectionsurjection" class="nav-link" data-scroll-target="#bijectioninjectionsurjection"><span style="color:black"> <strong>Bijection,Injection,Surjection</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#injective-function" id="toc-injective-function" class="nav-link" data-scroll-target="#injective-function"><span style="color:black"> <strong>Injective function</strong></span></a></li>
+  <li><a href="#surjective-function" id="toc-surjective-function" class="nav-link" data-scroll-target="#surjective-function"><span style="color:black"> <strong>surjective function</strong></span></a></li>
+  <li><a href="#bijective-function" id="toc-bijective-function" class="nav-link" data-scroll-target="#bijective-function"><span style="color:black"> <strong>bijective function</strong></span></a></li>
+  <li><a href="#용어-정리헷갈림" id="toc-용어-정리헷갈림" class="nav-link" data-scroll-target="#용어-정리헷갈림"><span style="color:black"> <strong>용어 정리(헷갈림)</strong></span></a></li>
+  <li><a href="#cardinality와의-관계" id="toc-cardinality와의-관계" class="nav-link" data-scroll-target="#cardinality와의-관계"><span style="color:black"> <strong>Cardinality와의 관계</strong></span></a></li>
+  </ul></li>
+  <li><a href="#유리수-집합의-cardinality" id="toc-유리수-집합의-cardinality" class="nav-link" data-scroll-target="#유리수-집합의-cardinality"><span style="color:black"> <strong>유리수 집합의 cardinality</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#ex두-무한집합의-경우" id="toc-ex두-무한집합의-경우" class="nav-link" data-scroll-target="#ex두-무한집합의-경우"><strong>Ex)두 무한집합의 경우</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="학습목표" class="level1">
+<h1><span style="color:black"> <strong>학습목표</strong></span></h1>
+<ul>
+<li>궁극적인 목표는 크기가 무한히 큰 유리수집합<span class="math inline">\(\mathbb{Q}\)</span>의 길이와 무리수집합<span class="math inline">\(\mathbb{Q}^c\)</span> 길이가 다름을 확인하는 것이다.</li>
+<li>그러기 위해서 먼저 두 집합의 크기에 해당하는 개념인 cardinality를 무한집합에서 생각해보자.</li>
+<li>무한집합의 cardinality를 알 수 있다면 무한집합사이에서도 서로다른 <strong>급(격?,체급차이?)</strong>을 알 수 있고 이를 통해서 두 집합의 길이와 연관지으실 듯 하다.</li>
+</ul>
+</section>
+<section id="cardinality" class="level1">
+<h1><span style="color:black"> <strong>cardinality</strong></span></h1>
+<ul>
+<li>집합의 cardinality는 집합의 element가 몇 개인지 알려주는 측도(measure)이다.</li>
+<li><span class="math inline">\(\text{The cardinality of a set A} = |A| = \text{card}(A)\)</span></li>
+<li>유한집합 <span class="math inline">\(A = {2,4,6} \Rightarrow |A| = 3\)</span></li>
+<li>무한집합 <span class="math inline">\(A = \{1,2,3,\dots\}\)</span>의 경우 cardinality는 어떻게 되는가?(이 질문에 대답할 수 있다면 무한집합에 속하는 유리수,무리수 집합의 크기도 대답할 수 있고 또한 각 집합의 길이를 구할 수 있는 근거가 될 듯하다.)</li>
+<li>이 질문은 bijection,injection,surjection을 먼저 알아야 한다.</li>
+</ul>
+</section>
+<section id="bijectioninjectionsurjection" class="level1">
+<h1><span style="color:black"> <strong>Bijection,Injection,Surjection</strong></span></h1>
+<p><img src="./functions.png" class="img-fluid"></p>
+<section id="injective-function" class="level2">
+<h2 class="anchored" data-anchor-id="injective-function"><span style="color:black"> <strong>Injective function</strong></span></h2>
+<blockquote class="blockquote">
+<strong>(definition of Injective function)</strong> <br>
+<span class="math display">\[\begin{aligned}
+&amp;\text{The function is injective, or one-to-one}\\
+&amp;\Longleftrightarrow \forall x_1,x_2\in X,x_1\neq x_2\implies f(x_1)\neq f(x_2)
+\end{aligned}\]</span>
+</blockquote>
+<ul>
+<li>domain에 속하는 임의의,모든 서로다른 두 원소가 codomain에 속하는 서로다른 두 원소에 mapping될 때 Injection function이라고 한다.</li>
+<li>암기(입력이 다르면 출력이 다르다)</li>
+<li>느낌(화살표가 쫙 펴지는 느낌이다.)</li>
+</ul>
+</section>
+<section id="surjective-function" class="level2">
+<h2 class="anchored" data-anchor-id="surjective-function"><span style="color:black"> <strong>surjective function</strong></span></h2>
+<blockquote class="blockquote">
+<strong>(definition of surjective function)</strong><br>
+<span class="math display">\[\begin{aligned}
+&amp;\text{The function is surjective, or onto} \\
+&amp;\Longleftrightarrow \forall y \in Y,\exists x \in X \text{ such that } y = f(x)
+\end{aligned}\]</span>
+</blockquote>
+<ul>
+<li>codomain에 속하는 임의의,모든 원소가 domain에 속하는 원소에 대해 적어도 하나의 mapping이 (모두)존재할 때 surjective function이라고 한다.</li>
+<li>암기1:domian의 image(상)인 치역이 공역과 같다.</li>
+<li>암기2:inverse image가 정의역에 있어야 한다 (중요)</li>
+<li>느낌 : 화살표가 쫙 모이는 느낌</li>
+</ul>
+</section>
+<section id="bijective-function" class="level2">
+<h2 class="anchored" data-anchor-id="bijective-function"><span style="color:black"> <strong>bijective function</strong></span></h2>
+<blockquote class="blockquote">
+<strong>(definition of bijective function)</strong><br>
+<span class="math display">\[\begin{aligned}
+&amp;\text{The function is bijective, or one-to-one and onto}\\
+&amp;\Longleftrightarrow \forall y \in Y,\exists !x \in X \text{ such that } y = f(x) \\
+&amp;\text{where } \exists!x \text{ means "there exists exactly one x".}
+\end{aligned}\]</span>
+</blockquote>
+<ul>
+<li>codomain에 속하는 임의의,모든 원소가 domain에 속하는 정확히 하나의 원소에만 mapping되는 경우 bijective function이라고 한다.</li>
+<li>injective이며 동시에 surjective인 function이다.</li>
+</ul>
+</section>
+<section id="용어-정리헷갈림" class="level2">
+<h2 class="anchored" data-anchor-id="용어-정리헷갈림"><span style="color:black"> <strong>용어 정리(헷갈림)</strong></span></h2>
+<ul>
+<li>injective = 단사 = one-to-one, injective function = injection = 단사함수</li>
+<li>surjective = 전사 = onto, surjective function = surjection = 전사함수</li>
+<li>bijecitve = 전단사 = one-to-one and onto , bijective function = bijection = 전단사함수</li>
+</ul>
+</section>
+<section id="cardinality와의-관계" class="level2">
+<h2 class="anchored" data-anchor-id="cardinality와의-관계"><span style="color:black"> <strong>Cardinality와의 관계</strong></span></h2>
+<blockquote class="blockquote">
+<p><strong>(property1)</strong><br> 어떤 함수가 전사함수 &amp; 단사함수 <span class="math inline">\(\Rightarrow\)</span> 전단사함수</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>(property2)</strong><br> 두 집합사이에서 정의되는 함수로 집합의 크기비교가 가능하다.<br> - 집합 <span class="math inline">\(X\)</span>에서 집합 <span class="math inline">\(Y\)</span>로 가는 단사함수가 존재한다. <span class="math inline">\(\Longleftrightarrow |X| \leq |Y|\)</span><br> - 집합 <span class="math inline">\(X\)</span>에서 집합 <span class="math inline">\(Y\)</span>로 가는 전사함수가 존재한다. <span class="math inline">\(\Longleftrightarrow |X| \geq |Y|\)</span><br> - 집합 <span class="math inline">\(X\)</span>에서 집합 <span class="math inline">\(Y\)</span>로 가는 전단사함수가 존재한다. <span class="math inline">\(\Longleftrightarrow |X| = |Y|\)</span> - 유한집합에 대해서 위의 사실은 당연해보인다. 이 논리를 무한집합에도 확장하여 무한집합끼리의 cardinality를 비교한다.</p>
+</blockquote>
+<p>Q-물어볼꺼 : 동치인가?<br></p>
+</section>
+</section>
+<section id="유리수-집합의-cardinality" class="level1">
+<h1><span style="color:black"> <strong>유리수 집합의 cardinality</strong></span></h1>
+<ul>
+<li>유리수 집합의 cardinality를 구하기 위해서 여러가지 경우를 생각해본다.</li>
+</ul>
+<section id="ex두-무한집합의-경우" class="level2">
+<h2 class="anchored" data-anchor-id="ex두-무한집합의-경우"><strong>Ex)두 무한집합의 경우</strong></h2>
+<p><span class="math inline">\(X = \{1,3,5,\dots\},Y = \{2,4,6,\dots\}\)</span></p>
+<ul>
+<li>두 무한집합사이에 cardinality를 비교하려면 두 집합사이에 <strong>1)적당한 함수를 정의</strong>하고 <strong>2)어떤 함수인지 정의를 통해 확인</strong>한 후 <strong>3)cardinality를 구한다</strong>.</li>
+</ul>
+<ol type="1">
+<li><span class="math inline">\(f\)</span>정의하기
+<span class="math display">\[\begin{aligned}
+f(1) &amp;= 2 \\
+f(2) &amp;= 4 \\
+f(3) &amp;= 6 \\
+&amp;\vdots
+\end{aligned}\]</span></li>
+<li>단사함수인가?(정의를 통해 확인)</li>
+</ol>
+<ul>
+<li>definition : <span class="math inline">\(\forall x_1,x_2\in X,x_1\neq x_2\implies f(x_1)\neq f(x_2)\)</span></li>
+<li>정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.</li>
+</ul>
+<ol start="3" type="1">
+<li>전사함수인가?(정의를 통해 확인)</li>
+</ol>
+<ul>
+<li>definition : <span class="math inline">\(\forall y \in Y,\exists x \in X \text{ such that } y = f(x)\)</span></li>
+<li>공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.</li>
+</ul>
+<ol start="4" type="1">
+<li>결론</li>
+</ol>
+<ul>
+<li><span class="math inline">\(f\)</span>는 bijective function이다. <span class="math inline">\(\Longleftrightarrow |X| = |Y|\)</span></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
