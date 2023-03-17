@@ -2,11 +2,11 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/numpy & pandas/pandas apply map applymap.html",
       "/posts/paper study/auto-encoding variational bayes implement/Auto-Encoding Variational Bayes.html",
       "/posts/RL/A simple bandit algorithm.html",
       "/posts/RL/Bellman Equation(번외).html",
       "/posts/visualization/plotly_visualization/Untitled-1.html",
+      "/posts/numpy & pandas/pandas apply map applymap.html",
       "/posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html",
       "/posts/paper study/seq2seq/seq2seq.html",
       "/posts/paper study/auto-encoding variational bayes/Auto-Encoding Variational Bayes.html",
