@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="신호연">
+<meta name="dcterms.date" content="2023-03-17">
 
-<title>HIHO – pandas-apply-map-applymap</title>
+<title>HIHO - [pandas] map,apply,applymap 비교</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,7 +172,38 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">[pandas] map,apply,applymap 비교</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Numpy &amp; Pandas</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>신호연 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 17, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -178,20 +211,26 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import">Import</a></li>
-  <li><a href="#pd.series.map" id="toc-pd.series.map" class="nav-link" data-scroll-target="#pd.series.map">pd.Series.map</a>
+  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import"><span style="color : black"> <strong>Import</strong></span></a></li>
+  <li><a href="#pd.series.map" id="toc-pd.series.map" class="nav-link" data-scroll-target="#pd.series.map"><span style="color : black"> <strong>pd.Series.map</strong></span></a>
   <ul class="collapse">
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#arg가-dict인-경우" id="toc-arg가-dict인-경우" class="nav-link" data-scroll-target="#arg가-dict인-경우">arg가 dict인 경우</a></li>
-  <li><a href="#arg가-series인-경우" id="toc-arg가-series인-경우" class="nav-link" data-scroll-target="#arg가-series인-경우">arg가 Series인 경우</a></li>
-  <li><a href="#arg가-function인-경우" id="toc-arg가-function인-경우" class="nav-link" data-scroll-target="#arg가-function인-경우">arg가 function인 경우</a></li>
-  <li><a href="#잘못된-사용-예시" id="toc-잘못된-사용-예시" class="nav-link" data-scroll-target="#잘못된-사용-예시">잘못된 사용 예시</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span style="color : black"> <strong>Data</strong></span></a></li>
+  <li><a href="#arg가-dict인-경우" id="toc-arg가-dict인-경우" class="nav-link" data-scroll-target="#arg가-dict인-경우"><span style="color : black"> <strong>arg가 dict인 경우</strong></span></a></li>
+  <li><a href="#arg가-series인-경우" id="toc-arg가-series인-경우" class="nav-link" data-scroll-target="#arg가-series인-경우"><span style="color : black"> <strong>arg가 Series인 경우</strong></span></a></li>
+  <li><a href="#arg가-function인-경우" id="toc-arg가-function인-경우" class="nav-link" data-scroll-target="#arg가-function인-경우"><span style="color : black"> <strong>arg가 function인 경우</strong></span></a></li>
+  <li><a href="#잘못된-사용-예시" id="toc-잘못된-사용-예시" class="nav-link" data-scroll-target="#잘못된-사용-예시"><span style="color : black"> <strong>잘못된 사용 예시</strong></span></a></li>
   </ul></li>
-  <li><a href="#pd.dataframe.apply" id="toc-pd.dataframe.apply" class="nav-link" data-scroll-target="#pd.dataframe.apply">pd.DataFrame.apply</a>
+  <li><a href="#pd.dataframe.apply" id="toc-pd.dataframe.apply" class="nav-link" data-scroll-target="#pd.dataframe.apply"><span style="color : black"> <strong>pd.DataFrame.apply</strong></span></a>
   <ul class="collapse">
-  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a></li>
-  <li><a href="#column에-function-적용" id="toc-column에-function-적용" class="nav-link" data-scroll-target="#column에-function-적용">column에 function 적용</a></li>
-  <li><a href="#row에-function-적용" id="toc-row에-function-적용" class="nav-link" data-scroll-target="#row에-function-적용">row에 function 적용</a></li>
+  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1"><span style="color : black"> <strong>Data</strong></span></a></li>
+  <li><a href="#column에-function-적용" id="toc-column에-function-적용" class="nav-link" data-scroll-target="#column에-function-적용"><span style="color : black"> <strong>column에 function 적용</strong></span></a></li>
+  <li><a href="#row에-function-적용" id="toc-row에-function-적용" class="nav-link" data-scroll-target="#row에-function-적용"><span style="color : black"> <strong>row에 function 적용</strong></span></a></li>
+  </ul></li>
+  <li><a href="#pd.dataframe.applymap" id="toc-pd.dataframe.applymap" class="nav-link" data-scroll-target="#pd.dataframe.applymap"><span style="color : black"> <strong>pd.DataFrame.applymap</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#data-2" id="toc-data-2" class="nav-link" data-scroll-target="#data-2"><span style="color : black"> <strong>Data</strong></span></a></li>
+  <li><a href="#올바른-사용" id="toc-올바른-사용" class="nav-link" data-scroll-target="#올바른-사용"><span style="color : black"> <strong>올바른 사용</strong></span></a></li>
+  <li><a href="#잘못된-사용" id="toc-잘못된-사용" class="nav-link" data-scroll-target="#잘못된-사용"><span style="color : black"> <strong>잘못된 사용</strong></span></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -201,20 +240,23 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
+
 <section id="import" class="level1">
-<h1>Import</h1>
-<div class="cell">
+<h1><span style="color : black"> <strong>Import</strong></span></h1>
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pd.series.map" class="level1">
-<h1>pd.Series.map</h1>
+<h1><span style="color : black"> <strong>pd.Series.map</strong></span></h1>
 <ul>
 <li>map은 <strong>Series</strong>의 method로 mapping(또는 function)을 통해 Series에 있는 <strong>각각의 값</strong>을 <strong>다른 값으로</strong> 바꾼다.</li>
+<li><strong>Note</strong> : Series에 있는 각각의 값이 <strong>elementwise로 함수(mapping)에 입력</strong>이 되어 <strong>여러번 계산</strong>된다고 생각하면 편하다.</li>
 <li>Parameters<br>
 <ul>
 <li>arg : function,dict,Series…</li>
+<li>…</li>
 </ul></li>
 <li>Returns<br>
 <ul>
@@ -222,16 +264,16 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </ul></li>
 </ul>
 <section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<div class="cell" data-execution_count="24">
+<h2 class="anchored" data-anchor-id="data"><span style="color : black"> <strong>Data</strong></span></h2>
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>s <span class="op">=</span> pd.Series([<span class="st">"cat"</span>,<span class="st">"dog"</span>,np.nan,<span class="st">"rabbit"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="arg가-dict인-경우" class="level2">
-<h2 class="anchored" data-anchor-id="arg가-dict인-경우">arg가 dict인 경우</h2>
-<div class="cell" data-outputid="cd07ccdc-141c-47df-b136-58007ddae038" data-execution_count="25">
+<h2 class="anchored" data-anchor-id="arg가-dict인-경우"><span style="color : black"> <strong>arg가 dict인 경우</strong></span></h2>
+<div class="cell" data-outputid="cd07ccdc-141c-47df-b136-58007ddae038" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>s.<span class="bu">map</span>({<span class="st">"cat"</span>:<span class="st">"kitten"</span>,<span class="st">"dog"</span>:<span class="st">"puppy"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>0    kitten
 1     puppy
 2       NaN
@@ -244,11 +286,11 @@ dtype: object</code></pre>
 </ul>
 </section>
 <section id="arg가-series인-경우" class="level2">
-<h2 class="anchored" data-anchor-id="arg가-series인-경우">arg가 Series인 경우</h2>
-<div class="cell" data-outputid="7a608540-4fc7-4646-81cc-68d5758b3c86" data-execution_count="6">
+<h2 class="anchored" data-anchor-id="arg가-series인-경우"><span style="color : black"> <strong>arg가 Series인 경우</strong></span></h2>
+<div class="cell" data-outputid="7a608540-4fc7-4646-81cc-68d5758b3c86" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>s2 <span class="op">=</span> pd.Series([<span class="st">"lion"</span>,<span class="st">"elephant"</span>,<span class="st">"dog"</span>,np.nan])</span>
 <span id="cb5-2"><a href="#cb5-2"></a>s.<span class="bu">map</span>(s2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>0    NaN
 1    NaN
 2    NaN
@@ -258,30 +300,44 @@ dtype: object</code></pre>
 </div>
 </section>
 <section id="arg가-function인-경우" class="level2">
-<h2 class="anchored" data-anchor-id="arg가-function인-경우">arg가 function인 경우</h2>
-<div class="cell" data-outputid="0f007c3f-8c4d-4bcc-eb35-10e2ab0ffe5b" data-execution_count="21">
+<h2 class="anchored" data-anchor-id="arg가-function인-경우"><span style="color : black"> <strong>arg가 function인 경우</strong></span></h2>
+<div class="cell" data-outputid="0f007c3f-8c4d-4bcc-eb35-10e2ab0ffe5b" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>s.<span class="bu">map</span>(<span class="kw">lambda</span> x : <span class="st">"I am a </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>0    I am a 0.1
-1    I am a 3.0
-2    I am a 2.0
-3    I am a 0.4
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>0       I am a cat
+1       I am a dog
+2       I am a nan
+3    I am a rabbit
 dtype: object</code></pre>
 </div>
 </div>
 </section>
 <section id="잘못된-사용-예시" class="level2">
-<h2 class="anchored" data-anchor-id="잘못된-사용-예시">잘못된 사용 예시</h2>
+<h2 class="anchored" data-anchor-id="잘못된-사용-예시"><span style="color : black"> <strong>잘못된 사용 예시</strong></span></h2>
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>s <span class="op">=</span> pd.Series([<span class="fl">0.1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="fl">0.4</span>])</span>
 <span id="cb9-2"><a href="#cb9-2"></a>s.<span class="bu">map</span>(<span class="kw">lambda</span> x : <span class="bu">sum</span>(x))</span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="op">&gt;&gt;&gt;</span> <span class="pp">TypeError</span>: <span class="st">'float'</span> <span class="bu">object</span> <span class="kw">is</span> <span class="kw">not</span> iterable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>각각의 값(여기선 float)이 <strong>따로따로 함수(mapping)이 입력</strong>된다. 하지만 sum함수는 float형을 input으로 할 수 없으므로 오류 발생함.(float형은 iterable하지 않음)</li>
 </ul>
+<div class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>s <span class="op">=</span> pd.Series([<span class="fl">0.3</span>,<span class="dv">2</span>,<span class="fl">0.4</span>,<span class="dv">5</span>])</span>
+<span id="cb10-2"><a href="#cb10-2"></a>s.<span class="bu">map</span>(np.var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="69">
+<pre><code>0    0.0
+1    0.0
+2    0.0
+3    0.0
+dtype: float64</code></pre>
+</div>
+</div>
+<ul>
+<li>오류가 뜨지 않으나 원하던 동작이 아니다. 각각의 변수에 대해서 평균값을 구하려 했겠지만 각각의 값에 mean이 되므로 그 값 자체이다.</li>
+</ul>
 </section>
 </section>
 <section id="pd.dataframe.apply" class="level1">
-<h1>pd.DataFrame.apply</h1>
+<h1><span style="color : black"> <strong>pd.DataFrame.apply</strong></span></h1>
 <ul>
 <li>apply는 <strong>DataFrame</strong>의 method로 DataFrame의 축을 따라서 함수를 적용한다.</li>
 <li>DataFrame을 matrix로 생각하면 위에 말은 <strong>vector에 함수를 적용</strong>한다는 말이다.</li>
@@ -297,13 +353,13 @@ dtype: object</code></pre>
 </ul></li>
 </ul>
 <section id="data-1" class="level2">
-<h2 class="anchored" data-anchor-id="data-1">Data</h2>
-<div class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>n1 <span class="op">=</span> pd.Series([<span class="fl">0.1</span>,<span class="dv">4</span>,<span class="fl">0.35</span>,<span class="dv">2</span>])</span>
-<span id="cb10-2"><a href="#cb10-2"></a>n2 <span class="op">=</span> pd.Series([<span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">5</span>])</span>
-<span id="cb10-3"><a href="#cb10-3"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"n1"</span>:n1,<span class="st">"n2"</span>:n2})</span>
-<span id="cb10-4"><a href="#cb10-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="53">
+<h2 class="anchored" data-anchor-id="data-1"><span style="color : black"> <strong>Data</strong></span></h2>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>n1 <span class="op">=</span> pd.Series([<span class="fl">0.1</span>,<span class="dv">4</span>,<span class="fl">0.35</span>,<span class="dv">2</span>])</span>
+<span id="cb12-2"><a href="#cb12-2"></a>n2 <span class="op">=</span> pd.Series([<span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">5</span>])</span>
+<span id="cb12-3"><a href="#cb12-3"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"n1"</span>:n1,<span class="st">"n2"</span>:n2})</span>
+<span id="cb12-4"><a href="#cb12-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
 
 <div>
 
@@ -343,31 +399,31 @@ dtype: object</code></pre>
 </div>
 </section>
 <section id="column에-function-적용" class="level2">
-<h2 class="anchored" data-anchor-id="column에-function-적용">column에 function 적용</h2>
+<h2 class="anchored" data-anchor-id="column에-function-적용"><span style="color : black"> <strong>column에 function 적용</strong></span></h2>
 <ul>
 <li>column vector에 함수 적용한다고 생각하자.</li>
 </ul>
-<div class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df.<span class="bu">apply</span>(func <span class="op">=</span> <span class="kw">lambda</span> x : <span class="bu">sum</span>(x)<span class="op">/</span><span class="bu">len</span>(x),axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="54">
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df.<span class="bu">apply</span>(func <span class="op">=</span> <span class="kw">lambda</span> x : <span class="bu">sum</span>(x)<span class="op">/</span><span class="bu">len</span>(x),axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>n1    1.6125
 n2   -0.3250
 dtype: float64</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df.<span class="bu">apply</span>(np.mean,axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df.<span class="bu">apply</span>(np.mean,axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>n1    1.6125
 n2   -0.3250
 dtype: float64</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">#vector에 elementwise**2</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="co">#np.array를 **2하면 모든 원소가 제곱되는 것과 같다.</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>df.<span class="bu">apply</span>(func <span class="op">=</span> <span class="kw">lambda</span> x : x <span class="op">**</span> <span class="dv">2</span>,axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="59">
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">#vector에 elementwise**2</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co">#np.array를 **2하면 모든 원소가 제곱되는 것과 같다.</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>df.<span class="bu">apply</span>(func <span class="op">=</span> <span class="kw">lambda</span> x : x <span class="op">**</span> <span class="dv">2</span>,axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
 
 <div>
 
@@ -405,10 +461,10 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">#vector에 elementwise로 sin취함.</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>df.<span class="bu">apply</span>(func <span class="op">=</span> <span class="kw">lambda</span> x : np.sin(x),axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">#vector에 elementwise로 sin취함.</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>df.<span class="bu">apply</span>(func <span class="op">=</span> <span class="kw">lambda</span> x : np.sin(x),axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
 
 <div>
 
@@ -448,13 +504,13 @@ dtype: float64</code></pre>
 </div>
 </section>
 <section id="row에-function-적용" class="level2">
-<h2 class="anchored" data-anchor-id="row에-function-적용">row에 function 적용</h2>
+<h2 class="anchored" data-anchor-id="row에-function-적용"><span style="color : black"> <strong>row에 function 적용</strong></span></h2>
 <ul>
 <li>row vector에 함수 적용.</li>
 </ul>
-<div class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df.<span class="bu">apply</span>(<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>df.<span class="bu">apply</span>(<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>0    0.40
 1    4.40
 2    3.35
@@ -462,9 +518,9 @@ dtype: float64</code></pre>
 dtype: float64</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>df.<span class="bu">apply</span>(np.sin,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="62">
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>df.<span class="bu">apply</span>(np.sin,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
 
 <div>
 
@@ -502,11 +558,11 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">#vector에 elementwise**2</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="co">#np.array를 **2하면 모든 원소가 제곱되는 것과 같다.</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a>df.<span class="bu">apply</span>(func <span class="op">=</span> <span class="kw">lambda</span> x : x <span class="op">**</span> <span class="dv">2</span>,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">#vector에 elementwise**2</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="co">#np.array를 **2하면 모든 원소가 제곱되는 것과 같다.</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>df.<span class="bu">apply</span>(func <span class="op">=</span> <span class="kw">lambda</span> x : x <span class="op">**</span> <span class="dv">2</span>,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
 
 <div>
 
@@ -544,6 +600,242 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="pd.dataframe.applymap" class="level1">
+<h1><span style="color : black"> <strong>pd.DataFrame.applymap</strong></span></h1>
+<ul>
+<li>applymap은 <strong>DataFrame</strong>의 method로 mapping(또는 function)을 통해 DataFrame에 있는 <strong>각각의 값</strong>을 <strong>다른 값으로</strong> 바꾼다.</li>
+<li><strong>Note</strong> : DataFrame에 있는 각각의 값이 <strong>elementwise로 함수(mapping)에 입력되어</strong> <strong>여러번 계산</strong>된다고 생각하면 편하다.</li>
+<li>Parameters<br>
+<ul>
+<li>func</li>
+<li>…</li>
+</ul></li>
+<li>Returns<br>
+<ul>
+<li>DataFrame</li>
+</ul></li>
+</ul>
+<section id="data-2" class="level2">
+<h2 class="anchored" data-anchor-id="data-2"><span style="color : black"> <strong>Data</strong></span></h2>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>n1 <span class="op">=</span> pd.Series([<span class="fl">0.1</span>,<span class="dv">4</span>,<span class="fl">0.35</span>,<span class="dv">2</span>])</span>
+<span id="cb23-2"><a href="#cb23-2"></a>n2 <span class="op">=</span> pd.Series([<span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">5</span>])</span>
+<span id="cb23-3"><a href="#cb23-3"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"n1"</span>:n1,<span class="st">"n2"</span>:n2})</span>
+<span id="cb23-4"><a href="#cb23-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>n1</th>
+      <th>n2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.10</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.00</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.35</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.00</td>
+      <td>-5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="올바른-사용" class="level2">
+<h2 class="anchored" data-anchor-id="올바른-사용"><span style="color : black"> <strong>올바른 사용</strong></span></h2>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>df.applymap(<span class="kw">lambda</span> x : <span class="st">"값은 </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>n1</th>
+      <th>n2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>값은 0.1</td>
+      <td>값은 0.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>값은 4.0</td>
+      <td>값은 0.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>값은 0.35</td>
+      <td>값은 3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>값은 2.0</td>
+      <td>값은 -5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df.applymap(<span class="kw">lambda</span> x : <span class="bu">len</span>(<span class="bu">str</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>n1</th>
+      <th>n2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df.applymap(<span class="kw">lambda</span> x : x <span class="op">**</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>n1</th>
+      <th>n2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0100</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>16.0000</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.1225</td>
+      <td>9.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.0000</td>
+      <td>25.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="잘못된-사용" class="level2">
+<h2 class="anchored" data-anchor-id="잘못된-사용"><span style="color : black"> <strong>잘못된 사용</strong></span></h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df.applymap(<span class="kw">lambda</span> x : <span class="bu">sum</span>(x))</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="op">&gt;&gt;&gt;</span> <span class="pp">TypeError</span>: <span class="st">'float'</span> <span class="bu">object</span> <span class="kw">is</span> <span class="kw">not</span> iterable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Series의 map method와 마찬가지로 DataFrame의 applymap method도 각각의 값(여기선 float)이 <strong>따로따로 함수(mapping)에 입력</strong>된다. 그러므로 sum함수에서 오류가 발생한다.</li>
+</ul>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>df.applymap(<span class="kw">lambda</span> x : np.mean(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>n1</th>
+      <th>n2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.10</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.00</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.35</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.00</td>
+      <td>-5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>오류가 뜨지 않으나 원하던 동작이 아니다. 각각의 변수에 대해서 평균값을 구하려 했겠지만 각각의 값에 mean이 되므로 그 값 자체이다.</li>
+</ul>
 
 
 </section>
