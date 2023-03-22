@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="hoyeon">
-<meta name="dcterms.date" content="2023-02-27">
+<meta name="dcterms.date" content="2023-03-21">
 
-<title>HIHO - Batch Normalization(작성중)</title>
+<title>HIHO - [Paper-study] Batch Normalization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -173,7 +173,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Batch Normalization(작성중)</h1>
+      <h1 class="title">[Paper-study] Batch Normalization</h1>
+            <p class="subtitle lead">field : core<br>understanding : 😃😃😃</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Paper study</div>
               </div>
@@ -193,7 +194,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 27, 2023</p>
+        <p class="date">March 21, 2023</p>
       </div>
     </div>
     
@@ -209,9 +210,19 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link active" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem setting</strong></span></a></li>
-  <li><a href="#normalization-via-mini-batch-statistics" id="toc-normalization-via-mini-batch-statistics" class="nav-link" data-scroll-target="#normalization-via-mini-batch-statistics"><span style="color:black"><strong>Normalization via Mini-Batch Statistics</strong></span></a></li>
-  <li><a href="#training-and-inference-with-batch-normalized-networks" id="toc-training-and-inference-with-batch-normalized-networks" class="nav-link" data-scroll-target="#training-and-inference-with-batch-normalized-networks"><span style="color:black"><strong>Training and Inference with Batch-Normalized Networks</strong></span></a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span style="color:black"><strong>Introduction</strong></span></a></li>
+  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link" data-scroll-target="#problem-setting"><span style="color:black"><strong>Problem setting</strong></span></a></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span style="color:black"><strong>Method</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition"><span style="color:black"><strong>Intuition</strong></span></a></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation"><span style="color:black"><strong>Implementation</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#training" id="toc-training" class="nav-link" data-scroll-target="#training"><span style="color:black"><strong>Training</strong></span></a></li>
+  <li><a href="#test-or-inference" id="toc-test-or-inference" class="nav-link" data-scroll-target="#test-or-inference"><span style="color:black"><strong>Test or Inference</strong></span></a></li>
+  </ul></li>
+  <li><a href="#experiments" id="toc-experiments" class="nav-link" data-scroll-target="#experiments"><span style="color:black"><strong>Experiments</strong></span></a></li>
+  </ul></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span style="color:black"><strong>Reference</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -221,16 +232,44 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
+<section id="introduction" class="level1">
+<h1><span style="color:black"><strong>Introduction</strong></span></h1>
+<ul>
+<li>Deep learning에서는 <strong>각 레이어의 input의 분포가 계속해서 변화</strong>합니다.</li>
+<li>이는 네트워크의 학습에 어려움을 가져옵니다.</li>
+<li>논문에서는 Batch단위의 input을 <code>normalization</code>,<code>shifting</code>,<code>scailing</code>,하여 <strong>분포를 어느정도 일정하게 유지시킬 수 있는 방법을 제안</strong>합니다.</li>
+<li>이를 당시의 sota모델에 적용했더니 <strong>동일한 정확도를 14배 적은 training step</strong>으로부터 얻을 수 있었으며 <strong>상당한 격치</strong>를 두고 원래모델을 능가했습니다.</li>
+<li>또한 동일한 방법을 적용한 앙상블 네트워크를 사용하여 <strong>ImageNet classification에서 가장 좋은 결과</strong>를 낼 수 있었습니다.(4.9% top5 validation error,4.8% test error)</li>
+</ul>
+</section>
 <section id="problem-setting" class="level1">
 <h1><span style="color:black"><strong>Problem setting</strong></span></h1>
-<p>Deep Neural Network는 training중에 파라미터가 계속해서 학습되고 minibatch 각각의 분포가 다르기때문에 <strong>hidden layer에 입력되는 input data의 분포가 계속해서 변화(internal covariate shift)</strong>한다. 또한 hidden layer의 수가 많은 Deep nueral network에서는 여러번의 파라미터 연산이 반복되기 때문에 <strong>깊이 위치하는 hidden layer일수록 이전에 학습했던 input의 분포와 많이 다른 분포를 가진 데이터가 입력</strong>된다.이는 크게 두 가지의 문제를 가진다.</p>
 <ul>
-<li>레이어의 파라미터 학습이 어려움</li>
-<li>Gradient vanishing or exploding</li>
+<li>Deep Neural Network는 <strong>학습하는 도중에 파라미터가 계속해서 변화</strong>합니다.</li>
+<li>또한 여러개의 minibatch가 input이 되는데 <strong>각각의 minibatch가 이루는 데이터의 분포는 다릅니다..</strong></li>
 </ul>
-<p>첫 번째는 학습하는데 어려움을 가진다는 것이다. 만약 input data의 분포가 고정되어있다면 그에 맞는 파라미터를 계속해서 학습하며 결과적으로 layer의 파라미터는 어떠한 값으로 수렴할 것이다.그러나 분포가 internal covariate shift가 (학습되는 파라미터로 인해)일어난다면 계속해서 새로운 분포에 맞춰서 파라미터를 수정해야 하기 때문에 학습하는데 어려움이 있다. 논문에서는 이를 좀 다른방식으로 설명하는데 training 셋의 분포와 testset의 분포가 같으면 학습이 잘되고 다르다면 학습이 안되는 것과 유사하다고 한다.</p>
-<p>두 번째는 Gradient vanishing 또는 exploding이다.</p>
+<p><img src="./internal covariate shift.png" class="img-fluid" alt="internal covariate shift"><br> internal covariate shift - 출처 : <a href="https://www.google.com/search?q=%EB%82%98%EB%8F%99%EB%B9%88+batchnorm&amp;oq=%EB%82%98%EB%8F%99%EB%B9%88+batchnorm&amp;aqs=chrome..69i57.3114j0j4&amp;sourceid=chrome&amp;ie=UTF-8#fpstate=ive&amp;vld=cid:93109210,vid:58fuWVu5DVU">동빈나</a></p>
+<ul>
+<li>이로인해서 <strong>각각의 hidden layer에 입력되는 input data의 분포가 학습단계에서 스텝마다 변화하는 <code>internal covariate shift</code>가 나타납니다.</strong>(실제로 히든레이어의 output은 다차원이지만 비유적으로 1차원으로 표현한 그림임.)</li>
+<li>특히 이 현상은 Deep nueral network의 특성상 <strong>깊이 위치한 hidden layer일수록 심하게 나타납니다.</strong></li>
+<li>이는 깊이 위치한 hidden layer일수록 <strong>파라미터 연산이 여러번 반복되어 더 심한 변화</strong>를 만들기 때문입니다.</li>
+<li>이는 다음과 같은 두 가지의 문제점을 일으킵니다.
+<ol type="1">
+<li><code>학습parameter</code>의 <code>converge</code>가 어렵습니다.
+<ul>
+<li>input의 분포가 적당히 고정된다면 그에 맞는 파라미터를 학습하여 적당한 값으로 수렴할 것입니다.</li>
+<li>그러나 internal covariance shift가 일어난다면 <strong>계속해서 새로운 분포에 대해 다시 학습해야 하기 때문</strong>에 수렴이 어렵습니다.</li>
+<li>비유하자면,마치 training set과 test set의 분포가 같으면 학습이 잘되고 안되면 학습이 안되는 것과 유사합니다.(저는 잘 와닿지는 않습니다.)</li>
+</ul></li>
+<li><code>Gradient exploding</code> 또는 <code>Gradient vanishing</code>이 발생할 수 있습니다..
+<ul>
+<li>분포의 변화로 인해 어떤 hidden layer에서 <strong>시그모이드의 input이 너무 크다면 기울기가 거의 없으며 미분계수가 0에 가깝기에</strong> 파라미터의 업데이트가 일어나지 않습니다.</li>
+</ul></li>
+</ol></li>
+</ul>
 <div class="cell" data-execution_count="34">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> torch</span>
 <span id="cb1-3"><a href="#cb1-3"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
@@ -242,6 +281,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <span id="cb1-9"><a href="#cb1-9"></a>plt.plot(x,z)</span>
 <span id="cb1-10"><a href="#cb1-10"></a>plt.scatter(point_x,point_z,s<span class="op">=</span><span class="dv">80</span>,color <span class="op">=</span> <span class="st">"red"</span>)</span>
 <span id="cb1-11"><a href="#cb1-11"></a>plt.axvline(point_x,color<span class="op">=</span><span class="st">"black"</span>,linestyle<span class="op">=</span><span class="st">"--"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>&lt;matplotlib.lines.Line2D at 0x1f70973fac0&gt;</code></pre>
 </div>
@@ -249,41 +289,104 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p><img src="batchnormalization_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p>input의 분포의 변화로 인해 임의의 노드에서 시그모이드(<span class="math inline">\(g\)</span>)의 input <span class="math inline">\(x = Wu + b\)</span>라고 가정해보자. 만약 <span class="math inline">\(|x|\)</span>가 너무 커서 saturation regime에 존재한다면 <span class="math inline">\(\frac{\partial{g}}{\partial{x}} \approx 0\)</span>이며 기울기가 vanishing되고 (이는 backpropagation되므로)파라미터의 업데이트가 일어나지 않게 된다.</p>
-<p>위와 같은 문제점을 해결하기 위해 크게 다음과 같은 2가지의 방법이 시도되어왔다.</p>
 <ul>
-<li>lower learning rate =&gt; training time의 상승</li>
-<li>careful parameter initialization</li>
+<li>위와 같은 문제점 즉,<code>internal covariance shift</code>를 해결하기 위해 크게 다음과 같은 크게 2가지의 방법이 시도되어왔습니다.
+<ol type="1">
+<li>lower learning rate를 사용하는 방법이 연구되어 왔습니다.</li>
+<li>careful parameter initialization.(HE,Xavior)</li>
+</ol></li>
+<li>그러나 각각의 방법들은 단점이 있습니다.(학습시간의 상승,초기화의 어려움)</li>
+<li>해당 논문에서는 <strong>internal covariate shift를 해결</strong>하기 위해 <strong>각각의 레이어에서 Batch단위로 Normalization</strong>을 수행합니다.</li>
 </ul>
-<p>위의 방법은 internal covariate shift를 어느정도 해결하긴 하지만 단점도 존재한다.(학습시간의 상승 등등 …)</p>
-<p>논문에서는 <strong>internal covariate shift를 해결</strong>하기 위해 <strong>normalization for each training mini-batch(Batch Normalization)</strong>을 수행한다.</p>
 </section>
-<section id="normalization-via-mini-batch-statistics" class="level1">
-<h1><span style="color:black"><strong>Normalization via Mini-Batch Statistics</strong></span></h1>
-<p><img src="./BN algorithm.PNG" class="img-fluid"></p>
-<p>먼저 notation과 내가 헷갈렸던 점을 잠깐 짚고 넘어간다.</p>
+<section id="method" class="level1">
+<h1><span style="color:black"><strong>Method</strong></span></h1>
+<section id="intuition" class="level2">
+<h2 class="anchored" data-anchor-id="intuition"><span style="color:black"><strong>Intuition</strong></span></h2>
+<p><img src="./batchnorm.png" class="img-fluid"></p>
+<p>BatchNormalization - 출처 : <a href="https://www.google.com/search?q=%EB%82%98%EB%8F%99%EB%B9%88+batchnorm&amp;oq=%EB%82%98%EB%8F%99%EB%B9%88+batchnorm&amp;aqs=chrome..69i57.3114j0j4&amp;sourceid=chrome&amp;ie=UTF-8#fpstate=ive&amp;vld=cid:93109210,vid:58fuWVu5DVU">JINSOL KIM</a></p>
 <ul>
-<li>논문을 기준으로 BN-layer는 parameter가 존재하는 FC-layer나 conv-layer와 activation function(layer)사이에 존재한다.(그러나 이는 비교적 자유로우며 후에 다시 나온다.)</li>
-<li><span class="math inline">\(\mathcal{B} = \{x_{1...m}\}\)</span>는 data set에서 m개의 datapoint를 네트워크에 입력하면 어떤 hiddenlayer에 존재하는 임의의 노드 하나에서 activation function(layer)을 통과하기 전 m개의 값이 존재하는데 그 값들을 지칭한다. 그 사이의 값을 <span class="math inline">\(x\)</span>라고 하면 <span class="math inline">\(x_{1...m}\)</span>이 된다.</li>
-<li><span class="math inline">\(\mu_{\mathcal{B}}\)</span>는 minibatch를 구성하는 datapoint 각각을 네트워크에 입력하여 얻은 모든 <span class="math inline">\(x\)</span>에 대한 평균을 의미한다.크기가 <span class="math inline">\(m\)</span>인 minibatch에 대하여 <span class="math inline">\(x_1,\dots,x_m\)</span>의 평균이다.</li>
-<li><span class="math inline">\(\sigma^2_{\mathcal{B}}\)</span>는 마찬가지로 minibatch여 얻은 <span class="math inline">\(x\)</span>값들의 분산이다.</li>
-<li><span class="math inline">\(\hat{x_i}\)</span>는 minibatch에서 i-th datapoint에 위의 연산을 통해 얻은 값이다. <span class="math inline">\(\mu_{\mathcal{B}}\)</span>와 <span class="math inline">\(\sigma^2_{\mathcal{B}}\)</span>를 사용하므로 minibatch에서 계산한 모든<span class="math inline">\(x\)</span>가 사용된다.</li>
-<li><span class="math inline">\(\hat{y_i}\)</span>는 learnable parameter인 <span class="math inline">\(\gamma,\beta\)</span>를 추가한 값이다.</li>
+<li>직관적으로 <code>internal covariate shift</code>를 막기 위해 분포가 고정되게 하려면 위와 같이 각 히든레이어의 output에 normalization을 취할 수 있습니다. 이는 논문의 알고리즘에서 설명하는 방법입니다.</li>
+<li>그러나 찾아본 흔히 Fully connected-layer와 activation function사이에 batchnormalization layer를 놓습니다. 이는 논문의 실험에서 사용한 방법입니다.</li>
+<li>정리하자면 normalization을 적용하는 위치는 문제마다 다르지만 흔히들 위와 같이 Fully connected layer와 activation function사이에 놓는게 일반적이며 이는 비교적 자유로운 편이라 할 수 있습니다.</li>
+<li>위와 같은 방법으로 <strong>normalization만 취하게 된다면 네트워크의 표현력을 감소</strong>시킬 수 있습니다. 시그모이드의 linear regime에 값들이 대다수 위치하기 때문입니다.(뉴럴넷은 선형+비선형 변환을 통해서 높은 표현력을 지닙니다.단순히 normalization만 취하면 비선형함수의 역할이 감소하게 됩니다.)</li>
 </ul>
-<p>평균~normalizae까지 살펴보면 minibatch를 하나의 단위로하여 activation function의 input인 <span class="math inline">\(x\)</span>를 normalization하는 것을 의미한다. Problem setting에서 internal covariate shift가 일어나면서 나타나는 두 가지의 단점을 설명했다. normalization까지의 과정은 결국 normal gaussian distribution으로 바꿔서 <strong>activation function으로 입력되는 input의 distribution을 가능한 비슷하게</strong> 하고자 하는 것이다.</p>
-<p>여기서 한 가지 중요한 사실은 normalization만 수행하면 network의 표현력을 감소시킨다는 것이다. sigmoid함수를 한 가지 예시로 들어보자. normalization으로 input data의 분포가 normal gaussian distribution가 되었다고 생각해보면 대부분 sigmoid의 linear한 영역에 존재할 것이다. 따라서 nonlinearity를 잃어버리게 된며 이는 네트워크의 표현력을 감소시키므로 좋지 않다.(linearity + nonlinearity는 DNN은 높은 표현력을 가짐을 기억하자) 그러므로, 이러한 점을 막기위해 여기에 추가적으로 학습이 가능한 파라미터 <span class="math inline">\(\gamma\)</span>를 곱해주고 <span class="math inline">\(\beta\)</span>를 더해줌으로서 optimal에 다가갈 수 있도록 분포를 학습을 통하여 shifting,scaling하여 network의 표현력을 유지한다.</p>
-<p>예를 들어 학습된 <span class="math inline">\(\gamma\)</span>,<span class="math inline">\(\beta\)</span>는 다음과 같을 것이다.<br> <strong>(nonlinearity를 유지하는 것이 optimal한 경우)</strong> <br> <span class="math display">\[\gamma \approx \sqrt{var[x]},\beta \approx \mathbb{E}[x] \rightarrow \hat{x_i}\approx x_i  \]</span> <strong>(linearity를 얻는 것이 optimal한 경우)</strong><br> <span class="math display">\[\gamma \approx 1,\beta \approx 0 \rightarrow \hat{x_i} \approx \frac{x_i-\mu_\mathcal{B}}{\sqrt{\sigma_\mathcal{B}^2-\epsilon}}\]</span></p>
-<p>정리하자면 BatchNormalization은 <strong>Batch단위의 normalization,learnable parameter</strong>를 추가하여<strong>internal covariate shift를 막고 fixed된 distribution을 만듬</strong>과 동시에 <strong>nonlinearity를 유지</strong>함으로서 <strong>gradient vanishing(exploding),학습의 어려움,표현력의 감소</strong>와 같은 문제를 해결했다고 할 수 있다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./learnable parameters.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">figure3 - DNN with learnable parameter</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>따라서 normalization된 값을 적절하게 <code>shifting</code>,<code>scailing</code>하도록 각 뉴런에 붙는 <code>learnable parameter</code> <span class="math inline">\(\gamma,\beta\)</span>를 추가합니다.</li>
+</ul>
+<blockquote class="blockquote">
+<p>정리하자면 BatchNormalization은 <strong>Batch단위로 <code>normalization</code>을 통해 <code>internal covariate shift</code>를 막고 동시에 <code>learnable parameter</code>로 <code>shifting</code>,<code>scailing</code>함으로서 nonlinearity를 유지하여 gradient vanishing(exploding),학습의 어려움,표현력의 감소와 같은 문제를 해결</strong>했다고 할 수 있습니다.</p>
+</blockquote>
 </section>
-<section id="training-and-inference-with-batch-normalized-networks" class="level1">
-<h1><span style="color:black"><strong>Training and Inference with Batch-Normalized Networks</strong></span></h1>
-<p>training에서는 minibatch단위로 평균,분산을 구하여 normalization할 수 있지만 test에서는 이와는 다르게 minibatch단위로 data가 입력되지 않으며 또한 입력되는 데이터만 사용하여 값을 예측하길 원한다. 따라서 <strong>training에서 각각의 배치들로부터 얻은 평균들과 분산들을 저장</strong>해놓고 <strong>test에서는 이 값들로 다시 평균을 취하여 normalization</strong>을 한다. 이때 단순한 평균을 취하는 것이 아니라 parameter가 어느정도 <strong>학습된 상태에서 얻어진 minibatch들의 데이터를 더 많이 고려</strong>하기 위해서 <strong>movingaverage나 exponentialaverage를 사용</strong>한다. movingaverage는 학습단계에서 얻어진 값(평균,분산)의 일부를 직접 지정하여 평균을 구하고 exponentialaverage는 어느정도 안정된 상태의 값들에 높은 가중치를 부여하여 평균,분산을 구한다.</p>
+<section id="implementation" class="level2">
+<h2 class="anchored" data-anchor-id="implementation"><span style="color:black"><strong>Implementation</strong></span></h2>
+<section id="training" class="level3">
+<h3 class="anchored" data-anchor-id="training"><span style="color:black"><strong>Training</strong></span></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./BN algorithm.PNG" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure4 - BN Algorithm</figcaption><p></p>
+</figure>
+</div>
+<p><strong>notation</strong></p>
+<ul>
+<li>논문의 알고리즘 부분에서는 Batchnormalization은 activation function바로 다음에 위치하는 것을 기준으로 설명합니다.</li>
+<li><span class="math inline">\(\mathcal{B} = \{x_{1...m}\}\)</span>는 크기가 m인 batch를 입력했을때 임의의 노드에서 출력된 m개의 scalar값이다.(activation function을 통과한 후이다.)m개의 output입니다.</li>
+<li><span class="math inline">\(\mu_{\mathcal{B}}\)</span>,<span class="math inline">\(\sigma^2_{\mathcal{B}}\)</span>는 각각 <span class="math inline">\(\mathcal{B}\)</span>의 평균,분산을 의미합니다.</li>
+<li><span class="math inline">\(\hat{x_i}\)</span>는 <span class="math inline">\(\mathcal{B}\)</span>에 속하는 임의의 원소 <span class="math inline">\(x_i\)</span>에 <code>normalization</code>한 값입니다.</li>
+<li>여기서 <span class="math inline">\(\epsilon\)</span>은 매우작은 값을 의미하며 분산이 0일때의 연산이 불안정해지는 것을 막습니다.</li>
+<li><span class="math inline">\(y_i\)</span>는 <code>learnable parameter</code>인 <span class="math inline">\(\gamma,\beta\)</span>에 대한 값이며 <span class="math inline">\(\text{BN}_{\gamma,\beta}(x_i)\)</span>를 계산한 결과입니다.</li>
+</ul>
+<p><strong>explanation</strong> - 먼저 크키가m인 batch에 대해서 어떤 노드에서 m개의 스칼라값인 <span class="math inline">\(\mathcal{B}\)</span>가 출력됩니다. - <span class="math inline">\(\mathcal{B}\)</span>의 평균,분산을 계산합니다. - <span class="math inline">\(\forall x_i \in \mathcal{B}\)</span>에 대하여 normalization을 취하고 learnable parameter인 <span class="math inline">\(\gamma,\beta\)</span>를 곱합니다.</p>
+<p><strong>학습된 <span class="math inline">\(\gamma\)</span>,<span class="math inline">\(\beta\)</span>의 예시</strong><br> <strong>Normalization연산이 필요없다고 학습한 경우,nonlinearity를 유지하는 것이 좋은 경우,identity를 유지하는게 좋은 경우</strong> <br> <span class="math display">\[\gamma \approx \sqrt{var[x]},\beta \approx \mathbb{E}[x] \rightarrow \hat{x_i}\approx x_i  \]</span> <strong>Normalization연산이 필요하다고 학습한 경우,linearity를 가지는 것이 경우,identity를 버리는게 좋은 경우</strong> <br> <span class="math display">\[\gamma \approx 1,\beta \approx 0 \rightarrow \hat{x_i} \approx \frac{x_i-\mu_\mathcal{B}}{\sqrt{\sigma_\mathcal{B}^2-\epsilon}}\]</span></p>
+</section>
+<section id="test-or-inference" class="level3">
+<h3 class="anchored" data-anchor-id="test-or-inference"><span style="color:black"><strong>Test or Inference</strong></span></h3>
+<ul>
+<li>training에서는 minibatch단위로 평균,분산을 구하여 normalization할 수 있지만 test에서는 이와는 다르게 <strong>minibatch단위로 data가 입력되지 않을뿐더러</strong> 또한 <strong>입력되는 데이터가 한개여도 올바르게 예측해야 원합니다.</strong></li>
+<li>따라서 이때에는 <strong>training에서 각각의 배치들로부터 얻은 평균들과 분산들을 저장</strong>해놓고 <strong>test에서는 이 값들로 다시 평균을 취하여(평균들의 평균) normalization</strong>을 취합니다.</li>
+<li>이때 단순한 평균을 취하는 것이 아니라 어느정도 <strong>학습된 네트워크에서 얻어진 minibatch들의 데이터를 더 많이 고려</strong>하기 위해서 <strong><code>movingaverage</code>나 <code>exponentialaverage</code>를 사용</strong>합니다.</li>
+<li>movingaverage는 학습단계에서 얻어진 값(평균,분산)의 일부를 직접 지정하여 평균을 구하고 exponentialaverage는 어느정도 안정된 상태의 값(나중값)들에 가중치를 부여하여 평균,분산을 구하는 방법입니다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;\hat{x} = \frac{x - \mathbb{E}[x]}{\text{Var}[x] + \epsilon}\\
 &amp;y = \frac{\gamma}{\sqrt{\text{var}[x] + \epsilon}}\cdot x + (\beta - \frac{\gamma\mathbb{E}[x]}{\sqrt{\text{Var}[x] + \epsilon}})\\
 &amp;\text{where }E[x] = E_\mathcal{B}[\mu_\mathcal{B}],\text{Var}[x] = \frac{m}{m-1}E_\mathcal{B}[\sigma_\mathcal{B}^2]
 \end{aligned}\]</span>
-<p><span class="math inline">\(\frac{m}{m-1}\)</span>은 unbiased estimate를 위하여 곱해진 값이며 <span class="math inline">\(E_{\mathcal{B}}\)</span>는 moving average 또는 exponential average를 의미한다. test에서의 normalization은 단순히 linear transform으로 볼 수 있는데 이는 평균과 분산을 구하는 것이 아닌 training에서 구해놓은 값을 단순히 averaging한 고정된(fixed)값을 활용하기 때문이다.</p>
+<ul>
+<li><span class="math inline">\(\frac{m}{m-1}\)</span>은 unbiased estimate를 위하여 곱해진 값이며 <span class="math inline">\(E_{\mathcal{B}}\)</span>는 moving average 또는 exponential average를 의미합니다.</li>
+<li>test에서의 normalization은 단순한 linear transform으로 취급할 수 있는데 이는 training이 끝난 후 사전에 이 값을 계산하여 단순히 곱하고 더하는 것으로 계산할 수 있기 때문입니다.</li>
+</ul>
+</section>
+</section>
+<section id="experiments" class="level2">
+<h2 class="anchored" data-anchor-id="experiments"><span style="color:black"><strong>Experiments</strong></span></h2>
+<p><img src="./pp-figure1.png" class="img-fluid"><br> Figure5 - Mnist experiment</p>
+<ul>
+<li>(a)는 BN을 사용한 네트워크와 사용하지 않은 네트워크를 비교, (b,c)는 각 네트워크의 hiddenlayer의 sigmoid의 input 3개를 비교한 것</li>
+<li>네트워크는 각각 100개의 activation을 가지며 3개의 hiddenlayer가 존재</li>
+<li>(a)를 보면BN을 사용한 네트워크가 훨씬 빠른속도로 수렴하고 있음을 알 수 있음</li>
+<li>(b,c)를 보면 BN을 사용한 네트워크에서 값이 훨씬 안정적임을 알 수 있음(<code>internal covariate shift</code>가 적음)</li>
+</ul>
+<p><img src="./pp-figure2.png" class="img-fluid"></p>
+<ul>
+<li>BN사용한 모델이 좋았다~</li>
+</ul>
+</section>
+</section>
+<section id="reference" class="level1">
+<h1><span style="color:black"><strong>Reference</strong></span></h1>
+<ul>
+<li><a href="https://arxiv.org/abs/1502.03167">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</a></li>
+<li><a href="https://gaussian37.github.io/dl-concept-batchnorm/">Jin Sol KIM</a></li>
+<li><a href="https://www.google.com/search?q=%EB%82%98%EB%8F%99%EB%B9%88+batchnorm&amp;oq=%EB%82%98%EB%8F%99%EB%B9%88+batchnorm&amp;aqs=chrome..69i57.3114j0j4&amp;sourceid=chrome&amp;ie=UTF-8#fpstate=ive&amp;vld=cid:93109210,vid:58fuWVu5DVU">동빈나</a></li>
+</ul>
 
 
 </section>

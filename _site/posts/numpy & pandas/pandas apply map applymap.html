@@ -339,9 +339,8 @@ dtype: float64</code></pre>
 <section id="pd.dataframe.apply" class="level1">
 <h1><span style="color : black"> <strong>pd.DataFrame.apply</strong></span></h1>
 <ul>
-<li>apply는 <strong>DataFrame</strong>의 method로 DataFrame의 축을 따라서 함수를 적용한다.</li>
-<li>DataFrame을 matrix로 생각하면 위에 말은 <strong>vector에 함수를 적용</strong>한다는 말이다.</li>
-<li><strong>Note</strong> : Series의 map은 하나하나의 개별적인 값을 함수에 입력하지만 DataFrame의 apply는 vector(column,row)에 대한 함수이다.</li>
+<li>apply는 DataFrame의 method로 DataFrame의 <strong>축을 따라서 함수를 적용</strong>한다.</li>
+<li>Note : DataFrame의 apply는 vector(column,row)단위로 함수에 입력된다.(map이나 applymap은 element들이 함수의 입력이 된다.)</li>
 <li>Parameters<br>
 <ul>
 <li>func : 각각의 column,row(vector)에 적용되는 함수</li>

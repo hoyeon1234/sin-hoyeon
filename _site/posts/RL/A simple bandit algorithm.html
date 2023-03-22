@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2023-03-22">
 
-<title>HIHO - Untitled</title>
+<title>HIHO - [강화학습] Simple Bandit Algorithm Implementation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,14 +172,30 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Untitled</h1>
-                      </div>
+      <h1 class="title">[강화학습] Simple Bandit Algorithm Implementation</h1>
+            <p class="subtitle lead">Reinforcement Learning: An Introduction 2.4절 중 Simple Bandit Algorithm psuedo code 구현</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Reinforcement Learning</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>hoyeon </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 22, 2023</p>
+      </div>
+    </div>
     
       
     </div>
@@ -187,7 +205,14 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import"><span style="color:black"> <strong>Import</strong></span></a></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation"><span style="color:black"> <strong>Implementation</strong></span></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -195,11 +220,16 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
+<section id="import" class="level1">
+<h1><span style="color:black"> <strong>Import</strong></span></h1>
 <div class="cell" data-execution_count="308">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> scipy.stats <span class="im">import</span> bernoulli,norm</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> random</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="implementation" class="level1">
+<h1><span style="color:black"> <strong>Implementation</strong></span></h1>
 <div class="cell" data-execution_count="309">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> argmax(q_func):</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    q_max <span class="op">=</span> <span class="bu">max</span>(q_func.values())</span>
@@ -331,6 +361,7 @@ Q_estimated -0.05355515687875377
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
