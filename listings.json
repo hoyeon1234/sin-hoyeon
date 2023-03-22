@@ -4,9 +4,9 @@
     "items": [
       "/posts/DL/Bias Variance tradeoff/bias variance trade off.html",
       "/posts/paper study/auto-encoding variational bayes implement/Auto-Encoding Variational Bayes.html",
-      "/posts/RL/A simple bandit algorithm.html",
       "/posts/RL/Bellman Equation(번외).html",
       "/posts/visualization/plotly_visualization/Untitled-1.html",
+      "/posts/RL/A simple bandit algorithm.html",
       "/posts/paper study/batchnormalization/batchnormalization.html",
       "/posts/numpy & pandas/pandas applymap apply map/pandas apply map applymap.html",
       "/posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html",
