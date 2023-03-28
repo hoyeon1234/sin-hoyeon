@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -196,6 +133,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition"><span style="color:black"> <strong>Intuition</strong></span></a></li>
   <li><a href="#derivation" id="toc-derivation" class="nav-link" data-scroll-target="#derivation"><span style="color:black"> <strong>Derivation</strong></span></a>
   <ul class="collapse">
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span style="color:black"><strong>Notation</strong></span></a></li>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span style="color:black"> <strong>Background</strong></span></a></li>
   </ul></li>
   <li><a href="#derivation-1" id="toc-derivation-1" class="nav-link" data-scroll-target="#derivation-1"><span style="color:black"> <strong>Derivation</strong></span></a></li>
@@ -252,28 +190,19 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </section>
 <section id="derivation" class="level2">
 <h2 class="anchored" data-anchor-id="derivation"><span style="color:black"> <strong>Derivation</strong></span></h2>
+<section id="notation" class="level3">
+<h3 class="anchored" data-anchor-id="notation"><span style="color:black"><strong>Notation</strong></span></h3>
+<ul>
+<li>위키피디아의 notation과 강의자료 중 notation이 다르고 이외에도 다른부분이 많이 헷갈리기에 notation을 먼저 정리합니다.</li>
+<li><span class="math inline">\(F^*(x) = f(x) = f,\hat{F}(x) = \hat{f}(x;D) = \hat{f}\)</span></li>
+<li><span class="math inline">\(\mathbb{E}_D = \mathbb{E}\)</span></li>
+</ul>
+</section>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background"><span style="color:black"> <strong>Background</strong></span></h3>
 <ul>
 <li>통계학에서 데이터는 다음과 같은 <code>additive error model</code>로부터 sampling됩니다.</li>
 </ul>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>git add .</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>git commit <span class="op">-</span>m .</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="op">!</span>git push</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="op">!</span>quarto publish <span class="op">--</span>no<span class="op">-</span>prompt <span class="op">--</span>no<span class="op">-</span>browser </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>warning: in the working copy of 'posts/DL/Bias Variance tradeoff/bias variance trade off.ipynb', LF will be replaced by CRLF the next time Git touches it</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[master 5b1231a] .
- 1 file changed, 96 insertions(+), 12 deletions(-)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>To https://github.com/hoyeon1234/sin-hoyeon.git
-   732162e..5b1231a  master -&gt; master</code></pre>
-</div>
-</div>
 <span class="math display">\[\begin{aligned}
 &amp;y = f(x) + \epsilon ,\,\, \epsilon \overset{\text{i.i.d}}{\sim} \mathcal{N}(0,\sigma^2)\\
 &amp;\text{where} \\
@@ -283,6 +212,13 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <ul>
 <li><span class="math inline">\(f(x)\)</span>는 모집단에서 두 변수 <span class="math inline">\(x,y\)</span>사이의 관계를 대표하는 곡선이며 우리가 학습 알고리즘을 통해 찾고자 하는 target function입니다.</li>
 <li>target function을 찾게되면 우리는 unknown data에 대해서도 좋은 결과를 얻을 수 있습니다.(good generalization)</li>
+</ul>
+<p><img src="./fhat.png" class="img-fluid"><br></p>
+<p>출처 : <a href="https://github.com/pilsung-kang/Business-Analytics-IME654-/blob/master/04%20Ensemble%20Learning/04-2_Ensemble%20Learning_Bias-Variance%20Decomposition.pdf">Pilsung Kang 교수님 깃허브</a></p>
+<ul>
+<li>모집단으로부터 sampling되는 data set에 의해서 같은 알고리즘이라도 다르게 학습이 됩니다.</li>
+<li>만약 서로다른 data set가 N개가 존재한다면 true function인 <span class="math inline">\(f(x)\)</span>에 대해 서로다른 N개의 근사값인 <span class="math inline">\(\hat{f}_1(x),\hat{f}_2(x),\dots,\hat{f}_n(x)\)</span>를 구합니다.</li>
+<li>개인적으로 각각의 datapoint는 <span class="math inline">\(p(x,y)\)</span>를 따르므로 dataset <span class="math inline">\(D\)</span>도 확률변수이며 이로부터 random한 <span class="math inline">\(\hat{f}(x)\)</span>도 확률변수라고 생각합니다.</li>
 </ul>
 </section>
 </section>
