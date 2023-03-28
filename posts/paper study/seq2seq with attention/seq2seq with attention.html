@@ -336,7 +336,6 @@ c_i = \sum_{j=1}^{T_x}\alpha_{i,j}h_{j}
 <li>RNNsearch가 길이가 더 긴 문장에 robust한 모델이며 특히 <strong>RNNsearch-50은 긴 문장에 대해서 성능이 월등히 좋음</strong>을 알 수 있습니다.</li>
 </ul>
 <p><img src="./result2.png" class="img-fluid"></p>
-<p>We can see from the alignments in Fig. 3 that the alignment of words between English and French is largely monotonic. We see strong weights along the diagonal of each matrix. However, we also observe a number of non-trivial, non-monotonic alignments. Adjectives and nouns are typically ordered differently between French and English, and we see an example in Fig. 3 (a). From this figure, we see that the model correctly translates a phrase [European Economic Area] into [zone economique europ ´ een]. The RNNsearch was able to correctly align [zone] with [Area], jumping ´ over the two words ([European] and [Economic]), and then looked one word back at a time to complete the whole phrase [zone economique europ ´ eenne].</p>
 <ul>
 <li>위의 그림은 가중치 <span class="math inline">\(\alpha\)</span>값을 나타냅니다.</li>
 <li>그림을 보면 주대각선의 값이 대부분 큰 것으로 보아 영어와 프랑스어 단어사이의 alingment(일치)는 대부분 단조로움(monotonic)을 알 수 있습니다.</li>
