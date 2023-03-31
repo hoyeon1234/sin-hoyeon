@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="신호연">
-<meta name="dcterms.date" content="2023-01-09">
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2023-03-31">
 
-<title>HIHO - [프로그래머스]Lv1.크기가 작은 부분 문자열</title>
+<title>HIHO - [프로그래머스]Lv1.k번째수</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -172,7 +172,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">[프로그래머스]Lv1.크기가 작은 부분 문자열</h1>
+      <h1 class="title">[프로그래머스]Lv1.k번째수</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Coading Test</div>
               </div>
@@ -185,14 +185,14 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>신호연 </p>
+               <p>hoyeon </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 9, 2023</p>
+        <p class="date">March 31, 2023</p>
       </div>
     </div>
     
@@ -208,8 +208,9 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#문제" id="toc-문제" class="nav-link active" data-scroll-target="#문제"><span style="color:black"><strong>문제</strong></span></a></li>
+  <li><a href="#문제" id="toc-문제" class="nav-link active" data-scroll-target="#문제"><span style="color:black"> <strong>문제</strong></span></a></li>
   <li><a href="#나의-풀이" id="toc-나의-풀이" class="nav-link" data-scroll-target="#나의-풀이"><span style="color:black"><strong>나의 풀이</strong></span></a></li>
+  <li><a href="#고찰" id="toc-고찰" class="nav-link" data-scroll-target="#고찰"><span style="color:black"><strong>고찰</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -220,24 +221,45 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 <section id="문제" class="level1">
-<h1><span style="color:black"><strong>문제</strong></span></h1>
-<p><img src="./images/[프로그래머스]Lv1.크기가 작은 부분 문자열.PNG" class="img-fluid"></p>
+<h1><span style="color:black"> <strong>문제</strong></span></h1>
+<p><img src="./images/[프로그래머스]Lv1.K번째수.png" class="img-fluid"></p>
 </section>
 <section id="나의-풀이" class="level1">
 <h1><span style="color:black"><strong>나의 풀이</strong></span></h1>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> solution(t, p):</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    t_len <span class="op">=</span> <span class="bu">len</span>(t)<span class="op">;</span>p_len <span class="op">=</span> <span class="bu">len</span>(p)</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    answer <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>    p <span class="op">=</span> <span class="bu">int</span>(p)</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="cf">for</span> idx <span class="kw">in</span> <span class="bu">range</span>(t_len<span class="op">-</span>p_len<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb1-6"><a href="#cb1-6"></a>        num <span class="op">=</span> <span class="bu">int</span>(t[idx:idx<span class="op">+</span>p_len])</span>
-<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">if</span> num <span class="op">&lt;=</span> p:</span>
-<span id="cb1-8"><a href="#cb1-8"></a>            answer<span class="op">+=</span><span class="dv">1</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>        <span class="cf">else</span>:</span>
-<span id="cb1-10"><a href="#cb1-10"></a>            <span class="cf">pass</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>    <span class="cf">return</span> answer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> drop(array,value):</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">for</span> idx <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(array)):</span>
+<span id="cb1-3"><a href="#cb1-3"></a>        <span class="cf">if</span> array[idx] <span class="op">==</span> value:</span>
+<span id="cb1-4"><a href="#cb1-4"></a>            i <span class="op">=</span> idx</span>
+<span id="cb1-5"><a href="#cb1-5"></a>            <span class="cf">break</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    dropped_array <span class="op">=</span> array[:i] <span class="op">+</span> array[i<span class="op">+</span><span class="dv">1</span>:]</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="cf">return</span> dropped_array</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    </span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">def</span> sort(sub_list):</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    sorted_l <span class="op">=</span> []</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="cf">while</span> <span class="bu">len</span>(sub_list)<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb1-12"><a href="#cb1-12"></a>        drop_element <span class="op">=</span> <span class="bu">min</span>(sub_list)</span>
+<span id="cb1-13"><a href="#cb1-13"></a>        sorted_l.append(drop_element)</span>
+<span id="cb1-14"><a href="#cb1-14"></a>        sub_list <span class="op">=</span> drop(sub_list,drop_element)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="cf">return</span> sorted_l</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="kw">def</span> solution(array, commands):</span>
+<span id="cb1-18"><a href="#cb1-18"></a>    answer <span class="op">=</span> []</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    <span class="cf">for</span> el <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(commands)):</span>
+<span id="cb1-20"><a href="#cb1-20"></a>        command <span class="op">=</span> commands[el]</span>
+<span id="cb1-21"><a href="#cb1-21"></a>        i <span class="op">=</span> command[<span class="dv">0</span>]<span class="op">;</span>j<span class="op">=</span>command[<span class="dv">1</span>]<span class="op">;</span>k<span class="op">=</span>command[<span class="dv">2</span>]</span>
+<span id="cb1-22"><a href="#cb1-22"></a>        sub_list <span class="op">=</span> array[i<span class="op">-</span><span class="dv">1</span>:j]</span>
+<span id="cb1-23"><a href="#cb1-23"></a>        sorted_list <span class="op">=</span> sort(sub_list)</span>
+<span id="cb1-24"><a href="#cb1-24"></a>        answer.append(sorted_list[k<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb1-25"><a href="#cb1-25"></a>    <span class="cf">return</span> answer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="고찰" class="level1">
+<h1><span style="color:black"><strong>고찰</strong></span></h1>
+<ul>
+<li>오랜만에 해서 그런지 sorted함수를 구현하는 것을 까먹어 오래걸렸다.</li>
+<li>구현된 내장함수 중 자주 나오는 것은 외워야 한다.</li>
+</ul>
 
 
 </section>
