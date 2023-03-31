@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-01-09">
 
-<title>HIHO - [프로그래머스]Lv1.이상한 문자 만들기</title>
+<title>HIHO - [Coading Test]Lv1.이상한 문자 만들기</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -172,7 +172,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">[프로그래머스]Lv1.이상한 문자 만들기</h1>
+      <h1 class="title">[Coading Test]Lv1.이상한 문자 만들기</h1>
+            <p class="subtitle lead">level : 1</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Coading Test</div>
               </div>
@@ -208,10 +209,10 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#문제" id="toc-문제" class="nav-link active" data-scroll-target="#문제"><span style="color:#00994C"><strong>문제</strong></span></a></li>
-  <li><a href="#나의-풀이" id="toc-나의-풀이" class="nav-link" data-scroll-target="#나의-풀이"><span style="color:#00994C"><strong>나의 풀이</strong></span></a></li>
-  <li><a href="#split-메서드함수" id="toc-split-메서드함수" class="nav-link" data-scroll-target="#split-메서드함수"><span style="color:#00994C"><strong>split 메서드(함수)</strong></span></a></li>
-  <li><a href="#예시" id="toc-예시" class="nav-link" data-scroll-target="#예시"><span style="color:#00994C"><strong>예시</strong></span></a></li>
+  <li><a href="#문제" id="toc-문제" class="nav-link active" data-scroll-target="#문제"><span style="color:black"><strong>문제</strong></span></a></li>
+  <li><a href="#나의-풀이" id="toc-나의-풀이" class="nav-link" data-scroll-target="#나의-풀이"><span style="color:black"><strong>나의 풀이</strong></span></a></li>
+  <li><a href="#split-메서드함수" id="toc-split-메서드함수" class="nav-link" data-scroll-target="#split-메서드함수"><span style="color:black"><strong>split 메서드(함수)</strong></span></a></li>
+  <li><a href="#예시" id="toc-예시" class="nav-link" data-scroll-target="#예시"><span style="color:black"><strong>예시</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -222,11 +223,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 <section id="문제" class="level1">
-<h1><span style="color:#00994C"><strong>문제</strong></span></h1>
+<h1><span style="color:black"><strong>문제</strong></span></h1>
 <p><img src="./images/[프로그래머스]Lv1.이상한 문자 만들기.PNG" class="img-fluid"></p>
 </section>
 <section id="나의-풀이" class="level1">
-<h1><span style="color:#00994C"><strong>나의 풀이</strong></span></h1>
+<h1><span style="color:black"><strong>나의 풀이</strong></span></h1>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> solution(s):</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    words <span class="op">=</span> s.split(<span class="st">" "</span>) <span class="co">#스플릿 함수 헷갈리는 부분이 있었음 - 정리</span></span>
@@ -244,7 +245,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 </div>
 </section>
 <section id="split-메서드함수" class="level1">
-<h1><span style="color:#00994C"><strong>split 메서드(함수)</strong></span></h1>
+<h1><span style="color:black"><strong>split 메서드(함수)</strong></span></h1>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>t<span class="op">=</span><span class="st">"sdsa  sd"</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="bu">help</span>(t.split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -268,7 +269,7 @@ split(sep=None, maxsplit=-1) method of builtins.str instance
 <p>Return - list[word1,word2,…] (구분자를 통하여 구분된 단어들,기본값은 공백(space))</p>
 </section>
 <section id="예시" class="level1">
-<h1><span style="color:#00994C"><strong>예시</strong></span></h1>
+<h1><span style="color:black"><strong>예시</strong></span></h1>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#문자열 내에 구분기준이 없는 경우?</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">#sep = " "으로 기본값으로 설정되어 있음. 공백이 없으므로 그냥 문자열을 리스트에 넣어서 반환</span></span>
