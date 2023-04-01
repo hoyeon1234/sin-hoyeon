@@ -225,7 +225,7 @@ p({\bf{y|x}}) &amp;= \prod_{t=1}^Tp(y_t|y_1,y_2,\dots,y_{t-1}|{\bf{x}}) \\
 <h1><span style="color:black"> <strong>Method</strong></span></h1>
 <section id="intuition" class="level2">
 <h2 class="anchored" data-anchor-id="intuition"><span style="color:black"> <strong>Intuition</strong></span></h2>
-<p><img src="./seq2seq with attention.png" class="img-fluid"><br> 출처 : paper-Figure1</p>
+<p><img src="./seqseqwithattention.png" class="img-fluid"><br> 출처 : paper-Figure1</p>
 <ul>
 <li>위의 그림은 논문에서 제시한 모델로 위는 decoder 아래는 encoder입니다.</li>
 <li><code>decoder</code>를 보면 기존의 seq2seq 아키텍쳐와 다를것이 거의 없습니다만 <strong>새로운 정보(휘어져 들어가는 화살표) 들어가며 이는 그림의 아래쪽에 있는 encoder에서 만들어짐</strong>을 알 수 있습니다.</li>
