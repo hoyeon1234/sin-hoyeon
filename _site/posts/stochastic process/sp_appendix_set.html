@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="hoyeon">
-<meta name="dcterms.date" content="2023-04-01">
+<meta name="dcterms.date" content="2023-04-05">
 
 <title>HIHO - [Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리</title>
 <style>
@@ -25,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +72,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -82,7 +82,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">HIHO</span>
     </a>
   </div>
@@ -92,7 +92,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item compact">
@@ -111,7 +111,10 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Probability&amp;Statistics</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -127,7 +130,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 1, 2023</p>
+        <p class="date">April 5, 2023</p>
       </div>
     </div>
     
@@ -147,7 +150,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#부분집합" id="toc-부분집합" class="nav-link" data-scroll-target="#부분집합"><span style="color:black"><strong>부분집합</strong></span></a></li>
   <li><a href="#진부분집합" id="toc-진부분집합" class="nav-link" data-scroll-target="#진부분집합"><span style="color:black"><strong>진부분집합</strong></span></a></li>
-  <li><a href="#부분집합-기호에-대한-고찰" id="toc-부분집합-기호에-대한-고찰" class="nav-link" data-scroll-target="#부분집합-기호에-대한-고찰"><span style="color:black"> <strong>부분집합 기호에 대한 고찰</strong></span></a></li>
+  <li><a href="#부분집합-기호는-명제에서도-사용할-수-있다." id="toc-부분집합-기호는-명제에서도-사용할-수-있다." class="nav-link" data-scroll-target="#부분집합-기호는-명제에서도-사용할-수-있다."><span style="color:black"> <strong>부분집합 기호는 명제에서도 사용할 수 있다.</strong></span></a></li>
   <li><a href="#헷갈리는-기호-subset" id="toc-헷갈리는-기호-subset" class="nav-link" data-scroll-target="#헷갈리는-기호-subset"><span style="color:black"><strong>헷갈리는 기호 <span class="math inline">\(\subset\)</span></strong></span></a>
   <ul class="collapse">
   <li><a href="#case1" id="toc-case1" class="nav-link" data-scroll-target="#case1"><span style="color:black"><strong>case1</strong></span></a></li>
@@ -166,17 +169,17 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <section id="집합" class="level1">
 <h1><span style="color:black"> <strong>집합</strong></span></h1>
 <ul>
-<li><code>집합</code>은 원소들의 모임이며 <code>중복된 원소</code>를 포함하지 않습니다.</li>
-<li>크게 중괄호 안에 원소를 나열하는 <code>원소나열법</code>과 특정한 조건을 만족하는 원소들로 이루어진 집합을 정의하는 <code>조건제시법</code>으로 집합을 정의할 수 있다.</li>
+<li><code>집합</code>은 <code>원소들의 모임</code>이며 중복된 원소를 포함하지 않습니다.</li>
+<li>크게 중괄호 안에 원소를 나열하는 원소나열법과 특정한 조건을 만족하는 원소들로 이루어진 집합을 정의하는 조건제시법으로 집합을 정의할 수 있다.</li>
 </ul>
 <section id="부분집합" class="level2">
 <h2 class="anchored" data-anchor-id="부분집합"><span style="color:black"><strong>부분집합</strong></span></h2>
 <ul>
 <li>집합론에서 집합 A의 원소가 집합 B의 모든 원소에 속하면 집합 A는 집합 B의 <code>부분집합(subset)</code>이며 집합 B는 집합 A의 <code>상위집합(superset)</code>입니다.</li>
-<li>이는 <strong>두 집합사이에 정의되는 개념</strong>으로서 기호로 <span class="math inline">\(A \subseteq B\)</span>라 표기합니다.</li>
-<li>직관적으로, <code>부분집합</code>은 어떤 집합에 존재하는 각각의 모든 원소에서 <code>판단(선택할지 말지)</code>을 통해 만든 또다른 <code>집합</code>입니다.</li>
+<li>즉, <code>부분집합</code>과 <code>상위집합</code>은 <strong>두 집합사이에 정의되는 개념</strong>으로서 기호로 <span class="math inline">\(A \subseteq B\)</span>라 표기합니다.</li>
+<li>쉽게 생각해보자면 <code>부분집합</code>은 어떤 집합에 존재하는 각각의 모든 원소에서 <code>판단(선택할지 말지)</code>을 통해 만든 또다른 <code>집합</code>으로 볼 수 있습니다.</li>
 <li>모든 집합은 반드시 <code>자기 자신의 부분집합</code>입니다. 이는 <code>각각의 판단</code>에서 모든 원소를 <code>선택</code>했다고 볼 수 있습니다.</li>
-<li><code>공집합</code>은 <code>모든 집합</code>의 <code>부분집합</code>입니다. 이는 <code>각각의 판단</code>에서 모든 원소를 <code>선택하지 않음</code>으로 볼 수 있습니다.</li>
+<li><code>공집합</code>은 <code>모든 집합</code>의 <code>부분집합</code>입니다. 이는 <code>각각의 판단</code>에서 모든 원소를 <code>선택하지 않음</code>으로 볼 수 있습니다.(엄밀하진 않습니다.공집합이 왜 모든 집합의 부분집합인지를 쉽게 받아들여지지 않아서 이를 기억하기 위함입니다.)</li>
 </ul>
 </section>
 <section id="진부분집합" class="level2">
@@ -186,8 +189,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <li>기호로는 <span class="math inline">\(A \subsetneq B\)</span>로 표기합니다.</li>
 </ul>
 </section>
-<section id="부분집합-기호에-대한-고찰" class="level2">
-<h2 class="anchored" data-anchor-id="부분집합-기호에-대한-고찰"><span style="color:black"> <strong>부분집합 기호에 대한 고찰</strong></span></h2>
+<section id="부분집합-기호는-명제에서도-사용할-수-있다." class="level2">
+<h2 class="anchored" data-anchor-id="부분집합-기호는-명제에서도-사용할-수-있다."><span style="color:black"> <strong>부분집합 기호는 명제에서도 사용할 수 있다.</strong></span></h2>
 <ul>
 <li>위에서 부분집합 기호는 <strong>단순히 <span class="math inline">\(A\)</span>가 <span class="math inline">\(B\)</span>의 부분집합임</strong>을 나타내었습니다.</li>
 <li>이외에도 부분집합 기호는 <strong>참 거짓을 판단해야하는 <code>수학적 명제</code>에서 사용</strong>할 수 있습니다.(제일 헷갈렸던 부분 …)</li>
@@ -202,6 +205,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <ul>
 <li><code>부분집합</code>을 나타내기 위해서 <span class="math inline">\(\subset\)</span>을 사용하며 이는 위에서의 <span class="math inline">\(\subseteq\)</span>와 같은 개념입니다.</li>
 <li>이러한 경우 <span class="math inline">\(A \subset A\)</span>는 참입니다. 부분집합은 항상 자기자신을 부분집합으로 갖기 때문입니다.</li>
+<li>또한 이 경우 <span class="math inline">\(\subseteq\)</span>는 단지 <code>두 집합이 같을 수 있음</code>을 <code>강조</code>하는 표현이라 할 수 있습니다.</li>
+<li>이어지는 포스팅에서는 case1의 notation을 활용합니다. 즉, 다음의 경우는 모두 동치입니다.
+<ul>
+<li><span class="math inline">\(A \subset B\)</span><br> <span class="math inline">\(\Longleftrightarrow A \subseteq B\)</span><br> <span class="math inline">\(\Longleftrightarrow\)</span> A가 B의 진부분집합이거나 같다.<br> <span class="math inline">\(\Longleftrightarrow\)</span> A는 B의 부분집합이다.</li>
+</ul></li>
 </ul>
 </section>
 <section id="case2" class="level3">
@@ -210,6 +218,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <li><code>진부분집합(strict or proper subset)</code>을 나타내기 위해서 <span class="math inline">\(\subsetneq\)</span>대신에 <span class="math inline">\(\subset\)</span>을 사용할 수 있습니다. 이 경우 <span class="math inline">\(\leq\)</span>,<span class="math inline">\(&lt;\)</span>와 같은 느낌입니다. <br></li>
 <li>이러한 경우 위와 다르게 <span class="math inline">\(A \subset A\)</span>는 거짓입니다. <span class="math inline">\(\subset\)</span>는 자기자신을 뺀 부분집합인 진부분집합을 의미하는 기호이기 때문입니다.</li>
 <li>반대로 <span class="math inline">\(A \subseteq A\)</span>는 참입니다. <span class="math inline">\(\subseteq\)</span>는 진부분집합이거나 같음(자기자신을 포함하여 부분집합)을 의미하기 때문입니다.</li>
+<li>stochastic process 포스팅에서 이 notation은 사용하지 않습니다.</li>
 </ul>
 
 

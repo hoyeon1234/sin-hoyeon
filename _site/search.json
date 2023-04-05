@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "HIHO",
     "section": "",
-    "text": "[Probability & Statistics] Bias Variance Tradeoff\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nBellman Equation\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 문자열 나누기\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n \n\n\n\n[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] k번째수\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Paper Study] Neural Machine Translation by jointly learning to align and translate\n\n\nfield : NLPunderstanding : 😃😃😃\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Simple Bandit Algorithm Implementation\n\n\nReinforcement Learning: An Introduction 2.4절 중 Simple Bandit Algorithm psuedo code 구현\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Paper-study] Batch Normalization\n\n\nfield : coreunderstanding : 😃😃😃\n\n\n\n\n\n\n\n\n\n\n\n\n\n[pandas] map,apply,applymap 비교\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] Cardinality,Bijection,Injection,Surjection\n\n\n\n\n\n\n\n\n\n\n\n\n\nSequence to Sequence Learning with Neural Networks\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuto-Encoding Variational Bayes(작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\nGenarative Adversarial Nets\n\n\n\n\n\n\n\n\n\n \n\n\n\nEigendecomposition & Property\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuadratic Form(작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n\n\n\n\n\n\n\n\n\n\nDQN\n\n\n\n\n\n\n\n\n\n \n\n\n\neigenvalue & eigenvector\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-1 Markov Decision process and property\n\n\nMDP와 중요한 property 정리\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 1 - 강화학습 용어정리\n\n\n강화학습 공부하면서 용어정리\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-2 Reward & Return & State Value f & Action Value f\n\n\n\n\n\n\n\n\n\n\n\n\n\n[PRML 읽기] 1 - 확률론 개요\n\n\nSum rule, Product rule, Baye’s rule,random variable independence\n\n\n\n\n\n\n\n\n\n \n\n\n\n[PRML 읽기] 2 - 확률론 개요(작성중 …)\n\n\nprobability density, expectation and covariance, Bayesian probabilities,Gausian distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimension Reduction using Auto Encoder with pytorch\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 시저암호\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 이상한 문자 만들기\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 크기가 작은 부분 문자열\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeast Squares\n\n\n열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률론 용어정리\n\n\nrandom variable,event,sample space,probability distribution,randomsample,realization\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinite Difference Method with np.gradient\n\n\n\n\n\n\n\n\n\n\n\n\n\nplotly 시각화 모음\n\n\n\n\n\n\n\n\n\n\n\n\n\nAx=b의 해의 갯수 알아내기\n\n\n\n\n\n\n\n\n\n\n\n\n\nrank & null space(kernel)\n\n\n\n\n\n\n\n\n\n \n\n\n\nLinear Combination & Span\n\n\n\n\n\n\n\n\n\n \n\n\n\n행렬곱에 대한 여러가지 관점\n\n\n\n\n\n\n\n\n\n \n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n\n\n\n\n\n\n \n\n\n\n카테고리 분포\n\n\n\n\n\n\n\n\n\n\n\n\n\nMLE & MAP (작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n\n\n\n\n\n\n\n \n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n\n\n\n\nNo matching items"
+    "text": "[Probability & Statistics] Bias Variance Tradeoff\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nBellman Equation\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] Cardinality\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] 무한집합간의 크기 비교\n\n\n\n\n\n\n\n\n\n \n\n\n\n[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 문자열 나누기\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] k번째수\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Paper Study] Neural Machine Translation by jointly learning to align and translate\n\n\nfield : NLPunderstanding : 😃😃😃\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Simple Bandit Algorithm Implementation\n\n\nReinforcement Learning: An Introduction 2.4절 중 Simple Bandit Algorithm psuedo code 구현\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Paper-study] Batch Normalization\n\n\nfield : coreunderstanding : 😃😃😃\n\n\n\n\n\n\n\n\n\n\n\n\n\n[pandas] map,apply,applymap 비교\n\n\n\n\n\n\n\n\n\n\n\n\n\nSequence to Sequence Learning with Neural Networks\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuto-Encoding Variational Bayes(작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\nGenarative Adversarial Nets\n\n\n\n\n\n\n\n\n\n \n\n\n\nEigendecomposition & Property\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuadratic Form(작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n\n\n\n\n\n\n\n\n\n\nDQN\n\n\n\n\n\n\n\n\n\n \n\n\n\neigenvalue & eigenvector\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-1 Markov Decision process and property\n\n\nMDP와 중요한 property 정리\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 1 - 강화학습 용어정리\n\n\n강화학습 공부하면서 용어정리\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-2 Reward & Return & State Value f & Action Value f\n\n\n\n\n\n\n\n\n\n\n\n\n\n[PRML 읽기] 1 - 확률론 개요\n\n\nSum rule, Product rule, Baye’s rule,random variable independence\n\n\n\n\n\n\n\n\n\n \n\n\n\n[PRML 읽기] 2 - 확률론 개요(작성중 …)\n\n\nprobability density, expectation and covariance, Bayesian probabilities,Gausian distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimension Reduction using Auto Encoder with pytorch\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 시저암호\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 이상한 문자 만들기\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 크기가 작은 부분 문자열\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeast Squares\n\n\n열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률론 용어정리\n\n\nrandom variable,event,sample space,probability distribution,randomsample,realization\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinite Difference Method with np.gradient\n\n\n\n\n\n\n\n\n\n\n\n\n\nplotly 시각화 모음\n\n\n\n\n\n\n\n\n\n\n\n\n\nAx=b의 해의 갯수 알아내기\n\n\n\n\n\n\n\n\n\n\n\n\n\nrank & null space(kernel)\n\n\n\n\n\n\n\n\n\n \n\n\n\nLinear Combination & Span\n\n\n\n\n\n\n\n\n\n \n\n\n\n행렬곱에 대한 여러가지 관점\n\n\n\n\n\n\n\n\n\n \n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n\n\n\n\n\n\n \n\n\n\n카테고리 분포\n\n\n\n\n\n\n\n\n\n\n\n\n\nMLE & MAP (작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n\n\n\n\n\n\n\n \n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/coading test/programmersk번째수.html",
@@ -1031,77 +1031,77 @@
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": "",
-    "text": "궁극적인 목표는 크기가 무한히 큰 유리수집합\\(\\mathbb{Q}\\)의 길이와 무리수집합\\(\\mathbb{Q}^c\\) 길이가 다름을 확인하는 것이다.\n그러기 위해서 먼저 두 집합의 크기에 해당하는 개념인 cardinality를 무한집합에서 생각해보자.\n무한집합의 cardinality를 알 수 있다면 무한집합사이에서도 서로다른 급(격?,체급차이?)을 알 수 있고 이를 통해서 두 집합의 길이와 연관지으실 듯 하다."
+    "text": "서로다른 두개의 무한집합들간의 cardinality(유한집합에서의 크기 개념)를 비교하고자 합니다.\n이는 두 집합간의 전사,단사,전단사 함수가 존재하는지 확인해서 비교할 수 있습니다.\n그러므로 여기서는 cardinality와 전사,단사,전단사함수에 대해 공부하고 cardinality를 구하기 위한 정리를 소개합니다\n이를 통해 앞선 포스팅에서 무리수 집합의 길이는 \\(2\\pi\\) 유리수 집합의 길이는 0이였던 것에 대한 직관을 얻을 수 있습니다.(무리수 집합의 cardinality가 더 크게 나옵니다.이는 다음 포스팅에서 증명합니다.)"
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injective-function",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#injective-function",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": " Injective function",
-    "text": "Injective function\n\n(definition) \n\\[\\begin{aligned}\n&\\text{The function is injective, or one-to-one}\\\\\n&\\Longleftrightarrow \\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\n\\end{aligned}\\]\n\n\ndomain에 속하는 서로다른 모든 두 원소는 codomain에 속하는 서로다른 두 원소에 mapping될 때 Injection function이라고 한다.\n암기(입력이 다르면 출력이 다르다)\n느낌(화살표가 쫙 펴지는 느낌이다.)"
+    "text": "Injective function\n\n(definition) \n\\[\\begin{aligned}\n&\\text{The function is injective, or one-to-one}\\\\\n&\\Longleftrightarrow \\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\n\\end{aligned}\\]\n\n\ndomain에 속하는 서로다른 모든 두 원소가 codomain에 속하는 서로다른 두 원소에 mapping될 때 Injection function입니다.\n암기(입력이 다르면 출력이 다르다)\n느낌(화살표가 쫙 펴지는 느낌이다.)"
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#surjective-function",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#surjective-function",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": " surjective function",
-    "text": "surjective function\n\n(definition of surjective function)\n\\[\\begin{aligned}\n&\\text{The function is surjective, or onto} \\\\\n&\\Longleftrightarrow \\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\n\\end{aligned}\\]\n\n\ncodomain에 속하는 모든 원소가 domain에 속하는 원소에 적어도 하나의 mapping을 받을 때 surjective function이라고 한다.\n암기1:domian의 image(상)인 치역이 공역과 같다.\n암기2:inverse image가 domain에서 벗어나지 않는다.(inverse image도 집합이다.)\n느낌 : 화살표가 쫙 모이는 느낌"
+    "text": "surjective function\n\n(definition of surjective function)\n\\[\\begin{aligned}\n&\\text{The function is surjective, or onto} \\\\\n&\\Longleftrightarrow \\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\n\\end{aligned}\\]\n\n\ncodomain에 속하는 모든 원소가 domain에 속하는 원소에 적어도 하나의 mapping을 받을 때 surjective function입니다.\n암기1:domian의 image(상)인 치역이 공역과 같습니다.\n암기2:공역의 모든 원소가 역상(inverseimage)이 존재합니다.\n느낌 : 화살표가 쫙 모이는 느낌"
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#bijective-function",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#bijective-function",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": " bijective function",
     "text": "bijective function\n\n(definition of bijective function)\n\\[\\begin{aligned}\n&\\text{The function is bijective, or one-to-one and onto}\\\\\n&\\Longleftrightarrow \\forall y \\in Y,\\exists !x \\in X \\text{ such that } y = f(x) \\\\\n&\\text{where } \\exists!x \\text{ means \"there exists exactly one x\".}\n\\end{aligned}\\]\n\n\ncodomain에 속하는 임의의,모든 원소가 domain에 속하는 정확히 하나의 원소에만 mapping되는 경우 bijective function이라고 한다.\ninjective이며 동시에 surjective인 function이다."
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리헷갈림",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#용어-정리헷갈림",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": " 용어 정리(헷갈림)",
     "text": "용어 정리(헷갈림)\n\ninjective = 단사 = one-to-one, injective function = injection = 단사함수\nsurjective = 전사 = onto, surjective function = surjection = 전사함수\nbijecitve = 전단사 = one-to-one and onto , bijective function = bijection = 전단사함수"
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#cardinality와의-관계",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#cardinality와의-관계",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": " Cardinality와의 관계",
-    "text": "Cardinality와의 관계\n\n(property1) 어떤 함수가 전사함수 & 단사함수 \\(\\Rightarrow\\) 전단사함수\n\n\n(property2) 두 집합사이에 적절한 함수를 정의하여 집합간의 크기비교가 가능하다. - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 단사함수가 존재한다. \\(\\Longleftrightarrow |X| \\leq |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전사함수가 존재한다. \\(\\Longleftrightarrow |X| \\geq |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전단사함수가 존재한다. \\(\\Longleftrightarrow |X| = |Y|\\) - 유한집합에 대해서 위의 사실은 당연해보인다. 이 논리를 무한집합에도 확장하여 무한집합끼리의 cardinality를 비교한다.\n\nQ궁금한거 : 동치인가?"
+    "text": "Cardinality와의 관계\n\n(property1) 어떤 함수가 전사함수 & 단사함수 \\(\\Longleftrightarrow\\) 전단사함수\n\n\n(property2) 두 집합사이에 적절한 함수를 정의하여 집합간의 크기비교가 가능하다. 단사함수와 cardinality - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 단사함수가 존재한다. \\(\\Longleftrightarrow |X| \\leq |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 단사함수가 존재하지 않는다. \\(\\Longleftrightarrow |X| > |Y|\\) 전사함수와 cardinality - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전사함수가 존재한다. \\(\\Longleftrightarrow |X| \\geq |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전사함수가 존재하지 않는다. \\(\\Longleftrightarrow |X| < |Y|\\) 전단사함수와 cardinality - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전단사함수가 존재한다. \\(\\Longleftrightarrow |X| = |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전단사함수가 존재한다. \\(\\Longleftrightarrow |X| \\not = |Y|\\)\n\n\n위의 사실들은 유한집합에 대해서 생각해보면 당연한 사실들입니다.(증명생략)\n우리는 이를 무한집합에 확장하여 적용함으로서 무한집합간의 cardinality를 비교할 수 있습니다."
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex홀수집합-vs-짝수집합의-경우",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex홀수집합-vs-짝수집합의-경우",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": "Ex)홀수집합 vs 짝수집합의 경우",
     "text": "Ex)홀수집합 vs 짝수집합의 경우\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)\n\n두 무한집합사이에 cardinality를 비교하려면 두 집합사이에 1)적당한 함수를 정의하고 2)어떤 함수인지 정의를 통해 확인한 후 3)cardinality를 구한다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(3) &= 4 \\\\\nf(5) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |X| = |Y|\\)"
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex자연수양의정수집합-vs-홀수짝수집합의-경우",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex자연수양의정수집합-vs-홀수짝수집합의-경우",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": "Ex)자연수(양의정수)집합 vs 홀수,짝수집합의 경우",
     "text": "Ex)자연수(양의정수)집합 vs 홀수,짝수집합의 경우\n\\(\\mathbb{N} = \\{1,2,3,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(2) &= 4 \\\\\nf(3) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |\\mathbb{N}| = \\aleph_0= |Y|\\) (\\(\\aleph_0\\)는 자연수집합의 cardinality를 의미한다.)\n즉, 자연수집합과 짝수집합의 cardinality는 같다.\n동일하게 유도해보면,자연수집합과 홀수집합의 cardinality도 같음을 보일 수 있으며 또한 자연수 집합과 자연수 집합 \\(\\cup\\{0\\}\\)의 크기도 같음을 알 수 있다. Q-궁금한거 : 정수집합에 대해서는 어떻게 cardinality가 같음을 유도할 수 있는가?\n또한 이를 확장하여,정수집합(양의정수 + 음의정수 + 0)도 자연수집합과 cardinality가 같음을 보일 수 있다.(???)\n즉, \\(|\\mathbb{Z}| = |\\mathbb{N}| = \\aleph_0\\)"
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#무한집합의-정의와-특징",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#무한집합의-정의와-특징",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": "무한집합의 정의와 특징",
     "text": "무한집합의 정의와 특징\n\n위의 결론을 활용하여 무한집합을 새롭게 정의할 수 있다.\n\n\n무한집합의 정의 집합 \\(A\\)가 무한집합이다. \\(\\Longleftrightarrow\\) cardinality가 같은 진 부분집합이 존재할 수 있다. (Note:유한집합에서는 불가능하다.)"
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex자연수집합-vs-유리수집합",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#ex자연수집합-vs-유리수집합",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": "Ex)자연수집합 vs 유리수집합",
     "text": "Ex)자연수집합 vs 유리수집합\n\n아래와 같은 격자에 놓여져 있는 유리수를 생각해보자.\n격자의 세로축의 값은 분자이며 가로축의 값은 분모이다.\n따라서 격자위에 놓인 수들은 양의 유리수집합\\(\\mathbb{Q}^c\\)을 이룸을 알 수 있다.\n\n\n\\(X = \\{1,2,\\dots\\},Y = \\{1,\\frac{2}{1}\\,\\frac{1}{2},\\frac{1}{3},\\frac{2}{2},\\frac{3}{1}\\dots\\}\\)\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 1 \\\\\nf(2) &= \\frac{2}{1} \\\\\nf(3) &= \\frac{1}{2} \\\\\nf(4) &= \\frac{1}{3} \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역(양의 유리수 집합)에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |X| = |\\mathbb{N}| = \\aleph_0= |Y|\\)\n양의 유리수 집합 \\(\\mathbb{Q}^+\\)는 모두 \\(Y\\)에 포함되어 있다. \\(\\Longrightarrow X \\subset \\mathbb{Q}^+\\subset Y \\Longrightarrow |X| = \\aleph_0\\leq|\\mathbb{Q}^+|\\leq|Y|=\\aleph_0 \\Longrightarrow |\\mathbb{Q}^+| = \\aleph_0\\)\n즉, 자연수집합과 양의 유리수집합의 cardinality는 같다.\n동일하게 유도해보면,자연수집합과 음의 유리수집합의 cardinality도 같음을 보일 수 있으며 또한 자연수 집합과 유리수 집합 \\(\\cup \\{0\\}\\)의 크기도 같음을 보일 수 있다.\n이를 확장하여 유리수집합(양의유리수 + 음의유리수 + 0)도 자연수 집합과 cardinality가 같음을 보일 수 있다. Q-궁금한거 : 유리수집합에 대해서는 어떻게 cardinality가 자연수집합과 같음을 유도할 수 있는가?\\(\\aleph_0 + \\aleph_0 = \\aleph_0\\)?"
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#직관적인-정리",
     "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#직관적인-정리",
-    "title": "[Stochestic Process] Cardinality,Bijection,Injection,Surjection",
+    "title": "[Stochestic Process] Cardinality",
     "section": "직관적인 정리",
     "text": "직관적인 정리\n\n\\(\\aleph_0 + 1 = \\aleph_0\\,\\,,|\\mathbb{N}| = |\\mathbb{N}| \\cup \\{0\\}\\)\n\\(\\aleph_0 \\times 2 = \\aleph_0\\,\\,,\\)자연수집합과 음의정수집합을 더한 집합의 카디널리티는 자연수집합의 카디널리티와 같음\n\\(\\aleph_0\\times \\aleph_0 = \\aleph_0 ^2 = \\aleph_0\\,\\,,\\)자연수집합과 자연수집합의 곱집합으로 유리수집합(보다 큰)을 만들 수 있는데 이 집합도 자연수집합의 카디널리티와 같음"
   },
@@ -1145,7 +1145,7 @@
     "href": "posts/stochastic process/SP-2023-03-17/sp_부록_집합.html",
     "title": "[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리",
     "section": "",
-    "text": "집합은 원소들의 모임이며 중복된 원소를 포함하지 않습니다.\n크게 중괄호 안에 원소를 나열하는 원소나열법과 특정한 조건을 만족하는 원소들로 이루어진 집합을 정의하는 조건제시법으로 집합을 정의할 수 있다.\n\n\n\n\n집합론에서 집합 A의 원소가 집합 B의 모든 원소에 속하면 집합 A는 집합 B의 부분집합(subset)이며 집합 B는 집합 A의 상위집합(superset)입니다.\n이는 두 집합사이에 정의되는 개념으로서 기호로 \\(A \\subseteq B\\)라 표기합니다.\n직관적으로, 부분집합은 어떤 집합에 존재하는 각각의 모든 원소에서 판단(선택할지 말지)을 통해 만든 또다른 집합입니다.\n모든 집합은 반드시 자기 자신의 부분집합입니다. 이는 각각의 판단에서 모든 원소를 선택했다고 볼 수 있습니다.\n공집합은 모든 집합의 부분집합입니다. 이는 각각의 판단에서 모든 원소를 선택하지 않음으로 볼 수 있습니다.\n\n\n\n\n\n집합 A의 원소가 집합 B의 모든 원소에 속하면서 집합 A와 집합 B가 같지않다면(not equal) 집합 A는 집합 B의 진부분집합(proper or strict subset)입니다.\n기호로는 \\(A \\subsetneq B\\)로 표기합니다.\n\n\n\n\n\n위에서 부분집합 기호는 단순히 \\(A\\)가 \\(B\\)의 부분집합임을 나타내었습니다.\n이외에도 부분집합 기호는 참 거짓을 판단해야하는 수학적 명제에서 사용할 수 있습니다.(제일 헷갈렸던 부분 …)\n\\(A \\subseteq B\\)는 `\\(A\\)는 \\(B\\)의 부분집합이다`라는 명제를 의미하거나\n\\(A \\subsetneq B\\)는 `\\(A\\)는 \\(B\\)의 진부분집합이다`라는 명제를 의미합니다.\n\n\n\n\n\n\n\n어떤 저자들은 부분집합,상위집합을 나타내기 위해서 \\(\\subset\\)을 사용하며 이는 위에서의 \\(\\subseteq\\)와 같은 개념입니다.\n이 경우 \\(A \\subset A\\)는 참입니다. 부분집합은 항상 자기자신을 부분집합으로 갖기 때문입니다.\n\n\n\n\n\n어떤 저자들은 진부분집합을 나타내기 위해서 \\(\\subset\\)을 사용합니다. 이 경우 \\(\\leq\\),\\(<\\)와 같은 느낌이며\n이 경우 \\(A \\subset A\\)는 참입니다. 부분집합은 항상 자기자신을 부분집합으로 갖기 때문입니다."
+    "text": "집합은 원소들의 모임이며 중복된 원소를 포함하지 않습니다.\n크게 중괄호 안에 원소를 나열하는 원소나열법과 특정한 조건을 만족하는 원소들로 이루어진 집합을 정의하는 조건제시법으로 집합을 정의할 수 있다.\n\n\n\n\n집합론에서 집합 A의 원소가 집합 B의 모든 원소에 속하면 집합 A는 집합 B의 부분집합(subset)이며 집합 B는 집합 A의 상위집합(superset)입니다.\n이는 두 집합사이에 정의되는 개념으로서 기호로 \\(A \\subseteq B\\)라 표기합니다.\n직관적으로, 부분집합은 어떤 집합에 존재하는 각각의 모든 원소에서 판단(선택할지 말지)을 통해 만든 또다른 집합입니다.\n모든 집합은 반드시 자기 자신의 부분집합입니다. 이는 각각의 판단에서 모든 원소를 선택했다고 볼 수 있습니다.\n공집합은 모든 집합의 부분집합입니다. 이는 각각의 판단에서 모든 원소를 선택하지 않음으로 볼 수 있습니다.\n\n\n\n\n\n집합 A의 원소가 집합 B의 모든 원소에 속하면서 집합 A와 집합 B가 같지않다면(not equal) 집합 A는 집합 B의 진부분집합(proper or strict subset)입니다.\n기호로는 \\(A \\subsetneq B\\)로 표기합니다.\n\n\n\n\n\n위에서 부분집합 기호는 단순히 \\(A\\)가 \\(B\\)의 부분집합임을 나타내었습니다.\n이외에도 부분집합 기호는 참 거짓을 판단해야하는 수학적 명제에서 사용할 수 있습니다.(제일 헷갈렸던 부분 …)\n\\(A \\subseteq B\\)는 `\\(A\\)는 \\(B\\)의 부분집합이다`라는 명제를 의미하거나\n\\(A \\subsetneq B\\)는 `\\(A\\)는 \\(B\\)의 진부분집합이다`라는 명제를 의미합니다.\n\n\n\n\n\n\n\n부분집합을 나타내기 위해서 \\(\\subset\\)을 사용하며 이는 위에서의 \\(\\subseteq\\)와 같은 개념입니다.\n이러한 경우 \\(A \\subset A\\)는 참입니다. 부분집합은 항상 자기자신을 부분집합으로 갖기 때문입니다.\n\n\n\n\n\n진부분집합(strict or proper subset)을 나타내기 위해서 \\(\\subsetneq\\)대신에 \\(\\subset\\)을 사용할 수 있습니다. 이 경우 \\(\\leq\\),\\(<\\)와 같은 느낌입니다. \n이러한 경우 위와 다르게 \\(A \\subset A\\)는 거짓입니다. \\(\\subset\\)는 자기자신을 뺀 부분집합인 진부분집합을 의미하는 기호이기 때문입니다.\n반대로 \\(A \\subseteq A\\)는 참입니다. \\(\\subseteq\\)는 진부분집합이거나 같음(자기자신을 포함하여 부분집합)을 의미하기 때문입니다."
   },
   {
     "objectID": "posts/stochastic process/SP-2023-03-17/sp_부록_집합.html#부분집합",
@@ -1160,5 +1160,362 @@
     "title": "[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리",
     "section": "진부분집합",
     "text": "진부분집합\n\n집합 A의 원소가 집합 B의 모든 원소에 속하면서 집합 A와 집합 B가 같지않다면 집합 A는 집합 B의 진부분집합(proper or strict subset)입니다.\n기호로는 \\(A \\subset B\\)로 표기합니다.\n\nif they are unequal, then A is a proper subset of B. The relationship of one set being a subset of another is called inclusion (or sometimes containment). A is a subset of B may also be expressed as B includes (or contains) A or A is included (or contained) in B. A k-subset is a subset with k elements."
+  },
+  {
+    "objectID": "posts/stochastic process/sp_부록_집합.html",
+    "href": "posts/stochastic process/sp_부록_집합.html",
+    "title": "[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리",
+    "section": "",
+    "text": "집합은 원소들의 모임이며 중복된 원소를 포함하지 않습니다.\n크게 중괄호 안에 원소를 나열하는 원소나열법과 특정한 조건을 만족하는 원소들로 이루어진 집합을 정의하는 조건제시법으로 집합을 정의할 수 있다.\n\n\n\n\n집합론에서 집합 A의 원소가 집합 B의 모든 원소에 속하면 집합 A는 집합 B의 부분집합(subset)이며 집합 B는 집합 A의 상위집합(superset)입니다.\n이는 두 집합사이에 정의되는 개념으로서 기호로 \\(A \\subseteq B\\)라 표기합니다.\n직관적으로, 부분집합은 어떤 집합에 존재하는 각각의 모든 원소에서 판단(선택할지 말지)을 통해 만든 또다른 집합입니다.\n모든 집합은 반드시 자기 자신의 부분집합입니다. 이는 각각의 판단에서 모든 원소를 선택했다고 볼 수 있습니다.\n공집합은 모든 집합의 부분집합입니다. 이는 각각의 판단에서 모든 원소를 선택하지 않음으로 볼 수 있습니다.\n\n\n\n\n\n집합 A의 원소가 집합 B의 모든 원소에 속하면서 집합 A와 집합 B가 같지않다면(not equal) 집합 A는 집합 B의 진부분집합(proper or strict subset)입니다.\n기호로는 \\(A \\subsetneq B\\)로 표기합니다.\n\n\n\n\n\n위에서 부분집합 기호는 단순히 \\(A\\)가 \\(B\\)의 부분집합임을 나타내었습니다.\n이외에도 부분집합 기호는 참 거짓을 판단해야하는 수학적 명제에서 사용할 수 있습니다.(제일 헷갈렸던 부분 …)\n\\(A \\subseteq B\\)는 `\\(A\\)는 \\(B\\)의 부분집합이다`라는 명제를 의미하거나\n\\(A \\subsetneq B\\)는 `\\(A\\)는 \\(B\\)의 진부분집합이다`라는 명제를 의미합니다.\n\n\n\n\n\n\n\n부분집합,상위집합을 나타내기 위해서 \\(\\subset\\)을 사용하기도 합니다. 이는 위에서의 \\(\\subseteq\\)와 같은 개념입니다.\n이 경우 \\(A \\subset A\\)는 참입니다. 부분집합은 항상 자기자신을 부분집합으로 갖기 때문입니다.\n\n\n\n\n\n진부분집합을 나타내기 위해서 \\(\\subset\\)을 부분집합이거나 같다(즉,부분집합)를 나타내기위해서 \\(\\subseteq\\)사용합니다. 이 경우 \\(\\leq\\),\\(<\\)와 같은 느낌입니다.\n이 경우 \\(A \\subset A\\)는 거짓입니다. 진부분집합은 부분집합중 자기자신을 제외한 집합이기 때문입니다.\n\\(A \\subseteq A\\)는 참입니다. \\(A=A\\)이기 때문입니다."
+  },
+  {
+    "objectID": "posts/stochastic process/sp_appendix_set.html",
+    "href": "posts/stochastic process/sp_appendix_set.html",
+    "title": "[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리",
+    "section": "",
+    "text": "집합은 원소들의 모임이며 중복된 원소를 포함하지 않습니다.\n크게 중괄호 안에 원소를 나열하는 원소나열법과 특정한 조건을 만족하는 원소들로 이루어진 집합을 정의하는 조건제시법으로 집합을 정의할 수 있다.\n\n\n\n\n집합론에서 집합 A의 원소가 집합 B의 모든 원소에 속하면 집합 A는 집합 B의 부분집합(subset)이며 집합 B는 집합 A의 상위집합(superset)입니다.\n즉, 부분집합과 상위집합은 두 집합사이에 정의되는 개념으로서 기호로 \\(A \\subseteq B\\)라 표기합니다.\n쉽게 생각해보자면 부분집합은 어떤 집합에 존재하는 각각의 모든 원소에서 판단(선택할지 말지)을 통해 만든 또다른 집합으로 볼 수 있습니다.\n모든 집합은 반드시 자기 자신의 부분집합입니다. 이는 각각의 판단에서 모든 원소를 선택했다고 볼 수 있습니다.\n공집합은 모든 집합의 부분집합입니다. 이는 각각의 판단에서 모든 원소를 선택하지 않음으로 볼 수 있습니다.(엄밀하진 않습니다.공집합이 왜 모든 집합의 부분집합인지를 쉽게 받아들여지지 않아서 이를 기억하기 위함입니다.)\n\n\n\n\n\n집합 A의 원소가 집합 B의 모든 원소에 속하면서 집합 A와 집합 B가 같지않다면(not equal) 집합 A는 집합 B의 진부분집합(proper or strict subset)입니다.\n기호로는 \\(A \\subsetneq B\\)로 표기합니다.\n\n\n\n\n\n위에서 부분집합 기호는 단순히 \\(A\\)가 \\(B\\)의 부분집합임을 나타내었습니다.\n이외에도 부분집합 기호는 참 거짓을 판단해야하는 수학적 명제에서 사용할 수 있습니다.(제일 헷갈렸던 부분 …)\n\\(A \\subseteq B\\)는 `\\(A\\)는 \\(B\\)의 부분집합이다`라는 명제를 의미하거나\n\\(A \\subsetneq B\\)는 `\\(A\\)는 \\(B\\)의 진부분집합이다`라는 명제를 의미합니다.\n\n\n\n\n\n\n\n부분집합을 나타내기 위해서 \\(\\subset\\)을 사용하며 이는 위에서의 \\(\\subseteq\\)와 같은 개념입니다.\n이러한 경우 \\(A \\subset A\\)는 참입니다. 부분집합은 항상 자기자신을 부분집합으로 갖기 때문입니다.\n또한 이 경우 \\(\\subseteq\\)는 단지 두 집합이 같을 수 있음을 강조하는 표현이라 할 수 있습니다.\n이어지는 포스팅에서는 case1의 notation을 활용합니다. 즉, 다음의 경우는 모두 동치입니다.\n\n\\(A \\subset B\\) \\(\\Longleftrightarrow A \\subseteq B\\) \\(\\Longleftrightarrow\\) A가 B의 진부분집합이거나 같다. \\(\\Longleftrightarrow\\) A는 B의 부분집합이다.\n\n\n\n\n\n\n진부분집합(strict or proper subset)을 나타내기 위해서 \\(\\subsetneq\\)대신에 \\(\\subset\\)을 사용할 수 있습니다. 이 경우 \\(\\leq\\),\\(<\\)와 같은 느낌입니다. \n이러한 경우 위와 다르게 \\(A \\subset A\\)는 거짓입니다. \\(\\subset\\)는 자기자신을 뺀 부분집합인 진부분집합을 의미하는 기호이기 때문입니다.\n반대로 \\(A \\subseteq A\\)는 참입니다. \\(\\subseteq\\)는 진부분집합이거나 같음(자기자신을 포함하여 부분집합)을 의미하기 때문입니다.\nstochastic process 포스팅에서 이 notation은 사용하지 않습니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#cardinality와의-관계-1",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#cardinality와의-관계-1",
+    "title": "[Stochestic Process] Cardinality",
+    "section": " Cardinality와의 관계",
+    "text": "Cardinality와의 관계"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#정리",
+    "href": "posts/stochastic process/SP-2023-03-17/sp_2023_03_17.html#정리",
+    "title": "[Stochestic Process] Cardinality",
+    "section": " 정리",
+    "text": "정리\n\n유한집합에서 두 집합간의 크기의 비교는 두 집합간에 존재할 수 있는 함수가 어떤 함수인지를 통해서 가능합니다.\n이를 무한집합에서 적용하여 두 집합간의 크기비교를 해보고자 합니다.(다음 포스팅!)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP_cardinality_comparison.html",
+    "href": "posts/stochastic process/SP_cardinality_comparison.html",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "",
+    "text": "이전포스팅에서 유한집합간의 크기비교는 두 집합간의 어떤 함수가 존재하는지를 통해서 가능하다고 정리했습니다.\n여기서는 이를 무한집합에서 확장하여 실제로 두 집합간의 크기(엄밀히,cardinality)를 비교합니다.\n즉, 두 집합간의 전사,단사,전단사 함수가 존재여부를 확인합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP_cardinality_comparison.html#ex홀수집합-vs-짝수집합의-경우",
+    "href": "posts/stochastic process/SP_cardinality_comparison.html#ex홀수집합-vs-짝수집합의-경우",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "Ex)홀수집합 vs 짝수집합의 경우",
+    "text": "Ex)홀수집합 vs 짝수집합의 경우\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)\n\n두 무한집합사이에 cardinality를 비교하려면 두 집합사이에 1)적당한 함수를 정의하고 2)어떤 함수인지 정의를 통해 확인한 후 3)cardinality를 구한다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(3) &= 4 \\\\\nf(5) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |X| = |Y|\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP_cardinality_comparison.html#ex자연수양의정수집합-vs-홀수짝수집합의-경우",
+    "href": "posts/stochastic process/SP_cardinality_comparison.html#ex자연수양의정수집합-vs-홀수짝수집합의-경우",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "Ex)자연수(양의정수)집합 vs 홀수,짝수집합의 경우",
+    "text": "Ex)자연수(양의정수)집합 vs 홀수,짝수집합의 경우\n\\(\\mathbb{N} = \\{1,2,3,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(2) &= 4 \\\\\nf(3) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |\\mathbb{N}| = \\aleph_0= |Y|\\) (\\(\\aleph_0\\)는 자연수집합의 cardinality를 의미한다.)\n즉, 자연수집합과 짝수집합의 cardinality는 같다.\n동일하게 유도해보면,자연수집합과 홀수집합의 cardinality도 같음을 보일 수 있으며 또한 자연수 집합과 자연수 집합 \\(\\cup\\{0\\}\\)의 크기도 같음을 알 수 있다. Q-궁금한거 : 정수집합에 대해서는 어떻게 cardinality가 같음을 유도할 수 있는가?\n또한 이를 확장하여,정수집합(양의정수 + 음의정수 + 0)도 자연수집합과 cardinality가 같음을 보일 수 있다.(???)\n즉, \\(|\\mathbb{Z}| = |\\mathbb{N}| = \\aleph_0\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP_cardinality_comparison.html#무한집합의-정의와-특징",
+    "href": "posts/stochastic process/SP_cardinality_comparison.html#무한집합의-정의와-특징",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "무한집합의 정의와 특징",
+    "text": "무한집합의 정의와 특징\n\n위의 결론을 활용하여 무한집합을 새롭게 정의할 수 있다.\n\n\n무한집합의 정의 집합 \\(A\\)가 무한집합이다. \\(\\Longleftrightarrow\\) cardinality가 같은 진 부분집합이 존재할 수 있다. (Note:유한집합에서는 불가능하다.)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP_cardinality_comparison.html#ex자연수집합-vs-유리수집합",
+    "href": "posts/stochastic process/SP_cardinality_comparison.html#ex자연수집합-vs-유리수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "Ex)자연수집합 vs 유리수집합",
+    "text": "Ex)자연수집합 vs 유리수집합\n\n아래와 같은 격자에 놓여져 있는 유리수를 생각해보자.\n격자의 세로축의 값은 분자이며 가로축의 값은 분모이다.\n따라서 격자위에 놓인 수들은 양의 유리수집합\\(\\mathbb{Q}^c\\)을 이룸을 알 수 있다.\n\n\n\\(X = \\{1,2,\\dots\\},Y = \\{1,\\frac{2}{1}\\,\\frac{1}{2},\\frac{1}{3},\\frac{2}{2},\\frac{3}{1}\\dots\\}\\)\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 1 \\\\\nf(2) &= \\frac{2}{1} \\\\\nf(3) &= \\frac{1}{2} \\\\\nf(4) &= \\frac{1}{3} \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역(양의 유리수 집합)에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |X| = |\\mathbb{N}| = \\aleph_0= |Y|\\)\n양의 유리수 집합 \\(\\mathbb{Q}^+\\)는 모두 \\(Y\\)에 포함되어 있다. \\(\\Longrightarrow X \\subset \\mathbb{Q}^+\\subset Y \\Longrightarrow |X| = \\aleph_0\\leq|\\mathbb{Q}^+|\\leq|Y|=\\aleph_0 \\Longrightarrow |\\mathbb{Q}^+| = \\aleph_0\\)\n즉, 자연수집합과 양의 유리수집합의 cardinality는 같다.\n동일하게 유도해보면,자연수집합과 음의 유리수집합의 cardinality도 같음을 보일 수 있으며 또한 자연수 집합과 유리수 집합 \\(\\cup \\{0\\}\\)의 크기도 같음을 보일 수 있다.\n이를 확장하여 유리수집합(양의유리수 + 음의유리수 + 0)도 자연수 집합과 cardinality가 같음을 보일 수 있다. Q-궁금한거 : 유리수집합에 대해서는 어떻게 cardinality가 자연수집합과 같음을 유도할 수 있는가?\\(\\aleph_0 + \\aleph_0 = \\aleph_0\\)?"
+  },
+  {
+    "objectID": "posts/stochastic process/SP_cardinality_comparison.html#직관적인-정리",
+    "href": "posts/stochastic process/SP_cardinality_comparison.html#직관적인-정리",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "직관적인 정리",
+    "text": "직관적인 정리\n\n\\(\\aleph_0 + 1 = \\aleph_0\\,\\,,|\\mathbb{N}| = |\\mathbb{N}| \\cup \\{0\\}\\)\n\\(\\aleph_0 \\times 2 = \\aleph_0\\,\\,,\\)자연수집합과 음의정수집합을 더한 집합의 카디널리티는 자연수집합의 카디널리티와 같음\n\\(\\aleph_0\\times \\aleph_0 = \\aleph_0 ^2 = \\aleph_0\\,\\,,\\)자연수집합과 자연수집합의 곱집합으로 유리수집합(보다 큰)을 만들 수 있는데 이 집합도 자연수집합의 카디널리티와 같음"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "",
+    "text": "이전포스팅에서 유한집합간의 크기비교는 두 집합간의 어떤 함수가 존재하는지를 통해서 가능하다고 정리했습니다.\n여기서는 이를 무한집합에서 확장하여 실제로 여러가지 서로다른 무한집합간의 크기(엄밀히,cardinality,포스팅에서는 크기와 cardinality를 혼용합니다.)를 비교합니다.\n즉, 두 무한집합간의 전사,단사,전단사 함수가 존재여부를 확인합니다.\n결과적으로 이전의 포스팅에서 무리수 집합의 길이는 \\(2\\pi\\) 유리수 집합의 길이는 0이였는데 이에 대한 직관을 얻을 수 있습니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#ex홀수집합-vs-짝수집합의-경우",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#ex홀수집합-vs-짝수집합의-경우",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "Ex)홀수집합 vs 짝수집합의 경우",
+    "text": "Ex)홀수집합 vs 짝수집합의 경우\n\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)\n\n두 무한집합사이에 cardinality를 비교하려면 두 집합사이에 1)적당한 함수를 정의하고 2)어떤 함수인지 정의를 통해 확인한 후 3)cardinality를 구한다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(3) &= 4 \\\\\nf(5) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |X| = |Y|\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#ex자연수양의정수집합-vs-홀수짝수집합의-경우",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#ex자연수양의정수집합-vs-홀수짝수집합의-경우",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "Ex)자연수(양의정수)집합 vs 홀수,짝수집합의 경우",
+    "text": "Ex)자연수(양의정수)집합 vs 홀수,짝수집합의 경우\n\\(\\mathbb{N} = \\{1,2,3,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(2) &= 4 \\\\\nf(3) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |\\mathbb{N}| = \\aleph_0= |Y|\\) (\\(\\aleph_0\\)는 자연수집합의 cardinality를 의미한다.)\n즉, 자연수집합과 짝수집합의 cardinality는 같다.\n동일하게 유도해보면,자연수집합과 홀수집합의 cardinality도 같음을 보일 수 있으며 또한 자연수 집합과 자연수 집합 \\(\\cup\\{0\\}\\)의 크기도 같음을 알 수 있다. Q-궁금한거 : 정수집합에 대해서는 어떻게 cardinality가 같음을 유도할 수 있는가?\n또한 이를 확장하여,정수집합(양의정수 + 음의정수 + 0)도 자연수집합과 cardinality가 같음을 보일 수 있다.(???)\n즉, \\(|\\mathbb{Z}| = |\\mathbb{N}| = \\aleph_0\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#무한집합의-정의와-특징",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#무한집합의-정의와-특징",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "무한집합의 정의와 특징",
+    "text": "무한집합의 정의와 특징\n\n위의 결론을 활용하여 무한집합을 새롭게 정의할 수 있다.\n\n\n무한집합의 정의 집합 \\(A\\)가 무한집합이다. \\(\\Longleftrightarrow\\) cardinality가 같은 진 부분집합이 존재할 수 있다. (Note:유한집합에서는 불가능하다.)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#ex자연수집합-vs-유리수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#ex자연수집합-vs-유리수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "Ex)자연수집합 vs 유리수집합",
+    "text": "Ex)자연수집합 vs 유리수집합\n\n아래와 같은 격자에 놓여져 있는 유리수를 생각해보자.\n격자의 세로축의 값은 분자이며 가로축의 값은 분모이다.\n따라서 격자위에 놓인 수들은 양의 유리수집합\\(\\mathbb{Q}^c\\)을 이룸을 알 수 있다.\n\n\n\\(X = \\{1,2,\\dots\\},Y = \\{1,\\frac{2}{1}\\,\\frac{1}{2},\\frac{1}{3},\\frac{2}{2},\\frac{3}{1}\\dots\\}\\)\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 1 \\\\\nf(2) &= \\frac{2}{1} \\\\\nf(3) &= \\frac{1}{2} \\\\\nf(4) &= \\frac{1}{3} \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역(양의 유리수 집합)에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |X| = |\\mathbb{N}| = \\aleph_0= |Y|\\)\n양의 유리수 집합 \\(\\mathbb{Q}^+\\)는 모두 \\(Y\\)에 포함되어 있다. \\(\\Longrightarrow X \\subset \\mathbb{Q}^+\\subset Y \\Longrightarrow |X| = \\aleph_0\\leq|\\mathbb{Q}^+|\\leq|Y|=\\aleph_0 \\Longrightarrow |\\mathbb{Q}^+| = \\aleph_0\\)\n즉, 자연수집합과 양의 유리수집합의 cardinality는 같다.\n동일하게 유도해보면,자연수집합과 음의 유리수집합의 cardinality도 같음을 보일 수 있으며 또한 자연수 집합과 유리수 집합 \\(\\cup \\{0\\}\\)의 크기도 같음을 보일 수 있다.\n이를 확장하여 유리수집합(양의유리수 + 음의유리수 + 0)도 자연수 집합과 cardinality가 같음을 보일 수 있다. Q-궁금한거 : 유리수집합에 대해서는 어떻게 cardinality가 자연수집합과 같음을 유도할 수 있는가?\\(\\aleph_0 + \\aleph_0 = \\aleph_0\\)?"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#직관적인-정리",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#직관적인-정리",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "직관적인 정리",
+    "text": "직관적인 정리\n\n위에서 나왔던 (엄밀하진 않은..)사실들을 정리합니다.\n\\(\\aleph_0 + 1 = \\aleph_0\\,\\,,|\\mathbb{N}| = |\\mathbb{N}| \\cup \\{0\\}\\)\n\\(\\aleph_0 \\times 2 = \\aleph_0\\,\\,,\\)자연수집합과 음의정수집합을 더한 집합의 카디널리티는 자연수집합의 카디널리티와 같습니다.\n\\(\\aleph_0\\times \\aleph_0 = \\aleph_0 ^2 = \\aleph_0\\,\\,,\\)자연수집합과 자연수집합의 곱집합으로 유리수집합(보다 큰)을 만들 수 있는데 이 집합도 자연수집합의 카디널리티와 같습니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#홀수집합-vs-짝수집합의-경우",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#홀수집합-vs-짝수집합의-경우",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "홀수집합 vs 짝수집합의 경우",
+    "text": "홀수집합 vs 짝수집합의 경우\n\n먼저 홀수집합 vs 짝수집합의 크기를 비교합니다.\n즉,\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)의 크기를 비교합니다.\n두 무한집합사이에 크기를 비교하려면 어떤함수가 정의될 수 있는지 확인한 후 앞선 증명(링크넣기)를 통해서 결론을 내리면 됩니다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(3) &= 4 \\\\\nf(5) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n\n\n\n\n\n\n\n홀수집합 vs 짝수집합\n\n\n\n\n무한집합인 홀수집합과 짝수집합사이에는 전단사함수가 존재합니다.\n따라서 홀수집합과 짝수집합의 크기는 같습니다.\n즉,\\(|X| = |Y|\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#홀수집합과-짝수집합의-크기비교",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#홀수집합과-짝수집합의-크기비교",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "홀수집합과 짝수집합의 크기비교",
+    "text": "홀수집합과 짝수집합의 크기비교\n\nㅎㅇㅎㅇ\nㅇㅇㅇㅎㅁ으ㅏㅣ:::\n\n\n\n\n\n\n\n\n\n\n\n\n기존의 seq2seq 모델은 encoder에서 고정된 길이의 context vector로 바꾼 정보만을 decoder에서 사용하여 긴 문장에 대해서는 정보의 손실이 일어났으며 또한 성능이 좋지 못했습니다.\n따라서 논문에서는 decoder에서 target(word)을 만들 때 input sequnce의 각각의 위치에서 나오는 모든 정보를 중요도를 반영하여 재조합한 새로운 정보를 만들고 이를 활용합니다.\n이렇게 만든 새로운 정보는 decoder가 output sequence의 각각의 target을 예측할때 가중치 \\(\\alpha\\)를 통해 특정위치 근처의 문맥에 주목,집중한 값 이기때문에 집중,주의를 의미하는 attention이라는 용어를 따와서 attention mechanism이라고 합니다.\n이렇게 attention mechanism을 사용함으로서 encoder가 source sentence의 모든정보를 하나의 고정된 길이의 context vector로 인코딩해야 하는 부담을 줄여줍니다.\n\n\n\n\n결론 - \\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |X| = |Y|\\) -"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수양의정수집합-vs-홀수짝수집합의-경우",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수양의정수집합-vs-홀수짝수집합의-경우",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수(양의정수)집합 vs 홀수,짝수집합의 경우",
+    "text": "자연수(양의정수)집합 vs 홀수,짝수집합의 경우\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(2) &= 4 \\\\\nf(3) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n\n\n\n\n\n\n\n자연수집합 vs 홀수,짝수집합\n\n\n\n\n자연수집합과 짝수집합사이에 전단사함수가 존재합니다.\n따라서 자연수집합의 크기와 짝수집합의 크기는 같습니다.\n이전에 짝수집합의 크기와 홀수집합의 크기는 같았다고 결론내렸으므로 세 집합의 크기는 같습니다.\n즉, \\(|\\mathbb{N}| = |Y| = \\aleph_0\\)(여기서 y는 짝수집합 or 홀수집합의 크기를 의미합니다.)\n\n\n\n\n결론 Q-궁금한거 : 정수집합에 대해서는 어떻게 cardinality가 같음을 유도할 수 있는가?\n\n또한 이를 확장하여,정수집합(양의정수 + 음의정수 + 0)도 자연수집합과 cardinality가 같음을 보일 수 있다.(???)\n즉, \\(|\\mathbb{N}| = |\\mathbb{N}| = \\aleph_0\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#결론-1",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#결론-1",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "결론",
+    "text": "결론\n\n자연수집합과 짝수집합사이에 전단사함수가 존재합니다.\n\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |\\mathbb{N}| = \\aleph_0= |Y|\\) (\\(\\aleph_0\\)는 자연수집합의 cardinality를 의미한다.)\n즉, 자연수집합과 짝수집합의 cardinality는 같다.\n동일하게 유도해보면,자연수집합과 홀수집합의 cardinality도 같음을 보일 수 있으며 또한 자연수 집합과 자연수 집합 \\(\\cup\\{0\\}\\)의 크기도 같음을 알 수 있다. Q-궁금한거 : 정수집합에 대해서는 어떻게 cardinality가 같음을 유도할 수 있는가?\n또한 이를 확장하여,정수집합(양의정수 + 음의정수 + 0)도 자연수집합과 cardinality가 같음을 보일 수 있다.(???)\n즉, \\(|\\mathbb{Z}| = |\\mathbb{N}| = \\aleph_0\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수양의정수집합-vs-홀수짝수집합의-경우-1",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수양의정수집합-vs-홀수짝수집합의-경우-1",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수(양의정수)집합 vs 홀수,짝수집합의 경우",
+    "text": "자연수(양의정수)집합 vs 홀수,짝수집합의 경우\n\n결론\n\n\\(f\\)는 bijective function이다. \\(\\Longleftrightarrow |\\mathbb{N}| = \\aleph_0= |Y|\\) (\\(\\aleph_0\\)는 자연수집합의 cardinality를 의미한다.)\n즉, 자연수집합과 짝수집합의 cardinality는 같다.\n동일하게 유도해보면,자연수집합과 홀수집합의 cardinality도 같음을 보일 수 있으며 또한 자연수 집합과 자연수 집합 \\(\\cup\\{0\\}\\)의 크기도 같음을 알 수 있다. Q-궁금한거 : 정수집합에 대해서는 어떻게 cardinality가 같음을 유도할 수 있는가?\n또한 이를 확장하여,정수집합(양의정수 + 음의정수 + 0)도 자연수집합과 cardinality가 같음을 보일 수 있다.(???)\n즉, \\(|\\mathbb{N}| = |\\mathbb{N}| = \\aleph_0\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#section",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#section",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": ":::",
+    "text": ":::\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(2) &= 4 \\\\\nf(3) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n\n\n\n\n\n\n\n결론\n\n\n\n\n자연수집합과 짝수집합사이에 전단사함수가 존재합니다.\n따라서 자연수집합의 크기와 짝수집합의 크기는 같습니다.\n이전에 짝수집합의 크기와 홀수집합의 크기는 같았다고 결론내렸으므로 세 집합의 크기는 같습니다.\n즉, \\(|\\mathbb{N}| = |Y| = \\aleph_0\\)(여기서 y는 짝수집합 or 홀수집합의 크기를 의미합니다.)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#홀수집합-vs-짝수집합의-경우-1",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#홀수집합-vs-짝수집합의-경우-1",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "홀수집합 vs 짝수집합의 경우",
+    "text": "홀수집합 vs 짝수집합의 경우\n\n무한집합인 홀수집합과 짝수집합사이에는 전단사함수가 존재합니다.\n따라서 홀수집합과 짝수집합의 크기는 같습니다.\n즉,\\(|X| = |Y|\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합의-cardinality",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합의-cardinality",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": " 자연수집합의 cardinality",
+    "text": "자연수집합의 cardinality\n\n자연수 집합 \\(\\mathbb{N} = \\{1,2,3,\\dots\\}\\)의 크기는 다음과 같이 정의합니다.(알에프널이라 읽어요.)\n\n\\[|\\mathbb{N} = \\aleph_0\\]\n\n우리의 목적은 무한집합간의 크기를 비교하는 것이였습니다.\n그러기 위해서 자연수집합의 크기는 \\(\\aleph_0\\) 정하고 다른집합이 이 크기보다 큰지 작은지를 확인합니다.\n이 크기보다 큰지 작은지는 자연수집합과 또다른 집합간에 어떤 함수가 존재하는지를 통해 확인할 수 있습니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합의-vs-홀수집합짝수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합의-vs-홀수집합짝수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": " 자연수집합의 vs 홀수집합,짝수집합",
+    "text": "자연수집합의 vs 홀수집합,짝수집합\n\n홀수집합 vs 짝수집합의 경우\n\n먼저 홀수집합 vs 짝수집합의 크기를 비교합니다.\n즉,\\(X = \\{1,3,5,\\dots\\},Y = \\{2,4,6,\\dots\\}\\)의 크기를 비교합니다.\n두 무한집합사이에 크기를 비교하려면 어떤함수가 정의될 수 있는지 확인한 후 앞선 증명(링크넣기)를 통해서 결론을 내리면 됩니다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(3) &= 4 \\\\\nf(5) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n\n\n\n\n\n\n\n홀수집합 vs 짝수집합\n\n\n\n\n무한집합인 홀수집합과 짝수집합사이에는 전단사함수가 존재합니다.\n따라서 홀수집합과 짝수집합의 크기는 같습니다.\n즉,\\(|X| = |Y|\\)\n\n\n\n\n\n자연수(양의정수)집합 vs 홀수,짝수집합의 경우\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 2 \\\\\nf(2) &= 4 \\\\\nf(3) &= 6 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n\n\n\n\n\n\n\n자연수집합 vs 홀수,짝수집합\n\n\n\n\n자연수집합과 짝수집합사이에 전단사함수가 존재합니다.\n따라서 자연수집합의 크기와 짝수집합의 크기는 같습니다.\n이전에 짝수집합의 크기와 홀수집합의 크기는 같았다고 결론내렸으므로 세 집합의 크기는 같습니다.\n즉, \\(|\\mathbb{N}| = |Y| = \\aleph_0\\)(여기서 y는 짝수집합 or 홀수집합의 크기를 의미합니다.)\n\n\n\n\n결론 Q-궁금한거 : 정수집합에 대해서는 어떻게 cardinality가 같음을 유도할 수 있는가?\n\n또한 이를 확장하여,정수집합(양의정수 + 음의정수 + 0)도 자연수집합과 cardinality가 같음을 보일 수 있다.(???)\n즉, \\(|\\mathbb{N}| = |\\mathbb{N}| = \\aleph_0\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-자연수집합-cup-0",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-자연수집합-cup-0",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수집합 vs 자연수집합 \\(\\cup \\{0\\}\\)",
+    "text": "자연수집합 vs 자연수집합 \\(\\cup \\{0\\}\\)\n\n자연수집합과 자연수집합 \\(\\cup \\{0\\}\\)의 크기를 비교해보겠습니다.\n즉, \\(\\mathbb{N} = \\{1,2,3,\\dots\\}, \\mathbb{N}\\cup \\{0\\} = \\{0,1,2,3,\\dots\\}\\)의 크기를 비교합니다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 0 \\\\\nf(2) &= 1 \\\\\nf(3) &= 2 \\\\\n&\\vdots\n\\end{aligned}\\]\n단사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수입니다.\n\n전사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수입니다.\n\n\n\n\n\n\n\n\n자연수집합 vs 자연수집합 \\(\\cup \\{0\\}\\)\n\n\n\n\n자연수집합과 자연수집합 \\(\\cup \\{0\\}\\)사이에 전단사함수가 존재합니다.\n따라서 두 집합의 크기는 같습니다.\n즉, |\\(\\mathbb{N}| = |\\mathbb{N} \\cup \\{0\\}|\\)입니다.\n조금 과감하게 \\(\\aleph_0 + 1 = \\aleph_0\\)으로 기억하면 좋습니다.(엄밀하진 않습니다.)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-자연수집합-cup-음의정수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-자연수집합-cup-음의정수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수집합 vs 자연수집합 \\(\\cup\\) 음의정수집합",
+    "text": "자연수집합 vs 자연수집합 \\(\\cup\\) 음의정수집합\n\n자연수집합과 양의정수집합\\(\\cup\\)음의정수집합을 비교합니다.\n즉, \\(\\mathbb{N} = \\{1,2,3,\\dots\\}, \\mathbb{N}\\cup \\mathbb{N}^- = \\{-1,1,-2,2,\\dots\\}\\)의 크기를 비교합니다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= -1 \\\\\nf(2) &= 1 \\\\\nf(3) &= -2 \\\\\nf(4) &= 2 \\\\\n&\\vdots\n\\end{aligned}\\]\n\n\n두 집합간의 mapping을 -1,1,-2,2 이런식으로 mapping하는게 포인트입니다.(전 못했습니다…)\n\n\n단사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수입니다.\n\n전사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수입니다.\n\n\n\n\n\n\n\n\n자연수집합 vs 자연수집합 \\(\\cup\\) 음의정수집합\n\n\n\n\n자연수집합과 자연수집합 \\(\\cup\\) 음의정수집합사이에 전단사함수가 존재합니다.\n따라서 두 집합의 크기는 같습니다.\n즉, |\\(\\mathbb{N}| = |\\mathbb{N} \\cup \\mathbb{N}^-| = \\aleph_0\\)입니다.\n이것도 조금 과감하게 \\(\\aleph_0 \\times 2 = \\aleph_0\\)로 기억하면 좋습니다.\n자연수집합크기\\(\\aleph_0\\) = 자연수집합크기\\(\\aleph_0\\) + 음의정수집합크기\\(\\aleph_0\\)이기 때문입니다.(음의정수집합의 크기는 증명생략,해보면 자연수집합과 같습니다.)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-정수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-정수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수집합 vs 정수집합",
+    "text": "자연수집합 vs 정수집합\n\n자연수집합과 양의정수집합\\(\\cup\\)음의정수집합을 비교합니다.\n즉, \\(\\mathbb{N} = \\{1,2,3,\\dots\\}, \\mathbb{Z} = \\{0,-1,1,-2,2,\\dots\\}\\)의 크기를 비교합니다.\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 0 \\\\\nf(2) &= -1 \\\\\nf(3) &= -1 \\\\\nf(4) &= -2 \\\\\nf(5) &= -2 \\\\\n&\\vdots\n\\end{aligned}\\]\n\n\n이전 챕터와 비슷하게 두 집합간의 mapping을 0,-1,1,-2,2 이런식으로 교차하면서 mapping합니다.\n\n\n단사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수입니다.\n\n전사함수인가?(정의를 통해 확인)\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수입니다.\n\n\n\n\n\n\n\n\n자연수집합 vs 정수집합\n\n\n\n\n자연수집합과 정수집합사이에 전단사함수가 존재합니다.\n따라서 두 집합의 크기는 같습니다.\n즉, |\\(\\mathbb{N}| = |\\mathbb{Z}| = \\aleph_0\\)입니다.\n이것에 생각했던 과감한 논리들을 합쳐서 구해볼 수도 있습니다.(\\(\\aleph_0 \\times 2 = \\aleph_0\\),\\(\\aleph_0 + 1 = \\aleph_0\\))"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합의-cardinality",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합의-cardinality",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": " 유리수집합의 cardinality",
+    "text": "유리수집합의 cardinality\n\n유리수집합의 cardinality를 구하기 위해서 여러가지 경우를 생각해본다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-정수집합-2",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-정수집합-2",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수집합 vs 정수집합",
+    "text": "자연수집합 vs 정수집합"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-유리수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-유리수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수집합 vs 유리수집합",
+    "text": "자연수집합 vs 유리수집합\n\n자연수집합과 유리수집합의 크기를 비교합니다.\n유리수 이전의 비교처럼 뭔가 한번에 두 집합사이를 비교하기가 어렵습니다.\n따라서 먼저 양의 유리수집합 (\\(\\mathbb{Q}^+\\)로 정의하겠습니다.)을 포함하는 집합 \\(Y\\)을 가정하고 이를 먼저 자연수 집합과 비교합니다.\n즉,\\(\\mathbb{N} = \\{1,2,\\dots\\},Y = \\{1,\\frac{2}{1}\\,\\frac{1}{2},\\frac{1}{3},\\frac{2}{2},\\frac{3}{1}\\dots\\} \\supset \\mathbb{Q}^+\\)입니다.\n그렇다면, 집합\\(Y\\)의 모든 원소는 다음과 같은 격자의 가로축을 분모로 세로축을 분자로 생각할때 격자위에 모두 놓일 수 있습니다.\n\n\n\n\\(f\\)정의하기\n\\[\\begin{aligned}\nf(1) &= 1 \\\\\nf(2) &= \\frac{2}{1} \\\\\nf(3) &= \\frac{1}{2} \\\\\nf(4) &= \\frac{1}{3} \\\\\nf(5) &= \\frac{2}{2} \\\\\nf(6) &= \\frac{3}{1} \\\\\n&\\vdots\n\\end{aligned}\\]\n\n\n자연수1부터 차례대로 격자위의 화살표의 순서를 따라서 집합\\(Y\\)의 원소에 매핑합니다.\n대각선 어떤 방향이던 일단 방향이 정해지면 정해진 방향의 원소는 모두 스치면서 지나갑니다.\n\n\n단사함수인가?\n\ndefinition : \\(\\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\\)\n정의역에 속한 임의의,모든 원소가 공역에 속하는 서로다른 원소에 mapping되므로 단사함수이다.\n\n전사함수인가?\n\ndefinition : \\(\\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\\)\n공역(양의 유리수집합)에 속한 임의의,모든 원소가 적어도 하나의 정의역에 속하는 원소에 mapping되므로 전사함수이다.\n\n유도(명제링크)\n\n\n우리는 \\(\\mathbb{Q}^+ \\subset Y\\) 이므로 \\(|\\mathbb{Q}^+| \\leq |Y|\\)와 \\(\\mathbb{N} \\subset \\mathbb{Q}^+\\)이므로 \\(|\\mathbb{N}| = \\aleph_0 \\leq |\\mathbb{Q}^+|\\)을 이미 알고있습니다.(양의 유리수집합은 자연수를 포함합니다.)\n또한 3번까지의 유도과정에 의하여 상기식에 의하여 \\(|\\mathbb{N}| = |Y| = \\aleph_0\\) 입니다.\n그렇다면 \\(|\\mathbb{N}| \\leq|\\mathbb{Q}^+| \\leq |Y|\\) 이고 \\(|\\mathbb{N}| = |Y| = \\aleph_0\\)이므로 \\(|\\mathbb{Q}|^+ = \\aleph_0\\)임을 알 수 있습니다.\n또한 음의 유리수집합 \\(|\\mathbb{Q}|^-\\)도 자연수집합의 크기와 같음을 알 수 있습니다.(증명생략,위와 같이 격자에 대고 하면 됩니다.)\n유리수집합은 양의 유리수집합 + 음의 유리수집합 + \\(\\{0\\}\\)입니다.\n여기서 과감하게 사용한 앞선 정리들을 사용합니다. (\\(\\aleph_0 \\times 2 = \\aleph_0\\),\\(\\aleph_0 + 1 = \\aleph_0\\))\n따라서 \\(|\\mathbb{Q}| = |\\mathbb{Q}^+| + |\\mathbb{Q}^-| + |{0}| = \\aleph_0 \\times 2 + 1 = \\aleph_0 + 1 = \\aleph_0\\) 입니다.\n\n\n\n\n\n\n\n자연수집합 vs 유리수집합\n\n\n\n\n유리수집합보다 더 큰 집합을 상정하고 부분집합과 관련된 명제를 사용하여 유리수집합의 크기를 유도했습니다.\n결과적으로, 유리수집합과 자연수집합의 크기는 같습니다.\n즉, \\(|\\mathbb{Q}| = |\\mathbb{N}| = \\aleph_0\\)입니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html",
+    "title": "[Stochestic Process] Cardinality",
+    "section": "",
+    "text": "서로다른 두개의 무한집합들간의 cardinality(유한집합에서의 크기 개념)를 비교하고자 합니다.\n이는 두 집합간의 전사,단사,전단사 함수가 존재하는지 확인해서 비교할 수 있습니다.\n그러므로 여기서는 cardinality와 전사,단사,전단사함수에 대해 공부하고 cardinality를 구하기 위한 정리를 소개합니다\n이를 통해 앞선 포스팅에서 무리수 집합의 길이는 \\(2\\pi\\) 유리수 집합의 길이는 0이였던 것에 대한 직관을 얻을 수 있습니다.(무리수 집합의 cardinality가 더 크게 나옵니다.이는 다음 포스팅에서 증명합니다.)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#injective-function",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#injective-function",
+    "title": "[Stochestic Process] Cardinality",
+    "section": " Injective function",
+    "text": "Injective function\n\n\n\n\n\n\ndefinition of injective function\n\n\n\n\\[\\begin{aligned}\n&\\text{The function is injective, or one-to-one}\\\\\n&\\Longleftrightarrow \\forall x_1,x_2\\in X,x_1\\neq x_2\\implies f(x_1)\\neq f(x_2)\n\\end{aligned}\\]\n\n\n\ndomain에 속하는 서로다른 모든 두 원소가 codomain에 속하는 서로다른 두 원소에 mapping될 때 Injection function입니다.\n암기(입력이 다르면 출력이 다르다)\n느낌(화살표가 쫙 펴지는 느낌이다.)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#surjective-function",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#surjective-function",
+    "title": "[Stochestic Process] Cardinality",
+    "section": " surjective function",
+    "text": "surjective function\n\n\n\n\n\n\ndefinition of surjective function\n\n\n\n\\[\\begin{aligned}\n&\\text{The function is surjective, or onto} \\\\\n&\\Longleftrightarrow \\forall y \\in Y,\\exists x \\in X \\text{ such that } y = f(x)\n\\end{aligned}\\]\n\n\n\ncodomain에 속하는 모든 원소가 domain에 속하는 원소에 적어도 하나의 mapping을 받을 때 surjective function입니다.\n암기1:domian의 image(상)인 치역이 공역과 같습니다.\n암기2:공역의 모든 원소가 역상(inverseimage)이 존재합니다.\n느낌 : 화살표가 쫙 모이는 느낌"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#bijective-function",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#bijective-function",
+    "title": "[Stochestic Process] Cardinality",
+    "section": " bijective function",
+    "text": "bijective function\n\n\n\n\n\n\ndefinition of bijective function\n\n\n\n\\[\\begin{aligned}\n&\\text{The function is bijective, or one-to-one and onto}\\\\\n&\\Longleftrightarrow \\forall y \\in Y,\\exists !x \\in X \\text{ such that } y = f(x) \\\\\n&\\text{where } \\exists!x \\text{ means \"there exists exactly one x\".}\n\\end{aligned}\\]\n\n\n\ncodomain에 속하는 임의의,모든 원소가 domain에 속하는 정확히 하나의 원소에만 mapping되는 경우 bijective function이라고 한다.\ninjective이며 동시에 surjective인 function이다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#용어-정리헷갈림",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#용어-정리헷갈림",
+    "title": "[Stochestic Process] Cardinality",
+    "section": " 용어 정리(헷갈림)",
+    "text": "용어 정리(헷갈림)\n\ninjective = 단사 = one-to-one, injective function = injection = 단사함수\nsurjective = 전사 = onto, surjective function = surjection = 전사함수\nbijecitve = 전단사 = one-to-one and onto , bijective function = bijection = 전단사함수"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#cardinality와의-관계",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#cardinality와의-관계",
+    "title": "[Stochestic Process] Cardinality",
+    "section": " Cardinality와의 관계",
+    "text": "Cardinality와의 관계\n\n\n\n\n\n\nproperty1 : 전사함수이면 단사함수이면 전단사함수이다\n\n\n\n\n어떤 함수가 전사함수 & 단사함수 \\(\\Longleftrightarrow\\) 전단사함수\n\n\n\n\n\n\n\n\n\nproperty2 : 함수의 종류와 두 집합간의 크기비교\n\n\n\n두 집합사이에 적절한 함수를 정의하여 집합간의 크기비교가 가능하다.\n\n단사함수와 cardinality\n\n집합 \\(X\\)에서 집합 \\(Y\\)로 가는 단사함수가 존재한다. \\(\\Longleftrightarrow |X| \\leq |Y|\\)\n집합 \\(X\\)에서 집합 \\(Y\\)로 가는 단사함수가 존재하지 않는다. \\(\\Longleftrightarrow |X| > |Y|\\)\n\n\n\n전사함수와 cardinality\n\n집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전사함수가 존재한다. \\(\\Longleftrightarrow |X| \\geq |Y|\\)\n집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전사함수가 존재하지 않는다. \\(\\Longleftrightarrow |X| < |Y|\\)\n\n\n\n전단사함수와 cardinality\n\n집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전단사함수가 존재한다. \\(\\Longleftrightarrow |X| = |Y|\\)\n집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전단사함수가 존재한다. \\(\\Longleftrightarrow |X| \\not = |Y|\\)\n\n\n\n\n\n\n\n\n\n\nproperty3 : 부분집합과 크기비교\n\n\n\n\\(X \\subset Y \\Rightarrow |X| \\leq |Y|\\)  \\(X \\supset Y \\Leftrightarrow |X| \\geq |Y|\\)  \\(X = Y \\Rightarrow |X| = |Y|\\)\n\n\n\n\n\n\n\n\n동치명제 정리\n\n\n\n\n\\(X \\subset Y \\Longleftrightarrow |X| \\leq |y|\\) \n\\(X \\supset Y \\Longleftrightarrow |X| \\geq |y|\\) \n\\(X \\subset = \\Longleftrightarrow |X| = |y|\\)\n\n\n\n\n위의 사실들은 유한집합에 대해서 생각해보면 자명한 사실들입니다.\n우리는 이를 무한집합에 확장하여 적용함으로서 무한집합간의 cardinality를 비교할 수 있습니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#정리",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#정리",
+    "title": "[Stochestic Process] Cardinality",
+    "section": " 정리",
+    "text": "정리\n\n유한집합에서 두 집합간의 크기의 비교는 두 집합간에 존재할 수 있는 함수가 어떤 함수인지를 통해서 가능합니다.\n이를 무한집합에서 적용하여 두 집합간의 크기비교를 해보고자 합니다.(다음 포스팅!)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#property1---전사함수이면-단사함수이면-전단사함수이다",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#property1---전사함수이면-단사함수이면-전단사함수이다",
+    "title": "[Stochestic Process] Cardinality",
+    "section": "property1 - 전사함수이면 단사함수이면 전단사함수이다<",
+    "text": "property1 - 전사함수이면 단사함수이면 전단사함수이다<\n\n어떤 함수가 전사함수 & 단사함수 \\(\\Longleftrightarrow\\) 전단사함수 :::\n\n\n\n\n\n\n\nproperty2 - 함수의 종류와 두 집합간의 크기비교\n\n\n\n두 집합사이에 적절한 함수를 정의하여 집합간의 크기비교가 가능하다. 단사함수와 cardinality - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 단사함수가 존재한다. \\(\\Longleftrightarrow |X| \\leq |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 단사함수가 존재하지 않는다. \\(\\Longleftrightarrow |X| > |Y|\\) 전사함수와 cardinality - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전사함수가 존재한다. \\(\\Longleftrightarrow |X| \\geq |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전사함수가 존재하지 않는다. \\(\\Longleftrightarrow |X| < |Y|\\) 전단사함수와 cardinality - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전단사함수가 존재한다. \\(\\Longleftrightarrow |X| = |Y|\\) - 집합 \\(X\\)에서 집합 \\(Y\\)로 가는 전단사함수가 존재한다. \\(\\Longleftrightarrow |X| \\not = |Y|\\)\n\n\n\n(property1) 어떤 함수가 전사함수 & 단사함수 \\(\\Longleftrightarrow\\) 전단사함수\n\n\n위의 사실들은 유한집합에 대해서 생각해보면 당연한 사실들입니다.(증명생략)\n우리는 이를 무한집합에 확장하여 적용함으로서 무한집합간의 cardinality를 비교할 수 있습니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#definition-of-bijective-function",
+    "href": "posts/stochastic process/SP-caardinality_typeoffunction/sp_2023_03_17.html#definition-of-bijective-function",
+    "title": "[Stochestic Process] Cardinality",
+    "section": "(definition of bijective function)",
+    "text": "(definition of bijective function)\n\\[\\begin{aligned}\n&\\text{The function is bijective, or one-to-one and onto}\\\\\n&\\Longleftrightarrow \\forall y \\in Y,\\exists !x \\in X \\text{ such that } y = f(x) \\\\\n&\\text{where } \\exists!x \\text{ means \"there exists exactly one x\".}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-유리수집합-2",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-유리수집합-2",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수집합 vs 유리수집합",
+    "text": "자연수집합 vs 유리수집합"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-실수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#자연수집합-vs-실수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "자연수집합 vs 실수집합",
+    "text": "자연수집합 vs 실수집합"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-실수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-실수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "유리수집합 vs 실수집합",
+    "text": "유리수집합 vs 실수집합\n\n문제 쉽게만들기\n\n우리의 목표는 유리수집합 vs 무리수집합의 크기를 비교하여 길이가 다름에 대한 직관을 얻는 것이였습니다.\n그러기 위해서 먼저 유리수집합과 실수집합의 크기를 비교합니다.\n증명하고자 명제는 다음과 같습니다.\n\n\\[|\\mathbb{Q}| < |\\mathbb{R}|\\]\n\n그런데 여기서 문제를 살짝 바꿔서 \\(|\\mathbb{Q}| = |\\mathbb{N}|\\)을 이용하여 다음과 같은 명제를 증명하는 문제로 바꿔서 생각합니다.(아마 바로 풀기 어려워서 그런 것 같습니다.)\n\n\\[ |\\mathbb{N}| < |\\mathbb{R}|\\]\n\n여기서 또 한번 문제를 바꿔서 생각합니다.\n\\([0,1] \\subset \\mathbb{R}\\)이므로 \\(|[0,1]| \\leq |\\mathbb{R}|\\)입니다.\n만약 자연수집합의 크기가 [0,1]집합의 크기보다 작다는 명제가 참이라고 증명된다면 [0,1]집합은 반드시 실수집합의 크기보다 작거나 같으므로 위의 명제도 반드시 참입니다.(작은 집합보다 작은데 그보다 큰(적어도 같은)집합보다 클 수 가 없어요,충분조건)\n즉 이 문제는 다음의 명제를 증명하는 문제로 바뀌게 됩니다.\n\n\\[ |\\mathbb{N}| < |[0,1]|\\]\n\n\n귀류법 사용하기\n\n위의 명제가 참임을 증명하기 위해서 귀류법을 사용합니다.\n먼저 정확히 반대가 되는 명제는 다음과 같습니다.\n\n\\[|\\mathbb{N}| \\geq |[0,1]|\\]\n\n이 명제가 참이라는 것은 \\(f : \\mathbb{N} \\rightarrow [0,1]\\)인 전사함수가 존재한다는 것과 동치입니다.\n따라서 아래와 같은 전사함수가 존재한다고 가정합니다.\n\n\\[\\begin{aligned}\n&f(1) = 0.7302 \\\\\n&f(2) = 0.4823 \\\\\n&f(3) = 0.2325 \\\\\n&\\quad\\quad\\quad\\vdots\n\\end{aligned}\\]\n\n전사함수라 가정했으므로 정의에 의해 \\([f(1),f(2),f(3),\\dots] = [0,1]\\)이 됩니다.(전사함수는 치역과 공역이 같은 함수입니다. 공역의 모든 원소는 정의역의 원소에 대응됩니다.)\n이제 \\(0.x_1x_2x_3\\dots\\)라는 숫자를 가정해봅시다.\n\\(x_i\\)는 소수점 아래 \\(i\\)번째 숫자를 의미하며 이는 \\(f(i)\\)의 소수점 첫번째 숫자와는 다른 숫자입니다.\n위의 예시에서는 \\(x_1 \\not=7,x_2\\not=4,x_3\\not=2\\)입니다.\n소수점 한자리씩 살펴보면 다음과 같은 사실이 나타납니다. \\[0.x_1 \\not\\in [f(1)],0.x_1x_2 \\not\\in [f(1),f(2)],0.x_1x_2x_3 \\not\\in [f(1),f(2),f(3)]\\]\n이를 계속해서 무한히 살펴보면 다음과 같습니다.(집합기호 오른쪽은 전사함수 정의에 의해 공역 = 치역이므로 같습니다.) \\[0.x_1x_2x_3x_4\\dots \\not\\in [f(1),f(2),f(3),\\dots] = [0,1]\\]\n분명히 \\(0.x_1x_2x_3x_4\\dots\\)는 \\([0,1]\\)에 속하는 숫자인데 전개가 된 위의 식에 의하여 \\([0,1]\\)에 속하지 않는다는 모순이 발생합니다.\n따라서 위의 명제 \\(|\\mathbb{N}| \\geq |[0,1]|\\) 거짓이며 \\(|\\mathbb{N}| < |[0,1]|\\)가 참인 명제입니다.\n이는 궁극적으로 우리가 궁금했던 명제\\(|\\mathbb{Q}| < |\\mathbb{R}|\\)가 참임을 증명하기 위한 충분조건이였습니다.\n따라서 \\(|\\mathbb{Q}| < |\\mathbb{R}|\\)는 참입니다.\n\n\n\n\n\n\n\n유리수집합 vs 실수집합\n\n\n\n\n문제를 조금 쉽게 바꾸고 귀류법을 사용하여 반대되는 명제가 거짓임을 밝혔습니다.\n결과적으로 \\(|\\mathbb{Q}| < |\\mathbb{R}|\\)입니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-실수집합-1",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-실수집합-1",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "유리수집합 vs 실수집합",
+    "text": "유리수집합 vs 실수집합"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#귀류법",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#귀류법",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "귀류법",
+    "text": "귀류법\n\n귀류법은 명제의 참 or 거짓을 증명하는 하나의 방법입니다.\n대략 이런 느낌으로 증명을 진행합니다.\n\n어떤 명제가 참임을 증명하고자 한다고 가정해봅시다. ex)“A는 치킨먹을때 물은 절대 안먹는다.”라는 명제가 참임을 증명해봅시다.\n그렇다면 이에 정확히 반대가 되는 명제를 가정하고 식을 전개했을때 어떤 이상함,맞지않음(모순)을 찾습니다. ex)여기서는 “A가 물을 먹을때도 있다.”라는 명제가 참이라고 가정하고 하고 모순을 찾습니다.\n만약 모순을 찾는다면 반대가 되는 명제는 이상함이 있는 것이므로 참인명제가 아닙니다. 따라서 이에 반대되는 명제는 사실입니다. ex)치킨을 같이 먹어본 결과 A가 물을 전혀 안 먹었습니다. 그러면 “A가 물을 먹을때도 있다.”라는 명제는 거짓이므로 “A는 치킨먹을때 물은 절대 안먹는다.”라는 명제가 참입니다.\n\n느낌 : 틀리거나 정확하거나,맞거나 아니거나 뭐던지 하나가 아니라고 나오면 다른건 무조건 맞는 말인 이분법느낌?"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#실수집합-vs-유리수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#실수집합-vs-유리수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "실수집합 vs 유리수집합",
+    "text": "실수집합 vs 유리수집합"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#실수집합-vs",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#실수집합-vs",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "실수집합 vs ",
+    "text": "실수집합 vs"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-실수집합-2",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-실수집합-2",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "유리수집합 vs 실수집합",
+    "text": "유리수집합 vs 실수집합"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-무리수집합",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-무리수집합",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "유리수집합 vs 무리수집합",
+    "text": "유리수집합 vs 무리수집합\n\n여기서는 귀류법을 사용하여 무리수집합의 카디널리티가 무리수집합의 카디널리티와 다름을 증명합니다.\n즉 다음을 증명하고자 하는 명제는 다음과 같습니다. \\[|\\mathbb{Q}| \\not= |\\mathbb{Q}^c|\\]\n먼저 이와 반대되는 명제를 가정합니다. \\[|\\mathbb{Q}| = |\\mathbb{Q}^c| = \\aleph_0\\]\n윗식에서 유리수집합의 크기는 \\(\\aleph_0\\)로 이미 증명된 사실입니다.\n따라서 반대되는 명제에서 유리수집합과 무리수집합의 크기는 \\(\\aleph_0\\)로 같습니다.\n음의정수 집합의 크기 \\(|\\mathbb{N}^-| = \\aleph_0\\)이므로 반대되는 명제와 함께 다음의 명제를 유도할 수 있습니다.\n\n\\(|\\mathbb{Q}| = \\aleph_0\\)이므로 \\(f : \\mathbb{Q} \\rightarrow \\mathbb{N}\\)인 전단사함수 \\(f\\)가 존재한다.\n\\(|\\mathbb{Q^c}| = \\aleph_0\\)이므로 \\(g : \\mathbb{Q^c} \\rightarrow \\mathbb{N^-}\\)인 전단사함수 \\(g\\)가 존재한다.\n\n따라서 \\(h : \\mathbb{Q}\\cup\\mathbb{Q^c} \\rightarrow \\mathbb{N} \\cup \\mathbb{N}^-\\)인 전단사함수가 \\(h\\)가 존재함을 알 수 있으며 \\(|\\mathbb{Q}\\cup\\mathbb{Q^c}| = |\\mathbb{N} \\cup \\mathbb{N}^-| = \\aleph_0\\)임을 유도할 수 있습니다.(정수집합에서 0을 뺀 집합인 \\(\\mathbb{N} \\cup \\mathbb{N}^-\\)도 자연수집합과 크기가 같음을 위해서 증명했었습니다.)\n그러나 여기서 \\(|\\mathbb{Q} \\cup \\mathbb{Q^c}|\\)는 우리는 실수집합 \\(\\mathbb{R}\\)이며 \\(|\\mathbb{Q}| < |\\mathbb{R}|\\)이미 참인 명제임을 이전에 증명했었습니다.\n따라서 모순이 생겼으므로 \\(|\\mathbb{Q}| = |\\mathbb{Q}^c|\\)는 거짓인 명제이며 따라서 증명하고자 했던 명제\\(|\\mathbb{Q}| \\not= |\\mathbb{Q^c}|\\)는 참임이 밝혀졌습니다.\n\n\n\n\n\n\n\n유리수집합 vs 무리수집합\n\n\n\n\n귀류법을 사용하여 반대되는 명제가 거짓임을 증명했습니다.\n결과적으로 \\(|\\mathbb{Q}| \\not= |\\mathbb{Q^c}|\\)입니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-무리수집합-2",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#유리수집합-vs-무리수집합-2",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "유리수집합 vs 무리수집합",
+    "text": "유리수집합 vs 무리수집합"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#해결해야-할-것",
+    "href": "posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html#해결해야-할-것",
+    "title": "[Stochestic Process] 무한집합간의 크기 비교",
+    "section": "해결해야 할 것",
+    "text": "해결해야 할 것\n\n\\(|\\mathbb{Q}| < |\\mathbb{Q^c}|\\) 증명하는 방법?"
   }
 ]
