@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2023-04-07">
+
+<title>HIHO - [Stochestic Process] 4.sigma field(1)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">[Stochestic Process] 4.sigma field(1)</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Probability&amp;Statistics</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>hoyeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 7, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#전체적인-흐름정리" id="toc-전체적인-흐름정리" class="nav-link active" data-scroll-target="#전체적인-흐름정리"><span style="color:black"> <strong>전체적인 흐름정리</strong></span></a></li>
+  <li><a href="#background-용어정리" id="toc-background-용어정리" class="nav-link" data-scroll-target="#background-용어정리"><span style="color:black"> <strong>background &amp; 용어정리</strong></span></a></li>
+  <li><a href="#sigma-field에-필요한-조건을-알아보자." id="toc-sigma-field에-필요한-조건을-알아보자." class="nav-link" data-scroll-target="#sigma-field에-필요한-조건을-알아보자."><span style="color:black"> <strong>sigma field에 필요한 조건을 알아보자.</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#예시1-omega-ht-mathcalf-emptysethtomega" id="toc-예시1-omega-ht-mathcalf-emptysethtomega" class="nav-link" data-scroll-target="#예시1-omega-ht-mathcalf-emptysethtomega"><span style="color:black"> <strong>예시1 <span class="math inline">\(\Omega = \{H,T\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\{H\},\{T\},\Omega\}\)</span></strong></span></a></li>
+  <li><a href="#예시2-omega-ht-mathcalf-emptysethomega" id="toc-예시2-omega-ht-mathcalf-emptysethomega" class="nav-link" data-scroll-target="#예시2-omega-ht-mathcalf-emptysethomega"><span style="color:black"> <strong>예시2 <span class="math inline">\(\Omega = \{H,T\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\{H\},\Omega\}\)</span></strong></span></a></li>
+  <li><a href="#예시3-omega-ht-mathcalf-htomega" id="toc-예시3-omega-ht-mathcalf-htomega" class="nav-link" data-scroll-target="#예시3-omega-ht-mathcalf-htomega"><span style="color:black"> <strong>예시3 <span class="math inline">\(\Omega = \{H,T\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\{H\},\{T\},\Omega\}\)</span></strong></span></a></li>
+  <li><a href="#예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega" id="toc-예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega" class="nav-link" data-scroll-target="#예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega"><span style="color:black"> <strong>예시5<br><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span><br><span class="math inline">\(\mathcal{F} = \{\emptyset,\{1\},\{2\},\dots,\{1,2\},\dots,\{1,2,3,4,5,6\},\Omega\}\)</span></strong></span></a></li>
+  <li><a href="#예시6-omega-123456-mathcalf-emptyset612345omega-2omega" id="toc-예시6-omega-123456-mathcalf-emptyset612345omega-2omega" class="nav-link" data-scroll-target="#예시6-omega-123456-mathcalf-emptyset612345omega-2omega"><span style="color:black"> <strong>예시6 <br><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\{6\},\{1,2,3,4,5\},\Omega\} = 2^{\Omega}\)</span></strong></span></a></li>
+  <li><a href="#예시7-omega-123456-mathcalf-emptysetomega" id="toc-예시7-omega-123456-mathcalf-emptysetomega" class="nav-link" data-scroll-target="#예시7-omega-123456-mathcalf-emptysetomega"><span style="color:black"> <strong>예시7 <br><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\Omega\}\)</span></strong></span></a></li>
+  <li><a href="#예시8-omega-1234mathcalfemptyset-1-2-234-134-omega" id="toc-예시8-omega-1234mathcalfemptyset-1-2-234-134-omega" class="nav-link" data-scroll-target="#예시8-omega-1234mathcalfemptyset-1-2-234-134-omega"><span style="color:black"> <strong>예시8 <span class="math inline">\(\Omega = \{1,2,3,4\},\mathcal{F}=\{\emptyset, \{1\}, \{2\}, \{2,3,4\}, \{1,3,4\}, \Omega \}\)</span></strong></span></a>
+  <ul class="collapse">
+  <li><a href="#풀이1" id="toc-풀이1" class="nav-link" data-scroll-target="#풀이1"><span style="color:black"> <strong>풀이1</strong></span></a></li>
+  <li><a href="#풀이2" id="toc-풀이2" class="nav-link" data-scroll-target="#풀이2"><span style="color:black"> <strong>풀이2</strong></span></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#the-smallest-sigma-field" id="toc-the-smallest-sigma-field" class="nav-link" data-scroll-target="#the-smallest-sigma-field"><span style="color:black"> <strong>The smallest sigma field</strong></span></a></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color:black"> <strong>정리</strong></span></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="전체적인-흐름정리" class="level1">
+<h1><span style="color:black"> <strong>전체적인 흐름정리</strong></span></h1>
+<ul>
+<li>지난 포스팅에서 유리수집합과 무리수집합의 길이가 다름을 증명했고 따라서 르벡메져를 통한 두 집합의 길이가 왜 다른지 어느정도의 직관을 얻을 수 있었습니다.</li>
+<li>이로서 <strong>“표본공간의 모든 부분집합에 대해서 <code>모순없이</code> 확률을 정의할 수 있는건가?”</strong> 싶었지만 여전히 모순이 발생하게 하는 집합(비탈리집합)이 존재함이 밝혀졌습니다.</li>
+<li>그렇다면 다른 measure를 도입하거나 아예 모든 부분집합에 대해서 확률을 <code>모순없이</code> 정의하는 것을 포기하는 방법이 있습니다. 여기서 다른 measure를 도입해도 여전히 모순이 발생함이 이미 밝혀져 있습니다.</li>
+<li>따라서 <strong>표본공간의 모든 부분집합이 아니라 가능한 모든 부분집합들 중 <code>일부</code>이자 확률을 <code>모순없이</code> 정의할 수 있는 집합들의 모음인 <code>sigma field</code>를 약속하고 이에 대하여 확률을 정의합니다.</strong></li>
+<li>이번 포스팅에서는 <strong>확률을 <code>모순없이</code> 정의할 수 있는 집합들의 모음인 <code>simga field</code>에는 어떠한 조건이 들어갈지에 대해 대략적으로 파악하고</strong> 또한 <strong><code>sigma field</code>를 정의하기거 얼마나 어려운지</strong>를 정리합니다.</li>
+<li>이어지는 포스팅에서는 <strong><code>sigma field</code>를 보다 엄격하게 + 최대한 간단히 정의</strong>합니다.</li>
+</ul>
+</section>
+<section id="background-용어정리" class="level1">
+<h1><span style="color:black"> <strong>background &amp; 용어정리</strong></span></h1>
+<ul>
+<li>collection(모음) : 집합들을 원소로 가지는 집합</li>
+<li>잴 수 있는 집합 = measurable set</li>
+<li>표본공간 = sample space = <span class="math inline">\(\Omega\)</span></li>
+<li>표본공간의 부분집합 = 사건 = Event</li>
+<li>확률을 <code>모순없이</code> 정의할 수 있는 집합들의 모음(collection) =잴 수 있는 집합들의 모음(collection) = <code>sigma field</code> = sigma algebra = <span class="math inline">\(\mathcal{F}\)</span></li>
+</ul>
+</section>
+<section id="sigma-field에-필요한-조건을-알아보자." class="level1">
+<h1><span style="color:black"> <strong>sigma field에 필요한 조건을 알아보자.</strong></span></h1>
+<ul>
+<li>어떤 measure를 도입해도 <strong>sample space의 모든 subset에 대해서 <code>모순없이</code> 확률을 정의하는 것은 불가능 한 경우가 존재</strong>합니다.</li>
+<li>따라서 <strong>sample space의 모든 subset에 대해서 확률을 정의하지 않으며</strong> 확률을 <strong>가능한 모든 부분집합들 중 <code>일부</code>이자 확률을 <code>모순없이</code> 정의할 수 있는 subset들의 모음</strong>에 대해서만 즉,<code>sigma field</code>에 대해서만 확률의 정의합니다.</li>
+<li>여기서는 예시를 통하여 <code>모순없이</code> 확률을 정의하기 위하여 부분집합들의 묶음이 가져아할 합리적인 조건들 즉, <code>sigma field</code>가 갖춰야할 <code>합리적인 조건</code>을 간단히 생각해봅니다.(엄밀하게는 다음 포스팅에서)</li>
+</ul>
+<section id="예시1-omega-ht-mathcalf-emptysethtomega" class="level2">
+<h2 class="anchored" data-anchor-id="예시1-omega-ht-mathcalf-emptysethtomega"><span style="color:black"> <strong>예시1 <span class="math inline">\(\Omega = \{H,T\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\{H\},\{T\},\Omega\}\)</span></strong></span></h2>
+<ul>
+<li>collection <span class="math inline">\(\mathcal{F}\)</span> 즉, 확률을 <code>모순없이</code> 정의할 수 있는 집합들의 모음인 <code>sigma field</code>를 위와 같이 정하는 것은 합리적일까요?</li>
+<li>여기서 <code>모순이 없다</code>는 <strong>확률에 대해 알고있던 사실들과 공리를 벗어나지 않음</strong>을 의미합니다.(간단히)</li>
+<li>하나의 예시를 들어보자면 확률을 <span class="math inline">\(P(\emptyset) = 0,P(\{H\}) = \frac{1}{3},P(\{T\}) = \frac{2}{3},P(\Omega) = 1\)</span>처럼 정의할 수 있습니다.</li>
+<li>이렇게 확률을 정의한다면 어떠한 모순도 보이지 않습니다.</li>
+</ul>
+</section>
+<section id="예시2-omega-ht-mathcalf-emptysethomega" class="level2">
+<h2 class="anchored" data-anchor-id="예시2-omega-ht-mathcalf-emptysethomega"><span style="color:black"> <strong>예시2 <span class="math inline">\(\Omega = \{H,T\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\{H\},\Omega\}\)</span></strong></span></h2>
+<ul>
+<li><code>sigma field</code>를 위와 같이 정하는 것은 합리적일까요?</li>
+<li>먼저 <code>sigma field</code>를 다시 생각해봅시다.</li>
+<li><code>sigma field</code>는 <strong><code>모순없이</code> 확률을 정의할 수 있는 집합들의 묶음</strong>이였습니다.</li>
+<li>여기서 정의와 어긋남이 발생합니다.(합리적이지 못해요)동전던지기를 예시로 들어봅사디
+<ul>
+<li>앞면(H)가 나올 확률 = <span class="math inline">\(P(\{H\}) = \frac{1}{2}\)</span>라고 합시다.</li>
+<li>그렇다면 동전의 뒷면이 나올 확률은 자연스럽게 <span class="math inline">\(P(\{H\}^c) = P(\{T\}) = 1- \frac{1}{2} = \frac{1}{2}\)</span>임을 알 수 있습니다.</li>
+<li>즉 <strong>어떤 원소의 여사건을 포함시켜도 <code>모순없이</code> 확률이 정의</strong>가 되지만 위에서 <strong><span class="math inline">\(\mathcal{F}\)</span>는 여사건을 포함시키지 않고 있습니다.</strong></li>
+<li>말로 설명하자면 <span class="math inline">\(\mathcal{F}\)</span>는 “동전의 앞면이 나올 확률만 알 수 있어.”입니다. 이는 합리적이지 못하며 “동전의 앞면이 나올 확률을 알면 뒷면이 나올 확률도 알 수 있어”가 합리적인 주장입니다.</li>
+</ul></li>
+<li>위의 예시로부터 <code>sigma field</code>를 합리적으로 정의하기 위한 조건 중 하나는 <strong>“표본공간에 속하는 모든 사건에 대해서 그 사건이 <code>sigma field</code>에 포함되면 <code>여사건도 포함</code>되어야 한다.”</strong>를 도출해낼 수 있습니다.</li>
+<li>즉, 다음의 명제는 참입니다.</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+조건1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(\forall A \subset \Omega : A \in \mathcal{F} \Rightarrow A^c \in \mathcal{F}\)</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="예시3-omega-ht-mathcalf-htomega" class="level2">
+<h2 class="anchored" data-anchor-id="예시3-omega-ht-mathcalf-htomega"><span style="color:black"> <strong>예시3 <span class="math inline">\(\Omega = \{H,T\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\{H\},\{T\},\Omega\}\)</span></strong></span></h2>
+<ul>
+<li><code>sigma field</code>를 위와 같이 정하는 것은 합리적일 까요?</li>
+<li>조건1에 의하면 <code>sigma field</code>에 속한 임의의 원소에 대한 여사건도 반드시 <code>sigma field</code>에 포함되어야 있어야 합니다.</li>
+<li>그러나 <span class="math inline">\(\Omega^c = \emptyset \not\in \mathcal{F}\)</span>이므로 위와 같은 <code>sigma field</code>는 합리적이지 못합니다.</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+조건2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(\Omega,\emptyset \in \mathcal{F}\)</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega" class="level2">
+<h2 class="anchored" data-anchor-id="예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega"><span style="color:black"> <strong>예시5<br><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span><br><span class="math inline">\(\mathcal{F} = \{\emptyset,\{1\},\{2\},\dots,\{1,2\},\dots,\{1,2,3,4,5,6\},\Omega\}\)</span></strong></span></h2>
+<ul>
+<li>예시5는 <code>sigma field</code>가 sample space에서 모든 부분집합들의 모음인 멱집합(powerset,<span class="math inline">\(2^\Omega\)</span>로 표기)입니다.</li>
+<li>위와 같은 <code>sigma field</code>는 합리적인데 위의 예시를 주사위를 던지는 실험이라고 생각하면 모든 경우에 대해 확률을 <code>모순없이</code> 정의할 수 있기 때문입니다.</li>
+<li>주목할 점은 이 경우에는 powerset 즉, 표본공간에서 가능한 모든 부분집합들의 모음을 <code>sigma field</code>로 정했지만 이는 항상 합리적이진 않으며 sample space마다 다르다는 점입니다.</li>
+<li>주목할 점은 이 경우에는 powerset 즉, 표본공간에서 가능한 모든 부분집합들의 모음을 <code>sigma field</code>로 정해도 합리적이라는 사실입니다.</li>
+<li>우리는 sample space의 모든 부분집합들의 모임(powerset)에 대해서 확률을 <code>모순없이</code> 정의하는 것이 불가능 한 경우가 있기에 합리적인 <code>sigma field</code>의 조건을 찾는 중이었습니다.</li>
+<li>위의 예시는 <strong>sample space의 모든 subset에 대해서 확률을 정의하는게 가능한 경우도 있다</strong>는 것을 보여줍니다.(항상 일부가 아닙니다.)</li>
+</ul>
+</section>
+<section id="예시6-omega-123456-mathcalf-emptyset612345omega-2omega" class="level2">
+<h2 class="anchored" data-anchor-id="예시6-omega-123456-mathcalf-emptyset612345omega-2omega"><span style="color:black"> <strong>예시6 <br><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\{6\},\{1,2,3,4,5\},\Omega\} = 2^{\Omega}\)</span></strong></span></h2>
+<ul>
+<li>예시6은 sample space가 예시5와 거의 동일하지만 <code>sigma field</code> <span class="math inline">\(\mathcal{F}\)</span>만 다른 경우입니다.</li>
+<li>위와 같은 sigama field도 합리적입니다.</li>
+<li>다만 예시5에서는 표본공간의 모든 부분집합에 대해서 관심이 있었다면 이 경우는 <strong>6이거나 6이아닌 경우의 확률만 관심이 있기 때문에 <code>sigma field</code>를 더 작게 정의</strong>했다고 할 수 있습니다.</li>
+<li>이렇게 <code>sigma field</code>를 정의하는 또다른 예시들은 아래와 같은 것들이 있습니다.
+<ul>
+<li>롤에서 미드 vs 다른라인 고르는 경우(탑or원딜…)에 대한 확률 (저는 이게 제일 와닿네요 ㅎㅎ)</li>
+<li>카페에서 아메리카노를 고르거나 고르지 않는 경우(카페라떼,카푸치노 등등등..)에 대한 확률</li>
+</ul></li>
+<li>위와 같은 예시로부터 하나의 sample space에 대해서 <strong><code>sigma field</code>는 유일하지 않으며 다양하게 존재함</strong>을 알 수 있습니다.</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+알 수 있는 성질
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>하나의 표본공간에 대하여 시그마 필드는 유일하지 않다.</li>
+<li>관심있는 사건이 다른 경우 시그마 필드를 다르게 정의할 수 있다.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="예시7-omega-123456-mathcalf-emptysetomega" class="level2">
+<h2 class="anchored" data-anchor-id="예시7-omega-123456-mathcalf-emptysetomega"><span style="color:black"> <strong>예시7 <br><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\Omega\}\)</span></strong></span></h2>
+<ul>
+<li>위와 같은 <code>sigma field</code>도 합리적이긴 합니다.</li>
+<li>하지만 <span class="math inline">\(P(\Omega) = 1,P(\emptyset) = 0\)</span>인 것은 자명합니다.(쓸모가 없습니다.)</li>
+<li>이러한 <code>sigma field</code>를 <code>trivial sigma field</code>라고 합니다.</li>
+</ul>
+</section>
+<section id="예시8-omega-1234mathcalfemptyset-1-2-234-134-omega" class="level2">
+<h2 class="anchored" data-anchor-id="예시8-omega-1234mathcalfemptyset-1-2-234-134-omega"><span style="color:black"> <strong>예시8 <span class="math inline">\(\Omega = \{1,2,3,4\},\mathcal{F}=\{\emptyset, \{1\}, \{2\}, \{2,3,4\}, \{1,3,4\}, \Omega \}\)</span></strong></span></h2>
+<section id="풀이1" class="level3">
+<h3 class="anchored" data-anchor-id="풀이1"><span style="color:black"> <strong>풀이1</strong></span></h3>
+<ul>
+<li>위와 같은 <code>sigma field</code>는 합리적이지 못합니다.</li>
+<li>예시를 들어봅시다.
+<ul>
+<li>주사위를 던져서 1이 나올 확률과 2가 나올 확률을 알고있습니다.</li>
+<li>그렇다면 3또는4가 나오는 사건 <span class="math inline">\(\{1,2\}\)</span>에 대한 확률은 각각의 확률을 더함으로서 자명하게 구할 수 있으며 이를 <code>sigma field</code>에 포함시켜도 확률에 모순이 없습니다.</li>
+<li>즉, <strong>표본공간에 속하는 교집합이 없는 임의의 두 사건이 <code>sigma field</code>에 속할 때 임의의 두 사건에 대한 합집합이 <code>sigma field</code>포함되어도 모순이 없지만</strong> 위에서 <strong><span class="math inline">\(\mathcal{F}\)</span>는 합집합을 포함하지 않습니다.</strong></li>
+<li>말로 설명하자면 위의 <span class="math inline">\(\mathcal{F}\)</span>는 “3이 나올 확률은 알고 4가 나올 확률은 아는데 3또는4가 나올 확률은 몰라”라고 말하고 있습니다.</li>
+<li>이는 합리적이지 못하며 “3이 나올 확률은 알고 4가 나올 확률은 아니까 3또는4가 나올 확률도 알아”가 합리적입니다.</li>
+</ul></li>
+<li>위의 예시로부터 <code>sigma field</code>를 합리적으로 정의하기 위한 조건 중 하나는 <strong>“표본공간에 속하는 임의의 두 사건이 교집합이 존재하지 않을 때 두 사건이 모두 <code>sigma field</code>에 속한다면 두 사건의 합집합도 포함되어야 한다.”</strong>를 도출해낼 수 있습니다.</li>
+<li>즉, 다음의 명제는 참입니다.</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+조건3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\forall A,B \subset \Omega \text{ such that } A \cap B = \emptyset : A,B \in \mathcal{F} \Rightarrow A \cup B \in \mathcal{F}\]</span></p>
+</div>
+</div>
+<ul>
+<li>이와 같은 논리로 disjoint한 두 사건의 합집합을 <code>sigma field</code>에 포함시키고 또한 여집합도 고려했을때 수정된 시그마필드는 다음과 같습니다</li>
+</ul>
+<p><span class="math display">\[\Omega = \{1,2,3,4\},\mathcal{F}=\{\emptyset, \{1\}, \{2\}, \{2,3,4\}, \{1,3,4\}, \Omega,\{1,2\},\{3,4\}\}\]</span></p>
+</section>
+<section id="풀이2" class="level3">
+<h3 class="anchored" data-anchor-id="풀이2"><span style="color:black"> <strong>풀이2</strong></span></h3>
+<ul>
+<li>예시를 들어봅시다.
+<ul>
+<li>주사위를 던져서 1이거나 3이거나 4가 나올 확률과 1이 나올 확률을 알고 있습니다.</li>
+<li>그렇다면 <span class="math inline">\(\{3,4\}\)</span>이 나올 확률은 <span class="math inline">\(P(\{1,3,4\}) - P(\{1\})\)</span>로 자명하게 구할 수 있습니다.</li>
+<li>즉, <strong>표본공간에 속하며 포함관계에 있는 임의의 두 사건이 sigma field에 속할 때 두 사건에 대한 차집합도 <code>sigma field</code>에 포함시켜도 확률을 정의할 때 모순이 없지만 위에서 <span class="math inline">\(\mathcal{F}\)</span>는 차집합을 포함하지 않습니다.</strong></li>
+<li>말로 설명하자면 위의 <span class="math inline">\(\mathcal{F}\)</span>는 “1아니면 3아니면 4가 나올 확률은 알고 1이 나올 확률은 아는데 3또는4가 나올 확률은 모른다”라고 말하고 있는 것입니다.</li>
+<li>이는 합리적이지 못하며 “1아니면 3아니면 4가 나올 확률을 알고 1이 나올 확률도 알기 때문에 3또는4가 나올 확률도 알아”가 합리적입니다.</li>
+</ul></li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+조건4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\forall A,B \subset \Omega \text{ such that } A \subset B: A,B \in \mathcal{F} \Rightarrow B - A \in \mathcal{F}\]</span></p>
+</div>
+</div>
+<ul>
+<li>이와 같은 논리로 포함관계에 있는 두 사건의 차집합을 <code>sigma field</code>에 포함시키고 또한 여집합도 고려했을때 수정된 시그마필드는 다음과 같습니다.</li>
+</ul>
+<p><span class="math display">\[\Omega = \{1,2,3,4\},\mathcal{F}=\{\emptyset, \{1\}, \{2\}, \{2,3,4\}, \{1,3,4\}, \Omega,\{3,4\},\{1,2\}\}\]</span></p>
+</section>
+</section>
+</section>
+<section id="the-smallest-sigma-field" class="level1">
+<h1><span style="color:black"> <strong>The smallest sigma field</strong></span></h1>
+<ul>
+<li>지금까지 여러가지 sample space와 그것에 대한 <code>sigma field</code>에 필요한 조건들을 대략적으로 구해봤습니다.</li>
+<li>그런데 이외에도 추가적인 조건들이 존재할 뿐만 아니라 sample space가 더 방대할 수 있습니다.</li>
+<li>따라서 확률에 관심이 있는 집합들은 적을지라도 확률을 정의하기도 전에 <code>sigma field</code>를 정의하는게 매우 까다롭고 힘들 수 있습니다.</li>
+<li>따라서 관심있는 집합들을 포함하는 모음을 collection <span class="math inline">\(\mathcal{A}\)</span>라 했을 때, 관심있는 집합들을 포함하는 가장 작은 <code>sigma field</code>를 the smallest sigma field contatining <span class="math inline">\(\mathcal{A}\)</span>라 합니다.</li>
+<li>기호로는 <span class="math inline">\(\sigma(\mathcal{A})\)</span>라 합니다.</li>
+</ul>
+</section>
+<section id="정리" class="level1">
+<h1><span style="color:black"> <strong>정리</strong></span></h1>
+<ul>
+<li>표본공간의 모든 subset에 대해서 집합을 <code>모순없이</code> 정의하는 것은 불가능합니다.</li>
+<li>따라서 확률을 <code>모순없이</code> 정의할 수 있는 일부의 집합들만 고려해서 <code>sigma field</code>라 하고 여기서만 확률을 정의해보자.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
