@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "HIHO",
     "section": "",
-    "text": "[Probability & Statistics] Bias Variance Tradeoff\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nBellman Equation\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n \n\n\n\n[Stochestic Process] 4.sigma field\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] 3.무한집합간의 크기 비교\n\n\n\n\n\n\n\n\n\n \n\n\n\n[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 문자열 나누기\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] 2.Cardinality\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] k번째수\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Paper Study] Neural Machine Translation by jointly learning to align and translate\n\n\nfield : NLPunderstanding : 😃😃😃\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Simple Bandit Algorithm Implementation\n\n\nReinforcement Learning: An Introduction 2.4절 중 Simple Bandit Algorithm psuedo code 구현\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Paper-study] Batch Normalization\n\n\nfield : coreunderstanding : 😃😃😃\n\n\n\n\n\n\n\n\n\n\n\n\n\n[pandas] map,apply,applymap 비교\n\n\n\n\n\n\n\n\n\n\n\n\n\nSequence to Sequence Learning with Neural Networks\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuto-Encoding Variational Bayes(작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\nGenarative Adversarial Nets\n\n\n\n\n\n\n\n\n\n \n\n\n\nEigendecomposition & Property\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuadratic Form(작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n\n\n\n\n\n\n\n\n\n\nDQN\n\n\n\n\n\n\n\n\n\n \n\n\n\neigenvalue & eigenvector\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-1 Markov Decision process and property\n\n\nMDP와 중요한 property 정리\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 1 - 강화학습 용어정리\n\n\n강화학습 공부하면서 용어정리\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-2 Reward & Return & State Value f & Action Value f\n\n\n\n\n\n\n\n\n\n\n\n\n\n[PRML 읽기] 1 - 확률론 개요\n\n\nSum rule, Product rule, Baye’s rule,random variable independence\n\n\n\n\n\n\n\n\n\n \n\n\n\n[PRML 읽기] 2 - 확률론 개요(작성중 …)\n\n\nprobability density, expectation and covariance, Bayesian probabilities,Gausian distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimension Reduction using Auto Encoder with pytorch\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 시저암호\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 이상한 문자 만들기\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 크기가 작은 부분 문자열\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeast Squares\n\n\n열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률론 용어정리\n\n\nrandom variable,event,sample space,probability distribution,randomsample,realization\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinite Difference Method with np.gradient\n\n\n\n\n\n\n\n\n\n\n\n\n\nplotly 시각화 모음\n\n\n\n\n\n\n\n\n\n\n\n\n\nAx=b의 해의 갯수 알아내기\n\n\n\n\n\n\n\n\n\n\n\n\n\nrank & null space(kernel)\n\n\n\n\n\n\n\n\n\n \n\n\n\nLinear Combination & Span\n\n\n\n\n\n\n\n\n\n \n\n\n\n행렬곱에 대한 여러가지 관점\n\n\n\n\n\n\n\n\n\n \n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n\n\n\n\n\n\n \n\n\n\n카테고리 분포\n\n\n\n\n\n\n\n\n\n\n\n\n\nMLE & MAP (작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n\n\n\n\n\n\n\n \n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n\n\n\n\nNo matching items"
+    "text": "[Probability & Statistics] Bias Variance Tradeoff\n\n\n\n\n\n\n\n\n\n \n\n\n\nUntitled\n\n\n\n\n\n\n\n\n\n \n\n\n\nBellman Equation\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] 5.sigma field(2)\n\n\n\n\n\n\n\n\n\n \n\n\n\n[Stochestic Process] 4.sigma field(1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] 3.무한집합간의 크기 비교\n\n\n\n\n\n\n\n\n\n \n\n\n\n[Stochestic Process] 부록 - 자꾸 걸리는 집합개념 정리\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 문자열 나누기\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Stochestic Process] 2.Cardinality\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] k번째수\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Paper Study] Neural Machine Translation by jointly learning to align and translate\n\n\nfield : NLPunderstanding : 😃😃😃\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Simple Bandit Algorithm Implementation\n\n\nReinforcement Learning: An Introduction 2.4절 중 Simple Bandit Algorithm psuedo code 구현\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Paper-study] Batch Normalization\n\n\nfield : coreunderstanding : 😃😃😃\n\n\n\n\n\n\n\n\n\n\n\n\n\n[pandas] map,apply,applymap 비교\n\n\n\n\n\n\n\n\n\n\n\n\n\nSequence to Sequence Learning with Neural Networks\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuto-Encoding Variational Bayes(작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\nGenarative Adversarial Nets\n\n\n\n\n\n\n\n\n\n \n\n\n\nEigendecomposition & Property\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuadratic Form(작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n\n\n\n\n\n\n\n\n\n\nDQN\n\n\n\n\n\n\n\n\n\n \n\n\n\neigenvalue & eigenvector\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-1 Markov Decision process and property\n\n\nMDP와 중요한 property 정리\n\n\n\n\n\n\n\n\n\n \n\n\n\n[강화학습] 1 - 강화학습 용어정리\n\n\n강화학습 공부하면서 용어정리\n\n\n\n\n\n\n\n\n\n\n\n\n\n[강화학습] 2-2 Reward & Return & State Value f & Action Value f\n\n\n\n\n\n\n\n\n\n\n\n\n\n[PRML 읽기] 1 - 확률론 개요\n\n\nSum rule, Product rule, Baye’s rule,random variable independence\n\n\n\n\n\n\n\n\n\n \n\n\n\n[PRML 읽기] 2 - 확률론 개요(작성중 …)\n\n\nprobability density, expectation and covariance, Bayesian probabilities,Gausian distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimension Reduction using Auto Encoder with pytorch\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 시저암호\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 이상한 문자 만들기\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Coading Test] 크기가 작은 부분 문자열\n\n\nlevel : 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeast Squares\n\n\n열공간(column space)과 정사영(projection)으로 접근한 최소제곱법(least squares)\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률론 용어정리\n\n\nrandom variable,event,sample space,probability distribution,randomsample,realization\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinite Difference Method with np.gradient\n\n\n\n\n\n\n\n\n\n\n\n\n\nplotly 시각화 모음\n\n\n\n\n\n\n\n\n\n\n\n\n\nAx=b의 해의 갯수 알아내기\n\n\n\n\n\n\n\n\n\n\n\n\n\nrank & null space(kernel)\n\n\n\n\n\n\n\n\n\n \n\n\n\nLinear Combination & Span\n\n\n\n\n\n\n\n\n\n \n\n\n\n행렬곱에 대한 여러가지 관점\n\n\n\n\n\n\n\n\n\n \n\n\n\nMultinomial Logistic Regression & Softmax Regression\n\n\n\n\n\n\n\n\n\n \n\n\n\n카테고리 분포\n\n\n\n\n\n\n\n\n\n\n\n\n\nMLE & MAP (작성중)\n\n\n\n\n\n\n\n\n\n \n\n\n\n확률분포에서 ;와|의 사용\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n파이썬 - 변수,할당문,인터닝\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n\n\n\n\n\n\n\n \n\n\n\npytorch로 Rnn구현하기\n\n\n\n\n\n\n\n\n\n \n\n\n\nDiagonalization of symmetric matrix(정리중)\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/coading test/programmersk번째수.html",
@@ -1199,9 +1199,9 @@
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html",
     "href": "posts/stochastic process/SP-sigmafield/sigma field.html",
-    "title": "[Stochestic Process] 4.sigma field",
+    "title": "[Stochestic Process] 4.sigma field(1)",
     "section": "",
-    "text": "지난 포스팅에서 유리수집합과 무리수집합의 길이가 다름을 증명했고 따라서 르벡메져를 통한 두 집합의 길이가 왜 다른지 어느정도의 직관을 얻을 수 있었습니다.\n이로서 “표본공간의 모든 부분집합에 대해서 모순없이 확률을 정의할 수 있는건가?” 싶었지만 여전히 모순이 발생하게 하는 집합(비탈리집합)이 존재함이 밝혀졌습니다.\n그렇다면 다른 measure를 도입하거나 아예 모든 부분집합에 대해서 확률을 모순없이 정의하는 것을 포기하는 방법이 있습니다. 여기서 다른 measure를 도입해도 여전히 모순이 발생함이 이미 밝혀져 있습니다.\n따라서 표본공간의 모든 부분집합이 아니라 확률을 모순없이 정의할 수 있는 잴 수 있는 집합들의 모음인 sigma field를 약속하고 이에 대하여 확률을 정의합니다.\n이번 포스팅에서는 확률을 모순없이 정의할 수 있는 집합들의 모음인 simga field에는 어떠한 조건이 들어갈지에 대해 대략적으로 파악하고 또한 sigma field를 정의하기거 얼마나 어려운지를 정리합니다.\n이어지는 포스팅에서는 sigma field를 보다 엄격하게 + 최대한 간단히 정의하며 이를 통해 확률과 확률변수를 엄격하게 정의합니다."
+    "text": "지난 포스팅에서 유리수집합과 무리수집합의 길이가 다름을 증명했고 따라서 르벡메져를 통한 두 집합의 길이가 왜 다른지 어느정도의 직관을 얻을 수 있었습니다.\n이로서 “표본공간의 모든 부분집합에 대해서 모순없이 확률을 정의할 수 있는건가?” 싶었지만 여전히 모순이 발생하게 하는 집합(비탈리집합)이 존재함이 밝혀졌습니다.\n그렇다면 다른 measure를 도입하거나 아예 모든 부분집합에 대해서 확률을 모순없이 정의하는 것을 포기하는 방법이 있습니다. 여기서 다른 measure를 도입해도 여전히 모순이 발생함이 이미 밝혀져 있습니다.\n따라서 표본공간의 모든 부분집합이 아니라 가능한 모든 부분집합들 중 일부이자 확률을 모순없이 정의할 수 있는 집합들의 모음인 sigma field를 약속하고 이에 대하여 확률을 정의합니다.\n이번 포스팅에서는 확률을 모순없이 정의할 수 있는 집합들의 모음인 simga field에는 어떠한 조건이 들어갈지에 대해 대략적으로 파악하고 또한 sigma field를 정의하기거 얼마나 어려운지를 정리합니다.\n이어지는 포스팅에서는 sigma field를 보다 엄격하게 + 최대한 간단히 정의합니다."
   },
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#sigma-field를-정의해보자-1",
@@ -1297,7 +1297,7 @@
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시1-omega-ht-mathcalf-emptysethtomega",
     "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시1-omega-ht-mathcalf-emptysethtomega",
-    "title": "[Stochestic Process] 4.sigma field",
+    "title": "[Stochestic Process] 4.sigma field(1)",
     "section": " 예시1 \\(\\Omega = \\{H,T\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{H\\},\\{T\\},\\Omega\\}\\)",
     "text": "예시1 \\(\\Omega = \\{H,T\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{H\\},\\{T\\},\\Omega\\}\\)\n\ncollection \\(\\mathcal{F}\\) 즉, 확률을 모순없이 정의할 수 있는 집합들의 모음인 sigma field를 위와 같이 정하는 것은 합리적일까요?\n여기서 모순이 없다는 확률에 대해 알고있던 사실들과 공리를 벗어나지 않음을 의미합니다.(간단히)\n하나의 예시를 들어보자면 확률을 \\(P(\\emptyset) = 0,P(\\{H\\}) = \\frac{1}{3},P(\\{T\\}) = \\frac{2}{3},P(\\Omega) = 1\\)처럼 정의할 수 있습니다.\n이렇게 확률을 정의한다면 어떠한 모순도 보이지 않습니다."
   },
@@ -1318,9 +1318,9 @@
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시2-omega-ht-mathcalf-emptysethomega",
     "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시2-omega-ht-mathcalf-emptysethomega",
-    "title": "[Stochestic Process] 4.sigma field",
+    "title": "[Stochestic Process] 4.sigma field(1)",
     "section": " 예시2 \\(\\Omega = \\{H,T\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{H\\},\\Omega\\}\\)",
-    "text": "예시2 \\(\\Omega = \\{H,T\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{H\\},\\Omega\\}\\)\n\nsigma field를 위와 같이 정하는 것은 합리적일 까요?\n\\(\\mathcal{F}\\)의 원소에 \\(\\{H\\}\\)는 포함되어 있지만 \\(\\{T\\}\\)는 포함되어 있지 않습니다.\n이것은 부분집합 \\(\\emptyset,\\{H\\},\\Omega\\)에 대한 확률을 모순없이 정의할 수 있지만 \\(\\{T\\}\\)는 아니라는 것을 의미합니다.\n그러나 이는 모순적입니다. 동전던지기를 예시로 들어봅사디\n\n앞면(H)가 나올 확률 = \\(P(\\{H\\}) = \\frac{1}{2}\\)라고 합시다.\n그렇다면 동전의 뒷면이 나올 확률은 자연스럽게 \\(P(\\{H\\}^c) = P(\\{T\\}) =\\frac{1}{2}\\)임을 알 수 있습니다.\n즉 어떤 원소의 여사건을 포함시켜도 모순없이 확률이 정의가 됩니다. 하지만 collection \\(\\mathcal{F}\\)는 여사건을 포함시키지 않고 있습니다.\n\n위의 예시로부터 모순없이 확률을 정의할 수 있는 집합인 sigma field의 조건에는 “어떤 사건이 sigma field에 포함되면 그것의 여사건도 포함되어야 한다.”있음을 알 수 있습니다.\n즉, 다음의 명제는 참인 명제입니다.\n\n\n\n\n\n\n\n조건1\n\n\n\n\n\\(\\forall A \\subset \\Omega : A \\in \\mathcal{F} \\Rightarrow A^c \\in \\mathcal{F}\\)"
+    "text": "예시2 \\(\\Omega = \\{H,T\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{H\\},\\Omega\\}\\)\n\nsigma field를 위와 같이 정하는 것은 합리적일까요?\n먼저 sigma field를 다시 생각해봅시다.\nsigma field는 모순없이 확률을 정의할 수 있는 집합들의 묶음이였습니다.\n여기서 정의와 어긋남이 발생합니다.(합리적이지 못해요)동전던지기를 예시로 들어봅사디\n\n앞면(H)가 나올 확률 = \\(P(\\{H\\}) = \\frac{1}{2}\\)라고 합시다.\n그렇다면 동전의 뒷면이 나올 확률은 자연스럽게 \\(P(\\{H\\}^c) = P(\\{T\\}) = 1- \\frac{1}{2} = \\frac{1}{2}\\)임을 알 수 있습니다.\n즉 어떤 원소의 여사건을 포함시켜도 모순없이 확률이 정의가 되지만 위에서 \\(\\mathcal{F}\\)는 여사건을 포함시키지 않고 있습니다.\n말로 설명하자면 \\(\\mathcal{F}\\)는 “동전의 앞면이 나올 확률만 알 수 있어.”입니다. 이는 합리적이지 못하며 “동전의 앞면이 나올 확률을 알면 뒷면이 나올 확률도 알 수 있어”가 합리적인 주장입니다.\n\n위의 예시로부터 sigma field를 합리적으로 정의하기 위한 조건 중 하나는 “표본공간에 속하는 모든 사건에 대해서 그 사건이 sigma field에 포함되면 여사건도 포함되어야 한다.”를 도출해낼 수 있습니다.\n즉, 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건1\n\n\n\n\n\\(\\forall A \\subset \\Omega : A \\in \\mathcal{F} \\Rightarrow A^c \\in \\mathcal{F}\\)"
   },
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시2-omega-ht-mathcalf-emptysethomega-1",
@@ -1353,7 +1353,7 @@
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시3-omega-ht-mathcalf-htomega",
     "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시3-omega-ht-mathcalf-htomega",
-    "title": "[Stochestic Process] 4.sigma field",
+    "title": "[Stochestic Process] 4.sigma field(1)",
     "section": " 예시3 \\(\\Omega = \\{H,T\\}\\), \\(\\mathcal{F} = \\{\\{H\\},\\{T\\},\\Omega\\}\\)",
     "text": "예시3 \\(\\Omega = \\{H,T\\}\\), \\(\\mathcal{F} = \\{\\{H\\},\\{T\\},\\Omega\\}\\)\n\nsigma field를 위와 같이 정하는 것은 합리적일 까요?\n조건1에 의하면 sigma field에 속한 임의의 원소에 대한 여사건도 반드시 sigma field에 포함되어야 있어야 합니다.\n그러나 \\(\\Omega^c = \\emptyset \\not\\in \\mathcal{F}\\)이므로 위와 같은 sigma field는 합리적이지 못합니다.\n\n\n\n\n\n\n\n조건2\n\n\n\n\n\\(\\Omega,\\emptyset \\in \\mathcal{F}\\)"
   },
@@ -1458,16 +1458,16 @@
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega",
     "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega",
-    "title": "[Stochestic Process] 4.sigma field",
-    "section": " 예시5 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{1\\},\\{2\\},\\dots,\\{1,2\\},\\dots,\\{1,2,3,4,5,6\\}\\Omega\\}\\)",
-    "text": "예시5 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{1\\},\\{2\\},\\dots,\\{1,2\\},\\dots,\\{1,2,3,4,5,6\\}\\Omega\\}\\)\n\n위의 예시들에서는"
+    "title": "[Stochestic Process] 4.sigma field(1)",
+    "section": " 예시5\\(\\Omega = \\{1,2,3,4,5,6\\}\\)\\(\\mathcal{F} = \\{\\emptyset,\\{1\\},\\{2\\},\\dots,\\{1,2\\},\\dots,\\{1,2,3,4,5,6\\},\\Omega\\}\\)",
+    "text": "예시5\\(\\Omega = \\{1,2,3,4,5,6\\}\\)\\(\\mathcal{F} = \\{\\emptyset,\\{1\\},\\{2\\},\\dots,\\{1,2\\},\\dots,\\{1,2,3,4,5,6\\},\\Omega\\}\\)\n\n예시5는 sigma field가 sample space에서 모든 부분집합들의 모음인 멱집합(powerset,\\(2^\\Omega\\)로 표기)입니다.\n위와 같은 sigma field는 합리적인데 위의 예시를 주사위를 던지는 실험이라고 생각하면 모든 경우에 대해 확률을 모순없이 정의할 수 있기 때문입니다.\n주목할 점은 이 경우에는 powerset 즉, 표본공간에서 가능한 모든 부분집합들의 모음을 sigma field로 정했지만 이는 항상 합리적이진 않으며 sample space마다 다르다는 점입니다.\n주목할 점은 이 경우에는 powerset 즉, 표본공간에서 가능한 모든 부분집합들의 모음을 sigma field로 정해도 합리적이라는 사실입니다.\n우리는 sample space의 모든 부분집합들의 모임(powerset)에 대해서 확률을 모순없이 정의하는 것이 불가능 한 경우가 있기에 합리적인 sigma field의 조건을 찾는 중이었습니다.\n위의 예시는 sample space의 모든 subset에 대해서 확률을 정의하는게 가능한 경우도 있다는 것을 보여줍니다.(항상 일부가 아닙니다.)"
   },
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega-2omega",
     "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega-2omega",
     "title": "[Stochestic Process] 4.sigma field",
-    "section": " 예시5 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{1\\},\\{2\\},\\dots,\\{1,2\\},\\dots,\\{1,2,3,4,5,6\\},\\Omega\\} = 2^{\\Omega}\\)",
-    "text": "예시5 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{1\\},\\{2\\},\\dots,\\{1,2\\},\\dots,\\{1,2,3,4,5,6\\},\\Omega\\} = 2^{\\Omega}\\)\n\n예시5는sigma field가 sample space에서 모든 부분집합들의 모음인 멱집합(powerset,\\(2^\\Omega\\))입니다.\n위와 같은 sigma field는 합리적인데 위의 예시를 주사위를 던지는 실험이라고 생각하면 모든 경우에 대해 확률을 모순없이 정의할 수 있기 때문입니다.\n주목할 점은 여기서는 powerset을 sigma field로 정했지만 이는 항상 합리적이진 않으며 sample space마다 다르다는 점입니다.\n우리는 sample space의 모든 부분집합들의 모임(powerset)에 대해서 확률을 모순없이 정의하는 것이 불가능하기에 합리적인 sigma field의 조건을 찾는 중이었습니다."
+    "section": " 예시5\\(\\Omega = \\{1,2,3,4,5,6\\}\\)\\(\\mathcal{F} = \\{\\emptyset,\\{1\\},\\{2\\},\\dots,\\{1,2\\},\\dots,\\{1,2,3,4,5,6\\},\\Omega\\} = 2^{\\Omega}\\)",
+    "text": "예시5\\(\\Omega = \\{1,2,3,4,5,6\\}\\)\\(\\mathcal{F} = \\{\\emptyset,\\{1\\},\\{2\\},\\dots,\\{1,2\\},\\dots,\\{1,2,3,4,5,6\\},\\Omega\\} = 2^{\\Omega}\\)\n\n예시5는sigma field가 sample space에서 모든 부분집합들의 모음인 멱집합(powerset,\\(2^\\Omega\\))입니다.\n위와 같은 sigma field는 합리적인데 위의 예시를 주사위를 던지는 실험이라고 생각하면 모든 경우에 대해 확률을 모순없이 정의할 수 있기 때문입니다.\n주목할 점은 여기서는 powerset을 sigma field로 정했지만 이는 항상 합리적이진 않으며 sample space마다 다르다는 점입니다.\n우리는 sample space의 모든 부분집합들의 모임(powerset)에 대해서 확률을 모순없이 정의하는 것이 불가능하기에 합리적인 sigma field의 조건을 찾는 중이었습니다."
   },
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시5-omega-123456-mathcalf-emptyset12dots12dots123456omega-2omega-1",
@@ -1500,7 +1500,7 @@
   {
     "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시6-omega-123456-mathcalf-emptyset612345omega-2omega",
     "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시6-omega-123456-mathcalf-emptyset612345omega-2omega",
-    "title": "[Stochestic Process] 4.sigma field",
+    "title": "[Stochestic Process] 4.sigma field(1)",
     "section": " 예시6 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\},\\Omega\\} = 2^{\\Omega}\\)",
     "text": "예시6 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\},\\Omega\\} = 2^{\\Omega}\\)\n\n예시6은 sample space가 예시5와 거의 동일하지만 sigma field \\(\\mathcal{F}\\)만 다른 경우입니다.\n위와 같은 sigama field도 합리적입니다.\n다만 예시5에서는 표본공간의 모든 부분집합에 대해서 관심이 있었다면 이 경우는 6이거나 6이아닌 경우의 확률만 관심이 있기 때문에 sigma field를 더 작게 정의했다고 할 수 있습니다.\n이렇게 sigma field를 정의하는 또다른 예시들은 아래와 같은 것들이 있습니다.\n\n롤에서 미드 vs 다른라인 고르는 경우(탑or원딜…)에 대한 확률 (저는 이게 제일 와닿네요 ㅎㅎ)\n카페에서 아메리카노를 고르거나 고르지 않는 경우(카페라떼,카푸치노 등등등..)에 대한 확률\n\n위와 같은 예시로부터 하나의 sample space에 대해서 sigma field는 유일하지 않으며 다양하게 존재함을 알 수 있습니다.\n\n\n\n\n\n\n\n알 수 있는 성질\n\n\n\n\n하나의 표본공간에 대하여 시그마 필드는 유일하지 않다.\n관심있는 사건이 다른 경우 시그마 필드를 다르게 정의할 수 있다."
   },
@@ -1516,6 +1516,321 @@
     "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시6-omega-123456-mathcalf-emptyset612345omega-2omega-1",
     "title": "[Stochestic Process] 4.sigma field",
     "section": " 예시6 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\},\\Omega\\} = 2^{\\Omega}\\)",
-    "text": "예시6 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\},\\Omega\\} = 2^{\\Omega}\\)\n\n예시6은 sample space가 예시5와 거의 동일하지만 sigma field \\(\\mathcal{F}\\)만 다른 경우입니다.\n위와 같은 sigama field도 합리적입니다.\n다만 예시5에서는 표본공간의 모든 부분집합에 대해서 관심이 있었다면 이 경우는 6이거나 6이아닌 경우의 확률만 관심이 있기 때문에 sigma field를 더 작게 정의했다고 할 수 있습니다.\n이렇게 sigma field를 정의하는 또다른 예시들은 아래와 같은 것들이 있습니다.\n\n롤에서 미드 vs 다른라인 고르는 경우(탑or원딜…)(저는 이게 제일 와닿네요 ㅎㅎ)에 대한 확률\n카페에서 아메리카노를 고르거나 고르지 않는 경우(카페라떼,카푸치노 등등등..)에 대한 확률\n\n위와 같은 예시로부터 하나의 sample space에 대해서 sigma field는 유일하지 않으며 다양하게 존재함을 알 수 있습니다."
+    "text": "예시6 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\},\\Omega\\} = 2^{\\Omega}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptyset612345omega-2omega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptyset612345omega-2omega",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\},\\Omega\\} = 2^{\\Omega}\\)",
+    "text": "예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\},\\Omega\\} = 2^{\\Omega}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptyset612345",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptyset612345",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\}\\)",
+    "text": "예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\{6\\},\\{1,2,3,4,5\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\}\\)",
+    "text": "예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptyset",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptyset",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\}\\)",
+    "text": "예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptysetomega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptysetomega",
+    "title": "[Stochestic Process] 4.sigma field(1)",
+    "section": " 예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\Omega\\}\\)",
+    "text": "예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\Omega\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptysetomega-1",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시7-omega-123456-mathcalf-emptysetomega-1",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\Omega\\}\\)",
+    "text": "예시7 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\Omega\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-emptysetomega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-emptysetomega",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\Omega\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\emptyset,\\Omega\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-4",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-4",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-45",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-45",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-4512",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-4512",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\{4},\\{5},\\{1,2\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} = \\{\\{4},\\{5},\\{1,2\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-451",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-451",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-451234",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-451234",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1,2,3,4\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1,2,3,4\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-45145",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123456-mathcalf-45145",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4,5,6\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123-mathcalf-45145",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-123-mathcalf-45145",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-45145",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-45145",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-omega45145",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-omega45145",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\Omega,\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\Omega,\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset45145",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset45145",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{4\\},\\{5\\},\\{1,4,5\\}\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset45145omega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset45145omega",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{4\\},\\{5\\},\\{1,4,5\\},\\Omega\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{4\\},\\{5\\},\\{1,4,5\\},\\Omega\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset45134omega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset45134omega",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{4\\},\\{5\\},\\{1,3,4\\},\\Omega\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{4\\},\\{5\\},\\{1,3,4\\},\\Omega\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset35134omega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset35134omega",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{5\\},\\{1,3,4\\},\\Omega\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{5\\},\\{1,3,4\\},\\Omega\\}\\)\n\n위와 같은 sigma field도 합리적이긴 합니다.\n하지만 \\(P(\\Omega) = 1,P(\\emptyset) = 0\\)인 것은 자명합니다.(쓸모가 없습니다.)\n이러한 sigma field를 trivial sigma field라고 합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset34134omega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset34134omega",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset34134omega-1",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset34134omega-1",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#section",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#section",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": "",
+    "text": "위와 같은 sigma field는 합리적이지 못합니다.\n예시를 들어봅시다.\n\n주사위를 던져서 3이 나올 확률과 4가 나올 확률을 알고있습니다.\n그렇다면 3또는4가 나오는 사건 \\(\\{3,4\\}\\)에 대한 확률은 각각의 확률을 더함으로서 자명하게 구할 수 있으며 이를 sigma field에 포함시켜도 확률에 모순이 없습니다.\n즉, 교집합이 없는 sigma field에 속하는 임의의 두 사건의 합집합이 sigma field포함되어도 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 합집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “3이 나올 확률은 알고 4가 나올 확률은 아는데 3또는4가 나올 확률은 몰라”라고 말하고 있습니다.\n이는 합리적이지 못하며 “3이 나올 확률은 알고 4가 나올 확률은 아니까 3또는4가 나올 확률도 알아”가 합리적입니다.\n\n위의 예시로부터 sigma field를 합리적으로 정의하기 위한 조건 중 하나는 “표본공간에 속하는 임의의 두 사건이 교집합이 존재하지 않을 때 두 사건이 모두 sigma field에 속한다면 두 사건의 합집합도 포함되어야 한다.”를 도출해낼 수 있습니다.\n즉, 다음의 명제는 참입니다.\n\n\\[\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\]"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset34134omega-2",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-mathcalf-emptyset34134omega-2",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega\\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega\\}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-1-omega-1234-mathcalf-emptyset34134omega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-1-omega-1234-mathcalf-emptyset34134omega",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8-1 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega\\}\\)",
+    "text": "예시8-1 \\(\\Omega = \\{1,2,3,4\\}\\), \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega\\}\\)\n\n sigma field 수정2차"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-f-1-2-234-134",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-f-1-2-234-134",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), {F}={, {1}, {2}, {2,3,4}, {1,3,4}, }",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), {F}={, {1}, {2}, {2,3,4}, {1,3,4}, }\n\n sigma field 수정1차\n\n위와 같은 sigma field는 합리적이지 못합니다.\n예시를 들어봅시다.\n\n주사위를 던져서 3이 나올 확률과 4가 나올 확률을 알고있습니다.\n그렇다면 3또는4가 나오는 사건 \\(\\{3,4\\}\\)에 대한 확률은 각각의 확률을 더함으로서 자명하게 구할 수 있으며 이를 sigma field에 포함시켜도 확률에 모순이 없습니다.\n즉, 표본공간에 속하는 교집합이 없는 임의의 두 사건이 sigma field에 속할 때 임의의 두 사건에 대한 합집합이 sigma field포함되어도 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 합집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “3이 나올 확률은 알고 4가 나올 확률은 아는데 3또는4가 나올 확률은 몰라”라고 말하고 있습니다.\n이는 합리적이지 못하며 “3이 나올 확률은 알고 4가 나올 확률은 아니까 3또는4가 나올 확률도 알아”가 합리적입니다.\n\n위의 예시로부터 sigma field를 합리적으로 정의하기 위한 조건 중 하나는 “표본공간에 속하는 임의의 두 사건이 교집합이 존재하지 않을 때 두 사건이 모두 sigma field에 속한다면 두 사건의 합집합도 포함되어야 한다.”를 도출해낼 수 있습니다.\n즉, 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건3\n\n\n\n\\[\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\]\n\n\n\n\n sigma field 수정2차\n\n수정된 \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega, \\{3,4\\}\\}\\)입니다.\n그러나 여전히 이와 같은 sigma field도 합리적이지 못합니다.\n\n예시를 들어봅시다.\n\n주사위를 던져서 1이거나 3이거나 4가 나올 확률과 3이거나 4가 나올 확률을 알고 있습니다.\n그렇다면 \\(\\{1\\}\\)이 나올 확률은 \\(P(\\{1,3,4\\}) - P(\\{3,4\\})\\)로 자명하게 구할 수 있습니다.\n즉, 표본공간에 속하는 임의의 두 사건이 sigma field에 속할 때 임의의 두 사건에 대한 차집합을 sigma field에 포함시켜도 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 차집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “1아니면 3아니면 4가 나올 확률은 알고 3아니면 4가 나올 확률은 아는데 1이 나올 확률은 모른다”라고 말하고 있는 것입니다.\n이는 합리적이지 못하며 “1아니면 3아니면 4가 나올 확률을 알고 3아니면 4가 나올 확률도 알기 때문에 1이 나올 확률도 알아”가 합리적입니다.\n\n\n즉, 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건4\n\n\n\n\\[\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A - B \\in \\mathcal{F}\\]"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-1-2-234-134",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234-1-2-234-134",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\}\\), ={, {1}, {2}, {2,3,4}, {1,3,4}, }",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\}\\), ={, {1}, {2}, {2,3,4}, {1,3,4}, }\n\n sigma field 수정1차\n\n위와 같은 sigma field는 합리적이지 못합니다.\n예시를 들어봅시다.\n\n주사위를 던져서 3이 나올 확률과 4가 나올 확률을 알고있습니다.\n그렇다면 3또는4가 나오는 사건 \\(\\{3,4\\}\\)에 대한 확률은 각각의 확률을 더함으로서 자명하게 구할 수 있으며 이를 sigma field에 포함시켜도 확률에 모순이 없습니다.\n즉, 표본공간에 속하는 교집합이 없는 임의의 두 사건이 sigma field에 속할 때 임의의 두 사건에 대한 합집합이 sigma field포함되어도 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 합집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “3이 나올 확률은 알고 4가 나올 확률은 아는데 3또는4가 나올 확률은 몰라”라고 말하고 있습니다.\n이는 합리적이지 못하며 “3이 나올 확률은 알고 4가 나올 확률은 아니까 3또는4가 나올 확률도 알아”가 합리적입니다.\n\n위의 예시로부터 sigma field를 합리적으로 정의하기 위한 조건 중 하나는 “표본공간에 속하는 임의의 두 사건이 교집합이 존재하지 않을 때 두 사건이 모두 sigma field에 속한다면 두 사건의 합집합도 포함되어야 한다.”를 도출해낼 수 있습니다.\n즉, 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건3\n\n\n\n\\[\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\]\n\n\n\n\n sigma field 수정2차\n\n수정된 \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega, \\{3,4\\}\\}\\)입니다.\n그러나 여전히 이와 같은 sigma field도 합리적이지 못합니다.\n\n예시를 들어봅시다.\n\n주사위를 던져서 1이거나 3이거나 4가 나올 확률과 3이거나 4가 나올 확률을 알고 있습니다.\n그렇다면 \\(\\{1\\}\\)이 나올 확률은 \\(P(\\{1,3,4\\}) - P(\\{3,4\\})\\)로 자명하게 구할 수 있습니다.\n즉, 표본공간에 속하는 임의의 두 사건이 sigma field에 속할 때 임의의 두 사건에 대한 차집합을 sigma field에 포함시켜도 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 차집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “1아니면 3아니면 4가 나올 확률은 알고 3아니면 4가 나올 확률은 아는데 1이 나올 확률은 모른다”라고 말하고 있는 것입니다.\n이는 합리적이지 못하며 “1아니면 3아니면 4가 나올 확률을 알고 3아니면 4가 나올 확률도 알기 때문에 1이 나올 확률도 알아”가 합리적입니다.\n\n\n즉, 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건4\n\n\n\n\\[\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A - B \\in \\mathcal{F}\\]"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-1234-1-2-234-134",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-1234-1-2-234-134",
+    "title": "[Stochestic Process] 4.sigma field",
+    "section": " 예시8 $= {1,2,3,4},={, {1}, {2}, {2,3,4}, {1,3,4}, }",
+    "text": "예시8 $= {1,2,3,4},={, {1}, {2}, {2,3,4}, {1,3,4}, }\n\n sigma field 수정1차\n\n위와 같은 sigma field는 합리적이지 못합니다.\n예시를 들어봅시다.\n\n주사위를 던져서 3이 나올 확률과 4가 나올 확률을 알고있습니다.\n그렇다면 3또는4가 나오는 사건 \\(\\{3,4\\}\\)에 대한 확률은 각각의 확률을 더함으로서 자명하게 구할 수 있으며 이를 sigma field에 포함시켜도 확률에 모순이 없습니다.\n즉, 표본공간에 속하는 교집합이 없는 임의의 두 사건이 sigma field에 속할 때 임의의 두 사건에 대한 합집합이 sigma field포함되어도 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 합집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “3이 나올 확률은 알고 4가 나올 확률은 아는데 3또는4가 나올 확률은 몰라”라고 말하고 있습니다.\n이는 합리적이지 못하며 “3이 나올 확률은 알고 4가 나올 확률은 아니까 3또는4가 나올 확률도 알아”가 합리적입니다.\n\n위의 예시로부터 sigma field를 합리적으로 정의하기 위한 조건 중 하나는 “표본공간에 속하는 임의의 두 사건이 교집합이 존재하지 않을 때 두 사건이 모두 sigma field에 속한다면 두 사건의 합집합도 포함되어야 한다.”를 도출해낼 수 있습니다.\n즉, 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건3\n\n\n\n\\[\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\]\n\n\n\n\n sigma field 수정2차\n\n수정된 \\(\\mathcal{F} =\\{\\emptyset,\\{3\\},\\{4\\},\\{1,3,4\\},\\Omega, \\{3,4\\}\\}\\)입니다.\n그러나 여전히 이와 같은 sigma field도 합리적이지 못합니다.\n\n예시를 들어봅시다.\n\n주사위를 던져서 1이거나 3이거나 4가 나올 확률과 3이거나 4가 나올 확률을 알고 있습니다.\n그렇다면 \\(\\{1\\}\\)이 나올 확률은 \\(P(\\{1,3,4\\}) - P(\\{3,4\\})\\)로 자명하게 구할 수 있습니다.\n즉, 표본공간에 속하는 임의의 두 사건이 sigma field에 속할 때 임의의 두 사건에 대한 차집합을 sigma field에 포함시켜도 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 차집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “1아니면 3아니면 4가 나올 확률은 알고 3아니면 4가 나올 확률은 아는데 1이 나올 확률은 모른다”라고 말하고 있는 것입니다.\n이는 합리적이지 못하며 “1아니면 3아니면 4가 나올 확률을 알고 3아니면 4가 나올 확률도 알기 때문에 1이 나올 확률도 알아”가 합리적입니다.\n\n\n즉, 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건4\n\n\n\n\\[\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A - B \\in \\mathcal{F}\\]"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234mathcalfemptyset-1-2-234-134-omega",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field.html#예시8-omega-1234mathcalfemptyset-1-2-234-134-omega",
+    "title": "[Stochestic Process] 4.sigma field(1)",
+    "section": " 예시8 \\(\\Omega = \\{1,2,3,4\\},\\mathcal{F}=\\{\\emptyset, \\{1\\}, \\{2\\}, \\{2,3,4\\}, \\{1,3,4\\}, \\Omega \\}\\)",
+    "text": "예시8 \\(\\Omega = \\{1,2,3,4\\},\\mathcal{F}=\\{\\emptyset, \\{1\\}, \\{2\\}, \\{2,3,4\\}, \\{1,3,4\\}, \\Omega \\}\\)\n\n 풀이1\n\n위와 같은 sigma field는 합리적이지 못합니다.\n예시를 들어봅시다.\n\n주사위를 던져서 1이 나올 확률과 2가 나올 확률을 알고있습니다.\n그렇다면 3또는4가 나오는 사건 \\(\\{1,2\\}\\)에 대한 확률은 각각의 확률을 더함으로서 자명하게 구할 수 있으며 이를 sigma field에 포함시켜도 확률에 모순이 없습니다.\n즉, 표본공간에 속하는 교집합이 없는 임의의 두 사건이 sigma field에 속할 때 임의의 두 사건에 대한 합집합이 sigma field포함되어도 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 합집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “3이 나올 확률은 알고 4가 나올 확률은 아는데 3또는4가 나올 확률은 몰라”라고 말하고 있습니다.\n이는 합리적이지 못하며 “3이 나올 확률은 알고 4가 나올 확률은 아니까 3또는4가 나올 확률도 알아”가 합리적입니다.\n\n위의 예시로부터 sigma field를 합리적으로 정의하기 위한 조건 중 하나는 “표본공간에 속하는 임의의 두 사건이 교집합이 존재하지 않을 때 두 사건이 모두 sigma field에 속한다면 두 사건의 합집합도 포함되어야 한다.”를 도출해낼 수 있습니다.\n즉, 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건3\n\n\n\n\\[\\forall A,B \\subset \\Omega \\text{ such that } A \\cap B = \\emptyset : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\]\n\n\n\n이와 같은 논리로 disjoint한 두 사건의 합집합을 sigma field에 포함시키고 또한 여집합도 고려했을때 수정된 시그마필드는 다음과 같습니다\n\n\\[\\Omega = \\{1,2,3,4\\},\\mathcal{F}=\\{\\emptyset, \\{1\\}, \\{2\\}, \\{2,3,4\\}, \\{1,3,4\\}, \\Omega,\\{1,2\\},\\{3,4\\}\\}\\]\n\n\n 풀이2\n\n예시를 들어봅시다.\n\n주사위를 던져서 1이거나 3이거나 4가 나올 확률과 1이 나올 확률을 알고 있습니다.\n그렇다면 \\(\\{3,4\\}\\)이 나올 확률은 \\(P(\\{1,3,4\\}) - P(\\{1\\})\\)로 자명하게 구할 수 있습니다.\n즉, 표본공간에 속하며 포함관계에 있는 임의의 두 사건이 sigma field에 속할 때 두 사건에 대한 차집합도 sigma field에 포함시켜도 확률을 정의할 때 모순이 없지만 위에서 \\(\\mathcal{F}\\)는 차집합을 포함하지 않습니다.\n말로 설명하자면 위의 \\(\\mathcal{F}\\)는 “1아니면 3아니면 4가 나올 확률은 알고 1이 나올 확률은 아는데 3또는4가 나올 확률은 모른다”라고 말하고 있는 것입니다.\n이는 합리적이지 못하며 “1아니면 3아니면 4가 나올 확률을 알고 1이 나올 확률도 알기 때문에 3또는4가 나올 확률도 알아”가 합리적입니다.\n\n\n\n\n\n\n\n\n조건4\n\n\n\n\\[\\forall A,B \\subset \\Omega \\text{ such that } A \\subset B: A,B \\in \\mathcal{F} \\Rightarrow B - A \\in \\mathcal{F}\\]\n\n\n\n이와 같은 논리로 포함관계에 있는 두 사건의 차집합을 sigma field에 포함시키고 또한 여집합도 고려했을때 수정된 시그마필드는 다음과 같습니다.\n\n\\[\\Omega = \\{1,2,3,4\\},\\mathcal{F}=\\{\\emptyset, \\{1\\}, \\{2\\}, \\{2,3,4\\}, \\{1,3,4\\}, \\Omega,\\{3,4\\},\\{1,2\\}\\}\\]"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": "",
+    "text": "지난 포스팅에서는 확률을 모순없이 정의할 수 있는 집합들의 모음인 simga field에는 어떠한 조건이 들어갈지에 대해 대략적으로 파악하고 또한 sigma field를 정의하기거 얼마나 어려운지를 정리합니다.\n이번 포스팅에서는 sigma field에 보다 엄격하게 정의하기 위한 추가적인 조건들을 정리합니다.\n또한 조건들을 여러가지 조건들을 최대한 간단히하여 sigma field를 정의합니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#sigma-field-정의하기-1",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#sigma-field-정의하기-1",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " sigma field 정의하기",
+    "text": "sigma field 정의하기\n\nsigma field는 확률을 모순없이 정의할 수 있는 표본공간의 부분집합들의 모음이었습니다.\n지금까지 구해본 sigma field가 만족하는 조건은 대략적으로 다음과 같았습니다.\n\n\n\n\n\n\n\nsigma field가 갖춰야할 조건들\n\n\n\n\n\\(\\Omega,\\emptyset \\in \\mathcal{F}\\)\n\\(\\forall A \\subset \\Omega : A \\in \\mathcal{F} \\Rightarrow A^c \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A - B \\in \\mathcal{F}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#지금까지-구해놓은-조건들",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#지금까지-구해놓은-조건들",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " 지금까지 구해놓은 조건들",
+    "text": "지금까지 구해놓은 조건들\n\nsigma field는 확률을 모순없이 정의할 수 있는 표본공간의 부분집합들의 모음이었습니다.\n지금까지 구해본 sigma field가 만족하는 조건은 대략적으로 다음과 같았습니다.\n\n\n\n\n\n\n\nsigma field가 갖춰야할 조건들\n\n\n\n\n\\(\\Omega,\\emptyset \\in \\mathcal{F}\\)\n\\(\\forall A \\subset \\Omega : A \\in \\mathcal{F} \\Rightarrow A^c \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A - B \\in \\mathcal{F}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#구해놨던-조건들",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#구해놨던-조건들",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " 구해놨던 조건들",
+    "text": "구해놨던 조건들\n\nsigma field는 확률을 모순없이 정의할 수 있는 표본공간의 부분집합들의 모음이었습니다.\n지금까지 구해본 sigma field가 만족하는 조건은 대략적으로 다음과 같았습니다.\n\n\n\n\n\n\n\nsigma field가 갖춰야할 조건들\n\n\n\n\n\\(\\Omega,\\emptyset \\in \\mathcal{F}\\)\n\\(\\forall A \\subset \\Omega : A \\in \\mathcal{F} \\Rightarrow A^c \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A - B \\in \\mathcal{F}\\)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#구해놨던-조건들-1",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#구해놨던-조건들-1",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " 구해놨던 조건들",
+    "text": "구해놨던 조건들"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#추가적인-조건들",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#추가적인-조건들",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " 추가적인 조건들",
+    "text": "추가적인 조건들\n(엄밀하지 않은 설명입니다.)\n\n확률은 위와 같은 measure에 한 종류입니다.\n여기서 measure의 중 하나인 길이에 대하여 다음의 상황을 당연한 상황을 생각해봅시다.\n\n[1,3]과 [2,4]의 길이가 어느정도인지 잴 수 있는(=측정할 수 있는) tape가 있어\n[2,3]도 그러면 잴 수 있어.(tape의 길이가 [2,3]보다는 길테니까?!)\n\n이렇게 또다른 measure인 길이에서 sigma field를 생각해봤을때 겹치는 구간에 대해서 잴 수 있다는 것은 합리적입니다.\n확률의 입장에서 교집합을 잴 수 있다는 것은 합리적이지 않아 보일 수 있습니다.\n여기서는 모두 적용할 수 있는 개념을 생각하기 위해 교집합도 가능하다고 가정합니다.(확률이든 길이든!)\n따라서 두 집합이 각각 잴 수 있다면 두 집합의 교집합도 잴 수 있다는 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건5\n\n\n\n\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cap B \\in \\mathcal{F}\\)\n\n\n\n\n교집합을 잴 수 있다면 합집합도 잴 수 있음은 당연한 사실입니다.\n따라서 다음의 명제도 참입니다.\n\n\n\n\n\n\n\n조건6\n\n\n\n\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\)\n\n\n\n(엄밀하진 않음)\n\n확률의 공리를 보면 \\(\\sigma\\)-additivity라 해서 교집합이 없는(disjoint) 각각의 집합들이 셀 수 있는 집합(countable set)이 \\(\\mathcal{F}\\)에 포함되면 그것들의 합집합도 잴 수 있다고 정의하고 있습니다\n공리에 포함됐다는 것은 어느정도 자명한사실이라고 합의한 것입니다.(납득이 잘 되지 않을 수 있습니다. 그렇지만 이렇게 일단 하기로 했구나~ 이런 느낌으로 넘어가야 할 것 같습니다.(저도 잘 모르겠네요..)\n\n\n\n\n\n\n\n조건7\n\n\n\n\n\\(\\forall B_1,B_2,... \\subset \\Omega \\text{ such that} B_1,B_2,... \\text{ are disjoint} : B_1,B_2,... \\in \\mathcal{F} \\Rightarrow \\cup_{i=1}^{\\infty}B_i \\in \\mathcal{F}\\)\n\n\n\n조건 5와 7을 결합하면 다음과 같은 새로운 조건을 이끌어낼 수 있습니다.\n\n\n\n\n\n\n조건8\n\n\n\n\\(\\forall A_1,A_2,... \\subset \\Omega : A_1,A_2,...\\in \\mathcal{F} \\Rightarrow \\cup_{i=1}^{i=\\infty}A_i \\in \\mathcal{F}\\)\n\n\n\n이외에도 얼마든지 다른 조건을 만들어낼 수 있습니다.\n예를들면 다음과 같은 조건이 있습니다.\n\n\n\n\n\n\n\n조건 9,10,11\n\n\n\n\n\\(\\forall A,B \\subset \\Omega:~ A,B \\in {\\cal F} \\Rightarrow A-B \\in {\\cal F}\\) (by 2,5)\n\\(\\forall A,B,C \\subset \\Omega: A,B,C \\in {\\cal F} \\Rightarrow A\\cup B \\cup C \\in {\\cal F}\\) (by 6)\n\\(A_1,A_2,\\dots \\in {\\cal F} \\Rightarrow \\cap_{i=1}^{\\infty}A_i \\in {\\cal F}\\) (by 2,7)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#추가적인-조건들-구하기",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#추가적인-조건들-구하기",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " 추가적인 조건들 구하기",
+    "text": "추가적인 조건들 구하기\n(엄밀하지 않은 설명입니다.)\n\n확률은 위와 같은 measure에 한 종류입니다.\n여기서 measure의 중 하나인 길이에 대하여 다음의 상황을 당연한 상황을 생각해봅시다.\n\n[1,3]과 [2,4]의 길이가 어느정도인지 잴 수 있는(=측정할 수 있는) tape가 있어\n[2,3]도 그러면 잴 수 있어.(tape의 길이가 [2,3]보다는 길테니까?!)\n\n이렇게 또다른 measure인 길이에서 sigma field를 생각해봤을때 겹치는 구간에 대해서 잴 수 있다는 것은 합리적입니다.\n확률의 입장에서 교집합을 잴 수 있다는 것은 합리적이지 않아 보일 수 있습니다.\n여기서는 모두 적용할 수 있는 개념을 생각하기 위해 교집합도 가능하다고 가정합니다.(확률이든 길이든!)\n따라서 두 집합이 각각 잴 수 있다면 두 집합의 교집합도 잴 수 있다는 다음의 명제는 참입니다.\n\n\n\n\n\n\n\n조건5\n\n\n\n\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cap B \\in \\mathcal{F}\\)\n\n\n\n\n교집합을 잴 수 있다면 합집합도 잴 수 있음은 당연한 사실입니다.\n따라서 다음의 명제도 참입니다.\n\n\n\n\n\n\n\n조건6\n\n\n\n\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\)\n\n\n\n(엄밀하진 않음)\n\n확률의 공리를 보면 \\(\\sigma\\)-additivity라 해서 교집합이 없는(disjoint) 각각의 집합들이 셀 수 있는 집합(countable set)이 \\(\\mathcal{F}\\)에 포함되면 그것들의 합집합도 잴 수 있다고 정의하고 있습니다\n공리에 포함됐다는 것은 어느정도 자명한사실이라고 합의한 것입니다.(납득이 잘 되지 않을 수 있습니다. 그렇지만 이렇게 일단 하기로 했구나~ 이런 느낌으로 넘어가야 할 것 같습니다.(저도 잘 모르겠네요..)\n\n\n\n\n\n\n\n조건7\n\n\n\n\n\\(\\forall B_1,B_2,... \\subset \\Omega \\text{ such that} B_1,B_2,... \\text{ are disjoint} : B_1,B_2,... \\in \\mathcal{F} \\Rightarrow \\cup_{i=1}^{\\infty}B_i \\in \\mathcal{F}\\)\n\n\n\n조건 5와 7을 결합하면 다음과 같은 새로운 조건을 이끌어낼 수 있습니다.\n\n\n\n\n\n\n조건8\n\n\n\n\\(\\forall A_1,A_2,... \\subset \\Omega : A_1,A_2,...\\in \\mathcal{F} \\Rightarrow \\cup_{i=1}^{i=\\infty}A_i \\in \\mathcal{F}\\)\n\n\n\n이외에도 얼마든지 다른 조건을 만들어낼 수 있습니다.\n예를들면 다음과 같은 조건이 있습니다.\n\n\n\n\n\n\n\n조건 9,10,11\n\n\n\n\n\\(\\forall A,B \\subset \\Omega:~ A,B \\in {\\cal F} \\Rightarrow A-B \\in {\\cal F}\\) (by 2,5)\n\\(\\forall A,B,C \\subset \\Omega: A,B,C \\in {\\cal F} \\Rightarrow A\\cup B \\cup C \\in {\\cal F}\\) (by 6)\n\\(A_1,A_2,\\dots \\in {\\cal F} \\Rightarrow \\cap_{i=1}^{\\infty}A_i \\in {\\cal F}\\) (by 2,7)"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#추가적인-조건들-구하기-1",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#추가적인-조건들-구하기-1",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " 추가적인 조건들 구하기",
+    "text": "추가적인 조건들 구하기"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#최대한-간단하게",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#최대한-간단하게",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " 최대한 간단하게 ",
+    "text": "최대한 간단하게"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#최대한-간단히-정리하기",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#최대한-간단히-정리하기",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " 최대한 간단히 정리하기",
+    "text": "최대한 간단히 정리하기\n\n지금까지 나온 모든 조건들은 이렇습니다.\n\n\n\n\n\n\n\nsigma field가 갖춰야할 조건들\n\n\n\n\n\\(\\Omega,\\emptyset \\in \\mathcal{F}\\)\n\\(\\forall A \\subset \\Omega : A \\in \\mathcal{F} \\Rightarrow A^c \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega \\text{ such that } A \\cap B = \\emptyset : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega \\text{ such that } A \\subset B: A,B \\in \\mathcal{F} \\Rightarrow B - A \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cap B \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega : A,B \\in \\mathcal{F} \\Rightarrow A \\cup B \\in \\mathcal{F}\\)\n\\(\\forall B_1,B_2,... \\subset \\Omega \\text{ such that} B_1,B_2,... \\text{ are disjoint} : B_1,B_2,... \\in \\mathcal{F} \\Rightarrow \\cup_{i=1}^{\\infty}B_i \\in \\mathcal{F}\\)\n\\(\\forall A_1,A_2,... \\subset \\Omega : A_1,A_2,...\\in \\mathcal{F} \\Rightarrow \\cup_{i=1}^{i=\\infty}A_i \\in \\mathcal{F}\\)\n\\(\\forall A,B \\subset \\Omega:~ A,B \\in {\\cal F} \\Rightarrow A-B \\in {\\cal F}\\) (by 2,5)\n\\(\\forall A,B,C \\subset \\Omega: A,B,C \\in {\\cal F} \\Rightarrow A\\cup B \\cup C \\in {\\cal F}\\) (by 6)\n\\(A_1,A_2,\\dots \\in {\\cal F} \\Rightarrow \\cap_{i=1}^{\\infty}A_i \\in {\\cal F}\\) (by 2,7)\n\n\n\n\n여기서부터는 위의 모든 조건들을 전부다 포함하도록 가장 간단히 몇개의 조건만 남겨서 sigma field를 정의해보겠습니다.\n\n\n조건9,10,11은 조건 2,5,6,7에 의하여 도출할 수 있습니다. 따라서 9,10,11은 삭제합니다.\n조건1은 2에 의해서 공집합까지 표기할 필요가 없도록 수정할 수 있습니다.\n조건4는 2,5에 의해서 도출할 수 있는 조건입니다. 따라서 4는 삭제합니다.\n조건5는 2,6에 의해서 도출할 수 있는 조건입니다. 따라서 5는 삭제합니다.\n조건6은 조건3의 disjoint집합을 포함합니다.. 따라서 3을 삭제합니다.\n조건8은 조건6을 포함하는 더 넓은 countable union입니다. 따라서 6을 삭제합니다.\n조건8은 조건7의 disjoin집합을 포함하는 countable union입니다. 따라서 7을 삭제합니다. \n\n\n삭제조건 : 3,4,5,6,7,9,10,11\n변경될 조건 : 1\n남아있는 조건 : 1,2,8\n이렇게 반영한 조건들이 바로 sigma field의 조건입니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#definition-of-sigma-field",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#definition-of-sigma-field",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " Definition of sigma field",
+    "text": "Definition of sigma field\n\n남겨놓은 조건으로 시그마 필드를 정의해보겠습니다.\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(\\Omega\\) be some set, and let \\(2^{\\Omega}\\) represent its power set. Then a subset \\(\\mathcal{F} \\subseteq 2^{\\Omega}\\) is called a \\(\\sigma\\)-field if it satisfies the following three properties:\n\n\\(\\Omega \\in \\mathcal{F}\\)\n\\(A\\in \\mathcal{F} \\Rightarrow A^c \\in \\mathcal{F}\\)\n\\(A_1,A_2,\\dots \\in \\mathcal{F} \\Rightarrow \\cup_{i=1}^{i=\\infty} \\in \\mathcal{F}\\)\n\n\n\n\n\\(\\mathcal{F} \\subseteq 2^{\\Omega}\\)는 sigma field가 표본공간의 모든 부분집합들(powerset,멱집합)의 중 일부를 포함하는 모음임을 의미합니다.(모든 부분집합들을 고려하면 확률은 모순이 발생할 수 있었습니다.)\n3가지 property는 시그마 필드는 전체집합을 포함하며 여집합에 닫혀있으며 countable union에 대해 닫혀있음을 의미합니다.(여태까지 구해왔던 조건)\n함축된 조건들도 합쳐서 생각해보면 결국 시그마 필드는 countable union,difference,interserction,complement에 대해 닫혀있음을 의미합니다.(조금 더 구체적인 의미는 이렇네요.)\n\n\n\n위의 정의는 위키피디아에서 정의한 시그마필드의 조건입니다.\n\\(X = \\Omega\\)이며\n2는 여집합도 sigma field에 포함된다는 조건입니다.\n3는 여집합도 countable union도 sigma field에 포함된다는 조건입니다.\n결국 우리가 여태까지 유도하고 정의한 sigma field와 같음을 알 수 있습니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#let-omega-be-some-set-and-let-2omega-represent-its-power-set.-then-a-subset-mathcalf-subseteq-2omega-is-called-a-sigma-field-if-it-satisfies-the-followin-three-properties",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#let-omega-be-some-set-and-let-2omega-represent-its-power-set.-then-a-subset-mathcalf-subseteq-2omega-is-called-a-sigma-field-if-it-satisfies-the-followin-three-properties",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": "Let \\(\\Omega\\) be some set, and let \\(2^{\\Omega}\\) represent its power set. Then a subset \\(\\mathcal{F} \\subseteq 2^{\\Omega}\\) is called a \\(\\sigma\\)-field if it satisfies the followin three properties:",
+    "text": "Let \\(\\Omega\\) be some set, and let \\(2^{\\Omega}\\) represent its power set. Then a subset \\(\\mathcal{F} \\subseteq 2^{\\Omega}\\) is called a \\(\\sigma\\)-field if it satisfies the followin three properties:"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#measure",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#measure",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " measure",
+    "text": "measure\n\nsigma field는 확률을 모순없이 정의할 수 있는 sample space의 부분집합들의 모음이였습니다.\n여기서 사실 확률은 measure라는 개념에서 출발합니다.\nmeasure는 기하학적인 측정(길이,면적,부피)에 대한 일반화 이자 질량,확률과 같은 일반적인 개념에 대한 형식화라고 이해할 수도 있습니다.\n분명히 이러한 개념은 서로다른 구별되는 개념이지만 수학에서는 유사한 점이 많아서 하나의 개념으로 묶어서 생각하자고 해서 하나의 개념인 measure로 통합했다고 할 수 있습니다.\n정의는 수학적으로 다음과 같습니다.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\n\nmeasure는 어떤 집합 \\(X\\)가 있을 때, \\(X\\)에 대한 sigma field가 정의역이고 공역은 \\(\\mathbb{R}\\)인 집합에 대한 함수입니다. 다음과 같은 property를 가집니다.\n\nmeasure의 값은 항상 0보다 크거나 같습니다.\n공집합의 경우 measure는 0입니다.\n교집합이 없는 disjoint sets에 대한 countable sum은 measure의 disjoint sets들의 합집합의 measure와 같습니다.\n\n\n\n\n\n지금까지 우리는 sigma field를 확률을 모순없이 정의할 수 있는 sample space의 부분집합의 모음이라고 생각하며 확률에 한정하여 생각해왔습니다.\n하지만 사실은 더 넓게 measure의 개념에서 생각할 수 있으며 이로부터sigma field는 모순없이 잴(measure) 수 있는 전체집합의 부분집합(잴 수 있는 집합)의 모음임을 알 수 있습니다.\n\n\n\n\nmeasure\n\n\n\nmeasure는 함수로 본다면 monotone function으로 생각할 수 있습니다.\n예를 들어 \\(A \\subseteq B\\)라면 \\(\\mu(A)\\leq\\mu(B)\\)임이 일반적입니다."
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#definition-of-sigma-field-1",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#definition-of-sigma-field-1",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " Definition of sigma field",
+    "text": "Definition of sigma field"
+  },
+  {
+    "objectID": "posts/stochastic process/SP-sigmafield/sigma field2.html#definition-of-mesurable-space",
+    "href": "posts/stochastic process/SP-sigmafield/sigma field2.html#definition-of-mesurable-space",
+    "title": "[Stochestic Process] 5.sigma field(2)",
+    "section": " Definition of mesurable space",
+    "text": "Definition of mesurable space"
   }
 ]
