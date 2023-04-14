@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2022-09-10">
+
+<title>HIHO - [Project] CV기반 픽토그램 분류 프로젝트-1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">[Project] CV기반 픽토그램 분류 프로젝트-1</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Project</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>hoyeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 10, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#import-setup" id="toc-import-setup" class="nav-link active" data-scroll-target="#import-setup"><span style="color:Black"> <strong>Import &amp; Setup</strong></span></a></li>
+  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda"><span style="color:black"><strong>EDA</strong></span></a></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color:black"><strong>정리</strong></span></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="import-setup" class="level1">
+<h1><span style="color:Black"> <strong>Import &amp; Setup</strong></span></h1>
+<div class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Dataset의 크기 : 25503
+Dataset에 존재하는 클래스의 갯수 : 20
+setup 
+{'name': 'hoyeon', 'path': 'C:/Users/22668/Desktop/github/sin-hoyeon/posts/creatorcamp/dataset'}</code></pre>
+</div>
+</div>
+</section>
+<section id="eda" class="level1">
+<h1><span style="color:black"><strong>EDA</strong></span></h1>
+<div class="cell" data-outputid="89621769-0e17-4fbc-88fe-e89d437411f2" data-execution_count="67">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>Insight1</strong></p>
+<ul>
+<li>이미지의 갯수는 L2_33이 가장 크고 L2_40이 가장 작음</li>
+<li>L2_25, L2_33이 데이터 중 거의 절반을 차지하고 있고,나머지 데이터들이 매우 적은 비율을 가짐 <span class="math inline">\(\to\)</span> data set에 class imbalanced가 존재함</li>
+</ul>
+<div class="cell" data-outputid="bc4eeea1-55aa-4cbd-cd18-000dcf53fbcf" data-execution_count="68">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="c06d43d4-7b04-41b3-d1c8-28a3ea5c71df" data-execution_count="69">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="1ee4883c-b3c8-4290-db47-8bea50f66468" data-execution_count="65">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="dc9a14c0-8f1e-4f47-b55d-5cec505973b8" data-execution_count="70">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><span style="color:black"><strong>Insight2</strong></span></p>
+<ul>
+<li>우리의 목적은 픽토그램을 올바르게 분류하는 것입니다.</li>
+<li>하지만 분류해야 할 대상이 아닌 실제사진이 섞여있는 클래스가 존재함을 알 수 있음.(8,1,5,14,18)</li>
+<li>또한 <strong>임의적으로 이미지를 샘플링해본 결과 그 수가 수가 적지않음.</strong></li>
+<li>이는 학습을 방해하는 요소로 제거해줘야 할 것입니다.</li>
+</ul>
+<div class="cell" data-outputid="93183ed6-9c1e-4c21-f858-e20187b8fc66" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>5     782
+18    781
+8     595
+14    593
+1     518
+Name: class_num, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="80e33a19-0745-4eb6-c01a-da0bc977490e" data-execution_count="62">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="c1d2fcfd-5302-4843-ed31-075d10202551" data-execution_count="52">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="d2e15a7b-76a6-4352-aed9-0e0d5c967760" data-execution_count="41">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="5fea0208-7ebb-481e-84d8-124e6afdaf7b" data-execution_count="53">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="a1050513-37a9-4dd9-ae2f-32e57bb2fcdd" data-execution_count="47">
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>Insight3</strong></p>
+<ul>
+<li>각 채널의 픽셀값의 분포 실제사진이던 추상미지던 정규분포를 따르지 않습니다.</li>
+<li>픽토그램의 경우 모든 채널에서 1주변의 값이 나올 확률이 높습니다. 이는 픽토그램의 배경이 흰색위주라 그렇습니다.</li>
+<li>실제사진의 경우 픽셀값이 골고루 퍼져 존재하기 때문에 모든 채널에서 1주변의 값이 나올 확률이 상대적으로 낮으며 픽셀값들의 분포도 조금 더 퍼져있습니다.</li>
+</ul>
+</section>
+<section id="정리" class="level1">
+<h1><span style="color:black"><strong>정리</strong></span></h1>
+<ul>
+<li>Data set에는 20개의 클래스로 분류되어 있는 총 25503개의 이미지가 존재합니다.</li>
+<li>class imbalanced 문제가 존재합니다.</li>
+<li>분류해야할 픽토그램이 아닌 실제사진이 이상치로 존재합니다.</li>
+<li>이는 학습에 방해하는 요소로 모형을 학습시키기 전에 미리 제거해줘야 할 것입니다.</li>
+<li>픽토그램의 경우 픽셀값을 확인해본 결과 모든 채널에서 1주변으로 값이 몰려있으며 실제사진의 경우 1주변에 몰려있지 않고 값이 골고루 퍼져서 존재합니다.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

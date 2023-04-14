@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="hoyeon">
+<meta name="dcterms.date" content="2022-09-14">
+
+<title>HIHO - [Project] CV기반 픽토그램 분류 프로젝트-2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">[Project] CV기반 픽토그램 분류 프로젝트-2</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Project</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>hoyeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 14, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#recap-goal" id="toc-recap-goal" class="nav-link active" data-scroll-target="#recap-goal"><span style="color:Black"> <strong>Recap &amp; Goal</strong></span></a></li>
+  <li><a href="#import-setup" id="toc-import-setup" class="nav-link" data-scroll-target="#import-setup"><span style="color:Black"> <strong>Import &amp; Setup</strong></span></a></li>
+  <li><a href="#working" id="toc-working" class="nav-link" data-scroll-target="#working"><span style="color:Black"> <strong>Working</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#첫번째-모형" id="toc-첫번째-모형" class="nav-link" data-scroll-target="#첫번째-모형"><span style="color:Black"> 첫번째 모형</span></a>
+  <ul class="collapse">
+  <li><a href="#기준값-찾기" id="toc-기준값-찾기" class="nav-link" data-scroll-target="#기준값-찾기"><span style="color:Black"> 기준값 찾기</span></a></li>
+  <li><a href="#이미지-샘플링하여-데이터-만들기" id="toc-이미지-샘플링하여-데이터-만들기" class="nav-link" data-scroll-target="#이미지-샘플링하여-데이터-만들기"><span style="color:Black"> 1. 이미지 샘플링하여 데이터 만들기</span></a></li>
+  <li><a href="#기준값-비교하기" id="toc-기준값-비교하기" class="nav-link" data-scroll-target="#기준값-비교하기"><span style="color:Black"> 2. 기준값 비교하기</span></a></li>
+  <li><a href="#모형-결정하기" id="toc-모형-결정하기" class="nav-link" data-scroll-target="#모형-결정하기"><span style="color:Black"> 3. 모형 결정하기</span></a></li>
+  <li><a href="#모형의-성능확인" id="toc-모형의-성능확인" class="nav-link" data-scroll-target="#모형의-성능확인"><span style="color:Black"> 4. 모형의 성능확인</span></a></li>
+  <li><a href="#전체데이터에서-이상치-찾기" id="toc-전체데이터에서-이상치-찾기" class="nav-link" data-scroll-target="#전체데이터에서-이상치-찾기"><span style="color:Black"> 5. 전체데이터에서 이상치 찾기</span></a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="recap-goal" class="level1">
+<h1><span style="color:Black"> <strong>Recap &amp; Goal</strong></span></h1>
+<ul>
+<li>궁극적인 목적은 20개의 클래스를 가지는 픽토그램 데이터를 잘 분류하는 것입니다.</li>
+<li>하지만 데이터 안에 이상치(실제사진)가 있는 몇 개의 클래스가 있었습니다.</li>
+<li>이는 분류모형의 학습에 악영향을 끼칠 수 있습니다.</li>
+<li>따라서 여기서는 이상치를 제거하는 모형을 먼저 만들고 이상치를 제거합니다.</li>
+</ul>
+<hr>
+</section>
+<section id="import-setup" class="level1">
+<h1><span style="color:Black"> <strong>Import &amp; Setup</strong></span></h1>
+<div class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Dataset의 크기 : 25503
+Dataset에 존재하는 클래스의 갯수 : 20
+setup 
+{'name': 'hoyeon', 'path': 'C:/Users/22668/Desktop/github/sin-hoyeon/posts/creatorcamp/dataset'}</code></pre>
+</div>
+</div>
+</section>
+<section id="working" class="level1">
+<h1><span style="color:Black"> <strong>Working</strong></span></h1>
+<section id="첫번째-모형" class="level2">
+<h2 class="anchored" data-anchor-id="첫번째-모형"><span style="color:Black"> 첫번째 모형</span></h2>
+<ul>
+<li>EDA에서 픽토그램의 경우 픽셀값을 확인해본 결과 모든 채널에서 1주변으로 값이 몰려있고 실제사진의 경우 1주변에 몰려있지 않고 값이 골고루 퍼져서 존재함을 확인했습니다.</li>
+<li>이는 다음을 암시합니다.</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+가정
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>픽토그램이라면 3개의 채널에서 모두 1주변의 확률값이 어떤 <code>기준값</code>을 넘을 것이다.</li>
+<li>픽토그램이 아닌 실제사진이라면 3개의 채널 중 적어도 하나는 확률값이 어떤 <code>기준값</code>을 넘지 않을 것이다.</li>
+</ul>
+</div>
+</div>
+<ul>
+<li>상기의 가정을 통해서 기준값을 통해 이상치를 찾는 코드를 구현해보면 아래와 같습니다.</li>
+</ul>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> ck_outlier(img,</span>
+<span id="cb2-2"><a href="#cb2-2"></a>               threshold,          <span class="co">#확률밀도함수의 기준값</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>               sampling_num <span class="op">=</span> <span class="dv">30</span>): <span class="co">#Kde에서 sampling할 갯 수.</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="co">#Kde추정하는 객체 만들기</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  X <span class="op">=</span> torch.linspace(<span class="fl">0.5</span>,<span class="fl">1.1</span>,sampling_num)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  </span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="co">#검은색 배경을 가진 추상이미지는 별로 없고 실제사진이 검은색이므로 확률분포에서 0.5이상인 부분만 보면 됨!</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  estr_0 <span class="op">=</span> stats.gaussian_kde(img[<span class="dv">0</span>].reshape(<span class="op">-</span><span class="dv">1</span>), bw_method<span class="op">=</span><span class="st">'silverman'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>  estr_1 <span class="op">=</span> stats.gaussian_kde(img[<span class="dv">1</span>].reshape(<span class="op">-</span><span class="dv">1</span>), bw_method<span class="op">=</span><span class="st">'silverman'</span>)</span>
+<span id="cb2-11"><a href="#cb2-11"></a>  estr_2 <span class="op">=</span> stats.gaussian_kde(img[<span class="dv">2</span>].reshape(<span class="op">-</span><span class="dv">1</span>), bw_method<span class="op">=</span><span class="st">'silverman'</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a>  <span class="co">#확률밀도함수의 y값 구해보기</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>  r_max <span class="op">=</span> np.<span class="bu">max</span>(estr_0(X))</span>
+<span id="cb2-15"><a href="#cb2-15"></a>  g_max <span class="op">=</span> np.<span class="bu">max</span>(estr_1(X))</span>
+<span id="cb2-16"><a href="#cb2-16"></a>  b_max <span class="op">=</span> np.<span class="bu">max</span>(estr_2(X))</span>
+<span id="cb2-17"><a href="#cb2-17"></a>  <span class="co">#가정,R,G,B값 중 3개 모두 확률밀도의 최댓값이 threshold이상이면 픽토그램.</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a>  count<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>  <span class="cf">if</span> r_max<span class="op">&gt;</span>threshold:</span>
+<span id="cb2-20"><a href="#cb2-20"></a>    count<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a>  <span class="cf">if</span> g_max<span class="op">&gt;</span>threshold:</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    count<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>  <span class="cf">if</span> b_max<span class="op">&gt;</span>threshold:</span>
+<span id="cb2-24"><a href="#cb2-24"></a>    count<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a>  <span class="cf">if</span> count <span class="op">&gt;=</span><span class="dv">3</span>:</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    <span class="cf">return</span> <span class="va">False</span> <span class="co">#추상이미지는 아웃라이어 아니므로 False</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a>  <span class="cf">else</span>:</span>
+<span id="cb2-28"><a href="#cb2-28"></a>    <span class="cf">return</span> <span class="va">True</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="기준값-찾기" class="level3">
+<h3 class="anchored" data-anchor-id="기준값-찾기"><span style="color:Black"> 기준값 찾기</span></h3>
+<ul>
+<li>가정에 의하면 픽토그램과 이상치(실제사진)을 구분하는 <code>기준값</code>이 존재하므로 이를 찾는다면 픽토그램에서 실제사진을 제거할 수 있습니다.</li>
+<li>따라서 전체데이터에서 이미지를 몇개 샘플링하여 픽토그램과 이상치를 구분하는 <code>기준값</code>을 찾습니다.</li>
+</ul>
+</section>
+<section id="이미지-샘플링하여-데이터-만들기" class="level3">
+<h3 class="anchored" data-anchor-id="이미지-샘플링하여-데이터-만들기"><span style="color:Black"> 1. 이미지 샘플링하여 데이터 만들기</span></h3>
+<ul>
+<li>이미지를 샘플링 한 후 직접 레이블링 한 코드입니다.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#1. 기준값을 찾기위해서 사용할 이미지들 임의적으로 추출</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>tmp <span class="op">=</span> []</span>
+<span id="cb3-3"><a href="#cb3-3"></a>except_class <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">14</span>,<span class="dv">19</span>]</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">20</span>):</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="cf">if</span> i <span class="kw">not</span> <span class="kw">in</span> except_class:</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    class_imgs<span class="op">=</span>get_class_image(all_data,class_num<span class="op">=</span>i,sampling<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="cf">else</span>:</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    class_imgs<span class="op">=</span>get_class_image(all_data,class_num<span class="op">=</span>i,sampling<span class="op">=</span><span class="dv">40</span>)</span>
+<span id="cb3-9"><a href="#cb3-9"></a>  tmp.append(class_imgs)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>imgs <span class="op">=</span> torch.cat(tmp)</span>
+<span id="cb3-11"><a href="#cb3-11"></a></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#2. 추출한 이미지에 대하여 직접 레이블링</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>ch_0_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>ch_1_label <span class="op">=</span> [<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb3-15"><a href="#cb3-15"></a>ch_2_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>ch_3_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>ch_4_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>ch_5_label <span class="op">=</span> [<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>]<span class="op">+</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb3-19"><a href="#cb3-19"></a>ch_6_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>ch_7_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>ch_8_label <span class="op">=</span> [<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>]<span class="op">+</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb3-22"><a href="#cb3-22"></a>ch_9_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>ch_10_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>ch_11_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>ch_12_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>ch_13_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a>ch_14_label <span class="op">=</span> [<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>]<span class="op">+</span>[<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>]</span>
+<span id="cb3-28"><a href="#cb3-28"></a>ch_15_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a>ch_16_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a>ch_17_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a>ch_18_label <span class="op">=</span> [<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>]<span class="op">+</span>[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb3-32"><a href="#cb3-32"></a>ch_19_label <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">20</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>y_true<span class="op">=</span>pd.DataFrame({<span class="st">'y_true'</span>:ch_0_label <span class="op">+</span> ch_1_label <span class="op">+</span> ch_2_label <span class="op">+</span> ch_3_label <span class="op">+</span> ch_4_label <span class="op">+</span> ch_5_label <span class="op">+</span> ch_6_label <span class="op">+</span> ch_7_label<span class="op">\</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a>                    <span class="op">+</span>ch_8_label <span class="op">+</span> ch_9_label <span class="op">+</span> ch_10_label <span class="op">+</span> ch_11_label <span class="op">+</span> ch_12_label <span class="op">+</span> ch_13_label <span class="op">+</span> ch_14_label <span class="op">+</span> ch_15_label<span class="op">\</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a>                    <span class="op">+</span>ch_16_label <span class="op">+</span> ch_17_label <span class="op">+</span> ch_18_label <span class="op">+</span> ch_19_label})</span>
+<span id="cb3-36"><a href="#cb3-36"></a>y_true<span class="op">=</span>y_true[<span class="st">'y_true'</span>].<span class="bu">map</span>({<span class="va">False</span>:<span class="dv">0</span>,<span class="va">True</span>:<span class="dv">1</span>,<span class="dv">0</span>:<span class="dv">0</span>,<span class="dv">1</span>:<span class="dv">1</span>})</span>
+<span id="cb3-37"><a href="#cb3-37"></a>y_true<span class="op">=</span>y_true.values.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>샘플링된 이미지에서 픽토그램은 379개 실제사진은 121개 존재합니다.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="기준값-비교하기" class="level3">
+<h3 class="anchored" data-anchor-id="기준값-비교하기"><span style="color:Black"> 2. 기준값 비교하기</span></h3>
+<ul>
+<li>기준값을 찾기 위해서는 어떤 값을 써야할까요?</li>
+<li>기준값의 목적은 픽토그램과 이상치를 분류하는 것이므로 분류성능이 좋아야 할 것 입니다.</li>
+<li>따라서 여기서는 <code>f1-score</code>가 좋은 기준값을 최종적인 선택을 위한 먼저 후보로 두었습니다.</li>
+</ul>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+기준 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>전반적인 모형의 성능이 준수해야 한다.</li>
+</ul>
+</div>
+</div>
+<ul>
+<li>다만 이렇게 해도 여기서 f1-score가 비슷하게 나오는 기준값은 여러가지 입니다.</li>
+<li>그러므로 그 중에서도 가장 좋은 <code>기준값</code>을 선정해야할 것입니다.</li>
+<li>모델의 특성상 이러한 기준값들은 다음과 같은 특징을 지닙니다.
+<ol type="1">
+<li>mission3에 사용할 훈련데이터를 비교적 많이 삭제하나 이상치도 많이 삭제하는 모델</li>
+<li>mission3에 사용할 훈련데이터를 비교적 덜 삭제하나 이상치도 덜 삭제하는 모델</li>
+</ol></li>
+<li>저는 훈련데이터의 양은 어느정도 충분하기에 이상치를 많이 삭제하는 모형이 더 좋다고 판단했습니다.</li>
+<li>왜냐하면 이상치가 나중에 분류모형에 미칠 악영향이 훨씬 더 클 것이기 때문입니다.</li>
+<li>따라서 최종후보들중에서 <code>recall</code>이 높은 가장 높게 나오는 기준값을 선택하겠습니다.</li>
+</ul>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+기준 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>모델의 성능이 어느정도 비슷하다면 최대한 이상치를 많이 삭제해야한다.</li>
+</ul>
+</div>
+</div>
+<section id="top3-f1-score" class="level4">
+<h4 class="anchored" data-anchor-id="top3-f1-score">Top3 f1-score</h4>
+<ul>
+<li>가장 <code>f1-score</code>가 뛰어난 기준값들은 아래와 같습니다.</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>th</th>
+      <th>f1_sc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>3.215190</td>
+      <td>0.917749</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>3.316456</td>
+      <td>0.910638</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>3.417722</td>
+      <td>0.915254</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="top3-recall" class="level4">
+<h4 class="anchored" data-anchor-id="top3-recall">Top3 recall</h4>
+<ul>
+<li>이들 각각의 기준값에 대한 <code>recall</code>은 아래와 같습니다.</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>th</th>
+      <th>recall_sc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>3.215190</td>
+      <td>0.876033</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>3.316456</td>
+      <td>0.884298</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>3.417722</td>
+      <td>0.892562</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="confusion-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h4>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="모형-결정하기" class="level3">
+<h3 class="anchored" data-anchor-id="모형-결정하기"><span style="color:Black"> 3. 모형 결정하기</span></h3>
+<ul>
+<li>최종적으로 Top3 f1-score를 기록하는 예측모형 중 <code>threshold = 3.417722</code> 인 모형을 선택했습니다.</li>
+<li>기준1,2를 동시에 만족하여 높은 성능과 가능한 많은 이상치의 제거를 보장하기 때문입니다.</li>
+</ul>
+</section>
+<section id="모형의-성능확인" class="level3">
+<h3 class="anchored" data-anchor-id="모형의-성능확인"><span style="color:Black"> 4. 모형의 성능확인</span></h3>
+<ul>
+<li>새로운 데이터셋을 추가적으로 구성하여 모형의 성능을 간단히 확인해보았습니다.</li>
+</ul>
+<section id="test1" class="level4">
+<h4 class="anchored" data-anchor-id="test1"><span style="color:Black"> test1</span></h4>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="test2" class="level4">
+<h4 class="anchored" data-anchor-id="test2"><span style="color:Black"> test2</span></h4>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>각각 20개의 이미지를 가지는 서로다른 test data를 구성하여 모델의 성능을 확인해보았습니다.</li>
+<li>총 40개 중 1개의 이미지에 대해서만 오분류했습니다.</li>
+<li>성능이 꽤 좋음을 알 수 있습니다.</li>
+</ul>
+</section>
+</section>
+<section id="전체데이터에서-이상치-찾기" class="level3">
+<h3 class="anchored" data-anchor-id="전체데이터에서-이상치-찾기"><span style="color:Black"> 5. 전체데이터에서 이상치 찾기</span></h3>
+<ul>
+<li>만들어진 첫번째 모형을 전체데이터에 적용합니다.</li>
+<li>결과는 아래와 같습니다.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>error_idx <span class="op">=</span> []</span>
+<span id="cb5-2"><a href="#cb5-2"></a>outlier_predict1<span class="op">=</span>[]</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="cf">for</span> idx <span class="kw">in</span> <span class="bu">range</span>(p1):</span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="cf">if</span> idx <span class="op">%</span> <span class="dv">5000</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>idx<span class="sc">}</span><span class="ss"> ....'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="cf">try</span>:</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    <span class="cf">if</span> ck_outlier(all_data[idx][<span class="dv">0</span>],k)<span class="op">==</span><span class="va">False</span>:</span>
+<span id="cb5-9"><a href="#cb5-9"></a>      outlier_predict1.append(<span class="dv">0</span>)</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-11"><a href="#cb5-11"></a>      outlier_predict1.append(<span class="dv">1</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="cf">except</span>: <span class="co">#오류가 날 경우 0으로 반환</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>    outlier_predict1.append(<span class="dv">0</span>)</span>
+<span id="cb5-14"><a href="#cb5-14"></a>    </span>
+<span id="cb5-15"><a href="#cb5-15"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'predict'</span>:outlier_predict1})</span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co">#df.to_csv('/content/drive/MyDrive/anmly_dtcion_rst_1.csv')</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a>path1 <span class="op">=</span> inform[<span class="st">"path"</span>] <span class="op">+</span> <span class="st">'/anmly_dtcion_rst_1.csv'</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'predict'</span>:outlier_predict1})</span>
+<span id="cb5-20"><a href="#cb5-20"></a>df.to_csv(path1)</span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a>outlier_predict2<span class="op">=</span>[]</span>
+<span id="cb5-23"><a href="#cb5-23"></a>ck_list<span class="op">=</span>[<span class="va">None</span>]</span>
+<span id="cb5-24"><a href="#cb5-24"></a></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="cf">for</span> idx <span class="kw">in</span> <span class="bu">range</span>(p1,p2):</span>
+<span id="cb5-26"><a href="#cb5-26"></a>  <span class="cf">if</span> idx <span class="op">%</span> <span class="dv">500</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-27"><a href="#cb5-27"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>idx<span class="sc">}</span><span class="ss"> ....'</span>)</span>
+<span id="cb5-28"><a href="#cb5-28"></a>  <span class="cf">try</span>:</span>
+<span id="cb5-29"><a href="#cb5-29"></a>    <span class="cf">if</span> ck_outlier(all_data[idx][<span class="dv">0</span>],k)<span class="op">==</span><span class="va">False</span>:</span>
+<span id="cb5-30"><a href="#cb5-30"></a>      outlier_predict2.append(<span class="dv">0</span>)</span>
+<span id="cb5-31"><a href="#cb5-31"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-32"><a href="#cb5-32"></a>      outlier_predict2.append(<span class="dv">1</span>)</span>
+<span id="cb5-33"><a href="#cb5-33"></a>  <span class="cf">except</span>: <span class="co">#오류가 날 경우 0으로 반환</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a>    outlier_predict2.append(<span class="dv">0</span>)</span>
+<span id="cb5-35"><a href="#cb5-35"></a></span>
+<span id="cb5-36"><a href="#cb5-36"></a>path2 <span class="op">=</span> inform[<span class="st">"path"</span>] <span class="op">+</span> <span class="st">'/anmly_dtcion_rst_2.csv'</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'predict'</span>:outlier_predict2})</span>
+<span id="cb5-38"><a href="#cb5-38"></a>df.to_csv(path2)</span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="co">#역행렬이 구해지지 않아서 오류코드가 </span></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#21945번째 이미지 에러</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#예외처리문으로 수정한 이유</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a>outlier_predict3<span class="op">=</span>[]</span>
+<span id="cb5-44"><a href="#cb5-44"></a>ck_list<span class="op">=</span>[<span class="va">None</span>]</span>
+<span id="cb5-45"><a href="#cb5-45"></a></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="cf">for</span> idx <span class="kw">in</span> <span class="bu">range</span>(p2,<span class="bu">len</span>(all_data)):</span>
+<span id="cb5-47"><a href="#cb5-47"></a>  <span class="cf">if</span> idx <span class="op">%</span> <span class="dv">500</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-48"><a href="#cb5-48"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>idx<span class="sc">}</span><span class="ss"> ....'</span>)</span>
+<span id="cb5-49"><a href="#cb5-49"></a>  <span class="cf">try</span>:</span>
+<span id="cb5-50"><a href="#cb5-50"></a>    <span class="cf">if</span> ck_outlier(all_data[idx][<span class="dv">0</span>],k)<span class="op">==</span><span class="va">False</span>:</span>
+<span id="cb5-51"><a href="#cb5-51"></a>      outlier_predict3.append(<span class="dv">0</span>)</span>
+<span id="cb5-52"><a href="#cb5-52"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-53"><a href="#cb5-53"></a>      outlier_predict3.append(<span class="dv">1</span>)</span>
+<span id="cb5-54"><a href="#cb5-54"></a>  <span class="cf">except</span>: <span class="co">#오류가 날 경우 0으로 반환</span></span>
+<span id="cb5-55"><a href="#cb5-55"></a>    outlier_predict3.append(<span class="dv">0</span>)</span>
+<span id="cb5-56"><a href="#cb5-56"></a>    error_idx.append(idx)</span>
+<span id="cb5-57"><a href="#cb5-57"></a></span>
+<span id="cb5-58"><a href="#cb5-58"></a>path3 <span class="op">=</span> inform[<span class="st">"path"</span>] <span class="op">+</span> <span class="st">'/anmly_dtcion_rst_3.csv'</span></span>
+<span id="cb5-59"><a href="#cb5-59"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'predict'</span>:outlier_predict3})</span>
+<span id="cb5-60"><a href="#cb5-60"></a>df.to_csv(path3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#데이터프레임 만들기 - </span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#모든 클래스에서 이상치 검사</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a>path1 <span class="op">=</span> inform[<span class="st">"path"</span>] <span class="op">+</span> <span class="st">'/anmly_dtcion_rst_1.csv'</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>path2 <span class="op">=</span> inform[<span class="st">"path"</span>] <span class="op">+</span> <span class="st">'/anmly_dtcion_rst_2.csv'</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>path3 <span class="op">=</span> inform[<span class="st">"path"</span>] <span class="op">+</span> <span class="st">'/anmly_dtcion_rst_3.csv'</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a>df_1<span class="op">=</span>pd.read_csv(path1)</span>
+<span id="cb6-9"><a href="#cb6-9"></a>df_2<span class="op">=</span>pd.read_csv(path2)</span>
+<span id="cb6-10"><a href="#cb6-10"></a>df_3<span class="op">=</span>pd.read_csv(path3)</span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a>df<span class="op">=</span>pd.concat([df_1,df_2,df_3])</span>
+<span id="cb6-13"><a href="#cb6-13"></a>df<span class="op">=</span>df.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a>_targets<span class="op">=</span>pd.DataFrame({<span class="st">'category'</span>:all_data.targets})</span>
+<span id="cb6-16"><a href="#cb6-16"></a>df<span class="op">=</span>pd.concat([df,_targets],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-17"><a href="#cb6-17"></a>df<span class="op">=</span>df.drop(columns<span class="op">=</span>{<span class="st">'Unnamed: 0'</span>})</span>
+<span id="cb6-18"><a href="#cb6-18"></a>df[<span class="st">'address'</span>]<span class="op">=</span>[os.path.basename(address) <span class="cf">for</span> address,_ <span class="kw">in</span> all_data.imgs]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="73">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df<span class="op">=</span>df[[<span class="st">"address"</span>,<span class="st">"predict"</span>,<span class="st">"category"</span>]]</span>
+<span id="cb7-2"><a href="#cb7-2"></a>df[<span class="st">'address'</span>]<span class="op">=</span>df[<span class="st">'address'</span>].<span class="bu">str</span>.replace(<span class="st">'.jpg'</span>,<span class="st">""</span>).<span class="bu">str</span>.replace(<span class="st">'.png'</span>,<span class="st">""</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>df.sample(<span class="dv">10</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#내보내기 코드</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#df.to_csv('/content/drive/MyDrive/anmly_dtctn_rst_newversion2.csv')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="73">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>address</th>
+      <th>predict</th>
+      <th>category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9421</th>
+      <td>qqbcsppljdltwzapjtbr</td>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4980</th>
+      <td>hwofwsgjoxkfhawplbhu</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>914</th>
+      <td>mqqxrlwghsnfxwgpbmch</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>24979</th>
+      <td>veynjbiugcwnoagiopmv</td>
+      <td>0</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>4028</th>
+      <td>glwatzhxafftqoieiimu</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1980</th>
+      <td>edcmqpgaioimnqtnwjvt</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8964</th>
+      <td>orrfbwghoupwfdhvyejc</td>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7153</th>
+      <td>gxuxkfolqaedlryneobz</td>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>21250</th>
+      <td>ommrmrkfutfmqwjijcdh</td>
+      <td>0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>17491</th>
+      <td>sjnzmrkcqvjejazxcjxl</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="cell-output cell-output-stdout">
+<pre><code>데이터셋의 크기 : 25503
+확률분포모델에서 이상치(실제사진)이라 판단한 이미지의 갯수 : 2218
+확률분포모델에서 픽토그램이라 판단한 이미지의 갯수 : 23285</code></pre>
+</div>
+</div>
+<ul>
+<li>이상치(실제사진)로 분류한 이미지를 실제로 확인해보면 아래와 같습니다.</li>
+</ul>
+<div class="cell" data-execution_count="41">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="42">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="45">
+<div class="cell-output cell-output-display">
+<p><img src="Outlierdetection_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

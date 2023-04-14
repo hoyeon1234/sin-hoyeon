@@ -2,10 +2,13 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/creatorcamp/code/Outlierdetection2.html",
+      "/posts/creatorcamp/code/temp.html",
       "/posts/DL/Bias Variance tradeoff/bias variance trade off.html",
       "/posts/paper study/auto-encoding variational bayes implement/Auto-Encoding Variational Bayes.html",
       "/posts/RL/Bellman Equation(번외).html",
       "/posts/visualization/plotly_visualization/Untitled-1.html",
+      "/posts/jujurery/시험보기 1주일 전 체크해야 할 것.html",
       "/posts/stochastic process/SP-sigmafield/sigma field2.html",
       "/posts/stochastic process/SP-sigmafield/sigma field.html",
       "/posts/stochastic process/SP-cardinality_comparison/SP_cardinality_comparison.html",
@@ -51,6 +54,8 @@
       "/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html",
       "/posts/DL/Linear Regression.html",
       "/posts/DL/Pytorch Rnn 구현.html",
+      "/posts/creatorcamp/code/Outlierdetection.html",
+      "/posts/creatorcamp/code/EDA.html",
       "/posts/Linear Algebra/orthonormal diagonalizability.html"
     ]
   }
