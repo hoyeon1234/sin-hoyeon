@@ -215,16 +215,17 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
   <li><a href="#import-setup" id="toc-import-setup" class="nav-link" data-scroll-target="#import-setup"><span style="color:Black"> <strong>Import &amp; Setup</strong></span></a></li>
   <li><a href="#working" id="toc-working" class="nav-link" data-scroll-target="#working"><span style="color:Black"> <strong>Working</strong></span></a>
   <ul class="collapse">
-  <li><a href="#첫번째-모형" id="toc-첫번째-모형" class="nav-link" data-scroll-target="#첫번째-모형"><span style="color:Black"> 첫번째 모형</span></a>
+  <li><a href="#첫번째-모형" id="toc-첫번째-모형" class="nav-link" data-scroll-target="#첫번째-모형"><span style="color:Black"> 첫번째 모형</span></a></li>
+  <li><a href="#기준값-찾기" id="toc-기준값-찾기" class="nav-link" data-scroll-target="#기준값-찾기"><span style="color:Black"> 기준값 찾기</span></a>
   <ul class="collapse">
-  <li><a href="#기준값-찾기" id="toc-기준값-찾기" class="nav-link" data-scroll-target="#기준값-찾기"><span style="color:Black"> 기준값 찾기</span></a></li>
   <li><a href="#이미지-샘플링하여-데이터-만들기" id="toc-이미지-샘플링하여-데이터-만들기" class="nav-link" data-scroll-target="#이미지-샘플링하여-데이터-만들기"><span style="color:Black"> 1. 이미지 샘플링하여 데이터 만들기</span></a></li>
   <li><a href="#기준값-비교하기" id="toc-기준값-비교하기" class="nav-link" data-scroll-target="#기준값-비교하기"><span style="color:Black"> 2. 기준값 비교하기</span></a></li>
-  <li><a href="#모형-결정하기" id="toc-모형-결정하기" class="nav-link" data-scroll-target="#모형-결정하기"><span style="color:Black"> 3. 모형 결정하기</span></a></li>
-  <li><a href="#모형의-성능확인" id="toc-모형의-성능확인" class="nav-link" data-scroll-target="#모형의-성능확인"><span style="color:Black"> 4. 모형의 성능확인</span></a></li>
-  <li><a href="#전체데이터에서-이상치-찾기" id="toc-전체데이터에서-이상치-찾기" class="nav-link" data-scroll-target="#전체데이터에서-이상치-찾기"><span style="color:Black"> 5. 전체데이터에서 이상치 찾기</span></a></li>
   </ul></li>
+  <li><a href="#모형-결정하기" id="toc-모형-결정하기" class="nav-link" data-scroll-target="#모형-결정하기"><span style="color:Black"> 모형 결정하기</span></a></li>
+  <li><a href="#모형의-성능확인" id="toc-모형의-성능확인" class="nav-link" data-scroll-target="#모형의-성능확인"><span style="color:Black"> 모형의 성능확인</span></a></li>
+  <li><a href="#전체데이터에서-이상치-찾기" id="toc-전체데이터에서-이상치-찾기" class="nav-link" data-scroll-target="#전체데이터에서-이상치-찾기"><span style="color:Black"> 전체데이터에서 이상치 찾기</span></a></li>
   </ul></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color:Black"> <strong>정리</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -240,7 +241,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <li>궁극적인 목적은 20개의 클래스를 가지는 픽토그램 데이터를 잘 분류하는 것입니다.</li>
 <li>하지만 데이터 안에 이상치(실제사진)가 있는 몇 개의 클래스가 있었습니다.</li>
 <li>이는 분류모형의 학습에 악영향을 끼칠 수 있습니다.</li>
-<li>따라서 여기서는 이상치를 제거하는 모형을 먼저 만들고 이상치를 제거합니다.</li>
+<li>따라서 여기서는 이상치를 제거하는 모형을 만듭니다.</li>
 </ul>
 <hr>
 </section>
@@ -251,7 +252,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <pre><code>Dataset의 크기 : 25503
 Dataset에 존재하는 클래스의 갯수 : 20
 setup 
-{'name': 'hoyeon', 'path': 'C:/Users/22668/Desktop/github/sin-hoyeon/posts/creatorcamp/dataset'}</code></pre>
+{'name': 'hoyeon', 'path': 'C:/Users/22668/Desktop/github/datasets/creatorcamp'}</code></pre>
 </div>
 </div>
 </section>
@@ -315,13 +316,13 @@ setup
 <span id="cb2-28"><a href="#cb2-28"></a>    <span class="cf">return</span> <span class="va">True</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="기준값-찾기" class="level3">
-<h3 class="anchored" data-anchor-id="기준값-찾기"><span style="color:Black"> 기준값 찾기</span></h3>
+</section>
+<section id="기준값-찾기" class="level2">
+<h2 class="anchored" data-anchor-id="기준값-찾기"><span style="color:Black"> 기준값 찾기</span></h2>
 <ul>
 <li>가정에 의하면 픽토그램과 이상치(실제사진)을 구분하는 <code>기준값</code>이 존재하므로 이를 찾는다면 픽토그램에서 실제사진을 제거할 수 있습니다.</li>
 <li>따라서 전체데이터에서 이미지를 몇개 샘플링하여 픽토그램과 이상치를 구분하는 <code>기준값</code>을 찾습니다.</li>
 </ul>
-</section>
 <section id="이미지-샘플링하여-데이터-만들기" class="level3">
 <h3 class="anchored" data-anchor-id="이미지-샘플링하여-데이터-만들기"><span style="color:Black"> 1. 이미지 샘플링하여 데이터 만들기</span></h3>
 <ul>
@@ -526,15 +527,16 @@ setup
 </div>
 </section>
 </section>
-<section id="모형-결정하기" class="level3">
-<h3 class="anchored" data-anchor-id="모형-결정하기"><span style="color:Black"> 3. 모형 결정하기</span></h3>
+</section>
+<section id="모형-결정하기" class="level2">
+<h2 class="anchored" data-anchor-id="모형-결정하기"><span style="color:Black"> 모형 결정하기</span></h2>
 <ul>
 <li>최종적으로 Top3 f1-score를 기록하는 예측모형 중 <code>threshold = 3.417722</code> 인 모형을 선택했습니다.</li>
 <li>기준1,2를 동시에 만족하여 높은 성능과 가능한 많은 이상치의 제거를 보장하기 때문입니다.</li>
 </ul>
 </section>
-<section id="모형의-성능확인" class="level3">
-<h3 class="anchored" data-anchor-id="모형의-성능확인"><span style="color:Black"> 4. 모형의 성능확인</span></h3>
+<section id="모형의-성능확인" class="level2">
+<h2 class="anchored" data-anchor-id="모형의-성능확인"><span style="color:Black"> 모형의 성능확인</span></h2>
 <ul>
 <li>새로운 데이터셋을 추가적으로 구성하여 모형의 성능을 간단히 확인해보았습니다.</li>
 </ul>
@@ -570,8 +572,8 @@ setup
 </ul>
 </section>
 </section>
-<section id="전체데이터에서-이상치-찾기" class="level3">
-<h3 class="anchored" data-anchor-id="전체데이터에서-이상치-찾기"><span style="color:Black"> 5. 전체데이터에서 이상치 찾기</span></h3>
+<section id="전체데이터에서-이상치-찾기" class="level2">
+<h2 class="anchored" data-anchor-id="전체데이터에서-이상치-찾기"><span style="color:Black"> 전체데이터에서 이상치 찾기</span></h2>
 <ul>
 <li>만들어진 첫번째 모형을 전체데이터에 적용합니다.</li>
 <li>결과는 아래와 같습니다.</li>
@@ -641,7 +643,7 @@ setup
 <span id="cb5-60"><a href="#cb5-60"></a>df.to_csv(path3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="5">
+<div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#데이터프레임 만들기 - </span></span>
@@ -664,7 +666,7 @@ setup
 <span id="cb6-18"><a href="#cb6-18"></a>df[<span class="st">'address'</span>]<span class="op">=</span>[os.path.basename(address) <span class="cf">for</span> address,_ <span class="kw">in</span> all_data.imgs]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="73">
+<div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df<span class="op">=</span>df[[<span class="st">"address"</span>,<span class="st">"predict"</span>,<span class="st">"category"</span>]]</span>
@@ -753,7 +755,7 @@ setup
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>데이터셋의 크기 : 25503
 확률분포모델에서 이상치(실제사진)이라 판단한 이미지의 갯수 : 2218
@@ -763,35 +765,37 @@ setup
 <ul>
 <li>이상치(실제사진)로 분류한 이미지를 실제로 확인해보면 아래와 같습니다.</li>
 </ul>
-<div class="cell" data-execution_count="41">
+<div class="cell">
 <div class="cell-output cell-output-display">
 <p><img src="Outlierdetection_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="42">
+<div class="cell">
 <div class="cell-output cell-output-display">
 <p><img src="Outlierdetection_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="43">
+<div class="cell">
 <div class="cell-output cell-output-display">
 <p><img src="Outlierdetection_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="44">
+<div class="cell">
 <div class="cell-output cell-output-display">
 <p><img src="Outlierdetection_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="45">
+<div class="cell">
 <div class="cell-output cell-output-display">
 <p><img src="Outlierdetection_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-
-
 </section>
 </section>
+<section id="정리" class="level1">
+<h1><span style="color:Black"> <strong>정리</strong></span></h1>
+
+
 </section>
 
 </main> <!-- /main -->

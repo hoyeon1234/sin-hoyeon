@@ -22,7 +22,7 @@ from torchvision.datasets import *
 
 inform = {
     'name' : "hoyeon",
-    'path' : "C:/Users/22668/Desktop/github/sin-hoyeon/posts/creatorcamp/dataset",
+    'path' : "C:/Users/22668/Desktop/github/datasets/creatorcamp",
 }
 
 #경로에 가서 (이미지,레이블)의 튜플로 구성된 데이터를 가져옴
