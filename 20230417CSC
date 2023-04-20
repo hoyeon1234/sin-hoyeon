@@ -1,0 +1,30 @@
+아마 for문에서 낼 가능성이 높음(여기까지 범위 포함이므로..!)
+
+for,if문에 딸려오는 문장은 들여쓰기 한다.
+sum += i == sum = sum + i
+
+for 기본구조
+for i in range(시작,종료,증감):
+  들여쓰기
+종료값은 포함하지 않는다.(exclusive)
+
+for i in range(0,6,1):
+  print(i,end="")
+1,2,3,4,5
+
+for i in range(5,10):
+  print(i)
+5,6,7,8,9
+  
+for i in range(1,10,3):
+  print(i)
+1,4,7
+
+for i in range(10,7,-1):
+  print(i)
+10,9,8
+
+팩토리얼 계산문제 
+로그인문제 
+계속 그 합을 입력받는 문제 calc_sum
+중첩for문 
