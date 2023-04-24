@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신호연">
+<meta name="dcterms.date" content="2022-12-27">
+
+<title>HIHO - 확률분포에서 ;와|의 사용</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">확률분포에서 <code>;</code>와<code>|</code>의 사용</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Probability&amp;Statistics</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>신호연 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 27, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#의-사용" id="toc-의-사용" class="nav-link active" data-scroll-target="#의-사용"><span style="color:black"><strong>;의 사용</strong></span></a></li>
+  <li><a href="#의-사용-1" id="toc-의-사용-1" class="nav-link" data-scroll-target="#의-사용-1"><span style="color:black"><strong>|의 사용</strong></span></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>확률분포에서 ;와|에 관한 notation 정리</p>
+<section id="의-사용" class="level1">
+<h1><span style="color:black"><strong>;의 사용</strong></span></h1>
+<p><strong>;</strong> 함수에서 특정 변수를 고정시켜놓을때 사용할 수 있다. 다음과 같은 이변수함수를 생각해보자<br> <span class="math display">\[f(x,y)\]</span> 독립변수 x와 y를 갖는 함수이며 두 변수 모두에 대해서 미분가능하다. 여기서 변수 y가 어떤 어떤 값으로 고정된것이 알려지거나 또는 고정된상황을 가정한 후 x에 대해서만 관심이 있다고 해보자(미분,극한등을 아마도?취하고 싶다..아마도…) 이때는 이변수함수로 표기하는것이 아닌 일변수함수로 표기해야한다. 그때는 다음과 같이 표기하면 된다.</p>
+<p><span class="math display">\[
+f(x;y)
+\]</span><br></p>
+<p>이렇게 표기하면 y값은 이제 어떤 값으로 이미 설정(setting)되거나 고정(fixed)되어있음을 의미한다. 비슷하게 그냥 고정된 파라미터가 이 다음에도 올 수 있다. 베르누이분포의 확률질량함수는 다음과 같다.</p>
+<p><span class="math display">\[f_X(x;p) = p^x(1-p)^{1-x}\]</span></p>
+<p>setting,fixed된 파라미터인 p를 ;다음에 표시했다.</p>
+</section>
+<section id="의-사용-1" class="level1">
+<h1><span style="color:black"><strong>|의 사용</strong></span></h1>
+<p><strong>|</strong>는 given that,if이라는 의미이며 |의 다음에는 <strong>보통 먼저 깔고가거나 주어지는 전제,상황,조건,증거 등</strong>이 나온다. 확률,통계 분야에서만 쓰이며 조건부 확률이나,베이지안에서 많이 쓰이는 기호라고 한다. 중요한 점은 특히 |다음에 오는 상황,조건,증거와 같은 것들은 어떤 관점이냐에 따라서 상수나 확률변수의 관점으로 생각될 수 있다는 것이다. 특히 베이지안에서는 확률변수로 생각한다.</p>
+<p>조건부 확률분포(조건부확률밀도함수,조건부 확률함수)는 다음과 같다.<br> <span class="math display">\[
+p_{X|Y}(x|y) = \frac{p_{XY}(x,y)}{p_Y(y)}\\
+p_{X|Y}(y|x) = \frac{p_{XY}(x,y)}{p_X(x)}
+\]</span> <br> 가장 윗식을 해석해보면 다음과 같다.<br> - 좌변 : 확률변수 Y가 주어진(given)상황에서 확률변수X의 확률(또는 확률밀도)를 나타내는 함수이며 시행으로부터 확률변수 X가 취할 수 있는 값 x를 입력으로 받는다. 조건부 확률분포에서 Y의 값은 y로 주어져 있다고 가정하므로 입력하는 변수가 아니다. 따라서 확률변수 Y는 변수가 아니라 모수(parameter)이다.<br> - 우변 : 조건부확률분포 공식.<br></p>
+<p>## <span style="color:black"> <strong>결론 ; vs |</strong></span></p>
+<p><span class="math display">\[p_{\theta}(x) = p(x;\theta) = p(x|\theta)\]</span> <br> <code>;</code>는 수학의 모든 분야에서 쓰이지만 <code>|</code>는 확률통계분야에서만 쓰인다. ;다음에는 이미 설정되거나 고정된 값이 나오며 |다음에는 먼저 주어지는 조건이 나온다. 근데 ;를 많이 쓰지 않고 |뒤에 그냥 고정된 값을 써버리는 경우가 많다. 이는 지양해야 할 표현이다.</p>
+<p>참고링크<br> <a href="https://math.stackexchange.com/questions/3421665/do-the-vertical-bar-and-semicolon-denote-the-same-thing-in-the-context-of-condit">링크1(;의 사용법)</a><br> <a href="https://datascienceschool.net/02%20mathematics/07.04%20%EB%8B%A4%EB%B3%80%EC%88%98%20%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98.html#id13">링크2(조건부확률분포)</a><br> <a href="https://bubilife.tistory.com/32">링크3(표기법의 혼용)</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
