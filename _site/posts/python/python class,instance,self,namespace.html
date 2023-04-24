@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HIHO – python-classinstanceselfnamespace</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#namespace" id="toc-namespace" class="nav-link active" data-scroll-target="#namespace">Namespace</a>
+  <ul class="collapse">
+  <li><a href="#좁은의미" id="toc-좁은의미" class="nav-link" data-scroll-target="#좁은의미">좁은의미 …</a></li>
+  <li><a href="#더-넓은의미-." id="toc-더-넓은의미-." class="nav-link" data-scroll-target="#더-넓은의미-.">더 넓은의미 ….</a>
+  <ul class="collapse">
+  <li><a href="#동작요약" id="toc-동작요약" class="nav-link" data-scroll-target="#동작요약">동작요약</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#모듈의-전역네임스페이스-살펴보기" id="toc-모듈의-전역네임스페이스-살펴보기" class="nav-link" data-scroll-target="#모듈의-전역네임스페이스-살펴보기">모듈의 전역네임스페이스 살펴보기</a></li>
+  <li><a href="#함수의-지역네임스페이스-확인해보기" id="toc-함수의-지역네임스페이스-확인해보기" class="nav-link" data-scroll-target="#함수의-지역네임스페이스-확인해보기">함수의 지역네임스페이스 확인해보기</a></li>
+  <li><a href="#lgb-rule" id="toc-lgb-rule" class="nav-link" data-scroll-target="#lgb-rule">LGB RULE</a></li>
+  <li><a href="#classinstance와-lcgb-rule" id="toc-classinstance와-lcgb-rule" class="nav-link" data-scroll-target="#classinstance와-lcgb-rule">CLASS,instance와 LCGB RULE</a>
+  <ul class="collapse">
+  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class">CLASS</a></li>
+  <li><a href="#instance" id="toc-instance" class="nav-link" data-scroll-target="#instance">instance</a></li>
+  <li><a href="#lcgb-rule" id="toc-lcgb-rule" class="nav-link" data-scroll-target="#lcgb-rule">LCGB RULE</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<section id="namespace" class="level1">
+<h1>Namespace</h1>
+<section id="좁은의미" class="level2">
+<h2 class="anchored" data-anchor-id="좁은의미">좁은의미 …</h2>
+<ul>
+<li>파이썬에서 어떤 부분(스코프)에서 코드(할당문)가 작성되느냐에 따라 객체를 가리키는 식별자(변수명)와 객체는 다른 공간에 속하게 된다.</li>
+<li>이와같은 식별자와 객체가 속하는 서로다른 공간을 Namespace(이름공간)이라고 한다.</li>
+<li>모듈에서 코드가 작성되면 모듈이 가지는 네임스페이스인 전역네임스페이스에 식별자와 객체가 생성되며 매핑되는 관계를 가지게 된다.</li>
+<li>함수안에서 코드가 작성되면 함수의 네임스페이스인 지역네임스페이스에서 식별자와 객체가 생성되며 서로 매핑되는 관계를 가지며 클래스,인스턴스에서도 네임스페이스라는 개념이 존재한다.</li>
+<li>이 매핑관계는 파이썬에서 딕셔너리로 구현된다.</li>
+</ul>
+</section>
+<section id="더-넓은의미-." class="level2">
+<h2 class="anchored" data-anchor-id="더-넓은의미-.">더 넓은의미 ….</h2>
+<ul>
+<li>네임스페이스는 단순히 식별자와 객체가 소속되는 공간이라는 의미를 넘어서서 나아가 코드의 실행이 이루어지는 공간을 의미하기도 한다.</li>
+</ul>
+<section id="동작요약" class="level3">
+<h3 class="anchored" data-anchor-id="동작요약">동작요약</h3>
+<p>객체에 대해 뭔가 실행 -&gt; 네임스페이스에서 객체를 조회 -&gt; 객체를 가져옴(없거나 다른 네임스페이스에도 없으면 에러)<br> 지역네임스페이스에 없으면 -&gt; 전역네임스페이스 조회,여기에도 없으면 -&gt; 빌트인 네임스페이스 조회,여기에도 없으면 오류</p>
+<p>스코프 : 코드상의 어떤 영역을 말한다. 하나 또는 여러개의 네임스페이스와 네임스페이스와 연결되어 있다.</p>
+<p>참고링크<br> https://post.naver.com/viewer/postView.nhn?volumeNo=27785662&amp;memberNo=21815&amp;navigationType=push<br> https://schoolofweb.net/blog/posts/%ED%8C%8C%EC%9D%B4%EC%8D%AC-oop-part-3-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%B3%80%EC%88%98class-variable/<br> https://wikidocs.net/1743<br> https://hcnoh.github.io/2021-04-17-dkvmn<br></p>
+</section>
+</section>
+</section>
+<section id="모듈의-전역네임스페이스-살펴보기" class="level1">
+<h1>모듈의 전역네임스페이스 살펴보기</h1>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:10,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321582939,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>a<span class="op">=</span><span class="dv">10</span><span class="op">;</span>b<span class="op">=</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:10,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321582939,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="3b79d870-98a6-47af-9923-1de44796e3dc" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#전역네임스페이스를 보여주는 명령어</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">globals</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>{'__name__': '__main__',
+ '__doc__': 'Automatically created module for IPython interactive environment',
+ '__package__': None,
+ '__loader__': None,
+ '__spec__': None,
+ '__builtin__': &lt;module 'builtins' (built-in)&gt;,
+ '__builtins__': &lt;module 'builtins' (built-in)&gt;,
+ '_ih': ['',
+  'a=10;b=20',
+  '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()'],
+ '_oh': {},
+ '_dh': ['/content'],
+ 'In': ['',
+  'a=10;b=20',
+  '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()'],
+ 'Out': {},
+ 'get_ipython': &lt;bound method InteractiveShell.get_ipython of &lt;google.colab._shell.Shell object at 0x7fe22c68e490&gt;&gt;,
+ 'exit': &lt;IPython.core.autocall.ZMQExitAutocall at 0x7fe229652590&gt;,
+ 'quit': &lt;IPython.core.autocall.ZMQExitAutocall at 0x7fe229652590&gt;,
+ '_': '',
+ '__': '',
+ '___': '',
+ '_i': 'a=10;b=20',
+ '_ii': '',
+ '_iii': '',
+ '_i1': 'a=10;b=20',
+ 'a': 10,
+ 'b': 20,
+ '_i2': '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()'}</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:9,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321582939,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="14218585-ee36-4f45-fbd3-83b42338c23f" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#지역네임스페이스를 보여주는 명령어</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">locals</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>{'__name__': '__main__',
+ '__doc__': 'Automatically created module for IPython interactive environment',
+ '__package__': None,
+ '__loader__': None,
+ '__spec__': None,
+ '__builtin__': &lt;module 'builtins' (built-in)&gt;,
+ '__builtins__': &lt;module 'builtins' (built-in)&gt;,
+ '_ih': ['',
+  'a=10;b=20',
+  '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+  '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()'],
+ '_oh': {2: {...}},
+ '_dh': ['/content'],
+ 'In': ['',
+  'a=10;b=20',
+  '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+  '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()'],
+ 'Out': {2: {...}},
+ 'get_ipython': &lt;bound method InteractiveShell.get_ipython of &lt;google.colab._shell.Shell object at 0x7fe22c68e490&gt;&gt;,
+ 'exit': &lt;IPython.core.autocall.ZMQExitAutocall at 0x7fe229652590&gt;,
+ 'quit': &lt;IPython.core.autocall.ZMQExitAutocall at 0x7fe229652590&gt;,
+ '_': {...},
+ '__': '',
+ '___': '',
+ '_i': '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+ '_ii': 'a=10;b=20',
+ '_iii': '',
+ '_i1': 'a=10;b=20',
+ 'a': 10,
+ 'b': 20,
+ '_i2': '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+ '_2': {...},
+ '_i3': '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()'}</code></pre>
+</div>
+</div>
+</section>
+<section id="함수의-지역네임스페이스-확인해보기" class="level1">
+<h1>함수의 지역네임스페이스 확인해보기</h1>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:680,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583612,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="118675b1-d364-4fb7-db91-bd97ee1025a5" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> printhi():</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  text <span class="op">=</span> <span class="st">"hi"</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  text2 <span class="op">=</span> <span class="st">"hello"</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="bu">print</span>(<span class="st">"hi"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="bu">print</span>(<span class="va">__name__</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="bu">print</span>(<span class="bu">locals</span>())</span>
+<span id="cb6-7"><a href="#cb6-7"></a>printhi()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hi
+__main__
+{'text': 'hi', 'text2': 'hello'}</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:22,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583612,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="9cd8bdf2-201f-4615-c35f-941a08758924" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">globals</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>{'__name__': '__main__',
+ '__doc__': 'Automatically created module for IPython interactive environment',
+ '__package__': None,
+ '__loader__': None,
+ '__spec__': None,
+ '__builtin__': &lt;module 'builtins' (built-in)&gt;,
+ '__builtins__': &lt;module 'builtins' (built-in)&gt;,
+ '_ih': ['',
+  'a=10;b=20',
+  '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+  '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()',
+  'def printhi():\n  text = "hi"\n  text2 = "hello"\n  print("hi")\n  print(__name__)\n  print(locals())\nprinthi()',
+  'globals()'],
+ '_oh': {2: {...}, 3: {...}},
+ '_dh': ['/content'],
+ 'In': ['',
+  'a=10;b=20',
+  '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+  '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()',
+  'def printhi():\n  text = "hi"\n  text2 = "hello"\n  print("hi")\n  print(__name__)\n  print(locals())\nprinthi()',
+  'globals()'],
+ 'Out': {2: {...}, 3: {...}},
+ 'get_ipython': &lt;bound method InteractiveShell.get_ipython of &lt;google.colab._shell.Shell object at 0x7fe22c68e490&gt;&gt;,
+ 'exit': &lt;IPython.core.autocall.ZMQExitAutocall at 0x7fe229652590&gt;,
+ 'quit': &lt;IPython.core.autocall.ZMQExitAutocall at 0x7fe229652590&gt;,
+ '_': {...},
+ '__': {...},
+ '___': '',
+ '_i': 'def printhi():\n  text = "hi"\n  text2 = "hello"\n  print("hi")\n  print(__name__)\n  print(locals())\nprinthi()',
+ '_ii': '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()',
+ '_iii': '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+ '_i1': 'a=10;b=20',
+ 'a': 10,
+ 'b': 20,
+ '_i2': '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+ '_2': {...},
+ '_i3': '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()',
+ '_3': {...},
+ '_i4': 'def printhi():\n  text = "hi"\n  text2 = "hello"\n  print("hi")\n  print(__name__)\n  print(locals())\nprinthi()',
+ 'printhi': &lt;function __main__.printhi()&gt;,
+ '_i5': 'globals()'}</code></pre>
+</div>
+</div>
+</section>
+<section id="lgb-rule" class="level1">
+<h1>LGB RULE</h1>
+<ul>
+<li>파이썬 인터프리터는 해당네임스페이스에 식별자를 통해서 찾는 객체가 없으면 그 상위 네임스페이스에서 식별자를 통해 객체를 참조하게 된다. 만약 상위 네임스페이스에도 찾을 수 없는 경우 에러를 띄우게 된다.</li>
+<li>따라서 아래와 같은 경우는 에러를 띄우지 않는다.</li>
+</ul>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:22,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583613,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="67334536-b3f9-48d3-b506-458000f96094" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">def</span> no_local():</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="bu">print</span>(<span class="bu">locals</span>())</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="bu">print</span>(x)</span>
+<span id="cb10-5"><a href="#cb10-5"></a>no_local()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{}
+1</code></pre>
+</div>
+</div>
+</section>
+<section id="classinstance와-lcgb-rule" class="level1">
+<h1>CLASS,instance와 LCGB RULE</h1>
+<ul>
+<li>파이썬에서는 클래스도 하나의 함수 객체의 성격을 가진다.</li>
+<li>그래서 클래스 내부에서 변수가 선언되면 객체는 식별자와 객체는 클래스 내부의 지역네임스페이스에 속하게 된다.</li>
+</ul>
+<p>추가적으로 .. - 클래스 함수는 그 반환값이 사용자가 정의한 객체이다.</p>
+<section id="class" class="level2">
+<h2 class="anchored" data-anchor-id="class">CLASS</h2>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:20,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583613,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> Resnet(): <span class="co">#클래스 함수를 정의하는 경우 def대신 class를 입력한다.</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  temp <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="co">#print(locals())</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># 이 코드를 실행하면 c는 Resnet이라는 클래스 함수의 호출을 통해 생성된 객체의 식별자가 된다.</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># 클래스 함수는 그 반환값이 사용자가 정의한 객체가 되며 이 객체를 변수c가 가리키게 된다.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:20,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583613,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="d1509d41-1282-4472-8cce-a7d8ef48c4dc" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>Resnet.__dict__ <span class="co">#클래스의 네임스페이스 확인</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co">#클래스에 print(locals())로도 확인할 수 있음.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>mappingproxy({'__module__': '__main__',
+              'temp': 25,
+              '__dict__': &lt;attribute '__dict__' of 'Resnet' objects&gt;,
+              '__weakref__': &lt;attribute '__weakref__' of 'Resnet' objects&gt;,
+              '__doc__': None})</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:20,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583614,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="571a68fd-258f-4fd6-d5df-b2a248067ebf" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">globals</span>() <span class="co">#전역네임스페이스에 클래스 Resnet이 추가된 것도 확인</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>{'__name__': '__main__',
+ '__doc__': 'Automatically created module for IPython interactive environment',
+ '__package__': None,
+ '__loader__': None,
+ '__spec__': None,
+ '__builtin__': &lt;module 'builtins' (built-in)&gt;,
+ '__builtins__': &lt;module 'builtins' (built-in)&gt;,
+ '_ih': ['',
+  'a=10;b=20',
+  '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+  '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()',
+  'def printhi():\n  text = "hi"\n  text2 = "hello"\n  print("hi")\n  print(__name__)\n  print(locals())\nprinthi()',
+  'globals()',
+  'x = 1\ndef no_local():\n    print(locals())\n    print(x)\nno_local()',
+  'class Resnet(): #클래스 함수를 정의하는 경우 def대신 class를 입력한다.\n  temp = 25\n  #print(locals())\n# 이 코드를 실행하면 c는 Resnet이라는 클래스 함수의 호출을 통해 생성된 객체의 식별자가 된다.\n# 클래스 함수는 그 반환값이 사용자가 정의한 객체가 되며 이 객체를 변수c가 가리키게 된다.',
+  'Resnet.__dict__ #클래스의 네임스페이스 확인\n#클래스에 print(locals())로도 확인할 수 있음.',
+  'globals() #전역네임스페이스에 클래스 Resnet이 추가된 것도 확인'],
+ '_oh': {2: {...},
+  3: {...},
+  5: {...},
+  8: mappingproxy({'__module__': '__main__',
+                'temp': 25,
+                '__dict__': &lt;attribute '__dict__' of 'Resnet' objects&gt;,
+                '__weakref__': &lt;attribute '__weakref__' of 'Resnet' objects&gt;,
+                '__doc__': None})},
+ '_dh': ['/content'],
+ 'In': ['',
+  'a=10;b=20',
+  '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+  '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()',
+  'def printhi():\n  text = "hi"\n  text2 = "hello"\n  print("hi")\n  print(__name__)\n  print(locals())\nprinthi()',
+  'globals()',
+  'x = 1\ndef no_local():\n    print(locals())\n    print(x)\nno_local()',
+  'class Resnet(): #클래스 함수를 정의하는 경우 def대신 class를 입력한다.\n  temp = 25\n  #print(locals())\n# 이 코드를 실행하면 c는 Resnet이라는 클래스 함수의 호출을 통해 생성된 객체의 식별자가 된다.\n# 클래스 함수는 그 반환값이 사용자가 정의한 객체가 되며 이 객체를 변수c가 가리키게 된다.',
+  'Resnet.__dict__ #클래스의 네임스페이스 확인\n#클래스에 print(locals())로도 확인할 수 있음.',
+  'globals() #전역네임스페이스에 클래스 Resnet이 추가된 것도 확인'],
+ 'Out': {2: {...},
+  3: {...},
+  5: {...},
+  8: mappingproxy({'__module__': '__main__',
+                'temp': 25,
+                '__dict__': &lt;attribute '__dict__' of 'Resnet' objects&gt;,
+                '__weakref__': &lt;attribute '__weakref__' of 'Resnet' objects&gt;,
+                '__doc__': None})},
+ 'get_ipython': &lt;bound method InteractiveShell.get_ipython of &lt;google.colab._shell.Shell object at 0x7fe22c68e490&gt;&gt;,
+ 'exit': &lt;IPython.core.autocall.ZMQExitAutocall at 0x7fe229652590&gt;,
+ 'quit': &lt;IPython.core.autocall.ZMQExitAutocall at 0x7fe229652590&gt;,
+ '_': mappingproxy({'__module__': '__main__',
+               'temp': 25,
+               '__dict__': &lt;attribute '__dict__' of 'Resnet' objects&gt;,
+               '__weakref__': &lt;attribute '__weakref__' of 'Resnet' objects&gt;,
+               '__doc__': None}),
+ '__': {...},
+ '___': {...},
+ '_i': 'Resnet.__dict__ #클래스의 네임스페이스 확인\n#클래스에 print(locals())로도 확인할 수 있음.',
+ '_ii': 'class Resnet(): #클래스 함수를 정의하는 경우 def대신 class를 입력한다.\n  temp = 25\n  #print(locals())\n# 이 코드를 실행하면 c는 Resnet이라는 클래스 함수의 호출을 통해 생성된 객체의 식별자가 된다.\n# 클래스 함수는 그 반환값이 사용자가 정의한 객체가 되며 이 객체를 변수c가 가리키게 된다.',
+ '_iii': 'x = 1\ndef no_local():\n    print(locals())\n    print(x)\nno_local()',
+ '_i1': 'a=10;b=20',
+ 'a': 10,
+ 'b': 20,
+ '_i2': '#전역네임스페이스를 보여주는 명령어\n#전역네임스페이스에 존재하는 식별자와 객체들을 볼 수 있다.\nglobals()',
+ '_2': {...},
+ '_i3': '#지역네임스페이스를 보여주는 명령어\n#지역네임스페이스는 어떤 스코프에서의 네임스페이스를 보여준다.\n#모듈의 지역네임스페이스는 전역네임스페이스와 같으므로 두 결과는 서로 같다.\nlocals()',
+ '_3': {...},
+ '_i4': 'def printhi():\n  text = "hi"\n  text2 = "hello"\n  print("hi")\n  print(__name__)\n  print(locals())\nprinthi()',
+ 'printhi': &lt;function __main__.printhi()&gt;,
+ '_i5': 'globals()',
+ '_5': {...},
+ '_i6': 'x = 1\ndef no_local():\n    print(locals())\n    print(x)\nno_local()',
+ 'x': 1,
+ 'no_local': &lt;function __main__.no_local()&gt;,
+ '_i7': 'class Resnet(): #클래스 함수를 정의하는 경우 def대신 class를 입력한다.\n  temp = 25\n  #print(locals())\n# 이 코드를 실행하면 c는 Resnet이라는 클래스 함수의 호출을 통해 생성된 객체의 식별자가 된다.\n# 클래스 함수는 그 반환값이 사용자가 정의한 객체가 되며 이 객체를 변수c가 가리키게 된다.',
+ 'Resnet': __main__.Resnet,
+ '_i8': 'Resnet.__dict__ #클래스의 네임스페이스 확인\n#클래스에 print(locals())로도 확인할 수 있음.',
+ '_8': mappingproxy({'__module__': '__main__',
+               'temp': 25,
+               '__dict__': &lt;attribute '__dict__' of 'Resnet' objects&gt;,
+               '__weakref__': &lt;attribute '__weakref__' of 'Resnet' objects&gt;,
+               '__doc__': None}),
+ '_i9': 'globals() #전역네임스페이스에 클래스 Resnet이 추가된 것도 확인'}</code></pre>
+</div>
+</div>
+<ul>
+<li>def로 정의하는 함수객체와는 달리 class로 정의한 클래스 함수 객체와 이 클래스의 네임스페이스에 속한 객체들을 “.”이라는 기호를 통해 접근할 수 있음.</li>
+<li>위와 같이 클래스안에서 25라는 객체와 바인딩된 temp를 클래스변수라하며 식별자와 객체는 별도의 클래스(라는 또하나의 다른 함수)네임스페이스에 속하게 된다.</li>
+</ul>
+</section>
+<section id="instance" class="level2">
+<h2 class="anchored" data-anchor-id="instance">instance</h2>
+<ul>
+<li>클래스라는 함수를 호출하면 객체를 반환함.</li>
+<li>이 반환된 객체를 인스턴스라 하며 인스턴스는 클래스가 별도로 클래스의 네임스페이스를 가진것처럼 인스턴스도 별도로 인스턴스의 네임스페이스를 가짐.</li>
+</ul>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:18,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583614,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="e6b3d3d8-819e-478b-a175-fad984ae9fd9" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>r1 <span class="op">=</span> Resnet() <span class="co">#클래스 호출하여 인스턴스 생성</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>r2 <span class="op">=</span> Resnet()</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(<span class="bu">id</span>(r1),<span class="bu">id</span>(r2))</span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co">#메모리상에 다른 주소에서 저장됨을 확인</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>140609160422160 140609160422416</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:15,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583614,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="b0ac2e8e-0090-40c5-ae68-6d61f46d2e72" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">dir</span>() <span class="co">#전역네임스페이스에 r1,r2가 추가적으로 있음을 확인</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>['In',
+ 'Out',
+ 'Resnet',
+ '_',
+ '_2',
+ '_3',
+ '_5',
+ '_8',
+ '_9',
+ '__',
+ '___',
+ '__builtin__',
+ '__builtins__',
+ '__doc__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ '_dh',
+ '_i',
+ '_i1',
+ '_i10',
+ '_i11',
+ '_i2',
+ '_i3',
+ '_i4',
+ '_i5',
+ '_i6',
+ '_i7',
+ '_i8',
+ '_i9',
+ '_ih',
+ '_ii',
+ '_iii',
+ '_oh',
+ 'a',
+ 'b',
+ 'exit',
+ 'get_ipython',
+ 'no_local',
+ 'printhi',
+ 'quit',
+ 'r1',
+ 'r2',
+ 'x']</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:12,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583614,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="c5c6415a-368c-419f-8c87-c9f9c9f75e6c" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>r1.__dict__ <span class="co">#인스턴스의 네임스페이스 확인</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#아무것도 없음을 확인할 수 있음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>{}</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:10,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583614,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="bd63b45d-8045-47b5-cc4c-a04d8c0c49cf" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>r2.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>{}</code></pre>
+</div>
+</div>
+<p>클래스 함수를 호출하여 인스턴스(객체)의 네임스페이스에 새로운 식별자와 객체가 속하게 하려면 <strong>init</strong>(self)와 self.변수명 을 작성하면 됨.</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:298,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321805487,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">class</span> Resnet():</span>
+<span id="cb25-2"><a href="#cb25-2"></a>  temp <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb25-4"><a href="#cb25-4"></a>    <span class="va">self</span>.v1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb25-5"><a href="#cb25-5"></a>    <span class="va">self</span>.s1 <span class="op">=</span> <span class="st">"hi"</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>  <span class="co">#print(locals())</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a>r1 <span class="op">=</span> Resnet()</span>
+<span id="cb25-8"><a href="#cb25-8"></a>r2 <span class="op">=</span> Resnet()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321847063,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="04d6bbc6-e01b-4884-adf3-9d756cf52c0f" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>r1.__dict__ <span class="co">#객체(인스턴스)의 네임스페이스에 새로운 식별자와 변수들의 매핑관계가 있음을 확인할 수 있음.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>{'v1': [1, 2, 3, 4], 's1': 'hi'}</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321817203,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="20b4cec4-46ca-45b6-bd74-b2e1e9f290c8" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>r2.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>{'v1': [1, 2, 3, 4], 's1': 'hi'}</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:10,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668321583615,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="f9f559f1-4f28-4f32-ddb5-686e39d069d3" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">#클래스의 네임스페이스에 "."이라는 기호로 접근할 수 있음</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="bu">print</span>(Resnet.temp)</span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="bu">print</span>(<span class="bu">id</span>(Resnet.temp))</span>
+<span id="cb30-4"><a href="#cb30-4"></a></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="co">#인스턴스의 네임스페이스에 "."이라는 기호로 접근가능</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a>c <span class="op">=</span> Resnet()</span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="bu">print</span>(c.temp)</span>
+<span id="cb30-8"><a href="#cb30-8"></a><span class="bu">print</span>(<span class="bu">id</span>(c.temp))</span>
+<span id="cb30-9"><a href="#cb30-9"></a></span>
+<span id="cb30-10"><a href="#cb30-10"></a><span class="co">#메모리상에서 같은 주소에 저장되어 있음도 확인</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>25
+11127456
+25
+11127456</code></pre>
+</div>
+</div>
+</section>
+<section id="lcgb-rule" class="level2">
+<h2 class="anchored" data-anchor-id="lcgb-rule">LCGB RULE</h2>
+<ul>
+<li>새로 생성된 객체의 내부 지역네임스페이스 즉 인스턴스의네임스페이스에 없는 객체를 가져오라 명령=&gt; 클래스의 네임스페이스를 조회하고 그래도 없으면 상위 네임스페이스를 조회하게 된다.</li>
+</ul>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:1,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668322485825,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">class</span> Resnet_2():</span>
+<span id="cb32-2"><a href="#cb32-2"></a>  z<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb32-4"><a href="#cb32-4"></a>    temp <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>    temp <span class="op">=</span> <span class="st">"hi"</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>    <span class="co">#print(locals())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668322545192,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="321f01ae-8c3e-4842-8151-ad24b02e76f0" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>resnet <span class="op">=</span> Resnet_2()</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="bu">print</span>(resnet.__dict__,resnet.z)</span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#resnet이라는 인스턴스(객체)의 네임스페이스에 z라는 변수가 없음</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co">#근데 z라는 변수가 가리키는 객체를 가져오라고 명령 -&gt; 클래스의 네임스페이스를 조회하고 </span></span>
+<span id="cb33-5"><a href="#cb33-5"></a><span class="co">#그래도 없으면 더 상위의네임스페이스를 조회</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{} 2</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668322613418,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="dbb442f3-e155-46dd-ddc5-86f91ca53ac1" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">class</span> Resnet_2():</span>
+<span id="cb35-2"><a href="#cb35-2"></a>  z<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb35-4"><a href="#cb35-4"></a>    temp <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>    temp <span class="op">=</span> <span class="st">"hi"</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>    <span class="va">self</span>.z <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb35-7"><a href="#cb35-7"></a>resnet <span class="op">=</span> Resnet_2()</span>
+<span id="cb35-8"><a href="#cb35-8"></a><span class="bu">print</span>(resnet.__dict__,resnet.z)</span>
+<span id="cb35-9"><a href="#cb35-9"></a><span class="co">#이 경우는 인스턴스의 네임스페이스에 식별자와 객체가 있으므로 클래스네임스페이스를 조회하지 않음.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'z': 32} 32</code></pre>
+</div>
+</div>
+<p>#self에 대한 고찰 결론<br> 1. self는 태몽? 같은 느낌이다. 즉,클래스에 대해서 코드를 작성할때에는 만들지 않았지만 … 미래에 클래스를 호출하여 객체를 만들면 <strong>어떤 객체가 메모리상의 어떤 공간에 있을텐데 그 객체를 가리키며 객체와 바인딩되는 변수</strong>라고 생각하면 된다.<br> 예를들어서, cookie = Cookie()이렇게 하면 cookie라는 변수는 Cookie객체와 바인딩된다. self도 이와같이 Cookie객체와 바인딩되는데 이제 클래스를 코드로 작성할때에는 미리만들어질 객체에 지칭을 해주기 위해서 이런 이름이 붙었다고 생각하면 될 것 같다. 2. “.”을 사용하여 객체와 변수사이에 .을 붙이면 즉,객체.변수 하면 객체의 네임스페이스안에 있는 또다른 객체들에 접근할 수 있다..(정확히는 객체(인스턴스)와바인딩된변수.객체(인스턴스)의 네임스페이스에 속한 변수명(식별자)라고 할 수 있다.)클래스를 작성할때 메소드안에 이 self를 적는 이유는 클래스로부터 만들어진 인스턴스의 네임스페이스안에 있는 객체에 대해서 접근하여 뭔가를 바꾸거나 조작하기 위해서이다. 3. 인스턴스.메서드()를 하면 함수에 아무인자를 넣어주지않았지만 <strong>파이썬스스로 객체(인스턴스)그 자체를 첫번째 인자로 전달</strong>해준다.이는 클래스.메소드(인스턴스)라는 코드와 완전히 동일하다. 4. 만약에 인스턴스(객체)의 메소드를 실행시키지 않고 클래스의 자체에서 메소드를 실행시키는 경우,self는 필요가 없다.</p>
+<p>핵심요약 1. self는 객체 또는 인스턴스 그 자체를 가리키는 변수. 2. 객체(인스턴스)의 네임스페이스에 속한 또다른 객체들은 객체(인스턴스)와 바인딩된 변수.객체와 바인딩된변수라는 방식으로 접근 가능.간단히 인스턴스.멤버변수로 접근가능 3. 1,2에 의하여, self라는 객체와 바인딩된 변수를 메소드의 인자로 받으면 self.멤버변수 이런식으로 인스턴스의 변수에 접근 가능함.</p>
+<p>인스턴스의 가용범위 : https://andamiro25.tistory.com/38</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:364,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668325916094,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="2647a14c-4a63-4c0a-c380-4a79f425d590" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">class</span> cookie():</span>
+<span id="cb37-2"><a href="#cb37-2"></a>  given <span class="op">=</span> <span class="st">"cookie"</span> <span class="co">#클래스변수 cookie선언 </span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>  maked_num <span class="op">=</span> <span class="dv">0</span> <span class="co">#클래스변수 선언,모든 인스턴스에 대해서 공통된 연산이 되어야 할 때 할당.</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,flavor,size):</span>
+<span id="cb37-5"><a href="#cb37-5"></a>    <span class="va">self</span>.flavor <span class="op">=</span> flavor</span>
+<span id="cb37-6"><a href="#cb37-6"></a>    <span class="va">self</span>.size <span class="op">=</span> size</span>
+<span id="cb37-7"><a href="#cb37-7"></a>    <span class="bu">print</span>(<span class="st">"메모리 주소 :"</span>,<span class="bu">id</span>(<span class="va">self</span>))</span>
+<span id="cb37-8"><a href="#cb37-8"></a>  <span class="kw">def</span> sizeup(<span class="va">self</span>): <span class="co">#self를 왜쓸까? =&gt; self는 객체(인스턴스)그 자체이므로 self.~~로 네임스페이스에 있는 객체에 접근 가능함.인스턴스의 네임스페이스에 있는 객체에 뭔가를 추가하거나 조작하거나 해야하는 메서드는 self를 사용함</span></span>
+<span id="cb37-9"><a href="#cb37-9"></a>    <span class="va">self</span>.size <span class="op">+=</span><span class="dv">5</span></span>
+<span id="cb37-10"><a href="#cb37-10"></a>cookie1 <span class="op">=</span> cookie(<span class="st">"banana"</span>,<span class="dv">25</span>)</span>
+<span id="cb37-11"><a href="#cb37-11"></a>cookie2 <span class="op">=</span> cookie(<span class="st">"melon"</span>,<span class="dv">10</span>)</span>
+<span id="cb37-12"><a href="#cb37-12"></a><span class="bu">print</span>(<span class="st">"쿠키1"</span>,<span class="bu">id</span>(cookie1))</span>
+<span id="cb37-13"><a href="#cb37-13"></a><span class="bu">print</span>(<span class="st">"쿠키2"</span>,<span class="bu">id</span>(cookie2))</span>
+<span id="cb37-14"><a href="#cb37-14"></a><span class="co">#self라는 객체의 메모리주소를 가리켜보니 변수cookie1,cookie2가 가리키는 객체의 메모리주소와 같다</span></span>
+<span id="cb37-15"><a href="#cb37-15"></a><span class="co">#즉,self는 객체(인스턴스) 그 자체를 가리킨다!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>메모리 주소 : 140609086555024
+메모리 주소 : 140609086554896
+쿠키1 140609086555024
+쿠키2 140609086554896</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:12,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668325916460,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="ce693863-108e-425a-eb7b-3ed01cdb631e" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="bu">print</span>(cookie1.maked_num,cookie1.flavor,cookie1.size)</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="bu">print</span>(cookie2.maked_num,cookie2.flavor,cookie2.size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 banana 25
+0 melon 10</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:11,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668325916461,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="2d38161b-43bb-4f70-bc85-ca8628169e21" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>cookie1.__dict__,cookie2.__dict__ <span class="co">#cookie1,cookie2라는 객체(인스턴스)의 네임스페이스 확인</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="co">#서로다른 독립적인 네임스페이스를 가지는 것을 확인</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="78">
+<pre><code>({'flavor': 'banana', 'size': 25}, {'flavor': 'melon', 'size': 10})</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668325916745,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="581e0d81-f98d-4325-fc67-6b48d526ae50" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>cookie.sizeup(cookie1)<span class="op">;</span><span class="bu">print</span>(cookie1.size)</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="co">#==cookie1.sizeup()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>30</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668327549030,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="1788e22a-0cf9-4b81-e835-411dce964713" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">class</span> cookie_inform():</span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="co">#클래스 변수 선언</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a>  making_time <span class="op">=</span> <span class="st">"1345"</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a>  price <span class="op">=</span><span class="dv">2000</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>  maked_num <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a>  <span class="kw">def</span> making_up(maked_num):</span>
+<span id="cb45-7"><a href="#cb45-7"></a>    maked_num<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a>cookie_inform.making_up(cookie_inform.maked_num)</span>
+<span id="cb45-9"><a href="#cb45-9"></a>cookie_inform.maked_num</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="94">
+<pre><code>0</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:5,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1668325764371,&quot;user&quot;:{&quot;displayName&quot;:&quot;HI HO&quot;,&quot;userId&quot;:&quot;02467319230616489780&quot;},&quot;user_tz&quot;:-540}" data-outputid="765b28ce-219a-41e4-a146-10e07f92e0a4" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>cookie1.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>{'flavor': 'banana', 'size': 25, 'd': 'hi'}</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -8,7 +8,7 @@ listing:
   filter-ui: true
   grid-columns: 2
   grid-item-border: true
-  image-height: "400px"
+  image-height: "300px"
   date-format: "short"
   fields: [image,title,subtitle]
 page-layout: full

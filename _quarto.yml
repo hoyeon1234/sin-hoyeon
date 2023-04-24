@@ -12,11 +12,14 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts
+        href: https://github.com/hoyeon1234
         
 #웹사이트 스타일 설정      
 format:
   html:
+    include-in-header:
+      - text : |
+          <meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY" />
     theme: 
       - Journal
       - custom.scss
