@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신호연">
+<meta name="dcterms.date" content="2023-01-31">
+
+<title>HIHO - [Linear Algebra] 6.eigenvalue &amp; eigenvector</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">[Linear Algebra] 6.eigenvalue &amp; eigenvector</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Linear Algebra</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>신호연 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 31, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#행렬은-선형변환이다." id="toc-행렬은-선형변환이다." class="nav-link active" data-scroll-target="#행렬은-선형변환이다.">행렬은 선형변환이다.</a></li>
+  <li><a href="#eigen-valueeigen-vector" id="toc-eigen-valueeigen-vector" class="nav-link" data-scroll-target="#eigen-valueeigen-vector">Eigen value,Eigen vector?</a>
+  <ul class="collapse">
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#invertible" id="toc-invertible" class="nav-link" data-scroll-target="#invertible">Invertible</a></li>
+  <li><a href="#eigenvectoreigenvalue-구하기" id="toc-eigenvectoreigenvalue-구하기" class="nav-link" data-scroll-target="#eigenvectoreigenvalue-구하기">eigenvector,eigenvalue 구하기</a></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리">정리</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>유튜브 - 혁펜하임님의 선형대수학 강의 정리용 입니다.</p>
+<section id="행렬은-선형변환이다." class="level1">
+<h1>행렬은 선형변환이다.</h1>
+<ul>
+<li>함수는 어떤 입력을 주면 출력을 내뱉는다.</li>
+</ul>
+<p><img src="./function.png" class="img-fluid"></p>
+<ul>
+<li>행렬도 마찬가지로 함수로 바라볼 수 있다. 다시말해 행렬<span class="math inline">\(A\)</span>에 어떤 입력 <span class="math inline">\(v\)</span>(벡터)를 넣어주면 출력 <span class="math inline">\(Av\)</span>를 내뱉는다고 볼 수 있다.</li>
+</ul>
+<p><img src="./matrix function.png" class="img-fluid"></p>
+<ul>
+<li>행렬은 함수중에서도 선형변환(linear transformation,linear mapping)이다.</li>
+<li>다음과 같은 선형변환의 두 조건을 만족하기 때문이다.</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Definition of linear transformation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\[\begin{aligned}
+&amp;T(u+v) = T(u) + T(v) \text{  (additivity)}\\
+&amp;T(av) = aT(v) \text{  (Homogeneity)}
+\end{aligned}\]</span>
+</div>
+</div>
+<ul>
+<li>만족하는지 확인해보자.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+&amp;A(u + v) = Au + Av \\
+&amp;A(ku) = aAu
+\end{aligned}\]</span>
+</section>
+<section id="eigen-valueeigen-vector" class="level1">
+<h1>Eigen value,Eigen vector?</h1>
+<ul>
+<li>eigen value(고윳값),eigen vector(고유벡터)는 아래를 만족한다.</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Definition of eigen value,eigen vector
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\[\begin{aligned}
+&amp;Av = \lambda v(v \not = {\bf{{\bf{0}}}}) \\
+&amp;\text{where, }A \in \mathbb{R}^{m \times m},v \in \mathbb{R}^{m \times 1}
+\end{aligned}\]</span>
+</div>
+</div>
+<ul>
+<li>위와 같은 방정식에서 <span class="math inline">\(\lambda\)</span>를 행렬A의 eigenvalue , <span class="math inline">\(v\)</span>를 이에 대응하는 eigenvector라고 한다.</li>
+<li>어떤의미?
+<ul>
+<li>일반적으로 <span class="math inline">\(v\)</span>가 선형변환 <span class="math inline">\(A\)</span>를 통과하면 방향,크기가 어떻게 바뀔지 알 수 없다.</li>
+<li>그러나 어떤 벡터들은 <span class="math inline">\(A\)</span>를 통과해도 크기는 모르지만 단순히 스칼라배되기에 방향은 변하지 않는다.(여기서 방향은 기존에 벡터가 올라가있던 직선에서 벗어나는 것을 의미한다.)</li>
+<li>이때의 방향은 안변하는 벡터들이 eigen vector이며 크기는 eigen value에 의하여 scailing된다.</li>
+</ul></li>
+</ul>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p><img src="./transform_color.png" class="img-fluid"></p>
+<ul>
+<li>그림과 같은 선형변환을 생각해보자.</li>
+<li>대부분의 경우 선형변환된 다음 그 방향,크기는 제멋대로 변한다.</li>
+<li>그러나 보라색벡터와 초록색벡터는 각각 3,1만큼 <strong>크기만 늘어나며 방향이 바뀌지 않는 단순한 스칼라배</strong>임을 알 수 있다.</li>
+<li>따라서 보라색벡터 <span class="math inline">\([-1,1]^T\)</span>,초록색벡터 <span class="math inline">\([1,1]^T\)</span>는 <span class="math inline">\(A\)</span>의 eigenvector이며 대응하는 eigenvalue는 각각 3,1임을 알 수 있다.</li>
+<li>위에서는 초록색 보라색만 찾았지만 사실 이 경우 eigenvector는 무한히 많다.</li>
+<li>또다른 어떤 선형변환의 경우에는 아예 존재하지 않는 경우도 있다.</li>
+<li>그림으로 보면 아래와 같다.(사실 영상으로 보는게 훨씬 이해가 잘된다. <a href="https://www.youtube.com/watch?v=xDARfmKauuA">혁펜하임님 유튜브</a> 가서 한번 보길 추천해요)</li>
+</ul>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./2d.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">before</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./2d linear mapping.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">after</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="invertible" class="level1">
+<h1>Invertible</h1>
+<ul>
+<li>선형변환(함수) 관점에서 invertible하다는 <strong>서로다른 입력이 들어갔을때 서로다른 출력이 나온다</strong>이다.</li>
+</ul>
+<p><img src="./matrix function.png" class="img-fluid"></p>
+<ul>
+<li>위의 그림에서 선형변환 <span class="math inline">\(A\)</span>는 서로다른 입력에 대해서 서로다른 출력을 내뱉는다.</li>
+<li>따라서 서로다른 출력에 대해 역으로 서로다른 입력을 하나씩 매핑하는 역함수를 생각할 수 있으며 따라서 <span class="math inline">\(A\)</span>는 invertible하다.</li>
+</ul>
+<p><img src="./same output.png" class="img-fluid"></p>
+<ul>
+<li>위의 그림에서는 선형변환 <span class="math inline">\(A\)</span>는 각각의 서로다른 입력에 대하여 동일한 출력을 내뱉는다.</li>
+<li>그러면 출력값에 대해서 하나씩 매핑하는 역함수를 생각하기가 어렵다.
+<ul>
+<li>예를 들어 <span class="math inline">\(Av_1\)</span>이 <span class="math inline">\(v_1\)</span>과 <span class="math inline">\(v_2\)</span>중에서 어디로 mapping되어야 할지 생각할 수 없다.</li>
+<li><span class="math inline">\(v_1,v_2\)</span> 모두 <span class="math inline">\(Av_1\)</span>에 mapping되기 때문이다.</li>
+</ul></li>
+<li>즉 서로다른 input에 대해 동일한 output을 출력하는 경우 선형변환 <span class="math inline">\(A\)</span>는 invertible하지 않다.</li>
+</ul>
+</section>
+<section id="eigenvectoreigenvalue-구하기" class="level1">
+<h1>eigenvector,eigenvalue 구하기</h1>
+<ul>
+<li>정의를 다시 가져와보면 ….</li>
+</ul>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Definition of linear transformation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\[\begin{aligned}
+&amp;T(u+v) = T(u) + T(v) \text{  (additivity)}\\
+&amp;T(av) = aT(v) \text{  (Homogeneity)}
+\end{aligned}\]</span>
+</div>
+</div>
+<ul>
+<li>먼저 eigen vector를 구해보자.</li>
+<li><span class="math inline">\(v \not = {\bf{0}}\)</span>라는 조건을 활용해볼 수 있을 것 같다.</li>
+<li>아래와 같이 식을 변형해보자.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+Av - \lambda v = Av - \lambda Iv = (A-\lambda I)v = {\bf{0}}
+\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\lambda\)</span>는 상수이므로 <span class="math inline">\(v\)</span>로 묶고 행렬과의 뺄셈을 수행하기 위해서 <span class="math inline">\(I\)</span>(항등행렬)를 곱해줬다.</li>
+<li><span class="math inline">\(v\)</span>는 <span class="math inline">\(v\not = \bf{{\bf{0}}}\)</span>의 조건을 만족해야 한다.
+<ul>
+<li>만약 <span class="math inline">\(\text{det}(A-\lambda I) \not = {\bf{0}}\)</span>이라면 <span class="math inline">\(A-\lambda I\)</span>의 역행렬이 존재하므로 <span class="math inline">\(v = (A-\lambda)I{\bf{0}} = {\bf{0}}\)</span>이 되어 전제된 조건을 만족하지 못하게 된다.</li>
+<li>따라서 <span class="math inline">\(\text{det}(A-\lambda I) = {\bf{0}}\)</span>라는 조건을 끌어낼 수 있다. <span class="math inline">\(\rightarrow \lambda\)</span>를 구하는 식이 된다.</li>
+<li>또한 윗식에 의해서 <span class="math inline">\(v\)</span>는 <span class="math inline">\((A-\lambda I)\)</span>의 null space임을 알 수 있다. <span class="math inline">\(\rightarrow v\)</span>를 구할 수 있다.</li>
+</ul></li>
+<li>즉, eigen value,eigen vector는 아래와 같이 구하면 된다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+&amp;\text{det}(A-\lambda I )  = 0 \text{을 만족하는 } \lambda\text{는 eigen value} \\
+&amp;v \in N(A-\lambda I) \text{를 만족하는 }v\text{는 eigen vector}
+\end{aligned}\]</span>
+<p>Q. 그런데 <span class="math inline">\(N(A-\lambda I)\)</span>의 원소는 무수히 많은데 그걸 다 고유벡터라고 해야해?<br> A. 정의상 모두 <strong>고유벡터가 맞다.</strong> 하지만 일반적으로 null space의 기저만을 대표로 하여 고유벡터로 삼는다.<br> - 특히 기저의 길이가 1이되게 정규화해서 고유벡터로 삼는다.<br> - 위와 같은 null space를 eigen space라고도 한다.</p>
+</section>
+<section id="정리" class="level1">
+<h1>정리</h1>
+<ul>
+<li>행렬은 선형변환이다.</li>
+<li>일반적으로 선형변환에 의해 벡터들의 크기와 방향은 모두 변한다.</li>
+<li>그런데 그 중에서 크기만 변하는 벡터들이 있다.
+<ul>
+<li>이러한 벡터들을 선형변환에 대응하는 고윳값,고유벡터라 한다.</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

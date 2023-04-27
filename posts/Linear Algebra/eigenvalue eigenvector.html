@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-01-31">
 
-<title>HIHO - eigenvalue &amp; eigenvector</title>
+<title>HIHO - [Linear Algebra] eigenvalue &amp; eigenvector</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">eigenvalue &amp; eigenvector</h1>
+      <h1 class="title">[Linear Algebra] eigenvalue &amp; eigenvector</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Linear Algebra</div>
               </div>
@@ -147,8 +147,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#사전지식-행렬은-선형변환이다" id="toc-사전지식-행렬은-선형변환이다" class="nav-link active" data-scroll-target="#사전지식-행렬은-선형변환이다"><span style="color : black"><strong>사전지식 : 행렬은 선형변환이다</strong></span></a></li>
-  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span style="color : black"><strong>Definition</strong></span></a></li>
+  <li><a href="#사전지식-행렬은-선형변환이다." id="toc-사전지식-행렬은-선형변환이다." class="nav-link active" data-scroll-target="#사전지식-행렬은-선형변환이다.">사전지식 : 행렬은 선형변환이다.</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
   <li><a href="#예시" id="toc-예시" class="nav-link" data-scroll-target="#예시"><strong>예시</strong></a></li>
   <li><a href="#선형변환-관점에서-invertible" id="toc-선형변환-관점에서-invertible" class="nav-link" data-scroll-target="#선형변환-관점에서-invertible"><strong>선형변환 관점에서 invertible</strong></a></li>
   <li><a href="#eigenvectoreigenvalue-구하기" id="toc-eigenvectoreigenvalue-구하기" class="nav-link" data-scroll-target="#eigenvectoreigenvalue-구하기"><strong>eigenvector,eigenvalue 구하기</strong></a></li>
@@ -162,25 +162,34 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 <p>유튜브 - 혁펜하임님의 선형대수학 강의 정리용 입니다.</p>
-<section id="사전지식-행렬은-선형변환이다" class="level1">
-<h1><span style="color : black"><strong>사전지식 : 행렬은 선형변환이다</strong></span></h1>
-<p>함수는 어떤 입력을 주면 출력을 내뱉는다.</p>
+<section id="사전지식-행렬은-선형변환이다." class="level1">
+<h1>사전지식 : 행렬은 선형변환이다.</h1>
+<ul>
+<li>함수는 어떤 입력을 주면 출력을 내뱉는다.</li>
+</ul>
 <p>함수그림</p>
-<p>행렬도 마찬가지로 함수이다. 벡터와 행렬의곱 <span class="math inline">\(Av\)</span>는 함수<span class="math inline">\(A\)</span>에 벡터<span class="math inline">\(v\)</span>를 통과시켜 나온 출력이다.</p>
+<ul>
+<li>행렬도 마찬가지로 함수로 바라볼 수 있다. 다시말해 행렬<span class="math inline">\(A\)</span>에 어떤 입력 <span class="math inline">\(v\)</span>(벡터)를 넣어주면 출력 <span class="math inline">\(Av\)</span>를 내뱉는다고 볼 수 있다.</li>
+</ul>
 <p>행렬그림</p>
-<p>행렬은 함수중에서도 선형변환(linear transformation,linear mapping)이다. 왜냐하면 선형변환의 두 가지 조건을 만족하기 때문이다. 선형변환의 두 조건을 만족하기 때문이다. 선형변환의 두 조건은 다음과 같다.</p>
+<ul>
+<li>행렬은 함수중에서도 선형변환(linear transformation,linear mapping)이다.</li>
+<li>다음과 같은 선형변환의 두 조건을 만족하기 때문이다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;T(u+v) = T(u) + T(v)\\
 &amp;T(av) = aT(v)
 \end{aligned}\]</span>
-<p>임의의 행렬 <span class="math inline">\(A\)</span>와 벡터<span class="math inline">\(u,v\)</span>에 대해서 생각해보자. 위의 식을 행렬버전으로 적어보자</p>
+<ul>
+<li>위의 식을 행렬버전으로 적어보면 아래와 같다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;A(u + v) = Au + Av \\
 &amp;A(ku) = aAu
 \end{aligned}\]</span>
 </section>
 <section id="definition" class="level1">
-<h1><span style="color : black"><strong>Definition</strong></span></h1>
+<h1>Definition</h1>
 <span class="math display">\[\begin{aligned}
 &amp;Av = \lambda v(v \not = {\bf{{\bf{0}}}}) \\
 &amp;\text{where, }A \in \mathbb{R}^{m \times m},v \in \mathbb{R}^{m \times 1}
