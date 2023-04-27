@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-01-05">
 
-<title>HIHO - Ax=b의 해의 갯수 알아내기</title>
+<title>HIHO - [Linear Algebra] 4.Ax=b의 해의 갯수</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,7 +97,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
  <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -111,7 +111,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Ax=b의 해의 갯수 알아내기</h1>
+      <h1 class="title">[Linear Algebra] 4.Ax=b의 해의 갯수</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Linear Algebra</div>
               </div>
@@ -147,13 +147,13 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#열공간을-기반으로-한-axb의-해석" id="toc-열공간을-기반으로-한-axb의-해석" class="nav-link active" data-scroll-target="#열공간을-기반으로-한-axb의-해석"><span style="color : #00994C"><strong>열공간을 기반으로 한 Ax=b의 해석</strong></span></a></li>
-  <li><a href="#case1-a가-full-column-rank일-때" id="toc-case1-a가-full-column-rank일-때" class="nav-link" data-scroll-target="#case1-a가-full-column-rank일-때"><span style="color : #00994c"><strong>Case1 : A가 full column rank일 때</strong></span></a></li>
-  <li><a href="#case2-a가-full-row-rank일-때" id="toc-case2-a가-full-row-rank일-때" class="nav-link" data-scroll-target="#case2-a가-full-row-rank일-때"><span style="color : #00994c"><strong>Case2 : A가 full row rank일 때</strong></span></a></li>
-  <li><a href="#case3-a가-full-rank일-때" id="toc-case3-a가-full-rank일-때" class="nav-link" data-scroll-target="#case3-a가-full-rank일-때"><span style="color : #00994c"><strong>Case3 : A가 full rank일 때</strong></span></a></li>
-  <li><a href="#case4-a가-rank-deficient-일-때" id="toc-case4-a가-rank-deficient-일-때" class="nav-link" data-scroll-target="#case4-a가-rank-deficient-일-때"><span style="color : #00994c"><strong>Case4 : A가 rank deficient 일 때</strong></span></a></li>
-  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리"><span style="color : #00994c"><strong>정리</strong></span></a></li>
-  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료"><span style="color : #00994c"><strong>참고자료</strong></span></a></li>
+  <li><a href="#열공간을-기반으로-한-axb의-해석" id="toc-열공간을-기반으로-한-axb의-해석" class="nav-link active" data-scroll-target="#열공간을-기반으로-한-axb의-해석">열공간을 기반으로 한 Ax=b의 해석</a></li>
+  <li><a href="#case1-a가-full-column-rank일-때" id="toc-case1-a가-full-column-rank일-때" class="nav-link" data-scroll-target="#case1-a가-full-column-rank일-때">Case1 : A가 full column rank일 때</a></li>
+  <li><a href="#case2-a가-full-row-rank일-때" id="toc-case2-a가-full-row-rank일-때" class="nav-link" data-scroll-target="#case2-a가-full-row-rank일-때">Case2 : A가 full row rank일 때</a></li>
+  <li><a href="#case3-a가-full-rank일-때" id="toc-case3-a가-full-rank일-때" class="nav-link" data-scroll-target="#case3-a가-full-rank일-때">Case3 : A가 full rank일 때</a></li>
+  <li><a href="#case4-a가-rank-deficient-일-때" id="toc-case4-a가-rank-deficient-일-때" class="nav-link" data-scroll-target="#case4-a가-rank-deficient-일-때">Case4 : A가 rank deficient 일 때</a></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리">정리</a></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료">참고자료**</a></li>
   </ul>
 </nav>
     </div>
@@ -166,7 +166,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p>유투브 - 혁펜하임님의 선형대수학강의를 정리하기 위해 작성한 글입니다.Rank와 Null space로 Ax=b의 해의 갯수를 파악합니다.<br></p>
 <p>연립일차방정식은 행렬 Ax=b로 나타내고 행렬의 랭크와 열공간을 기반으로 해의 갯수를 나타낼 수 있습니다.</p>
 <section id="열공간을-기반으로-한-axb의-해석" class="level1">
-<h1><span style="color : #00994C"><strong>열공간을 기반으로 한 Ax=b의 해석</strong></span></h1>
+<h1>열공간을 기반으로 한 Ax=b의 해석</h1>
 <p>행렬<span class="math inline">\(A = \begin{bmatrix}a_1 &amp; a_2 &amp; \dots &amp; a_n\end{bmatrix} \in \mathbb{R}^{m \times n}\)</span>와 벡터<span class="math inline">\(x = \begin{bmatrix}x_1,x_2,\dots,x_n\end{bmatrix}^T\in \mathbb{R}^{n \times 1}\)</span>의 곱을 생각해보자. 행렬과 벡터의 곱은 다음과 같이 열벡터의 일차결합으로 바라볼 수 있다.<br></p>
 <span class="math display">\[\begin{aligned}
 Ax = \begin{bmatrix}a_1 &amp; a_2 &amp; \dots &amp; a_n\end{bmatrix}
@@ -178,15 +178,16 @@ x_n
 \end{bmatrix}
 = a_1x_1 + a_2x_2 + \dots a_nx_n
 \end{aligned}\]</span>
-행렬 A의 열공간은 열벡터들의 선형생성이다.
+<p>행렬 A의 열공간은 열벡터들의 선형생성이다.</p>
 <span class="math display">\[\begin{aligned}
 &amp;\text{C}(A) = \text{span}(a_1,a_2,\dots,a_n) = \{c_1a_1 + c_2a_2 + \dots c_na_n|c_1,c_2,\dots,c_n \in K\}
 \end{aligned}\]</span>
-<p>그러므로, 행렬 <span class="math inline">\(A\)</span>의 열공간은 임의의 <span class="math inline">\(x\)</span>에 대하여 가능한 <span class="math inline">\(Ax\)</span>의 모든 집합과 같다. 가능한 모든 스칼라<span class="math inline">\(x_1,x_2,\dots,x_n\)</span>로 벡터의 일차결합이 이루는 집합은 생성(span)과 같기 때문이다<br> <span class="math display">\[\text{C}(A) = \text{span}(a_1,a_2,\dots,a_n) = \{Ax |x\in K^n\}\]</span></p>
+<p>그러므로, 행렬 <span class="math inline">\(A\)</span>의 열공간은 임의의 <span class="math inline">\(x\)</span>에 대하여 가능한 <span class="math inline">\(Ax\)</span>의 모든 집합과 같다. 가능한 모든 스칼라<span class="math inline">\(x_1,x_2,\dots,x_n\)</span>로 벡터의 일차결합이 이루는 집합은 생성(span)과 같기 때문이다.<br></p>
+<p><span class="math display">\[\text{C}(A) = \text{span}(a_1,a_2,\dots,a_n) = \{Ax |x\in K^n\}\]</span></p>
 <p>만약 <span class="math inline">\(Ax = b\)</span>인 방정식의 해 <span class="math inline">\(x\)</span>를 구하려 한다 하자. <span class="math inline">\(\text{C}(A)\)</span>는 가능한 <span class="math inline">\(Ax\)</span>의 모든 집합이였으므로 만약 <span class="math inline">\(\text{C}(A)\)</span>가 <span class="math inline">\(b\)</span>를 포함한다면(즉,<span class="math inline">\(b\)</span>가 열공간의 원소라면) <span class="math inline">\(Ax=b\)</span>인 <span class="math inline">\(x\)</span>가 존재하여 방정식의 해가 존재하고 <span class="math inline">\(\text{C}(A)\)</span>가 <span class="math inline">\(b\)</span>를 포함하지 않는다면 <span class="math inline">\(Ax = b\)</span>인 <span class="math inline">\(x\)</span>값이 존재하지 않고 따라서 방정식의 해가 존재하지 않는다.</p>
 </section>
 <section id="case1-a가-full-column-rank일-때" class="level1">
-<h1><span style="color : #00994c"><strong>Case1 : A가 full column rank일 때</strong></span></h1>
+<h1>Case1 : A가 full column rank일 때</h1>
 <p>문제 : <span class="math inline">\(A \in \mathbb{R}^{m \times n},\text{rank}(A) = n&lt;m\,,x = \in \mathbb{R}^{n \times 1}\,,b\in \mathbb{R}^{m \times 1}\)</span> 일때, <span class="math inline">\(Ax = b\)</span>를 만족하는 x의 갯수는?</p>
 <p><img src="./full column rank.png" class="img-fluid"> 위의 문제에서 A는 full column rank이다. full column rank일 경우 <span class="math inline">\(Ax\)</span>의 모양은 위와 같고 열공간은 m차원 벡터공간의 부분공간이자 n차원 벡터공간이다.앞에서 “m차원 벡터공간의 부분공간인 n차원 벡터공간” 이라 했는데 그 이유는 (열)벡터가 m차원 벡터공간의 원소(벡터)이기 때문이다. m차원 벡터공간에 있는 (열)벡터 n개를 기저로 생성된 공간이기 때문에 m차원 벡터공간의 부분공간이면서 동시에 n차원 벡터공간이 된다. <br></p>
 <p>위에서 언급했듯이 열공간은 임의의 x에 대하여 가능한 <span class="math inline">\(Ax\)</span>의 집합이기에 방정식의 해가 존재하려면 b가 열공간안에 있으면 되고 아니면 바깥에 있으면 된다. 그렇다면 이 경우 b의 위치는 어떻게 될까?</p>
@@ -204,19 +205,19 @@ x_n
 <p>결론적으로, full column rank일 경우 해가 존재하지 않거나 단 하나 존재한다.</p>
 </section>
 <section id="case2-a가-full-row-rank일-때" class="level1">
-<h1><span style="color : #00994c"><strong>Case2 : A가 full row rank일 때</strong></span></h1>
+<h1>Case2 : A가 full row rank일 때</h1>
 <p>문제 : <span class="math inline">\(A \in \mathbb{R}^{m \times n},\text{rank}(A) = m&lt;n\,,x = \in \mathbb{R}^{n \times 1}\,,b\in \mathbb{R}^{m \times 1}\)</span> 일때, <span class="math inline">\(Ax = b\)</span>를 만족하는 x의 갯수는?</p>
 <p><img src="./full row rank.png" class="img-fluid"> 위의 문제에서 A는 full row rank이다. 위해서 한 것처럼 먼저 <span class="math inline">\(C(A)\)</span>와 <span class="math inline">\(b\)</span>가 어떻게 위치하고 있을지 파악하고 null space를 따져 완전해를 구하는 것이다. 먼저 <span class="math inline">\(C(A)\)</span>를 생각해보자. <span class="math inline">\(C(A)\)</span>는 행렬의 랭크가 m이기에 n개의 (열)벡터 중 선형독립인 column vector는 m개 뿐이다. 따라서 벡터의 span인 열공간은 m차원 벡터공간이다. (n개의 열벡터가 존재하지만,선형종속이기떄문이다.)</p>
 <p>이전문제와 다른점도 존재하는데 바로 열공간이 (열)벡터가 존재하는 벡터공간의 부분공간이 아니라는 점이다. 이 문제에서 각각의 열벡터는 m차원 공간의 벡터이고 열벡터의 생성도 m차원 벡터공간이기때문에 열벡터가 존재하는 바로 그 공간이 열공간이다.</p>
 <p>위와 같이 열공간에 대해서 생각했으면 이제 b에 대해서 생각해볼 차례다. b의 위치는 어떻게 될까? b는 A의 열공간에 속하는 벡터일까 아닐까?</p>
 <p><img src="./full rank with b.png" class="img-fluid"></p>
 <p>b의 경우 <span class="math inline">\(b \in \mathbb{R}^{m \times 1}\)</span>이기에 열공간에 속하는 벡터이다. 그러므로 full row rank인 경우는 반드시 해가 존재한다.<br></p>
-여기서 완전해를 구하기 위해서 null space도 생각해야한다. 랭크-널리티 정리에 의해 다음과 같다.<br>
+<p>여기서 완전해를 구하기 위해서 null space도 생각해야한다. 랭크-널리티 정리에 의해 다음과 같다.<br></p>
 <span class="math display">\[\begin{aligned}
 &amp;rank(A) + nulity(A) = n \\
 &amp;\Longleftrightarrow nulity(A) = n - rank(A) =  n - m
 \end{aligned}\]</span>
-랭크정리에 의해서 null space는 n-m차원의 벡터공간이다. 이 경우 가능한 <span class="math inline">\(x_{null}\)</span>은 무한히 많이 존재하므로 해가 무수히 많다. 완전해는 다음과 같다.
+<p>랭크정리에 의해서 null space는 n-m차원의 벡터공간이다. 이 경우 가능한 <span class="math inline">\(x_{null}\)</span>은 무한히 많이 존재하므로 해가 무수히 많다. 완전해는 다음과 같다.</p>
 <span class="math display">\[\begin{aligned}
 \therefore\,\,  &amp;x_{complete} = x_{particular} + x_{null}\\
 &amp;\text{where, } x_{null} \in N(A) = \mathbb{R}^{n-m}
@@ -224,22 +225,23 @@ x_n
 <p>결론적으로, full row rank의 경우 해는 무수히 많다.</p>
 </section>
 <section id="case3-a가-full-rank일-때" class="level1">
-<h1><span style="color : #00994c"><strong>Case3 : A가 full rank일 때</strong></span></h1>
+<h1>Case3 : A가 full rank일 때</h1>
 <p>문제 : <span class="math inline">\(A \in \mathbb{R}^{m \times m},\text{rank}(A) = m\,,x = \in \mathbb{R}^{n \times 1}\,,b\in \mathbb{R}^{m \times 1}\)</span> 일때, <span class="math inline">\(Ax = b\)</span>를 만족하는 x의 갯수는?</p>
 <p><img src="./full rank.png" class="img-fluid"></p>
 <p>사실 이 문제의 해는 다음과 같다.<br> <span class="math display">\[x = A^{-1}b\]</span> 그러므로,full rank인 경우 해의 갯수가 1개이다.</p>
 <p>위처럼 간단하게 해를 구할 수 있지만 … 그래도 기하학적으로 생각해보기 위에서 했던 것처럼 따져보자. column space는 m차원 벡터공간이다. column vector는 column space 그 자체인 m차원 벡터공간의 원소이다. <span class="math inline">\(b\in \mathbb{R}^{m \times 1}\)</span>의 경우 m차원 벡터공간의 원소이다. 그러므로, column space는 반드시 b를 포함하며 그림으로 표현하면 다음과 같다.</p>
 <p><img src="./full rank with b.png" class="img-fluid"></p>
-널공간을 따지기 위해 랭크-널리티 정리를 사용해 보면 다음과 같다.<br>
+<p>널공간을 따지기 위해 랭크-널리티 정리를 사용해 보면 다음과 같다.<br></p>
 <span class="math display">\[\begin{aligned}
 &amp;\text{rank}(A)+\text{nulity}(A) = m\\
 &amp;\Longleftrightarrow \text{nulity}(A) = m - \text{rank}(A) = m - m = 0
 \end{aligned}\]</span>
-<p>null space는 차원이 0이므로 <span class="math inline">\(N(A) = \{{\bf 0}\}\)</span>이고 다음과 같다.<br> <span class="math display">\[x_{complete} = x_{particular} + x_{null} = x_{particular} + {\bf 0} = x_{particular}\]</span></p>
+<p>null space는 차원이 0이므로 <span class="math inline">\(N(A) = \{{\bf 0}\}\)</span>이고 다음과 같다.<br></p>
+<p><span class="math display">\[x_{complete} = x_{particular} + x_{null} = x_{particular} + {\bf 0} = x_{particular}\]</span></p>
 <p>결과적으로, full rank인 경우 해는 반드시 존재하며 갯수는 1개이다.</p>
 </section>
 <section id="case4-a가-rank-deficient-일-때" class="level1">
-<h1><span style="color : #00994c"><strong>Case4 : A가 rank deficient 일 때</strong></span></h1>
+<h1>Case4 : A가 rank deficient 일 때</h1>
 <p>문제 : <span class="math inline">\(A \in \mathbb{R}^{m \times n},\text{rank}(A) = \alpha &lt; \text{min}(m,n)\,,x = \in \mathbb{R}^{n \times 1}\,,b\in \mathbb{R}^{m \times 1}\)</span> 일때, <span class="math inline">\(Ax = b\)</span>를 만족하는 x의 갯수는?</p>
 <p><img src="./full row rank.png" class="img-fluid"></p>
 <p>위의 예시에서는 A가 rank deficient인 경우 중, <span class="math inline">\(m&lt;n\)</span> 인 경우를 생각해보자. 행렬 A의 column space는 m차원 공간의 부분공간이자 <span class="math inline">\(\alpha\)</span>차원의 벡터공간이다.<span class="math inline">\(b \in \mathbb{R}^{m \times 1}\)</span>이므로 가능한 경우는 아래와 같다.</p>
@@ -249,7 +251,7 @@ x_n
 &amp;\text{rank}(A) + \text{nulity}(A) = \alpha + \text{nulity}(A) = n \\
 &amp;\Longleftrightarrow \text{nulity}(A) = n - \alpha &gt; 0
 \end{aligned}\]</span>
-랭크정리에 의해서 null space는 <span class="math inline">\(n - \alpha\)</span>차원의 벡터공간이다. 이 경우 null space의 임의의 원소인 <span class="math inline">\(x_{null}\)</span>는 무한히 많이 존재하므로 해가 무수히 많다. 완전해는 다음과 같다.
+<p>랭크정리에 의해서 null space는 <span class="math inline">\(n - \alpha\)</span>차원의 벡터공간이다. 이 경우 null space의 임의의 원소인 <span class="math inline">\(x_{null}\)</span>는 무한히 많이 존재하므로 해가 무수히 많다. 완전해는 다음과 같다.</p>
 <span class="math display">\[\begin{aligned}
 \therefore\,\,  &amp;x_{complete} = x_{particular} + x_{null}\\
 &amp;\text{where, } x_{null} \in N(A) = \mathbb{R}^{n-\alpha}
@@ -257,7 +259,7 @@ x_n
 <p>결론적으로, rank deficient의 경우 해는 무수히 많거나 해는 존재하지 않는다.</p>
 </section>
 <section id="정리" class="level1">
-<h1><span style="color : #00994c"><strong>정리</strong></span></h1>
+<h1>정리</h1>
 <table class="table">
 <colgroup>
 <col style="width: 26%">
@@ -296,7 +298,7 @@ x_n
 </table>
 </section>
 <section id="참고자료" class="level1">
-<h1><span style="color : #00994c"><strong>참고자료</strong></span></h1>
+<h1>참고자료**</h1>
 <p><a href="https://www.youtube.com/watch?v=nNI2TlD598c&amp;list=PL_iJu012NOxdZDxoGsYidMf2_bERIQaP0&amp;index=13">혁펜하임 - [선대] 2-11강. Ax=b 의 해의 수 알아내기</a><br> <a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=qio910&amp;logNo=221559201470">프린키피아</a></p>
 
 

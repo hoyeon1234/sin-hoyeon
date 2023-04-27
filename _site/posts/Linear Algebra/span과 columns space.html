@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-01-03">
 
-<title>HIHO - Linear Combination &amp; Span</title>
+<title>HIHO - [Linear Algebra] 2.Linear Combination &amp; Span</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,7 +160,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
  <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/hoyeon1234/sin-hoyeon/tree/main/posts"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -174,7 +174,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Linear Combination &amp; Span</h1>
+      <h1 class="title">[Linear Algebra] 2.Linear Combination &amp; Span</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Linear Algebra</div>
               </div>
@@ -210,10 +210,10 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#linear-combination" id="toc-linear-combination" class="nav-link active" data-scroll-target="#linear-combination"><span style="color : #00994C"><strong>linear Combination</strong></span></a></li>
-  <li><a href="#span" id="toc-span" class="nav-link" data-scroll-target="#span"><span style="color : #00994c"><strong>span</strong></span></a></li>
-  <li><a href="#column-space" id="toc-column-space" class="nav-link" data-scroll-target="#column-space"><span style="color : #00994C"><strong>column Space</strong></span></a></li>
-  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료"><span style="color : #00994C"><strong>참고자료</strong></span></a></li>
+  <li><a href="#linear-combination" id="toc-linear-combination" class="nav-link active" data-scroll-target="#linear-combination">Linear Combination</a></li>
+  <li><a href="#span" id="toc-span" class="nav-link" data-scroll-target="#span">span</a></li>
+  <li><a href="#column-space" id="toc-column-space" class="nav-link" data-scroll-target="#column-space">column Space</a></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료">참고자료</a></li>
   </ul>
 </nav>
     </div>
@@ -223,17 +223,17 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p>유투브 - 혁펜하임님의 선형대수학강의를 정리하기 위해 작성한 글입니다.<br></p>
+<p>유투브 - 혁펜하임님의 선형대수학강의를 참고했습니다.</p>
 <section id="linear-combination" class="level1">
-<h1><span style="color : #00994C"><strong>linear Combination</strong></span></h1>
+<h1>Linear Combination</h1>
 <p>벡터 <span class="math inline">\(\bf{v_1,v_2,\dots,v_n}\)</span>의 선형결합(또는 일차결합)은 다음과 같다. <span class="math display">\[w_1{\bf v_1} + w_2{\bf v_2} + \dots + w_n{\bf v_n}\]</span> 선형결합의 결과는 여러가지 벡터들의 결합이다. 여기서 각각의 <span class="math inline">\(w_1,w_2,\dots,w_n\)</span>은 스칼라이며 대응하는 <span class="math inline">\(x_1,x_2,\dots,x_n\)</span>를 결합에 사용하는 정도를 의미한다. 만약 <span class="math inline">\(w_1 = 0.0001\)</span>이면 여러 벡터들을 결합하지만 그 결합 중 <span class="math inline">\(\bf v_1\)</span>이 아주 사용하여 결합하는 것이고 <span class="math inline">\(w_2 = 120\)</span>이라면 결합에서 <span class="math inline">\(\bf v_2\)</span>를 아주 많이 사용하는 것이다.</p>
 </section>
 <section id="span" class="level1">
-<h1><span style="color : #00994c"><strong>span</strong></span></h1>
+<h1>span</h1>
 <p>벡터 <span class="math inline">\(v_1,v_2,\dots,v_n\)</span>의 선형결합에서 <span class="math inline">\(w_1,w_2,\dots,w_n\)</span>(스칼라,결합에 사용하는 정도)를 바꿨을때 가능한 모든 벡터들의 집합이며 즉,벡터의 선형결합으로 가능한 모든 집합들이며 정의는 다음과 같다. <span class="math display">\[\text{span}({\bf{v_1,v_2,\dots,v_n}}) := \{w_1{\bf{v_1}} + w_2{\bf{v_2}} + \dots + w_n{\bf{v_n}}:w_1,w_2,\dots,w_n \in K\}\]</span> <br> span은 선형결합으로 만들어지는 또다른 벡터공간이다. 여기서 K는 field를 의미하는데 스칼라는 field라는 또다른 집합으로부터 가져온 원소이기때문에 그렇다.<br><br>임의의 벡터들의 span은 어떨까? 아래의 그림을 확인해보자.</p>
 <p>&lt;참고&gt;<br> span은 동사로도 사용한다.<br> ex : 벡터공간을 생성한다. 열공간은 열벡터들이 생성하는 공간이다.(=열공간은 열벡터의 생성이다.).기저들이 벡터공간을 생성한다.<br></p>
 <p>:는 <a href="https://math.stackexchange.com/questions/1501123/set-builder-notation-colon-or-vertical-line">조건</a>을 의미합니다.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -324,11 +324,11 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <p>점 하나는 벡터 하나를 나타낸다. 1번째 그림에서 벡터들의 생성(span)은 2차원 벡터공간의 부분공간이자 0차원 벡터공간(점)이며 2,3번째 그림에서 벡터들의 생성(span)은 2차원 벡터공간의 부분공간이자 1차원 벡터공간(직선)이다. 이와는 다르게 3번째 그림에서의 벡터들의 생성(span)은 3차원 벡터공간 그 자체인데 그 이유는 3차원 벡터공간의 모든 점을 표현할 수 있기 때문이다.</p>
 </section>
 <section id="column-space" class="level1">
-<h1><span style="color : #00994C"><strong>column Space</strong></span></h1>
+<h1>column Space</h1>
 <p>열공간(columns space)은 행렬의 열벡터들의 span 즉, 행렬의 열벡터들로 가능한 모든 선형조합(벡터)의 집합입니다. <span class="math inline">\(v_1,v_2,\dots,v_n\)</span>이 행렬A의 열벡터들이라고 할 때, 열공간은 다음과 같습니다.<br> <span class="math display">\[\text{C}(A) = \text{span}(v_1,v_2,\dots,v_n) = \{w_1{\bf v_1} + w_2{\bf v_2} + \dots + w_n{\bf v_n}:w_1,w_2,\dots,w_n \in K\}\]</span> 열공간은 방정식 <span class="math inline">\(Ax = b\)</span>의 해의 갯수를 파악하는데 쓰입니다.</p>
 </section>
 <section id="참고자료" class="level1">
-<h1><span style="color : #00994C"><strong>참고자료</strong></span></h1>
+<h1>참고자료</h1>
 <p><a href="https://rfriend.tistory.com/173">[선형대수] 벡터공간(vector space), 벡터 부분공간(vector subspace), 생성공간(span), 차원(dimension)</a><br> <a href="https://en.wikipedia.org/wiki/Linear_span">위키피디아-Linear span</a><br> <a href="https://en.wikipedia.org/wiki/Row_and_column_spaces">위키피디아-Row and columns spaces</a><br> <a href="https://www.youtube.com/watch?v=g0eaDeVRdZk&amp;list=PL_iJu012NOxdZDxoGsYidMf2_bERIQaP0&amp;index=8">혁펜하임 - [선대] 2-6강. span 과 column space (열공간) 직관적 설명</a></p>
 
 

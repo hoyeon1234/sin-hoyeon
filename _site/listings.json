@@ -7,6 +7,7 @@
       "/posts/python/python class,instance,self,namespace.html",
       "/posts/RL/Bellman Equation(번외).html",
       "/posts/visualization/plotly_visualization/Untitled-1.html",
+      "/posts/python data structure and algorithm/CP1/CP1-3 Naming, Styling and Comments.html",
       "/posts/python data structure and algorithm/CP1/CP1-2 Procedure-oriented program.html",
       "/posts/python data structure and algorithm/CP1/CP1-1 Programming and Execution Environment.html",
       "/posts/jujurery/시험보기 1주일 전 체크해야 할 것.html",
@@ -29,7 +30,7 @@
       "/posts/Linear Algebra/quadratic form/quadratic forms.html",
       "/posts/Linear Algebra/orthonormal matrix.html",
       "/posts/paper study/dqn/DQN.html",
-      "/posts/Linear Algebra/eigenvalue eigenvector.html",
+      "/posts/Linear Algebra/eigenvalue eigenvector/eigenvalue eigenvector.html",
       "/posts/RL/RL 2 - MDP.html",
       "/posts/RL/RL 1.html",
       "/posts/RL/RL2-2 value function.html",
@@ -43,7 +44,7 @@
       "/posts/Probability Statistics/sample space and random variable.html",
       "/posts/numpy pandas/수치미분 & np.gradient/수치미분 & np.gradient.html",
       "/posts/visualization/plotly_visualization/ploty 시각화 모음.html",
-      "/posts/Linear Algebra/Ax=b의 해의 갯수 알아내기/Ax = b의 해석.html",
+      "/posts/Linear Algebra/Ax = b/Ax = b.html",
       "/posts/Linear Algebra/rank and null space/rank and null space.html",
       "/posts/Linear Algebra/span과 columns space.html",
       "/posts/Linear Algebra/행렬곱에 대한 여러가지 시각.html",
@@ -54,8 +55,7 @@
       "/posts/DL/Logistic Regression.html",
       "/posts/python/(1) allocation,variable,interning/python - allocation,variable,interning.html",
       "/posts/DL/Linear Regression.html",
-      "/posts/DL/Pytorch Rnn 구현.html",
-      "/posts/Linear Algebra/orthonormal diagonalizability.html"
+      "/posts/DL/Pytorch Rnn 구현.html"
     ]
   }
 ]
