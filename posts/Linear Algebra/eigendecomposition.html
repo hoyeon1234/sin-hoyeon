@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-02-10">
 
-<title>HIHO - Eigendecomposition &amp; Property</title>
+<title>HIHO - [Linear Algebra] 6-2.EVD &amp; Property</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Eigendecomposition &amp; Property</h1>
+      <h1 class="title">[Linear Algebra] 6-2.EVD &amp; Property</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Linear Algebra</div>
               </div>
@@ -148,7 +148,8 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#eigen-value-decompositionevd" id="toc-eigen-value-decompositionevd" class="nav-link active" data-scroll-target="#eigen-value-decompositionevd">Eigen Value Decomposition(EVD)</a></li>
-  <li><a href="#diagonalizable" id="toc-diagonalizable" class="nav-link" data-scroll-target="#diagonalizable">Diagonalizable</a>
+  <li><a href="#diagonalizable" id="toc-diagonalizable" class="nav-link" data-scroll-target="#diagonalizable">Diagonalizable</a></li>
+  <li><a href="#정방행렬의-evd와-diagonalizable의-연관성" id="toc-정방행렬의-evd와-diagonalizable의-연관성" class="nav-link" data-scroll-target="#정방행렬의-evd와-diagonalizable의-연관성">정방행렬의 EVD와 Diagonalizable의 연관성</a>
   <ul class="collapse">
   <li><a href="#대각화-관련-동치명제-정리" id="toc-대각화-관련-동치명제-정리" class="nav-link" data-scroll-target="#대각화-관련-동치명제-정리">대각화 관련 동치명제 정리</a></li>
   </ul></li>
@@ -167,14 +168,14 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <section id="eigen-value-decompositionevd" class="level1">
 <h1>Eigen Value Decomposition(EVD)</h1>
 <ul>
-<li>행렬 <span class="math inline">\(A \in \mathbb{R}^{2 \times 2}\)</span>의 eigen value는 <span class="math inline">\(2\)</span>개 eigen vector도 <span class="math inline">\(2\)</span>개라 하자. 즉 다음과 같다</li>
+<li>행렬 <span class="math inline">\(A \in \mathbb{R}^{2 \times 2}\)</span>의 eigen value는 <span class="math inline">\(2\)</span>개 eigen vector도 <span class="math inline">\(2\)</span>개라 하자.</li>
 </ul>
 <span class="math display">\[\begin{aligned}
 &amp;Av_1 = \lambda_1v_1 \\
 &amp;Av_2 = \lambda_2v_2 \\
 \end{aligned}\]</span>
 <ul>
-<li><p>이때 <span class="math inline">\(A\in \mathbb{R}^{2\times 2}\)</span>인 정사각행렬이다.</p></li>
+<li><p>이때 <span class="math inline">\(A\in \mathbb{R}^{2\times 2}\)</span>인 정사각행렬이었다는 사실을 기억하자.</p></li>
 <li><p>지금부터 나올 <strong>고윳값분해는 정사각행렬의 경우에만 가능하다.</strong></p></li>
 <li><p>다음과 식을 생각해보자..</p></li>
 </ul>
@@ -195,15 +196,25 @@ A\begin{bmatrix}v_1\,v_2\end{bmatrix} = \begin{bmatrix}Av_1\,Av_2\end{bmatrix} =
 <section id="diagonalizable" class="level1">
 <h1>Diagonalizable</h1>
 <ul>
-<li>윗 식을 다음과 같이 적을 수도 있다.</li>
+<li>임의의 정방행렬 A에 대해서 다음이 성립한다고 하자.</li>
 </ul>
 <span class="math display">\[\begin{aligned}
-&amp;AV = V\Lambda \\
-&amp;\Longleftrightarrow A = V\Lambda V^{-1}\\
-&amp;\Longleftrightarrow V^{-1}A V = \Lambda
+&amp;AP = PD \\
+&amp;\Longleftrightarrow A = PDP^{-1}\\
+&amp;\Longleftrightarrow P^{-1}AP = D
 \end{aligned}\]</span>
 <ul>
-<li>이때 <span class="math inline">\(A\)</span>는 diagonalizable(대각화 가능하다)이라고 한다.<br></li>
+<li><p><span class="math inline">\(D\)</span>는 대각행렬이며 <span class="math inline">\(P\)</span>는 유사행렬이라고 하며 역행렬이 존재하는 정방행렬이라고 한다.</p></li>
+<li><p>위와 같은 경우 <span class="math inline">\(A\)</span>는 diagonalizable(대각화 가능하다)이라고 한다.<br></p></li>
+</ul>
+</section>
+<section id="정방행렬의-evd와-diagonalizable의-연관성" class="level1">
+<h1>정방행렬의 EVD와 Diagonalizable의 연관성</h1>
+<ul>
+<li>대각화(diagonalization)와 고윳값분해(EVD)는 매우 연관된 개념이다.</li>
+<li>어떤 행렬이 Diagonalizable하다는 의미는 대각행렬(diagonal matrix)과 유사행렬(similar matrix)의 곱으로 표현할 수 있다는 의미이다.</li>
+<li>이때 고윳값을 대각원소로 하는 대각행렬을 만들고 고유벡터를 열벡터로 유사행렬을 만들면 고윳값분해를 통해 대각화를 할 수 있는 것이다.</li>
+<li>정리하자면 정방행렬의 대각화는 고윳값 분해를 이루어질 수 있다고 할 수 있다.</li>
 </ul>
 <section id="대각화-관련-동치명제-정리" class="level2">
 <h2 class="anchored" data-anchor-id="대각화-관련-동치명제-정리">대각화 관련 동치명제 정리</h2>

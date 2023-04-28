@@ -3,6 +3,8 @@
     "listing": "/index.html",
     "items": [
       "/posts/DL/Bias Variance tradeoff/bias variance trade off.html",
+      "/posts/Linear Algebra/derivative/벡터,행렬미분.html",
+      "/posts/Linear Algebra/pca/pca.html",
       "/posts/paper study/auto-encoding variational bayes implement/Auto-Encoding Variational Bayes.html",
       "/posts/python/python class,instance,self,namespace.html",
       "/posts/RL/Bellman Equation(번외).html",
