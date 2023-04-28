@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-02-08">
 
-<title>HIHO - [Linear Algebra] Appendix 6-1.Diagonalization of symmetric matrix</title>
+<title>HIHO - [Linear Algebra] 6-3.EVD of symmetric matrix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">[Linear Algebra] Appendix 6-1.Diagonalization of symmetric matrix</h1>
+      <h1 class="title">[Linear Algebra] 6-3.EVD of symmetric matrix</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Linear Algebra</div>
               </div>
@@ -147,22 +147,32 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#orthonormal-matrix" id="toc-orthonormal-matrix" class="nav-link active" data-scroll-target="#orthonormal-matrix"><span style="color : black"> <strong>Orthonormal matrix</strong></span></a>
+  <li><a href="#사전지식" id="toc-사전지식" class="nav-link active" data-scroll-target="#사전지식">사전지식</a>
   <ul class="collapse">
-  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span style="color : black"> <strong>Definition</strong></span></a></li>
-  <li><a href="#expression-1" id="toc-expression-1" class="nav-link" data-scroll-target="#expression-1"><span style="color : black"> <strong>expression 1</strong></span></a></li>
-  <li><a href="#expression-2" id="toc-expression-2" class="nav-link" data-scroll-target="#expression-2"><span style="color : black"> <strong>expression 2</strong></span></a></li>
-  </ul></li>
-  <li><a href="#orthogonally-similar" id="toc-orthogonally-similar" class="nav-link" data-scroll-target="#orthogonally-similar"><span style="color : black"> <strong>orthogonally similar</strong></span></a></li>
-  <li><a href="#orthogonally-diagonalize" id="toc-orthogonally-diagonalize" class="nav-link" data-scroll-target="#orthogonally-diagonalize"><span style="color : black"> <strong>orthogonally diagonalize</strong></span></a></li>
-  <li><a href="#orthogonally-diagonalizable" id="toc-orthogonally-diagonalizable" class="nav-link" data-scroll-target="#orthogonally-diagonalizable"><span style="color : black"> <strong>orthogonally diagonalizable</strong></span></a></li>
-  <li><a href="#정리-a가-대칭행렬이다는-a가-orthogonally-diagonalizable하다와-동치이다." id="toc-정리-a가-대칭행렬이다는-a가-orthogonally-diagonalizable하다와-동치이다." class="nav-link" data-scroll-target="#정리-a가-대칭행렬이다는-a가-orthogonally-diagonalizable하다와-동치이다."><span style="color : black"> <strong>정리 : “A가 대칭행렬이다”는 “A가 orthogonally diagonalizable하다”와 동치이다.</strong></span></a>
+  <li><a href="#orthonormal-matrix" id="toc-orthonormal-matrix" class="nav-link" data-scroll-target="#orthonormal-matrix">Orthonormal matrix</a>
   <ul class="collapse">
-  <li><a href="#명제1-orthogonally-diagonalizable-하면-a-at" id="toc-명제1-orthogonally-diagonalizable-하면-a-at" class="nav-link" data-scroll-target="#명제1-orthogonally-diagonalizable-하면-a-at"><span style="color : black"> <strong>명제1 : orthogonally diagonalizable 하면 A = A^T</strong></span></a></li>
-  <li><a href="#명제2-대칭행렬이면-orthogonally-diagonalizable" id="toc-명제2-대칭행렬이면-orthogonally-diagonalizable" class="nav-link" data-scroll-target="#명제2-대칭행렬이면-orthogonally-diagonalizable"><span style="color : black"> <strong>명제2 : 대칭행렬이면 orthogonally diagonalizable</strong></span></a></li>
+  <li><a href="#expression-1" id="toc-expression-1" class="nav-link" data-scroll-target="#expression-1">expression 1</a></li>
+  <li><a href="#expression-2" id="toc-expression-2" class="nav-link" data-scroll-target="#expression-2">expression 2</a></li>
   </ul></li>
-  <li><a href="#최종정리-a-atleftrightarrow-orthogonally-diagonalizable" id="toc-최종정리-a-atleftrightarrow-orthogonally-diagonalizable" class="nav-link" data-scroll-target="#최종정리-a-atleftrightarrow-orthogonally-diagonalizable"><span style="color : black"> <strong>최종정리 : <span class="math inline">\(A = A^T\leftrightarrow\)</span> orthogonally diagonalizable</strong></span></a></li>
-  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료"><span style="color : black"> <strong>참고자료</strong></span></a></li>
+  <li><a href="#orthogonally-similar" id="toc-orthogonally-similar" class="nav-link" data-scroll-target="#orthogonally-similar">orthogonally similar</a></li>
+  <li><a href="#orthogonally-diagonalize" id="toc-orthogonally-diagonalize" class="nav-link" data-scroll-target="#orthogonally-diagonalize">orthogonally diagonalize</a></li>
+  </ul></li>
+  <li><a href="#매우-중요한-정리-a가-대칭행렬이다-longleftrightarrow-a가-orthogonally-diagonalizable하다" id="toc-매우-중요한-정리-a가-대칭행렬이다-longleftrightarrow-a가-orthogonally-diagonalizable하다" class="nav-link" data-scroll-target="#매우-중요한-정리-a가-대칭행렬이다-longleftrightarrow-a가-orthogonally-diagonalizable하다">매우 중요한 정리<br><span class="math inline">\(A\)</span>가 대칭행렬이다 <span class="math inline">\(\Longleftrightarrow A\)</span>가 orthogonally diagonalizable하다</a>
+  <ul class="collapse">
+  <li><a href="#명제1-a가-orthogonally-diagonalizable-rightarrow-a-at" id="toc-명제1-a가-orthogonally-diagonalizable-rightarrow-a-at" class="nav-link" data-scroll-target="#명제1-a가-orthogonally-diagonalizable-rightarrow-a-at">명제1 : <span class="math inline">\(A\)</span>가 orthogonally diagonalizable <span class="math inline">\(\rightarrow A = A^T\)</span></a></li>
+  <li><a href="#명제2-a-at-rightarrow-a는-orthogonally-diagonalizable" id="toc-명제2-a-at-rightarrow-a는-orthogonally-diagonalizable" class="nav-link" data-scroll-target="#명제2-a-at-rightarrow-a는-orthogonally-diagonalizable">명제2 : <span class="math inline">\(A = A^T \rightarrow\)</span> <span class="math inline">\(A\)</span>는 orthogonally diagonalizable</a></li>
+  </ul></li>
+  <li><a href="#evd-of-symmetric-matrix" id="toc-evd-of-symmetric-matrix" class="nav-link" data-scroll-target="#evd-of-symmetric-matrix">EVD of symmetric matrix</a>
+  <ul class="collapse">
+  <li><a href="#symmetric-matrix의-evd와-orthogonally-diagonalizable의-연관성" id="toc-symmetric-matrix의-evd와-orthogonally-diagonalizable의-연관성" class="nav-link" data-scroll-target="#symmetric-matrix의-evd와-orthogonally-diagonalizable의-연관성">Symmetric matrix의 EVD와 orthogonally diagonalizable의 연관성</a></li>
+  <li><a href="#신기하고-중요한-사실들" id="toc-신기하고-중요한-사실들" class="nav-link" data-scroll-target="#신기하고-중요한-사실들">신기하고 중요한 사실들</a>
+  <ul class="collapse">
+  <li><a href="#신기한-사실1-대칭행렬-a는-rank1-매트릭스들의-가중합으로-표현할-수-있다." id="toc-신기한-사실1-대칭행렬-a는-rank1-매트릭스들의-가중합으로-표현할-수-있다." class="nav-link" data-scroll-target="#신기한-사실1-대칭행렬-a는-rank1-매트릭스들의-가중합으로-표현할-수-있다.">신기한 사실1 : 대칭행렬 A는 rank1 매트릭스들의 가중합으로 표현할 수 있다.</a></li>
+  <li><a href="#신기한-사실2-선형변환이-대칭행렬이라면-입력벡터는-직교하는-고유벡터로-분해하고-적절하게-줄이고-늘려서-재조합한-된다." id="toc-신기한-사실2-선형변환이-대칭행렬이라면-입력벡터는-직교하는-고유벡터로-분해하고-적절하게-줄이고-늘려서-재조합한-된다." class="nav-link" data-scroll-target="#신기한-사실2-선형변환이-대칭행렬이라면-입력벡터는-직교하는-고유벡터로-분해하고-적절하게-줄이고-늘려서-재조합한-된다.">신기한 사실2 : 선형변환이 대칭행렬이라면 입력벡터는 직교하는 고유벡터로 분해하고 적절하게 줄이고 늘려서 재조합한 된다.</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리">정리</a></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료">참고자료</a></li>
   </ul>
 </nav>
     </div>
@@ -173,43 +183,54 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 <p>수튜브님의 직교대각화가능(orthogonal diagonalizability)을 보고 정리한 내용입니다.<br></p>
-<section id="orthonormal-matrix" class="level1">
-<h1><span style="color : black"> <strong>Orthonormal matrix</strong></span></h1>
-<section id="definition" class="level2">
-<h2 class="anchored" data-anchor-id="definition"><span style="color : black"> <strong>Definition</strong></span></h2>
-<p><strong>(definition)</strong><br> orthonormal matrix(orthogonal matrix) is a real square matrix whose columns and rows are orhonormal vectors</p>
-<p>즉, 행벡터들과 열벡터들이 orthonormal인 matrix 정사각행렬을 orthonormal matrix라 한다.이러한 orthonormal matrix Q는 다음을 만족한다.(orthogonal 또는 orthonormal 둘 다 맞는 표현이다.그러나 직교 + 크기가 1인 벡터가 열벡터이기에 orthogonal + normal = orthonormal이 더 맞는 듯 하다.)</p>
-</section>
-<section id="expression-1" class="level2">
-<h2 class="anchored" data-anchor-id="expression-1"><span style="color : black"> <strong>expression 1</strong></span></h2>
-<p>orthonormal matrix <span class="math inline">\(Q\)</span>의 정의는 다음과 같이 수식으로 표현할 수 있다.</p>
+<section id="사전지식" class="level1">
+<h1>사전지식</h1>
+<section id="orthonormal-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="orthonormal-matrix">Orthonormal matrix</h2>
+<p>In linear algebra, an orthogonal matrix, or orthonormal matrix, is a real square matrix whose columns and rows are orthonormal vectors. (from wikipedia)</p>
+<ul>
+<li>행벡터들과 열벡터들이 orthogonal(직교) + normal(크기가 1)인 정사각행렬을 orthonormal matrix라 한다.</li>
+<li>orthogonal matrix 또는 orthonormal matrix는 같은 표현이다.</li>
+<li>그러나 직교 + 크기가 1인 벡터가 열벡터이기에 orthogonal + normal = orthonormal이 더 의미를 살리는 듯하여 여기서는 <code>orthonormal matrix</code>용어를 사용한다.</li>
+</ul>
+<section id="expression-1" class="level3">
+<h3 class="anchored" data-anchor-id="expression-1">expression 1</h3>
+<ul>
+<li>orthonormal matrix <span class="math inline">\(Q\)</span>을 나타내는 첫 번째 표현은 아래와 같다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;Q^TQ = QQ^T = I \\
 &amp;\text{where } I \text{ is the identity matrix}
 \end{aligned}\]</span>
-<p>정의가 왜 위와같은 수식을 만족하는지 확인해보자. 임의의 <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span>가 다음과 같다고 해보자.</p>
+<ul>
+<li>왜 저런 표현식이 나올까?</li>
+<li>이는 정의를 함축하고 아주 잘 함축하고 있는 표현이다.</li>
+<li>임의의 <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span>가 다음과 같다고 해보자.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;Q =
 \begin{bmatrix}
 q_1 &amp; q_2 &amp; \dots q_n
 \end{bmatrix}
 \end{aligned}\]</span>
-<p>여기서 <span class="math inline">\(q_i \in \mathbb{R}^{n \times 1}(i=1,2,\dots,n)\)</span>은 <span class="math inline">\(Q\)</span>의 column vector이다. <span class="math inline">\(Q^TQ = I\)</span>를 계산해보면 …</p>
+<ul>
+<li>여기서 <span class="math inline">\(q_i \in \mathbb{R}^{n \times 1}(i=1,2,\dots,n)\)</span>은 <span class="math inline">\(Q\)</span>의 column vector이다.</li>
+<li>먼저 <span class="math inline">\(Q^TQ = I\)</span>를 확인해보자.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 Q^TQ =
 \begin{bmatrix}
-q_1 \\ q_2 \\ \vdots \\ q_n
+q_1^T \\ q_2^T \\ \vdots \\ q_n^T
 \end{bmatrix}
 \begin{bmatrix}
 q_1 &amp; q_2 &amp; \dots &amp; q_n
 \end{bmatrix}
 =
 \begin{bmatrix}
-\text{dot}(q_1,q_1) &amp; \text{dot}(q_1,q_2) &amp; \dots &amp; \text{dot}(q_1,q_n) \\
-\text{dot}(q_2,q_1) &amp; \text{dot}(q_2,q_2) &amp; \dots &amp; \dots \\
+q_1^T,q_1 &amp; q_1^Tq_2 &amp; \dots &amp; q_1^Tq_n \\
+q_2^T,q_1 &amp; q_2^Tq_2 &amp; \dots &amp; q_2^Tq_n \\
 \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
-\text{dot}(q_n,q_1) &amp; \text{dot}(q_n,q_2) &amp; \dots &amp; \text{dots}(q_n,q_n)\\
-\\
+q_n^T,q_1 &amp; q_n^Tq_2 &amp; \dots &amp; q_n^Tq_n\\
 \end{bmatrix}
 =
 \begin{bmatrix}
@@ -221,80 +242,109 @@ q_1 &amp; q_2 &amp; \dots &amp; q_n
 
 \end{bmatrix}
 \end{aligned}\]</span>
-<p>이는 같은 벡터끼리 내적을 하면 1이고 다른벡터끼리 내적하면 0임을 의미한다.</p>
+<ul>
+<li>좌우변이 같기때문에 아래가 유도된다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
-dot(q_i,q_j) =
+q_i^Tq_j =
 \begin{cases}
 1 \quad (i = j)\\
 0 \quad (\text{otherwise})
 \end{cases}
 \text{for all }i \in (1,\dots,n),\,j \in (1,\dots,n)
 \end{aligned}\]</span>
-<p>그러므로, 임의의 벡터<span class="math inline">\(q_i\)</span>의 크기는 1인 unit vector이며 열벡터들은 orthonormal하다.</p>
+<ul>
+<li>이는 같은 벡터끼리 내적을 하면 1이고 다른벡터끼리 내적하면 0임을 의미한다.</li>
+<li>즉, 임의의 벡터<span class="math inline">\(q_i\)</span>의 크기는 1인 unit vector이며 열벡터들은 orthogornal 하다는 것이다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;\text{for all }i \in (1,...,n), j \in (1,...,n) \\
 &amp;|q_i| = \sqrt{q_i} = \sqrt{dot(q_i,q_i)} = 1 \\
 &amp;dot(q_i,q_j)=0 \longleftrightarrow q_i\perp q_j
 
 \end{aligned}\]</span>
-<p><span class="math inline">\(Q\)</span>의 행벡터를 <span class="math inline">\(q_i^T\)</span>로 잡고 동일한 과정을 수행하면 행벡터들도 orthonormal하다는 것을 알 수 있다.</p>
+<ul>
+<li>동일한 과정을 행벡터에 대해서도 수행하면 행벡터들도 orthonormal하다는 것을 보일 수 있다.</li>
+</ul>
 </section>
-<section id="expression-2" class="level2">
-<h2 class="anchored" data-anchor-id="expression-2"><span style="color : black"> <strong>expression 2</strong></span></h2>
-<p>또한 정의에 대한 expression1은 다음의 식과 동치이다.</p>
+<section id="expression-2" class="level3">
+<h3 class="anchored" data-anchor-id="expression-2">expression 2</h3>
+<ul>
+<li>expression1으로부터 orthonormal matrix에 관한 다음의 식도 끌어낼 수 있다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;Q^T = Q^{-1} \\
 \end{aligned}\]</span>
-<p>즉,어떤 행렬의 transpose가 그것의 inverse와 같으면 orthonormal matrix라는 것이며 이것또한 orthonormal matrix의 정의이다.</p>
-<p>왜 그런가 하면 expression1에서 <span class="math inline">\(Q^TQ = QQ^T = I\)</span>였다. 그러므로 <span class="math inline">\(Q\)</span>의 역행렬<span class="math inline">\(Q^{-1}\)</span>는 <span class="math inline">\(Q^T\)</span>와 같다.<br> (Q의 역행렬은 <span class="math inline">\(Q^{-1}Q = QQ{-1} = I\)</span>를 만족하는 행렬이다.)</p>
+<ul>
+<li><p>즉,어떤 행렬의 transpose가 그것의 inverse와 같으면 orthonormal matrix라는 것이며 이것또한 orthonormal matrix의 다른 표현이다.</p></li>
+<li><p>왜 그런가 하면 expression1에서 <span class="math inline">\(Q^TQ = QQ^T = I\)</span>였다. 그러므로 <span class="math inline">\(Q\)</span>의 역행렬<span class="math inline">\(Q^{-1}\)</span>는 <span class="math inline">\(Q^T\)</span>와 같다.<br> (Q의 역행렬은 <span class="math inline">\(Q^{-1}Q = QQ{-1} = I\)</span>를 만족하는 행렬이다.)</p></li>
+</ul>
 </section>
 </section>
-<section id="orthogonally-similar" class="level1">
-<h1><span style="color : black"> <strong>orthogonally similar</strong></span></h1>
-<p>다음과 같은 식을 만족하면 C는 A와 orthogonally similar(직교닮음)이다.</p>
+<section id="orthogonally-similar" class="level2">
+<h2 class="anchored" data-anchor-id="orthogonally-similar">orthogonally similar</h2>
+<ul>
+<li>다음과 같은 식을 만족하면 C는 A와 orthogonally similar(직교닮음)이다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
-&amp;C = P^{-1}AP \\
-&amp;\text{where } P^{-1} = P^T
+&amp;C = Q^{-1}AQ \\
+&amp;\text{where } Q^{-1} = Q^T
 \end{aligned}\]</span>
-<p>여기서 <span class="math inline">\(P^{-1} = P^T\)</span>는 orthonomal matrix의 정의이다.</p>
-<p>윗 식에 의해서 A도 C와 orthogonally similar이다.</p>
+<ul>
+<li>여기서 <span class="math inline">\(Q^{-1} = Q^T\)</span>는 orthonomal matrix의 정의이다.</li>
+<li>윗 식에 의해서 A도 C와 orthogonally similar임을 이끌어낼 수 있다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
-&amp;A = PCP^{-1} \\
-&amp;\text{where } P^{-1} = P^T
+&amp;A = QCQ^{-1} \\
+&amp;\text{where } Q^{-1} = Q^T
 \end{aligned}\]</span>
-<p>정리하자면 C가 A와 직교닮음이라면 A도 C와 직교닮음이므로 서로 직교닮음이라는 것을 알 수 있다.</p>
 </section>
-<section id="orthogonally-diagonalize" class="level1">
-<h1><span style="color : black"> <strong>orthogonally diagonalize</strong></span></h1>
-<p>임의의 정사각행렬 <span class="math inline">\(A,D\)</span>에 대해서 다음이 만족한다고 해보자.</p>
+<section id="orthogonally-diagonalize" class="level2">
+<h2 class="anchored" data-anchor-id="orthogonally-diagonalize">orthogonally diagonalize</h2>
+<ul>
+<li>임의의 정사각행렬 <span class="math inline">\(A,D\)</span>에 대해서 다음이 만족한다고 해보자.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;
 \begin{aligned}
-D &amp;= P^{-1}AP \\
-&amp;= P^TAP \\
+D &amp;= Q^{-1}AQ \\
+&amp;= Q^TAQ \\
 \end{aligned}
 \\
-&amp;\text{where } D = diag(d_1,d_2,\dots,d_n) , P^{-1} = P^T
+&amp;\text{where } D = diag(d_1,d_2,\dots,d_n) , Q^{-1} = Q^T
 \end{aligned}\]</span>
-<p>이와 같이 <span class="math inline">\(A\)</span>와 직교닮음인 대각행렬 <span class="math inline">\(D\)</span>가 존재할때 행렬<span class="math inline">\(A\)</span>가 직교대각화 되었다 라고 한다.</p>
+<ul>
+<li><p>이와 같이 <span class="math inline">\(A\)</span>와 직교닮음인 대각행렬 <span class="math inline">\(D\)</span>가 존재할때 행렬<span class="math inline">\(A\)</span>가 직교대각화 되었다 라고 한다.</p></li>
+<li><p>또한 이때 정사각행렬 <span class="math inline">\(A\)</span>는 <span class="math inline">\(P^{-1}AP\)</span>가 대각행렬<span class="math inline">\(D\)</span>가 되게하는 가역행렬이자 orthornomal matrix인 <span class="math inline">\(P\)</span>가 존재하기때문에 “행렬<span class="math inline">\(A\)</span>는 orthogonally diagonalizable하다”라고 말한다.</p></li>
+<li><p><span class="math inline">\(Q^T\)</span>와 <span class="math inline">\(Q\)</span>의 자리를 바꿔서 써도 된다. 즉 <span class="math inline">\(Q^{-1}\)</span>를 새로운 Q로 본다면 다음과 같이 적을 수도 있다.</p></li>
+</ul>
+<span class="math display">\[\begin{aligned}
+D &amp;= QAQ^{-1}\\
+&amp;= QAQ^T\\
+&amp;\text{where } D = \text{diag}(d_1,d_2,\dots,d_n),Q^{-1} = Q^T
+\end{aligned}\]</span>
+<ul>
+<li>단지 notation의 차이일 뿐이다. 역행렬의 관계이기 때문이다.</li>
+</ul>
 </section>
-<section id="orthogonally-diagonalizable" class="level1">
-<h1><span style="color : black"> <strong>orthogonally diagonalizable</strong></span></h1>
-<p>임의의 정사각행렬 <span class="math inline">\(A\)</span>에 대해서 <span class="math inline">\(P^{-1}AP\)</span>가 대각행렬D가 되게하는 가역행렬이자 orthornomal matrix인 <span class="math inline">\(P\)</span>가 존재한다면 행렬<span class="math inline">\(A\)</span>는 “orthogonally diagonalizable”하다고 한다.</p>
 </section>
-<section id="정리-a가-대칭행렬이다는-a가-orthogonally-diagonalizable하다와-동치이다." class="level1">
-<h1><span style="color : black"> <strong>정리 : “A가 대칭행렬이다”는 “A가 orthogonally diagonalizable하다”와 동치이다.</strong></span></h1>
-<p>위의 두 명제가 동치임을 보이기 위해 다음 두 정리를 증명한다.</p>
-<section id="명제1-orthogonally-diagonalizable-하면-a-at" class="level2">
-<h2 class="anchored" data-anchor-id="명제1-orthogonally-diagonalizable-하면-a-at"><span style="color : black"> <strong>명제1 : orthogonally diagonalizable 하면 A = A^T</strong></span></h2>
-<p>행렬<span class="math inline">\(A\)</span>가 orthogonally diagonalizable하다고 하자. 즉 <span class="math inline">\(D = P^TAP\)</span>를 만족하는 직교행렬 <span class="math inline">\(P\)</span>가 존재한다. 이때 <span class="math inline">\(A^T\)</span>를 전개하면 다음과 같다.</p>
+<section id="매우-중요한-정리-a가-대칭행렬이다-longleftrightarrow-a가-orthogonally-diagonalizable하다" class="level1">
+<h1>매우 중요한 정리<br><span class="math inline">\(A\)</span>가 대칭행렬이다 <span class="math inline">\(\Longleftrightarrow A\)</span>가 orthogonally diagonalizable하다</h1>
+<ul>
+<li>위의 두 명제가 동치임을 보이기 위해 다음 두 정리를 증명한다.</li>
+</ul>
+<section id="명제1-a가-orthogonally-diagonalizable-rightarrow-a-at" class="level2">
+<h2 class="anchored" data-anchor-id="명제1-a가-orthogonally-diagonalizable-rightarrow-a-at">명제1 : <span class="math inline">\(A\)</span>가 orthogonally diagonalizable <span class="math inline">\(\rightarrow A = A^T\)</span></h2>
+<ul>
+<li>행렬<span class="math inline">\(A\)</span>가 orthogonally diagonalizable하다고 하자. 즉 <span class="math inline">\(D = P^TAP\)</span>를 만족하는 직교행렬 <span class="math inline">\(P\)</span>가 존재한다. 이때 <span class="math inline">\(A^T\)</span>를 전개하면 다음과 같다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;A = PDP^{-1} = PDP^T\\
 &amp;A^T = (PDP^T)^T = PD^TP^T = PDP^T = A
 \end{aligned}\]</span>
 </section>
-<section id="명제2-대칭행렬이면-orthogonally-diagonalizable" class="level2">
-<h2 class="anchored" data-anchor-id="명제2-대칭행렬이면-orthogonally-diagonalizable"><span style="color : black"> <strong>명제2 : 대칭행렬이면 orthogonally diagonalizable</strong></span></h2>
+<section id="명제2-a-at-rightarrow-a는-orthogonally-diagonalizable" class="level2">
+<h2 class="anchored" data-anchor-id="명제2-a-at-rightarrow-a는-orthogonally-diagonalizable">명제2 : <span class="math inline">\(A = A^T \rightarrow\)</span> <span class="math inline">\(A\)</span>는 orthogonally diagonalizable</h2>
 <ul>
 <li>수학적 귀납법으로 아래의 두 가지를 증명하면 된다.
 <ul>
@@ -334,19 +384,155 @@ D = P^{-1}AP = \begin{bmatrix}a\end{bmatrix}
 \end{aligned}\]</span>
 <p>D는 대각행렬이다. 따라서 <span class="math inline">\(D = P^{-1}AP\)</span>를 만족하는 가역행렬이자 직교행렬인<span class="math inline">\(P\)</span>와 대각행렬<span class="math inline">\(D\)</span>가 존재하므로 행렬<span class="math inline">\(A \in \mathbb{R}^{1 \times 1}\)</span>는 orthogonally diagonalizable하다.</p>
 <ul>
-<li><p>D는 대각행렬이다. 따라서 <span class="math inline">\(D = P^-1AP\)</span>를 만족하는 가역행렬이자 직교행렬인<span class="math inline">\(P\)</span>와 대각행렬<span class="math inline">\(D\)</span>가 존재하므로 행렬<span class="math inline">\(A \in \mathbb{R}^{1 \times 1}\)</span>는 orthogonally diagonalizable하다.</p></li>
-<li><p>정리2 자세한 증명 생략…</p></li>
-<li><p><strong>따라서 어떤 행렬이 대칭행렬 <span class="math inline">\(\Longleftrightarrow\)</span>직교대각화가 가능하다.</strong></p></li>
+<li>D는 대각행렬이다. 따라서 <span class="math inline">\(D = P^-1AP\)</span>를 만족하는 가역행렬이자 직교행렬인<span class="math inline">\(P\)</span>와 대각행렬<span class="math inline">\(D\)</span>가 존재하므로 행렬<span class="math inline">\(A \in \mathbb{R}^{1 \times 1}\)</span>는 orthogonally diagonalizable하다.</li>
+<li>정리2 자세한 증명 생략…</li>
+<li><strong>따라서 어떤 행렬이 대칭행렬 <span class="math inline">\(\Longleftrightarrow\)</span>직교대각화가 가능하다.</strong></li>
 </ul>
 </section>
 </section>
-<section id="최종정리-a-atleftrightarrow-orthogonally-diagonalizable" class="level1">
-<h1><span style="color : black"> <strong>최종정리 : <span class="math inline">\(A = A^T\leftrightarrow\)</span> orthogonally diagonalizable</strong></span></h1>
-<p>“임의의 행렬<span class="math inline">\(A\)</span>가 <strong>orthogonally diagonalizable</strong>하다”는 “<span class="math inline">\(A = A^T\)</span>이다.”와 동치이다.</p>
+<section id="evd-of-symmetric-matrix" class="level1">
+<h1>EVD of symmetric matrix</h1>
+<ul>
+<li>Symmetric matrix <span class="math inline">\(A = A^T \in \mathbb{R}^{n \times n}\)</span>의 경우의 EVD는 조금 특별하다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+&amp;A = V\Lambda V^{-1}\\
+&amp;A^T = V^{-T}\Lambda^T V^{T} = V^{-T}\Lambda V^{T}
+\end{aligned}\]</span>
+<ul>
+<li>위와 같이 전개가 된다.</li>
+<li>여기서 <span class="math inline">\(A = A^T\)</span>임을 사용하면…</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+&amp;A = A^T\\
+&amp;\Longrightarrow V\Lambda V^{-1} = V^{-T}\Lambda V^{T}
+\end{aligned}\]</span>
+<ul>
+<li>윗 식을 만족하는 <span class="math inline">\(V\)</span>는 <span class="math inline">\(V^{-1} = V^T\)</span>인 orthonormal matrix이다.</li>
+<li>이는 무엇을 의미할까? <span class="math inline">\(\to V^{-1}\)</span>를 찾는 번거로움이 줄어든다.
+<ul>
+<li>원래의 EVD라면 <span class="math inline">\(V\)</span>를 구하고 <span class="math inline">\(V^{-1}\)</span>를 따로 구해줘야 한다.(역행렬 구하는 것이 쉽지많은 않을 것이다.특히 차원이 커질수록!)</li>
+<li>Symmetric하다면 <span class="math inline">\(V\)</span>를 구하고 transpose만 취해주면 된다.</li>
+</ul></li>
+<li>즉 Symmetric하다면 고윳값분해는 다음과 같다.</li>
+</ul>
+<p><span class="math display">\[A = V\Lambda V^{-1} = V \Lambda V^T\]</span></p>
+<ul>
+<li>orthonormal matrix를 보통 Q로 많이 적으므로 여기서부터는 <span class="math inline">\(V\)</span>를 <span class="math inline">\(Q\)</span>로 적겠다.</li>
+</ul>
+<section id="symmetric-matrix의-evd와-orthogonally-diagonalizable의-연관성" class="level2">
+<h2 class="anchored" data-anchor-id="symmetric-matrix의-evd와-orthogonally-diagonalizable의-연관성">Symmetric matrix의 EVD와 orthogonally diagonalizable의 연관성</h2>
+<ul>
+<li>잠깐 넘어가기 전에 중요한 중요한 사실 하나를 짚고 넘어가자.</li>
+<li>우리는 정리를 통해서 Symmetric matrix는 직교대각화가 가능하다는 사실을 알고 있다.</li>
+<li>하지만 이러한 사실만 알고있을뿐 실제로 어떻게 <span class="math inline">\(P\)</span>와 <span class="math inline">\(D\)</span>를 구하는지는 알지 못했다.</li>
+<li>대칭행렬의 경우 직교대각화는 EVD를 통해 구현할 수 있다. 이는 정방행렬의 경우와 유사하다.(정방행렬의 EVD와 orthogonally diagonalizable 참고)
+<ul>
+<li>정방행렬의 경우 대각화는 EVD를 통해서 구현할 수 있었다.</li>
+<li>대칭행렬의 경우 직교대각화는 EVD에서 <span class="math inline">\(V^{-1} = V^T\)</span>인 V가 구해지기에 구현할 수 있다.</li>
+</ul></li>
+</ul>
+</section>
+<section id="신기하고-중요한-사실들" class="level2">
+<h2 class="anchored" data-anchor-id="신기하고-중요한-사실들">신기하고 중요한 사실들</h2>
+<section id="신기한-사실1-대칭행렬-a는-rank1-매트릭스들의-가중합으로-표현할-수-있다." class="level3">
+<h3 class="anchored" data-anchor-id="신기한-사실1-대칭행렬-a는-rank1-매트릭스들의-가중합으로-표현할-수-있다.">신기한 사실1 : 대칭행렬 A는 rank1 매트릭스들의 가중합으로 표현할 수 있다.</h3>
+<ul>
+<li>EVD를 계속해서 전개해보면 다음과 같다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+A &amp;= V\Lambda V^T =
+\begin{bmatrix}
+q_1 &amp; q_2 &amp; q_3
+\end{bmatrix}
+\begin{bmatrix}
+\lambda_1 &amp; 0 &amp; 0 \\
+0 &amp; \lambda_2 &amp; 0 \\
+0 &amp;  0 &amp; \lambda_3\\
+\end{bmatrix}
+\begin{bmatrix}
+q_1^T \\ q_2^T \\ q_3^T
+\end{bmatrix}
+=
+&amp;\begin{bmatrix}
+\lambda_1q_1 &amp; \lambda_2q_2 &amp; \lambda_3q_3
+\end{bmatrix}
+\begin{bmatrix}
+q_1^T \\ q_2^T \\ q_3^T
+\end{bmatrix}\\
+&amp;= \lambda_1q_1q_1^T + \lambda_2q_2q_2^T + \lambda_3q_3q_3^T =
+\sum_{i=1}^3 \lambda_iq_iq_i^T
+\end{aligned}\]</span>
+<ul>
+<li><p>여기서부터 재미난 사실을 알 수 있다.</p></li>
+<li><p><span class="math inline">\(q_iq_i^T\)</span>는 rank가 1인 matrix이다.</p></li>
+<li><p>마지막 수식은 이러한 rank-1 matrix들을 적절하게 상수배하고 더하여 합을 취하면 <span class="math inline">\(A\)</span>가 나온다는 것이다. 상수가 각각에 대응하는 rank-1 matrix <span class="math inline">\(q_iq_i^T\)</span>의 중요도,기여도를 고려한 가중치라고 생각한다면?</p></li>
+<li><p>다음과 같은 해석을 할 수 있다.</p>
+<ul>
+<li>어떤 정방행렬<span class="math inline">\(A\)</span>는 여러개의 rank-1 matrix들이 섞인거야.</li>
+<li>그런데 그냥 섞인건 아니고 중요한건 많이 안중요한건 적게 섞은 것이 정방행렬이야!</li>
+<li>그때의 중요도는 <span class="math inline">\(\lambda_i\)</span>가 알려줘.</li>
+</ul></li>
+<li><p>그림으로 보면 이런느낌이다.! 그림</p></li>
+<li><p>만약에 데이터의 크기가 너무 커서 압축을 해야하는 상황이라면 이를 응용할 수 있다.</p>
+<ul>
+<li>이미지의 크기가 너무크다. 조금 사이즈를 줄이고 싶다.</li>
+<li>중요도 <span class="math inline">\(\lambda_i\)</span>가 상대적으로 작은 matrix들은 조금 제외를 해도 괜찮겠지?</li>
+<li>실제로 된다. 조금 줄여도 여전히 인식할 수 있는 정도이다.(조금 화질이 안좋아지긴 한다.)</li>
+</ul></li>
+</ul>
+</section>
+<section id="신기한-사실2-선형변환이-대칭행렬이라면-입력벡터는-직교하는-고유벡터로-분해하고-적절하게-줄이고-늘려서-재조합한-된다." class="level3">
+<h3 class="anchored" data-anchor-id="신기한-사실2-선형변환이-대칭행렬이라면-입력벡터는-직교하는-고유벡터로-분해하고-적절하게-줄이고-늘려서-재조합한-된다.">신기한 사실2 : 선형변환이 대칭행렬이라면 입력벡터는 직교하는 고유벡터로 분해하고 적절하게 줄이고 늘려서 재조합한 된다.</h3>
+<p><img src="./eigenvalue eigenvector/symmetric transform.png" class="img-fluid"></p>
+<ul>
+<li>위의 그림과 같이 선형변환이 Symmetric matrix <span class="math inline">\(A = A^T\)</span>인 경우를 고려해보자.</li>
+<li><span class="math inline">\(A\)</span>를 EVD하고 rank-1 matrix의 가중합으로 표현했을때 <span class="math inline">\(x\)</span>에 대한 선형변환 <span class="math inline">\(Ax\)</span>는 다음과 같다.</li>
+</ul>
+<p><span class="math display">\[Ax = \lambda_1q_1q_1^Tx + \lambda_2q_2q_2^Tx + \lambda_3q_3q_3^Tx\]</span></p>
+<ul>
+<li><span class="math inline">\(x \in \mathbb{R}^3\)</span>에 대하여 <span class="math inline">\(q_i^Tx\)</span>는 각각의 직교하는 3차원 공간의 또다른 정규직교기저에 대한 <span class="math inline">\(x\)</span>의 성분을 의미한다.</li>
+<li><span class="math inline">\(q_i(i=1,2,3)\)</span>로 표현된 <span class="math inline">\(x\)</span>는 다음과 같다.</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+x = (q_1^Tx)q_1 + (q_2^Tx)q_2 + (q_3^Tx)q_3 = \begin{bmatrix}q_1^Tx \\ q_2^Tx \\ q_3^Tx\end{bmatrix}
+\end{aligned}\]</span>
+<ul>
+<li>간단하게 말해서 <span class="math inline">\(q_1,q_2,q_3\)</span>를 포함하도록 <span class="math inline">\(x\)</span>를 분해했다고 보면된다.</li>
+</ul>
+<p><img src="./eigenvalue eigenvector/symmetric component.png" class="img-fluid"></p>
+<ul>
+<li>그럼 <span class="math inline">\(Ax\)</span>는?? <span class="math inline">\(\to Ax\)</span>는 직교기저로 <span class="math inline">\(x\)</span>를 분해하고 각 성분에 대해 적절한 스칼라배를 취해서 다시 조합하여 섞은 것으로 이해할 수 있다.
+<ul>
+<li>첫번째 성분인 <span class="math inline">\((q_1^Tx)q_1\)</span>은 <span class="math inline">\(\lambda_1\)</span>만큼 곱한다. <span class="math inline">\(\to \lambda_1q_1q_1^Tx\)</span></li>
+<li>두번째 성분인 <span class="math inline">\((q_2^Tx)q_2\)</span>은 <span class="math inline">\(\lambda_2\)</span>만큼 곱한다. <span class="math inline">\(\to \lambda_2q_2q_2^Tx\)</span></li>
+<li>세번째 성분인 <span class="math inline">\((q_3^Tx)q_3\)</span>은 <span class="math inline">\(\lambda_3\)</span>만큼 곱한다. <span class="math inline">\(\to \lambda_3q_3q_3^Tx\)</span></li>
+<li>곱한것들을 +해서 섞으면 <span class="math inline">\(x\)</span>를 대칭행렬로 선형변환한 <span class="math inline">\(Ax\)</span>이다.</li>
+</ul></li>
+<li>즉, <span class="math inline">\(Ax = \lambda_1q_1q_1^Tx + \lambda_2q_2q_2^Tx + \lambda_3q_3q_3^Tx\)</span>이다.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="정리" class="level1">
+<h1>정리</h1>
+<ul>
+<li>Symmetric matrix의 경우 EVD가 조금 더 간단하다.
+<ul>
+<li>이는 <span class="math inline">\(V^{-1} = V^T\)</span>로 구해지기 때문이다.</li>
+</ul></li>
+<li>또한 재밌는 사실도 두 가지 나왔다.
+<ul>
+<li>Symmetric matrix는 rank-1 matrix의 가중합이다. <span class="math inline">\(\to\)</span> 데이터 압축,축소,PCA 응용(1)</li>
+<li>Symmetric matrix가 선형변환이라면 그러한 선형변환은 Input을 직교기저로 분해하고 적절히 스칼라배하여 재조합 한 것이다.(2)</li>
+</ul></li>
+<li>특히(1)의 경우는 유용할 것 같지만 여기서는 Symmetric matrix로 하는 방법만 배웠다.</li>
+<li>SVD의 경우 일반적인 행렬에 대해서 할 수 있다.(만능)</li>
+</ul>
 </section>
 <section id="참고자료" class="level1">
-<h1><span style="color : black"> <strong>참고자료</strong></span></h1>
-<p><a href="https://www.youtube.com/watch?v=_nmuOZujc-E&amp;ab_channel=%EC%88%98%ED%95%99%EC%B1%84%EB%84%90%EC%91%A4%ED%8A%9C%EB%B8%8C">수튜브</a></p>
+<h1>참고자료</h1>
+<p><a href="https://www.youtube.com/watch?v=_nmuOZujc-E&amp;ab_channel=%EC%88%98%ED%95%99%EC%B1%84%EB%84%90%EC%91%A4%ED%8A%9C%EB%B8%8C">수튜브</a><br> <a href="https://angeloyeo.github.io/2020/11/19/eigen_decomposition.html">공돌이의 수학정리노트</a><br> <a href="https://www.youtube.com/watch?v=PP9VQXKvSCY">혁펜하임 선형대수학 5-2강. 고윳값 분해 (Eigendecomposition) 의 모든 것!</a></p>
 
 
 </section>

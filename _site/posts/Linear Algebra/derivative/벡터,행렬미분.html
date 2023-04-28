@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신호연">
-<meta name="dcterms.date" content="2023-01-31">
 
-<title>HIHO - [Linear Algebra] 6-1.eigenvalue &amp; eigenvector</title>
+<title>HIHO - [Linear Algebra] Appendix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +110,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">[Linear Algebra] 6-1.eigenvalue &amp; eigenvector</h1>
+      <h1 class="title">[Linear Algebra] Appendix</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Linear Algebra</div>
               </div>
@@ -128,12 +127,6 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
             </div>
     </div>
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">January 31, 2023</p>
-      </div>
-    </div>
     
       
     </div>
@@ -147,14 +140,20 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#행렬은-선형변환이다." id="toc-행렬은-선형변환이다." class="nav-link active" data-scroll-target="#행렬은-선형변환이다.">행렬은 선형변환이다.</a></li>
-  <li><a href="#eigen-valueeigen-vector" id="toc-eigen-valueeigen-vector" class="nav-link" data-scroll-target="#eigen-valueeigen-vector">Eigen value,Eigen vector?</a>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">background</a>
   <ul class="collapse">
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#total-derivative" id="toc-total-derivative" class="nav-link" data-scroll-target="#total-derivative">Total Derivative</a></li>
+  <li><a href="#lagrange-multiplier" id="toc-lagrange-multiplier" class="nav-link" data-scroll-target="#lagrange-multiplier">Lagrange multiplier</a></li>
   </ul></li>
-  <li><a href="#invertible" id="toc-invertible" class="nav-link" data-scroll-target="#invertible">Invertible</a></li>
-  <li><a href="#eigenvectoreigenvalue-구하기" id="toc-eigenvectoreigenvalue-구하기" class="nav-link" data-scroll-target="#eigenvectoreigenvalue-구하기">eigenvector,eigenvalue 구하기</a></li>
-  <li><a href="#정리" id="toc-정리" class="nav-link" data-scroll-target="#정리">정리</a></li>
+  <li><a href="#scalar를-vector로-미분" id="toc-scalar를-vector로-미분" class="nav-link" data-scroll-target="#scalar를-vector로-미분">Scalar를 Vector로 미분</a>
+  <ul class="collapse">
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#쉽게-미분-구하기" id="toc-쉽게-미분-구하기" class="nav-link" data-scroll-target="#쉽게-미분-구하기">★쉽게 미분 구하기★</a>
+  <ul class="collapse">
+  <li><a href="#예시" id="toc-예시" class="nav-link" data-scroll-target="#예시">예시</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료">참고자료</a></li>
   </ul>
 </nav>
     </div>
@@ -164,20 +163,17 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<p>유튜브 - 혁펜하임님의 선형대수학 강의 정리용 입니다.</p>
-<section id="행렬은-선형변환이다." class="level1">
-<h1>행렬은 선형변환이다.</h1>
+<section id="background" class="level1">
+<h1>background</h1>
+<section id="total-derivative" class="level2">
+<h2 class="anchored" data-anchor-id="total-derivative">Total Derivative</h2>
 <ul>
-<li>함수는 어떤 입력을 주면 출력을 내뱉는다.</li>
-</ul>
-<p><img src="./function.png" class="img-fluid"></p>
+<li>다변수 스칼라함수를 생각해보자. 즉 2개이상의 변수가 input이며 ouput은 하나의 스칼라인 함수이다.</li>
+<li>만약 함수를 이루는 모든 변수가 각각 조금씩 바뀐다면? <span class="math inline">\(\to\)</span> 함숫값도 작지만 아주 조금 변화할 것이다.</li>
+<li>전미분은 위와 같은 상황 즉, 다변수 함수의 모든 변수가 조금씩 변화했을때 함숫값의 변화량을 근사하는 양이다.(from wikipedia)
 <ul>
-<li>행렬도 마찬가지로 함수로 바라볼 수 있다. 다시말해 행렬<span class="math inline">\(A\)</span>에 어떤 입력 <span class="math inline">\(v\)</span>(벡터)를 넣어주면 출력 <span class="math inline">\(Av\)</span>를 내뱉는다고 볼 수 있다.</li>
-</ul>
-<p><img src="./matrix function.png" class="img-fluid"></p>
-<ul>
-<li>행렬은 함수중에서도 선형변환(linear transformation,linear mapping)이다.</li>
-<li>다음과 같은 선형변환의 두 조건을 만족하기 때문이다.</li>
+<li>다변수함수의 미소증분</li>
+</ul></li>
 </ul>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -185,28 +181,70 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Definition of linear transformation
+Definition of total derivative
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <span class="math display">\[\begin{aligned}
-&amp;T(u+v) = T(u) + T(v) \text{  (additivity)}\\
-&amp;T(av) = aT(v) \text{  (Homogeneity)}
+&amp;df = \frac{\partial{f}}{\partial{x_1}}dx_1+\frac{\partial{f}}{\partial{x_2}}dx_2+\dots+\frac{\partial{f}}{\partial{x_n}}dx_n \\
+&amp;\text{where } f : \mathbb{R}^n \rightarrow \mathbb{R}
 \end{aligned}\]</span>
 </div>
 </div>
+<p>추가설명(엄밀한 notation 제외)</p>
 <ul>
-<li>만족하는지 확인해보자.</li>
+<li>편미분 <span class="math inline">\(\frac{\partial{f}}{\partial{x}}\)</span>는 임의의 변수 x의 단위변화량이다.
+<ul>
+<li>x를 매우 미소하게 증가시키고 : <span class="math inline">\(x \overset{+dx}{\to} x+dx\)</span></li>
+<li>이에 따라서 f가 얼마나 변화했는지 그 양을 측정한 뒤 : <span class="math inline">\(f(x+dx) - f(x)\)</span></li>
+<li>“<strong>x가 1만큼 증가하면 얼마나 f는 변화해?</strong>”를 측정한 값(비율)이다. : <span class="math inline">\(\frac{f(x+dx) - f(x)}{dx}\)</span>
+<ul>
+<li>하나의 변수 x의 매우 조그마하고 순간적인 변화에 의해 함숫값의 변화가 아주 조금 변할 때</li>
+<li>이러한 조그마한 변화가 변수가 1만큼 증가하는 것을 기준으로 삼는 경우에는 얼마정도 일지 측정한 단위(길이에 대한)변화량이다.</li>
+<li>느낌 : 이런 <strong>순간적인 변화를 1만큼 계속 유지하면 얼마나 변화할까?</strong></li>
+</ul></li>
+<li>정리하자면 <strong>임의의 단일변수의 미소변화에 대한 단위변화량</strong>이다.(딱딱한 정의)</li>
+<li>여러개의 변수가 있지만 하나의 변수만 조금 변화시킨뒤 측정한다.(그래서 <code>편</code>미분이다.)</li>
+<li>사실 식이 엄밀하진 않다.위의 표현은 상미분에 대한 표현이다.</li>
+<li>자세한 표현식은 <a href="https://en.wikipedia.org/wiki/Partial_derivative">wiki</a>를 참조하자.</li>
+</ul></li>
+<li>단위변화량을 어떤 값과 곱해주면 변화량이 나온다.
+<ul>
+<li>밥을 100g먹으면 몸무게가 5kg 찐다고 하자.(ㅜㅜ억울한 상황이다.)</li>
+<li>그렇다는 것은 1g먹으면 0.05kg이 찐다는 것을 암시하며</li>
+<li>이는 밥(x) 1g에 대한 몸무게(f)의 단위변화량은 0.05kg이다. <span class="math inline">\(\Longleftrightarrow= \frac{\partial f}{\partial x} = 0.05\)</span>
+<ul>
+<li>밥 300g 먹으면? <span class="math inline">\(\frac{\partial f}{\partial x}300 = 0.05 \times 300 = 15\)</span></li>
+<li>밥 0.03g 먹으면? <span class="math inline">\(\frac{\partial f}{\partial x}0.03 = 0.05 \times 0.03 = 0.0015\)</span></li>
+<li>밥 <span class="math inline">\(db\)</span>만큼(진짜조금) 먹으면? <span class="math inline">\(\frac{\partial f}{\partial x}db = 0.05 \times db\)</span></li>
+</ul></li>
+</ul></li>
+<li>변화를 시키는 여러가지 요인을 전부 고려하면?
+<ul>
+<li>밥(<span class="math inline">\(x_1\)</span>)도 조금먹고 물도 조금(<span class="math inline">\(x_2\)</span>)먹고 조금 자다가(<span class="math inline">\(x_3\)</span>) 운동도 조금(<span class="math inline">\(x_4\)</span>)하면 몸무게(f)가 어떻게 될까??</li>
+<li><span class="math inline">\(df = \frac{\partial{f}}{\partial{x_1}}dx_1 + \frac{\partial{f}}{\partial{x_2}}dx_2 + \frac{\partial{f}}{\partial{x_3}}dx_3 + \frac{\partial{f}}{\partial{x_4}}dx_4\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="lagrange-multiplier" class="level2">
+<h2 class="anchored" data-anchor-id="lagrange-multiplier">Lagrange multiplier</h2>
+<p>추후 정리</p>
+</section>
+</section>
+<section id="scalar를-vector로-미분" class="level1">
+<h1>Scalar를 Vector로 미분</h1>
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
+<ul>
+<li>다음과 같이 길이가 2인 벡터가 input이고 하나의 값을 output하는 스칼라함수를 생각해보자.</li>
+<li>이 함수는 다른 시각으로 2개의 변수를 input으로 받는 다변수 스칼라 함수로 생각할 수도 있다.</li>
 </ul>
 <span class="math display">\[\begin{aligned}
-&amp;A(u + v) = Au + Av \\
-&amp;A(ku) = aAu
+f\big(\begin{bmatrix}x_1 \\ x_2\end{bmatrix}\big)
+= f(x_1,x_2)
 \end{aligned}\]</span>
-</section>
-<section id="eigen-valueeigen-vector" class="level1">
-<h1>Eigen value,Eigen vector?</h1>
 <ul>
-<li>eigen value(고윳값),eigen vector(고유벡터)는 아래를 만족한다.</li>
+<li>위와 같은 스칼라함수의 벡터에 대한 미분은 다음과 같이 정의된다.</li>
 </ul>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -214,135 +252,91 @@ Definition of linear transformation
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Definition of eigen value,eigen vector
+다변수 스칼라함수의 벡터미분에 대한 정의
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <span class="math display">\[\begin{aligned}
-&amp;Av = \lambda v(v \not = {\bf{{\bf{0}}}}) \\
-&amp;\text{where, }A \in \mathbb{R}^{m \times m},v \in \mathbb{R}^{m \times 1}
+&amp;\frac{\partial{f}}{\partial{x^T}} := \begin{bmatrix}\frac{\partial{f}}{\partial{x_1}} &amp; \frac{\partial{f}}{\partial{x_2}} &amp; \dots &amp; \frac{\partial{f}}{\partial{x_n}}\end{bmatrix}\\
+&amp;\text{where } f:\mathbb{R}^n \to \mathbb{R}\,,x = \begin{bmatrix}x_1,x_2,\dots,x_n\end{bmatrix}^T
 \end{aligned}\]</span>
 </div>
 </div>
 <ul>
-<li>위와 같은 방정식에서 <span class="math inline">\(\lambda\)</span>를 행렬A의 eigenvalue , <span class="math inline">\(v\)</span>를 이에 대응하는 eigenvector라고 한다.</li>
-<li>어떤의미?
+<li>왜 <span class="math inline">\(\partial{x^T}\)</span>일까?
 <ul>
-<li>일반적으로 <span class="math inline">\(v\)</span>가 선형변환 <span class="math inline">\(A\)</span>를 통과하면 방향,크기가 어떻게 바뀔지 알 수 없다.</li>
-<li>그러나 어떤 벡터들은 <span class="math inline">\(A\)</span>를 통과해도 크기는 모르지만 단순히 스칼라배되기에 방향은 변하지 않는다.(여기서 방향은 기존에 벡터가 올라가있던 직선에서 벗어나는 것을 의미한다.)</li>
-<li>이때의 방향은 안변하는 벡터들이 eigen vector이며 크기는 eigen value에 의하여 scailing된다.</li>
+<li>input은 column vector인데 output은 row vector이다.</li>
+<li>그래서 눕혀서 transpose</li>
+</ul></li>
+<li>그런데 사실 많은 곳에서 notation을 헷갈리게 한다.
+<ul>
+<li>미분의 결과를 column vector로 적는 곳도 많고</li>
+<li><span class="math inline">\(\partial{x^T}\)</span>대신 <span class="math inline">\(\partial{x}\)</span>로 적는 곳도 많다.</li>
+<li>그래서 그냥 <strong>함수를 이루는 모든 변수에 대해서 미분해본뒤 모아놓은 거구나</strong> 이렇게 기억해놓는게 좋다.</li>
 </ul></li>
 </ul>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<p><img src="./transform_color.png" class="img-fluid"></p>
-<ul>
-<li>그림과 같은 선형변환을 생각해보자.</li>
-<li>대부분의 경우 선형변환된 다음 그 방향,크기는 제멋대로 변한다.</li>
-<li>그러나 보라색벡터와 초록색벡터는 각각 3,1만큼 <strong>크기만 늘어나며 방향이 바뀌지 않는 단순한 스칼라배</strong>임을 알 수 있다.</li>
-<li>따라서 보라색벡터 <span class="math inline">\([-1,1]^T\)</span>,초록색벡터 <span class="math inline">\([1,1]^T\)</span>는 <span class="math inline">\(A\)</span>의 eigenvector이며 대응하는 eigenvalue는 각각 3,1임을 알 수 있다.</li>
-<li>위에서는 초록색 보라색만 찾았지만 사실 이 경우 eigenvector는 무한히 많다.</li>
-<li>또다른 어떤 선형변환의 경우에는 아예 존재하지 않는 경우도 있다.</li>
-<li>그림으로 보면 아래와 같다.(사실 영상으로 보는게 훨씬 이해가 잘된다. <a href="https://www.youtube.com/watch?v=xDARfmKauuA">혁펜하임님 유튜브</a> 가서 한번 보길 추천해요)</li>
-</ul>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./2d.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">before</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./2d linear mapping.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">after</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
 </section>
-</section>
-<section id="invertible" class="level1">
-<h1>Invertible</h1>
+<section id="쉽게-미분-구하기" class="level2">
+<h2 class="anchored" data-anchor-id="쉽게-미분-구하기">★쉽게 미분 구하기★</h2>
 <ul>
-<li>선형변환(함수) 관점에서 invertible하다는 <strong>서로다른 입력이 들어갔을때 서로다른 출력이 나온다</strong>이다.</li>
-</ul>
-<p><img src="./matrix function.png" class="img-fluid"></p>
-<ul>
-<li>위의 그림에서 선형변환 <span class="math inline">\(A\)</span>는 서로다른 입력에 대해서 서로다른 출력을 내뱉는다.</li>
-<li>따라서 서로다른 출력에 대해 역으로 서로다른 입력을 하나씩 매핑하는 역함수를 생각할 수 있으며 따라서 <span class="math inline">\(A\)</span>는 invertible하다.</li>
-</ul>
-<p><img src="./same output.png" class="img-fluid"></p>
-<ul>
-<li>위의 그림에서는 선형변환 <span class="math inline">\(A\)</span>는 각각의 서로다른 입력에 대하여 동일한 출력을 내뱉는다.</li>
-<li>그러면 출력값에 대해서 하나씩 매핑하는 역함수를 생각하기가 어렵다.
-<ul>
-<li>예를 들어 <span class="math inline">\(Av_1\)</span>이 <span class="math inline">\(v_1\)</span>과 <span class="math inline">\(v_2\)</span>중에서 어디로 mapping되어야 할지 생각할 수 없다.</li>
-<li><span class="math inline">\(v_1,v_2\)</span> 모두 <span class="math inline">\(Av_1\)</span>에 mapping되기 때문이다.</li>
-</ul></li>
-<li>즉 서로다른 input에 대해 동일한 output을 출력하는 경우 선형변환 <span class="math inline">\(A\)</span>는 invertible하지 않다.</li>
-</ul>
-</section>
-<section id="eigenvectoreigenvalue-구하기" class="level1">
-<h1>eigenvector,eigenvalue 구하기</h1>
-<ul>
-<li>정의를 다시 가져와보면 ….</li>
-</ul>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Definition of linear transformation
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<span class="math display">\[\begin{aligned}
-&amp;T(u+v) = T(u) + T(v) \text{  (additivity)}\\
-&amp;T(av) = aT(v) \text{  (Homogeneity)}
-\end{aligned}\]</span>
-</div>
-</div>
-<ul>
-<li>먼저 eigen vector를 구해보자.</li>
-<li><span class="math inline">\(v \not = {\bf{0}}\)</span>라는 조건을 활용해볼 수 있을 것 같다.</li>
-<li>아래와 같이 식을 변형해보자.</li>
+<li>정석적으로 구하려면 위의 정의에 해당하는 모든 component를 각각 편미분 취해서 구해줘야 한다.</li>
+<li>이건 너무 번거로운 과정이며 더 쉽게 구하는 방법이 있다.</li>
+<li><span class="math inline">\(df\)</span>는 정의는 다음과 같다</li>
 </ul>
 <span class="math display">\[\begin{aligned}
-Av - \lambda v = Av - \lambda Iv = (A-\lambda I)v = {\bf{0}}
+&amp;df := f(x+ dx) - f(x)\\
+&amp;\text{where } f:\mathbb{R}^n \to \mathbb{R},x = \begin{bmatrix}x_1,x_2,\dots,x_n\end{bmatrix}^T,dx = \begin{bmatrix}dx_1,dx_2,\dots,dx_n\end{bmatrix}^T
 \end{aligned}\]</span>
 <ul>
-<li><span class="math inline">\(\lambda\)</span>는 상수이므로 <span class="math inline">\(v\)</span>로 묶고 행렬과의 뺄셈을 수행하기 위해서 <span class="math inline">\(I\)</span>(항등행렬)를 곱해줬다.</li>
-<li><span class="math inline">\(v\)</span>는 <span class="math inline">\(v\not = \bf{{\bf{0}}}\)</span>의 조건을 만족해야 한다.
-<ul>
-<li>만약 <span class="math inline">\(\text{det}(A-\lambda I) \not = {\bf{0}}\)</span>이라면 <span class="math inline">\(A-\lambda I\)</span>의 역행렬이 존재하므로 <span class="math inline">\(v = (A-\lambda)I{\bf{0}} = {\bf{0}}\)</span>이 되어 전제된 조건을 만족하지 못하게 된다.</li>
-<li>따라서 <span class="math inline">\(\text{det}(A-\lambda I) = {\bf{0}}\)</span>라는 조건을 끌어낼 수 있다. <span class="math inline">\(\rightarrow \lambda\)</span>를 구하는 식이 된다.</li>
-<li>또한 윗식에 의해서 <span class="math inline">\(v\)</span>는 <span class="math inline">\((A-\lambda I)\)</span>의 null space임을 알 수 있다. <span class="math inline">\(\rightarrow v\)</span>를 구할 수 있다.</li>
-</ul></li>
-<li>즉, eigen value,eigen vector는 아래와 같이 구하면 된다.</li>
+<li>또한 <span class="math inline">\(df\)</span>의 total derivative는 정의에 의해 다음과 같다.(두 번째 정의라고 생각해도 무방하다.)</li>
 </ul>
 <span class="math display">\[\begin{aligned}
-&amp;\text{det}(A-\lambda I )  = 0 \text{을 만족하는 } \lambda\text{는 eigen value} \\
-&amp;v \in N(A-\lambda I) \text{를 만족하는 }v\text{는 eigen vector}
+df &amp;:= \frac{\partial{f}}{\partial{x_1}}dx_1+\frac{\partial{f}}{\partial{x_2}}dx_2+\dots+\frac{\partial{f}}{\partial{x_n}}dx_n \\
+&amp;= \begin{bmatrix}\frac{\partial{f}}{\partial{x_1}} &amp; \frac{\partial{f}}{\partial{x_2}} &amp; \dots &amp; \frac{\partial{f}}{\partial{x_n}}\end{bmatrix}
+\begin{bmatrix}dx_1\\dx_2\\ \vdots \\ dx_n \end{bmatrix}\\
+&amp;= \frac{\partial{f}}{\partial{x}^T}dx
 \end{aligned}\]</span>
-<p>Q. 그런데 <span class="math inline">\(N(A-\lambda I)\)</span>의 원소는 무수히 많은데 그걸 다 고유벡터라고 해야해?<br> A. 정의상 모두 <strong>고유벡터가 맞다.</strong> 하지만 일반적으로 null space의 기저만을 대표로 하여 고유벡터로 삼는다.<br> - 특히 기저의 길이가 1이되게 정규화해서 고유벡터로 삼는다.<br> - 위와 같은 null space를 eigen space라고도 한다.</p>
-</section>
-<section id="정리" class="level1">
-<h1>정리</h1>
 <ul>
-<li>행렬은 선형변환이다.</li>
-<li>일반적으로 선형변환에 의해 벡터들의 크기와 방향은 모두 변한다.</li>
-<li>그런데 그 중에서 크기만 변하는 벡터들이 있다.
+<li>두 정의를 모아서 정리해보자.</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+df &amp;= f(x+ dx) - f(x) \\
+&amp;= \frac{\partial{f}}{\partial{x}^T}dx
+\end{align}\]</span></p>
 <ul>
-<li>이러한 벡터들을 선형변환에 대응하는 고윳값,고유벡터라 한다.</li>
+<li>그래서 어떻게 구할까?
+<ul>
+<li>(1)을 통해서 <span class="math inline">\(df\)</span>를 계산한 후</li>
+<li>(2)와 같은 형식을 어떻게든 만들고</li>
+<li>dx앞에 있는 항이 원하는 미분이다.</li>
+</ul></li>
+<li>주의
+<ul>
+<li><span class="math inline">\(f(x+dx)\)</span>를 계산하는 과정에서 <span class="math inline">\(dx^Tdx,dx_1dx_2\)</span>와 같은 2차 이상의 항이 나올 수 있다.</li>
+<li>이건 그냥 제외시키면 된다. 즉, 1차항만을 남기고는 싹 지우면 된다.</li>
+<li>왜 그럴까?(엄밀하지 않은 증명)
+<ul>
+<li><span class="math inline">\(df = f(x+dx) - f(x) = dx^Tdx = dx^2\)</span>라 해보자.(dx^2처럼 쓸 수 있다.)</li>
+<li>여기서 <span class="math inline">\(dx\)</span>가 벡터가 아니라 스칼라라고 생각해보면 <span class="math inline">\(dx\)</span>로 양변을 나눌 수 있다.</li>
+<li>양변을 <span class="math inline">\(dx\)</span>로 나누고 (2)에 의하여 <span class="math inline">\(\frac{df}{dx} = dx = \frac{\partial f}{\partial x^T}\)</span>이다.</li>
+<li>미분의 정의에 의해 <span class="math inline">\(dx \to 0\)</span> 이므로 <span class="math inline">\(dx^2\)</span>와 비슷한 2차이상의 항에 대한 <span class="math inline">\(\frac{\partial{f}}{\partial{x^T}} = 0\)</span>이다.</li>
+<li>따라서 2차이상의 항이 나오면 <span class="math inline">\(\frac{\partial{f}}{\partial{x^T}} = 0\)</span>이 될 것이므로 제외를 시켜줘도 된다.</li>
+<li>사실 벡터미분이기 때문에 나눠줄 수 없어서 엄밀한 증명은 아니다.</li>
+</ul></li>
 </ul></li>
 </ul>
+<section id="예시" class="level3">
+<h3 class="anchored" data-anchor-id="예시">예시</h3>
+<ul>
+<li><span class="math inline">\(f(x) = (y-Ax)^T(y-Ax)\)</span>일때 <span class="math inline">\(\frac{\partial{f}}{\partial{x^T}}\)</span>를 구해보자.</li>
+</ul>
+<p><img src="./vector derivative.png" class="img-fluid"></p>
+</section>
+</section>
+</section>
+<section id="참고자료" class="level1">
+<h1>참고자료</h1>
+<p><a href="https://www.youtube.com/watch?v=JYOA2zNL9bw">혁펜하임 - [딥러닝] 5-1강. 스칼라를 벡터로 미분 | 10분 투자로 평생가는 실력!</a></p>
 
 
 </section>
