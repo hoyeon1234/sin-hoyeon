@@ -9,7 +9,7 @@
 <meta name="author" content="신호연">
 <meta name="dcterms.date" content="2023-02-10">
 
-<title>HIHO - Quadratic Form(작성중)</title>
+<title>HIHO - [Linear Algebra] 6-4.Quadratic Form</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -174,7 +174,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Quadratic Form(작성중)</h1>
+      <h1 class="title">[Linear Algebra] 6-4.Quadratic Form</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Linear Algebra</div>
               </div>
@@ -210,14 +210,22 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#definition-of-quadratic-form" id="toc-definition-of-quadratic-form" class="nav-link active" data-scroll-target="#definition-of-quadratic-form"><span style="color : black"> <strong>Definition of Quadratic Form</strong></span></a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span style="color : black"> <strong>Example</strong></span></a></li>
-  <li><a href="#change-of-variable-in-a-quadratic-from" id="toc-change-of-variable-in-a-quadratic-from" class="nav-link" data-scroll-target="#change-of-variable-in-a-quadratic-from"><span style="color : black"> <strong>Change of Variable in a Quadratic From</strong></span></a></li>
-  <li><a href="#example---직교대각화" id="toc-example---직교대각화" class="nav-link" data-scroll-target="#example---직교대각화"><span style="color : black"> <strong>Example - 직교대각화</strong></span></a></li>
-  <li><a href="#example---change-of-variable-in-quadratic-form" id="toc-example---change-of-variable-in-quadratic-form" class="nav-link" data-scroll-target="#example---change-of-variable-in-quadratic-form"><span style="color : black"> <strong>Example - Change of Variable in Quadratic Form</strong></span></a></li>
+  <li><a href="#quadratic-form" id="toc-quadratic-form" class="nav-link active" data-scroll-target="#quadratic-form">Quadratic Form</a>
+  <ul class="collapse">
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#change-of-variable-in-a-quadratic-from" id="toc-change-of-variable-in-a-quadratic-from" class="nav-link" data-scroll-target="#change-of-variable-in-a-quadratic-from">Change of Variable in a Quadratic From</a>
+  <ul class="collapse">
+  <li><a href="#problem-setting" id="toc-problem-setting" class="nav-link" data-scroll-target="#problem-setting">Problem Setting</a></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a></li>
+  <li><a href="#example-orthogonally-diagonalize" id="toc-example-orthogonally-diagonalize" class="nav-link" data-scroll-target="#example-orthogonally-diagonalize">Example : orthogonally diagonalize</a></li>
+  <li><a href="#example-change-of-variable-in-quadratic-form" id="toc-example-change-of-variable-in-quadratic-form" class="nav-link" data-scroll-target="#example-change-of-variable-in-quadratic-form">Example : Change of Variable in Quadratic Form</a></li>
+  </ul></li>
   <li><a href="#the-principal-axes-theorem" id="toc-the-principal-axes-theorem" class="nav-link" data-scroll-target="#the-principal-axes-theorem"><span style="color : black"> <strong>The Principal Axes Theorem</strong></span></a></li>
   <li><a href="#classifiying-quadratic-forms" id="toc-classifiying-quadratic-forms" class="nav-link" data-scroll-target="#classifiying-quadratic-forms"><span style="color:black"><strong>Classifiying Quadratic Forms</strong></span></a></li>
-  <li><a href="#bfxtabfx-0-rightarrow-a-invertible" id="toc-bfxtabfx-0-rightarrow-a-invertible" class="nav-link" data-scroll-target="#bfxtabfx-0-rightarrow-a-invertible"><span style="color:black"> <strong><span class="math inline">\({\bf{x}}^TA{\bf{x}}&gt; 0 \rightarrow\)</span> A : invertible</strong></span></a></li>
+  <li><a href="#bfxtabfx-0-longrightarrow-a가-invertible하다." id="toc-bfxtabfx-0-longrightarrow-a가-invertible하다." class="nav-link" data-scroll-target="#bfxtabfx-0-longrightarrow-a가-invertible하다."><span class="math inline">\({\bf{x}}^TA{\bf{x}}&gt; 0 \Longrightarrow\)</span> A가 invertible하다.</a></li>
+  <li><a href="#참고자료" id="toc-참고자료" class="nav-link" data-scroll-target="#참고자료">참고자료</a></li>
   </ul>
 </nav>
     </div>
@@ -228,20 +236,36 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 <p><a href="https://deep-learning-study.tistory.com/458">딥러닝공부방</a>,<a href="https://soohee410.github.io/quadratic_form">soohee410님의 블로그</a>을 읽고 정리한 내용입니다.</p>
-<section id="definition-of-quadratic-form" class="level1">
-<h1><span style="color : black"> <strong>Definition of Quadratic Form</strong></span></h1>
+<section id="quadratic-form" class="level1">
+<h1>Quadratic Form</h1>
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
 <p>벡터<span class="math inline">\({\bf{x}}\)</span>의 이차형식(Quadratic form)은 다음과 같이 정의한다.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Definition of quadratic form
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <span class="math display">\[\begin{aligned}
-&amp;Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}}\\
+&amp;Q({\bf{x}}) := {\bf{x}}^TA{\bf{x}}\\
 &amp;\text{where }
 \begin{aligned}
 &amp;A = A^T \in \mathbb{R}^{n \times n},x \in \mathbb{R}^{n \times 1}
 \end{aligned}
 \end{aligned}\]</span>
-<p>여기서 행렬<span class="math inline">\(A\)</span>는 이차형식의 행렬(matrix of quadratic form)이라고 하며 <span class="math inline">\(A=A^T\)</span>를 만족하는 대칭행렬이며 <span class="math inline">\({\bf{x}}\)</span>는 벡터이다.</p>
+</div>
+</div>
+<ul>
+<li>행렬<span class="math inline">\(A\)</span>를 이차형식의 행렬(matrix of quadratic form)이라고 하며 symmetric matrix이다.</li>
+</ul>
 </section>
-<section id="example" class="level1">
-<h1><span style="color : black"> <strong>Example</strong></span></h1>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
 <p><span class="math inline">\({\bf{x}} = [x_1,x_2]^T\)</span> ,<span class="math inline">\(A = \begin{bmatrix}3 &amp; -2 \\ -2 &amp; 7\end{bmatrix}\)</span>일때, quadratic form을 구해보자.</p>
 <span class="math display">\[\begin{aligned}
 &amp;Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}} =
@@ -261,43 +285,74 @@ x_1 &amp; x_2
 = 3x_1^2 -4x_1x_2 + 7x_2^2
 \end{aligned}\]</span>
 </section>
+</section>
 <section id="change-of-variable-in-a-quadratic-from" class="level1">
-<h1><span style="color : black"> <strong>Change of Variable in a Quadratic From</strong></span></h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./타원1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">cross product항이 존재하지 않는 경우</figcaption><p></p>
-</figure>
-</div>
-<p>위의 그림은 이차형식을 좌표계에서 표현한 것이다. 각각의 이차형식에서 원점으로부터 거리가 가장 먼 좌표를 찾아보자. 초록색 이차형식의 경우 x1 = 0을 대입하여 바로 x2를 구할 수 있다. 그러나 빨강색 이차형식의 거리가 가장 먼 곳의 좌표가 어디인지 바로 직관적을 파악하기가 어렵다. 이는 crossproduct항이 이차형식안에 존재하여 축에서 부터 사선방향으로 그래프를 회전시키기 때문이다.</p>
+<h1>Change of Variable in a Quadratic From</h1>
+<section id="problem-setting" class="level2">
+<h2 class="anchored" data-anchor-id="problem-setting">Problem Setting</h2>
+<p><img src="./타원1.png" class="img-fluid"><br></p>
+<p>위의 그림은 이차형식을 좌표계에서 표현한 것이다. 각각의 이차형식에서 원점으로부터 거리가 가장 먼 좌표를 찾아보자.</p>
+<ul>
+<li>초록색 quadtratic form의 경우 직관적으로 <span class="math inline">\(x_2 = 0\)</span>을 대입하여 거리가 가장 먼 좌표를 바로 구할 수 있다.</li>
+<li>그러나 빨강색 quadtratic form의 경우 거리가 가장 먼 곳의 좌표를 구하기가 쉽지않다.</li>
+<li>crossproduct term인 <span class="math inline">\(4x_1x_2\)</span>가 존재로 인해서 현재의 좌표축을 기준으로 회전된 타원이 존재하기 때문이다.</li>
+</ul>
 <p><img src="./타원2.png" class="img-fluid"></p>
-<p>만약 빨강색 이차형식이 다음과 같이 새로운축을 기준으로 cross product를 제거하여 회전되지 않은 형태로 표현된다면 어떨끼? 초록색 이차형식에서 직관적으로 거리가 가장 먼 곳의 좌표를 알 수 있었던 것처럼 가장 먼 곳의 좌표가 y2 = 0인 점이라는 것이 직관적으로 보이므로 이를 대입하여 거리가 가장 먼 곳의 좌표를 간단하게 구할 수 있을 것이다.</p>
-<p>이와 같이 축을 바꿔서 하여 cross product항을 제거하면 최소 또는 최대가 되는 좌표를 바로 구할 수 있게 해줘서 최적화 관점에서 이점이 많다. 그렇다면 식을 새로운 축을 기준으로 어떻게 바꾸는 방법은 뭘까? 이는 이차형식의 변수변환을 활용하면 된다.</p>
-<p>먼저 어떤 <span class="math inline">\(\bf{x}\)</span>를 <span class="math inline">\(\bf{{\bf{y}}}\)</span>에 행렬 A의 고유벡터행렬인 <span class="math inline">\(P\)</span>가 곱해진 꼴로 생각하자. 이때 행렬A는 대칭행렬이며 직교대각화가 가능하므로 <span class="math inline">\(P\)</span>는 <span class="math inline">\(P^{-1} = P^T\)</span>를 만족하는 orthonomal matrix로 두자.</p>
+<p>만약 빨강색 quadratic form이 위와 같이 새로운 축을 기준으로 표현된다면 어떨까?</p>
+<ul>
+<li>새로운 축을 기준으로 빨강색 타원은 회전되지 않은 형태이기에</li>
+<li>cross product항이 제거되어 가장 먼 곳의 좌표를 직관적으로 <span class="math inline">\(y2=0\)</span>을 대입하여 쉽게 구할 수 있다.</li>
+<li>이와 같이 축을 바꿔서 하여 cross product항을 제거하면 최소 또는 최대가 되는 좌표를 바로 보다 쉽게 구할 수 있게 해줘서 최적화 관점에서 이점이 많다.</li>
+</ul>
+<p>그렇다면 주어진 식을 새로운 축을 기준으로 간다하게 바꾸려면 어떻게 해야 뭘까?</p>
+<ul>
+<li>이는 이차형식의 <code>변수변환</code>을 활용하면 된다.</li>
+</ul>
+</section>
+<section id="method" class="level2">
+<h2 class="anchored" data-anchor-id="method">Method</h2>
+<ul>
+<li>이차형식의 변수변환에서 <span class="math inline">\(\bf{x}\)</span>는 <span class="math inline">\(\bf{{\bf{y}}}\)</span>와 대칭행렬 <span class="math inline">\(A\)</span>의 고유벡터의 모음인 <span class="math inline">\(P\)</span>의 곱이라고 가정한다.</li>
+<li>이때 <span class="math inline">\(P\)</span>는 행렬<span class="math inline">\(A\)</span>가 대칭행렬이며 따라서 직교대각화가 가능하므로 <span class="math inline">\(P\)</span>는 <span class="math inline">\(P^{-1} = P^T\)</span>를 만족하는 orthonormal matrix이다.
+<ul>
+<li><span class="math inline">\(A=A^T\)</span>인 대칭행렬은 직교대각화가 가능하며 고유벡터들은 서로간에 직교한다는 사실을 기억하자.</li>
+</ul></li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;{\bf{x}} = P{\bf{{\bf{y}}}} \\
 &amp;{\bf{{\bf{y}}}}=P^{-1}{\bf{x}}\\
 &amp;\text{where }P^{-1} = P^T
 \end{aligned}\]</span>
-<p>이때 <span class="math inline">\(P = \begin{bmatrix}p_1 &amp; p_2 &amp; \dots &amp;p_n \end{bmatrix}\)</span>인 정규직교행렬이므로 <span class="math inline">\(P\)</span>의 고유벡터들은 orthonomal하다. 그러므로 고유벡터들의 집합인 <span class="math inline">\(B = \{p_1,p_2,\dots,p_n\}\)</span>를 구성하면 <span class="math inline">\(B\)</span>는 <span class="math inline">\(\mathbb{R}^n\)</span>공간의 또다른 (표준기저가아닌)정규직교기저이며 <span class="math inline">\({\bf{y}}\)</span>는 <span class="math inline">\({\bf{x}}\)</span>를 정규직교기저 <span class="math inline">\(B\)</span>로 표현한 좌표<span class="math inline">\([{\bf{x}}]_B\)</span>이다. 즉 다음과 같다.</p>
+<ul>
+<li>고유벡터들의 집합인 <span class="math inline">\(B = \{p_1,p_2,\dots,p_n\}\)</span>를 구성해보자.</li>
+<li><span class="math inline">\(B\)</span>는 <span class="math inline">\(\mathbb{R}^n\)</span>공간의 표준기저 <span class="math inline">\(\{e_1,e_2,\dots,e_n\}\)</span>가 아닌 또다른 정규직교기저이다.(B의 span은 <span class="math inline">\(\mathbb{R}^n\)</span>이기 때문이다.)</li>
+</ul>
+<p>그렇다면 여기서 <span class="math inline">\({\bf{y}}\)</span>는 뭘까?</p>
+<ul>
+<li><span class="math inline">\({\bf{x}}\)</span>를 <strong>나타낼 수 있는 정규직교기저이자 <span class="math inline">\(A\)</span>의 고유벡터 집합인 <span class="math inline">\(B\)</span>로 표현한 좌표</strong><span class="math inline">\([{\bf{x}}]_B\)</span>이다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;{\bf{x}} = P{\bf{y}}\\
-&amp;\longleftrightarrow {\bf{x}} = p_1y_1 + p_2y_2 + \dots + p_ny_n\\
-&amp;\longleftrightarrow {\bf{y}} = [{\bf{x}}]_B
+&amp;\Longleftrightarrow {\bf{x}} = p_1y_1 + p_2y_2 + \dots + p_ny_n\\
+&amp;\Longleftrightarrow {\bf{y}} = [{\bf{x}}]_B
 \end{aligned}\]</span>
-<p>이를 이차형식에 대입해보자</p>
+<p>위에서 가정한 사실을 이차형식에 대입해보자</p>
 <span class="math display">\[\begin{aligned}
 &amp;{\bf{x}}^TA{\bf{x}} = (P{\bf{y}})^TA(P{\bf{y}}) = {\bf{y}}^TP^TAP{\bf{y}} = {\bf{y}}^TD{\bf{y}}\\
 &amp;\text{where } D = P^TAP,P^T = P^{-1}
 \end{aligned}\]</span>
-<p><span class="math inline">\(A\)</span>는 대각행렬이므로 직교대각화<span class="math inline">\(D = P^TAP\)</span>가 가능하다. 따라서 <span class="math inline">\({\bf{x}}\)</span>의 이차형식은 벡터<span class="math inline">\({\bf{y}}\)</span>의 이차형식이 되었음을 알 수 있다.</p>
+<ul>
+<li><span class="math inline">\(A\)</span>는 symmetric하므로 직교대각화<span class="math inline">\(D = P^TAP\)</span>가 가능하다.</li>
+<li>따라서 벡터<span class="math inline">\({\bf{x}}\)</span>의 quadratic form은 벡터<span class="math inline">\({\bf{y}}\)</span>의 quadratic form이 되고</li>
+<li><span class="math inline">\(A\)</span>의 고윳값을 모아놓은 대각행렬 <span class="math inline">\(D\)</span>가 quadratic form의 matrix가 됨을 알 수 있다.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 {\bf{x}}^TA{\bf{x}}= {\bf{y}}^TD{\bf{y}} =
 \begin{bmatrix}
-y_1 \\
-y_2 \\
+y_1^T \\
+y_2^T \\
 \vdots \\
-y_n
+y_n^T
 \end{bmatrix}
 \begin{bmatrix}
 \lambda_1 &amp; 0 &amp;\dots &amp; 0 \\
@@ -310,24 +365,39 @@ y_1 &amp; y_2 &amp; \dots &amp; y_n
 \end{bmatrix}
 = \lambda_1y_1^2 + \lambda_2y_2^2 + \dots + \lambda_ny_n^2
 \end{aligned}\]</span>
-<p>조금 더 전개해보면 다음과 같은 <span class="math inline">\(y\)</span>에 관한 식으로 나타난다.결론적으로 <span class="math inline">\(D\)</span>가 대각행렬이기 때문에 crossproduct term이 나타나지 않으며 <span class="math inline">\(B = \{p_1,p_2,\dots,p_n\}\)</span>을 기저로 하는 새로운 좌표축에서 식을 표현할 수 있다.</p>
+<ul>
+<li>조금 더 전개해보면 위와 같은 <span class="math inline">\(y\)</span>에 관한 식으로 나타난다.
+<ul>
+<li>변환결과 <span class="math inline">\(D\)</span>가 대각행렬이기에 행렬곱의 결과로 crossproduct term이 나타나지 않았으며</li>
+<li><span class="math inline">\(B = \{p_1,p_2,\dots,p_n\}\)</span>를 기저로 하는 새로운 좌표축에서 y에 관한 방정식이 표현되었다.</li>
+</ul></li>
+<li>따라서 원점에서 거리가 가장 먼 지점을 비교적 쉽게 구할 수 있다.
+<ul>
+<li><span class="math inline">\({\bf{y}}^TD{\bf{y}} = \lambda_1y_1^2 + \lambda_2y_2^2\)</span>와 같은 타원이라면</li>
+<li>$y_2 = 0 $을 대입하여 쉽게 구할 수 있다.</li>
+<li>물론 고윳값,고윳벡터를 구하는 과정이 필요함을 잊지말자.</li>
+</ul></li>
+</ul>
 </section>
-<section id="example---직교대각화" class="level1">
-<h1><span style="color : black"> <strong>Example - 직교대각화</strong></span></h1>
-<p>행렬 <span class="math inline">\(A =\begin{bmatrix}4 &amp; 2 &amp; 2 \\ 2 &amp; 4 &amp; 2 \\ 2 &amp; 2 &amp; 4\end{bmatrix}\)</span> 를 직교대각화해라.</p>
+<section id="example-orthogonally-diagonalize" class="level2">
+<h2 class="anchored" data-anchor-id="example-orthogonally-diagonalize">Example : orthogonally diagonalize</h2>
+<p><span class="math inline">\(A =\begin{bmatrix}4 &amp; 2 &amp; 2 \\ 2 &amp; 4 &amp; 2 \\ 2 &amp; 2 &amp; 4\end{bmatrix}\)</span>인 symmetric matrix를 직교대각화해라.</p>
 <p>먼저 행렬 A의 고윳값과 고유벡터를 구해보자. 다음과 같은 방정식을 만족하는 <span class="math inline">\(\lambda\)</span>가 고윳값이다.</p>
 <span class="math display">\[\begin{aligned}
-&amp;\text{det}(\lambda I - A) = {\bf{0}} \\
-&amp;\longleftrightarrow
-\begin{bmatrix}
+&amp;\text{det}(\lambda I - A) = 0 \\
+&amp;\Longleftrightarrow
+\begin{vmatrix}
 \lambda -4 &amp; -2 &amp; -2 \\
 -2 &amp; \lambda -4 &amp; -2 \\
 -2 &amp; -2 &amp; \lambda -4
-\end{bmatrix} = {\bf{0}} \\
-&amp;\longleftrightarrow(\lambda-2)^2(\lambda-8) = 0
+\end{vmatrix} = 0 \\
+&amp;\Longleftrightarrow(\lambda-2)^2(\lambda-8) = 0
 \end{aligned}\]</span>
-<p>따라서 고윳값은 2와 8이다.</p>
-<p>각각의 고윳값에 대한 단위고유벡터를 구해보면 다음과 같다. (이때 고유공간을 생성하는 orthonormal set을 구하는 방법은 나중에 공부를 더 해야할 듯 하다(그람슈미트?직교여공간?))</p>
+<p>따라서 고윳값은 2와 8이다. 각각의 고윳값에 대한 단위고유벡터를 구해보면 다음과 같다.</p>
+<ul>
+<li>이때 <span class="math inline">\(p_2\)</span>가 바로 구해지지는 않으며 아직 공부하지 못한 방법이다.</li>
+<li>서로간에 직교인 고유벡터들을 구성하는 방법은 나중에 공부를 더 해야할 듯 하다.(그람슈미트?직교여공간?)</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;
 \lambda=2 : p_1 = \begin{bmatrix}-1/\sqrt{2} &amp; 1/\sqrt{2}&amp; 0\end{bmatrix}^T,p_2 = \begin{bmatrix}-1/\sqrt{6}&amp;-1/\sqrt{6}&amp;2/\sqrt{6}\end{bmatrix}^T \\
@@ -366,64 +436,122 @@ D = P^{-1}AP = \text{diag}(2,2,8)
 </div>
 </div>
 </section>
-<section id="example---change-of-variable-in-quadratic-form" class="level1">
-<h1><span style="color : black"> <strong>Example - Change of Variable in Quadratic Form</strong></span></h1>
+<section id="example-change-of-variable-in-quadratic-form" class="level2">
+<h2 class="anchored" data-anchor-id="example-change-of-variable-in-quadratic-form">Example : Change of Variable in Quadratic Form</h2>
 <p>위에서 구한 <span class="math inline">\({\bf{x}} = [x_1,x_2]^T\)</span> ,<span class="math inline">\(A = \begin{bmatrix}3 &amp; -2 \\ -2 &amp; 7\end{bmatrix}\)</span>일때, quadratic form을 변수변환해보자.</p>
 <span class="math display">\[\begin{aligned}
 &amp;Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}}
 = 3x_1^2 -4x_1x_2 + 7x_2^2
 \end{aligned}\]</span>
-<p>먼저 고윳값과 고유벡터를 구하면 다음과 같다. 이때 고유벡터는 모두 단위벡터이자 orthonomal한 벡터들이다.</p>
+<p>먼저 고윳값과 고유벡터를 구하면 다음과 같다.</p>
+<ul>
+<li>이때 고유벡터는 모두 단위벡터이자 orthonormal한 벡터로 잡자.</li>
+</ul>
 <span class="math display">\[\begin{aligned}
 &amp;
 \lambda=3 : p_1 = \begin{bmatrix}2/\sqrt{5} &amp; -1/\sqrt{5}\end{bmatrix}^T\\
 &amp;\lambda=-7 : p_2 = \begin{bmatrix}1/\sqrt{5} &amp; 2/\sqrt{5} \end{bmatrix}^T
 \end{aligned}\]</span>
-<p><span class="math inline">\(P\)</span>는 고유벡터행렬이자 <span class="math inline">\(P^{-1} = P^T\)</span>를 만족하는 orthonomal matrix(정규직교행렬)이다. 다음과 같다.</p>
-<p><span class="math display">\[\begin{bmatrix}2/\sqrt{5} &amp; 1/\sqrt{5}\\-1\sqrt{5} &amp; 2/\sqrt{5}\end{bmatrix}\]</span></p>
-<p>대각화도 한번 해보면 다음과 같다.</p>
+<p>대각화를 위해 <span class="math inline">\(A\)</span>를 대각화시키는 행렬 <span class="math inline">\(P\)</span>를 구성하자.이때 <span class="math inline">\(P\)</span>에 대해서 몇 가지를 기억하자.</p>
+<ul>
+<li><span class="math inline">\(P\)</span>는 <span class="math inline">\(A\)</span>의 고유벡터들을 모아놓은 행렬이자</li>
+<li><span class="math inline">\(P^{-1} = P^T\)</span>를 만족하는 orthonormal matrix이다.(A가 symmetric matrix이기에 가능하다.)</li>
+</ul>
+<p><span class="math display">\[P = \begin{bmatrix}2/\sqrt{5} &amp; 1/\sqrt{5}\\-1\sqrt{5} &amp; 2/\sqrt{5}\end{bmatrix}\]</span></p>
+<p>따라서 대각화를 해보면 다음과 같다.</p>
 <p><span class="math display">\[D = P^{-1}AP = \begin{bmatrix}3 &amp; 0 \\ 0 &amp; -7\end{bmatrix}\]</span></p>
-<p>이제 위에서 구한 <span class="math inline">\(P\)</span>로 변수변환을 할 수 있다. <span class="math inline">\({\bf{x}}\)</span>=<span class="math inline">\(P{\bf{y}}\)</span>를 quadratic form에 대입하면 다음과 같이 정리된다.</p>
+<p>이제 위에서 구한 <span class="math inline">\(P\)</span>로 변수변환을 할 수 있다. <span class="math inline">\({\bf{x}}\)</span>=<span class="math inline">\(P{\bf{y}}\)</span>를 quadratic form에 대입해보자.</p>
 <span class="math display">\[\begin{aligned}
 Q({\bf{x}}) &amp;= x^TAx = (Py)^TA(Py) = y^TP^TAPy = y^TP^TAPy\\
 &amp;=y^TDy = 3y_1^2 - 7y_2^2
 \end{aligned}\]</span>
 <p>이러한 변수변환을 시각화 해보면 다음과 같다고 한다.</p>
 <p><img src="./changevariable.png" class="img-fluid"></p>
-<p><span class="math inline">\({\bf{x}} = P{\bf{y}}\)</span>관계를 가질때 <span class="math inline">\({\bf{x}}^TA{\bf{x}} = {\bf{y}}^TD{\bf{y}}\)</span>와 같은 값에 mapping됨을 잘 보여준다.</p>
+<ul>
+<li>x에 대한 quadratic form인 <span class="math inline">\({\bf{x}}^TA{\bf{x}}\)</span>가 존재하며 그 값은 16이다.</li>
+<li><span class="math inline">\({\bf{x}} = P{\bf{y}}\)</span>를 x에 대한 2차형식에 대입하여 y에 대한 quadratic form으로 변수를 바꿨으며 그 값도 마찬가지로 16이다.</li>
+<li><span class="math inline">\({\bf{x}}^TA{\bf{x}} = {\bf{y}}^TD{\bf{y}} = 16\)</span>으로 같은 값에 mapping됨을 기억하자.(변수변환을 해도 나타내는 형태(타원)는 그대로이다.)</li>
+</ul>
+</section>
 </section>
 <section id="the-principal-axes-theorem" class="level1">
 <h1><span style="color : black"> <strong>The Principal Axes Theorem</strong></span></h1>
-<p>행렬 <span class="math inline">\(A = A^T \in R^{n \times n}\)</span>라 가정해보자. 두 벡터사이에 <span class="math inline">\({\bf{x}}=P{\bf{y}}\)</span>인 관계가 있다면 <span class="math inline">\({\bf{x}}\)</span>의 이차형식 <span class="math inline">\(Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}}\)</span>는 cross-product form이 없는 <span class="math inline">\(\bf{y}\)</span>의 이차형식 <span class="math inline">\({\bf{y}}^TD{\bf{y}}\)</span>와 같다는 정리이다. 이때 <span class="math inline">\(A\)</span>행렬의 고유벡터가 각각의 column을 이루는 orthonormal matrix(정규직교행렬) <span class="math inline">\(P\)</span>의 각각의 열들을 이차형식 <span class="math inline">\(x^TAx\)</span>의 주축(principal axes)라고 부른다.</p>
+<p><code>Principal Axes Theorem</code>(주축정리)는 위에서 공부한 사실에 대한 정리이다.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+The Principal Axes Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(A\)</span>가 <span class="math inline">\(n \times n\)</span>인 대칭행렬일 때, quadratic form인 <span class="math inline">\(x^TAx\)</span>를 cross-product항이 존재하지 않는 이차형태 <span class="math inline">\(y^TDy\)</span>로 변환시키는 직교 변수변환 <span class="math inline">\({\bf{x}} = P{\bf{y}}\)</span>가 존재한다.<br></p>
+</div>
+</div>
+<p><strong>(Detail)</strong></p>
+<ul>
+<li>이때 <span class="math inline">\(A\)</span>행렬의 고유벡터는
+<ol type="1">
+<li>Orthonormal matrix <span class="math inline">\(P\)</span>의 각각의 열(column)이며</li>
+<li><strong>새로운 축으로 표현할 때의 정규직교기저</strong>이다.</li>
+</ol></li>
+<li>Orthonormal matrix <span class="math inline">\(P\)</span>를 이차형식의 주축(principal axes)라고 부른다.</li>
+</ul>
 <p><img src="./principal axes.png" class="img-fluid"></p>
-<p>위의 그림의 (a)는 바로 위 예제에서 사용된 이차형식이다. <span class="math inline">\(y_1\)</span>과 <span class="math inline">\(y_2\)</span>는 <span class="math inline">\(\mathbb{R}\)</span>^2의 기저인 <span class="math inline">\(B = \{p_1,p_2\}\)</span>을 기저로 하는 새로운 축이며 타원은 이 축을 기준으로 원점에 놓이며 회전하지 않은 형태이다.</p>
+<ul>
+<li>위의 그림의 (a)는 바로 위 예제에서 사용된 이차형식이다.
+<ul>
+<li><span class="math inline">\(y_1\)</span>과 <span class="math inline">\(y_2\)</span>는 <span class="math inline">\(\mathbb{R}\)</span>^2의 기저인 <span class="math inline">\(B = \{p_1,p_2\}\)</span>을 기저로 하는 새로운 축이며</li>
+<li>타원은 이 축을 기준으로 원점에 놓이며 회전하지 않은 (표준)형태이다.</li>
+</ul></li>
+</ul>
 </section>
 <section id="classifiying-quadratic-forms" class="level1">
 <h1><span style="color:black"><strong>Classifiying Quadratic Forms</strong></span></h1>
 <p>이차형식의 부호는 다음과 같이 정의할 수 있다.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+이차형식의 부호
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <span class="math display">\[\begin{aligned}
-&amp;x \not =0,Q(x)&gt;0 \leftrightarrow \text{positive definite}\\
-&amp;x \not =0,Q(x)&lt;0 \leftrightarrow \text{negative definite}\\
-&amp;\text{Q(x)가 양수와 음수 모두 지닌다면} \leftrightarrow \text{indefinite}\\
-&amp;Q(x)\geq 0 \leftrightarrow \text{positive semidefinite}\\
-&amp;Q(x)\leq 0 \leftrightarrow \text{negative semidefinite}
+&amp;x \not =0,Q(x)&gt;0 \Longleftrightarrow \text{positive definite}\\
+&amp;x \not =0,Q(x)&lt;0 \Longleftrightarrow \text{negative definite}\\
+&amp;\text{Q(x)가 양수와 음수 모두 지닌다면} \Longleftrightarrow \text{indefinite}\\
+&amp;Q(x)\geq 0 \Longleftrightarrow \text{positive semidefinite}\\
+&amp;Q(x)\leq 0 \Longleftrightarrow \text{negative semidefinite}
 \end{aligned}\]</span>
-<p>고윳값으로 이차형식의 부호를 알 수 있다. 이차형식을 전개하면 다음과 같다.</p>
-<p><span class="math display">\[Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}} = \lambda_1x_1^2 + \lambda_2x_2^2 + \dots + \lambda_nx_n^2\]</span></p>
+</div>
+</div>
+<p>다음과 같은 이차형식을 고려해보자.</p>
+<p><span class="math display">\[Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}}\]</span></p>
+<p>주축정리에 의해 어떤 이차형식에 대하여 직교변환이 존재함을 알 수 있다. 이에 따라 전개하면 다음과 같을 것이다.</p>
+<p><span class="math display">\[Q({\bf{x}}) = {\bf{x}}^TA{\bf{x}} = {\bf{y}}^TD{\bf{y}}=\lambda_1x_1^2 + \lambda_2x_2^2 + \dots + \lambda_nx_n^2\]</span></p>
 <p><span class="math inline">\(x\)</span>에 관한 제곱항은 모두 양수이므로 행렬 <span class="math inline">\(A\)</span>의 고윳값의 부호에 의하여 이차형식의 부호가 결정된다.</p>
 <span class="math display">\[\begin{aligned}
-&amp;\forall i,\lambda_i &gt; 0 \leftrightarrow \text{positive definite}\\
-&amp;\forall i,\lambda_i &lt; 0 \leftrightarrow \text{negative definite}\\
-&amp;\forall i,\lambda_i\text{ 가 양수이거나 음수이다.}\leftrightarrow \text{indefinite}
+&amp;\forall i,\lambda_i &gt; 0 \Longleftrightarrow \text{positive definite}\\
+&amp;\forall i,\lambda_i &lt; 0 \Longleftrightarrow \text{negative definite}\\
+&amp;\forall i,\lambda_i\text{ 가 양수이거나 음수이다.}\Longleftrightarrow \text{indefinite}
 \end{aligned}\]</span>
 </section>
-<section id="bfxtabfx-0-rightarrow-a-invertible" class="level1">
-<h1><span style="color:black"> <strong><span class="math inline">\({\bf{x}}^TA{\bf{x}}&gt; 0 \rightarrow\)</span> A : invertible</strong></span></h1>
+<section id="bfxtabfx-0-longrightarrow-a가-invertible하다." class="level1">
+<h1><span class="math inline">\({\bf{x}}^TA{\bf{x}}&gt; 0 \Longrightarrow\)</span> A가 invertible하다.</h1>
 <p>임의의 행렬 <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span>일 때 다음이 성립한다.</p>
-<p>$$(A) = _1_2_n</p>
+<p><span class="math display">\[\text{det}(A) = \lambda_1\lambda_2\dots\lambda_n\]</span></p>
 <p>만약 <span class="math inline">\(A = A^T\)</span>인 대칭행렬이며 이차형식이 positive definite라면 다음과 같다.</p>
-<p><span class="math display">\[({\bf{x}}^TA{\bf{x}}&gt;0) \leftrightarrow \text{positive definite}\rightarrow \forall i,\lambda_i &gt;0 \rightarrow \text{det(A)}&gt;0 \rightarrow A : \text{invertible}\]</span></p>
-<p>그러므로, 이차형식이 positive definite라면 이차형식의 행렬<span class="math inline">\(A\)</span>는 invertible하다.</p>
+<p><span class="math display">\[({\bf{x}}^TA{\bf{x}}&gt;0) \Longleftrightarrow \text{positive definite}\rightarrow \forall i,\lambda_i &gt;0 \rightarrow \text{det(A)}&gt;0 \rightarrow A : \text{invertible}\]</span></p>
+<p><span class="math inline">\(\therefore\)</span> 이차형식이 positive definite라면 이차형식의 행렬<span class="math inline">\(A\)</span>는 invertible하다.</p>
+</section>
+<section id="참고자료" class="level1">
+<h1>참고자료</h1>
+<p><a href="https://deep-learning-study.tistory.com/458">딥러닝공부방 - [선형대수학] 6.2 이차 형식(Quadratic Forms)</a><br> <a href="https://soohee410.github.io/quadratic_form">soohee410님의 블로그 - [선형대수] Quadratic Forms, Principal Axes Theorem, Positive Definite Matrix</a></p>
 <p><span style="color:black"></span></p>
 
 

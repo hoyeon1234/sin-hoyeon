@@ -168,16 +168,16 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 <section id="eigen-value-decompositionevd" class="level1">
 <h1>Eigen Value Decomposition(EVD)</h1>
 <ul>
-<li>행렬 <span class="math inline">\(A \in \mathbb{R}^{2 \times 2}\)</span>의 eigen value는 <span class="math inline">\(2\)</span>개 eigen vector도 <span class="math inline">\(2\)</span>개라 하자.</li>
+<li><p>고윳값분해는 행렬을 분해하는 방법 중 하나로 행렬이 <strong>1)full rank인 정사각행렬</strong>이거나 <strong>2)정사각행렬이면서 대칭행렬</strong>인 경우에 사용할 수 있다.</p></li>
+<li><p>정사각행렬이며 대칭행렬의 경우에는 항상 EVD 가능하지만 일반적인 정사각행렬인 경우 모든 column,row가 선형독립(full rank)이어야 한다.</p></li>
+<li><p>행렬 <span class="math inline">\(A \in \mathbb{R}^{2 \times 2}\)</span>의 eigen value는 <span class="math inline">\(2\)</span>개 eigen vector도 <span class="math inline">\(2\)</span>개라 해보자&gt;</p></li>
 </ul>
 <span class="math display">\[\begin{aligned}
 &amp;Av_1 = \lambda_1v_1 \\
 &amp;Av_2 = \lambda_2v_2 \\
 \end{aligned}\]</span>
 <ul>
-<li><p>이때 <span class="math inline">\(A\in \mathbb{R}^{2\times 2}\)</span>인 정사각행렬이었다는 사실을 기억하자.</p></li>
-<li><p>지금부터 나올 <strong>고윳값분해는 정사각행렬의 경우에만 가능하다.</strong></p></li>
-<li><p>다음과 식을 생각해보자..</p></li>
+<li>다음과 식을 생각했을때…</li>
 </ul>
 <span class="math display">\[\begin{aligned}
 A\begin{bmatrix}v_1\,v_2\end{bmatrix} = \begin{bmatrix}Av_1\,Av_2\end{bmatrix} = \begin{bmatrix}\lambda_1v_1\,\lambda_2v_2\end{bmatrix} = \begin{bmatrix}v_1\,v_2\end{bmatrix}\begin{bmatrix}\lambda_1 &amp; 0 \\ 0 &amp; \lambda_2\end{bmatrix}
@@ -190,7 +190,7 @@ A\begin{bmatrix}v_1\,v_2\end{bmatrix} = \begin{bmatrix}Av_1\,Av_2\end{bmatrix} =
 &amp;\Longleftrightarrow A = V\Lambda V^{-1}
 \end{aligned}\]</span>
 <ul>
-<li>이렇게 A를 몇개의 행렬들로 쪼갰을 때, 행렬A를 decomposition했다고 하며 이런방식으로 decompose하는 방법을 eigen (value) decomposition이라고 한다.</li>
+<li>위와같이 하나의 행렬을 몇 개의 행렬들로 인수분해했을때, 행렬A를 decomposition했다고 하며 고윳값,고유벡터를 통해서 decompose하면 eigen (value) decomposition이라고 한다.</li>
 </ul>
 </section>
 <section id="diagonalizable" class="level1">
