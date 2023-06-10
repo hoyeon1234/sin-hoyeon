@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HIHO – quarto-inputb78fe90c</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#모집단과-표본" id="toc-모집단과-표본" class="nav-link active" data-scroll-target="#모집단과-표본">모집단과 표본</a></li>
+  <li><a href="#확률표본" id="toc-확률표본" class="nav-link" data-scroll-target="#확률표본">확률표본</a></li>
+  <li><a href="#예제-공공자전거-자료" id="toc-예제-공공자전거-자료" class="nav-link" data-scroll-target="#예제-공공자전거-자료">예제 공공자전거 자료</a>
+  <ul class="collapse">
+  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda">EDA</a></li>
+  <li><a href="#확률표본의-추출" id="toc-확률표본의-추출" class="nav-link" data-scroll-target="#확률표본의-추출">확률표본의 추출</a></li>
+  <li><a href="#insight" id="toc-insight" class="nav-link" data-scroll-target="#insight">insight</a></li>
+  </ul></li>
+  <li><a href="#대수의-법칙-코드로-확인해보기" id="toc-대수의-법칙-코드로-확인해보기" class="nav-link" data-scroll-target="#대수의-법칙-코드로-확인해보기">대수의 법칙 코드로 확인해보기</a></li>
+  <li><a href="#대수의-법칙이-성립하지-않는-경우---편의표본" id="toc-대수의-법칙이-성립하지-않는-경우---편의표본" class="nav-link" data-scroll-target="#대수의-법칙이-성립하지-않는-경우---편의표본">대수의 법칙이 성립하지 않는 경우 - 편의표본</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<section id="모집단과-표본" class="level2">
+<h2 class="anchored" data-anchor-id="모집단과-표본">모집단과 표본</h2>
+<ul>
+<li>모집단(population) : 정보를 얻고자 하는 관심 대상의 전체집합을 말한다.</li>
+<li>표본(sample) : 분석의 대상이 되는 전체집단. 즉 모집단(population)</li>
+</ul>
+</section>
+<section id="확률표본" class="level2">
+<h2 class="anchored" data-anchor-id="확률표본">확률표본</h2>
+<ul>
+<li>단순 임의 추출(simple random sampling) : 모집단(population)의 각각의 요소 또는 사례들이 표본(sample)으로 선택될 가능성이 같게 되는 표본 추출법.</li>
+<li>단순 임의 추출을 통하여 추출된 표본을 <code>확률표본</code>이라고 부른다.</li>
+<li>cf.&nbsp;편의표본 : 개체가 표본에 포함되는 가능성을 알 수 없는 표본.</li>
+</ul>
+</section>
+<section id="예제-공공자전거-자료" class="level2">
+<h2 class="anchored" data-anchor-id="예제-공공자전거-자료">예제 공공자전거 자료</h2>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">from</span> matplotlib <span class="im">import</span> rc</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-7"><a href="#cb1-7"></a>url1 <span class="op">=</span> <span class="st">"https://ilovedata.github.io/teaching/bigdata2/data/seoul_bike_201909_3.csv"</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>bike <span class="op">=</span> pd.read_csv(url1, encoding<span class="op">=</span><span class="st">"CP949"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>데이터프레임 <code>bike</code>는 2019년 9월에 발생한 모든 대여정보를 수록한 자료이므로 모집단이다.</li>
+</ul>
+<section id="eda" class="level3">
+<h3 class="anchored" data-anchor-id="eda">EDA</h3>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>bike.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>자전거번호</th>
+      <th>대여일시</th>
+      <th>대여 대여소번호</th>
+      <th>대여 대여소명</th>
+      <th>대여거치대</th>
+      <th>반납일시</th>
+      <th>반납대여소번호</th>
+      <th>반납대여소명</th>
+      <th>반납거치대</th>
+      <th>이용시간</th>
+      <th>이용거리</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SPB-17003</td>
+      <td>2019-09-28 16:10:55</td>
+      <td>368</td>
+      <td>SK 서린빌딩 앞</td>
+      <td>4</td>
+      <td>2019-09-28 17:03:32</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>14</td>
+      <td>52</td>
+      <td>8940.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SPB-14405</td>
+      <td>2019-09-28 16:48:16</td>
+      <td>2024</td>
+      <td>상도역 1번출구</td>
+      <td>3</td>
+      <td>2019-09-28 17:03:44</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>18</td>
+      <td>15</td>
+      <td>1910.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SPB-18431</td>
+      <td>2019-09-28 16:59:54</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>10</td>
+      <td>2019-09-28 17:03:57</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>10</td>
+      <td>2</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>SPB-04853</td>
+      <td>2019-09-28 15:31:49</td>
+      <td>207</td>
+      <td>여의나루역 1번출구 앞</td>
+      <td>32</td>
+      <td>2019-09-28 17:10:12</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>19</td>
+      <td>98</td>
+      <td>9610.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SPB-11122</td>
+      <td>2019-09-28 15:35:41</td>
+      <td>207</td>
+      <td>여의나루역 1번출구 앞</td>
+      <td>14</td>
+      <td>2019-09-28 17:10:37</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>18</td>
+      <td>90</td>
+      <td>9450.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SPB-23089</td>
+      <td>2019-09-28 17:02:37</td>
+      <td>2003</td>
+      <td>사육신공원앞</td>
+      <td>5</td>
+      <td>2019-09-28 17:13:44</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>10</td>
+      <td>10</td>
+      <td>1410.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>SPB-15669</td>
+      <td>2019-09-28 16:17:54</td>
+      <td>2213</td>
+      <td>고속터미널역 5번출구 앞</td>
+      <td>7</td>
+      <td>2019-09-28 17:14:22</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>8</td>
+      <td>56</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>SPB-09727</td>
+      <td>2019-09-28 17:04:56</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>5</td>
+      <td>2019-09-28 17:17:10</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>17</td>
+      <td>11</td>
+      <td>380.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>SPB-10053</td>
+      <td>2019-09-28 16:59:45</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>3</td>
+      <td>2019-09-28 17:17:53</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>5</td>
+      <td>17</td>
+      <td>1080.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>SPB-14487</td>
+      <td>2019-09-28 16:01:41</td>
+      <td>2024</td>
+      <td>상도역 1번출구</td>
+      <td>5</td>
+      <td>2019-09-28 17:20:44</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>14</td>
+      <td>78</td>
+      <td>13870.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>bike.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>(407589, 11)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>bike.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>Index(['자전거번호', '대여일시', '대여 대여소번호', '대여 대여소명', '대여거치대', '반납일시', '반납대여소번호',
+       '반납대여소명', '반납거치대', '이용시간', '이용거리'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>시각화</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># 이용거리 plotting</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>bike.plot.hist(y<span class="op">=</span><span class="st">"이용거리"</span>,bins<span class="op">=</span><span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>&lt;AxesSubplot:ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 51060 (\N{HANGUL SYLLABLE I}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 50857 (\N{HANGUL SYLLABLE YONG}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 44144 (\N{HANGUL SYLLABLE GEO}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 47532 (\N{HANGUL SYLLABLE RI}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="6.1 표본과 경험적 분포_files/figure-html/cell-6-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>오른쪽으로 꼬리가 긴 분포.(오른쪽으로 치우친 분포)</li>
+</ul>
+<p>요약통계량 보기</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>bike[[<span class="st">"이용거리"</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>이용거리</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>407589.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4253.336228</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5782.673901</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1200.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2380.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>5130.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>153490.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="확률표본의-추출" class="level3">
+<h3 class="anchored" data-anchor-id="확률표본의-추출">확률표본의 추출</h3>
+<ul>
+<li>df.sample(n=None,frac=None,replace=False,weights=None,random_state,axis=None,ignore_index=False) 사용
+<ul>
+<li>n : 표본의 크기</li>
+<li>frac : 표본의 비율</li>
+<li>replace : 복원추출 여부</li>
+<li>random_state : 난수 지정</li>
+</ul></li>
+<li>with replacement(비복원추출) : 추출된 자료를 다시 뽑을 수 있음(replace = True)</li>
+<li>without replacement(복원추출) : 추출된 자료는 다시 뽑을 수 없음(replace = False)</li>
+<li>상자에 있는 공 100개를 눈 감고 뽑는 경우 다시 넣고 뽑기(복원추출) 다시 안 넣고 뽑기(비복원추출)</li>
+</ul>
+<p>크키가 100인 표본을 뽑고 이용거리의 특성 살펴보기</p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>bike_sample_100 <span class="op">=</span> bike.sample(n<span class="op">=</span><span class="dv">100</span>,replace<span class="op">=</span><span class="va">False</span>,random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>bike_sample_100.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>자전거번호</th>
+      <th>대여일시</th>
+      <th>대여 대여소번호</th>
+      <th>대여 대여소명</th>
+      <th>대여거치대</th>
+      <th>반납일시</th>
+      <th>반납대여소번호</th>
+      <th>반납대여소명</th>
+      <th>반납거치대</th>
+      <th>이용시간</th>
+      <th>이용거리</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>375631</th>
+      <td>SPB-11285</td>
+      <td>2019-09-21 10:06:07</td>
+      <td>1452</td>
+      <td>겸재교 진입부</td>
+      <td>9</td>
+      <td>2019-09-21 10:38:10</td>
+      <td>3520</td>
+      <td>광진경찰서</td>
+      <td>4</td>
+      <td>30</td>
+      <td>5920.0</td>
+    </tr>
+    <tr>
+      <th>219156</th>
+      <td>SPB-10989</td>
+      <td>2019-09-24 22:36:38</td>
+      <td>2321</td>
+      <td>학여울역 사거리</td>
+      <td>9</td>
+      <td>2019-09-24 22:41:46</td>
+      <td>2320</td>
+      <td>도곡역 대치지구대 방향</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2646</th>
+      <td>SPB-20213</td>
+      <td>2019-09-11 15:51:03</td>
+      <td>1986</td>
+      <td>태평양물산빌딩</td>
+      <td>8</td>
+      <td>2019-09-11 16:28:15</td>
+      <td>2007</td>
+      <td>유한양행앞</td>
+      <td>6</td>
+      <td>37</td>
+      <td>5450.0</td>
+    </tr>
+    <tr>
+      <th>329716</th>
+      <td>SPB-05859</td>
+      <td>2019-09-11 09:09:47</td>
+      <td>1912</td>
+      <td>한신휴아파트 앞</td>
+      <td>9</td>
+      <td>2019-09-11 09:15:23</td>
+      <td>2801</td>
+      <td>대륭포스트타워1차</td>
+      <td>14</td>
+      <td>5</td>
+      <td>830.0</td>
+    </tr>
+    <tr>
+      <th>35470</th>
+      <td>SPB-03699</td>
+      <td>2019-09-01 14:19:17</td>
+      <td>2265</td>
+      <td>이수고가차도 남단</td>
+      <td>2</td>
+      <td>2019-09-01 14:34:28</td>
+      <td>2060</td>
+      <td>남성역3번출구 뒤</td>
+      <td>6</td>
+      <td>14</td>
+      <td>2160.0</td>
+    </tr>
+    <tr>
+      <th>132032</th>
+      <td>SPB-03922</td>
+      <td>2019-09-20 22:09:34</td>
+      <td>274</td>
+      <td>영등포역지하쇼핑센타 5번출구</td>
+      <td>1</td>
+      <td>2019-09-20 23:14:57</td>
+      <td>2219</td>
+      <td>고속터미널역 8-1번, 8-2번 출구 사이</td>
+      <td>9</td>
+      <td>65</td>
+      <td>11820.0</td>
+    </tr>
+    <tr>
+      <th>15067</th>
+      <td>SPB-17943</td>
+      <td>2019-09-17 18:24:58</td>
+      <td>2002</td>
+      <td>노들역 1번출구</td>
+      <td>18</td>
+      <td>2019-09-17 19:57:08</td>
+      <td>2025</td>
+      <td>흑석역 1번출구</td>
+      <td>3</td>
+      <td>91</td>
+      <td>8560.0</td>
+    </tr>
+    <tr>
+      <th>226253</th>
+      <td>SPB-07462</td>
+      <td>2019-09-03 18:27:38</td>
+      <td>2358</td>
+      <td>구룡초사거리 (현대아파트10동 앞 )</td>
+      <td>4</td>
+      <td>2019-09-03 18:41:48</td>
+      <td>2329</td>
+      <td>르네상스호텔사거리 역삼지하보도 2번출구</td>
+      <td>6</td>
+      <td>13</td>
+      <td>2520.0</td>
+    </tr>
+    <tr>
+      <th>318420</th>
+      <td>SPB-13058</td>
+      <td>2019-09-10 15:52:12</td>
+      <td>2620</td>
+      <td>송파나루역 4번 출구옆</td>
+      <td>7</td>
+      <td>2019-09-10 16:05:27</td>
+      <td>2622</td>
+      <td>올림픽공원역 3번출구</td>
+      <td>8</td>
+      <td>13</td>
+      <td>2220.0</td>
+    </tr>
+    <tr>
+      <th>405911</th>
+      <td>SPB-18550</td>
+      <td>2019-09-09 19:10:55</td>
+      <td>549</td>
+      <td>아차산역 3번출구</td>
+      <td>5</td>
+      <td>2019-09-09 19:19:11</td>
+      <td>3542</td>
+      <td>래미안 구의파크 스위트</td>
+      <td>17</td>
+      <td>7</td>
+      <td>1090.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>추출한 표본에서의 이동거리 분포 + 요약통계량 살펴보기(표본 파악)</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>bike_sample_100.plot.hist(y<span class="op">=</span><span class="st">"이용거리"</span>,bins<span class="op">=</span><span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>&lt;AxesSubplot:ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="6.1 표본과 경험적 분포_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>bike_sample_100.plot.box(y<span class="op">=</span><span class="st">"이용거리"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 51060 (\N{HANGUL SYLLABLE I}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 50857 (\N{HANGUL SYLLABLE YONG}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 44144 (\N{HANGUL SYLLABLE GEO}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 47532 (\N{HANGUL SYLLABLE RI}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="6.1 표본과 경험적 분포_files/figure-html/cell-10-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>bike_sample_100[[<span class="st">"이용거리"</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>이용거리</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3824.100000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5524.629901</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1157.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2170.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4285.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>45700.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>크키가 10000인 표본을 뽑고 이용거리의 특성 살펴보기</p>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>bike_sample_10000 <span class="op">=</span> bike.sample(n<span class="op">=</span><span class="dv">10000</span>,replace<span class="op">=</span><span class="va">False</span>,random_state<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>bike_sample_10000.head(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>자전거번호</th>
+      <th>대여일시</th>
+      <th>대여 대여소번호</th>
+      <th>대여 대여소명</th>
+      <th>대여거치대</th>
+      <th>반납일시</th>
+      <th>반납대여소번호</th>
+      <th>반납대여소명</th>
+      <th>반납거치대</th>
+      <th>이용시간</th>
+      <th>이용거리</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>96387</th>
+      <td>SPB-16561</td>
+      <td>2019-09-20 10:21:46</td>
+      <td>2140</td>
+      <td>신림1교 교차로</td>
+      <td>7</td>
+      <td>2019-09-20 10:38:58</td>
+      <td>2173</td>
+      <td>당곡사거리</td>
+      <td>3</td>
+      <td>16</td>
+      <td>2310.0</td>
+    </tr>
+    <tr>
+      <th>324061</th>
+      <td>SPB-24348</td>
+      <td>2019-09-11 19:21:40</td>
+      <td>1184</td>
+      <td>마곡13단지</td>
+      <td>5</td>
+      <td>2019-09-11 19:56:02</td>
+      <td>2701</td>
+      <td>마곡나루역 5번출구 뒤편</td>
+      <td>6</td>
+      <td>34</td>
+      <td>3020.0</td>
+    </tr>
+    <tr>
+      <th>20552</th>
+      <td>SPB-07058</td>
+      <td>2019-09-08 23:13:16</td>
+      <td>2104</td>
+      <td>사당역 5번출구</td>
+      <td>1</td>
+      <td>2019-09-08 23:20:41</td>
+      <td>2033</td>
+      <td>사당동 아르테스 웨딩앞</td>
+      <td>10</td>
+      <td>7</td>
+      <td>680.0</td>
+    </tr>
+    <tr>
+      <th>348666</th>
+      <td>SPB-01000</td>
+      <td>2019-09-13 11:51:08</td>
+      <td>560</td>
+      <td>비전교회 앞</td>
+      <td>7</td>
+      <td>2019-09-13 11:55:01</td>
+      <td>3508</td>
+      <td>화양사거리</td>
+      <td>3</td>
+      <td>3</td>
+      <td>430.0</td>
+    </tr>
+    <tr>
+      <th>383299</th>
+      <td>SPB-10860</td>
+      <td>2019-09-17 06:22:04</td>
+      <td>576</td>
+      <td>광나루역 3번 출구</td>
+      <td>10</td>
+      <td>2019-09-17 06:26:27</td>
+      <td>3528</td>
+      <td>광진정보도서관</td>
+      <td>5</td>
+      <td>4</td>
+      <td>590.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>28579</th>
+      <td>SPB-10761</td>
+      <td>2019-09-28 11:11:18</td>
+      <td>2013</td>
+      <td>장승배기역 5번출구</td>
+      <td>12</td>
+      <td>2019-09-28 11:16:53</td>
+      <td>2050</td>
+      <td>노량진역 5번출구</td>
+      <td>1</td>
+      <td>5</td>
+      <td>840.0</td>
+    </tr>
+    <tr>
+      <th>327155</th>
+      <td>SPB-19663</td>
+      <td>2019-09-25 07:58:37</td>
+      <td>1163</td>
+      <td>방화동강서기동대앞</td>
+      <td>5</td>
+      <td>2019-09-25 08:04:04</td>
+      <td>2701</td>
+      <td>마곡나루역 5번출구 뒤편</td>
+      <td>5</td>
+      <td>5</td>
+      <td>540.0</td>
+    </tr>
+    <tr>
+      <th>401769</th>
+      <td>SPB-11216</td>
+      <td>2019-09-01 18:32:15</td>
+      <td>3539</td>
+      <td>서원마을</td>
+      <td>10</td>
+      <td>2019-09-01 20:25:53</td>
+      <td>3539</td>
+      <td>서원마을</td>
+      <td>10</td>
+      <td>112</td>
+      <td>6970.0</td>
+    </tr>
+    <tr>
+      <th>356440</th>
+      <td>SPB-17905</td>
+      <td>2019-09-19 20:19:06</td>
+      <td>1332</td>
+      <td>석계역 5번출구 건너편</td>
+      <td>9</td>
+      <td>2019-09-19 21:17:48</td>
+      <td>3511</td>
+      <td>응봉역 1번출구</td>
+      <td>10</td>
+      <td>58</td>
+      <td>12070.0</td>
+    </tr>
+    <tr>
+      <th>256661</th>
+      <td>SPB-07179</td>
+      <td>2019-09-30 21:33:50</td>
+      <td>2411</td>
+      <td>세곡동 성당</td>
+      <td>1</td>
+      <td>2019-09-30 21:49:27</td>
+      <td>2376</td>
+      <td>수서역 6번출구 앞</td>
+      <td>12</td>
+      <td>15</td>
+      <td>2390.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 11 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>bike_sample_10000.plot.hist(y<span class="op">=</span><span class="st">"이용거리"</span>,bins<span class="op">=</span><span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<pre><code>&lt;AxesSubplot:ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 51060 (\N{HANGUL SYLLABLE I}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 50857 (\N{HANGUL SYLLABLE YONG}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 44144 (\N{HANGUL SYLLABLE GEO}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 47532 (\N{HANGUL SYLLABLE RI}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="6.1 표본과 경험적 분포_files/figure-html/cell-13-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>bike_sample_10000.plot.box(y<span class="op">=</span><span class="st">"이용거리"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 51060 (\N{HANGUL SYLLABLE I}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 50857 (\N{HANGUL SYLLABLE YONG}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 44144 (\N{HANGUL SYLLABLE GEO}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+C:\Users\22668\anaconda3\lib\site-packages\IPython\core\pylabtools.py:151: UserWarning: Glyph 47532 (\N{HANGUL SYLLABLE RI}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="6.1 표본과 경험적 분포_files/figure-html/cell-14-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>bike_sample_10000[[<span class="st">"이용거리"</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>이용거리</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>10000.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4263.389000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5808.952384</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1200.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2350.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>5142.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>87720.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>fig, axes <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">10</span>))</span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a>axes[<span class="dv">0</span>].boxplot(bike_sample_100.이용거리)</span>
+<span id="cb26-4"><a href="#cb26-4"></a>axes[<span class="dv">0</span>].set_ylim(<span class="dv">0</span>,<span class="dv">153500</span>)</span>
+<span id="cb26-5"><a href="#cb26-5"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'n=100'</span>)</span>
+<span id="cb26-6"><a href="#cb26-6"></a></span>
+<span id="cb26-7"><a href="#cb26-7"></a>axes[<span class="dv">1</span>].boxplot(bike_sample_10000.이용거리)</span>
+<span id="cb26-8"><a href="#cb26-8"></a>axes[<span class="dv">1</span>].set_ylim(<span class="dv">0</span>,<span class="dv">153500</span>)</span>
+<span id="cb26-9"><a href="#cb26-9"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'n=10000'</span>)</span>
+<span id="cb26-10"><a href="#cb26-10"></a></span>
+<span id="cb26-11"><a href="#cb26-11"></a>axes[<span class="dv">2</span>].boxplot(bike.이용거리)</span>
+<span id="cb26-12"><a href="#cb26-12"></a>axes[<span class="dv">2</span>].set_ylim(<span class="dv">0</span>,<span class="dv">153500</span>)</span>
+<span id="cb26-13"><a href="#cb26-13"></a>axes[<span class="dv">2</span>].set_title(<span class="st">'Population'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
+<pre><code>Text(0.5, 1.0, 'Population')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="6.1 표본과 경험적 분포_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="insight" class="level3">
+<h3 class="anchored" data-anchor-id="insight">insight</h3>
+<ul>
+<li>추출된 표본에 속한 데이터의 분포는 <code>경험적 분포(emprical distribution)</code>라고 함
+<ul>
+<li><code>경험적</code>? <span class="math inline">\(\to\)</span> 추출된 관측값들의 분포라는 의미.</li>
+</ul></li>
+<li>모집단을 대상으로 분포는 <code>경험적 분포</code>라 하지 않음 <code>모집단 분포</code>라고 함.</li>
+<li>표본의 크기(sample size)가 증가할수록 확률표본에서 얻은 정보는 모집단에 대한 정보와 점점 가까워진다.
+<ul>
+<li>당연함. 표본의 크기가 크다는 것 <span class="math inline">\(\to\)</span> 더 많은 데이터 포인트를 추출한다는 것 <span class="math inline">\(\to\)</span> 모집단과 비슷해짐</li>
+<li>모집단이 1000에서 크기가 999인 표본 하는거랑 50인 표본이랑 당연히 999인 표본이 더 모집단과 비슷하겠지?</li>
+<li>크기 10,000인 표본에서 얻은 정보, 즉 상자그림과 요약통계량은 모집단과 매우 유사.</li>
+<li>이용거리의 평균은 4263.4 m 로서 모집단의 평균 4253.3 m 와는 단 10 m 차이</li>
+<li>표본 크기가 100인 경우 보다 훨씬 더 모집단의 분포와 가까운 것을 알 수 있음</li>
+</ul></li>
+<li>대수의 법칙
+<ul>
+<li>표본의 크기(sample size)가 커질수록 확률표본의 경험적 분포가 모집단의 분포에 점점 가까워 진다.</li>
+<li>확률표본에서 얻은 정보는 모집단에 대한 정보와 점점 가까워진다.</li>
+<li>keyword : <code>표본의 크기</code>,<code>증가</code>,<code>확률표본</code>,<code>경험적 분포</code>,<code>모집단의 분포</code>,<code>가까워</code></li>
+</ul></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+단순 임의 추출된 표본이 아닐경우는?(즉 확률표본이 아니고 편의표본인 경우는?)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>표본의 크기가 커진다 할지라도 모집단의 정보와 가까워 진다는 것을 보장할 수 없다.</li>
+<li>만약에 문제를 봤을때 단순임의추출이 아닌데도 표본의 크기가 증가하면 모집단을 잘 묘사한다 이런얘기가 나오면 잘못된 정보이다.</li>
+<li>대수의 법칙은 <code>단순임의추출된 확률표본이라는 가정</code>이 반드시 들어가야 한다.(밑에 편의표본 chapter에서 확인.)</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="대수의-법칙-코드로-확인해보기" class="level2">
+<h2 class="anchored" data-anchor-id="대수의-법칙-코드로-확인해보기">대수의 법칙 코드로 확인해보기</h2>
+<div class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>n <span class="op">=</span> np.arange(<span class="dv">10</span>,<span class="dv">2021</span>,<span class="dv">20</span>)</span>
+<span id="cb28-2"><a href="#cb28-2"></a>sample_means <span class="op">=</span> np.zeros(<span class="bu">len</span>(n))</span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="cf">for</span> i,samplesize <span class="kw">in</span> <span class="bu">enumerate</span>(n):</span>
+<span id="cb28-4"><a href="#cb28-4"></a>    sample_means[i] <span class="op">=</span> bike.sample(n<span class="op">=</span>samplesize,replace <span class="op">=</span> <span class="va">False</span>)[<span class="st">"이용거리"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>sample_means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="99">
+<pre><code>array([3877.        , 4586.66666667, 3894.        , 4593.57142857,
+       4771.88888889, 4165.09090909, 4614.38461538, 4871.93333333,
+       4359.94117647, 4225.42105263, 4036.85714286, 4602.47826087,
+       4302.4       , 4397.48148148, 4216.93103448, 4150.        ,
+       4590.33333333, 4376.68571429, 4506.24324324, 3784.92307692,
+       4329.85365854, 4229.62790698, 4769.91111111, 4472.34042553,
+       4300.44897959, 4500.68627451, 4305.35849057, 4436.89090909,
+       4168.98245614, 3937.33898305, 4317.24590164, 4393.17460317,
+       4196.83076923, 4144.29850746, 4027.97101449, 4125.61971831,
+       4163.67123288, 4146.61333333, 4251.05194805, 4393.02531646,
+       4152.65432099, 4299.57831325, 4323.30588235, 4105.93103448,
+       3980.73033708, 4125.0989011 , 4292.44086022, 4142.        ,
+       4214.03092784, 4421.85858586, 4428.78217822, 4354.7961165 ,
+       4289.76190476, 4404.96261682, 4501.08256881, 4151.83783784,
+       3987.73451327, 3989.22608696, 4279.93162393, 4340.97478992,
+       4065.54545455, 4250.5203252 , 4070.616     , 4388.60629921,
+       4321.51937984, 4590.96183206, 4201.30075188, 4101.34814815,
+       4359.25547445, 3678.39568345, 3996.9858156 , 4276.18181818,
+       4020.39310345, 4341.78911565, 4258.79194631, 4400.97350993,
+       4043.88235294, 4551.45806452, 4231.25477707, 4031.10062893,
+       4371.42236025, 4269.99386503, 4327.2969697 , 4156.07784431,
+       4268.74556213, 4064.12865497, 4302.50867052, 4334.66857143,
+       4350.27118644, 4193.20670391, 4184.85635359, 4466.34972678,
+       4219.05945946, 4286.95721925, 4119.47619048, 4335.76439791,
+       4211.11917098, 4284.52307692, 4174.55837563, 4209.04522613,
+       4113.80099502])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>df_sample <span class="op">=</span> pd.DataFrame({<span class="st">'n'</span>:n, <span class="st">'sample_mean'</span>:sample_means })</span>
+<span id="cb31-2"><a href="#cb31-2"></a>df_sample.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="101">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>n</th>
+      <th>sample_mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>3877.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>30</td>
+      <td>4586.666667</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>50</td>
+      <td>3894.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>70</td>
+      <td>4593.571429</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>90</td>
+      <td>4771.888889</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>110</td>
+      <td>4165.090909</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>130</td>
+      <td>4614.384615</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>150</td>
+      <td>4871.933333</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>170</td>
+      <td>4359.941176</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>190</td>
+      <td>4225.421053</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>ax <span class="op">=</span> df_sample.plot.scatter(x<span class="op">=</span><span class="st">'n'</span>, y<span class="op">=</span><span class="st">'sample_mean'</span>)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>_ <span class="op">=</span> ax.hlines(y<span class="op">=</span><span class="fl">4253.336228</span>, xmin<span class="op">=</span><span class="dv">0</span>, xmax<span class="op">=</span><span class="dv">2000</span>, colors<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb32-3"><a href="#cb32-3"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="6.1 표본과 경험적 분포_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="대수의-법칙이-성립하지-않는-경우---편의표본" class="level1">
+<h1>대수의 법칙이 성립하지 않는 경우 - 편의표본</h1>
+<p>생략…</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
