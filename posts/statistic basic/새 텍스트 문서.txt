@@ -1,0 +1,15 @@
+- 틀릴만한 것
+- 데이터프레임 data의 인자는 딕셔너리
+- p-value에서 나누는 값은 모의실험의 횟수B
+- 귀무가설하에서 binomial분포를 따르는 확률변수의 분포를 모의실험으로 얻고싶다면? np.random.binomial의 3번째 파라미터에 모의실험의 횟수를 인자로 전달.
+	- np.random.binomial(1000,0.54,B)
+- three_drug_wide.melt(value_vars = ["Placebo","Old",New"],value_name = "Value",var_name = "treatment")
+- diff_mean함수에서 두 약물만 가져올때
+twodrug = df.loc[cond~~].reset_index(drop=True)
+- diff_mean함수에서 그룹화하여 평균취할때
+group_mean = ~~~.mean().reset_index()
+- df.sample(n=None,frac=None,replace = False,random_state)
+- np.random.choice(P,n,replace)
+
+1) 상관계수 공식(암기) + 코드써보기(거의다 비슷함),leastsquares 끝까지 보기(특히 mse,R^2개념 봐야 함) 5:30~7:30
+2) 부트스트랩 구현,순열검정 구현 7:30~8:30
