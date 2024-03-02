@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HIHO – untitled</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> gym</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>n<span class="op">=</span><span class="dv">500</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>env <span class="op">=</span> gym.make(<span class="st">"CartPole-v1"</span>, render_mode<span class="op">=</span><span class="st">"human"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>env.action_space.seed(<span class="dv">82</span>)</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>observation, info <span class="op">=</span> env.reset(seed<span class="op">=</span><span class="dv">82</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="cf">for</span> _ <span class="kw">in</span> tqdm(<span class="bu">range</span>(n)):</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    action <span class="op">=</span> env.action_space.sample()</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    observation,reward, terminated, truncated, info <span class="op">=</span> env.step(action)</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    <span class="bu">print</span>(<span class="st">"info : "</span>,info)<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>    </span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="cf">if</span> terminated <span class="kw">or</span> truncated:</span>
+<span id="cb1-17"><a href="#cb1-17"></a>        observation, info <span class="op">=</span> env.reset()</span>
+<span id="cb1-18"><a href="#cb1-18"></a>        </span>
+<span id="cb1-19"><a href="#cb1-19"></a>env.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  1%|▉                                                                                 | 6/500 [00:00&lt;00:09, 52.07it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  3%|██▊                                                                              | 17/500 [00:00&lt;00:10, 46.44it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  5%|████▎                                                                            | 27/500 [00:00&lt;00:10, 44.66it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  7%|█████▎                                                                           | 33/500 [00:00&lt;00:10, 46.48it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  9%|██████▉                                                                          | 43/500 [00:00&lt;00:10, 44.90it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 11%|████████▌                                                                        | 53/500 [00:01&lt;00:10, 44.08it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 13%|██████████▏                                                                      | 63/500 [00:01&lt;00:09, 46.25it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 15%|███████████▊                                                                     | 73/500 [00:01&lt;00:08, 47.73it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 17%|█████████████▍                                                                   | 83/500 [00:01&lt;00:08, 48.28it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 19%|███████████████                                                                  | 93/500 [00:02&lt;00:08, 46.59it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 21%|████████████████▍                                                               | 103/500 [00:02&lt;00:08, 47.71it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 23%|██████████████████                                                              | 113/500 [00:02&lt;00:08, 44.73it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 25%|███████████████████▋                                                            | 123/500 [00:02&lt;00:08, 46.51it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 27%|█████████████████████▎                                                          | 133/500 [00:02&lt;00:08, 45.12it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 28%|██████████████████████                                                          | 138/500 [00:02&lt;00:07, 46.12it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 31%|████████████████████████▍                                                       | 153/500 [00:03&lt;00:07, 46.35it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 33%|██████████████████████████                                                      | 163/500 [00:03&lt;00:07, 47.30it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 35%|███████████████████████████▋                                                    | 173/500 [00:03&lt;00:06, 48.34it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 37%|█████████████████████████████▎                                                  | 183/500 [00:03&lt;00:06, 48.55it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 38%|██████████████████████████████                                                  | 188/500 [00:04&lt;00:06, 45.94it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 40%|███████████████████████████████▋                                                | 198/500 [00:04&lt;00:06, 44.88it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 42%|█████████████████████████████████▎                                              | 208/500 [00:04&lt;00:06, 46.48it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 44%|██████████████████████████████████▉                                             | 218/500 [00:04&lt;00:06, 46.94it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 46%|████████████████████████████████████▍                                           | 228/500 [00:04&lt;00:05, 45.50it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 48%|██████████████████████████████████████                                          | 238/500 [00:05&lt;00:05, 46.91it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 50%|███████████████████████████████████████▋                                        | 248/500 [00:05&lt;00:05, 47.51it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 52%|█████████████████████████████████████████▎                                      | 258/500 [00:05&lt;00:05, 48.24it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 54%|██████████████████████████████████████████▉                                     | 268/500 [00:05&lt;00:05, 45.72it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 56%|████████████████████████████████████████████▍                                   | 278/500 [00:05&lt;00:04, 47.46it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 58%|██████████████████████████████████████████████                                  | 288/500 [00:06&lt;00:04, 47.82it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 60%|███████████████████████████████████████████████▋                                | 298/500 [00:06&lt;00:04, 48.22it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 62%|█████████████████████████████████████████████████▎                              | 308/500 [00:06&lt;00:04, 46.23it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 64%|██████████████████████████████████████████████████▉                             | 318/500 [00:06&lt;00:03, 47.52it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 66%|████████████████████████████████████████████████████▍                           | 328/500 [00:07&lt;00:03, 46.44it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 68%|██████████████████████████████████████████████████████                          | 338/500 [00:07&lt;00:03, 47.34it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 70%|███████████████████████████████████████████████████████▋                        | 348/500 [00:07&lt;00:03, 46.10it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 72%|█████████████████████████████████████████████████████████▎                      | 358/500 [00:07&lt;00:03, 47.19it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 74%|██████████████████████████████████████████████████████████▉                     | 368/500 [00:09&lt;00:14,  9.20it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 76%|████████████████████████████████████████████████████████████▍                   | 378/500 [00:10&lt;00:07, 15.64it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 78%|██████████████████████████████████████████████████████████████                  | 388/500 [00:10&lt;00:04, 23.17it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 80%|███████████████████████████████████████████████████████████████▋                | 398/500 [00:10&lt;00:03, 31.61it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 82%|█████████████████████████████████████████████████████████████████▎              | 408/500 [00:10&lt;00:02, 38.41it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 84%|██████████████████████████████████████████████████████████████████▉             | 418/500 [00:11&lt;00:01, 41.28it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 85%|███████████████████████████████████████████████████████████████████▋            | 423/500 [00:11&lt;00:01, 43.16it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 87%|█████████████████████████████████████████████████████████████████████▎          | 433/500 [00:11&lt;00:01, 43.88it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 89%|██████████████████████████████████████████████████████████████████████▉         | 443/500 [00:11&lt;00:01, 43.48it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 91%|████████████████████████████████████████████████████████████████████████▍       | 453/500 [00:11&lt;00:01, 45.79it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 93%|██████████████████████████████████████████████████████████████████████████      | 463/500 [00:12&lt;00:00, 44.55it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 95%|███████████████████████████████████████████████████████████████████████████▋    | 473/500 [00:12&lt;00:00, 46.38it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 97%|█████████████████████████████████████████████████████████████████████████████▎  | 483/500 [00:12&lt;00:00, 45.01it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 99%|██████████████████████████████████████████████████████████████████████████████▉ | 493/500 [00:12&lt;00:00, 43.99it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|████████████████████████████████████████████████████████████████████████████████| 500/500 [00:12&lt;00:00, 38.86it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info :  {}
+info :  {}
+info :  {}
+info :  {}
+info :  {}</code></pre>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

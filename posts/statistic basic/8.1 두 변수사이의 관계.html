@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HIHO – quarto-input01d7d394</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#두-변수의-관계" id="toc-두-변수의-관계" class="nav-link" data-scroll-target="#두-변수의-관계">두 변수의 관계</a>
+  <ul class="collapse">
+  <li><a href="#상관계수" id="toc-상관계수" class="nav-link" data-scroll-target="#상관계수">상관계수</a></li>
+  <li><a href="#예시---2차함수" id="toc-예시---2차함수" class="nav-link" data-scroll-target="#예시---2차함수">예시 - 2차함수</a></li>
+  </ul></li>
+  <li><a href="#변수의-scailing" id="toc-변수의-scailing" class="nav-link" data-scroll-target="#변수의-scailing">변수의 Scailing</a>
+  <ul class="collapse">
+  <li><a href="#standardization" id="toc-standardization" class="nav-link" data-scroll-target="#standardization">Standardization</a></li>
+  <li><a href="#appendix---상관계수-revision" id="toc-appendix---상관계수-revision" class="nav-link" data-scroll-target="#appendix---상관계수-revision">Appendix - 상관계수 revision</a></li>
+  <li><a href="#구현" id="toc-구현" class="nav-link" data-scroll-target="#구현">구현</a></li>
+  </ul></li>
+  <li><a href="#예제1" id="toc-예제1" class="nav-link" data-scroll-target="#예제1">예제1</a></li>
+  <li><a href="#예제2" id="toc-예제2" class="nav-link" data-scroll-target="#예제2">예제2</a></li>
+  <li><a href="#보충할-내용" id="toc-보충할-내용" class="nav-link" data-scroll-target="#보충할-내용">보충할 내용</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<ul>
+<li>데이터 과학에서 가장 큰 관심은 예측모형을 만드는 것.</li>
+<li>예측모형을 만들기 전, 여러 변수들 간에 관계를 살펴보는 것은 중요함.</li>
+<li>여기서는 두 변수사이의 여러가지 관계를 시각화를 통하여 확인해보고, 선형관계를 강도,방향을 나타내는 상관계수를 공부.</li>
+</ul>
+</section>
+<section id="두-변수의-관계" class="level1">
+<h1>두 변수의 관계</h1>
+<ul>
+<li>아버지와 아들사이의 키에 관련된 데이터.</li>
+<li><code>fheight</code> : 아버지의 키(단위 : inch)</li>
+<li><code>sheight</code> : 아들의 키(단위 : inch)</li>
+</ul>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>url1 <span class="op">=</span> <span class="st">"https://ilovedata.github.io/teaching/bigdata2/data/father-and-son.csv"</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>father_son_df <span class="op">=</span> pd.read_csv(url1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>father_son_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fheight</th>
+      <th>sheight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>65.04851</td>
+      <td>59.77827</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63.25094</td>
+      <td>63.21404</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64.95532</td>
+      <td>63.34242</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65.75250</td>
+      <td>62.79238</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>61.13723</td>
+      <td>64.28113</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>63.02254</td>
+      <td>64.24221</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>65.37053</td>
+      <td>64.08231</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>64.72398</td>
+      <td>63.99574</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>66.06509</td>
+      <td>64.61338</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>66.96738</td>
+      <td>63.97944</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>father_son_df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fheight</th>
+      <th>sheight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1078.000000</td>
+      <td>1078.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>67.687097</td>
+      <td>68.684070</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.744868</td>
+      <td>2.814702</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>59.008000</td>
+      <td>58.507080</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>65.787735</td>
+      <td>66.931232</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>67.766600</td>
+      <td>68.615820</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>69.602980</td>
+      <td>70.465970</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>75.433930</td>
+      <td>78.364790</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>father_son_df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 1078 entries, 0 to 1077
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype  
+---  ------   --------------  -----  
+ 0   fheight  1078 non-null   float64
+ 1   sheight  1078 non-null   float64
+dtypes: float64(2)
+memory usage: 17.0 KB</code></pre>
+</div>
+</div>
+<ul>
+<li>단위가 inch이므로 바꾸자.</li>
+</ul>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>father_son_df <span class="op">=</span> father_son_df <span class="op">*</span> <span class="fl">2.54</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>father_son_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fheight</th>
+      <th>sheight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>165.223215</td>
+      <td>151.836806</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>160.657388</td>
+      <td>160.563662</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>164.986513</td>
+      <td>160.889747</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>167.011350</td>
+      <td>159.492645</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>155.288564</td>
+      <td>163.274070</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>160.077252</td>
+      <td>163.175213</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>166.041146</td>
+      <td>162.769067</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>164.398909</td>
+      <td>162.549180</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>167.805329</td>
+      <td>164.117985</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>170.097145</td>
+      <td>162.507778</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>plot을 해서 두 변수사이의 관계를 살펴보면…</li>
+</ul>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>father_son_df.plot.scatter(x<span class="op">=</span><span class="st">'fheight'</span>, y<span class="op">=</span><span class="st">'sheight'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>plt.axvline(x<span class="op">=</span>np.mean(father_son_df.fheight)) </span>
+<span id="cb8-3"><a href="#cb8-3"></a>plt.axhline(y<span class="op">=</span>np.mean(father_son_df.sheight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>&lt;matplotlib.lines.Line2D at 0x23bd8aa6490&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="8.1 두 변수사이의 관계_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>아버지의 키가 증가하는 경우 아들의 키도 증가하는 경향을 보이는 것 같다. <span class="math inline">\(\to\)</span> 선형관계,선형적 비례관계가 있는 것으로 보인다.</li>
+<li>하지만 예외적인 경우도 충분히 존재한다.
+<ul>
+<li>아버지의 키가 커도 아들이 작은 경우.</li>
+<li>아버지의 키가 작아도 아들이 큰 경우도 존재한다.</li>
+</ul></li>
+</ul>
+<section id="상관계수" class="level2">
+<h2 class="anchored" data-anchor-id="상관계수">상관계수</h2>
+<ul>
+<li>산점도를 통해서 선형관계가 있음을 짐작할 수 있다.</li>
+<li>하지만 시각화를 통해서 파악하는 것은 개인에 따라 주관적이며 객관성이 다소 떨어진다.</li>
+<li>따라서 선형관계의 수치적으로 나타내주는 측도가 필요하며 <code>상관계수</code>가 이러한 측도 중 하나이다.</li>
+<li>상관계수의 목적 : 두 변수의 선형관계(선형적비례관계)를 수치적으로 나타낸다.(선형관계의 측도)</li>
+</ul>
+<p><strong>(상관계수 <span class="math inline">\(r\)</span>)</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+r = \frac{\sum_{i=1}^n(x_i - \bar x)(y_i - \bar y)}{(n-1)SD_xSD_y}
+\end{aligned}
+\]</span></p>
+<p><strong>(상관계수 <span class="math inline">\(r\)</span>) 유도</strong> - 추후 upload</p>
+<p><strong>(상관계수 <span class="math inline">\(r\)</span>의 성질)</strong></p>
+<ul>
+<li><span class="math inline">\(-1 \leq r\ \leq 1\)</span></li>
+<li><span class="math inline">\(|r|\)</span>은 선형관계의 강도를 말해준다.
+<ul>
+<li><span class="math inline">\(|r| \approx 1\)</span> : 강한 선형 관계</li>
+<li><span class="math inline">\(|r| \approx 0\)</span> : 약한 선형 관계</li>
+</ul></li>
+<li><span class="math inline">\(|r|\)</span>은 선형관계의 방향을 말해준다.
+<ul>
+<li><span class="math inline">\(|r| &gt;0\)</span> : 양의 선형관계</li>
+<li><span class="math inline">\(|r| &lt;0\)</span> : 음의 선형관계</li>
+</ul></li>
+<li><span class="math inline">\(r \approx 1\)</span> 두 변수는 강한 양의 선형 관계가 있다.</li>
+<li><span class="math inline">\(r \approx -1\)</span> 두 변수는 강한 음의 선형관계가 있다.</li>
+<li><span class="math inline">\(r \approx 0\)</span> 두 변수는 약한 선형관계가 있다.</li>
+</ul>
+<p><strong>(진짜 헷갈리는 것,주의할 것)</strong></p>
+<ul>
+<li>상관계수 <span class="math inline">\(r\)</span>은 <code>선형</code>관계에 대한 정보만을 준다. 비선형관계에 대한 정보는 전혀 주지 못한다.</li>
+<li>자주 헷갈리는 패턴 : <span class="math inline">\(r = 0\)</span> 두 변수사이의 관계가 없다? <span class="math inline">\(\to\)</span> X,두 변수사이의 선형관계는 없지만 <strong>비선형관계</strong>는 존재할 수 있다.</li>
+</ul>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>father_son_df.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fheight</th>
+      <th>sheight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fheight</th>
+      <td>1.000000</td>
+      <td>0.501338</td>
+    </tr>
+    <tr>
+      <th>sheight</th>
+      <td>0.501338</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>자기자신끼리는 완벽한(<span class="math inline">\(r=1\)</span>) 양의 선형 비례관계가 있다.(서로 같은 변수이므로)</li>
+<li>fheight와 sheight는 어느정도 강한 양의 선형관계를 가진다.</li>
+</ul>
+</section>
+<section id="예시---2차함수" class="level2">
+<h2 class="anchored" data-anchor-id="예시---2차함수">예시 - 2차함수</h2>
+<ul>
+<li>상관계수의 값을 좀 더 생각해보기 위해 다음과 같은 데이터를 고려하자.</li>
+</ul>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>n<span class="op">=</span><span class="dv">500</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>x <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">5</span>, n)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>y <span class="op">=</span> <span class="fl">3.0</span> <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span><span class="fl">10.0</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">10</span>, n)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>df_quad <span class="op">=</span> pd.DataFrame({<span class="st">'x'</span>:x, <span class="st">'y'</span>:y})</span>
+<span id="cb11-5"><a href="#cb11-5"></a>df_quad.plot.scatter(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>&lt;AxesSubplot:xlabel='x', ylabel='y'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="8.1 두 변수사이의 관계_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df_quad.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>x</th>
+      <td>1.000000</td>
+      <td>0.049939</td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>0.049939</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(x,y\)</span>사이의 상관계수의 <span class="math inline">\(p \approx 0\)</span>이다.</li>
+<li>이는 두 변수간에 선형관계가 거의 없다라고 봐도 무방하다.</li>
+<li>하지만 비선형적인 관계는 존재한다.(2차함수 모양을 그린다.)</li>
+</ul>
+</section>
+</section>
+<section id="변수의-scailing" class="level1">
+<h1>변수의 Scailing</h1>
+<ul>
+<li>각각의 변수에 대한 단위(scale)가 다르면?
+<ol type="1">
+<li>비교가 어렵다.</li>
+<li>예측모형의 성능에 영향을 준다.(특히 distance base알고리즘에서 성능저하를 시킨다.)</li>
+</ol></li>
+<li>따라서 scale을 통일해줘야 좋다.</li>
+<li>scale의 목적
+<ul>
+<li>변수의 단위를 통일 <span class="math inline">\(\to\)</span> 예측모형 성능 up,변수간의 쉬운 비교</li>
+</ul></li>
+</ul>
+<section id="standardization" class="level2">
+<h2 class="anchored" data-anchor-id="standardization">Standardization</h2>
+<ul>
+<li><span class="math inline">\(\text{standardization} \in \text{변수의 Scailing Method}\)</span></li>
+</ul>
+<p><strong>(Standardization)</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;z_i = \frac{x_i - \bar x}{SD_x}\\
+&amp;\text{Where ,  }\bar z = 0,SD_z = 0
+\end{aligned}
+\]</span></p>
+<ul>
+<li>Standardization을 변수들에 적용$<span class="math inline">\(각 변수들의 평균이 0 표준편차는 1\)</span>$ 변수들이 동일한 scale을 가진다!</li>
+</ul>
+</section>
+<section id="appendix---상관계수-revision" class="level2">
+<h2 class="anchored" data-anchor-id="appendix---상관계수-revision">Appendix - 상관계수 revision</h2>
+<ul>
+<li>상관계수는 아래와 같이 계산할 수도 있다.</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;z_i = \frac{x_i- \bar x}{SD_x} , w_i = \frac{y_i-\bar y}{SD_y}\\
+&amp;r = \frac{1}{n-1}\sum_{i=1}^nz_iw_i
+\end{aligned}
+\]</span></p>
+<ul>
+<li>즉,각각의 변수에 해당하는 값들을 모두 Standardization 하는 과정이 포함되어 있다.</li>
+<li>따라서 두 변수사이의 <strong>상관계수는 Scale의 영향을 받지 않는다.</strong>
+<ul>
+<li>계산과정에서 Standardization으로 Scale을 통일했기 때문이다.</li>
+</ul></li>
+</ul>
+</section>
+<section id="구현" class="level2">
+<h2 class="anchored" data-anchor-id="구현">구현</h2>
+<p><strong>(표준화 하고 상관계수 계산해보기)</strong></p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> standardize(x):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="cf">return</span> (x<span class="op">-</span>np.mean(x))<span class="op">/</span>np.std(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>father_son_df_st <span class="op">=</span> father_son_df.<span class="bu">apply</span>(standardize,axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>father_son_df_st</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fheight</th>
+      <th>sheight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.961726</td>
+      <td>-3.165498</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.616914</td>
+      <td>-1.944280</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.995692</td>
+      <td>-1.898648</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.705132</td>
+      <td>-2.094156</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-2.387330</td>
+      <td>-1.564991</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1073</th>
+      <td>-0.251599</td>
+      <td>0.735144</td>
+    </tr>
+    <tr>
+      <th>1074</th>
+      <td>1.328444</td>
+      <td>-0.147981</td>
+    </tr>
+    <tr>
+      <th>1075</th>
+      <td>1.492947</td>
+      <td>0.221021</td>
+    </tr>
+    <tr>
+      <th>1076</th>
+      <td>1.112144</td>
+      <td>0.219635</td>
+    </tr>
+    <tr>
+      <th>1077</th>
+      <td>0.954584</td>
+      <td>-0.593258</td>
+    </tr>
+  </tbody>
+</table>
+<p>1078 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>father_son_df_st.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fheight</th>
+      <th>sheight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1.078000e+03</td>
+      <td>1.078000e+03</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>-4.050491e-14</td>
+      <td>2.438217e-14</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.000464e+00</td>
+      <td>1.000464e+00</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-3.163403e+00</td>
+      <td>-3.617333e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-6.922894e-01</td>
+      <td>-6.230326e-01</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.897772e-02</td>
+      <td>-2.425882e-02</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.983112e-01</td>
+      <td>6.333628e-01</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.823607e+00</td>
+      <td>3.440938e+00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>평균이 0,분산이 1로 바뀐것을 확인~</li>
+</ul>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>father_son_df_st.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>fheight</th>
+      <th>sheight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fheight</th>
+      <td>1.000000</td>
+      <td>0.501338</td>
+    </tr>
+    <tr>
+      <th>sheight</th>
+      <td>0.501338</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(r = 0.503\)</span>로 어느정도 강한 선형관계를 보임.</li>
+<li>또한 Standardization을 적용하기 전의 값과 상관계수가 같음!(표준화의 영향 X)</li>
+</ul>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>father_son_df_st.plot.scatter(x<span class="op">=</span><span class="st">'fheight'</span>, y<span class="op">=</span><span class="st">'sheight'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>&lt;AxesSubplot:xlabel='fheight', ylabel='sheight'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="8.1 두 변수사이의 관계_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="예제1" class="level1">
+<h1>예제1</h1>
+<ul>
+<li>다음 데이터에서 19세 이상의 성인 남성의 <code>heigt</code>,<code>weight</code>의 관계를 살펴보자.</li>
+</ul>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>url2 <span class="op">=</span> <span class="st">"https://ilovedata.github.io/teaching/bigdata2/data/physical_test_2018_data.csv"</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>physical_data <span class="op">=</span> pd.read_csv(url2, sep<span class="op">=</span><span class="st">','</span>, encoding <span class="op">=</span> <span class="st">'utf-8-sig'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>physical_01 <span class="op">=</span> physical_data[[<span class="st">'TEST_SEX'</span>, <span class="st">'TEST_AGE'</span>, <span class="st">'ITEM_F001'</span>, <span class="st">'ITEM_F002'</span>]].rename(columns<span class="op">=</span>{<span class="st">'TEST_SEX'</span>: <span class="st">'sex'</span>, <span class="st">'TEST_AGE'</span>:<span class="st">'age'</span> ,<span class="st">'ITEM_F001'</span>:<span class="st">'height'</span>, <span class="st">'ITEM_F002'</span>:<span class="st">'weight'</span>})</span>
+<span id="cb21-2"><a href="#cb21-2"></a>physical_01.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>sex</th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M</td>
+      <td>33</td>
+      <td>159.2</td>
+      <td>57.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F</td>
+      <td>48</td>
+      <td>155.8</td>
+      <td>52.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>M</td>
+      <td>22</td>
+      <td>175.2</td>
+      <td>96.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>M</td>
+      <td>29</td>
+      <td>178.7</td>
+      <td>79.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>F</td>
+      <td>31</td>
+      <td>160.1</td>
+      <td>50.2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>M_19 <span class="op">=</span> physical_01.loc[(physical_01[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"M"</span>) <span class="op">&amp;</span> (physical_01[<span class="st">"age"</span>]<span class="op">&gt;=</span><span class="dv">19</span>)]</span>
+<span id="cb22-2"><a href="#cb22-2"></a>M_19.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>sex</th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M</td>
+      <td>33</td>
+      <td>159.2</td>
+      <td>57.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>M</td>
+      <td>22</td>
+      <td>175.2</td>
+      <td>96.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>M</td>
+      <td>29</td>
+      <td>178.7</td>
+      <td>79.4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>M</td>
+      <td>24</td>
+      <td>174.9</td>
+      <td>74.5</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>M</td>
+      <td>25</td>
+      <td>175.3</td>
+      <td>71.3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>M_19.plot.scatter(x<span class="op">=</span><span class="st">"height"</span>,y<span class="op">=</span><span class="st">"weight"</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>&lt;AxesSubplot:xlabel='height', ylabel='weight'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="8.1 두 변수사이의 관계_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li><p>음… 양의 선형관계가 있어보인다. 상관계수로 조금 더 자세히 살펴보자.</p></li>
+<li><p>정규분포를 따르는 경우의 산점도와 매우 유사하다. 이는 키와 몸무게의 분포가 정규분포와 매우 유사하기 때문.</p></li>
+<li><p>국민체력 100 데이터는 확률표본이 아니다.</p>
+<ul>
+<li>from 나무위키 …</li>
+<li>체력인증은 만 11세 이상이면 누구나 참여 가능하고, 전국에 있는 체력인증센터에서 무료로 인증 서비스를 제공하고 있다….</li>
+<li>체력인증을 받기 위해선 국민체력100의 사이트에 가입해야 하며, 체력측정 신청 전 먼저 문진 검사(PAR-Q)를 통해 체력검사 가능 대상자로 판별돼야 한다.</li>
+<li>따라서 우리나라 19세 이상의 모든 남자에 대해서 위의 결론을 일반화 할 수 없다. (확률표본이 아닌 편의표본이기 때문이다.)</li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>M_19[[<span class="st">"height"</span>,<span class="st">"weight"</span>]].corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>height</th>
+      <td>1.000000</td>
+      <td>0.523845</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>0.523845</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>height,weight사이의 상관계수 <span class="math inline">\(r = 0.52\)</span>정도로 어느정도 강한 양의 상관관계가 있다.</li>
+<li>표준화 하기전과 값이 같다.!(상관계수는 단위의 영향을 받지 않는다!)</li>
+</ul>
+</section>
+<section id="예제2" class="level1">
+<h1>예제2</h1>
+<ul>
+<li>다음예제에서 아파트 면적과 가격사이의 관계를 살펴보자</li>
+</ul>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>url3 <span class="op">=</span> <span class="st">"https://ilovedata.github.io/teaching/bigdata2/data/seoul_apartment_2019.csv"</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>apart_2019_1.head(<span class="dv">3</span>)</span>
+<span id="cb26-3"><a href="#cb26-3"></a>apart_2019_1 <span class="op">=</span> pd.read_csv(url3, encoding<span class="op">=</span><span class="st">"CP949"</span>)</span>
+<span id="cb26-4"><a href="#cb26-4"></a>apart_2019_2 <span class="op">=</span> apart_2019_1[[<span class="st">"신고년도"</span>,<span class="st">"자치구명"</span>,<span class="st">"건물면적"</span>,<span class="st">"층정보"</span>,<span class="st">"건축년도"</span>,<span class="st">"건물주용도"</span>,<span class="st">"물건금액"</span>]]</span>
+<span id="cb26-5"><a href="#cb26-5"></a>apart_2019_3 <span class="op">=</span> apart_2019_2.loc[ (apart_2019_2[<span class="st">'건물주용도'</span>] <span class="op">==</span> <span class="st">"아파트"</span>) <span class="op">&amp;</span> (apart_2019_2[<span class="st">'건축년도'</span>] <span class="op">&gt;</span> <span class="fl">0.0</span>)] <span class="co"># 건축연도가 0 보다 큰 아파트만 선택 </span></span>
+<span id="cb26-6"><a href="#cb26-6"></a></span>
+<span id="cb26-7"><a href="#cb26-7"></a>apart_2019_4 <span class="op">=</span> apart_2019_3.astype({<span class="st">'층정보'</span>: <span class="st">'int'</span>, <span class="st">'건축년도'</span>: <span class="st">'int'</span>, <span class="st">'신고년도'</span>: <span class="st">'int'</span>}) <span class="co"># 층과 연도를 정수 형식으로 변환</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a></span>
+<span id="cb26-9"><a href="#cb26-9"></a>price <span class="op">=</span> apart_2019_4[<span class="st">'물건금액'</span>]<span class="op">/</span><span class="dv">1000000</span>            <span class="co"># 거래 가격의 단위를 백만원으로</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a>price <span class="op">=</span> price.astype(<span class="st">'int'</span>)                         <span class="co"># 거래 가격을 정수 형식으로 변환 </span></span>
+<span id="cb26-11"><a href="#cb26-11"></a>apart_2019_4[<span class="st">'price'</span>] <span class="op">=</span> price</span>
+<span id="cb26-12"><a href="#cb26-12"></a></span>
+<span id="cb26-13"><a href="#cb26-13"></a><span class="co"># 열이름을 영문으로 변환</span></span>
+<span id="cb26-14"><a href="#cb26-14"></a>apart_2019_5 <span class="op">=</span> apart_2019_4.rename(columns<span class="op">=</span>{<span class="st">'신고년도'</span>: <span class="st">'year_sale'</span>, <span class="st">'자치구명'</span>:<span class="st">'gu'</span>,<span class="st">'건물면적'</span>:<span class="st">'area'</span>, <span class="st">'층정보'</span>:<span class="st">'floor'</span>, <span class="st">'건축년도'</span>:<span class="st">'year_built'</span>, <span class="st">'건물주용도'</span>:<span class="st">'type'</span>, <span class="st">'물건금액'</span>:<span class="st">'orig_price'</span>})</span>
+<span id="cb26-15"><a href="#cb26-15"></a></span>
+<span id="cb26-16"><a href="#cb26-16"></a><span class="co"># 행 인덱스의  초기화</span></span>
+<span id="cb26-17"><a href="#cb26-17"></a>apart_2019 <span class="op">=</span> apart_2019_5[[<span class="st">'year_sale'</span>, <span class="st">'gu'</span>, <span class="st">'area'</span>,<span class="st">'floor'</span>,<span class="st">'year_built'</span>,<span class="st">'price'</span>]].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\22668\AppData\Local\Temp\ipykernel_28724\2143785989.py:3: DtypeWarning: Columns (1) have mixed types. Specify dtype option on import or set low_memory=False.
+  apart_2019_1 = pd.read_csv(url3, encoding="CP949")</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>apart_2019.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
+<pre><code>(67238, 6)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>apart_2019.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>year_sale</th>
+      <th>gu</th>
+      <th>area</th>
+      <th>floor</th>
+      <th>year_built</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019</td>
+      <td>중구</td>
+      <td>84.97</td>
+      <td>15</td>
+      <td>2017</td>
+      <td>1390</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019</td>
+      <td>중구</td>
+      <td>59.94</td>
+      <td>8</td>
+      <td>2017</td>
+      <td>950</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019</td>
+      <td>중구</td>
+      <td>59.94</td>
+      <td>18</td>
+      <td>2002</td>
+      <td>785</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019</td>
+      <td>중구</td>
+      <td>59.89</td>
+      <td>9</td>
+      <td>2011</td>
+      <td>990</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019</td>
+      <td>성동구</td>
+      <td>84.87</td>
+      <td>12</td>
+      <td>2007</td>
+      <td>1450</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>apart_2019.plot.scatter(x<span class="op">=</span><span class="st">"area"</span>,y<span class="op">=</span><span class="st">"price"</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<pre><code>&lt;AxesSubplot:xlabel='area', ylabel='price'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="8.1 두 변수사이의 관계_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>전체적으로 면적이 증가하면 가격도 증가하는 경향을 보임 <span class="math inline">\(\to\)</span> 양의 상관관계를 가질 것처럼 보임(상관계수를 계산해보자.)</li>
+<li>면적이 커지면 커질수록 price의 변동이 심함을 확인할 수 있음.</li>
+</ul>
+<div class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>apart_2019[[<span class="st">"area"</span>,<span class="st">"price"</span>]].corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>area</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>area</th>
+      <td>1.000000</td>
+      <td>0.624639</td>
+    </tr>
+    <tr>
+      <th>price</th>
+      <td>0.624639</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li><p>price,area는 강한 양의 선형관계를 보인다.</p></li>
+<li><p>추가적으로 price,area 변수를 plotting 해보면?</p></li>
+</ul>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>apart_2019.area.plot.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<pre><code>&lt;AxesSubplot:ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="8.1 두 변수사이의 관계_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>apart_2019.price.plot.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
+<pre><code>&lt;AxesSubplot:ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="8.1 두 변수사이의 관계_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li><p>두 변수 모두 오른쪽으로 꼬리가 긴 분포임을 확인할 수 있다.</p></li>
+<li><p>만약 변수를 표준화하고 시각화하면 어떨까?</p></li>
+</ul>
+<div class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>apart_2019[[<span class="st">"area"</span>,<span class="st">"price"</span>]].<span class="bu">apply</span>(standardize,axis<span class="op">=</span><span class="dv">0</span>).plot.scatter(x<span class="op">=</span><span class="st">"area"</span>,y<span class="op">=</span><span class="st">"price"</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
+<pre><code>&lt;AxesSubplot:xlabel='area', ylabel='price'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="8.1 두 변수사이의 관계_files/figure-html/cell-29-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>표준화 해도 두 변수사이의 관계는 유지된다.</li>
+</ul>
+<div class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>apart_2019[[<span class="st">"area"</span>,<span class="st">"price"</span>]].<span class="bu">apply</span>(standardize,axis<span class="op">=</span><span class="dv">0</span>).corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>area</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>area</th>
+      <td>1.000000</td>
+      <td>0.624639</td>
+    </tr>
+    <tr>
+      <th>price</th>
+      <td>0.624639</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>또한 상관계수도 같다.</li>
+</ul>
+</section>
+<section id="보충할-내용" class="level1">
+<h1>보충할 내용</h1>
+<ul>
+<li><strong>(상관계수 <span class="math inline">\(r\)</span>)</strong>유도</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

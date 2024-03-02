@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HIHO – csc-모음</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#구구단" id="toc-구구단" class="nav-link active" data-scroll-target="#구구단">구구단</a></li>
+  <li><a href="#부터-10까지의-합-계산" id="toc-부터-10까지의-합-계산" class="nav-link" data-scroll-target="#부터-10까지의-합-계산">1부터 10까지의 합 계산</a></li>
+  <li><a href="#사용자가-입력하는-숫자의-합-계산" id="toc-사용자가-입력하는-숫자의-합-계산" class="nav-link" data-scroll-target="#사용자가-입력하는-숫자의-합-계산">사용자가 입력하는 숫자의 합 계산</a></li>
+  <li><a href="#숫자-맞추기-게임" id="toc-숫자-맞추기-게임" class="nav-link" data-scroll-target="#숫자-맞추기-게임">숫자 맞추기 게임</a></li>
+  <li><a href="#자음과-모음의-개수-카운팅하기" id="toc-자음과-모음의-개수-카운팅하기" class="nav-link" data-scroll-target="#자음과-모음의-개수-카운팅하기">자음과 모음의 개수 카운팅하기</a></li>
+  <li><a href="#지역변수-전역변수-개념" id="toc-지역변수-전역변수-개념" class="nav-link" data-scroll-target="#지역변수-전역변수-개념">지역변수 전역변수 개념</a></li>
+  <li><a href="#keyword-argument-vs-positional-argument" id="toc-keyword-argument-vs-positional-argument" class="nav-link" data-scroll-target="#keyword-argument-vs-positional-argument">keyword argument vs positional argument</a></li>
+  <li><a href="#리스트튜플딕셔너리세트" id="toc-리스트튜플딕셔너리세트" class="nav-link" data-scroll-target="#리스트튜플딕셔너리세트">리스트,튜플,딕셔너리,세트</a></li>
+  <li><a href="#이차함수-그래프-그리기" id="toc-이차함수-그래프-그리기" class="nav-link" data-scroll-target="#이차함수-그래프-그리기">이차함수 그래프 그리기</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<section id="구구단" class="level1">
+<h1>구구단</h1>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>dan <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"원하는 단은:"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">10</span>):</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    value <span class="op">=</span> dan <span class="op">*</span> i</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="sc">{}</span><span class="st">*</span><span class="sc">{}</span><span class="st">=</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(dan,i,value) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>원하는 단은:</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: invalid literal for int() with base 10: ''</code></pre>
+</div>
+</div>
+</section>
+<section id="부터-10까지의-합-계산" class="level1">
+<h1>1부터 10까지의 합 계산</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>num <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="cf">while</span> num<span class="op">&lt;=</span><span class="dv">10</span>:</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    total <span class="op">=</span> total <span class="op">+</span> num</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    num<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="사용자가-입력하는-숫자의-합-계산" class="level1">
+<h1>사용자가 입력하는 숫자의 합 계산</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>inpt <span class="op">=</span> <span class="st">"yes"</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="cf">while</span> inpt <span class="op">==</span> <span class="st">"yes"</span>:</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    total <span class="op">=</span> total <span class="op">+</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"숫자를 입력하시오"</span>))</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    inpt <span class="op">=</span> <span class="bu">input</span>(<span class="st">"계속?(yes/no):"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="bu">print</span>(<span class="st">"합계는: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(total))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="숫자-맞추기-게임" class="level1">
+<h1>숫자 맞추기 게임</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> random</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="bu">print</span>(<span class="st">"1부터 100 사이의 숫자를 맞추시오"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>num <span class="op">=</span> random.randint(<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>inpt <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="cf">while</span> inpt <span class="op">!=</span> num:</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    inpt <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"숫자를 입력하시오:"</span>))</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    count<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>    <span class="cf">if</span> inpt <span class="op">&lt;</span> num:</span>
+<span id="cb6-10"><a href="#cb6-10"></a>        <span class="bu">print</span>(<span class="st">"낮음"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="cf">elif</span> inpt <span class="op">&gt;</span> num:</span>
+<span id="cb6-12"><a href="#cb6-12"></a>        <span class="bu">print</span>(<span class="st">"높음"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="bu">print</span>(<span class="st">"축하합니다. 시도횟수=</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(count))        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="자음과-모음의-개수-카운팅하기" class="level1">
+<h1>자음과 모음의 개수 카운팅하기</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> countVowel(string): </span>
+<span id="cb7-2"><a href="#cb7-2"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="cf">for</span> ch <span class="kw">in</span> string:</span>
+<span id="cb7-4"><a href="#cb7-4"></a>        <span class="cf">if</span> ch <span class="kw">in</span> [<span class="st">'a'</span>,<span class="st">'e'</span>,<span class="st">'i'</span>,<span class="st">'o'</span>,<span class="st">'u'</span>]: </span>
+<span id="cb7-5"><a href="#cb7-5"></a>            count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="cf">return</span> count</span>
+<span id="cb7-7"><a href="#cb7-7"></a>s <span class="op">=</span> <span class="bu">input</span>(<span class="st">"문자열을  입력하시오: "</span>) </span>
+<span id="cb7-8"><a href="#cb7-8"></a>n <span class="op">=</span> countVowel(s)</span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="bu">print</span>(<span class="ss">f"모음의 개수는 </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">개입니다."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>틀린부분 있지만 걍 해 ~</li>
+</ul>
+</section>
+<section id="지역변수-전역변수-개념" class="level1">
+<h1>지역변수 전역변수 개념</h1>
+<ul>
+<li>지역변수?-&gt;함수 안에서 선언 + 할당,함수안에서만 사용 가능함. 함수가 종료되면 소멸</li>
+<li>전역변수?-&gt;함수 밖에서 선언 + 할당,함수안팎에서 모두 사용가능함. 사라지지 않아요</li>
+<li>함수안에서 전역변수를 선언 + 할당하려면?
+<ol type="1">
+<li>Glboal로 함수안에서 먼저 선언</li>
+<li>그 후 =로 할당</li>
+</ol></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> calculate_area(radius):</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="kw">global</span> area</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    area <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="fl">3.14</span> <span class="op">*</span> radius</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="cf">return</span> </span>
+<span id="cb8-5"><a href="#cb8-5"></a>r <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"원의 반지름:"</span>))</span>
+<span id="cb8-6"><a href="#cb8-6"></a>calculate_area(<span class="dv">5</span>)</span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="bu">print</span>(area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="keyword-argument-vs-positional-argument" class="level1">
+<h1>keyword argument vs positional argument</h1>
+<ul>
+<li>keyword argument와 positional argument는 매개변수(parameter)에 인수(argument)를 전달하는 <code>방법</code>이다.
+<ul>
+<li>keyword argument : 함수 호출 시, 인수를 전달받을 파라미터를 명시적으로 알려줌으로서 인수를 파라미터에 전달하는 방법.</li>
+<li>positional argument : 함수 호출 시,인수를 전달받을 파라미터의 위치에 맞게 인수를 넣어줌으로서 인수를 파라미터에 전달하는 방법.</li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> calc(x,y,z):</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="cf">return</span> x<span class="op">+</span>y<span class="op">+</span>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>answer <span class="op">=</span> calc(x<span class="op">=</span><span class="dv">3</span>,y<span class="op">=</span><span class="dv">4</span>,z<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>12</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>answer <span class="op">=</span> calc(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>12</code></pre>
+</div>
+</div>
+<p>안되는 것 : 키워드 인수 뒤에 위치 인수가 나올 수 없다.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>answer <span class="op">=</span> calc(x<span class="op">=</span><span class="dv">3</span>,y<span class="op">=</span><span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>SyntaxError: positional argument follows keyword argument (1146439424.py, line 1)</code></pre>
+</div>
+</div>
+</section>
+<section id="리스트튜플딕셔너리세트" class="level1">
+<h1>리스트,튜플,딕셔너리,세트</h1>
+<div class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>myList <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>]</span>
+<span id="cb16-2"><a href="#cb16-2"></a>myTuple <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>)</span>
+<span id="cb16-3"><a href="#cb16-3"></a>myDict <span class="op">=</span> {<span class="dv">1</span>:<span class="st">"one"</span>,<span class="dv">2</span>:<span class="st">"two"</span>,<span class="dv">3</span>:<span class="st">"three"</span>}</span>
+<span id="cb16-4"><a href="#cb16-4"></a>mySet <span class="op">=</span> {<span class="st">"one"</span>,<span class="st">"two"</span>,<span class="st">"three"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>mySet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<pre><code>{'one', 'three', 'two'}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>myList.append(<span class="dv">60</span>)</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[10, 20, 30, 40, 50, 60]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>myList.insert(<span class="dv">3</span>,<span class="dv">35</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[10, 20, 30, 35, 40, 50, 60]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>myList.extend(<span class="bu">range</span>(<span class="dv">10</span>))</span>
+<span id="cb23-2"><a href="#cb23-2"></a>myList</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="91">
+<pre><code>[10, 20, 30, 35, 40, 50, 60, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+</div>
+</div>
+<p>값 삭제</p>
+<div class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>myList.remove(<span class="dv">10</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>myList</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+<pre><code>[20, 30, 35, 40, 50, 60, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+</div>
+</div>
+<p>값 삭제 후 반환(꺼내기)</p>
+<div class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>d <span class="op">=</span> myList.pop(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="bu">print</span>(d,myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9 [20, 30, 35, 40, 50, 60, 0, 1, 2, 3, 4, 5, 6, 7, 8]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>myList.clear()</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>myDict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="95">
+<pre><code>{1: 'one', 2: 'two', 3: 'three'}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>myDict[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="96">
+<pre><code>'one'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>myDict.get(<span class="dv">0</span>,<span class="st">"No key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>'No key'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>d <span class="op">=</span> myDict.pop(<span class="dv">1</span>)</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="bu">print</span>(d,myDict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>one {2: 'two', 3: 'three'}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>c <span class="op">=</span> myDict.popitem()</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="bu">print</span>(c,myDict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(3, 'three') {2: 'two'}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>myDict.clear()</span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="bu">print</span>(myDict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>names <span class="op">=</span> [<span class="st">"호연"</span>,<span class="st">"수연"</span>]</span>
+<span id="cb43-2"><a href="#cb43-2"></a>d <span class="op">=</span> names.pop()</span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="bu">print</span>(d,names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>수연 ['호연']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>myList <span class="op">=</span> [<span class="st">"우유"</span>,<span class="st">"사과"</span>,<span class="st">"두부"</span>,<span class="st">"소고기"</span>]</span>
+<span id="cb45-2"><a href="#cb45-2"></a>myList.remove(<span class="st">"사과"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3"></a>myList</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>['우유', '두부', '소고기']</code></pre>
+</div>
+</div>
+<p>합치기</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>names <span class="op">+</span> myList</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>['호연', '우유', '두부', '소고기']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>myList <span class="op">=</span> myList <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>myList</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>['우유', '두부', '소고기', '우유', '두부', '소고기']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>myList[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>['우유', '두부', '소고기']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>myList[<span class="dv">3</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>['우유', '두부', '소고기']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>myList[:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>['우유', '두부', '소고기', '우유', '두부', '소고기']</code></pre>
+</div>
+</div>
+<p>.sort 메서드는 원 리스트 자체를 변경</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>nums <span class="op">=</span> [<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">1</span>]</span>
+<span id="cb57-2"><a href="#cb57-2"></a>nums.sort()</span>
+<span id="cb57-3"><a href="#cb57-3"></a>nums</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>[1, 6, 7, 9]</code></pre>
+</div>
+</div>
+<p>sorted함수는 iterable이 input 정렬된 객체가 output<br> 원래 객체는 그대로 라는 사실 유의<br> 바꿔주려면 다시 할당해야함<br> default : 오름차순 reverse = True : 내림차순</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>nums <span class="op">=</span> [<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">1</span>]</span>
+<span id="cb59-2"><a href="#cb59-2"></a>newlist <span class="op">=</span> <span class="bu">sorted</span>(nums)</span>
+<span id="cb59-3"><a href="#cb59-3"></a>newlist2 <span class="op">=</span> <span class="bu">sorted</span>(nums,reverse <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb59-4"><a href="#cb59-4"></a>nums,newlist,newlist2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>([9, 6, 7, 1], [1, 6, 7, 9], [9, 7, 6, 1])</code></pre>
+</div>
+</div>
+</section>
+<section id="이차함수-그래프-그리기" class="level1">
+<h1>이차함수 그래프 그리기</h1>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb61-2"><a href="#cb61-2"></a>xlist<span class="op">=</span>  []</span>
+<span id="cb61-3"><a href="#cb61-3"></a>ylist <span class="op">=</span> []</span>
+<span id="cb61-4"><a href="#cb61-4"></a>a <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"2차항의 계수"</span>))</span>
+<span id="cb61-5"><a href="#cb61-5"></a>b <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"1차항의 계수"</span>))</span>
+<span id="cb61-6"><a href="#cb61-6"></a>c <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"상수항"</span>))</span>
+<span id="cb61-7"><a href="#cb61-7"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">100</span>,<span class="dv">100</span>,):</span>
+<span id="cb61-8"><a href="#cb61-8"></a>    y <span class="op">=</span> a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>x <span class="op">+</span> c</span>
+<span id="cb61-9"><a href="#cb61-9"></a>    xlist.append(x)</span>
+<span id="cb61-10"><a href="#cb61-10"></a>    ylist.append(y)</span>
+<span id="cb61-11"><a href="#cb61-11"></a>plt.plot(xlist,ylist)</span>
+<span id="cb61-12"><a href="#cb61-12"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2차항의 계수2
+1차항의 계수5
+상수항3</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="CSC 모음_files/figure-html/cell-35-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

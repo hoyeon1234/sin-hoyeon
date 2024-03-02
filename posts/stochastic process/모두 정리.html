@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HIHO – quarto-input4bfe2f01</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JE4129QJZV"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<meta name="google-site-verification" content="Dxb4yHeHMq4MFutu7SWlCRabUxs5bbRmpirOQOrCXRY">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HIHO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hoyeon1234"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#날씨모형-리뷰" id="toc-날씨모형-리뷰" class="nav-link active" data-scroll-target="#날씨모형-리뷰">날씨모형 리뷰</a>
+  <ul class="collapse">
+  <li><a href="#예시3" id="toc-예시3" class="nav-link" data-scroll-target="#예시3">예시3</a></li>
+  </ul></li>
+  <li><a href="#예시4단위행렬" id="toc-예시4단위행렬" class="nav-link" data-scroll-target="#예시4단위행렬">예시4(단위행렬)</a></li>
+  <li><a href="#예시5shuffle주기성" id="toc-예시5shuffle주기성" class="nav-link" data-scroll-target="#예시5shuffle주기성">예시5(Shuffle,주기성)</a></li>
+  <li><a href="#예시6흡수" id="toc-예시6흡수" class="nav-link" data-scroll-target="#예시6흡수">예시6(흡수)</a></li>
+  <li><a href="#흡수상태" id="toc-흡수상태" class="nav-link" data-scroll-target="#흡수상태">흡수상태</a></li>
+  <li><a href="#단위행렬" id="toc-단위행렬" class="nav-link" data-scroll-target="#단위행렬">단위행렬</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">%</span>autosave <span class="dv">30</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/javascript">
+IPython.notebook.set_autosave_interval(30000)
+</script>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Autosaving every 30 seconds</code></pre>
+</div>
+</div>
+<p>확률벡터 X는 결국 확률변수와 같이 - sample space의 원소 w에 대응하는 것이다. - 즉 one sample에 대응하는 벡터이다. - 마코프 체인도 마찬가지, outcome omega에 대응하는 one sample일 뿐이다..</p>
+<p>확률벡터의 평균(expectation) 확률벡터 : w -&gt; X(W) = (X_1(w),X_2(w)) 확률벡터의 expecation은 ? - 확률벡터가 대략 어느정도 값을 가질까? 어떤 값으로 예상되니? - E(X) = sum(확률벡터가 취할 수 있는 값 * 대응되는 확률) - ex : E(X) = X(w_1) * P(X(w_1)) + X(w_2)*P(X(w_2)) 또한 이렇게 계산된 확률벡터의 평균에서 각각의 element는 각각의 element에 대한 expectation이 숨겨져 있음. - ex : E(X) = E(X) = [E(X_1),E(X_2)]</p>
+<p>동전을 10번 던지는 시행을 여러번 반복한다고 하자. 이때 확률벡터의 expecation은? E(X) = sum(X(w_1) * P(X(w_1) + X(w_2) * P(X(W_2)) + … + X(w_2<strong>10) * P(X(w_2</strong>10)) = [E(X_1) E(X_2)… E(X_10)]</p>
+<p>X_10의 분포는 어떻게 구해 ? E(X_10)은 어떻게 구해야해? - 원칙적으로는 앙상블 평균을 구해야 했음. (many sample에 대한 ensemble mean) 1. 즉 여러번 w에 대응하는 것들을 구한다음 2. 10번째의 값을 ensemble mean을 취해서 구했음 더 정확히 1. outcome w를 복원추출하여 2. X_1000(w_1),X_1000(w_2)…를 관측하여 average 오래걸림</p>
+<ul>
+<li>근데 i.i.d라면?</li>
+</ul>
+<ol type="1">
+<li>그냥 시간평균을 쭉 취해도 됐었음(one sample에 대한 sample mean) 오래안걸림,근데 i.i.d라는 강력한 가정이 필요 한 줄 알았는데 i.i.d라는 강력한 가정이 필요하지 않은 경우가 있음 어떠한 경우에서 이러한 논리전개가 성립하는가?</li>
+</ol>
+<p>확률과정 닥터스트레인지 ㅋㅋ 하나의 w에 대응하는 outcome을 반드시 기억해라 w1 -&gt; 시나리오 w2 -&gt; 시나리오 … w_천사백만 -&gt; 시나리오</p>
+<p>1번풀이 그냥 앙상블 mean - HMC가 IRR,PR,AP - 1. transition P를 보면 Finite,IRR,AP임을 알고 - IRR은 transition 다른상태에 대한 확률을 봐서 알고 - AP는 자기자신으로 이동할 수 있는지 + IRR한 마코프 체인은 주기가 모두 같다 2. FINITE한 HMC가 IRR -&gt; PR임을 알기에(IRR,PR,AP) - FINITE,IRR인 경우 모든 상태의 natrue가 PR인 PR MC이다. - 결과적으로 이 경우는 nice한 에르고딕 마코프 체인 <br></p>
+<p>2번풀이 - 에르고딕 마코프 체인은 극한분포가 존재함을 사용(IRR,PR,AP)<br></p>
+<p>3번풀이 - <code>유일한</code> 정상분포가 존재함을 인지(FINITE,IRR <span class="math inline">\(\to\)</span> <code>PR</code> <span class="math inline">\(\to\)</span> <code>유일한</code> 정상분포가 존재함) - 정상분포의 정의를 활용하여 구함 ※주의 - HMC가 IRR하다고 해서 항상 정상분포가 존재하는 것은 아님! - FINITE인 경우 IRR하다면 PR하기에 <code>유일한</code>정상분포가 존재하지만 - INFINITE인 경우 IRR해도 정상분포가 존재하지 않을 수 있음(NR,TR) - FINITE-HMC의 경우 항상 정상분포가 존재(유일성은 보장 X)</p>
+<p>4번풀이 - FINITE-IRR <span class="math inline">\(\to\)</span> IRR,PR <span class="math inline">\(\to\)</span> 에르고딕 정리 사용</p>
+<section id="날씨모형-리뷰" class="level1">
+<h1>날씨모형 리뷰</h1>
+<ul>
+<li>표현 정리</li>
+<li>P의 의미,특징 살펴봄</li>
+<li>nice한 case
+<ul>
+<li>극한분포가 존재(에르고딕 마코프 체인이므로)하며 HMC에서 극한분포가 존재하면 정상분포!
+<ul>
+<li>Aperiodic <span class="math inline">\(\to\)</span> P_star보장 Q. Aperiodic만 하면 됨?</li>
+<li>FINITE,IRR <span class="math inline">\(\to\)</span> PR <span class="math inline">\(\to\)</span> 유일한 정상분포 보장</li>
+<li>두 개가 전제되면 된다?</li>
+</ul></li>
+<li>Q. Aperiodic조건 잘 이해하기. AP조건은 모든 state가 Aperiodic함을 의미하는가?</li>
+</ul></li>
+<li>FINITE HMC이면 정상분포가 무조건 존재</li>
+<li>FINITE,IRR HMC 정상분포가 <code>유일</code>존재</li>
+<li>초기분포를 정상분포로 설정하면 독립은 아니지만 분포가 동일해진다~</li>
+</ul>
+<section id="예시3" class="level2">
+<h2 class="anchored" data-anchor-id="예시3">예시3</h2>
+<ul>
+<li>일단 …IRR X PR AP <span class="math inline">\(\to\)</span> IRR한 경우들로 쪼개자.</li>
+<li>그러면 각각의 communiation class에서 PR,NR,TR이 된다.
+<ul>
+<li>2-1.상태0만 있는 communication class는 FINITE-HMC IRR,PR,AP인 에르고딕 마코프 체인</li>
+<li>2-2 상태1만 있는 communication class는 FINITE-HMC IRR,TR,NA인 극한분포가 존재하지 않음.+ 정상분포가 존재하지 않음.(못 머무르므로)</li>
+</ul></li>
+<li>이렇게 하면 하나는 <span class="math inline">\(\pi_1 = 1\)</span>가 존재하고 하나는 <span class="math inline">\(\pi_2 = 0\)</span>(존재하지 않음) 이렇게 총 2개의 <span class="math inline">\(\pi\)</span>의 조각들이 있음</li>
+<li><span class="math inline">\(\pi = [PR,AP] = [\pi_1,\pi_2] = [1,0]\)</span></li>
+<li>이렇게 나눈 각각의 조각들에서 각각 해석한뒤 합쳐버리면 된다~ - Q1.대안정의 확인 - Q2. TR인 경우 0으로 놔버리는건 왜 ?(쪼개는 경우 해석 어떻게..?)</li>
+</ul>
+</section>
+</section>
+<section id="예시4단위행렬" class="level1">
+<h1>예시4(단위행렬)</h1>
+<ul>
+<li>FINITE-HMC IRR X PR X AP O <span class="math inline">\(\to\)</span> IRR하게 쪼개자.
+<ul>
+<li>추가적으로(극한분포가 존재한다는 사실 챙기기(유일하진 않고), tr matrix의 거듭제곱은?</li>
+<li>각각의 communication class에서 …</li>
+<li>상태0만 있는 class - FINITE-HMC,IRR,PR,AP인 에르고딕 마코프 체인</li>
+<li>상태1만 있는 class - FINITE-HMC,IRR,PR,AP인 에르고딕 마코프 체인</li>
+</ul></li>
+<li>이렇게 하면 위에 예시처럼 <span class="math inline">\(pi = [\pi_1,\pi_2]\)</span></li>
+<li>근데 이렇게 하면 <span class="math inline">\(\pi\)</span>가 아마 분포의 정의를 바로 만족하진 않으므로 스케일링 해서 합이 1이되도록 해준다.</li>
+<li>합이 1인 정상분포는 여러개다. 이는 HMC가 FINITE하고 IRR하지 않은 경우 정상분포가 다수 존재할 수 있다는 직관과 일치한다.</li>
+<li>이렇게 써서 구할 수 있음(Q.영상에 나온 예시로 풀어보기,단위행렬 말고))</li>
+</ul>
+</section>
+<section id="예시5shuffle주기성" class="level1">
+<h1>예시5(Shuffle,주기성)</h1>
+<ul>
+<li>FINITE-HMC IRR O PR O AP X <span class="math inline">\(\to\)</span> 에르고딕 정리로 극한분포 구하기(하지만 극한분포는 존재하지 않음)</li>
+</ul>
+</section>
+<section id="예시6흡수" class="level1">
+<h1>예시6(흡수)</h1>
+<p>IRR ㅇ PR ㅇ <span class="math inline">\(\to\)</span></p>
+<p>(20분부터 ~23분 반드시 다시보자 !)</p>
+<p><strong>(몰랐던 것들)</strong> - Q1. Aperiodic만 만족할 경우 or Periodic만 만족할 경우 transition matrix는? - 수렴하는가 안하는가? - 각각의 row는 동일한가? - Q2. Aperiodic은 모든 state가 Aperiodic하다는 것을 의미하는가? - maybe.맞다. - Q3. 쪼갰을때 PR + PR , PR + NR PR + TR 일 각각의 경우에 처리는 어떻게 하는가? - 쪼개고 각각 처리한 후 다시 합친다. - 특히 PR+PR일 경우 스케일링을 잘 하면 된다. 유일한 정상분포가 존재하지 않는 경우이다.(scailing에 따라서) - NR,TR일 경우 <span class="math inline">\(\pi = 0\)</span>,즉 정상분포는 존재하지 않음. - Q4. HMC가 IRR O TR AP X 일때 or HMC가 IRR NR AP X 일 때 정상분포는? - IRR,TR or IRR NR일 경우 정상분포가 존재하지 않음. 즉 , <span class="math inline">\(\pi = {\bf{0}}^T\)</span> - Q5-1. AP가 안되는 경우? <span class="math inline">\(p_★^T\)</span>가 존재하는가? - 극한분포가 존재하지 않는다. - 순환이동 예제를 생각해봤을때, <span class="math inline">\(P^★\)</span>가 수렴하지 않기 때문이다. - Q5-2. IRR가 안되는 경우? <span class="math inline">\(p_★^T\)</span>가 존재하는가? - 극한분포가 존재하지 않는다. - 단위행렬 예제를 생각해봤을때, <span class="math inline">\(P^★\)</span>가 수렴은 한다.(단위행렬로) - 하지만 모든 row vecotr가 다르기 때문에 극한분포가 존재할 2번째 조건에 어긋나며 따라서 존재하지 않는다. - Q6. PR,AP는 모든 state에 대해 전부 만족해야 하는가? - maybe.맞다 - 이러한 특성(PR,AP)들은 HMC <span class="math inline">\(\{X_t\}\)</span>의 특성을 확인하는 표에서 나타남 (IRR,정상분포 존재,정상분포 유일 등등…) - 따라서 HMC의 특성을 의미한다고 볼 수 있음 + PR,AP는 또한 IRR하면 모든 state에서 같기에 Markov Chain이 ~~하다라 말할 수 있음. - Q7. 용어정리 - 모든 상태에 대하여 주기가 3이먄 “<span class="math inline">\(X_t\{\}\)</span>의 주기가 3이다” 라고 표현 - Q8. AP이면 반드시 <span class="math inline">\(P^★\)</span>가 존재? 즉 <span class="math inline">\(P\)</span>의 거듭제곱이 항상 수렴? - Q9. 8분 45초 극한분포…? - Q10. 단위행렬 IRR아니니까 쪼개고 난 다음 ..왜 <span class="math inline">\(\pi_1,\pi_2\)</span>에도 <span class="math inline">\(\alpha\)</span>가 곱해짐?(18:10) - invariant measure개념 - Q11. 쪼개고 난 PR,TR,AP는 어떻게 판단? - 쪼개고 communication class로 쪼개고 나면 다음에는 IRR함 그래서 모든 state는 일단 같은 nature - 각각의 조각에서 하나의 state를 보고 판단. - Q12. TR인 경우 어떻게 판단? - P를 거듭제곱 해보면 <span class="math inline">\(p_{ii}\)</span> 뭐 이런 얘기도 있었는데 그냥 정의로 판단하는게 가장 좋은 거 같다. - 느낌은 일단 안 돌아오는 느낌이다. - Q13. 극한분포가 존재하지 않는 경우? - 1) <span class="math inline">\(P\)</span>의 거듭제곱 자체가 수렴하지 않는 경우 - 2) <span class="math inline">\(P\)</span>의 거듭제곱이 수렴은 하나 모든 원소의 합이 1이 아닌 경우(분포의 정의를 만족하지 않는 경우) - Q14. 극한분포가 존재하지 않는 경우에는 각각의 class에서 다시 합칠때 어떻게 해? - 수렴하지 않는 경우는 X - 분포의 정의를 만족하지 않는 경우는 0 - 이렇게 놓고 합치면 된다.(그 후 스칼라배도 해야겠지) - Q15. 표에서,정상분포부분 앙상블 mean과 관련되있다 하는데 직관 적으로 나도 이해하기</p>
+<p><strong>(아는데 멈칫 질문)</strong> - Q1. Finite case에서 <span class="math inline">\(\exists !p_★\)</span>일 조건은? - IRR,AP - FINITE IRR AP <span class="math inline">\(\to\)</span> IRR PR AP <span class="math inline">\(\to\)</span> 에르고딕 마코프 체인이므로 극한분포가 항상 존재한다. - Q2. Finite case에서 <span class="math inline">\(\exists !\pi\)</span>일 조건은? - IRR - FINITE IRR <span class="math inline">\(\to\)</span> FINITE IRR PR <span class="math inline">\(\to\)</span> HMC IRR PR <span class="math inline">\(\to\)</span> 정상분포가 유일하게 존재한다.</p>
+<ul>
+<li>Q3. IRR-HMC이면 모든 state는 주기,nature가 같다.
+<ul>
+<li></li>
+</ul></li>
+<li>Q4 FINITE,IRR <span class="math inline">\(\to\)</span> IRR,PR <span class="math inline">\(\to\)</span> 1)정상분포 유일 존재2)에르고딕 정리</li>
+<li>Q5 PR or NR이 된다라는 건 ? periodicty(주기성) 즉 AP인지 아닌지를 논의할 수 있음</li>
+<li>Q6. irr,pr,ap에 대한 직관은?
+<ul>
+<li>irr : group이 모두 연결?</li>
+<li>pr : 무한번 방문 가능?</li>
+<li>ap : 돌아오는 패턴이 없음?</li>
+</ul></li>
+<li>Q7. 교수님하고 나하고 notation 다르다(17분)
+<ul>
+<li>notation이 다른게 아니라 개념이 다른거다.</li>
+<li>나는 정상분포에 대해서만 생각했지만 극한분포에 대해서도 똑같이 가능하다.</li>
+<li>그니까 정상분포든 극한분포든 전부 다 쪼개어서 생각할 수 있다는 얘기</li>
+<li>왜 헷갈렸었음?
+<ul>
+<li><span class="math inline">\(p\)</span>라고만 적혀있어서 극한분포인지 몰랐고(<span class="math inline">\(p_★\)</span>로 적었으니까 여태까지,사실상 <span class="math inline">\(p_★\)</span>도 맞음)</li>
+<li>AP조건이 의미하는 바를 몰랐음 <span class="math inline">\(\to\)</span> irr,pr,ap이면 극한분포 존재함을 상기하자.</li>
+</ul></li>
+</ul></li>
+<li>그 외 Note-</li>
+<li>FInite cas IRR <span class="math inline">\(\to\)</span> positive recurrent를 암시함을 이해해도 상관없음(교수님 말)</li>
+</ul>
+</section>
+<section id="흡수상태" class="level1">
+<h1>흡수상태</h1>
+<ul>
+<li>Finite HMC , IRR X PR X AP X
+<ul>
+<li>IRR X, 1$$0만 가능함(정상분포가 존재함,유일성은 보장 안됨)</li>
+<li>PR X, 모든 상태에 대해서 무한방문 할 수 있는건 아님
+<ul>
+<li>상태0은 PR, 상태1은 TR</li>
+</ul></li>
+<li>AP X,
+<ul>
+<li>상태0은 PR이고 preiod = 1이 맞지만 상태1은 AP이기 때문에 period 자체가 NA</li>
+</ul></li>
+</ul></li>
+<li>쪼개기
+<ul>
+<li><span class="math inline">\(0 \in \text{class}_0\)</span> : irr O pr O ap O</li>
+<li><span class="math inline">\(1 \in \text{class}_1\)</span> : irr O pr x ap NA</li>
+</ul></li>
+<li>쪼개고 각각 정상분포 구하기
+<ul>
+<li>이론적 백업 : HMC가 IRR하다면 반드시 PR,NR,TR 중 하나의 natrue를 갖고 각각은 정상분포를 갖음(PR일 경우 구해봐야 함 NR or TR인 경우 0인 정상분포)</li>
+<li><span class="math inline">\(\text{class}_0\)</span> : <span class="math inline">\(\pi_0\ = 1\)</span></li>
+<li><span class="math inline">\(\text{class}_1\)</span> : <span class="math inline">\(\pi_1\ = 0\)</span></li>
+</ul></li>
+<li>합치기
+<ul>
+<li>합칠때는 스칼라배 해서 합치면 됨</li>
+<li><span class="math inline">\(\tilde{\pi} = [\alpha_1 \pi_1 \,\alpha_2 \pi_2] = [\alpha_1 \pi_1 \, 0]\)</span></li>
+<li><span class="math inline">\(\pi = [\beta_1 \pi_1\,\beta_2 \pi_2] = [\beta_1 \pi_1\,0] \text{ where } \beta_1\pi_1 + \beta_2\pi_2 = \beta_1 = 1\)</span></li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>P <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>,<span class="fl">0.05</span>,<span class="fl">0.95</span>]).reshape(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>P_star <span class="op">=</span> np.linalg.matrix_power(P,<span class="dv">100000</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>P_star</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>array([[1., 0.],
+       [1., 0.]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>alpha <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>in_pi <span class="op">=</span> np.array([alpha <span class="op">*</span> <span class="dv">1</span>,<span class="dv">0</span>])</span>
+<span id="cb5-3"><a href="#cb5-3"></a>in_pi,in_pi <span class="op">@</span> P_star</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+<pre><code>(array([10,  0]), array([10.,  0.]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>pi <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>])</span>
+<span id="cb7-2"><a href="#cb7-2"></a>pi,pi<span class="op">@</span>P_star</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>(array([1, 0]), array([1., 0.]))</code></pre>
+</div>
+</div>
+</section>
+<section id="단위행렬" class="level1">
+<h1>단위행렬</h1>
+<ul>
+<li>Finite HMC , IRR X PR O AP O
+<ul>
+<li>irr X, 1$$0만 가능함(정상분포가 존재함,유일성은 보장 안됨)</li>
+<li>pr O, 모든 상태에 대해서 무한방문 할 수 있는건 아님
+<ul>
+<li>상태1,2 둘 다 PR</li>
+</ul></li>
+<li>ap O,
+<ul>
+<li>둘 다 ap(주기 1)</li>
+</ul></li>
+</ul></li>
+<li>쪼개기
+<ul>
+<li><span class="math inline">\(0 \in \text{class}_0\)</span> : irr O pr O ap O</li>
+<li><span class="math inline">\(1 \in \text{class}_1\)</span> : irr O pr O ap O</li>
+</ul></li>
+<li>쪼개고 각각 정상분포 구하기
+<ul>
+<li>이론적 백업 : HMC가 IRR하다면 반드시 PR,NR,TR 중 하나의 natrue를 갖고 각각은 정상분포를 갖음(PR일 경우 구해봐야 함 NR or TR인 경우 0인 정상분포)</li>
+<li><span class="math inline">\(\text{class}_0\)</span> : <span class="math inline">\(\pi_0\ = 1\)</span></li>
+<li><span class="math inline">\(\text{class}_1\)</span> : <span class="math inline">\(\pi_1\ = 1\)</span></li>
+</ul></li>
+<li>합치기
+<ul>
+<li>합칠때는 스칼라배 해서 합치면 됨</li>
+<li><span class="math inline">\(\tilde{\pi} = [\alpha_1 \pi_1 \,\alpha_2 \pi_2]\)</span></li>
+<li><span class="math inline">\(\pi = [\beta_1 \pi_1\,\beta_2 \pi_2] \text{ where } \beta_1\pi_1 + \beta_2\pi_2 = \beta_1 + \beta_2 = 1\)</span></li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>P <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>]).reshape(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>P_star <span class="op">=</span> np.linalg.matrix_power(P,<span class="dv">100</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>P_star</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>array([[1, 0],
+       [0, 1]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>al_1 <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>al_2 <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>in_pi <span class="op">=</span> np.array([al_1 <span class="op">*</span> <span class="dv">1</span>,al_2 <span class="op">*</span> <span class="dv">1</span>])</span>
+<span id="cb11-4"><a href="#cb11-4"></a>in_pi,in_pi <span class="op">@</span> P_star</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="62">
+<pre><code>(array([10,  5]), array([10,  5]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>al_1 <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>al_2 <span class="op">=</span> <span class="dv">1</span><span class="op">-</span>al_1</span>
+<span id="cb13-3"><a href="#cb13-3"></a>pi <span class="op">=</span> np.array([al_1 <span class="op">*</span> <span class="dv">1</span>,al_2 <span class="op">*</span> <span class="dv">1</span>])</span>
+<span id="cb13-4"><a href="#cb13-4"></a>pi,pi<span class="op">@</span>P_star</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>(array([0.1, 0.9]), array([0.1, 0.9]))</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hoyeon1234/sin-hoyeon" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
