@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HIHO – quarto-inputfa9a38ff</title>
+<title>HIHO – quarto-input43e16441</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -209,7 +209,7 @@ gtag('config', 'G-JE4129QJZV', { 'anonymize_ip': true});
 
 
 
-<div class="cell" data-execution_count="201">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -363,7 +363,7 @@ IPython.notebook.set_autosave_interval(20000)
 <ul>
 <li>5명의 사람들로 구성된 모집단에서 나타날 수 있는 모든 경우의 표본을 계산해보자.</li>
 </ul>
-<div class="cell" data-execution_count="150">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>P <span class="op">=</span> [<span class="st">'철수'</span>, <span class="st">'영이'</span>, <span class="st">'둘리'</span>, <span class="st">'흥민'</span>, <span class="st">'연경'</span>] </span>
@@ -384,7 +384,7 @@ IPython.notebook.set_autosave_interval(20000)
 <span id="cb3-18"><a href="#cb3-18"></a>      txt<span class="op">+=</span> name <span class="op">+</span> <span class="st">","</span></span>
 <span id="cb3-19"><a href="#cb3-19"></a>  all_possible_samples_text.append(txt)</span>
 <span id="cb3-20"><a href="#cb3-20"></a>all_possible_samples_text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="150">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>['철수,영이,둘리',
  '철수,영이,흥민',
  '철수,영이,연경',
@@ -397,10 +397,10 @@ IPython.notebook.set_autosave_interval(20000)
  '둘리,흥민,연경']</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="151">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>all_possible_num <span class="op">=</span> <span class="bu">len</span>(all_possible_samples)</span>
 <span id="cb5-2"><a href="#cb5-2"></a>all_possible_num</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="151">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>10</code></pre>
 </div>
 </div>
@@ -429,7 +429,7 @@ IPython.notebook.set_autosave_interval(20000)
 </ol></li>
 </ul>
 <p><strong>(가능한 모든 표본 통계량의 값 구하기)</strong></p>
-<div class="cell" data-outputid="382d849d-0554-4bf9-dfa4-56c4a9ccad97" data-execution_count="152">
+<div class="cell" data-outputid="382d849d-0554-4bf9-dfa4-56c4a9ccad97" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">from</span> fractions <span class="im">import</span> Fraction</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a>support <span class="op">=</span> {<span class="st">'철수'</span>:<span class="dv">1</span>, <span class="st">'영이'</span>:<span class="dv">1</span>, <span class="st">'둘리'</span>:<span class="dv">0</span>, <span class="st">'흥민'</span>:<span class="dv">0</span>, <span class="st">'연경'</span>:<span class="dv">1</span>}</span>
@@ -441,7 +441,7 @@ IPython.notebook.set_autosave_interval(20000)
 <span id="cb7-9"><a href="#cb7-9"></a>  sample_rate.append(Fraction(total,<span class="dv">3</span>))</span>
 <span id="cb7-10"><a href="#cb7-10"></a></span>
 <span id="cb7-11"><a href="#cb7-11"></a>sample_rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="152">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>[Fraction(2, 3),
  Fraction(2, 3),
  Fraction(1, 1),
@@ -454,11 +454,77 @@ IPython.notebook.set_autosave_interval(20000)
  Fraction(1, 3)]</code></pre>
 </div>
 </div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
+<span id="cb9-2"><a href="#cb9-2"></a>P <span class="op">=</span> [<span class="st">'철수'</span>, <span class="st">'영이'</span>, <span class="st">'둘리'</span>, <span class="st">'흥민'</span>, <span class="st">'연경'</span>] </span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a>N <span class="op">=</span> <span class="bu">len</span>(P)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>n <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a>all_possible_samples <span class="op">=</span> []</span>
+<span id="cb9-8"><a href="#cb9-8"></a></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="cf">for</span> sample <span class="kw">in</span> combinations(P, n):</span>
+<span id="cb9-10"><a href="#cb9-10"></a>    all_possible_samples.append(sample)</span>
+<span id="cb9-11"><a href="#cb9-11"></a></span>
+<span id="cb9-12"><a href="#cb9-12"></a>all_possible_samples</span>
+<span id="cb9-13"><a href="#cb9-13"></a>P <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>]) </span>
+<span id="cb9-14"><a href="#cb9-14"></a>n<span class="op">=</span><span class="dv">3</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a></span>
+<span id="cb9-16"><a href="#cb9-16"></a>all_possible_samples <span class="op">=</span> []</span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="cf">for</span> sample <span class="kw">in</span> combinations(P, n):</span>
+<span id="cb9-18"><a href="#cb9-18"></a>    all_possible_samples.append(sample)</span>
+<span id="cb9-19"><a href="#cb9-19"></a></span>
+<span id="cb9-20"><a href="#cb9-20"></a>all_possible_samples</span>
+<span id="cb9-21"><a href="#cb9-21"></a></span>
+<span id="cb9-22"><a href="#cb9-22"></a>sample_rate <span class="op">=</span> []</span>
+<span id="cb9-23"><a href="#cb9-23"></a></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="cf">for</span> sample <span class="kw">in</span> all_possible_samples:</span>
+<span id="cb9-25"><a href="#cb9-25"></a>  sample_rate.append(Fraction(<span class="bu">int</span>(<span class="bu">sum</span>(sample)),n))</span>
+<span id="cb9-26"><a href="#cb9-26"></a></span>
+<span id="cb9-27"><a href="#cb9-27"></a>sample_rate</span>
+<span id="cb9-28"><a href="#cb9-28"></a></span>
+<span id="cb9-29"><a href="#cb9-29"></a>sample_rate_dist <span class="op">=</span> pd.DataFrame({<span class="st">'sample_rate'</span>:sample_rate, <span class="st">'probability'</span>: np.repeat(<span class="dv">1</span><span class="op">/</span>all_possible_num, all_possible_num)})</span>
+<span id="cb9-30"><a href="#cb9-30"></a>sample_rate_dist</span>
+<span id="cb9-31"><a href="#cb9-31"></a></span>
+<span id="cb9-32"><a href="#cb9-32"></a>sample_rate_dist.groupby(by<span class="op">=</span>sample_rate).<span class="bu">sum</span>().reset_index().rename(columns <span class="op">=</span> {<span class="st">'index'</span>:<span class="st">'sample_rate'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>sample_rate</th>
+      <th>probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1/3</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2/3</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0.1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 <p><strong>(각각의 표본통계량에 대응하는 확률 구하기)</strong> - 아래의 데이터 프레임은 가능한 모든 표본으로부터 계산한 통계량과 각각의 표본이 뽑힐 수 있는 확률을 나타낸다.</p>
-<div class="cell" data-outputid="ab8efc09-f5a7-4e5c-fa7c-5c4c0dc87e76" data-execution_count="153">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>sample_rate_dist <span class="op">=</span> pd.DataFrame({<span class="st">"sample(outcome)"</span> : all_possible_samples_text, <span class="st">"sample_rate"</span> : sample_rate,<span class="st">"prob"</span> : [<span class="fl">0.1</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sample_rate))]})</span>
-<span id="cb9-2"><a href="#cb9-2"></a>sample_rate_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="153">
+<div class="cell" data-outputid="ab8efc09-f5a7-4e5c-fa7c-5c4c0dc87e76" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>sample_rate_dist <span class="op">=</span> pd.DataFrame({<span class="st">"sample(outcome)"</span> : all_possible_samples_text, <span class="st">"sample_rate"</span> : sample_rate,<span class="st">"prob"</span> : [<span class="fl">0.1</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sample_rate))]})</span>
+<span id="cb10-2"><a href="#cb10-2"></a>sample_rate_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
 
@@ -622,11 +688,11 @@ IPython.notebook.set_autosave_interval(20000)
 <li>지지율이 60%인 모집단이 있다고 할 때</li>
 <li>모의실험을 통해 크기가 100인 표본지지율의 경험적 분포를 구해보자.</li>
 </ul>
-<div class="cell" data-outputid="46abc5a9-478d-4b75-fe6e-f940003dee57" data-execution_count="154">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># 모집단을 만든다.</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>P <span class="op">=</span> np.concatenate((np.ones(<span class="dv">6000</span>), np.zeros(<span class="dv">4000</span>)), axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb10-3"><a href="#cb10-3"></a>np.mean(P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="154">
+<div class="cell" data-outputid="46abc5a9-478d-4b75-fe6e-f940003dee57" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># 모집단을 만든다.</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>P <span class="op">=</span> np.concatenate((np.ones(<span class="dv">6000</span>), np.zeros(<span class="dv">4000</span>)), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>np.mean(P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>0.6</code></pre>
 </div>
 </div>
@@ -634,16 +700,16 @@ IPython.notebook.set_autosave_interval(20000)
 <li>모집단 <span class="math inline">\(P\)</span>는 np.array이다.</li>
 <li>따라서 단순임의추출하려면 np.random.choice사용</li>
 </ul>
-<div class="cell" data-outputid="30d5722f-a8b2-439f-ae63-45cf8c952f0e" data-execution_count="155">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>B<span class="op">=</span><span class="dv">1000</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>n<span class="op">=</span><span class="dv">100</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a></span>
-<span id="cb12-4"><a href="#cb12-4"></a>simulation_sample_rate <span class="op">=</span> pd.DataFrame({<span class="st">"sample_rate"</span>:np.zeros(B)})</span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(B):</span>
-<span id="cb12-6"><a href="#cb12-6"></a>  sample <span class="op">=</span> np.random.choice(P,n,replace<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb12-7"><a href="#cb12-7"></a>  simulation_sample_rate.loc[i,<span class="st">"sample_rate"</span>] <span class="op">=</span> np.mean(sample)</span>
-<span id="cb12-8"><a href="#cb12-8"></a>simulation_sample_rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="155">
+<div class="cell" data-outputid="30d5722f-a8b2-439f-ae63-45cf8c952f0e" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>B<span class="op">=</span><span class="dv">1000</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>n<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a>simulation_sample_rate <span class="op">=</span> pd.DataFrame({<span class="st">"sample_rate"</span>:np.zeros(B)})</span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(B):</span>
+<span id="cb13-6"><a href="#cb13-6"></a>  sample <span class="op">=</span> np.random.choice(P,n,replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-7"><a href="#cb13-7"></a>  simulation_sample_rate.loc[i,<span class="st">"sample_rate"</span>] <span class="op">=</span> np.mean(sample)</span>
+<span id="cb13-8"><a href="#cb13-8"></a>simulation_sample_rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
 
 <div>
 
@@ -657,15 +723,15 @@ IPython.notebook.set_autosave_interval(20000)
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.62</td>
+      <td>0.64</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.53</td>
+      <td>0.60</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.56</td>
+      <td>0.60</td>
     </tr>
     <tr>
       <th>3</th>
@@ -673,7 +739,7 @@ IPython.notebook.set_autosave_interval(20000)
     </tr>
     <tr>
       <th>4</th>
-      <td>0.60</td>
+      <td>0.58</td>
     </tr>
     <tr>
       <th>...</th>
@@ -681,7 +747,7 @@ IPython.notebook.set_autosave_interval(20000)
     </tr>
     <tr>
       <th>995</th>
-      <td>0.65</td>
+      <td>0.62</td>
     </tr>
     <tr>
       <th>996</th>
@@ -689,15 +755,15 @@ IPython.notebook.set_autosave_interval(20000)
     </tr>
     <tr>
       <th>997</th>
-      <td>0.70</td>
+      <td>0.68</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>0.63</td>
+      <td>0.60</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>0.65</td>
+      <td>0.55</td>
     </tr>
   </tbody>
 </table>
@@ -709,21 +775,21 @@ IPython.notebook.set_autosave_interval(20000)
 <section id="확인" class="level3">
 <h3 class="anchored" data-anchor-id="확인">확인</h3>
 <div class="cell" data-outputid="44cfee7d-3c6a-4b74-c890-9bd587e4d637" data-execution_count="156">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>simulation_sample_rate.plot.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>simulation_sample_rate.plot.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="156">
 <pre><code>&lt;AxesSubplot:ylabel='Frequency'&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="6.2 통계량의 분포_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+<p><img src="6.2 통계량의 분포_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-outputid="667255bd-3370-4c3b-b5ae-1b26ea36d2b3" data-execution_count="157">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>simulation_sample_rate.plot.box()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>simulation_sample_rate.plot.box()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="157">
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="6.2 통계량의 분포_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+<p><img src="6.2 통계량의 분포_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -732,11 +798,11 @@ IPython.notebook.set_autosave_interval(20000)
 <section id="예제-공공자전거-자료에서-표본평균의-분포" class="level1">
 <h1>예제 : 공공자전거 자료에서 표본평균의 분포</h1>
 <div class="cell" data-execution_count="158">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>url1 <span class="op">=</span> <span class="st">"https://ilovedata.github.io/teaching/bigdata2/data/seoul_bike_201909_3.csv"</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>bike <span class="op">=</span> pd.read_csv(url1, encoding<span class="op">=</span><span class="st">"CP949"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>url1 <span class="op">=</span> <span class="st">"https://ilovedata.github.io/teaching/bigdata2/data/seoul_bike_201909_3.csv"</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>bike <span class="op">=</span> pd.read_csv(url1, encoding<span class="op">=</span><span class="st">"CP949"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="159">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>bike.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>bike.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="159">
 
 <div>
@@ -905,7 +971,7 @@ IPython.notebook.set_autosave_interval(20000)
 </div>
 </div>
 <div class="cell" data-execution_count="160">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>bike.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>bike.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 407589 entries, 0 to 407588
@@ -928,7 +994,7 @@ memory usage: 34.2+ MB</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="161">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>bike.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>bike.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="161">
 
 <div>
@@ -1024,7 +1090,7 @@ memory usage: 34.2+ MB</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="162">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>bike.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>bike.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="162">
 <pre><code>(407589, 11)</code></pre>
 </div>
@@ -1049,14 +1115,14 @@ memory usage: 34.2+ MB</code></pre>
 <li>B = 1000, n = 50인 경우 표본비율의 경험적 분포.</li>
 </ol>
 <div class="cell" data-execution_count="163">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>B<span class="op">=</span><span class="dv">1000</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>n<span class="op">=</span><span class="dv">50</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a></span>
-<span id="cb24-4"><a href="#cb24-4"></a>sample_means_50 <span class="op">=</span> pd.DataFrame({<span class="st">"sample_means"</span>:np.zeros(B)})</span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(B):</span>
-<span id="cb24-6"><a href="#cb24-6"></a>    sample_means_50.loc[i,<span class="st">"sample_means"</span>] <span class="op">=</span> bike.sample(n<span class="op">=</span>n,replace<span class="op">=</span><span class="va">False</span>)[<span class="st">"이용거리"</span>].mean() </span>
-<span id="cb24-7"><a href="#cb24-7"></a>    <span class="co">#이 부분 sample하고 column index위치 바꾸면 안됨</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>sample_means_50</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>B<span class="op">=</span><span class="dv">1000</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>n<span class="op">=</span><span class="dv">50</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a>sample_means_50 <span class="op">=</span> pd.DataFrame({<span class="st">"sample_means"</span>:np.zeros(B)})</span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(B):</span>
+<span id="cb25-6"><a href="#cb25-6"></a>    sample_means_50.loc[i,<span class="st">"sample_means"</span>] <span class="op">=</span> bike.sample(n<span class="op">=</span>n,replace<span class="op">=</span><span class="va">False</span>)[<span class="st">"이용거리"</span>].mean() </span>
+<span id="cb25-7"><a href="#cb25-7"></a>    <span class="co">#이 부분 sample하고 column index위치 바꾸면 안됨</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>sample_means_50</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="163">
 
 <div>
@@ -1120,34 +1186,34 @@ memory usage: 34.2+ MB</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="164">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>sample_means_50.plot.hist(y<span class="op">=</span><span class="st">"sample_means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>sample_means_50.plot.hist(y<span class="op">=</span><span class="st">"sample_means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="164">
 <pre><code>&lt;AxesSubplot:ylabel='Frequency'&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="6.2 통계량의 분포_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
+<p><img src="6.2 통계량의 분포_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="165">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>sample_means_50.plot.box(y<span class="op">=</span><span class="st">"sample_means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>sample_means_50.plot.box(y<span class="op">=</span><span class="st">"sample_means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="165">
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="6.2 통계량의 분포_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+<p><img src="6.2 통계량의 분포_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <ol start="2" type="1">
 <li>B=1000,n=1000 표본비율의 경험적 분포</li>
 </ol>
 <div class="cell" data-execution_count="166">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>B<span class="op">=</span><span class="dv">1000</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>n<span class="op">=</span><span class="dv">1000</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a></span>
-<span id="cb29-4"><a href="#cb29-4"></a>sample_means_1000 <span class="op">=</span> pd.DataFrame({<span class="st">"sample_means"</span> : np.zeros(B)})</span>
-<span id="cb29-5"><a href="#cb29-5"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(B):</span>
-<span id="cb29-6"><a href="#cb29-6"></a>    sample_means_1000.loc[i,<span class="st">"sample_means"</span>] <span class="op">=</span> bike.sample(n<span class="op">=</span>n,replace<span class="op">=</span><span class="va">False</span>)[<span class="st">"이용거리"</span>].mean()</span>
-<span id="cb29-7"><a href="#cb29-7"></a>sample_means_1000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>B<span class="op">=</span><span class="dv">1000</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>n<span class="op">=</span><span class="dv">1000</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a></span>
+<span id="cb30-4"><a href="#cb30-4"></a>sample_means_1000 <span class="op">=</span> pd.DataFrame({<span class="st">"sample_means"</span> : np.zeros(B)})</span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(B):</span>
+<span id="cb30-6"><a href="#cb30-6"></a>    sample_means_1000.loc[i,<span class="st">"sample_means"</span>] <span class="op">=</span> bike.sample(n<span class="op">=</span>n,replace<span class="op">=</span><span class="va">False</span>)[<span class="st">"이용거리"</span>].mean()</span>
+<span id="cb30-7"><a href="#cb30-7"></a>sample_means_1000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="166">
 
 <div>
@@ -1211,49 +1277,49 @@ memory usage: 34.2+ MB</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="167">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>sample_means_1000.plot.hist(y<span class="op">=</span><span class="st">"sample_means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>sample_means_1000.plot.hist(y<span class="op">=</span><span class="st">"sample_means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="167">
 <pre><code>&lt;AxesSubplot:ylabel='Frequency'&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="6.2 통계량의 분포_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="168">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>sample_means_1000.plot.box(y<span class="op">=</span><span class="st">"sample_means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="168">
-<pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="6.2 통계량의 분포_files/figure-html/cell-21-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p><span class="math inline">\(n= 50\)</span> vs <span class="math inline">\(n = 1000\)</span></p>
-<div class="cell" data-execution_count="169">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>f,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
-<span id="cb34-2"><a href="#cb34-2"></a></span>
-<span id="cb34-3"><a href="#cb34-3"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb34-4"><a href="#cb34-4"></a>plt.boxplot(sample_means_50)</span>
-<span id="cb34-5"><a href="#cb34-5"></a>plt.hlines(y<span class="op">=</span><span class="fl">4253.336228</span>, xmin<span class="op">=</span><span class="fl">0.5</span>, xmax<span class="op">=</span><span class="fl">1.5</span>, colors<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb34-6"><a href="#cb34-6"></a>plt.ylim(<span class="dv">2000</span>,<span class="dv">9000</span>)</span>
-<span id="cb34-7"><a href="#cb34-7"></a></span>
-<span id="cb34-8"><a href="#cb34-8"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb34-9"><a href="#cb34-9"></a>plt.boxplot(sample_means_1000)</span>
-<span id="cb34-10"><a href="#cb34-10"></a>plt.hlines(y<span class="op">=</span><span class="fl">4253.336228</span>, xmin<span class="op">=</span><span class="fl">0.5</span>, xmax<span class="op">=</span><span class="fl">1.5</span>, colors<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb34-11"><a href="#cb34-11"></a>plt.ylim(<span class="dv">2000</span>,<span class="dv">9000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="169">
-<pre><code>(2000.0, 9000.0)</code></pre>
+<div class="cell" data-execution_count="168">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>sample_means_1000.plot.box(y<span class="op">=</span><span class="st">"sample_means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="168">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="6.2 통계량의 분포_files/figure-html/cell-22-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="213">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>plt.hist(sample_means_50,bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb36-2"><a href="#cb36-2"></a>plt.hist(sample_means_1000,bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb36-3"><a href="#cb36-3"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math inline">\(n= 50\)</span> vs <span class="math inline">\(n = 1000\)</span></p>
+<div class="cell" data-execution_count="169">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>f,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
+<span id="cb35-2"><a href="#cb35-2"></a></span>
+<span id="cb35-3"><a href="#cb35-3"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb35-4"><a href="#cb35-4"></a>plt.boxplot(sample_means_50)</span>
+<span id="cb35-5"><a href="#cb35-5"></a>plt.hlines(y<span class="op">=</span><span class="fl">4253.336228</span>, xmin<span class="op">=</span><span class="fl">0.5</span>, xmax<span class="op">=</span><span class="fl">1.5</span>, colors<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb35-6"><a href="#cb35-6"></a>plt.ylim(<span class="dv">2000</span>,<span class="dv">9000</span>)</span>
+<span id="cb35-7"><a href="#cb35-7"></a></span>
+<span id="cb35-8"><a href="#cb35-8"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb35-9"><a href="#cb35-9"></a>plt.boxplot(sample_means_1000)</span>
+<span id="cb35-10"><a href="#cb35-10"></a>plt.hlines(y<span class="op">=</span><span class="fl">4253.336228</span>, xmin<span class="op">=</span><span class="fl">0.5</span>, xmax<span class="op">=</span><span class="fl">1.5</span>, colors<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb35-11"><a href="#cb35-11"></a>plt.ylim(<span class="dv">2000</span>,<span class="dv">9000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="169">
+<pre><code>(2000.0, 9000.0)</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="6.2 통계량의 분포_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+<p><img src="6.2 통계량의 분포_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="213">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>plt.hist(sample_means_50,bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb37-2"><a href="#cb37-2"></a>plt.hist(sample_means_1000,bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb37-3"><a href="#cb37-3"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="6.2 통계량의 분포_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
@@ -1262,18 +1328,18 @@ memory usage: 34.2+ MB</code></pre>
 </ul>
 <p>뭔가 규칙이 있는 거 같다. 표본의 크기 n이 커질수록 표본평균의 분포가 정규분포에 가깝고 분산이 적은거 같은데?<br> 프로그래밍으로 확인해보자~</p>
 <div class="cell" data-execution_count="226">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>B <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>sample_sizes <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">100</span>,<span class="dv">400</span>,<span class="dv">900</span>,<span class="dv">1200</span>,<span class="dv">1500</span>,<span class="dv">1800</span>,<span class="dv">2000</span>]</span>
-<span id="cb37-3"><a href="#cb37-3"></a>total_num <span class="op">=</span> B <span class="op">*</span> <span class="bu">len</span>(sample_sizes)</span>
-<span id="cb37-4"><a href="#cb37-4"></a></span>
-<span id="cb37-5"><a href="#cb37-5"></a>emprical_dists<span class="op">=</span>pd.DataFrame({<span class="st">"sample_size"</span> : np.zeros(total_num),<span class="st">"sample_means"</span> : np.zeros(total_num)})</span>
-<span id="cb37-6"><a href="#cb37-6"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb37-7"><a href="#cb37-7"></a><span class="cf">for</span> n <span class="kw">in</span> sample_sizes:</span>
-<span id="cb37-8"><a href="#cb37-8"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(B):</span>
-<span id="cb37-9"><a href="#cb37-9"></a>        emprical_dists.loc[count,<span class="st">"sample_means"</span>] <span class="op">=</span>  bike.sample(n<span class="op">=</span>n,replace<span class="op">=</span><span class="va">False</span>)[<span class="st">"이용거리"</span>].mean() <span class="co">#means아니라 mean</span></span>
-<span id="cb37-10"><a href="#cb37-10"></a>        emprical_dists.loc[count,<span class="st">"sample_size"</span>] <span class="op">=</span>  n <span class="co">#means아니라 mean</span></span>
-<span id="cb37-11"><a href="#cb37-11"></a>        count<span class="op">+=</span><span class="dv">1</span></span>
-<span id="cb37-12"><a href="#cb37-12"></a>emprical_dists.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>B <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>sample_sizes <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">100</span>,<span class="dv">400</span>,<span class="dv">900</span>,<span class="dv">1200</span>,<span class="dv">1500</span>,<span class="dv">1800</span>,<span class="dv">2000</span>]</span>
+<span id="cb38-3"><a href="#cb38-3"></a>total_num <span class="op">=</span> B <span class="op">*</span> <span class="bu">len</span>(sample_sizes)</span>
+<span id="cb38-4"><a href="#cb38-4"></a></span>
+<span id="cb38-5"><a href="#cb38-5"></a>emprical_dists<span class="op">=</span>pd.DataFrame({<span class="st">"sample_size"</span> : np.zeros(total_num),<span class="st">"sample_means"</span> : np.zeros(total_num)})</span>
+<span id="cb38-6"><a href="#cb38-6"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a><span class="cf">for</span> n <span class="kw">in</span> sample_sizes:</span>
+<span id="cb38-8"><a href="#cb38-8"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(B):</span>
+<span id="cb38-9"><a href="#cb38-9"></a>        emprical_dists.loc[count,<span class="st">"sample_means"</span>] <span class="op">=</span>  bike.sample(n<span class="op">=</span>n,replace<span class="op">=</span><span class="va">False</span>)[<span class="st">"이용거리"</span>].mean() <span class="co">#means아니라 mean</span></span>
+<span id="cb38-10"><a href="#cb38-10"></a>        emprical_dists.loc[count,<span class="st">"sample_size"</span>] <span class="op">=</span>  n <span class="co">#means아니라 mean</span></span>
+<span id="cb38-11"><a href="#cb38-11"></a>        count<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb38-12"><a href="#cb38-12"></a>emprical_dists.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="226">
 
 <div>
@@ -1343,22 +1409,22 @@ memory usage: 34.2+ MB</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="231">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>sns.boxplot(x<span class="op">=</span>emprical_dists[<span class="st">"sample_size"</span>],y<span class="op">=</span>emprical_dists[<span class="st">"sample_means"</span>])</span>
-<span id="cb38-2"><a href="#cb38-2"></a>plt.ylim(<span class="dv">1000</span>,<span class="dv">12000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>sns.boxplot(x<span class="op">=</span>emprical_dists[<span class="st">"sample_size"</span>],y<span class="op">=</span>emprical_dists[<span class="st">"sample_means"</span>])</span>
+<span id="cb39-2"><a href="#cb39-2"></a>plt.ylim(<span class="dv">1000</span>,<span class="dv">12000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="231">
 <pre><code>(1000.0, 12000.0)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="6.2 통계량의 분포_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+<p><img src="6.2 통계량의 분포_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="239">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>plt.hist(emprical_dists.loc[emprical_dists.sample_size<span class="op">==</span><span class="dv">900</span>,<span class="st">"sample_means"</span>],color<span class="op">=</span><span class="st">"blue"</span>,bins<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb40-2"><a href="#cb40-2"></a>plt.hist(emprical_dists.loc[emprical_dists.sample_size<span class="op">==</span><span class="dv">1500</span>,<span class="st">"sample_means"</span>],color<span class="op">=</span><span class="st">"green"</span>,bins<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb40-3"><a href="#cb40-3"></a>plt.hist(emprical_dists.loc[emprical_dists.sample_size<span class="op">==</span><span class="dv">2000</span>,<span class="st">"sample_means"</span>],color<span class="op">=</span><span class="st">"red"</span>,bins<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb40-4"><a href="#cb40-4"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>plt.hist(emprical_dists.loc[emprical_dists.sample_size<span class="op">==</span><span class="dv">900</span>,<span class="st">"sample_means"</span>],color<span class="op">=</span><span class="st">"blue"</span>,bins<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb41-2"><a href="#cb41-2"></a>plt.hist(emprical_dists.loc[emprical_dists.sample_size<span class="op">==</span><span class="dv">1500</span>,<span class="st">"sample_means"</span>],color<span class="op">=</span><span class="st">"green"</span>,bins<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb41-3"><a href="#cb41-3"></a>plt.hist(emprical_dists.loc[emprical_dists.sample_size<span class="op">==</span><span class="dv">2000</span>,<span class="st">"sample_means"</span>],color<span class="op">=</span><span class="st">"red"</span>,bins<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb41-4"><a href="#cb41-4"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="6.2 통계량의 분포_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<p><img src="6.2 통계량의 분포_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
